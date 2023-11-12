@@ -62,9 +62,9 @@
     <value>Feed: {0}
 - Firma válida de {1}
 - {2}
-¿Desea confiar en esta clave para firmar feeds de '{3}'?
+¿Quieres confiar en esta clave para firmar feeds de «{3}»?
 </value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
     <value>La línea de comandos resultante está vacía.</value>
@@ -88,23 +88,23 @@
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
     <value>Error al guardar la base de datos de confianza</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Ejecutar solver externo</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>El feed '{0}' no está en caché y Zero Install está actualmente en modo off-line.</value>
-    <comment>Automatically translated.</comment>
+    <value>El feed «{0}» no está almacenado en caché y Zero Install se encuentra en modo sin conexión.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' no ha podido ser localizado en la caché de feeds.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>El feed '{0}' no estaba firmado con ninguna clave de confianza.</value>
-    <comment>Automatically translated.</comment>
+    <value>El feed «{0}» no se ha firmado con ninguna clave de confianza.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
     <value>'{0}' es un archivo local. Debería ser una URL HTTP(S).</value>
@@ -119,8 +119,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problema con '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>No ha sido posible recuperar «{0}».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
     <value>Carácter ilegal en el nombre de enlace {0}.</value>
@@ -139,8 +139,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>No se puede descargar {0} porque Zero Install está en modo offline.</value>
-    <comment>Automatically translated.</comment>
+    <value>No ha sido posible descargar {0} porque Zero Intsall está en modo sin conexión.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
     <value>El servidor de información de claves no ha podido proporcionar información adicional sobre esta clave.</value>
@@ -155,11 +155,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>El feed descargado es más antiguo que la versión que ya está en la caché. Seguiremos utilizando la versión más reciente.
-URI del feed: {0}
-Hora antigua: {1}
-Hora nueva: {2}</value>
-    <comment>Automatically translated.</comment>
+    <value>El feed que se ha descargado es más antiguo que la versión almacenada en caché. Continuaremos usando la versión más reciente.
+URI de feed: {0}
+Fecha anterior: {1}
+Nueva fecha: {2}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
     <value>No se ha podido descargar {0}. Intentando descargar desde feed mirror.</value>
@@ -170,28 +170,28 @@ Hora nueva: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>No se puede analizar el feed descargado de {0}.</value>
-    <comment>Automatically translated.</comment>
+    <value>No ha sido posible analizar el feed descargado de {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>No se ha podido analizar la información clave de '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>No ha sido posible analizar la información de la clave para «{0}».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>No se ha podido recuperar la información clave de '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>No ha sido posible recuperar la información de la clave para «{0}».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
     <value>'{0}' no es un ID conocido en el gestor de paquetes {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>El feed está firmado con claves que no son de confianza</value>
-    <comment>Automatically translated.</comment>
+    <value>¡Este feed se ha firmado con claves desconocidas!</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
-    <value>A la espera de que finalice la descarga</value>
-    <comment>Automatically translated.</comment>
+    <value>Esperando a que finalice la descarga</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
     <value>El directorio de trabajo ya ha sido modificado por un comando anterior.</value>

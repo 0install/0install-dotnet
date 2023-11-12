@@ -76,12 +76,12 @@
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
     <value>所有所需组件均已下载。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>运行{0} 所需的所有组件都已导出到 "{1}"。
-您可以使用 "{1}"中的导入脚本或 Bootstrap 可执行文件在另一台计算机上导入这些文件。</value>
-    <comment>Automatically translated.</comment>
+    <value>运行{0} 所需的所有组件都已导出到'{1}'。
+你可以使用{1} 中的导入脚本或 Bootstrap 可执行文件，将这些文件导入另一台计算机。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
     <value>{0}' 已在自定义执行缓存列表中。</value>
@@ -96,7 +96,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>为所有用户（整个机器）而不是仅为当前用户设置零安装？</value>
+    <value>为所有用户（整个机器）而非当前用户设置零安装？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -104,7 +104,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>这将把 Zero Install 添加到开始菜单和命令行中。继续？</value>
+    <value>这将在开始菜单和命令行中添加 Zero Install。继续？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -116,7 +116,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>您是否希望更新任何现有的桌面集成以反映这一点？
+    <value>您是否希望更新现有的桌面集成以反映这一点？
 如果选择 "是"，可能不兼容的集成将被移除。
 如果选择 "否"，Zero Install 将继续使用旧功能。</value>
     <comment>Automatically translated.</comment>
@@ -127,7 +127,7 @@
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>应用程序 "{0}"的功能发生了变化。</value>
@@ -146,12 +146,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="Change" xml:space="preserve">
-    <value>改变</value>
-    <comment>Automatically translated.</comment>
+    <value>变更</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ChangesFound" xml:space="preserve">
-    <value>发现的变化</value>
-    <comment>Automatically translated.</comment>
+    <value>检测到变更</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>单击此处进行选择。</value>
@@ -167,7 +167,7 @@
   </data>
   <data name="Configuration" xml:space="preserve">
     <value>配置</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
     <value>您希望删除 Zero Install 缓存中的所有应用程序文件吗？
@@ -256,7 +256,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>查看或更改配置设置。
-如果没有参数，它会显示所有设置及其当前值。如果有一个参数，它会显示指定设置的当前值。如果有两个参数，它会将设置值设置为给定值，如果给定值为 "{0}"，则将其重置为默认值。</value>
+如果没有参数，它会显示所有设置及其当前值。如果有一个参数，它会显示指定设置的当前值。如果有两个参数，它会将设置设置为给定值，如果给定值为 "{0}"，则将其重置为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -265,7 +265,7 @@
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>行为类似于 "0install select"，但如果所选版本尚未缓存，则也会下载这些版本。
-如果它选择了一组合适的版本，且这些版本已全部下载并进入缓存，则返回 0 的退出状态；否则返回 1 的状态。</value>
+如果它选择了合适的版本集，并且这些版本现在都已下载并进入缓存，则返回 0 的退出状态；否则返回 1 的状态。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -400,7 +400,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>确保执行未受损伤（即清单摘要未变）。</value>
+    <value>确保执行未受损（即清单摘要未更改）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -430,15 +430,15 @@
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
     <value>桌面集成</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
     <value>应用桌面集成</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
     <value>移除桌面集成</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>在本地网络中搜索</value>
@@ -446,11 +446,11 @@
   </data>
   <data name="Done" xml:space="preserve">
     <value>已完成</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DownloadComplete" xml:space="preserve">
-    <value>完整下载</value>
-    <comment>Automatically translated.</comment>
+    <value>下载已完成</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
     <value>请输入要添加的 feed 目录的 URL 或本地文件路径：</value>
@@ -469,8 +469,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
-    <value>出口完成。</value>
-    <comment>Automatically translated.</comment>
+    <value>导出完成。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
     <value>饲料已在所有适当的接口上注册。</value>
@@ -509,8 +509,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>无法找到文件或目录 "{0}"。</value>
-    <comment>Automatically translated.</comment>
+    <value>无法找到文件或目录'{0}'。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
     <value>绝对路径使用 file:///path，而不是 file:/path。</value>
@@ -518,7 +518,7 @@
   </data>
   <data name="Hide" xml:space="preserve">
     <value>隐藏</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
     <value>这个 feed 似乎不是用于相同的应用。还是添加吧？
@@ -526,8 +526,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
-    <value>安装零安装商店服务</value>
-    <comment>Automatically translated.</comment>
+    <value>安装 Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
     <value>整合{0}</value>
@@ -633,7 +633,7 @@
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
     <value>未找到更新</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OpenInFileManager" xml:space="preserve">
     <value>在文件管理器中打开</value>
@@ -717,7 +717,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
-    <value>显示内置帮助文本。</value>
+    <value>显示内置帮助文本</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
@@ -788,7 +788,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>创建可移动的便携式安装（如优盘）。</value>
+    <value>创建可移动的便携式安装（如拇指驱动器）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -859,7 +859,7 @@
   </data>
   <data name="Remove" xml:space="preserve">
     <value>移除</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
     <value>您想从列表中删除{0} 已勾选的键？</value>
@@ -875,7 +875,7 @@
   </data>
   <data name="RemovingOutdated" xml:space="preserve">
     <value>删除过时的实施方案</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
     <value>您可能需要关闭并重新打开终端才能生效。</value>
@@ -894,8 +894,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
-    <value>预编译 .NET 程序集，加快应用程序启动速度</value>
-    <comment>Automatically translated.</comment>
+    <value>预编译 .NET 程序集加快应用程序启动速度</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
     <value>选定的实施方案</value>
@@ -906,8 +906,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
-    <value>Zero Install v{0} 的更新已发布。现在安装？</value>
-    <comment>Automatically translated.</comment>
+    <value>Zero Install v{0} 有可用更新。立即安装？</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
     <value>该零安装实例未部署。因此，它无法自行更新。</value>
@@ -935,12 +935,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>启动零安装商店服务</value>
-    <comment>Automatically translated.</comment>
+    <value>启用 Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StopService" xml:space="preserve">
-    <value>停止零安装商店服务</value>
-    <comment>Automatically translated.</comment>
+    <value>停止 Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
     <value>{0} 回收的存储空间。</value>
@@ -984,8 +984,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
-    <value>卸载零安装商店服务</value>
-    <comment>Automatically translated.</comment>
+    <value>卸载 Zero Install Store Service</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
     <value>未知命令 "{0}"。</value>
@@ -1017,10 +1017,10 @@
   </data>
   <data name="VersionInformation" xml:space="preserve">
     <value>版本信息</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Working" xml:space="preserve">
-    <value>工作</value>
-    <comment>Automatically translated.</comment>
+    <value>正在执行</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

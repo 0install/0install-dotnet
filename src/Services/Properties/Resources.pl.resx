@@ -59,12 +59,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
-    <value>Feed: {0}
+    <value>Kanał: {0}
 - Prawidłowy podpis od {1}
 - {2}
-Czy chcesz zaufać temu kluczowi do podpisywania kanałów z '{3}'?
+Czy chcesz zezwolić temu kluczowi na podpisywanie kanałów z „{3}”?
 </value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
     <value>Wynikowy wiersz poleceń jest pusty.</value>
@@ -87,24 +87,24 @@ Czy chcesz zaufać temu kluczowi do podpisywania kanałów z '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Błąd podczas zapisywania bazy danych zaufania</value>
-    <comment>Automatically translated.</comment>
+    <value>Błąd podczas zapisywania zaufanej bazy danych</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Uruchamianie zewnętrznego solwera</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Kanał '{0}' nie jest buforowany, a Zero Install jest obecnie w trybie off-line.</value>
-    <comment>Automatically translated.</comment>
+    <value>Kanał „{0}” nie został zapisany w pamięci podręcznej, a Zero Install działa obecnie w trybie offline.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' nie można znaleźć w pamięci podręcznej kanału.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>Plik '{0}' nie został podpisany żadnym zaufanym kluczem.</value>
-    <comment>Automatically translated.</comment>
+    <value>Plik „{0}” nie został podpisany przy użyciu klucza zaufanego.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
     <value>'{0}' jest plikiem lokalnym. Powinien to być adres URL HTTP(S).</value>
@@ -119,8 +119,8 @@ Czy chcesz zaufać temu kluczowi do podpisywania kanałów z '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problem z pobieraniem '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nie udało się pobrać „{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
     <value>Niedozwolony znak w nazwie powiązania {0}.</value>
@@ -140,7 +140,7 @@ Czy chcesz zaufać temu kluczowi do podpisywania kanałów z '{3}'?
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
     <value>Nie można pobrać {0}, ponieważ Zero Install działa w trybie offline.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
     <value>Serwer informacji o kluczach nie był w stanie dostarczyć żadnych dodatkowych informacji o tym kluczu.</value>
@@ -155,11 +155,11 @@ Czy chcesz zaufać temu kluczowi do podpisywania kanałów z '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Pobrany kanał jest starszy niż wersja już znajdująca się w pamięci podręcznej. Będziemy używać nowszej wersji.
+    <value>Pobrany kanał jest starszy niż wersja już zapisana w pamięci podręcznej. Będziemy nadal korzystać z nowszej wersji.
 URI kanału: {0}
-Stary czas: {1}
-Nowy czas: {2}</value>
-    <comment>Automatically translated.</comment>
+Poprzedni znacznik czasu: {1}
+Nowy znacznik czasu: {2}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
     <value>Nie udało się pobrać {0}. Zamiast tego próbuję pobrać z pliku lustrzanego.</value>
@@ -170,28 +170,28 @@ Nowy czas: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>Nie można przeanalizować kanału pobranego z {0}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nie udało się przeanalizować kanału pobranego z {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Nie można przeanalizować informacji o kluczu dla "{0}".</value>
-    <comment>Automatically translated.</comment>
+    <value>Nie udało się przeanalizować informacji o kluczu dla „{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>Nie można pobrać informacji o kluczu dla '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nie udało się uzyskać informacji o kluczu dla „{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
     <value>'{0}' nie jest znanym identyfikatorem w menedżerze pakietów {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Kanał jest podpisany niezaufanymi kluczami!</value>
-    <comment>Automatically translated.</comment>
+    <value>Kanał jest podpisany przy użyciu niezaufanych kluczy!</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
     <value>Oczekiwanie na zakończenie pobierania</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
     <value>Katalog roboczy został już zmieniony przez poprzednie polecenie.</value>

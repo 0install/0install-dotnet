@@ -75,13 +75,13 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
-    <value>すべての必要なコンポーネントがダウンロードされました。</value>
-    <comment>Automatically translated.</comment>
+    <value>すべての必須コンポーネントがダウンロードされました。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>{0} の実行に必要なコンポーネントは、すべて '{1}' にエクスポートされています。
-{1}' にあるインポートスクリプトまたは Bootstrap 実行ファイルを使用して、これらのファイルを別のコンピュータにインポートすることができます。</value>
-    <comment>Automatically translated.</comment>
+    <value>{0}の実行に必要なコンポーネントはすべて「{1}」にエクスポートされました。
+インポートスクリプトまたは「{1}」にあるBootstrap実行ファイルを使用して、これらのファイルを別のコンピュータにインポートすることができます。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
     <value>'{0}' はすでにカスタム実装キャッシュのリストにある。</value>
@@ -127,7 +127,7 @@
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>キャンセル</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
     <value>アプリケーション「{0} 」の機能が変わった。</value>
@@ -147,11 +147,11 @@
   </data>
   <data name="Change" xml:space="preserve">
     <value>変更</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ChangesFound" xml:space="preserve">
-    <value>変更点</value>
-    <comment>Automatically translated.</comment>
+    <value>変更が検出されました</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ClickToChoose" xml:space="preserve">
     <value>こちらをクリックしてください。</value>
@@ -167,7 +167,7 @@
   </data>
   <data name="Configuration" xml:space="preserve">
     <value>構成</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
     <value>Zero Installキャッシュからすべてのアプリケーションファイルを削除しますか？
@@ -176,7 +176,7 @@
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
     <value>マイアプリケーション」リストからすべてのアプリケーションを削除しますか？これにより、Zero Installを削除した後にメニューが残るのを防ぐことができます。
-0install sync」を使用して、このリストのバックアップを作成できます。</value>
+0install sync'を使用して、このリストのバックアップを作成することができます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
@@ -264,7 +264,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>0install select' と同様の動作をするが、選択したバージョンがまだキャッシュされていない場合は、ダウンロードも行う。
+    <value>0install select' と同様の動作をするが、選択されたバージョンがまだキャッシュされていない場合は、ダウンロードも行う。
 適切なバージョンのセットを選択し、それらがすべてダウンロードされキャッシュにある場合、終了ステータスに 0 を返し、そうでない場合はステータスに 1 を返す。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -306,7 +306,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>アプリケーションリストからすべてのアプリケーションを削除し、デスクトップ環境の統合を元に戻します。このコマンドは、Zero Install を削除する前にシステムをクリーンアップするために使用します。</value>
+    <value>アプリケーションリストからすべてのアプリケーションを削除し、デスクトップ環境の統合を元に戻します。Zero Install を削除する前に、このコマンドを使用してシステムをクリーンアップします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
@@ -323,11 +323,11 @@
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>0install download'と同様の動作をするが、キャッシュにあることを確認した後にプログラムを実行する点が異なる。
-ダウンロード・ステップが失敗した場合は、終了ステータスの1を返す。それ以外の場合、終了ステータスは実行中のプログラムの終了ステータスになる。</value>
+ダウンロード・ステップが失敗した場合は、終了ステータスとして1を返す。それ以外の場合、終了ステータスは実行中のプログラムの終了ステータスになる。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>指定したキーワードにマッチする、ミラーサーバがインデックスを作成した フィードを検索する。デフォルトのミラーサーバは、品質にかかわらず既知のフィードをすべてインデックス化することに注意。</value>
+    <value>指定したキーワードにマッチする、ミラーサーバがインデックスを作成した フィードを検索する。デフォルトのミラーサーバは、品質に関係なく既知のフィードをすべてインデックス化することに注意。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -429,16 +429,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
-    <value>デスクトップ統合</value>
-    <comment>Automatically translated.</comment>
+    <value>デスクトップへの統合</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>デスクトップ統合の適用</value>
-    <comment>Automatically translated.</comment>
+    <value>デスクトップへの統合を適用中</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>デスクトップ統合の削除</value>
-    <comment>Automatically translated.</comment>
+    <value>デスクトップへの統合を解除中</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>ローカルネットワーク内の検索</value>
@@ -446,11 +446,11 @@
   </data>
   <data name="Done" xml:space="preserve">
     <value>完了</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DownloadComplete" xml:space="preserve">
     <value>ダウンロード完了</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
     <value>追加するフィードカタログのURLまたはローカルファイルパスを入力してください：</value>
@@ -469,8 +469,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
-    <value>輸出完了。</value>
-    <comment>Automatically translated.</comment>
+    <value>エクスポート完了</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
     <value>フィードは、すべての適切なインターフェイスに対してすでに登録されていた。</value>
@@ -509,16 +509,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>ファイルまたはディレクトリ '{0}' が見つかりません。</value>
-    <comment>Automatically translated.</comment>
+    <value>ファイルまたはディレクトリ「{0}」が見つかりません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
     <value>絶対パスにはfile:///pathを使用し、file:/pathは使用しない。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Hide" xml:space="preserve">
-    <value>隠す</value>
-    <comment>Automatically translated.</comment>
+    <value>非表示</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
     <value>このフィードは同じ用途ではないようだ。とりあえず追加してみる？
@@ -526,8 +526,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
-    <value>ゼロインストールストアサービスのインストール</value>
-    <comment>Automatically translated.</comment>
+    <value>Zero Install Store Serviceをインストール中</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
     <value>統合{0}</value>
@@ -632,8 +632,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
-    <value>更新が見つかりません</value>
-    <comment>Automatically translated.</comment>
+    <value>アップデートが見つかりませんでした</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OpenInFileManager" xml:space="preserve">
     <value>ファイルマネージャーで開く</value>
@@ -685,7 +685,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>ソルバーが特定の{CPU} をターゲットにするよう強制する。</value>
+    <value>ソルバーが特定の{CPU} をターゲットにするように強制する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
@@ -812,7 +812,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>同期データをリセットする。有効な{MODE}は「none」（クライアントとサーバーのデータを正常にマージ）、「client」（クライアントの全データをサーバーのデータに置き換える）、「server」（サーバーの全データをクライアントのデータに置き換える）である。</value>
+    <value>同期データをリセットする。有効な{MODE}は「none」（クライアントとサーバーのデータを通常通りマージする）、「client」（クライアントの全データをサーバーのデータに置き換える）、「server」（サーバーの全データをクライアントのデータに置き換える）である。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -835,14 +835,14 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>検索する実装キャッシュのリストに{DIR} を追加する。
+    <value>検索する実装キャッシュのリストに{DIR} を追加します。
 ただし、新しいダウンロードはこのディレクトリには書き込まれません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>選択したプログラムを直接実行する代わりに、{COMMAND} PROGRAM ARGSを実行する。これは、デバッガやトレース・ツールをプログラム上で実行するのに便利です（ゼロ・インストール上ではなく！）。
 ラッパーは、プログラムによって選択された環境で実行されることに注意してください。
-コマンドライン引数を含むことができます。空白文字はエスケープする必要があります！</value>
+コマンドライン引数を含むことができます。空白文字はエスケープしなければなりません！</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
@@ -859,7 +859,7 @@
   </data>
   <data name="Remove" xml:space="preserve">
     <value>削除</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
     <value>{0} 、チェックしたキーをリストから削除しますか？</value>
@@ -874,8 +874,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingOutdated" xml:space="preserve">
-    <value>時代遅れの実装を削除する</value>
-    <comment>Automatically translated.</comment>
+    <value>古い実装を削除中</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
     <value>この設定を有効にするには、いったん端末を閉じて開き直す必要があるかもしれません。</value>
@@ -894,8 +894,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
-    <value>.NETアセンブリのプリコンパイルによるアプリケーション起動の高速化</value>
-    <comment>Automatically translated.</comment>
+    <value>.NETアセンブリを事前コンパイルすることでアプリケーションの起動を高速化</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
     <value>厳選されたインプリメンテーション</value>
@@ -906,8 +906,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
-    <value>Zero Install v{0} へのアップデートが利用可能です。今すぐインストールしますか？</value>
-    <comment>Automatically translated.</comment>
+    <value>Zero Install v{0}にアップデートできます。今すぐインストールしますか？</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
     <value>この Zero Install インスタンスはデプロイされていません。したがって、それ自体を更新することはできません。</value>
@@ -915,7 +915,7 @@
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>セルフアップデートが無効になっています。
-0install config self_update_uri default'を実行して有効にする。</value>
+有効にするには、'0install config self_update_uri default'を実行してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
@@ -935,12 +935,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>ゼロインストールストアサービスの開始</value>
-    <comment>Automatically translated.</comment>
+    <value>Zero Install Store Serviceを開始中</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StopService" xml:space="preserve">
-    <value>ゼロインストールストアサービスの停止</value>
-    <comment>Automatically translated.</comment>
+    <value>Zero Install Store Serviceを停止中</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
     <value>{0} 収納スペースを取り戻した。</value>
@@ -984,8 +984,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
-    <value>ゼロインストールストアサービスのアンインストール</value>
-    <comment>Automatically translated.</comment>
+    <value>Zero Install Store Serviceをアンインストール中</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
     <value>不明なコマンド '{0}'.</value>
@@ -1017,10 +1017,10 @@
   </data>
   <data name="VersionInformation" xml:space="preserve">
     <value>バージョン情報</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Working" xml:space="preserve">
-    <value>働く</value>
-    <comment>Automatically translated.</comment>
+    <value>進行中</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

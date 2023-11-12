@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchiveInvalid" xml:space="preserve">
-    <value>Arşiv dosyası geçersiz ya da bozuk.</value>
+    <value>Arşiv dosyası geçersiz veya bozuk.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>Arşiv ayıklanıyor</value>
+    <value>Arşiv dışa aktarılıyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">

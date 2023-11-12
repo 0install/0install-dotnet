@@ -79,28 +79,28 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
-    <value>Aplicar a integração do ambiente de trabalho para {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>A aplicar integração com o desktop para {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Não foi possível encontrar a aplicação '{0}' na lista de aplicações.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Só é possível efetuar uma operação de integração do ambiente de trabalho de cada vez.</value>
-    <comment>Automatically translated.</comment>
+    <value>Só pode realizar uma operação de integração com o desktop de cada vez.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
-    <value>O nome '{0}' contém caracteres inválidos.</value>
-    <comment>Automatically translated.</comment>
+    <value>O nome "{0}" contém caracteres inválidos.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
     <value>Utilize '0install central' ou '0install config' para configurar o Sync.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
-    <value>Houve um problema ao carregar '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Não foi possível carregar "{0}".</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
     <value>Reparação da integração do ambiente de trabalho</value>

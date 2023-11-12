@@ -59,12 +59,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
-    <value>Alimentação: {0}
+    <value>Feed: {0}
 - Assinatura válida de {1}
 - {2}
-Pretende confiar nesta chave para assinar os feeds de '{3}'?
+Quer confiar nesta chave para assinar feeds de "{3}"?
 </value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
     <value>A linha de comando resultante está vazia.</value>
@@ -88,23 +88,23 @@ Pretende confiar nesta chave para assinar os feeds de '{3}'?
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
     <value>Erro ao guardar a base de dados de confiança</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Execução de um solucionador externo</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>O feed '{0}' não está armazenado em cache e o Zero Install está atualmente em modo off-line.</value>
-    <comment>Automatically translated.</comment>
+    <value>O feed "{0}" não está armazenado em cache e o Zero Install está atualmente no modo offline.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' não pôde ser localizado na cache do feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>O feed '{0}' não foi assinado com nenhuma chave de confiança.</value>
-    <comment>Automatically translated.</comment>
+    <value>O feed "{0}"não foi assinado com nenhuma chave de confiança.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
     <value>'{0}' é um ficheiro local. Deveria ser um URL HTTP(S).</value>
@@ -119,8 +119,8 @@ Pretende confiar nesta chave para assinar os feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problema ao obter '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Não foi possível transferir "{0}".</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
     <value>Carácter ilegal no nome da ligação {0}.</value>
@@ -139,8 +139,8 @@ Pretende confiar nesta chave para assinar os feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Não é possível transferir {0} porque a Instalação Zero está no modo offline.</value>
-    <comment>Automatically translated.</comment>
+    <value>Não foi possível transferir {0} porque o Zero Install está no modo offline.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
     <value>O servidor de informações da chave não conseguiu fornecer quaisquer informações adicionais sobre esta chave.</value>
@@ -155,11 +155,11 @@ Pretende confiar nesta chave para assinar os feeds de '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>O feed descarregado é mais antigo do que a versão já existente na cache. Continuaremos a utilizar a versão mais recente.
+    <value>O feed transferido é mais antigo do que a versão armazenada em cache. Continuaremos a utilizar a versão mais recente.
 URI do feed: {0}
-Hora antiga: {1}
-Novo tempo: {2}</value>
-    <comment>Automatically translated.</comment>
+Carimbo temporal antigo: {1}
+Carimbo temporal novo: {2}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
     <value>Falha ao descarregar {0}. Tentando obter a partir do espelho do feed.</value>
@@ -170,28 +170,28 @@ Novo tempo: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>Não é possível analisar o feed descarregado de {0}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Não foi possível analisar o feed transferido de {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Não foi possível analisar as informações da chave para '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Não foi possível analisar as informações da chave para "{0}".</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>Não foi possível recuperar as informações da chave para '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Não foi possível recuperar as informações da chave para "{0}".</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
     <value>'{0}' não é um ID conhecido no gestor de pacotes {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>O feed é assinado com chaves não fiáveis!</value>
-    <comment>Automatically translated.</comment>
+    <value>O feed está assinado com chaves que não são fiáveis!</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
-    <value>A aguardar a conclusão da transferência</value>
-    <comment>Automatically translated.</comment>
+    <value>A aguardar que a transferência seja concluída</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
     <value>O diretório de trabalho já foi alterado por um comando anterior.</value>

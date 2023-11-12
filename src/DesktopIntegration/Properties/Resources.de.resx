@@ -79,7 +79,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
-    <value>Anwenden der Desktop-Integration für {0}</value>
+    <value>Desktopintegration für {0} wird angewendet</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
@@ -87,7 +87,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Sie können jeweils nur einen Desktop-Integrationsvorgang auf einmal durchführen.</value>
+    <value>Sie können jeweils nur einen Desktopintegrationsvorgang durchführen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">

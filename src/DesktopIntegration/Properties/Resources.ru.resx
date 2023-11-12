@@ -79,20 +79,20 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
-    <value>Применение интеграции настольных систем для {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Создание ярлыка на рабочем столе для {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Невозможно найти приложение '{0}' в списке приложений.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Одновременно можно выполнить только одну операцию интеграции рабочего стола.</value>
-    <comment>Automatically translated.</comment>
+    <value>Одновременно можно создавать только один ярлык на рабочем столе.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
     <value>Имя '{0}' содержит недопустимые символы.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
     <value>Для установки Sync используйте '0install central' или '0install config'.</value>
@@ -100,7 +100,7 @@
   </data>
   <data name="ProblemLoading" xml:space="preserve">
     <value>Возникла проблема с загрузкой '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
     <value>Восстановление интеграции рабочего стола</value>

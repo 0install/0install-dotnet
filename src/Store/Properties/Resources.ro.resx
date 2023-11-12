@@ -182,7 +182,7 @@ Dacă utilizați o unitate formatată FAT, vă rugăm să o convertiți la NTFS.
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Nu se poate descărca pictograma de pe {0} deoarece sunt acceptate numai URL-urile HTTP și HTTPS.</value>
+    <value>Nu se poate descărca pictograma de pe {0} deoarece sunt acceptate doar URL-urile HTTP și HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -258,7 +258,7 @@ Puteți șterge fișierul '{0}' pentru a rezolva problema.</value>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
     <value>A existat o problemă la încărcarea valorii de configurare '{0}'.
-Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se piardă și alte setări.</value>
+Puteți șterge fișierul '{1}' pentru a remedia problema. Este posibil să se piardă și alte setări.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">

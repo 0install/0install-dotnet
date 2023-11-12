@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AskKeyTrust" xml:space="preserve">
+    <value>Kanál: {0}
+- Platný podpis od {1}
+- {2}
+Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3}‘‘?
+</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="CommandLineEmpty" xml:space="preserve">
+    <value>Výsledný příkazový řádek je prázdný.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandNotSpecified" xml:space="preserve">
+    <value>Příkaz pro '{0}' nebyl zadán.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiscoveringImplementation" xml:space="preserve">
+    <value>Vyhledávání v místní síti</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
+    <value>vazby &lt;environment&gt; musí obsahovat buď atribut 'value', nebo 'insert'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorLoadingCatalog" xml:space="preserve">
+    <value>Chyba při načítání katalogu</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ErrorSavingTrustDB" xml:space="preserve">
+    <value>Chyba při ukládání důvěryhodné databáze</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="ExternalSolverRunning" xml:space="preserve">
+    <value>Spuštění externího řešitele</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedNotCachedOffline" xml:space="preserve">
+    <value>Kanál ‚‚{0}‘‘ není uložen v mezipaměti a aplikace Zero Install je momentálně v režimu offline.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FeedNotInCache" xml:space="preserve">
+    <value>'{0}' se nepodařilo najít ve vyrovnávací paměti kanálu.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedNoTrustedSignatures" xml:space="preserve">
+    <value>Kanál ‚‚{0}‘‘ nebyl podepsán žádným důvěryhodným klíčem.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FeedUriLocal" xml:space="preserve">
+    <value>'{0}' je místní soubor. Měla by to být adresa URL HTTP(S).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedUriMismatch" xml:space="preserve">
+    <value>Atribut &lt;interface&gt; uri ('{0}') neodpovídá adrese URL, ze které byl kanál stažen ('{1}').</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FeedUriMissing" xml:space="preserve">
+    <value>Chybí atribut &lt;interface&gt; uri. Mělo by být '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FetcherProblem" xml:space="preserve">
+    <value>Problém s načítáním ‚‚{0}‘‘.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="IllegalCharInBindingName" xml:space="preserve">
+    <value>Nepovolený znak v názvu vazby {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ImportNoSource" xml:space="preserve">
+    <value>Aby bylo možné kanály importovat, musí být uveden URI, ze kterého pocházejí.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingBindingName" xml:space="preserve">
+    <value>Chybějící název ve vazbě {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MissingInterfaceUri" xml:space="preserve">
+    <value>Nebylo zadáno žádné rozhraní.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoDownloadInOfflineMode" xml:space="preserve">
+    <value>{0} nelze stáhnout, protože aplikace Zero Install je v režimu offline.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoKeyInfoServerData" xml:space="preserve">
+    <value>Server s informacemi o klíči nebyl schopen poskytnout žádné další informace o tomto klíči.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoManifestDigest" xml:space="preserve">
+    <value>Nebyl nalezen žádný souhrn manifestu pro implementaci '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoRetrievalMethod" xml:space="preserve">
+    <value>Pro implementaci '{0}' nebyla nalezena žádná metoda načítání.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ReplayAttack" xml:space="preserve">
+    <value>Stažený kanál je starší než verze, která je už uložena v mezipaměti. Budeme dále používat novější verzi.
+Kanál URI: {0}
+Stará časová značka: {1}
+Nová časová značka: {2}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="TryingFeedMirror" xml:space="preserve">
+    <value>Nepodařilo se stáhnout {0}. Místo toho se pokoušíme získat z feed mirror.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToCacheCatalog" xml:space="preserve">
+    <value>Nelze uložit do mezipaměti stažený katalog aplikací.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToParseFeed" xml:space="preserve">
+    <value>Nelze analyzovat kanál stažený ze {0}.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnableToParseKeyInfo" xml:space="preserve">
+    <value>Nelze analyzovat informace o klíči pro ‚‚{0}‘‘.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
+    <value>Nelze načíst informace o klíči pro ‚‚{0}‘‘.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="UnknownPackageID" xml:space="preserve">
+    <value>'{0}' není ve správci balíčků {1} známé ID.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UntrustedKeys" xml:space="preserve">
+    <value>Kanál je podepsán nedůvěryhodnými klíči!</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="WaitingForDownload" xml:space="preserve">
+    <value>Čekám na dokončení stahování</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="WorkingDirAlreadyChanged" xml:space="preserve">
+    <value>Pracovní adresář byl již změněn předchozím příkazem.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="WorkingDirInvalidPath" xml:space="preserve">
+    <value>Pracovní adresář obsahuje neplatnou cestu (potenciální bezpečnostní riziko).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

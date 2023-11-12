@@ -79,28 +79,28 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
-    <value>Zastosowanie integracji pulpitu dla {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Tworzenie skrótu na pulpicie dla {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Nie można znaleźć aplikacji '{0}' na liście aplikacji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Jednocześnie można wykonać tylko jedną operację integracji pulpitu.</value>
-    <comment>Automatically translated.</comment>
+    <value>Możesz jednocześnie utworzyć tylko jeden skrót na pulpicie.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
-    <value>Nazwa '{0}' zawiera nieprawidłowe znaki.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nazwa „{0}” zawiera nieprawidłowe znaki.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
     <value>Użyj '0install central' lub '0install config', aby skonfigurować Sync.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
-    <value>Wystąpił problem z załadowaniem '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Wystąpił problem z załadowaniem „{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
     <value>Naprawa integracji pulpitu</value>

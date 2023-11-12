@@ -79,8 +79,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>Todos os componentes necessários para executar o {0} foram exportados para '{1}':
-Você pode usar o script de importação ou executável bootstrap em '{1}' para importar estes arquivos em outro computador.</value>
+    <value>Todos os componentes necessários para executar {0} foram exportados para "{1}".
+Você pode usar o script de importação ou o arquivo executável do Bootstrap em "{1}" para importar esses arquivos em outro computador.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
@@ -429,15 +429,15 @@ Isso é semelhante a '0install download --refresh', exceto que imprime informaç
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
-    <value>Integração com a Área de Trabalho</value>
+    <value>Integração de desktop</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Aplicando integração com a área de trabalho</value>
+    <value>Aplicando integração de desktop</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Removendo integração com a área de trabalho</value>
+    <value>Excluindo integração de desktop</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -509,7 +509,7 @@ Isso é semelhante a '0install download --refresh', exceto que imprime informaç
     <comment>Manually overriden.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Não foi possível encontrar o arquivo ou pasta '{0}'.</value>
+    <value>Não foi possível encontrar o arquivo ou diretório "{0}".</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
@@ -526,7 +526,7 @@ Uma tag &lt;feed-for&gt; indica a compatibilidade do feed.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
-    <value>Instalando serviço do Zero Install Store</value>
+    <value>Instalando Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
@@ -858,7 +858,7 @@ Pode conter argumentos de linha de comando. Os espaços em branco devem ser igno
     <comment>Manually overriden.</comment>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>Remover</value>
+    <value>Excluir</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
@@ -874,7 +874,7 @@ Pode conter argumentos de linha de comando. Os espaços em branco devem ser igno
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemovingOutdated" xml:space="preserve">
-    <value>Removendo implementações desatualizadas</value>
+    <value>Excluindo implementações desatualizadas</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
@@ -894,7 +894,7 @@ Pode conter argumentos de linha de comando. Os espaços em branco devem ser igno
     <comment>Manually overriden.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
-    <value>Pré-compilação de assemblies .NET para inicialização mais rápida do aplicativo</value>
+    <value>Pré-compilação de assemblies .NET para uma inicialização mais rápida do aplicativo</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
@@ -906,7 +906,7 @@ Pode conter argumentos de linha de comando. Os espaços em branco devem ser igno
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
-    <value>Uma atualização do Zero Install v{0} está disponível. Instalar agora?</value>
+    <value>Uma atualização para o Zero Install v{0} está disponível. Deseja instalar agora?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
@@ -935,11 +935,11 @@ Execute '0install config self_update_uri default' para ativar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>Iniciando serviço do Zero Install Store</value>
+    <value>Iniciando Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StopService" xml:space="preserve">
-    <value>Parando serviço do Zero Install Store</value>
+    <value>Interrompendo Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
@@ -984,7 +984,7 @@ Mantenha essa chave em segredo e use algo diferente para sua senha. Dessa forma,
     <comment>Manually overriden.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
-    <value>Desinstalando serviço do Zero Install Store</value>
+    <value>Desinstalando Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
@@ -1016,11 +1016,11 @@ Mantenha essa chave em segredo e use algo diferente para sua senha. Dessa forma,
     <comment>Manually overriden.</comment>
   </data>
   <data name="VersionInformation" xml:space="preserve">
-    <value>Informações da versão</value>
+    <value>Informações sobre a versão</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Working" xml:space="preserve">
-    <value>Trabalhando</value>
+    <value>Em andamento</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

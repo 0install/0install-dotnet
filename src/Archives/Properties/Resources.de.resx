@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
-    <value>Archiv entpacken</value>
+    <value>Archiv wird extrahiert</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">

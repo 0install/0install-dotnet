@@ -62,7 +62,7 @@
     <value>Feed: {0}
 - Gültige Signatur von {1}
 - {2}
-Möchten Sie diesem Schlüssel vertrauen, um Feeds von '{3}' zu signieren?
+Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
 </value>
     <comment>Manually overriden.</comment>
   </data>
@@ -95,7 +95,7 @@ Möchten Sie diesem Schlüssel vertrauen, um Feeds von '{3}' zu signieren?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Der Feed '{0}' ist nicht gecacht und Zero Install befindet sich derzeit im Offline-Modus.</value>
+    <value>Der Feed '{0}' wird nicht im Cache gespeichert, und Zero Install befindet sich derzeit im Offline-Modus.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
@@ -155,10 +155,10 @@ Möchten Sie diesem Schlüssel vertrauen, um Feeds von '{3}' zu signieren?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Der heruntergeladene Feed ist älter als die bereits im Cache gespeicherte Version. Wir werden weiterhin die neuere Version verwenden.
-Feed URI: {0}
-Alte Zeit: {1}
-Neue Zeit: {2}</value>
+    <value>Der heruntergeladene Feed ist älter als die bereits im Cache gespeicherte Version. Wir verwenden weiterhin die neuere Version.
+Feed-URI: {0}
+Vorheriger Zeitpunkt: {1}
+Neuer Zeitpunkt: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
@@ -170,15 +170,15 @@ Neue Zeit: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>Der von {0} heruntergeladene Feed konnten nicht verarbeitet werden.</value>
+    <value>Der von {0} heruntergeladene Feed konnte nicht geparst werden.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Die Schlüsselinformationen für '{0}' konnten nicht verarbeitet werden.</value>
+    <value>Die Schlüsselinformationen für '{0}' konnten nicht geparst werden.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>Es können keine Schlüsselinformationen für '{0}' abgerufen werden.</value>
+    <value>Die Schlüsselinformationen für '{0}' konnten nicht abgerufen werden.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
@@ -186,11 +186,11 @@ Neue Zeit: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Der Feed ist nicht mit vertrauenswürdigen Schlüsseln signiert!</value>
+    <value>Der Feed ist mit nicht vertrauenswürdigen Schlüsseln signiert!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
-    <value>Warten auf den Abschluss des Downloads</value>
+    <value>Der Download wurde noch nicht abgeschlossen</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">

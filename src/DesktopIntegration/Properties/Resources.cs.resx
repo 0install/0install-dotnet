@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessPointExistingConflict" xml:space="preserve">
+    <value>Následující stávající přístupové body jsou ve vzájemném konfliktu:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AccessPointInnerConflict" xml:space="preserve">
+    <value>Následující přístupové body pro aplikaci {0} jsou ve vzájemném konfliktu:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AccessPointNewConflict" xml:space="preserve">
+    <value>Stávající přístupový bod {0} je v konfliktu s novým přístupovým bodem {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="AppAlreadyInList" xml:space="preserve">
+    <value>Aplikace '{0}' je již v seznamu aplikací.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ApplyingChanges" xml:space="preserve">
+    <value>Uplatňování změn</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ApplyingIntegration" xml:space="preserve">
+    <value>Vytvářím zástupce na ploše pro {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="AppNotInList" xml:space="preserve">
+    <value>V seznamu aplikací nelze najít aplikaci '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="IntegrationMutex" xml:space="preserve">
+    <value>Na ploše můžete vytvořit vždy pouze jednoho zástupce.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NameInvalidChars" xml:space="preserve">
+    <value>Název ‚‚{0}‘‘ obsahuje neplatné znaky.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="PleaseConfigSync" xml:space="preserve">
+    <value>Pro nastavení Sync použijte '0install central' nebo '0install config'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ProblemLoading" xml:space="preserve">
+    <value>Došlo k problému při nahrávání ‚‚{0}‘‘.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="RepairingIntegration" xml:space="preserve">
+    <value>Oprava integrace pracovní plochy</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ShortcutNameInvalidChars" xml:space="preserve">
+    <value>Název zkratky '{0}' obsahuje neplatné znaky.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncCredentialsInvalid" xml:space="preserve">
+    <value>Uživatelské jméno a/nebo heslo, které jste zadali pro server Sync, jsou nesprávné. Zkontrolujte prosím možnosti synchronizace.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncCryptoKeyInvalid" xml:space="preserve">
+    <value>Kryptografický klíč, který jste zadali pro synchronizaci, je nesprávný. Zkontrolujte prosím možnosti synchronizace.
+Kryptografický klíč použitý na serveru můžete změnit spuštěním průvodce řešením problémů (dostanete se tam kliknutím pravým tlačítkem myši na tlačítko "Sync") nebo příkazem '0install sync --reset=server'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncDownloading" xml:space="preserve">
+    <value>Stahování synchronizačních dat</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncServerDataDamaged" xml:space="preserve">
+    <value>Data aktuálně uložená na serveru Sync jsou poškozená.
+Data uložená na serveru můžete nahradit spuštěním průvodce řešením problémů (dostanete se do něj kliknutím pravým tlačítkem myši na tlačítko "Sync") nebo příkazem '0install sync --reset=server'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="SyncUploading" xml:space="preserve">
+    <value>Odesílání synchronizačních dat</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToFindTypeID" xml:space="preserve">
+    <value>Nelze najít stránku {0} s ID '{1}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="UnableToReplaceStub" xml:space="preserve">
+    <value>Nelze nahradit zastaralý spustitelný soubor '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+</root>

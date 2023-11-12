@@ -174,7 +174,7 @@ Ora nouă: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Nu s-a putut analiza informațiile despre cheia '{0}'.</value>
+    <value>Nu se poate analiza informația cheie pentru '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">

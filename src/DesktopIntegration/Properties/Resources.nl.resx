@@ -79,28 +79,28 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
-    <value>Desktopintegratie toepassen voor {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Desktop-integratie voor {0} wordt toegepast</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Toepassing '{0}' kan niet worden gevonden in de lijst met toepassingen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Je kunt slechts één desktopintegratiebewerking per keer uitvoeren.</value>
-    <comment>Automatically translated.</comment>
+    <value>U kunt per keer slechts één bewerking voor desktop-integratie uitvoeren.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
-    <value>De naam '{0}' bevat ongeldige tekens.</value>
-    <comment>Automatically translated.</comment>
+    <value>De naam "{0}" bevat ongeldige tekens.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
     <value>Gebruik '0install central' of '0install config' om Sync in te stellen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
-    <value>Er is een probleem opgetreden bij het laden van '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Er is een probleem opgetreden bij het laden van "{0}".</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
     <value>Desktopintegratie herstellen</value>
