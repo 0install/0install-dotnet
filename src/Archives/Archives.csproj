@@ -29,7 +29,7 @@
     <PackageReference Include="SharpCompress" Version="0.34.1" />
     <PackageReference Include="Makaretu.Dns.Multicast" Version="0.27.0" />
     <PackageReference Include="WindowsFirewallHelper" Version="2.2.0.86" />
-    <PackageReference Include="WixToolset.Dtf.Compression.Cab" Version="4.0.2" />
+    <PackageReference Include="WixToolset.Dtf.Compression.Cab" Version="4.0.3" />
     <PackageReference Include="WixToolset.Dtf.WindowsInstaller" Version="4.0.2" />
   </ItemGroup>
 
