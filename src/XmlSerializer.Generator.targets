@@ -1,8 +1,8 @@
 <Project>
 
   <ItemGroup Condition="'$(OS)'=='Windows_NT'">
-    <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="7.0.0" />
-    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="7.0.0" PrivateAssets="All" />
+    <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="8.0.0" />
+    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
