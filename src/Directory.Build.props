@@ -58,6 +58,7 @@
     <Using Include="System.ComponentModel" />
     <Using Include="System.Diagnostics.CodeAnalysis" />
     <Using Include="System.Net" />
+    <Using Include="System.Net.Http" />
     <Using Include="System.Globalization" />
     <Using Include="System.Xml.Serialization" />
     <Using Include="JetBrains.Annotations" />
