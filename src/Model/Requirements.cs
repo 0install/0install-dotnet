@@ -62,6 +62,7 @@ public partial class Requirements : ICloneable<Requirements>
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
     [XmlAttribute("interface"), JsonIgnore]
     // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
+    // ReSharper disable once ConstantConditionalAccessQualifier
     public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new(value); }
 
     /// <summary>Used for XML and JSON serialization.</summary>
