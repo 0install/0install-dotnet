@@ -22,6 +22,12 @@
       "automergeType": "branch"
     },
     {
+      "matchPackagePatterns": ["^WixToolset"],
+      "groupName": "Wix Toolset",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
       "matchPackagePatterns": ["SourceLink"],
       "matchPackageNames": ["SharpZipLib", "SharpCompress", "ZstdSharp.Port", "ELFSharp"],
       "automerge": true,
