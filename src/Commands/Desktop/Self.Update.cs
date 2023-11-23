@@ -53,7 +53,7 @@ partial class Self
             if (Options.Parse(args).Count != 0) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs.JoinEscapeArguments(), null);
 
             SetInterfaceUri(Config.SelfUpdateUri ?? throw new UriFormatException(Resources.SelfUpdateDisabled));
-            if (WindowsUtils.IsGuiSession) Requirements.Command = Command.NameRunGui;
+            if (WindowsUtils.IsWindows && WindowsUtils.IsGuiSession) Requirements.Command = Command.NameRunGui;
 
             FeedManager.Refresh = true;
         }

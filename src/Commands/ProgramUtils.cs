@@ -110,11 +110,11 @@ public static class ProgramUtils
     /// </summary>
     public static ProcessStartInfo? GuiStartInfo(params string[] arguments)
     {
-        if (!WindowsUtils.IsGuiSession) return null;
-
         try
         {
-            return ProcessUtils.Assembly("0install-win", arguments);
+            return WindowsUtils.IsWindows && WindowsUtils.IsGuiSession
+                ? ProcessUtils.Assembly("0install-win", arguments)
+                : null;
         }
         catch (FileNotFoundException)
         {
