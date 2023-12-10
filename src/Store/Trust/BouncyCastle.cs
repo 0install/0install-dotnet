@@ -5,6 +5,7 @@ using System.Text;
 using NanoByte.Common.Streams;
 using Org.BouncyCastle.Bcpg;
 using Org.BouncyCastle.Bcpg.OpenPgp;
+using Org.BouncyCastle.Security;
 
 namespace ZeroInstall.Store.Trust;
 
@@ -27,7 +28,7 @@ public partial class BouncyCastle(string homeDir) : IOpenPgp
                 result[i] = Verify(data, signatureList[i]);
             }
             #region Error handling
-            catch (Exception ex) when (ex is PgpException or InvalidDataException)
+            catch (Exception ex) when (ex is PgpException or SecurityUtilityException or InvalidDataException)
             {
                 // Wrap exception since only certain exception types are allowed
                 throw new SignatureException(Resources.InvalidSignature, ex);
