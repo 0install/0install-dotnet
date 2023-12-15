@@ -109,7 +109,7 @@ Tente especificá-lo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>A chave secreta não está no chaveiro do utilizador.</value>
+    <value>A chave secreta não se encontra no chaveiro do utilizador.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">

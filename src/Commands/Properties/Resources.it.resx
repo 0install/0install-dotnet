@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
-    <value>L'alias '{0}' per '{1}' è stato rimosso.</value>
+    <value>L'alias denominato '{0}' per '{1}' è stato rimosso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
@@ -265,7 +265,7 @@ Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con 
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Si comporta in modo simile a '0install select', ma scarica anche le versioni selezionate se non sono già nella cache.
-Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; restituisce altrimenti uno stato pari a 1.</value>
+Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e se queste sono ora tutte scaricate e presenti nella cache; altrimenti restituisce uno stato pari a 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -273,7 +273,7 @@ Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato d
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importa un feed da un file locale, come se fosse stato scaricato dalla rete. Questo è utile quando si testa un file di feed, per evitare di caricarlo su un server remoto per scaricarlo di nuovo.
+    <value>Importa un feed da un file locale, come se fosse stato scaricato dalla rete. Ciò è utile quando si testa un file di feed, per evitare di caricarlo su un server remoto per scaricarlo di nuovo.
 Il file deve avere una firma digitale attendibile, come quando si preleva dalla rete.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -314,7 +314,7 @@ Il file deve avere una firma digitale attendibile, come quando si preleva dalla 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
-    <value>Disregistra un mangime, invertendo l'effetto di '0install add-feed'.</value>
+    <value>Disregistra un mangime, invertendo l'effetto di "0install add-feed".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
@@ -420,7 +420,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Controlla la presenza di aggiornamenti del programma e, se trovati, li scarica.
+    <value>Controlla la presenza di aggiornamenti del programma e li scarica se li trova.
 È simile a '0install download --refresh', tranne per il fatto che stampa informazioni sulla presenza di eventuali modifiche.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -750,7 +750,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Applicare la configurazione a livello di macchina (per l'intero computer) anziché solo per l'utente corrente.</value>
+    <value>Applicare la configurazione a livello di macchina (per l'intero computer) invece che solo per l'utente corrente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
@@ -775,7 +775,7 @@ Non può contenere argomenti della riga di comando! Gli spazi bianchi non devono
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Ritorna immediatamente una volta che il programma scelto è stato lanciato, invece di aspettare che finisca l'esecuzione. In Windows il codice di uscita è l'ID del processo del programma lanciato.</value>
+    <value>Ritorna immediatamente una volta che il programma scelto è stato lanciato, invece di aspettare che termini l'esecuzione. In Windows il codice di uscita è l'ID del processo del programma lanciato.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -792,7 +792,7 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
-    <value>Recuperare copie fresche di tutti i feed utilizzati.</value>
+    <value>Recuperare copie fresche di tutti i feed usati.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
@@ -951,7 +951,7 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>L'attivazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
+    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>バージョン番号には、ドット区切りの小数と修飾文字列のみを含めることができる。</value>
+    <value>バージョン番号には、ドットで区切られた小数と修飾文字列のみを含めることができる。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">

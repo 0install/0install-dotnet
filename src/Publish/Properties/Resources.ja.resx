@@ -105,7 +105,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>この方法は現在、ウィンドウズでのみ利用可能である。</value>
+    <value>この方法は現在、ウィンドウズでのみ利用できる。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">

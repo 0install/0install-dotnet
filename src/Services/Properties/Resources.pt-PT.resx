@@ -91,7 +91,7 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Execução de um solucionador externo</value>
+    <value>Executar o solucionador externo</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">

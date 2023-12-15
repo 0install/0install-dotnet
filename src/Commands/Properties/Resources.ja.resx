@@ -264,7 +264,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>0install select' と同様の動作をするが、選択されたバージョンがまだキャッシュされていない場合は、ダウンロードも行う。
+    <value>0install select' と同様の動作をするが、選択したバージョンがまだキャッシュされていない場合は、ダウンロードも行う。
 適切なバージョンのセットを選択し、それらがすべてダウンロードされキャッシュにある場合、終了ステータスに 0 を返し、そうでない場合はステータスに 1 を返す。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -404,7 +404,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
-    <value>アプリケーションリストをサーバーと同期させる。</value>
+    <value>アプリケーションリストをサーバーと同期する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
@@ -412,7 +412,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>フィードに署名するために信頼できる鍵をリストする。指定した場合は、特定の FINGERPRINT が信頼されているドメインのみを リストアップする。</value>
+    <value>フィードに署名するために信頼されている鍵を一覧表示する。指定した場合は、特定の FINGERPRINT が信頼されているドメインのみを リストアップする。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -493,7 +493,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>{0}' ({1}) のフィードは '{2}' に置き換えられました。代わりに新しいフィードを使用しますか?</value>
+    <value>{0}' ({1}) のフィードは '{2}' に置き換えられました。代わりに新しいフィードを使用しますか？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -603,7 +603,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>デスクトップ統合を行うには、Zero Installをシステムに導入する必要があります。</value>
+    <value>デスクトップ統合を機能させるには、Zero Installをシステムに導入する必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -616,7 +616,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
-    <value>インプリメンテーションを実行する際、コマンドが空でない場合がある。</value>
+    <value>インプリメンテーションを実行する際、コマンドが空にならないことがある。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
@@ -672,7 +672,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
-    <value>アップデート後に不要になった実装を削除する。</value>
+    <value>アップデート後に不要となった実装を削除する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
@@ -681,11 +681,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>設定GUIで特定のタブに切り替える。有効な{TAB}は'updates'、'storage'、'catalog'、'trust'、'sync'、'language'、'language'、'advanced'である。</value>
+    <value>設定GUIで特定のタブに切り替える。有効な{TAB}は「updates」、「storage」、「catalog」、「trust」、「sync」、「language」、「language」、「advanced」である。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>ソルバーが特定の{CPU} をターゲットにするように強制する。</value>
+    <value>ソルバーが特定の{CPU} をターゲットにするよう強制する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
@@ -812,7 +812,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>同期データをリセットする。有効な{MODE}は「none」（クライアントとサーバーのデータを通常通りマージする）、「client」（クライアントの全データをサーバーのデータに置き換える）、「server」（サーバーの全データをクライアントのデータに置き換える）である。</value>
+    <value>同期データをリセットする。有効な{MODE}は「none」（クライアントとサーバーのデータを正常にマージ）、「client」（クライアントの全データをサーバーのデータに置き換える）、「server」（サーバーの全データをクライアントのデータに置き換える）である。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -835,7 +835,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>検索する実装キャッシュのリストに{DIR} を追加します。
+    <value>検索する実装キャッシュのリストに{DIR} を追加する。
 ただし、新しいダウンロードはこのディレクトリには書き込まれません。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -915,7 +915,7 @@
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>セルフアップデートが無効になっています。
-有効にするには、'0install config self_update_uri default'を実行してください。</value>
+0install config self_update_uri default'を実行して有効にする。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
@@ -960,7 +960,7 @@
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>暗号キーは、サーバーにデータを送信する前に、ローカルでデータを暗号化するために使用されます。
-この鍵は秘密にし、パスワードには別のものを使用してください。こうすることで、万が一サーバーが危険にさらされても、誰もあなたのデータにアクセスできなくなります。</value>
+この鍵は秘密にしておき、パスワードには別のものを使用してください。こうすることで、万が一サーバーが危険にさらされても、誰もあなたのデータにアクセスできなくなります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

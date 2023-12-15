@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Ошибка при загрузке настроек подачи для '{0}'. Возврат к значениям по умолчанию.</value>
+    <value>Ошибка при загрузке предпочтений подачи для '{0}'. Возврат к значениям по умолчанию.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
@@ -75,19 +75,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Невозможно найти в каталоге фид '{0}'.</value>
+    <value>Невозможно найти корм '{0}' в каталоге.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Вместо этого найдено:</value>
+    <value>Найдено вместо:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Невозможно найти реализацию для интерфейса '{0}' в выборке.</value>
+    <value>Невозможно найти реализацию для интерфейса '{0}' в выборе.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' не является корректным URI 'http(s):' и не является корректным локальным путем.</value>
+    <value>'{0}' не является действительным URI 'http(s):' и не является действительным локальным путем.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -99,7 +99,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Отсутствует тег {0} внутри {1}.</value>
+    <value>Отсутствие тега {0} внутри {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Не был указан известный метод дайджеста.</value>
+    <value>Не было указано ни одного известного метода переваривания.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
@@ -123,11 +123,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Не удалось разрешить относительный URI '{0}'. Относительные URI могут содержать только ленты, сохраненные в виде локальных файлов.</value>
+    <value>Не удалось разрешить относительный URI '{0}'. Относительные URI могут содержаться только в фидах, сохраненных как локальные файлы.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>атрибут 'rollout-percentage' на сайте {0} может быть установлен только в том случае, если параметр 'stability' имеет значение 'testing' или не установлен.</value>
+    <value>атрибут 'rollout-percentage' на {0} может быть установлен только в том случае, если параметр 'stability' имеет значение 'testing' или не установлен.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -135,7 +135,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Не обеспечивает команду '{0}'.</value>
+    <value>Не предоставляет команду '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
@@ -147,11 +147,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Реализация отсутствует в кэше (в настоящее время находится в режиме off-line)</value>
+    <value>Реализация отсутствует в кэше (в настоящее время находится в автономном режиме)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Неисполняемая реализация исходных текстов</value>
+    <value>Неисполняемая исходная реализация</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
@@ -159,11 +159,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Должен быть допустимым типом MIME.</value>
+    <value>Должен быть действительным типом MIME.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Должен быть безопасным идентификатором. Может содержать только буквенно-цифровые символы, пробелы ( ), точки (.), знаки подчеркивания (_), дефисы (-) и знаки плюс (+).</value>
+    <value>Это должен быть безопасный идентификатор. Может содержать только буквенно-цифровые символы, пробелы ( ), точки (.), знаки подчеркивания (_), дефисы (-) и знаки плюс (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">

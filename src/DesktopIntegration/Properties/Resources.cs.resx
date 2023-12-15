@@ -125,11 +125,11 @@ Kryptografický klíč použitý na serveru můžete změnit spuštěním průvo
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Data aktuálně uložená na serveru Sync jsou poškozená.
-Data uložená na serveru můžete nahradit spuštěním průvodce řešením problémů (dostanete se k němu kliknutím pravým tlačítkem myši na tlačítko "Sync") nebo příkazem '0install sync --reset=server'.</value>
+Data uložená na serveru můžete nahradit spuštěním průvodce řešením problémů (dostanete se do něj kliknutím pravým tlačítkem myši na tlačítko "Sync") nebo příkazem '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
-    <value>Odesílání synchronizačních dat</value>
+    <value>Nahrávání synchronizačních dat</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">

@@ -218,7 +218,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>没有指定已知的摘要方法。</value>
+    <value>未指定已知的摘要方法。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">

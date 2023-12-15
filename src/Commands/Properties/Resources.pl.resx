@@ -176,7 +176,7 @@ W razie potrzeby pliki te można pobrać ponownie.</value>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
     <value>Czy chcesz usunąć wszystkie aplikacje z listy "Moje aplikacje"? Zapobiegnie to pozostaniu wpisów w menu po usunięciu Zero Install.
-Możesz utworzyć kopię zapasową tej listy za pomocą "0install sync".</value>
+Możesz utworzyć kopię zapasową tej listy za pomocą funkcji "0install sync".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
@@ -689,7 +689,7 @@ Ustaw na puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Wyświetla graficzny edytor zasad. Umożliwia to dostosowanie używanej wersji programu lub biblioteki.</value>
+    <value>Wyświetla graficzny edytor zasad. Umożliwia to dostosowanie wersji programu lub biblioteki do użycia.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -759,7 +759,7 @@ Nie może zawierać argumentów wiersza poleceń! Białe znaki nie muszą być p
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
-    <value>Wyświetla sam manifest (jeden wiersz dla każdego pliku lub katalogu).</value>
+    <value>Wyświetlenie samego manifestu (jeden wiersz dla każdego pliku lub katalogu).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMessage" xml:space="preserve">

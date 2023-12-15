@@ -247,7 +247,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Αναζητά καταχωρημένους καταλόγους για εφαρμογές που ταιριάζουν με το καθορισμένο ερώτημα. Εάν δεν δοθεί ερώτημα, παρατίθενται όλες οι εφαρμογές στους καταλόγους.</value>
+    <value>Πραγματοποιεί αναζήτηση στους καταχωρημένους καταλόγους για εφαρμογές που ταιριάζουν με το καθορισμένο ερώτημα. Εάν δεν δοθεί ερώτημα, παρατίθενται όλες οι εφαρμογές στους καταλόγους.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">

@@ -198,12 +198,12 @@ Verwijder een selectievakje om de standaardstatus van een capaciteit te verwijde
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
-    <value>Een draagbare versie van Zero Install is uitgerold naar '{0}'.
+    <value>Er is een draagbare versie van Zero Install geïnstalleerd op '{0}'.
 Je kunt het gebruiken door het ZeroInstall.exe bestand in de directory uit te voeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Bij gebruik van de optie {0} moet je expliciet de doelmap opgeven.</value>
+    <value>Als je de optie {0} gebruikt, moet je expliciet de doelmap opgeven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -269,7 +269,7 @@ Geeft een exit-status van 0 als het een geschikte set versies heeft geselecteerd
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exporteert alle feeds en implementaties die nodig zijn om het programma gespecificeerd door een URI te starten naar een DIRECTORY.</value>
+    <value>Exporteert alle feeds en implementaties die nodig zijn om het programma te starten dat is opgegeven door een URI naar een DIRECTORY.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -323,7 +323,7 @@ Het bestand moet een vertrouwde digitale handtekening hebben, net als bij het op
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>Gedraagt zich hetzelfde als '0install download', behalve dat het ook het programma uitvoert nadat het ervoor heeft gezorgd dat het in de cache zit.
-Geeft een exit-status van 1 als de downloadstap mislukt is. Anders is de exit-status de exit-status van het programma dat wordt uitgevoerd.</value>
+Geeft een exit-status van 1 als de downloadstap is mislukt. Anders is de exit-status de exit-status van het programma dat wordt uitgevoerd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
@@ -754,7 +754,7 @@ Je kunt deze optie meerdere keren gebruiken om meerdere aanvaardbare talen op te
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Voer het opgegeven uitvoerbare bestand {MAIN} uit in plaats van de standaard. Als het begint met '/' of '\' dan is het pad relatief ten opzichte van de bovenliggende map van de implementatie, anders is het relatief ten opzichte van de map met het standaard hoofdprogramma.
+    <value>Start de opgegeven uitvoerbare {MAIN} in plaats van de standaard. Als het begint met '/' of '\' dan is het pad relatief ten opzichte van de bovenliggende map van de implementatie, anders is het relatief ten opzichte van de map met het standaard hoofdprogramma.
 Mag geen commandoregel argumenten bevatten! Whitespaces hoeven niet geëscaped te worden.</value>
     <comment>Automatically translated.</comment>
   </data>

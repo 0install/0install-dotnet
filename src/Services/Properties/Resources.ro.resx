@@ -119,7 +119,7 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problemă în obținerea '{0}'.</value>
+    <value>Problemă la obținerea '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
@@ -162,7 +162,7 @@ Ora nouă: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Nu a reușit să descarce {0}. Încerc să obțin din oglinda feed în schimb.</value>
+    <value>Nu a reușit să descarce {0}. Încearcă să descarci din oglinda feed-ului în schimb.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

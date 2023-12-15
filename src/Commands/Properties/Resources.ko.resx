@@ -59,19 +59,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Added0installToPath" xml:space="preserve">
-    <value>명령줄 PATH에 '0install' 명령이 추가되었습니다.</value>
+    <value>명령줄 경로에 '0install' 명령이 추가되었습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasCreated" xml:space="preserve">
-    <value>'{1}'에 대해 '{0}'라는 별칭을 만들었습니다.</value>
+    <value>'{1}'에 대해 '{0}'이라는 별칭이 만들어졌습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasNotFound" xml:space="preserve">
-    <value>'{0}' 라는 기존 별칭을 찾을 수 없습니다.</value>
+    <value>'{0}' 라는 별칭을 찾을 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
-    <value>'{1}'의 별칭인 '{0}'가 제거되었습니다.</value>
+    <value>'{1}'에 대한 '{0}'라는 별칭이 제거되었습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
@@ -84,7 +84,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>'{0}' 이미 사용자 정의 구현 캐시 목록에 있습니다.</value>
+    <value>'{0}' 이미 사용자 지정 구현 캐시 목록에 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -112,13 +112,13 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
-    <value>지금 사용해 보시겠습니까?</value>
+    <value>지금 시도해 보시겠습니까?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>이를 반영하기 위해 기존 데스크톱 연동 기능을 업데이트하시겠습니까?
-'예'를 선택하면 호환되지 않을 가능성이 있는 통합이 제거됩니다.
-'아니요'를 선택하면 제로 인스톨은 이전 기능을 계속 사용합니다.</value>
+'예'를 선택하면 잠재적으로 호환되지 않는 통합 기능이 제거됩니다.
+'아니요'를 선택하면 제로 인스톨에서 이전 기능을 계속 사용합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
@@ -180,17 +180,17 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
-    <value>마지막 줄에 텍스트를 입력하기 시작하여 새 항목을 만듭니다.
+    <value>마지막 줄에 텍스트를 입력하여 새 항목을 만듭니다.
 첫 번째 열을 클릭하여 전체 줄을 선택한 다음 키보드에서 DEL 키를 눌러 항목을 제거합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
     <value>확인란을 설정하여 기능을 원하는 기본 핸들러로 설정합니다.
-확인란을 제거하면 기능의 기본 상태가 제거됩니다(여전히 사용 가능한 상태로 유지됨).</value>
+확인란을 제거하여 기능의 기본 상태를 제거합니다(여전히 사용 가능한 상태로 유지됨).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>캐시에서 {0} 체크된 요소를 삭제하시겠습니까?</value>
+    <value>{0} 체크된 요소를 캐시에서 삭제하시겠습니까?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
@@ -199,7 +199,7 @@
   </data>
   <data name="DeployedPortable" xml:space="preserve">
     <value>제로 인스톨의 휴대용 버전이 '{0}'에 배포되었습니다.
-해당 디렉토리에서 ZeroInstall.exe 파일을 실행하여 사용할 수 있습니다.</value>
+해당 디렉터리에서 ZeroInstall.exe 파일을 실행하여 사용할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
@@ -207,7 +207,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>지정된 대상 디렉터리({0})는 홈 디렉터리 외부에 있습니다.</value>
+    <value>지정한 대상 디렉터리({0})는 홈 디렉터리 외부에 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -223,7 +223,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddFeed" xml:space="preserve">
-    <value>프로그램의 구현 소스(버전)를 추가로 등록합니다.</value>
+    <value>프로그램의 추가 구현 소스(버전)를 등록합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogAdd" xml:space="preserve">
@@ -247,7 +247,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>등록된 카탈로그에서 지정된 쿼리와 일치하는 애플리케이션을 검색합니다. 쿼리가 지정되지 않으면 카탈로그에 있는 모든 애플리케이션이 나열됩니다.</value>
+    <value>등록된 카탈로그에서 지정된 쿼리와 일치하는 애플리케이션을 검색합니다. 쿼리를 지정하지 않으면 카탈로그에 있는 모든 애플리케이션이 나열됩니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -256,7 +256,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>구성 설정을 보거나 변경합니다.
-인수가 없으면 모든 설정과 현재 값을 표시합니다. 인수가 하나이면 명명된 설정의 현재 값을 표시합니다. 인수가 두 개이면 설정을 지정된 값으로 설정하거나 "{0}"값을 지정하면 기본값으로 재설정합니다.</value>
+인수가 없으면 모든 설정과 현재 값을 표시합니다. 인수가 하나이면 명명된 설정의 현재 값을 표시합니다. 인수가 두 개이면 설정을 지정된 값으로 설정하거나 "{0}" 값을 지정하면 기본값으로 재설정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -269,7 +269,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>URI로 지정된 프로그램을 시작하는 데 필요한 모든 피드와 구현을 디렉터리로 내보냅니다.</value>
+    <value>URI로 지정된 프로그램을 실행하는 데 필요한 모든 피드와 구현을 DIRECTORY로 내보냅니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -278,15 +278,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>기존 app-list.xml 파일에서 애플리케이션 및 데스크톱 통합 집합을 가져옵니다.</value>
+    <value>기존 app-list.xml 파일에서 애플리케이션 및 데스크톱 통합 세트를 가져옵니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>애플리케이션 목록에 애플리케이션을 추가하고(누락된 경우) 데스크톱 환경에 통합합니다.</value>
+    <value>애플리케이션 목록에 애플리케이션을 추가하고(없는 경우) 데스크톱 환경에 통합합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>로컬로 알려진 모든 피드 URI를 나열합니다. 검색어가 지정되면 해당 문자열이 포함된 URI만 표시됩니다(대소문자 구분 없음).</value>
+    <value>로컬로 알려진 모든 피드 URI를 나열합니다. 검색어를 지정하면 해당 문자열이 포함된 URI만 표시됩니다(대소문자 구분 없음).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -306,7 +306,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>애플리케이션 목록에서 모든 애플리케이션을 제거하고 데스크톱 환경 통합을 실행 취소합니다. 제로 인스톨을 제거하기 전에 이 명령을 사용하여 시스템을 정리하세요.</value>
+    <value>애플리케이션 목록에서 모든 애플리케이션을 제거하고 데스크톱 환경 통합을 실행 취소합니다. 제로 인스톨을 제거하기 전에 시스템을 정리하려면 이 명령을 사용합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
@@ -314,7 +314,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
-    <value>피드 등록을 취소하여 '0설치 피드 추가'의 효과를 되돌립니다.</value>
+    <value>피드 등록을 취소하여 '0install add-feed'의 효과를 되돌립니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
@@ -322,21 +322,21 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>프로그램이 캐시에 있는지 확인한 후 실행한다는 점을 제외하면 '0설치 다운로드'와 유사하게 작동합니다.
-다운로드 단계가 실패한 경우 종료 상태 1을 반환합니다. 그렇지 않으면 종료 상태는 실행 중인 프로그램의 종료 상태가 됩니다.</value>
+    <value>프로그램이 캐시에 있는지 확인한 후 실행한다는 점을 제외하면 '0install download'와 유사하게 작동합니다.
+다운로드 단계가 실패하면 종료 상태 1을 반환합니다. 그렇지 않으면 종료 상태는 실행 중인 프로그램의 종료 상태가 됩니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>미러 서버에서 색인된 피드 중 지정된 키워드와 일치하는 피드를 검색합니다. 기본 미러 서버는 품질에 관계없이 알려진 모든 피드를 색인화하므로 프로그램을 실행하기 전에 프로그램을 신뢰할지 여부를 결정해야 합니다.</value>
+    <value>미러 서버에서 색인된 피드 중 지정된 키워드와 일치하는 피드를 검색합니다. 기본 미러 서버는 품질에 관계없이 알려진 모든 피드를 색인하므로 프로그램을 실행하기 전에 프로그램을 신뢰할지 여부를 결정해야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
     <value>URI로 식별된 프로그램의 버전과 모든 종속 요소의 호환 가능한 버전을 선택합니다.
-버전 집합을 선택하면 종료 상태 0을 반환하고, 일관된 집합을 찾을 수 없으면 상태 1을 반환합니다.</value>
+버전 집합을 선택하면 종료 상태 0을, 일관된 집합을 찾을 수 없으면 상태 1을 반환합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
-    <value>제로 인스톨을 최신 버전으로 업데이트합니다.</value>
+    <value>제로 인스톨 자체를 최신 버전으로 업데이트합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAdd" xml:space="preserve">
@@ -348,7 +348,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
-    <value>캐시에 있는 모든 구현이 손상되지 않았는지 확인합니다.
+    <value>캐시의 모든 구현이 손상되지 않았는지 확인합니다.
 추가 인수는 사용자 정의 캐시 위치를 지정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -378,12 +378,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
-    <value>동일한 파일을 하드링크와 병합하여 디스크 공간을 절약합니다.
+    <value>동일한 파일을 하드링크로 병합하여 디스크 공간을 절약합니다.
 추가 인수는 사용자 지정 캐시 위치를 지정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>캐시에서 모든 구현을 제거합니다. 제로 설치를 제거하기 전에 이 명령을 사용하여 시스템을 정리하세요. 캐시 디렉터리를 수동으로 삭제하는 것은 구현을 수정하지 못하도록 보호하기 위해 사용되는 NTFS ACL로 인해 어려울 수 있습니다.
+    <value>캐시에서 모든 구현을 제거합니다. 제로 설치를 제거하기 전에 시스템을 정리하려면 이 명령을 사용합니다. 캐시 디렉터리를 수동으로 삭제하는 것은 구현을 수정으로부터 보호하기 위해 사용되는 NTFS ACL로 인해 어려울 수 있습니다.
 추가 인수는 사용자 지정 캐시 위치를 지정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -396,7 +396,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
-    <value>HTTP를 통해 캐시에서 아카이브로 구현을 제공합니다.</value>
+    <value>캐시의 구현을 HTTP를 통해 아카이브로 제공합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
@@ -408,15 +408,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>특정 핑거프린트로 서명하면 특정 도메인의 피드를 신뢰합니다.</value>
+    <value>특정 지문으로 서명할 때 특정 도메인의 피드를 신뢰합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>피드 서명을 위해 신뢰할 수 있는 키를 나열합니다. 지정한 경우 특정 핑거프린트가 신뢰되는 도메인만 나열합니다.</value>
+    <value>피드 서명을 위해 신뢰하는 키를 나열합니다. 지정한 경우 특정 핑거프린트가 신뢰되는 도메인만 나열합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>특정 핑거프린트로 서명된 피드에 대한 신뢰를 중지합니다. 지정한 경우 특정 도메인에 대한 신뢰만 중지합니다.</value>
+    <value>특정 핑거프린트로 서명된 피드에 대한 신뢰를 중지합니다. 지정한 경우 특정 도메인에 대해서만 신뢰를 중지합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -493,7 +493,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>'{0}'({1})에 대한 피드가 '{2}'( )로 대체되었습니다. 대신 새 피드를 사용하시겠습니까?</value>
+    <value>'{0}'({1})에 대한 피드가 '{2}'(으)로 대체되었습니다. 대신 새 피드를 사용하시겠습니까?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -513,7 +513,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
-    <value>절대 경로에는 파일:///경로가 아닌 파일:///path를 사용하세요.</value>
+    <value>절대 경로에는 파일:/경로가 아닌 파일:///path를 사용합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Hide" xml:space="preserve">
@@ -563,7 +563,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
-    <value>의 로컬 경로 {0}</value>
+    <value>로컬 경로 {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingArguments" xml:space="preserve">
@@ -571,7 +571,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>'{0}'에 &lt;피드 대상&gt; 요소가 누락되어 다른 인터페이스의 피드로 사용할 수 없습니다.</value>
+    <value>'{0}'에 &lt;피드-대상&gt; 요소가 누락되어 다른 인터페이스의 피드로 사용할 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -579,7 +579,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
-    <value>시스템 전체 작업을 수행하려면 관리자여야 합니다.</value>
+    <value>시스템 전체에 대한 작업을 수행하려면 관리자 권한이 있어야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
@@ -628,7 +628,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotInImplDirs" xml:space="preserve">
-    <value>'{0}' 사용자 정의 구현 캐시 목록에 없습니다.</value>
+    <value>'{0}' 사용자 지정 구현 캐시 목록에 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
@@ -664,7 +664,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>{VERSION} 보다 이전 버전의 주 프로그램을 사용해야 합니다. 즉, 이전 버전의 프로그램을 강제로 사용하도록 합니다.</value>
+    <value>{VERSION} 보다 이전 버전의 주 프로그램을 요구합니다. 즉, 이전 버전의 프로그램을 강제로 사용하도록 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -677,15 +677,15 @@
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>기본 명령을 실행하는 대신 {COMMAND} 을 사용합니다. 유효한 명령 이름은 프로그램 피드에 지정되어 있습니다.
-선택 중에 명령을 무시하려면 비어 있음("")으로 설정합니다.</value>
+선택 중에 명령을 무시하려면 빈("")으로 설정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>구성 GUI에서 특정 탭으로 전환합니다. 유효한 {TAB}는 '업데이트', '저장소', '카탈로그', '신뢰', '동기화', '언어', '언어' 및 '고급'입니다.</value>
+    <value>구성 GUI에서 특정 탭으로 전환합니다. 유효한 {TAB}은 '업데이트', '저장소', '카탈로그', '신뢰', '동기화', '언어', '언어' 및 '고급'입니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>솔버가 특정 {CPU} 을 대상으로 지정하도록 합니다.</value>
+    <value>솔버가 특정 {CPU} 을 대상으로 지정하도록 강제합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
@@ -705,7 +705,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>내보내기에 애플리케이션과 함께 제로 인스톨 자체를 포함하세요.</value>
+    <value>애플리케이션과 함께 내보내기에 제로 인스톨 자체를 포함하세요.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -713,7 +713,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
-    <value>현재 설치된 버전이 동일하거나 최신 버전인 경우에도 업데이트를 수행합니다.</value>
+    <value>현재 설치된 버전이 동일하거나 최신 버전인 경우에도 업데이트를 수행하세요.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
@@ -754,7 +754,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>기본값 대신 지정된 실행 파일 {MAIN} 을 실행합니다. 경로가 '/' 또는 '\'로 시작하면 구현의 최상위 디렉터리에 상대적인 경로이고, 그렇지 않으면 기본 메인 프로그램이 포함된 디렉터리에 상대적인 경로입니다.
+    <value>기본값 대신 지정된 실행 파일 {MAIN} 을 실행합니다. 경로가 '/' 또는 '\'로 시작하면 구현의 최상위 디렉터리를 기준으로 하고, 그렇지 않으면 기본 메인 프로그램이 포함된 디렉터리를 기준으로 합니다.
 명령줄 인수를 포함할 수 없습니다! 공백은 이스케이프 처리할 필요가 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -763,7 +763,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMessage" xml:space="preserve">
-    <value>사용자와 상호 작용할 때 표시할 메시지입니다.</value>
+    <value>사용자와 상호작용할 때 표시할 메시지입니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
@@ -771,7 +771,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>{VERSION} 보다 이전 버전이 아닌 주 프로그램 버전이 필요합니다. 예를 들어, 버전 2.0 이상을 실행하려면 --not-before=2.0을 사용하세요.</value>
+    <value>메인 프로그램의 버전이 {VERSION} 보다 이전 버전이어야 합니다. 예를 들어, 2.0 이상을 실행하려면 --not-before=2.0을 사용합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -808,15 +808,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>바이너리가 아닌 소스 코드를 선택합니다. 이것은 '0compile'에서 내부적으로 사용됩니다.</value>
+    <value>바이너리가 아닌 소스 코드를 선택합니다. 이것은 '0compile'에서 내부적으로 사용합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>동기화 데이터를 재설정합니다. 유효한 {MODE}는 'none'(클라이언트와 서버의 데이터를 정상적으로 병합), 'client'(클라이언트의 모든 데이터를 서버의 데이터로 대체) 및 'server'(서버의 모든 데이터를 클라이언트의 데이터로 대체)입니다.</value>
+    <value>동기화 데이터를 재설정합니다. 유효한 {MODE}는 'none'(클라이언트와 서버의 데이터를 정상적으로 병합), 'client'(클라이언트의 모든 데이터를 서버의 데이터로 바꾸기), 'server'(서버의 모든 데이터를 클라이언트의 데이터로 바꾸기)입니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>더 자세한 출력. 더 자세한 출력을 원하시면 두 번 사용하세요.</value>
+    <value>더 자세한 출력. 두 번 사용하면 더욱 자세한 출력이 가능합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -824,14 +824,14 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>주어진 {RANGE} 내의 메인 프로그램 버전이 필요합니다.
+    <value>주어진 {RANGE} 내에 메인 프로그램의 버전이 필요합니다.
 범위는 파이프(|)로 구분됩니다.
-각 범위는 "START..!END" 형식입니다. 범위는 시작 &lt;= 버전 &lt; 끝이 있는 버전과 일치합니다. 시작 또는 끝은 생략할 수 있습니다.
+각 범위는 "START..!END" 형식입니다. 범위는 시작 &lt;= 버전 &lt; 끝이 되는 버전과 일치합니다. 시작 또는 끝은 생략할 수 있습니다.
 해당 버전만 일치시키려면 범위 대신 단일 버전 번호를 사용하거나, 해당 버전을 제외한 모든 버전을 일치시키려면 !VERSION을 사용할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>지정된 라이브러리 또는 하위 컴포넌트의 경우 {0:URI} 는 {1:RANGE} 버전을 지정합니다(--version의 경우).</value>
+    <value>{0:URI} 이 지정된 라이브러리 또는 하위 컴포넌트의 경우 버전 {1:RANGE} (--version의 경우)을 지정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
@@ -840,13 +840,13 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>선택한 프로그램을 직접 실행하는 대신 {COMMAND} PROGRAM ARGS를 실행합니다. 이 방법은 프로그램에서 디버거 및 추적 도구를 실행할 때 유용합니다(제로 인스톨이 아닌!).
-래퍼는 프로그램이 선택한 환경에서 실행되므로 이 메커니즘은 샌드박싱에 사용할 수 없습니다.
-명령줄 인수를 포함할 수 있습니다. 공백은 이스케이프해야 합니다!</value>
+    <value>선택한 프로그램을 직접 실행하는 대신 {COMMAND} 프로그램 명령어를 실행합니다. 이 방법은 프로그램에서 디버거 및 추적 도구를 실행할 때 유용합니다(제로 인스톨이 아닌!).
+래퍼는 프로그램에서 선택한 환경에서 실행되므로 이 메커니즘은 샌드박싱에 사용할 수 없습니다.
+명령줄 인수를 포함할 수 있습니다. 공백은 이스케이프 처리해야 합니다!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>콘솔에 기계가 읽을 수 있는 XML로 출력을 씁니다.</value>
+    <value>콘솔에 기계 판독이 가능한 XML로 출력을 기록합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
@@ -878,7 +878,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>이 기능을 적용하려면 터미널을 닫았다가 다시 열어야 할 수도 있습니다.</value>
+    <value>이 기능을 적용하려면 단말기를 닫았다가 다시 열어야 할 수도 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -886,11 +886,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>별칭을 사용하여 '{0}'를 '{1}'로 변경했습니다.</value>
+    <value>별칭을 사용하여 '{0}'을 '{1}'으로 해결했습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
-    <value>카탈로그를 사용하여 '{0}'를 '{1}'로 수정했습니다.</value>
+    <value>카탈로그를 사용하여 '{0}'을 '{1}'으로 해결했습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
@@ -902,7 +902,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>이 제로 인스톨 인스턴스는 배포되지 않습니다. 제거할 항목이 없습니다.</value>
+    <value>이 제로 인스톨 인스턴스는 배포되지 않았습니다. 제거할 항목이 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
@@ -915,7 +915,7 @@
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>자체 업데이트가 비활성화됩니다.
-활성화하려면 '0install config self_update_uri default'를 실행하세요.</value>
+'0install config self_update_uri default'를 실행하여 활성화합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
@@ -927,7 +927,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>{0} 에 대한 안정성 정책을 기본값으로 재설정하시겠습니까?</value>
+    <value>{0} 의 안정성 정책을 기본값으로 재설정하시겠습니까?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
@@ -943,7 +943,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
-    <value>{0} 저장 공간을 확보했습니다.</value>
+    <value>{0} 저장 공간 확보.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
@@ -980,7 +980,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>다음 중 하나를 사용하여 {0} 을 사용해 보세요:</value>
+    <value>다음 중 하나를 사용해 보세요 {0}:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
@@ -1000,7 +1000,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
-    <value>대신 '{0}' 를 사용합니다.</value>
+    <value>대신 '{0}' 을 사용합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">

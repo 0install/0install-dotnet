@@ -67,11 +67,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>'{0}'에 대한 피드 환경설정을 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌립니다.</value>
+    <value>'{0}'에 대한 피드 환경설정을 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌리고 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>'{0}'에 대한 인터페이스 기본 설정을 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌립니다.</value>
+    <value>'{0}'에 대한 인터페이스 기본 설정을 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌리고 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' 유효한 'http(s):' URI가 아니며 유효한 로컬 경로도 아닙니다.</value>
+    <value>'{0}' 는 유효한 'http(s):' URI가 아니며 유효한 로컬 경로도 아닙니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -95,7 +95,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>{1} 에 '{0}' 속성이 누락되었습니다.</value>
+    <value>{1} 에 '{0}' 속성이 누락되었습니다 .</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>알려진 다이제스트 방법이 지정되지 않았습니다.</value>
+    <value>알려진 다이제스트 메서드가 지정되지 않았습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>{0} 의 '롤아웃-퍼센트' 속성은 '안정성'이 '테스트 중'이거나 설정되지 않은 경우에만 설정할 수 있습니다.</value>
+    <value>{0} 의 '롤아웃 비율' 속성은 '안정성'이 '테스트 중'이거나 설정되지 않은 경우에만 설정할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>버전 범위의 끝은 배타적이어야 합니다. '...{0}'이 아닌 '...{0}'을 사용하세요.</value>
+    <value>버전 범위의 끝은 독점적이어야 합니다. '...{0}' 대신 '...{0}'을 사용합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -92,7 +92,7 @@ K importu těchto souborů do jiného počítače můžete použít importní sk
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppList" xml:space="preserve">
-    <value>Seznam aplikací</value>
+    <value>Seznam žádostí</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
@@ -104,7 +104,7 @@ K importu těchto souborů do jiného počítače můžete použít importní sk
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>Tím se do nabídky Start a příkazového řádku přidá nástroj Zero Install. Pokračovat?</value>
+    <value>Tím přidáte program Zero Install do nabídky Start a příkazového řádku. Pokračovat?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -118,7 +118,7 @@ K importu těchto souborů do jiného počítače můžete použít importní sk
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Přejete si aktualizovat stávající integraci stolních počítačů tak, aby to zohledňovala?
 Pokud vyberete možnost "Ano", potenciálně nekompatibilní integrace budou odstraněny.
-Pokud vyberete "Ne", bude Zero Install nadále používat staré možnosti.</value>
+Pokud vyberete možnost "Ne", bude instalace Zero Install nadále používat staré možnosti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
@@ -286,11 +286,11 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Vypíše všechny lokálně známé URI krmiv. Je-li zadán hledaný výraz, zobrazí se pouze URI obsahující tento řetězec (nerozlišuje velká a malá písmena).</value>
+    <value>Vypíše všechny lokálně známé URI krmiv. Pokud je zadán hledaný výraz, zobrazí se pouze URI obsahující tento řetězec (nerozlišuje velká a malá písmena).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Pokud je zadán URI, zobrazí se pouze aplikace s tímto URI. Je-li zadán PATTERN, zobrazí se pouze aplikace, které obsahují tento řetězec ve svém názvu (nerozlišuje velká a malá písmena).</value>
+    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Pokud je zadán URI, zobrazí se pouze aplikace s tímto URI. Pokud je zadán PATTERN, zobrazí se pouze aplikace, které obsahují tento řetězec ve svém názvu (nerozlišuje velká a malá písmena).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -298,7 +298,7 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Nainstaluje program Zero Install do zadaného adresáře TARGET nebo do výchozího adresáře pro programy a integruje jej do systému.</value>
+    <value>Nasadí program Zero Install do zadaného adresáře TARGET nebo do výchozího adresáře pro programy a integruje jej do systému.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
@@ -481,7 +481,7 @@ Je to podobné jako '0install download --refresh' s tím rozdílem, že vypíše
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
-    <value>Krmivo nebylo zaregistrováno pro žádné rozhraní.</value>
+    <value>Kanál nebyl zaregistrován pro žádné rozhraní.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
@@ -910,7 +910,7 @@ Může obsahovat argumenty příkazového řádku. Bílé znaky musí být escap
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Tato instance nulové instalace nebyla nasazena. Nemůže se tedy sama aktualizovat.</value>
+    <value>Tato instance nulové instalace nebyla nasazena. Nemůže se proto sama aktualizovat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">

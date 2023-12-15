@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>아카이브 MIME 유형 '{0}' 은 지원되지 않습니다.</value>
+    <value>아카이브 MIME 유형 '{0}'은 지원되지 않습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

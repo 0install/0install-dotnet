@@ -147,7 +147,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>No se ha encontrado el resumen del manifiesto para la implementación '{0}'.</value>
+    <value>No se ha encontrado el resumen del manifiesto para la aplicación '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">

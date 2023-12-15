@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>Полученная командная строка пуста.</value>
+    <value>Полученная командная строка будет пустой.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
@@ -99,7 +99,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' не удалось найти в кэше фидов.</value>
+    <value>'{0}' не удалось найти в кэше кормов.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Отсутствует uri-атрибут &lt;interface&gt;. Должно быть '{0}'.</value>
+    <value>Отсутствует uri-атрибут &lt;интерфейс&gt;. Должен быть '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Для импорта ленты необходимо указывать URI, с которого она была получена.</value>
+    <value>Для импорта ленты должны быть указаны URI, с которых они были получены.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Сервер ключевой информации не смог предоставить никакой дополнительной информации об этом ключе.</value>
+    <value>Сервер информации о ключе не смог предоставить никакой дополнительной информации об этом ключе.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -162,7 +162,7 @@ URI канала: {0}
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Не удалось загрузить {0}. Вместо этого пытаюсь получить с зеркала канала.</value>
+    <value>Не удалось загрузить {0}. Вместо этого пытаюсь получить из зеркала.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -198,7 +198,7 @@ URI канала: {0}
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Рабочий каталог содержит недопустимый путь (потенциально опасный для безопасности).</value>
+    <value>Рабочий каталог содержит неверный путь (потенциально опасный для безопасности).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

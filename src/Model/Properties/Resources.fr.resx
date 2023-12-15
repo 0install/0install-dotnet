@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>l'attribut "rollout-percentage" sur {0} ne peut être défini que si "stability" est "testing" ou non défini.</value>
+    <value>l'attribut "rollout-percentage" sur {0} ne peut être défini que lorsque "stability" est "testing" ou non défini.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">

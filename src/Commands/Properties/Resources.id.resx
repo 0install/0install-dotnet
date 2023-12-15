@@ -358,7 +358,7 @@ Argumen tambahan menentukan lokasi cache target khusus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Mengekspor implementasi yang di-cache sebagai arsip (ZIP, TAR, dll.). Hasilnya dapat diimpor di mesin lain menggunakan '0install store add'.</value>
+    <value>Mengekspor implementasi yang di-cache sebagai arsip (ZIP, TAR, dll). Hasilnya dapat diimpor di mesin lain menggunakan '0install store add'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
@@ -420,7 +420,7 @@ Argumen tambahan menentukan lokasi cache khusus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Memeriksa pembaruan pada program dan mengunduhnya jika ditemukan.
+    <value>Memeriksa pembaruan program dan mengunduhnya jika ditemukan.
 Ini mirip dengan '0install download - refresh', kecuali bahwa ia mencetak informasi tentang apakah ada perubahan yang ditemukan.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -910,7 +910,7 @@ Dapat berisi argumen baris perintah. Spasi harus dihilangkan!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Instance Zero Install ini tidak digunakan. Oleh karena itu, instans ini tidak dapat memperbarui dirinya sendiri.</value>
+    <value>Instance Zero Install ini tidak digunakan. Oleh karena itu, instance ini tidak dapat memperbarui dirinya sendiri.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
@@ -927,7 +927,7 @@ Jalankan '0install config self_update_uri default' untuk mengaktifkannya.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>Atur ulang kebijakan stabilitas untuk {0} ke default?</value>
+    <value>Mengatur ulang kebijakan stabilitas untuk {0} ke default?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">

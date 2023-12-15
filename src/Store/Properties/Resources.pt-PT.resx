@@ -182,7 +182,7 @@ Se estiver a utilizar um disco formatado para FAT, converta-o para NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Não é possível descarregar o ícone de {0} porque só são suportados URLs HTTP e HTTPS.</value>
+    <value>Não é possível transferir o ícone de {0} porque só são suportados URLs HTTP e HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">

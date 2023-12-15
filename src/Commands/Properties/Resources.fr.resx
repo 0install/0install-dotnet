@@ -231,7 +231,7 @@ Vous pouvez l'utiliser en lançant le fichier ZeroInstall.exe qui se trouve dans
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionCatalogList" xml:space="preserve">
-    <value>Liste tous les catalogues enregistrés.</value>
+    <value>Liste de tous les catalogues enregistrés.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogRefresh" xml:space="preserve">
@@ -384,7 +384,7 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Supprime toutes les implémentations du cache. Utilisez cette commande pour nettoyer le système avant de supprimer Zero Install. La suppression manuelle des répertoires de cache peut s'avérer difficile en raison des listes de contrôle NTFS utilisées pour protéger les implémentations contre les modifications.
+    <value>Supprime toutes les implémentations du cache. Utilisez cette commande pour nettoyer le système avant de supprimer Zero Install. La suppression manuelle des répertoires du cache peut s'avérer difficile en raison des listes de contrôle NTFS utilisées pour protéger les implémentations contre les modifications.
 Des arguments supplémentaires permettent de spécifier des emplacements de cache personnalisés.</value>
     <comment>Automatically translated.</comment>
   </data>
