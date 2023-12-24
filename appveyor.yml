@@ -55,15 +55,16 @@ for:
 
     environment:
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: '1'
+      DOTNET_NOLOGO: '1'
 
     cache:
       - '$HOME/.nuget/packages -> **/*.csproj,**/*.targets,**/*.props'
 
     before_build:
-      - IGNORE_NORMALISATION_GIT_HEAD_MOVE=1 ./0install.sh run https://apps.0install.net/devel/gitversion.xml /verbosity quiet /output buildserver
+      - ./0install.sh run https://apps.0install.net/devel/gitversion.xml --verbosity quiet --output buildserver
 
     build_script:
-      - DOTNET_NOLOGO=true ./build.sh $GitVersion_NuGetVersion --skip-test
+      - ./build.sh $GitVersion_NuGetVersion --skip-test
 
     test_script:
-      - DOTNET_NOLOGO=true src/test.sh
+      - src/test.sh
