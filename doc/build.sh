@@ -2,4 +2,13 @@
 set -e
 cd `dirname $0`
 
-../0install.sh run https://apps.0install.net/dotnet/docfx.xml --logLevel=warning --warningsAsErrors docfx.json
+# Find dotnet
+if command -v dotnet > /dev/null 2> /dev/null; then
+    dotnet="dotnet"
+else
+    dotnet="../0install.sh run --version 7.0.. https://apps.0install.net/dotnet/sdk.xml"
+fi
+
+# Build docs
+$dotnet tool restore
+$dotnet docfx --logLevel=warning --warningsAsErrors docfx.json
