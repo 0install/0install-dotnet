@@ -56,6 +56,7 @@ for:
     environment:
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: '1'
       DOTNET_NOLOGO: '1'
+      IGNORE_NORMALISATION_GIT_HEAD_MOVE: '1'
 
     cache:
       - '$HOME/.nuget/packages -> **/*.csproj,**/*.targets,**/*.props'
