@@ -29,13 +29,13 @@ public sealed class IconStore(string path, Config config, ITaskHandler handler) 
         if (icon.Href == null) throw new ArgumentException("Missing href.", nameof(icon));
         #endregion
 
-        string path = GetPath(icon);
+        string iconPath = GetPath(icon);
 
-        if (File.Exists(path))
+        if (File.Exists(iconPath))
         {
             shouldRefresh = config.EffectiveNetworkUse == NetworkLevel.Full
-                         && DateTime.UtcNow - File.GetLastWriteTimeUtc(path) > config.Freshness;
-            return path;
+                         && DateTime.UtcNow - File.GetLastWriteTimeUtc(iconPath) > config.Freshness;
+            return iconPath;
         }
         else
         {
@@ -56,7 +56,7 @@ public sealed class IconStore(string path, Config config, ITaskHandler handler) 
     /// <inheritdoc/>
     public string GetFresh(Icon icon)
     {
-        string path = Get(icon, out bool shouldRefresh);
+        string iconPath = Get(icon, out bool shouldRefresh);
         if (shouldRefresh && _updatedIcons.AddIfNew(icon.Href))
         {
             try
@@ -78,7 +78,7 @@ public sealed class IconStore(string path, Config config, ITaskHandler handler) 
                 Log.Error($"Unexpected error downloading {icon}", ex);
             }
         }
-        return path;
+        return iconPath;
     }
 
     private string Download(Icon icon)
@@ -88,22 +88,22 @@ public sealed class IconStore(string path, Config config, ITaskHandler handler) 
         if (config.NetworkUse == NetworkLevel.Offline)
             throw new WebException(string.Format(Resources.NoDownloadInOfflineMode, icon.Href));
 
-        string path = GetPath(icon);
+        string iconPath = GetPath(icon);
 
-        using var atomic = new AtomicWrite(path);
+        using var atomic = new AtomicWrite(iconPath);
         handler.RunTask(new DownloadFile(icon.Href, atomic.WritePath) {BytesMaximum = MaximumIconSize});
         Validate(icon, atomic.WritePath);
         atomic.Commit();
 
-        return path;
+        return iconPath;
     }
 
     /// <inheritdoc/>
     public void Import(Icon icon, Stream stream)
     {
-        string path = GetPath(icon);
+        string iconPath = GetPath(icon);
 
-        using var atomic = new AtomicWrite(path);
+        using var atomic = new AtomicWrite(iconPath);
         stream.CopyToFile(atomic.WritePath);
         Validate(icon, atomic.WritePath);
         atomic.Commit();
