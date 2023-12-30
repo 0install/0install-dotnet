@@ -95,9 +95,9 @@ partial class Self
             string path = Path.Combine(tempDir, "0install-win.exe");
             if (!File.Exists(path)) path =  Path.Combine(tempDir, "0install.exe");
 
-            var args = new[] {Self.Name, RemoveHelper.Name, Locations.InstallBase};
-            if (Handler.Verbosity == Verbosity.Batch) args = args.Append("--batch");
-            if (Handler.Background) args = args.Append("--background");
+            var args = new List<string> {Self.Name, RemoveHelper.Name, Locations.InstallBase};
+            if (Handler.Verbosity == Verbosity.Batch) args.Add("--batch");
+            if (Handler.Background) args.Add("--background");
 
             new ProcessStartInfo(path, args.JoinEscapeArguments())
             {
