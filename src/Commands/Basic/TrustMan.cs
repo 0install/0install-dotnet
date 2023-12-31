@@ -14,7 +14,7 @@ public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
     public const string Name = "trust";
 
     /// <inheritdoc/>
-    public override IEnumerable<string> SubCommandNames => new[] {Add.Name, Remove.Name, List.Name};
+    public override IEnumerable<string> SubCommandNames => [Add.Name, Remove.Name, List.Name];
 
     /// <inheritdoc/>
     public override CliCommand GetCommand(string commandName)

@@ -17,7 +17,7 @@ public sealed partial class PackageImplementation : Element
     /// <summary>
     /// Well-known values for <see cref="Distributions"/>.
     /// </summary>
-    public static readonly string[] DistributionNames = {"Arch", "Cygwin", "Darwin", "Debian", "Gentoo", "MacPorts", "Ports", "RPM", "Slack", "Windows"};
+    public static readonly string[] DistributionNames = ["Arch", "Cygwin", "Darwin", "Debian", "Gentoo", "MacPorts", "Ports", "RPM", "Slack", "Windows"];
 
     /// <summary>
     /// The name of the package in the distribution-specific package manager.
@@ -34,7 +34,7 @@ public sealed partial class PackageImplementation : Element
     [Browsable(false)]
     [XmlIgnore]
     [OrderedEquality]
-    public List<string> Distributions { get; } = new();
+    public List<string> Distributions { get; } = [];
 
     /// <summary>
     /// The range of versions to accept for the specified <see cref="Package"/>.

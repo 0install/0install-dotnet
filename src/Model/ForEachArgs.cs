@@ -35,7 +35,7 @@ public partial class ForEachArgs : ArgBase
     [Browsable(false)]
     [XmlElement("arg")]
     [OrderedEquality]
-    public List<Arg> Arguments { get; } = new();
+    public List<Arg> Arguments { get; } = [];
 
     #region Normalize
     /// <inheritdoc/>

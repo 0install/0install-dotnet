@@ -8,7 +8,7 @@ namespace ZeroInstall;
 /// </summary>
 public abstract class TestWithMocks : IDisposable
 {
-    private readonly Dictionary<Type, Mock> _mocks = new();
+    private readonly Dictionary<Type, Mock> _mocks = [];
 
     /// <summary>
     /// Retrieves a <see cref="Mock"/> for a specific type. Multiple requests for the same type return the same mock instance.

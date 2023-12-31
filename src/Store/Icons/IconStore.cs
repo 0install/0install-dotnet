@@ -51,7 +51,7 @@ public sealed class IconStore(string path, Config config, ITaskHandler handler) 
             return GetCached(icon, out shouldRefresh) ?? Download(icon);
     }
 
-    private readonly ConcurrentSet<Uri> _updatedIcons = new();
+    private readonly ConcurrentSet<Uri> _updatedIcons = [];
 
     /// <inheritdoc/>
     public string GetFresh(Icon icon)

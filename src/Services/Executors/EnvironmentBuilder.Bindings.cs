@@ -15,7 +15,7 @@ public partial class EnvironmentBuilder
     /// <summary>
     /// Used to track <see cref="IBindingContainer"/> that have already been applied to avoid cycles.
     /// </summary>
-    private readonly HashSet<IBindingContainer> _appliedBindingContainers = new();
+    private readonly HashSet<IBindingContainer> _appliedBindingContainers = [];
 
     /// <summary>
     /// Applies all specified <see cref="Binding"/>s.
@@ -137,7 +137,7 @@ public partial class EnvironmentBuilder
     /// <summary>
     /// A list of run-environment executables pending to be configured.
     /// </summary>
-    private readonly List<(string exeName, IEnumerable<ArgBase> commandLine)> _pendingRunEnvs = new();
+    private readonly List<(string exeName, IEnumerable<ArgBase> commandLine)> _pendingRunEnvs = [];
 
     /// <summary>
     /// Applies an <see cref="ExecutableInVar"/> binding by creating a run-environment executable.
@@ -249,7 +249,7 @@ public partial class EnvironmentBuilder
             if (WindowsUtils.IsWindows)
                 typeof(Executor).CopyEmbeddedToFile("runenv.exe.template", path);
             else
-                File.WriteAllLines(path, new [] {"#!/bin/bash", "env_var_name=ZEROINSTALL_RUNENV_$(basename $0)", "${!env_var_name} \"$@\""});
+                File.WriteAllLines(path, ["#!/bin/bash", "env_var_name=ZEROINSTALL_RUNENV_$(basename $0)", "${!env_var_name} \"$@\""]);
         }
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException && File.Exists(path))

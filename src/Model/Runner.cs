@@ -28,7 +28,7 @@ public partial class Runner : Dependency, IArgBaseContainer
     [Browsable(false)]
     [XmlElement(typeof(Arg)), XmlElement(typeof(ForEachArgs))]
     [OrderedEquality]
-    public List<ArgBase> Arguments { get; } = new();
+    public List<ArgBase> Arguments { get; } = [];
 
     #region Normalize
     protected override string XmlTagName => "runner";

@@ -47,7 +47,7 @@ public class FeedBuilder : IDisposable
     #endregion
 
     #region Candidates
-    private readonly List<Candidate> _candidates = new();
+    private readonly List<Candidate> _candidates = [];
 
     /// <summary>
     /// Lists auto-detected candidates for <see cref="EntryPoint"/>s.
@@ -86,12 +86,12 @@ public class FeedBuilder : IDisposable
     /// <summary>
     /// Lists the <see cref="Command"/> derived from <see cref="Candidates"/> and <see cref="MainCandidate"/>.
     /// </summary>
-    public List<Command> Commands { get; } = new();
+    public List<Command> Commands { get; } = [];
 
     /// <summary>
     /// Lists the <see cref="EntryPoint"/>s accompanying <see cref="Commands"/>.
     /// </summary>
-    public List<EntryPoint> EntryPoints { get; } = new();
+    public List<EntryPoint> EntryPoints { get; } = [];
 
     /// <summary>
     /// Generates <see cref="Commands"/> and <see cref="EntryPoints"/> bases on <see cref="Candidates"/> and <see cref="MainCandidate"/>.
@@ -169,7 +169,7 @@ public class FeedBuilder : IDisposable
     /// </summary>
     public FeedUri? Uri { get; set; }
 
-    private readonly List<Icon> _icons = new();
+    private readonly List<Icon> _icons = [];
 
     /// <summary>
     /// Set to configure <see cref="Feed.Icons"/>.

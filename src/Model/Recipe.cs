@@ -17,7 +17,7 @@ public sealed partial class Recipe : RetrievalMethod
     [Description("An ordered list of archives to extract.")]
     [XmlIgnore]
     [OrderedEquality]
-    public List<IRecipeStep> Steps { get; } = new();
+    public List<IRecipeStep> Steps { get; } = [];
 
     #region XML serialization
     /// <summary>Used for XML serialization.</summary>

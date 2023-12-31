@@ -27,7 +27,7 @@ internal static class RegUtils
         #endregion
 
         using var contextMenuExtendedKey = root.TryOpenSubKey(key);
-        return contextMenuExtendedKey?.GetValueNames() ?? Array.Empty<string>();
+        return contextMenuExtendedKey?.GetValueNames() ?? [];
     }
 
     /// <summary>
@@ -44,6 +44,6 @@ internal static class RegUtils
         #endregion
 
         using var contextMenuExtendedKey = root.TryOpenSubKey(key);
-        return contextMenuExtendedKey?.GetSubKeyNames() ?? Array.Empty<string>();
+        return contextMenuExtendedKey?.GetSubKeyNames() ?? [];
     }
 }

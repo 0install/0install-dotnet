@@ -18,10 +18,10 @@ public class CategoryIntegrationManager(Config config, ITaskHandler handler, boo
 {
     #region Constants
     /// <summary>A list of all known <see cref="AccessPoint"/> categories.</summary>
-    public static readonly string[] AllCategories = {CapabilityRegistration.TagName, MenuEntry.TagName, DesktopIcon.TagName, SendTo.TagName, AppAlias.TagName, AutoStart.TagName, DefaultAccessPoint.TagName};
+    public static readonly string[] AllCategories = [CapabilityRegistration.TagName, MenuEntry.TagName, DesktopIcon.TagName, SendTo.TagName, AppAlias.TagName, AutoStart.TagName, DefaultAccessPoint.TagName];
 
     /// <summary>A list of recommended standard <see cref="AccessPoint"/> categories.</summary>
-    public static readonly string[] StandardCategories = {CapabilityRegistration.TagName, MenuEntry.TagName, SendTo.TagName, AppAlias.TagName};
+    public static readonly string[] StandardCategories = [CapabilityRegistration.TagName, MenuEntry.TagName, SendTo.TagName, AppAlias.TagName];
     #endregion
 
     //--------------------//

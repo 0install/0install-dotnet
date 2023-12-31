@@ -73,7 +73,7 @@ internal sealed class ExternalSolverSession : Dictionary<string, Func<object[], 
     }
 
     private int _nextTicket;
-    private readonly Dictionary<string, Action<object[]>> _callbacks = new();
+    private readonly Dictionary<string, Action<object[]>> _callbacks = [];
 
     public void Invoke(Action<object[]> onSuccess, string operation, params object[] args)
     {
@@ -130,7 +130,7 @@ internal sealed class ExternalSolverSession : Dictionary<string, Func<object[], 
                         // ReSharper disable once AssignNullToNotNullAttribute
                         string xml = Encoding.UTF8.GetString(GetChunk() ?? throw new IOException("Error parsing external solver response."));
                         Log.Debug($"XML from external solver: {xml}");
-                        _callbacks[ticket](args.ReparseAsJson<object[]>().Append(xml));
+                        _callbacks[ticket]([..args.ReparseAsJson<object[]>(), xml]);
                         break;
                     case "fail":
                         throw new IOException(((string)args).Replace("\n", Environment.NewLine));

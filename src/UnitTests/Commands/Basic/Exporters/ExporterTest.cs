@@ -40,7 +40,7 @@ public class ExporterTest : TestWithMocks
         feedCacheMock.Setup(x => x.GetPath(Fake.Feed2Uri)).Returns(feedFile2);
         feedCacheMock.Setup(x => x.GetPath(Fake.SubFeed2Uri)).Returns(subFeedFile2);
 
-        var signature = new ValidSignature(123, new OpenPgpFingerprint(Array.Empty<byte>()), new DateTime(2000, 1, 1));
+        var signature = new ValidSignature(123, new OpenPgpFingerprint([]), new DateTime(2000, 1, 1));
         feedCacheMock.Setup(x => x.GetSignatures(Fake.Feed1Uri)).Returns(new OpenPgpSignature[] {signature});
         feedCacheMock.Setup(x => x.GetSignatures(Fake.SubFeed1Uri)).Returns(new OpenPgpSignature[] {signature});
         feedCacheMock.Setup(x => x.GetSignatures(Fake.Feed2Uri)).Returns(new OpenPgpSignature[] {signature});
@@ -91,7 +91,7 @@ public class ExporterTest : TestWithMocks
         iconStoreMock.Setup(x => x.GetFresh(icon))
                      .Returns(tempFile);
 
-        _target.ExportIcons(new[] {icon}, iconStoreMock.Object);
+        _target.ExportIcons([icon], iconStoreMock.Object);
 
         string contentDir = Path.Combine(_destination, "content");
         File.Exists(Path.Combine(contentDir, "https%3a%2f%2fexample.com%2fmyicon.png")).Should()

@@ -56,7 +56,7 @@ public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<S
     [Description("A list of implementations chosen in this selection.")]
     [XmlElement("selection")]
     [UnorderedEquality]
-    public List<ImplementationSelection> Implementations { get; } = new();
+    public List<ImplementationSelection> Implementations { get; } = [];
 
     /// <summary>
     /// The main implementation in the selection (the actual program to launch). Identified by <see cref="InterfaceUri"/>.

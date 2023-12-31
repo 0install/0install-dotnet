@@ -35,34 +35,34 @@ public class WindowsPackageManager : PackageManagerBase
             _ when packageName.StartsWith("openjdk-", out string? rest)
                 && rest.EndsWith("-jdk", out rest)
                 && int.TryParse(rest, out int version) => FindJdk(version),
-            "netfx" => new[]
-            {
+            "netfx" =>
+            [
                 // See: https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
-                FindNetFx("2.0", WindowsUtils.NetFx20, WindowsUtils.NetFx20),
-                FindNetFx("3.0", WindowsUtils.NetFx20, WindowsUtils.NetFx30),
-                FindNetFx("3.5", WindowsUtils.NetFx20, WindowsUtils.NetFx35),
-                FindNetFx("4.0", WindowsUtils.NetFx40, @"v4\Full"),
-                FindNetFx("4.5", WindowsUtils.NetFx40, @"v4\Full", 378389),
-                FindNetFx("4.5.1", WindowsUtils.NetFx40, @"v4\Full", 378675), // also covers 378758
-                FindNetFx("4.5.2", WindowsUtils.NetFx40, @"v4\Full", 379893),
-                FindNetFx("4.6", WindowsUtils.NetFx40, @"v4\Full", 393295), // also covers 393297
-                FindNetFx("4.6.1", WindowsUtils.NetFx40, @"v4\Full", 394254),
-                FindNetFx("4.6.2", WindowsUtils.NetFx40, @"v4\Full", 394802), // also covers 394806
-                FindNetFx("4.7", WindowsUtils.NetFx40, @"v4\Full", 460798), // also covers 460805
-                FindNetFx("4.7.1", WindowsUtils.NetFx40, @"v4\Full", 461308), // also covers 461310
-                FindNetFx("4.7.2", WindowsUtils.NetFx40, @"v4\Full", 461808), // also covers 461814
-                FindNetFx("4.8", WindowsUtils.NetFx40, @"v4\Full", 528040), // also covers 528049, 528372 and 528449
-                FindNetFx("4.8.1", WindowsUtils.NetFx40, @"v4\Full", 533320) // also covers 533325
-            }.Flatten(),
+                ..FindNetFx("2.0", WindowsUtils.NetFx20, WindowsUtils.NetFx20),
+                ..FindNetFx("3.0", WindowsUtils.NetFx20, WindowsUtils.NetFx30),
+                ..FindNetFx("3.5", WindowsUtils.NetFx20, WindowsUtils.NetFx35),
+                ..FindNetFx("4.0", WindowsUtils.NetFx40, @"v4\Full"),
+                ..FindNetFx("4.5", WindowsUtils.NetFx40, @"v4\Full", 378389),
+                ..FindNetFx("4.5.1", WindowsUtils.NetFx40, @"v4\Full", 378675), // also covers 378758
+                ..FindNetFx("4.5.2", WindowsUtils.NetFx40, @"v4\Full", 379893),
+                ..FindNetFx("4.6", WindowsUtils.NetFx40, @"v4\Full", 393295), // also covers 393297
+                ..FindNetFx("4.6.1", WindowsUtils.NetFx40, @"v4\Full", 394254),
+                ..FindNetFx("4.6.2", WindowsUtils.NetFx40, @"v4\Full", 394802), // also covers 394806
+                ..FindNetFx("4.7", WindowsUtils.NetFx40, @"v4\Full", 460798), // also covers 460805
+                ..FindNetFx("4.7.1", WindowsUtils.NetFx40, @"v4\Full", 461308), // also covers 461310
+                ..FindNetFx("4.7.2", WindowsUtils.NetFx40, @"v4\Full", 461808), // also covers 461814
+                ..FindNetFx("4.8", WindowsUtils.NetFx40, @"v4\Full", 528040), // also covers 528049, 528372 and 528449
+                ..FindNetFx("4.8.1", WindowsUtils.NetFx40, @"v4\Full", 533320) // also covers 533325
+            ],
             "netfx-client" => FindNetFx("4.0", WindowsUtils.NetFx40, @"v4\Client"),
             "powershell" => FindPowerShell(),
-            _ when packageName.StartsWith("dotnet-") => new []
-            {
-                FindDotNet(packageName, SpecialFolder.ProgramFiles, (ProcessArchitecture == X86) ? Cpu.I486 : Architecture.CurrentSystem.Cpu),
-                FindDotNet(packageName, SpecialFolder.ProgramFilesX86, Cpu.I486),
-            }.Flatten(),
+            _ when packageName.StartsWith("dotnet-") =>
+            [
+                ..FindDotNet(packageName, SpecialFolder.ProgramFiles, (ProcessArchitecture == X86) ? Cpu.I486 : Architecture.CurrentSystem.Cpu),
+                ..FindDotNet(packageName, SpecialFolder.ProgramFilesX86, Cpu.I486),
+            ],
             "git" => FindGitForWindows(),
-            _ => Enumerable.Empty<ExternalImplementation>()
+            _ => []
         };
 
     private IEnumerable<ExternalImplementation> FindJre(int version) => FindJava(version,

@@ -75,7 +75,7 @@ public sealed partial class Verb : XmlUnknown, IDescriptionContainer, ICloneable
     [Browsable(false)]
     [XmlElement("arg")]
     [OrderedEquality]
-    public List<Arg> Arguments { get; } = new();
+    public List<Arg> Arguments { get; } = [];
 
     /// <summary>
     /// Command-line arguments to be passed to the command in escaped form. "%V" gets replaced with the path of the file being opened.
@@ -106,7 +106,7 @@ public sealed partial class Verb : XmlUnknown, IDescriptionContainer, ICloneable
     [Browsable(false)]
     [XmlElement("description")]
     [OrderedEquality]
-    public LocalizableStringCollection Descriptions { get; } = new();
+    public LocalizableStringCollection Descriptions { get; } = [];
 
     #region Normalize
     /// <summary>

@@ -134,7 +134,7 @@ public class Run : Download
          && !FeedManager.RateLimit(Requirements.InterfaceUri))
         {
             Log.Info("Starting background update because feeds have become stale");
-            StartCommandBackground(Update.Name, Requirements.ToCommandLineArgs().Prepend("--batch"));
+            StartCommandBackground(Update.Name, ["--batch", ..Requirements.ToCommandLineArgs()]);
         }
     }
 }

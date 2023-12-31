@@ -38,7 +38,7 @@ public sealed partial class Archive : DownloadRetrievalMethod
     /// <summary>
     /// All known <see cref="MimeType"/> values for archives.
     /// </summary>
-    public static readonly IEnumerable<string> KnownMimeTypes = new[] {MimeTypeZip, MimeTypeTar, MimeTypeTarGzip, MimeTypeTarBzip, MimeTypeTarLzma, MimeTypeTarLzip, MimeTypeTarXz, MimeTypeTarZstandard, MimeTypeRubyGem, MimeType7Z, MimeTypeRar, MimeTypeCab, MimeTypeMsi, MimeTypeDeb, MimeTypeRpm, MimeTypeDmg};
+    public static readonly IEnumerable<string> KnownMimeTypes = [MimeTypeZip, MimeTypeTar, MimeTypeTarGzip, MimeTypeTarBzip, MimeTypeTarLzma, MimeTypeTarLzip, MimeTypeTarXz, MimeTypeTarZstandard, MimeTypeRubyGem, MimeType7Z, MimeTypeRar, MimeTypeCab, MimeTypeMsi, MimeTypeDeb, MimeTypeRpm, MimeTypeDmg];
 
     /// <summary>
     /// Tries to guess the MIME type of an archive file by looking at its file extension.

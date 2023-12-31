@@ -148,7 +148,7 @@ public class ZeroInstallClient(IProcessLauncher launcher, IProcessLauncher? guiL
                        ?.Descendants(XName.Get("access-points", xmlNamespace)).SingleOrDefault()
                        ?.Descendants()
                         .Select(x => x.Name.LocalName)
-             ?? Enumerable.Empty<string>());
+             ?? []);
         }
         #region Error handling
         catch (XmlException ex)

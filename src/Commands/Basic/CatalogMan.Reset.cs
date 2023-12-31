@@ -20,7 +20,7 @@ partial class CatalogMan
 
         public override ExitCode Execute()
         {
-            Services.Feeds.CatalogManager.SetSources(new[] {Services.Feeds.CatalogManager.DefaultSource});
+            Services.Feeds.CatalogManager.SetSources([Services.Feeds.CatalogManager.DefaultSource]);
             CatalogManager.GetOnlineSafe();
             return ExitCode.OK;
         }

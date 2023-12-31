@@ -17,7 +17,7 @@ public class TestDirectory(string name) : TestElement(name), IEnumerable<TestEle
     /// The <see cref="TestElement"/>s contained within the directory.
     /// Walked recursively by <see cref="Build"/> and <see cref="Verify"/>.
     /// </summary>
-    public List<TestElement> Children { get; } = new();
+    public List<TestElement> Children { get; } = [];
 
     public IEnumerator<TestElement> GetEnumerator() => Children.GetEnumerator();
 

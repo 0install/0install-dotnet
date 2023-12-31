@@ -24,7 +24,7 @@ internal sealed class MsiPackage : IDisposable
         ReadCabinets();
     }
 
-    private readonly Dictionary<string, MsiDirectory> _directories = new();
+    private readonly Dictionary<string, MsiDirectory> _directories = [];
 
     private record MsiDirectory(string Name, string ParentId)
     {
@@ -77,7 +77,7 @@ internal sealed class MsiPackage : IDisposable
     }
 
 
-    private readonly Dictionary<string, string> _files = new();
+    private readonly Dictionary<string, string> _files = [];
 
     private void ReadFiles()
     {
@@ -96,7 +96,7 @@ internal sealed class MsiPackage : IDisposable
     /// </summary>
     public IReadOnlyDictionary<string, string> Files => _files;
 
-    private readonly List<string> _cabinets = new();
+    private readonly List<string> _cabinets = [];
 
     private void ReadCabinets()
     {

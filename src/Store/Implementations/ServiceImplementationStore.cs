@@ -54,13 +54,13 @@ public partial class ServiceImplementationStore : IImplementationStore
     /// Always returns empty list. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
     /// </summary>
     /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
-    public IEnumerable<ManifestDigest> ListAll() => Enumerable.Empty<ManifestDigest>();
+    public IEnumerable<ManifestDigest> ListAll() => [];
 
     /// <summary>
     /// Always returns empty list. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
     /// </summary>
     /// <remarks>Using the store service for this is unnecessary since it only requires read access to the file system.</remarks>
-    public IEnumerable<string> ListTemp() => Enumerable.Empty<string>();
+    public IEnumerable<string> ListTemp() => [];
 
     /// <inheritdoc/>
     public void Verify(ManifestDigest manifestDigest) => throw new NotSupportedException();

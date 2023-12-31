@@ -22,7 +22,7 @@ public sealed partial class Group : Element, IElementContainer
     [Browsable(false)]
     [XmlElement(typeof(Implementation)), XmlElement(typeof(PackageImplementation)), XmlElement(typeof(Group))]
     [OrderedEquality]
-    public List<Element> Elements { get; } = new();
+    public List<Element> Elements { get; } = [];
 
     #region Normalize
     /// <inheritdoc/>

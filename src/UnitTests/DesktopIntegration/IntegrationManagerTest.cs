@@ -103,12 +103,12 @@ public sealed class IntegrationManagerTest : TestWithRedirect
         var appEntry = _integrationManager.AddApp(new FeedTarget(FeedTest.Test1Uri, testApp));
         appEntry.AccessPoints = new AccessPointList {Entries = {accessPoint}};
 
-        _integrationManager.RemoveAccessPoints(appEntry, new[] {accessPoint});
+        _integrationManager.RemoveAccessPoints(appEntry, [accessPoint]);
         _integrationManager.AppList.Entries[0].AccessPoints!.Entries.Should().BeEmpty();
 
         unapplyFlag.Set.Should().BeTrue(because: "Unapply() should be called");
 
-        _integrationManager.Invoking(x => x.RemoveAccessPoints(appEntry, new[] {accessPoint}))
+        _integrationManager.Invoking(x => x.RemoveAccessPoints(appEntry, [accessPoint]))
                            .Should().NotThrow(because: "Allow multiple removals of access points.");
     }
 
@@ -135,7 +135,7 @@ public sealed class IntegrationManagerTest : TestWithRedirect
         _integrationManager.UpdateApp(appEntry, feed);
         appEntry.Name.Should().Be("Test 2");
         _integrationManager.AppList.Entries[0].AccessPoints!.Entries
-                           .Should().Equal(new[] {accessPoints[0]}, because: "Only the first access point should be left.");
+                           .Should().Equal([accessPoints[0]], because: "Only the first access point should be left.");
     }
 
     [Fact]

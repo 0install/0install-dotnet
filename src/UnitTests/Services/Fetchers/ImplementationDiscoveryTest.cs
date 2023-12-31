@@ -81,7 +81,7 @@ public class ImplementationDiscoveryTest : IDisposable
         manifestBuilder.AddFile(testFile.Name, testFile.Contents.ToStream(), testFile.LastWrite);
         var digest = new ManifestDigest(manifestBuilder.Manifest.CalculateDigest());
 
-        _implementationStore.Add(digest, new TestRoot {testFile});
+        _implementationStore.Add(digest, [testFile]);
         return digest;
     }
 

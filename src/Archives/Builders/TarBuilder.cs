@@ -44,7 +44,7 @@ public class TarBuilder(Stream stream) : IArchiveBuilder
         _tarStream.CloseEntry();
     }
 
-    private readonly Dictionary<string, UnixTime> _modifiedTimes = new();
+    private readonly Dictionary<string, UnixTime> _modifiedTimes = [];
 
     /// <inheritdoc/>
     public void AddFile(string path, Stream stream, UnixTime modifiedTime, bool executable = false)

@@ -82,19 +82,19 @@ public sealed partial class EntryPoint : FeedElement, IIconContainer, ISummaryCo
     [Browsable(false)]
     [XmlElement("name")]
     [OrderedEquality]
-    public LocalizableStringCollection Names { get; } = new();
+    public LocalizableStringCollection Names { get; } = [];
 
     /// <inheritdoc/>
     [Browsable(false)]
     [XmlElement("summary")]
     [OrderedEquality]
-    public LocalizableStringCollection Summaries { get; } = new();
+    public LocalizableStringCollection Summaries { get; } = [];
 
     /// <inheritdoc/>
     [Browsable(false)]
     [XmlElement("description")]
     [OrderedEquality]
-    public LocalizableStringCollection Descriptions { get; } = new();
+    public LocalizableStringCollection Descriptions { get; } = [];
 
     /// <summary>
     /// Zero or more icons representing the command. Used for desktop icons, menu entries, etc..
@@ -102,7 +102,7 @@ public sealed partial class EntryPoint : FeedElement, IIconContainer, ISummaryCo
     [Browsable(false)]
     [XmlElement("icon")]
     [OrderedEquality]
-    public List<Icon> Icons { get; } = new();
+    public List<Icon> Icons { get; } = [];
 
     #region Normalize
     /// <summary>

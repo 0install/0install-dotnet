@@ -17,11 +17,11 @@ public abstract class OpenPgpTest
         OpenPgpUtils.ParseFingerprint("E91FE1CBFCCF315543F6CB13DEED44B49BE24661"),
         UserID: "Test User <test@0install.de>");
 
-    private readonly ArraySegment<byte> _referenceData = new(new byte[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
+    private readonly ArraySegment<byte> _referenceData = new([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
     private readonly byte[] _signatureData = typeof(OpenPgpTest).GetEmbeddedBytes("signature.dat");
 
-    private ArraySegment<byte> DummyData => new(new byte[] {1, 2, 3});
+    private ArraySegment<byte> DummyData => new([1, 2, 3]);
 
     [Fact]
     public void VerifyValidSignature()
@@ -44,7 +44,7 @@ public abstract class OpenPgpTest
 
     [Fact]
     public void VerifyInvalidData()
-        => Assert.Throws<InvalidDataException>(() => OpenPgp.Verify(DummyData, new byte[] {1, 2, 3}));
+        => Assert.Throws<InvalidDataException>(() => OpenPgp.Verify(DummyData, [1, 2, 3]));
 
     [Fact]
     public void Sign()
@@ -76,7 +76,7 @@ public abstract class OpenPgpTest
 
     [Fact]
     public void ImportKeyInvalidData()
-        => Assert.Throws<InvalidDataException>(() => OpenPgp.ImportKey(new(new byte[] {1, 2, 3})));
+        => Assert.Throws<InvalidDataException>(() => OpenPgp.ImportKey(new([1, 2, 3])));
 
     [Fact]
     public void ExportKey()

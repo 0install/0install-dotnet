@@ -25,8 +25,8 @@ public static class UninstallEntry
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
     public static void Register(FeedTarget target, IIconStore iconStore, bool machineWide)
     {
-        string[] uninstallCommand = {Path.Combine(Locations.InstallBase, "0install-win.exe"), "remove", target.Uri.ToStringRfc()};
-        if (machineWide) uninstallCommand = uninstallCommand.Append("--machine");
+        string[] uninstallCommand = [Path.Combine(Locations.InstallBase, "0install-win.exe"), "remove", target.Uri.ToStringRfc()];
+        if (machineWide) uninstallCommand = [..uninstallCommand, "--machine"];
 
         Register(
             target.Uri.PrettyEscape(),
@@ -64,7 +64,7 @@ public static class UninstallEntry
         using var appKey = uninstallKey.CreateSubKeyChecked(id);
 
         appKey.SetValue("UninstallString", uninstallCommand.JoinEscapeArguments());
-        appKey.SetValue("QuietUninstallString", uninstallCommand.Concat(new[] {"--batch", "--background"}).JoinEscapeArguments());
+        appKey.SetValue("QuietUninstallString", uninstallCommand.Concat(["--batch", "--background"]).JoinEscapeArguments());
         appKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
         appKey.SetValue("NoRepair", 1, RegistryValueKind.DWord);
         appKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));

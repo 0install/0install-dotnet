@@ -12,7 +12,7 @@ namespace ZeroInstall.Archives.Extractors;
 /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
 public abstract class ArchiveExtractor(ITaskHandler handler) : IArchiveExtractor
 {
-    private static readonly Dictionary<string, Func<ITaskHandler, IArchiveExtractor>> _factories = new();
+    private static readonly Dictionary<string, Func<ITaskHandler, IArchiveExtractor>> _factories = [];
 
     /// <summary>
     /// Registers an additional <see cref="IArchiveExtractor"/>.

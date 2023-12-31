@@ -33,7 +33,7 @@ public sealed class FeedCache(string path, IOpenPgp openPgp) : IFeedCache
     /// <inheritdoc/>
     public IEnumerable<FeedUri> ListAll()
     {
-        if (!Directory.Exists(Path)) return Enumerable.Empty<FeedUri>();
+        if (!Directory.Exists(Path)) return [];
 
         // ReSharper disable once AssignNullToNotNullAttribute
         return Directory.GetFiles(Path)
@@ -69,7 +69,7 @@ public sealed class FeedCache(string path, IOpenPgp openPgp) : IFeedCache
     public IEnumerable<OpenPgpSignature> GetSignatures(FeedUri feedUri)
         => GetPath(feedUri ?? throw new ArgumentNullException(nameof(feedUri))) is {} path
             ? FeedUtils.GetSignatures(openPgp, ReadFromFile(path))
-            : Enumerable.Empty<OpenPgpSignature>();
+            : [];
 
     /// <inheritdoc/>
     public string? GetPath(FeedUri feedUri)

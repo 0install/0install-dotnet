@@ -45,7 +45,7 @@ public partial class Catalog : XmlUnknown, ICloneable<Catalog>
     [Browsable(false)]
     [XmlElement("interface", typeof(Feed), Namespace = Feed.XmlNamespace)]
     [OrderedEquality]
-    public List<Feed> Feeds { get; } = new();
+    public List<Feed> Feeds { get; } = [];
 
     /// <summary>
     /// Determines whether this catalog contains a <see cref="Feed"/> with a specific URI.

@@ -46,7 +46,7 @@ public static class ImplFileUtils
         if (UnixUtils.IsUnix)
             FileUtils.SetExecutable(fullPath, true);
         else if (WindowsUtils.IsWindowsNT)
-            FileUtils.WriteExtendedMetadata(fullPath, ExecutableIndicator, Array.Empty<byte>());
+            FileUtils.WriteExtendedMetadata(fullPath, ExecutableIndicator, []);
 
         File.SetLastWriteTimeUtc(fullPath, modifiedTime);
     }

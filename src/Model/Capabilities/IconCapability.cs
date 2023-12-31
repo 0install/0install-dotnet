@@ -14,7 +14,7 @@ public abstract partial class IconCapability : DefaultCapability, IIconContainer
     [Browsable(false)]
     [XmlElement("description")]
     [OrderedEquality]
-    public LocalizableStringCollection Descriptions { get; } = new();
+    public LocalizableStringCollection Descriptions { get; } = [];
 
     /// <summary>
     /// Zero or more icons to represent the capability. Used for things like file icons.
@@ -22,7 +22,7 @@ public abstract partial class IconCapability : DefaultCapability, IIconContainer
     [Browsable(false)]
     [XmlElement("icon", Namespace = Feed.XmlNamespace)]
     [OrderedEquality]
-    public List<Icon> Icons { get; } = new();
+    public List<Icon> Icons { get; } = [];
 
     /// <summary>
     /// Returns the first icon with a specific MIME type.

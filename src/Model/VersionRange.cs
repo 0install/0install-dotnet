@@ -38,7 +38,7 @@ public sealed partial class VersionRange
     /// </summary>
     public VersionRange()
     {
-        Parts = Array.Empty<VersionRangePart>();
+        Parts = [];
     }
 
     /// <summary>

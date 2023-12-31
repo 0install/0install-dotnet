@@ -63,7 +63,7 @@ public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, IClonea
     [Browsable(false)]
     [XmlElement("capabilities", Namespace = CapabilityList.XmlNamespace)]
     [OrderedEquality]
-    public List<CapabilityList> CapabilityLists { get; } = new();
+    public List<CapabilityList> CapabilityLists { get; } = [];
 
     /// <summary>
     /// A set of <see cref="AccessPoints"/>s to be registered in the desktop environment. Is <c>null</c> if no desktop integration has been performed yet.

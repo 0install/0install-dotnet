@@ -28,7 +28,7 @@ partial class SelfManager
         {
             UninstallEntry.Register(
                 UninstallID,
-                new[] { Path.Combine(TargetDir, "0install-win.exe"), Self.Name, Self.Remove.Name },
+                [Path.Combine(TargetDir, "0install-win.exe"), Self.Name, Self.Remove.Name],
                 "Zero Install",
                 "0install.net",
                 new("https://0install.net/"),

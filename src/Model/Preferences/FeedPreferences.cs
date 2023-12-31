@@ -30,7 +30,7 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
     [Description("A list of implementation-specific user-overrides.")]
     [XmlElement("implementation")]
     [OrderedEquality]
-    public List<ImplementationPreferences> Implementations { get; } = new();
+    public List<ImplementationPreferences> Implementations { get; } = [];
 
     /// <summary>
     /// Retrieves an existing entry from <see cref="Implementations"/> by ID or creates a new one if no appropriate one exists.

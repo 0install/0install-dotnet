@@ -49,11 +49,11 @@ public sealed partial class ContextMenu : VerbCapability
     [Browsable(false)]
     [XmlElement("extension")]
     [OrderedEquality]
-    public List<FileTypeExtension> Extensions { get; } = new();
+    public List<FileTypeExtension> Extensions { get; } = [];
 
     /// <inheritdoc/>
     [Browsable(false), XmlIgnore, IgnoreEquality]
-    public override IEnumerable<string> ConflictIDs => Enumerable.Empty<string>();
+    public override IEnumerable<string> ConflictIDs => [];
 
     #region Conversion
     /// <summary>

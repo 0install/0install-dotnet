@@ -12,5 +12,5 @@ public static class DependencyContainerExtensions
     /// A combination of <see cref="IDependencyContainer.Restrictions"/> and <see cref="IDependencyContainer.Dependencies"/>.
     /// </summary>
     public static IEnumerable<Restriction> GetEffectiveRestrictions(this IDependencyContainer container)
-        => container.Restrictions.Concat(container.Dependencies);
+        => [..container.Restrictions, ..container.Dependencies];
 }

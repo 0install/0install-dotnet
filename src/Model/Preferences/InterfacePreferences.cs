@@ -40,7 +40,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
     [Description("Zero ore more additional feeds containing implementations of this interface.")]
     [XmlElement("feed")]
     [OrderedEquality]
-    public List<FeedReference> Feeds { get; } = new();
+    public List<FeedReference> Feeds { get; } = [];
 
     #region Storage
     /// <summary>

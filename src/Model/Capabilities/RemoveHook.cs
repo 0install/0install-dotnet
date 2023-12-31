@@ -27,11 +27,11 @@ public sealed partial class RemoveHook : Capability
     [Browsable(false)]
     [XmlElement("arg")]
     [OrderedEquality]
-    public List<Arg> Arguments { get; } = new();
+    public List<Arg> Arguments { get; } = [];
 
     /// <inheritdoc/>
     [Browsable(false), XmlIgnore, IgnoreEquality]
-    public override IEnumerable<string> ConflictIDs => Enumerable.Empty<string>();
+    public override IEnumerable<string> ConflictIDs => [];
 
     #region Conversion
     /// <summary>

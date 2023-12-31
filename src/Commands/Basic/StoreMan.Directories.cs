@@ -107,7 +107,7 @@ partial class StoreMan
         public override ExitCode Execute()
         {
             var composite = ImplementationStore as CompositeImplementationStore;
-            Handler.Output("Stores", (composite == null) ? new[] {ImplementationStore} : composite.Stores);
+            Handler.Output("Stores", (composite == null) ? [ImplementationStore] : composite.Stores);
             return ExitCode.OK;
         }
     }

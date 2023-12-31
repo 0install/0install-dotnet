@@ -48,7 +48,7 @@ public class StubBuilder(IIconStore iconStore)
 #endif
         {
             CreateOrUpdateRunStub(path, target, gui, command);
-            return new[] {path};
+            return [path];
         }
 #if !DEBUG
         catch (Exception ex)
@@ -129,13 +129,13 @@ public class StubBuilder(IIconStore iconStore)
 
         var compilation = CSharpCompilation.Create(
             assemblyName: "ZeroInstall.Stub",
-            syntaxTrees: new[]
-            {
+            syntaxTrees:
+            [
                 GetCode(
                     exe: GetExe(gui),
                     arguments: GetArguments(target.Uri, command, gui),
                     title: target.Feed.GetBestName(CultureInfo.CurrentUICulture, command))
-            },
+            ],
             _references,
             options: new(
                 gui ? OutputKind.WindowsApplication : OutputKind.ConsoleApplication,

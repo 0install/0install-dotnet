@@ -21,7 +21,7 @@ public sealed partial class Key : ICloneable<Key>
     /// </summary>
     [XmlElement("domain")]
     [SetEquality]
-    public DomainSet Domains { get; } = new();
+    public DomainSet Domains { get; } = [];
 
     #region Conversion
     /// <summary>

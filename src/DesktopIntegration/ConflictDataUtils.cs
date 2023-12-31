@@ -80,7 +80,7 @@ public static class ConflictDataUtils
 
         var conflictIDs = new Dictionary<string, ConflictData>();
         foreach (var appEntry in appEntries)
-        foreach (var accessPoint in appEntry.AccessPoints?.Entries ?? Enumerable.Empty<AccessPoint>())
+        foreach (var accessPoint in appEntry.AccessPoints?.Entries ?? [])
         foreach (string conflictID in accessPoint.GetConflictIDs(appEntry))
         {
             var conflictData = new ConflictData(accessPoint, appEntry);

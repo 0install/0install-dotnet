@@ -16,49 +16,49 @@ namespace ZeroInstall.Publish.Capture;
 public class Snapshot
 {
     /// <summary>A list of associations of services with clients (e.g. web browsers, mail readers, ...).</summary>
-    public List<(string name, string client)> ServiceAssocs { get; } = new();
+    public List<(string name, string client)> ServiceAssocs { get; } = [];
 
     /// <summary>A list of applications registered as AutoPlay handlers.</summary>
-    public List<string> AutoPlayHandlersUser { get; } = new();
+    public List<string> AutoPlayHandlersUser { get; } = [];
 
     /// <summary>A list of applications registered as AutoPlay handlers.</summary>
-    public List<string> AutoPlayHandlersMachine { get; } = new();
+    public List<string> AutoPlayHandlersMachine { get; } = [];
 
     /// <summary>A list of associations of AutoPlay events with AutoPlay handlers.</summary>
-    public List<(string name, string handler)> AutoPlayAssocsUser { get; } = new();
+    public List<(string name, string handler)> AutoPlayAssocsUser { get; } = [];
 
     /// <summary>A list of associations of AutoPlay events with AutoPlay handlers.</summary>
-    public List<(string name, string handler)> AutoPlayAssocsMachine { get; } = new();
+    public List<(string name, string handler)> AutoPlayAssocsMachine { get; } = [];
 
     /// <summary>A list of associations of file extensions with programmatic identifiers.</summary>
-    public List<(string extension, string progID)> FileAssocs { get; } = new();
+    public List<(string extension, string progID)> FileAssocs { get; } = [];
 
     /// <summary>A list of protocol associations for well-known protocols (e.g. HTTP, FTP, ...).</summary>
-    public List<(string protocol, string progID)> ProtocolAssocs { get; } = new();
+    public List<(string protocol, string progID)> ProtocolAssocs { get; } = [];
 
     /// <summary>A list of programmatic identifiers.</summary>
-    public List<string> ProgIDs { get; } = new();
+    public List<string> ProgIDs { get; } = [];
 
     /// <summary>A list of COM class IDs.</summary>
-    public List<string> ClassIDs { get; } = new();
+    public List<string> ClassIDs { get; } = [];
 
     /// <summary>A list of applications registered as candidates for default programs.</summary>
-    public List<string> RegisteredApplications { get; } = new();
+    public List<string> RegisteredApplications { get; } = [];
 
     /// <summary>A list of context menu entries for all files.</summary>
-    public List<string> ContextMenuFiles { get; } = new();
+    public List<string> ContextMenuFiles { get; } = [];
 
     /// <summary>A list of context menu entries for executable files.</summary>
-    public List<string> ContextMenuExecutableFiles { get; } = new();
+    public List<string> ContextMenuExecutableFiles { get; } = [];
 
     /// <summary>A list of context menu entries for all directories.</summary>
-    public List<string> ContextMenuDirectories { get; } = new();
+    public List<string> ContextMenuDirectories { get; } = [];
 
     /// <summary>A list of context menu entries for all filesystem objects (files and directories).</summary>
-    public List<string> ContextMenuAll { get; } = new();
+    public List<string> ContextMenuAll { get; } = [];
 
     /// <summary>A list of program installation directories.</summary>
-    public List<string> ProgramsDirs { get; } = new();
+    public List<string> ProgramsDirs { get; } = [];
 
     /// <summary>
     /// Takes a snapshot of the current system state.
@@ -114,7 +114,7 @@ public class Snapshot
     private static IReadOnlyCollection<(string serviceName, string clientName)> GetServiceAssocs()
     {
         using var clientsKey = Registry.LocalMachine.TryOpenSubKey(DefaultProgram.RegKeyMachineClients);
-        if (clientsKey == null) return Array.Empty<(string, string)>();
+        if (clientsKey == null) return [];
 
         return (
             from serviceName in clientsKey.GetSubKeyNames()
@@ -170,7 +170,7 @@ public class Snapshot
     private static IReadOnlyCollection<(string eventName, string handlerName)> GetAutoPlayAssocs(RegistryKey hive)
     {
         using var eventsKey = hive.TryOpenSubKey(AutoPlay.RegKeyAssocs);
-        if (eventsKey == null) return Array.Empty<(string, string)>();
+        if (eventsKey == null) return [];
 
         return (
             from eventName in eventsKey.GetSubKeyNames()

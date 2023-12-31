@@ -59,7 +59,7 @@ public partial class ImplementationStore(string path, ITaskHandler handler, bool
     public IEnumerable<string> ListTemp()
         => Directory.Exists(Path)
             ? Directory.GetDirectories(Path, "0install-*")
-            : Enumerable.Empty<string>();
+            : [];
 
     /// <inheritdoc/>
     public void Verify(ManifestDigest manifestDigest)
@@ -152,7 +152,7 @@ public partial class ImplementationStore(string path, ITaskHandler handler, bool
     /// </summary>
     private static string[] FilesToCheckForOpenFileHandles(string path)
     {
-        List<string> exe = new(), dll = new();
+        List<string> exe = [], dll = [];
         try
         {
             FileUtils.GetFilesRecursive(path)

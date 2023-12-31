@@ -14,9 +14,9 @@ namespace ZeroInstall.Store.Deployment;
 public class ClearDirectory(string path, Manifest manifest, ITaskHandler handler)
     : DirectoryOperation(path, manifest, handler)
 {
-    private readonly Stack<string> _pendingDirectoryDeletes = new();
+    private readonly Stack<string> _pendingDirectoryDeletes = [];
 
-    private readonly Stack<(string path, string backupPath)> _pendingFilesDeletes = new();
+    private readonly Stack<(string path, string backupPath)> _pendingFilesDeletes = [];
 
     /// <inheritdoc/>
     protected override void OnStage()

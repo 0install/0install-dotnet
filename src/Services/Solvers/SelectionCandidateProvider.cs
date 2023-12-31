@@ -61,7 +61,7 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
     }
 
     /// <summary>Maps <see cref="ImplementationBase.ID"/>s to <see cref="ExternalImplementation"/>s.</summary>
-    private readonly ConcurrentDictionary<string, ExternalImplementation> _externalImplementations = new();
+    private readonly ConcurrentDictionary<string, ExternalImplementation> _externalImplementations = [];
 
     /// <inheritdoc/>
     public Implementation LookupOriginalImplementation(ImplementationSelection implementationSelection)
@@ -77,7 +77,7 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
     }
 
     /// <summary>Records feeds that failed to download to prevent multiple attempts.</summary>
-    private readonly ConcurrentDictionary<FeedUri, Exception> _failedFeeds = new();
+    private readonly ConcurrentDictionary<FeedUri, Exception> _failedFeeds = [];
 
     /// <inheritdoc/>
     public IReadOnlyDictionary<FeedUri, Exception> FailedFeeds => _failedFeeds;
@@ -142,7 +142,7 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
         => Locations.GetLoadDataPaths("0install.net", true, "native_feeds", interfaceUri.PrettyEscape());
 
     private static IEnumerable<string> GetSitePackagePaths(FeedUri interfaceUri)
-        => Locations.GetLoadDataPaths("0install.net", isFile: false, resource: interfaceUri.EscapeComponent().Prepend("site-packages"))
+        => Locations.GetLoadDataPaths("0install.net", isFile: false, resource: ["site-packages", ..interfaceUri.EscapeComponent()])
                     .SelectMany(Directory.GetDirectories)
                     .Select(dir => Path.Combine(dir, "0install", "feed.xml"))
                     .Where(File.Exists);

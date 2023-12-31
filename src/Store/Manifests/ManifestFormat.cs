@@ -36,7 +36,7 @@ public abstract class ManifestFormat
     /// <summary>
     /// All currently supported <see cref="ManifestFormat"/>s listed from best (safest) to worst.
     /// </summary>
-    public static readonly ManifestFormat[] All = {Sha256New, Sha256, Sha1New};
+    public static readonly ManifestFormat[] All = [Sha256New, Sha256, Sha1New];
 
     /// <summary>
     /// Selects the correct <see cref="ManifestFormat"/> based on the digest prefix.

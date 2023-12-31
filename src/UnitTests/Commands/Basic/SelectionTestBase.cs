@@ -19,7 +19,7 @@ public abstract class SelectionTestBase<TCommand> : CliCommandTestBase<TCommand>
 {
     [Fact]
     public virtual void ShouldRejectTooManyArgs()
-        => Assert.Throws<OptionException>(() => Sut.Parse(new[] {"http://example.com/test1.xml", "arg1"}));
+        => Assert.Throws<OptionException>(() => Sut.Parse(["http://example.com/test1.xml", "arg1"]));
 
     /// <summary>
     /// Configures the <see cref="ISolver"/> mock to expect a call with <see cref="CreateTestRequirements"/>.

@@ -15,7 +15,7 @@ public partial class MenuEntry : IconAccessPoint
     public const string TagName = "menu-entry", AltName = "menu";
 
     /// <inheritdoc/>
-    public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {$"{TagName}:{Category}/{Name}"};
+    public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => [$"{TagName}:{Category}/{Name}"];
 
     /// <summary>
     /// The category or folder in the menu to add the entry to. Leave empty for top-level entry.

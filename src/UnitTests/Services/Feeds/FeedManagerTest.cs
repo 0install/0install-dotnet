@@ -71,7 +71,7 @@ public class FeedManagerTest : TestWithMocksAndRedirect
             _feedCacheMock.SetupSequence(x => x.GetFeed(feed.Uri))
                           .Returns((Feed?)null);
         _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri))
-                      .Returns(Enumerable.Empty<OpenPgpSignature>());
+                      .Returns([]);
 
         // Adding new feed
         _feedCacheMock.Setup(x => x.Add(feed.Uri, data));
@@ -111,7 +111,7 @@ public class FeedManagerTest : TestWithMocksAndRedirect
             _feedCacheMock.SetupSequence(x => x.GetFeed(feed.Uri))
                           .Returns((Feed?)null);
         _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri))
-                      .Returns(Enumerable.Empty<OpenPgpSignature>());
+                      .Returns([]);
 
 
         // Adding new feed
@@ -217,7 +217,7 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         var (uri, data) = FakeSignedFeed();
 
         // No previous feed
-        _feedCacheMock.Setup(x => x.GetSignatures(uri)).Returns(Enumerable.Empty<OpenPgpSignature>());
+        _feedCacheMock.Setup(x => x.GetSignatures(uri)).Returns([]);
 
         // Adding new feed
         _feedCacheMock.Setup(x => x.Add(uri, data));

@@ -21,7 +21,7 @@ public static class ContextMenu
     public const string RegKeyClassesFiles = "*";
 
     /// <summary>The HKCU registry key for registering things for different kinds of executable files.</summary>
-    public static readonly string[] RegKeyClassesExecutableFiles = {"exefile", "batfile", "cmdfile"};
+    public static readonly string[] RegKeyClassesExecutableFiles = ["exefile", "batfile", "cmdfile"];
 
     /// <summary>The HKCU registry key for registering things for all directories.</summary>
     public const string RegKeyClassesDirectories = "Directory";
@@ -35,11 +35,11 @@ public static class ContextMenu
     private static IEnumerable<string> GetKeyName(ContextMenuTarget target)
         => target switch
         {
-            ContextMenuTarget.Files => new[] {RegKeyClassesFiles},
+            ContextMenuTarget.Files => [RegKeyClassesFiles],
             ContextMenuTarget.ExecutableFiles => RegKeyClassesExecutableFiles,
-            ContextMenuTarget.Directories => new[] {RegKeyClassesDirectories, $@"{RegKeyClassesDirectories}\Background" },
-            ContextMenuTarget.All => new[] {RegKeyClassesAll},
-            _ => new[] {RegKeyClassesFiles}
+            ContextMenuTarget.Directories => [RegKeyClassesDirectories, $@"{RegKeyClassesDirectories}\Background"],
+            ContextMenuTarget.All => [RegKeyClassesAll],
+            _ => [RegKeyClassesFiles]
         };
     #endregion
 

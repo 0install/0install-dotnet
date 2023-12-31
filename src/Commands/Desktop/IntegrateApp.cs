@@ -20,10 +20,10 @@ public class IntegrateApp : AppCommand
     public override string Usage => "[OPTIONS] (ALIAS|INTERFACE)";
 
     /// <summary>A list of all <see cref="AccessPoint"/> categories to be added to the already applied ones.</summary>
-    private readonly List<string> _addCategories = new();
+    private readonly List<string> _addCategories = [];
 
     /// <summary>A list of all <see cref="AccessPoint"/> categories to be removed from the already applied ones.</summary>
-    private readonly List<string> _removeCategories = new();
+    private readonly List<string> _removeCategories = [];
 
     /// <inheritdoc/>
     public IntegrateApp(ICommandHandler handler)

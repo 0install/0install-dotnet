@@ -17,11 +17,11 @@ public sealed partial class UrlProtocol : VerbCapability
     [Browsable(false)]
     [XmlElement("known-prefix")]
     [OrderedEquality]
-    public List<KnownProtocolPrefix> KnownPrefixes { get; } = new();
+    public List<KnownProtocolPrefix> KnownPrefixes { get; } = [];
 
     /// <inheritdoc/>
     [Browsable(false), XmlIgnore, IgnoreEquality]
-    public override IEnumerable<string> ConflictIDs => new[] {$"progid:{ID}"};
+    public override IEnumerable<string> ConflictIDs => [$"progid:{ID}"];
 
     #region Normalize
     /// <inheritdoc/>

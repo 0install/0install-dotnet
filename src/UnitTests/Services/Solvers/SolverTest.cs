@@ -150,7 +150,7 @@ public abstract class SolverTest : TestWithRedirect
         feedManagerMock.Setup(x => x.GetPreferences(It.IsAny<FeedUri>()))
                        .Returns(new FeedPreferences());
 
-        var candidateProvider = new SelectionCandidateProvider(new Config(), feedManagerMock.Object, Mock.Of<IImplementationStore>(), new CompositePackageManager(Enumerable.Empty<IPackageManager>()));
+        var candidateProvider = new SelectionCandidateProvider(new Config(), feedManagerMock.Object, Mock.Of<IImplementationStore>(), new CompositePackageManager([]));
         return BuildSolver(candidateProvider).Solve(requirements);
     }
 

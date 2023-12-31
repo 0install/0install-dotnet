@@ -79,7 +79,7 @@ public sealed class Export : Download
         if (FeedCache.GetFeed(Requirements.InterfaceUri) is {} feed)
         {
             exporter.ExportIcons(
-                feed.Icons.Concat(feed.SplashScreens),
+                [..feed.Icons, ..feed.SplashScreens],
                 IconStores.DesktopIntegration(Config, Handler, machineWide: false));
         }
 

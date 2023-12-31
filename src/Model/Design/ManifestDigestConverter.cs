@@ -12,18 +12,18 @@ internal class ManifestDigestConverter : ValueTypeConverter<ManifestDigest>
     /// <summary>The number of arguments <see cref="ManifestDigest"/> has.</summary>
     protected override int NoArguments => 4;
 
-    private static readonly ConstructorInfo _constructor = typeof(ManifestDigest).GetConstructor(new[] {typeof(string), typeof(string), typeof(string), typeof(string)})!;
+    private static readonly ConstructorInfo _constructor = typeof(ManifestDigest).GetConstructor([typeof(string), typeof(string), typeof(string), typeof(string)])!;
 
     /// <returns>The constructor used to create new instances of <see cref="ManifestDigest"/> (deserialization).</returns>
     protected override ConstructorInfo GetConstructor() => _constructor;
 
     /// <returns>The unconverted arguments of <see cref="ManifestDigest"/>.</returns>
     protected override object[] GetArguments(ManifestDigest value)
-        => new object[] {value.Sha1 ?? "", value.Sha1New ?? "", value.Sha256 ?? "", value.Sha256New ?? ""};
+        => [value.Sha1 ?? "", value.Sha1New ?? "", value.Sha256 ?? "", value.Sha256New ?? ""];
 
     /// <returns>The arguments of <see cref="ManifestDigest"/> converted to string.</returns>
     protected override string[] GetValues(ManifestDigest value, ITypeDescriptorContext? context, CultureInfo culture)
-        => new[] {value.Sha1 ?? "", value.Sha1New ?? "", value.Sha256 ?? "", value.Sha256New ?? ""};
+        => [value.Sha1 ?? "", value.Sha1New ?? "", value.Sha256 ?? "", value.Sha256New ?? ""];
 
     /// <returns>A new instance of <see cref="ManifestDigest"/>.</returns>
     protected override ManifestDigest GetObject(string[] values, CultureInfo culture)

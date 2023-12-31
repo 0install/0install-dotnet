@@ -21,7 +21,7 @@ public partial class DefaultProgram : DefaultAccessPoint
         #endregion
 
         var capability = appEntry.LookupCapability<Model.Capabilities.DefaultProgram>(Capability);
-        return new[] {$"clients:{capability.Service}"};
+        return [$"clients:{capability.Service}"];
     }
 
     /// <inheritdoc/>

@@ -152,7 +152,7 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
         if (string.IsNullOrEmpty(command)) throw new ArgumentNullException(nameof(command));
         #endregion
 
-        if (ProgramUtils.GuiStartInfo(new[] { command, "--background" }.Concat(args)) is {} startInfo)
+        if (ProgramUtils.GuiStartInfo([command, "--background", ..args]) is {} startInfo)
         {
             try
             {

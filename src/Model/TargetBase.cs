@@ -19,7 +19,7 @@ public abstract partial class TargetBase : FeedElement
     [Category("Release"), Description("The natural language(s) which an implementation supports.")]
     [XmlIgnore]
     [SetEquality]
-    public LanguageSet Languages { get; set; } = new();
+    public LanguageSet Languages { get; set; } = [];
 
     /// <summary>
     /// For platform-specific binaries, the platform for which an <see cref="Implementation"/> was compiled.

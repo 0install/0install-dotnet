@@ -163,7 +163,7 @@ public static class SolverUtils
     /// </summary>
     public static (List<SolverDemand> essential, List<SolverDemand> recommended) BucketizeImportance(this IEnumerable<SolverDemand> demands)
     {
-        List<SolverDemand> essential = new(), recommended = new();
+        List<SolverDemand> essential = [], recommended = [];
         demands.Bucketize(x => x.Importance)
                .Add(Importance.Essential, essential)
                .Add(Importance.Recommended, recommended)

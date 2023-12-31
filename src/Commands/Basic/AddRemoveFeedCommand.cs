@@ -33,7 +33,7 @@ public abstract class AddRemoveFeedCommand : CliCommand
 
         if (AdditionalArgs.Count == 2)
         { // Main interface for feed specified explicitly
-            interfaces = new[] {GetCanonicalUri(AdditionalArgs[0])};
+            interfaces = [GetCanonicalUri(AdditionalArgs[0])];
             feedUri = GetCanonicalUri(AdditionalArgs[1]);
             suggestedStabilityPolicy = Stability.Unset;
         }

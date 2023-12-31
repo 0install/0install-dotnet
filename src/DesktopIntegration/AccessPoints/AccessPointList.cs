@@ -16,7 +16,7 @@ public sealed partial class AccessPointList : XmlUnknown, ICloneable<AccessPoint
     [Description("A list of access points.")]
     [XmlElement(typeof(AppAlias)), XmlElement(typeof(AutoStart)), XmlElement(typeof(AutoPlay)), XmlElement(typeof(CapabilityRegistration)), XmlElement(typeof(ContextMenu)), XmlElement(typeof(DefaultProgram)), XmlElement(typeof(DesktopIcon)), XmlElement(typeof(FileType)), XmlElement(typeof(MenuEntry)), XmlElement(typeof(SendTo)), XmlElement(typeof(UrlProtocol)), XmlElement(typeof(QuickLaunch)), XmlElement(typeof(MockAccessPoint))]
     [OrderedEquality]
-    public List<AccessPoint> Entries { get; } = new();
+    public List<AccessPoint> Entries { get; } = [];
 
     #region Clone
     /// <summary>

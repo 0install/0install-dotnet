@@ -38,7 +38,7 @@ public abstract class ArchiveExtractorTestBase
         try
         {
             var extractor = ArchiveExtractor.For(MimeType, new SilentTaskHandler());
-            extractor.Invoking(x => x.Extract(new ManifestBuilder(ManifestFormat.Sha1New), new MemoryStream(new byte[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16})))
+            extractor.Invoking(x => x.Extract(new ManifestBuilder(ManifestFormat.Sha1New), new MemoryStream([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])))
                      .Should().Throw<IOException>();
         }
         catch (NotSupportedException)

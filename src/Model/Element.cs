@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Xml;
 using ZeroInstall.Model.Design;
 
 namespace ZeroInstall.Model;
@@ -184,7 +183,7 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
     [Browsable(false)]
     [XmlElement("requires")]
     [OrderedEquality]
-    public List<Dependency> Dependencies { get; } = new();
+    public List<Dependency> Dependencies { get; } = [];
 
     /// <summary>
     /// A list of interfaces that are restricted to specific versions when used.
@@ -192,7 +191,7 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
     [Browsable(false)]
     [XmlElement("restricts")]
     [OrderedEquality]
-    public List<Restriction> Restrictions { get; } = new();
+    public List<Restriction> Restrictions { get; } = [];
 
     /// <summary>
     /// A list of <see cref="Binding"/>s for <see cref="Implementation"/>s to locate <see cref="Dependency"/>s.
@@ -200,7 +199,7 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
     [Browsable(false)]
     [XmlElement(typeof(GenericBinding)), XmlElement(typeof(EnvironmentBinding)), XmlElement(typeof(OverlayBinding)), XmlElement(typeof(ExecutableInVar)), XmlElement(typeof(ExecutableInPath))]
     [OrderedEquality]
-    public List<Binding> Bindings { get; } = new();
+    public List<Binding> Bindings { get; } = [];
 
     /// <summary>
     /// A list of commands that can be used to launch this implementation.
@@ -209,7 +208,7 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
     [Browsable(false)]
     [XmlElement("command")]
     [OrderedEquality]
-    public List<Command> Commands { get; } = new();
+    public List<Command> Commands { get; } = [];
 
     /// <summary>
     /// Determines whether <see cref="Commands"/> contains a <see cref="Command"/> with a specific name.
@@ -327,8 +326,8 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
         Bindings.Add(parent.Bindings);
 
         // Inherit unknown XML attributes and elements
-        UnknownAttributes = EnumerableExtensions.DistinctBy((UnknownAttributes ?? Array.Empty<XmlAttribute>()).Concat(parent.UnknownAttributes ?? Array.Empty<XmlAttribute>()), x => x.Name).ToArray();
-        UnknownElements = UnknownElements ?? Array.Empty<XmlElement>().Concat(parent.UnknownElements ?? Array.Empty<XmlElement>());
+        UnknownAttributes = EnumerableExtensions.DistinctBy((UnknownAttributes ?? []).Concat(parent.UnknownAttributes ?? []), x => x.Name).ToArray();
+        UnknownElements = (UnknownElements ?? []).Concat(parent.UnknownElements ?? []);
     }
     #endregion
 

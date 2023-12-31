@@ -110,8 +110,8 @@ public readonly struct VersionDottedList : IEquatable<VersionDottedList>, ICompa
     /// <inheritdoc/>
     public int CompareTo(VersionDottedList other)
     {
-        var leftArray = Decimals ?? Array.Empty<long>();
-        var rightArray = other.Decimals ?? Array.Empty<long>();
+        var leftArray = Decimals ?? [];
+        var rightArray = other.Decimals ?? [];
 
         int upperBound = Math.Max(leftArray.Count, rightArray.Count);
         for (int i = 0; i < upperBound; ++i)

@@ -36,7 +36,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// </summary>
     [XmlElement("key")]
     [UnorderedEquality]
-    public List<Key> Keys { get; } = new();
+    public List<Key> Keys { get; } = [];
 
     /// <summary>
     /// Checks whether a key is trusted for a specific domain.

@@ -19,7 +19,7 @@ public class TestCase
     /// A list of input <see cref="Feed"/>s for the solver.
     /// </summary>
     [XmlElement("interface", typeof(Feed), Namespace = Feed.XmlNamespace)]
-    public List<Feed> Feeds { get; } = new();
+    public List<Feed> Feeds { get; } = [];
 
     /// <summary>
     /// The input requirements for the solver.

@@ -38,7 +38,7 @@ public partial class Requirements : ICloneable<Requirements>
     [Description("The preferred languages for the implementation.")]
     [XmlIgnore, JsonIgnore]
     [SetEquality]
-    public LanguageSet Languages { get; private set; } = new();
+    public LanguageSet Languages { get; private set; } = [];
 
     /// <summary>
     /// The architecture to find executables for. Find for the current system if left at default value.
@@ -100,7 +100,7 @@ public partial class Requirements : ICloneable<Requirements>
     [Description("The ranges of versions of specific sub-implementations that can be chosen.")]
     [XmlIgnore, JsonProperty("extra_restrictions")]
     [UnorderedEquality]
-    public Dictionary<FeedUri, VersionRange> ExtraRestrictions { get; } = new();
+    public Dictionary<FeedUri, VersionRange> ExtraRestrictions { get; } = [];
 
     /// <summary>
     /// Adds version restriction for a specific feeds. Merges with any existing restrictions for that feed.
@@ -122,7 +122,7 @@ public partial class Requirements : ICloneable<Requirements>
     [Browsable(false)]
     [XmlIgnore, JsonIgnore]
     [UnorderedEquality]
-    public List<string> Distributions { get; } = new();
+    public List<string> Distributions { get; } = [];
 
     /// <summary>
     /// Creates an empty requirements object. Use this to fill in values incrementally, e.g. when parsing command-line arguments.
@@ -193,18 +193,18 @@ public partial class Requirements : ICloneable<Requirements>
     {
         var args = new List<string>();
 
-        if (Command != null) args.Add(new[] {"--command", Command});
+        if (Command != null) args.AddRange(["--command", Command]);
         if (Architecture.Cpu == Cpu.Source) args.Add("--source");
         else
         {
-            if (Architecture.OS != OS.All) args.Add(new[] {"--os", Architecture.OS.ConvertToString()});
-            if (Architecture.Cpu != Cpu.All) args.Add(new[] {"--cpu", Architecture.Cpu.ConvertToString()});
+            if (Architecture.OS != OS.All) args.AddRange(["--os", Architecture.OS.ConvertToString()]);
+            if (Architecture.Cpu != Cpu.All) args.AddRange(["--cpu", Architecture.Cpu.ConvertToString()]);
         }
-        if (Message != null) args.Add(new[] {"--message", Message});
+        if (Message != null) args.AddRange(["--message", Message]);
         foreach (var language in Languages)
-            args.Add(new[] {"--language", language.ToString()});
+            args.AddRange(["--language", language.ToString()]);
         foreach (var (uri, range) in ExtraRestrictions)
-            args.Add(new[] {"--version-for", uri.ToStringRfc(), range.ToString()});
+            args.AddRange(["--version-for", uri.ToStringRfc(), range.ToString()]);
         args.Add(InterfaceUri.ToStringRfc());
 
         return args.ToArray();

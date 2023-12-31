@@ -13,7 +13,7 @@ public sealed partial class CatalogMan(ICommandHandler handler) : CliMultiComman
     public const string Name = "catalog";
 
     /// <inheritdoc/>
-    public override IEnumerable<string> SubCommandNames => new[] {Search.Name, Refresh.Name, Add.Name, Remove.Name, Reset.Name, List.Name};
+    public override IEnumerable<string> SubCommandNames => [Search.Name, Refresh.Name, Add.Name, Remove.Name, Reset.Name, List.Name];
 
     /// <inheritdoc/>
     public override CliCommand GetCommand(string commandName)

@@ -49,7 +49,7 @@ public partial class SearchResult
     /// </summary>
     [Browsable(false)]
     [XmlElement("category")]
-    public List<Category> Categories { get; } = new();
+    public List<Category> Categories { get; } = [];
 
     /// <summary>Used for DataGrid rendering.</summary>
     /// <seealso cref="Categories"/>

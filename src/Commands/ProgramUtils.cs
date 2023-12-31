@@ -182,7 +182,7 @@ public static class ProgramUtils
         }
         catch (NotAdminException) when (WindowsUtils.HasUac
                                      && args.FirstOrDefault() != AsAdminIndicatorArg
-                                     && GuiStartInfo(args.Prepend(AsAdminIndicatorArg)) is {} startInfo)
+                                     && GuiStartInfo([AsAdminIndicatorArg, ..args]) is {} startInfo)
         {
             Log.Info("Elevating to admin");
             handler.DisableUI();
@@ -369,12 +369,12 @@ public static class ProgramUtils
 
         var deployResult = Run(exeName,
             machineWide
-                ? new[] {Self.Name, Self.Deploy.Name, "--library", "--machine"}
-                : new[] {Self.Name, Self.Deploy.Name, "--library"},
+                ? [Self.Name, Self.Deploy.Name, "--library", "--machine"]
+                : [Self.Name, Self.Deploy.Name, "--library"],
             handler);
         if (deployResult != ExitCode.OK) return deployResult;
 
-        return TryRunOtherInstance(exeName, args.Prepend(DeployedIndicatorArg), handler, machineWide)
+        return TryRunOtherInstance(exeName, [DeployedIndicatorArg, ..args], handler, machineWide)
             ?? throw new IOException("Unable to find newly deployed Zero Install instance.");
     }
 }

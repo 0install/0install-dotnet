@@ -13,7 +13,7 @@ partial class SelfManager
     private static readonly string _ngenExe = Path.Combine(WindowsUtils.GetNetFxDirectory(WindowsUtils.NetFx40), "ngen.exe");
 
     private static readonly string[] _ngenAssemblies =
-    {
+    [
         "0install.exe",
         "0install-win.exe",
         "0launch.exe",
@@ -23,7 +23,7 @@ partial class SelfManager
         "ZeroInstall.exe",
         "ZeroInstall.OneGet.dll",
         "ZeroInstall.Model.XmlSerializers.dll"
-    };
+    ];
 #endif
 
     /// <summary>

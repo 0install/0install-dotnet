@@ -69,7 +69,7 @@ public class Fetcher(Config config, IImplementationStore store, ITaskHandler han
             var manifestDigest = implementation.ManifestDigest;
             if (manifestDigest.Best == null) throw new NotSupportedException(string.Format(Resources.NoManifestDigest, implementation.ID));
             if (DiscoverImplementation(manifestDigest, tag) is {} retrievalMethod)
-                retrievalMethods = new(retrievalMethods) {retrievalMethod};
+                retrievalMethods = [..retrievalMethods, retrievalMethod];
             TryRetrieve(retrievalMethods, manifestDigest, tag);
         }
         finally
@@ -118,7 +118,7 @@ public class Fetcher(Config config, IImplementationStore store, ITaskHandler han
         switch (retrievalMethod)
         {
             case DownloadRetrievalMethod download:
-                Retrieve(new[] {download}, manifestDigest, tag);
+                Retrieve([download], manifestDigest, tag);
                 break;
             case Recipe recipe:
                 Retrieve(recipe.Steps, manifestDigest, tag);

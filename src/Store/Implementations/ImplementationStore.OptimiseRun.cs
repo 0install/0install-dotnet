@@ -20,8 +20,8 @@ partial class ImplementationStore
             public static implicit operator string(StoreFile file) => System.IO.Path.Combine(file.ImplementationPath, file.RelativePath);
         }
 
-        private readonly Dictionary<DedupKey, StoreFile> _fileHashes = new();
-        private readonly HashSet<string> _unsealedImplementations = new();
+        private readonly Dictionary<DedupKey, StoreFile> _fileHashes = [];
+        private readonly HashSet<string> _unsealedImplementations = [];
 
         /// <summary>
         /// The number of bytes saved by deduplication.

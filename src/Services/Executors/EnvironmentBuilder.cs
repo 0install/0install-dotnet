@@ -85,7 +85,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
         return this;
     }
 
-    private readonly List<string> _userArguments = new();
+    private readonly List<string> _userArguments = [];
 
     /// <inheritdoc/>
     public IEnvironmentBuilder AddArguments(params string[] arguments)
@@ -207,7 +207,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
             commandLine.Add(runner.Arguments);
         }
         else
-            commandLine = new();
+            commandLine = [];
 
         if (!string.IsNullOrEmpty(command.Path))
         {
@@ -240,7 +240,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
                 case ForEachArgs forEach:
                     foreach (string value in EnvironmentVariables[forEach.ItemFrom]
                                           ?.Split(new[] {forEach.Separator ?? Path.PathSeparator.ToString(CultureInfo.InvariantCulture)}, StringSplitOptions.RemoveEmptyEntries)
-                                         ?? Enumerable.Empty<string>())
+                                         ?? [])
                     {
                         EnvironmentVariables["item"] = value;
                         result.Add(forEach.Arguments.Select(arg => OSUtils.ExpandVariables(arg.Value, EnvironmentVariables)));

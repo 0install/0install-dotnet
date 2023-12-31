@@ -109,12 +109,12 @@ public abstract class XmlUnknown : IEquatable<XmlUnknown>
         if (other == null) return false;
         // ReSharper disable once InvokeAsExtensionMethod
         bool attributesEqual = EnumerableExtensions.UnsequencedEquals(
-            UnknownAttributes ?? Array.Empty<XmlAttribute>(),
-            other.UnknownAttributes ?? Array.Empty<XmlAttribute>(),
+            UnknownAttributes ?? [],
+            other.UnknownAttributes ?? [],
             comparer: XmlAttributeComparer.Instance);
         bool elementsEqual = EnumerableExtensions.SequencedEquals(
-            UnknownElements ?? Array.Empty<XmlElement>(),
-            other.UnknownElements ?? Array.Empty<XmlElement>(),
+            UnknownElements ?? [],
+            other.UnknownElements ?? [],
             comparer: XmlElementComparer.Instance);
         return attributesEqual && elementsEqual;
     }
@@ -122,7 +122,7 @@ public abstract class XmlUnknown : IEquatable<XmlUnknown>
     /// <inheritdoc/>
     public override int GetHashCode()
         => HashCode.Combine(
-            (UnknownAttributes ?? Array.Empty<XmlAttribute>()).GetUnsequencedHashCode(XmlAttributeComparer.Instance),
-            (UnknownElements ?? Array.Empty<XmlElement>()).GetSequencedHashCode(XmlElementComparer.Instance));
+            (UnknownAttributes ?? []).GetUnsequencedHashCode(XmlAttributeComparer.Instance),
+            (UnknownElements ?? []).GetSequencedHashCode(XmlElementComparer.Instance));
     #endregion
 }

@@ -47,7 +47,7 @@ public partial class Dependency : Restriction, IInterfaceUriBindingContainer, IC
     [Browsable(false)]
     [XmlElement(typeof(GenericBinding)), XmlElement(typeof(EnvironmentBinding)), XmlElement(typeof(OverlayBinding)), XmlElement(typeof(ExecutableInVar)), XmlElement(typeof(ExecutableInPath))]
     [OrderedEquality]
-    public List<Binding> Bindings { get; } = new();
+    public List<Binding> Bindings { get; } = [];
 
     /// <inheritdoc/>
     public override bool IsApplicable(Requirements requirements)

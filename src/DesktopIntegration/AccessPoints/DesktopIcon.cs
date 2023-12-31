@@ -15,7 +15,7 @@ public partial class DesktopIcon : IconAccessPoint
     public const string TagName = "desktop-icon", AltName = "desktop";
 
     /// <inheritdoc/>
-    public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] { $"{TagName}:{Name}" };
+    public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => [$"{TagName}:{Name}"];
 
     /// <inheritdoc/>
     public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)

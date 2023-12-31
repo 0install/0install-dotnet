@@ -16,7 +16,7 @@ public abstract partial class VerbCapability : IconCapability
     [Browsable(false)]
     [XmlElement("verb")]
     [OrderedEquality]
-    public List<Verb> Verbs { get; } = new();
+    public List<Verb> Verbs { get; } = [];
 
     #region Normalize
     /// <inheritdoc/>

@@ -14,7 +14,7 @@ public class ImplementationDiscovery : IImplementationDiscovery, IDisposable
 {
     private readonly ServiceDiscovery _serviceDiscovery = new();
     private readonly Timer _queryTimer;
-    private readonly ConcurrentSet<ImplementationDiscoveryInstance> _instances = new();
+    private readonly ConcurrentSet<ImplementationDiscoveryInstance> _instances = [];
 
     private event Action<ImplementationDiscoveryInstance> InstanceDiscovered;
 

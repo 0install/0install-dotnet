@@ -148,7 +148,7 @@ public class IconStoreTest : IDisposable
     }
 
     private static readonly byte[]
-        _dummyBytes = {1, 2, 3},
+        _dummyBytes = [1, 2, 3],
         _pngBytes = typeof(IconStoreTest).GetEmbeddedBytes("icon.png"),
         _icoBytes = typeof(IconStoreTest).GetEmbeddedBytes("icon.ico");
 

@@ -10,16 +10,16 @@ partial class IntegrationState
     /// </summary>
     public bool CapabilityRegistration { get; set; }
 
-    public readonly BindingList<FileTypeModel> FileTypes = new();
-    public readonly BindingList<UrlProtocolModel> UrlProtocols = new();
-    public readonly BindingList<AutoPlayModel> AutoPlay = new();
-    public readonly BindingList<ContextMenuModel> ContextMenu = new();
-    public readonly BindingList<DefaultProgramModel> DefaultProgram = new();
+    public readonly BindingList<FileTypeModel> FileTypes = [];
+    public readonly BindingList<UrlProtocolModel> UrlProtocols = [];
+    public readonly BindingList<AutoPlayModel> AutoPlay = [];
+    public readonly BindingList<ContextMenuModel> ContextMenu = [];
+    public readonly BindingList<DefaultProgramModel> DefaultProgram = [];
 
     /// <summary>
     /// List of all <see cref="CapabilityModel"/>s handled by this View-Model.
     /// </summary>
-    private readonly List<CapabilityModel> _capabilityModels = new();
+    private readonly List<CapabilityModel> _capabilityModels = [];
 
     /// <summary>
     /// Reads the <see cref="DefaultCapability"/>s from <see cref="Model.Feed.CapabilityLists"/> and creates a corresponding model for turning <see cref="AccessPoints.DefaultAccessPoint"/> on and off.

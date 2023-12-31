@@ -51,7 +51,7 @@ public partial class IntegrationState
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
     public void ApplyChanges()
     {
-        List<AccessPoints.AccessPoint> toAdd = new(), toRemove = new();
+        List<AccessPoints.AccessPoint> toAdd = [], toRemove = [];
         (CapabilityRegistration ? toAdd : toRemove).Add(new AccessPoints.CapabilityRegistration());
         CollectCommandAccessPointChanges(toAdd, toRemove);
         CollectDefaultAccessPointChanges(toAdd, toRemove);

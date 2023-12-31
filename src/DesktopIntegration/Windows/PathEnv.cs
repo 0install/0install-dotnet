@@ -52,7 +52,7 @@ public static class PathEnv
         string? value = Environment.GetEnvironmentVariable(
             variable: "Path",
             target: machineWide ? EnvironmentVariableTarget.Machine : EnvironmentVariableTarget.User);
-        return string.IsNullOrEmpty(value) ? Array.Empty<string>() : value.Split(Path.PathSeparator);
+        return string.IsNullOrEmpty(value) ? [] : value.Split(Path.PathSeparator);
     }
 
     /// <summary>

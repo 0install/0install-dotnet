@@ -51,8 +51,8 @@ public class IntegrationManager : IntegrationManagerBase
     /// <remarks>If a new directory is created with <paramref name="machineWide"/> set to <c>true</c> on Windows, ACLs are set to deny write access for non-Administrator users.</remarks>
     public static string GetDir(bool machineWide, params string[] resource)
         => machineWide
-            ? Locations.GetSaveSystemConfigPath("0install.net", isFile: false, resource.Prepend("desktop-integration"))
-            : Locations.GetSaveConfigPath("0install.net", isFile: false, resource.Prepend("desktop-integration"));
+            ? Locations.GetSaveSystemConfigPath("0install.net", isFile: false, ["desktop-integration", ..resource])
+            : Locations.GetSaveConfigPath("0install.net", isFile: false, ["desktop-integration", ..resource]);
 
     /// <summary>
     /// The storage location of the <see cref="AppList"/> file.
@@ -215,7 +215,7 @@ public class IntegrationManager : IntegrationManagerBase
         {
             try
             {
-                AddAccessPointsInternal(appEntry, feed, new[] {accessPoint});
+                AddAccessPointsInternal(appEntry, feed, [accessPoint]);
             }
             #region Error handling
             catch (KeyNotFoundException)
@@ -305,7 +305,7 @@ public class IntegrationManager : IntegrationManagerBase
         if (feed == null) throw new ArgumentNullException(nameof(feed));
         #endregion
 
-        var toReAdd = appEntry.AccessPoints?.Entries ?? Enumerable.Empty<AccessPoint>();
+        var toReAdd = appEntry.AccessPoints?.Entries ?? [];
         AddAccessPointsInternal(appEntry, feed, toReAdd.ToList());
 
         WriteAppDir(appEntry);

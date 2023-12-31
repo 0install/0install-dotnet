@@ -35,7 +35,7 @@ public sealed partial class ImplementationVersion : IComparable<ImplementationVe
     /// All additional parts of the version number.
     /// </summary>
     [OrderedEquality]
-    public IReadOnlyList<VersionPart> AdditionalParts { get; } = Array.Empty<VersionPart>();
+    public IReadOnlyList<VersionPart> AdditionalParts { get; } = [];
 
     /// <summary>Used to store the unparsed input string (instead of <see cref="FirstPart"/> and <see cref="AdditionalParts"/>) if it <see cref="ModelUtils.ContainsTemplateVariables"/>.</summary>
     private readonly string? _verbatimString;

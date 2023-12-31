@@ -100,6 +100,6 @@ public static partial class Shortcut
     private static byte[] ToBstr(string value)
     {
         byte[] bytes = Encoding.Unicode.GetBytes(value + '\0');
-        return ArrayUtils.Concat(BitConverter.GetBytes(bytes.Length), bytes, new byte[] {0, 0});
+        return [..BitConverter.GetBytes(bytes.Length), ..bytes, 0, 0];
     }
 }

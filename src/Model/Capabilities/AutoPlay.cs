@@ -31,11 +31,11 @@ public sealed partial class AutoPlay : IconCapability
     [Browsable(false)]
     [XmlElement("event")]
     [OrderedEquality]
-    public List<AutoPlayEvent> Events { get; } = new();
+    public List<AutoPlayEvent> Events { get; } = [];
 
     /// <inheritdoc/>
     [Browsable(false), XmlIgnore, IgnoreEquality]
-    public override IEnumerable<string> ConflictIDs => new[] {$"auto-play:{ID}"};
+    public override IEnumerable<string> ConflictIDs => [$"auto-play:{ID}"];
 
     #region Normalize
     /// <inheritdoc/>

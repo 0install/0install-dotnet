@@ -57,7 +57,7 @@ public partial class Command : FeedElement, IArgBaseContainer, IBindingContainer
     [Browsable(false)]
     [XmlElement(typeof(Arg)), XmlElement(typeof(ForEachArgs))]
     [OrderedEquality]
-    public List<ArgBase> Arguments { get; } = new();
+    public List<ArgBase> Arguments { get; } = [];
 
     /// <summary>
     /// A list of <see cref="Binding"/>s for <see cref="Implementation"/>s to locate <see cref="Dependency"/>s.
@@ -65,7 +65,7 @@ public partial class Command : FeedElement, IArgBaseContainer, IBindingContainer
     [Browsable(false)]
     [XmlElement(typeof(GenericBinding)), XmlElement(typeof(EnvironmentBinding)), XmlElement(typeof(OverlayBinding)), XmlElement(typeof(ExecutableInVar)), XmlElement(typeof(ExecutableInPath))]
     [OrderedEquality]
-    public List<Binding> Bindings { get; } = new();
+    public List<Binding> Bindings { get; } = [];
 
     /// <summary>
     /// Switches the working directory of a process on startup to a location within an implementation.
@@ -80,7 +80,7 @@ public partial class Command : FeedElement, IArgBaseContainer, IBindingContainer
     [Browsable(false)]
     [XmlElement("requires")]
     [OrderedEquality]
-    public List<Dependency> Dependencies { get; } = new();
+    public List<Dependency> Dependencies { get; } = [];
 
     /// <summary>
     /// A list of interfaces that are restricted to specific versions when used.
@@ -88,7 +88,7 @@ public partial class Command : FeedElement, IArgBaseContainer, IBindingContainer
     [Browsable(false)]
     [XmlElement("restricts")]
     [OrderedEquality]
-    public List<Restriction> Restrictions { get; } = new();
+    public List<Restriction> Restrictions { get; } = [];
 
     /// <summary>
     /// A special kind of dependency: the program that is used to run this one. For example, a Python program might specify Python as its runner.

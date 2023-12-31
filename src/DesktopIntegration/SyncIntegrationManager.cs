@@ -102,7 +102,7 @@ public class SyncIntegrationManager : IntegrationManager
                 _ => DownloadAppList(uri)
             };
 
-            HandleDownloadedAppList(data ?? Array.Empty<byte>(), resetClient: resetMode == SyncResetMode.Client);
+            HandleDownloadedAppList(data ?? [], resetClient: resetMode == SyncResetMode.Client);
 
             if (resetMode != SyncResetMode.Client)
                 UploadAppList(uri, etag);

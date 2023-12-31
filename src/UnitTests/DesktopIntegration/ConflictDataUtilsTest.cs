@@ -24,7 +24,7 @@ public sealed class ConflictDataUtilsTest
         var appEntry2 = new AppEntry {Name = "App2", InterfaceUri = FeedTest.Test2Uri};
 
         var appList = new AppList {Entries = {appEntry1}};
-        appList.CheckForConflicts(new[] {accessPointB}, appEntry2);
+        appList.CheckForConflicts([accessPointB], appEntry2);
     }
 
     [Fact]
@@ -39,7 +39,7 @@ public sealed class ConflictDataUtilsTest
         };
 
         var appList = new AppList {Entries = {appEntry1}};
-        appList.CheckForConflicts(new[] {accessPointA}, appEntry1);
+        appList.CheckForConflicts([accessPointA], appEntry1);
     }
 
     [Fact]
@@ -55,7 +55,7 @@ public sealed class ConflictDataUtilsTest
         var appEntry2 = new AppEntry {Name = "App2", InterfaceUri = FeedTest.Test2Uri};
 
         var appList = new AppList {Entries = {appEntry1}};
-        Assert.Throws<ConflictException>(() => appList.CheckForConflicts(new[] {accessPointA}, appEntry2));
+        Assert.Throws<ConflictException>(() => appList.CheckForConflicts([accessPointA], appEntry2));
     }
 
     [Fact]

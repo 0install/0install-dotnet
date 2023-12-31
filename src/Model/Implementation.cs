@@ -18,7 +18,7 @@ public partial class Implementation : ImplementationBase
     [Browsable(false)]
     [XmlElement(typeof(Archive)), XmlElement(typeof(SingleFile)), XmlElement(typeof(Recipe))]
     [OrderedEquality]
-    public List<RetrievalMethod> RetrievalMethods { get; } = new();
+    public List<RetrievalMethod> RetrievalMethods { get; } = [];
 
     #region Normalize
     /// <inheritdoc/>

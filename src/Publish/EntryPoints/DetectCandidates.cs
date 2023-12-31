@@ -8,8 +8,8 @@ namespace ZeroInstall.Publish.EntryPoints;
 /// </summary>
 public class DetectCandidates(string path) : ReadDirectoryBase(path)
 {
-    private static readonly List<Func<Candidate>> _candidateCreators = new()
-    {
+    private static readonly List<Func<Candidate>> _candidateCreators =
+    [
         () => new JavaClass(),
         () => new JavaJar(),
         () => new DotNetDll(),
@@ -26,12 +26,12 @@ public class DetectCandidates(string path) : ReadDirectoryBase(path)
         () => new BashScript(),
         () => new PosixScript(),
         () => new PosixBinary()
-    };
+    ];
 
     /// <inheritdoc/>
     public override string Name => Resources.DetectingCandidates;
 
-    private readonly List<Candidate> _candidates = new();
+    private readonly List<Candidate> _candidates = [];
 
     /// <summary>
     /// The list of detected candidates.

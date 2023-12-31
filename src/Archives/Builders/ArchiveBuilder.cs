@@ -13,7 +13,7 @@ public static class ArchiveBuilder
     /// <summary>
     /// All supported MIME types for creating archives. This is a subset of <see cref="Archive.KnownMimeTypes"/>
     /// </summary>
-    public static readonly string[] SupportedMimeTypes = {Archive.MimeTypeZip, Archive.MimeTypeTar, Archive.MimeTypeTarGzip, Archive.MimeTypeTarBzip, Archive.MimeTypeTarLzip, Archive.MimeTypeTarZstandard};
+    public static readonly string[] SupportedMimeTypes = [Archive.MimeTypeZip, Archive.MimeTypeTar, Archive.MimeTypeTarGzip, Archive.MimeTypeTarBzip, Archive.MimeTypeTarLzip, Archive.MimeTypeTarZstandard];
 
     /// <summary>
     /// Creates a new <see cref="ArchiveBuilder"/> for creating an archive and writing it to a stream.

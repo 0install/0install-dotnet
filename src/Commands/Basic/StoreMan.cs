@@ -14,7 +14,7 @@ public sealed partial class StoreMan(ICommandHandler handler) : CliMultiCommand(
     public const string Name = "store";
 
     /// <inheritdoc/>
-    public override IEnumerable<string> SubCommandNames => new[] {Add.Name, Audit.Name, Copy.Name, Export.Name, Find.Name, List.Name, ListImplementations.Name, Optimise.Name, Purge.Name, Remove.Name, Verify.Name, Serve.Name, AddDir.Name, RemoveDir.Name};
+    public override IEnumerable<string> SubCommandNames => [Add.Name, Audit.Name, Copy.Name, Export.Name, Find.Name, List.Name, ListImplementations.Name, Optimise.Name, Purge.Name, Remove.Name, Verify.Name, Serve.Name, AddDir.Name, RemoveDir.Name];
 
     /// <inheritdoc/>
     public override CliCommand GetCommand(string commandName)

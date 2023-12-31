@@ -17,11 +17,11 @@ public sealed partial class FileType : VerbCapability
     [Browsable(false)]
     [XmlElement("extension")]
     [OrderedEquality]
-    public List<FileTypeExtension> Extensions { get; } = new();
+    public List<FileTypeExtension> Extensions { get; } = [];
 
     /// <inheritdoc/>
     [Browsable(false), XmlIgnore, IgnoreEquality]
-    public override IEnumerable<string> ConflictIDs => new[] {$"progid:{ID}"};
+    public override IEnumerable<string> ConflictIDs => [$"progid:{ID}"];
 
     #region Normalize
     /// <inheritdoc/>

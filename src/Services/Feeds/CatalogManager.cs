@@ -156,7 +156,7 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
     public static FeedUri[] GetSources()
     {
         if (Locations.GetLoadConfigPaths("0install.net", true, "catalog-sources").FirstOrDefault() is not {Length: >0} path)
-            return new[] {DefaultSource};
+            return [DefaultSource];
 
         string[] ReadAllLines()
         {

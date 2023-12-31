@@ -36,10 +36,10 @@ public static class FeedUtils
         if (feedData == null) throw new ArgumentNullException(nameof(feedData));
         #endregion
 
-        if (feedData.Length == 0) return Enumerable.Empty<OpenPgpSignature>();
+        if (feedData.Length == 0) return [];
 
         int signatureStartIndex = GetSignatureStartIndex(feedData);
-        if (signatureStartIndex == -1) return Enumerable.Empty<OpenPgpSignature>();
+        if (signatureStartIndex == -1) return [];
 
         return openPgp.Verify(
             data: IsolateFeed(feedData, signatureStartIndex),

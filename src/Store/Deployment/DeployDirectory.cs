@@ -21,8 +21,8 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
     /// </summary>
     public string DestinationPath { get; } = destinationPath;
 
-    private readonly Stack<string> _createdDirectories = new();
-    private readonly Stack<(string source, string destination)> _pendingFileRenames = new();
+    private readonly Stack<string> _createdDirectories = [];
+    private readonly Stack<(string source, string destination)> _pendingFileRenames = [];
 
     /// <inheritdoc/>
     protected override void OnStage()

@@ -40,7 +40,7 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
     [Description("A list of application entries.")]
     [XmlElement("app")]
     [UnorderedEquality]
-    public List<AppEntry> Entries { get; } = new();
+    public List<AppEntry> Entries { get; } = [];
 
     /// <summary>
     /// Checks whether an <see cref="AppEntry"/> for a specific interface URI exists.

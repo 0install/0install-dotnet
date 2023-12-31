@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Xml;
 using NanoByte.Common.Net;
 using ZeroInstall.Model.Capabilities;
 
@@ -75,13 +74,13 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     [Browsable(false)]
     [XmlElement("summary")]
     [OrderedEquality]
-    public LocalizableStringCollection Summaries { get; } = new();
+    public LocalizableStringCollection Summaries { get; } = [];
 
     /// <inheritdoc/>
     [Browsable(false)]
     [XmlElement("description")]
     [OrderedEquality]
-    public LocalizableStringCollection Descriptions { get; } = new();
+    public LocalizableStringCollection Descriptions { get; } = [];
 
     /// <summary>
     /// The publisher (company or organization) of the program.
@@ -103,7 +102,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     [Browsable(false)]
     [XmlElement("icon")]
     [OrderedEquality]
-    public List<Icon> Icons { get; } = new();
+    public List<Icon> Icons { get; } = [];
 
     /// <summary>
     /// Splash screens Zero Install can display during downloads, etc. for better branding.
@@ -111,7 +110,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     [Browsable(false)]
     [XmlElement("splash-screen")]
     [OrderedEquality]
-    public List<Icon> SplashScreens { get; } = new();
+    public List<Icon> SplashScreens { get; } = [];
 
     /// <summary>
     /// A list of well-known categories the applications fits into. May influence the placement in the application menu.
@@ -119,7 +118,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     [Browsable(false)]
     [XmlElement("category")]
     [OrderedEquality]
-    public List<Category> Categories { get; } = new();
+    public List<Category> Categories { get; } = [];
 
     /// <summary>
     /// If <c>true</c>, indicates that the program requires a terminal in order to run. Graphical launchers should therefore run this program in a suitable terminal emulator.
@@ -168,7 +167,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     [Browsable(false)]
     [XmlElement("feed")]
     [OrderedEquality]
-    public List<FeedReference> Feeds { get; } = new();
+    public List<FeedReference> Feeds { get; } = [];
 
     /// <summary>
     /// The implementations in this feed are implementations of the given interface. This is used when adding a third-party feed.
@@ -176,7 +175,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     [Browsable(false)]
     [XmlElement("feed-for")]
     [OrderedEquality]
-    public List<InterfaceReference> FeedFor { get; } = new();
+    public List<InterfaceReference> FeedFor { get; } = [];
 
     /// <summary>
     /// This interface <see cref="Uri"/> of the feed has been replaced by the given interface. Any references to the old URI should be updated to use the new one.
@@ -192,7 +191,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     [Browsable(false)]
     [XmlElement(typeof(Implementation)), XmlElement(typeof(PackageImplementation)), XmlElement(typeof(Group))]
     [OrderedEquality]
-    public List<Element> Elements { get; } = new();
+    public List<Element> Elements { get; } = [];
 
     /// <summary>
     /// A list of <see cref="EntryPoint"/>s for starting this interface.
@@ -200,7 +199,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     [Browsable(false)]
     [XmlElement("entry-point")]
     [OrderedEquality]
-    public List<EntryPoint> EntryPoints { get; } = new();
+    public List<EntryPoint> EntryPoints { get; } = [];
 
     /// <summary>
     /// A set of <see cref="Capability"/> lists for different architectures.
@@ -208,7 +207,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     [Browsable(false)]
     [XmlElement("capabilities", Namespace = CapabilityList.XmlNamespace)]
     [OrderedEquality]
-    public List<CapabilityList> CapabilityLists { get; } = new();
+    public List<CapabilityList> CapabilityLists { get; } = [];
 
     /// <summary>
     /// A flat list of all <see cref="Implementation"/>s contained in this feed.
@@ -384,8 +383,8 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
         CapabilityLists.Clear();
 
         SchemaLocation = null;
-        UnknownAttributes = Array.Empty<XmlAttribute>();
-        UnknownElements = Array.Empty<XmlElement>();
+        UnknownAttributes = [];
+        UnknownElements = [];
     }
     #endregion
 

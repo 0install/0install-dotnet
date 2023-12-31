@@ -16,7 +16,7 @@ public class SearchResults
     /// A list of results matching the specified keywords.
     /// </summary>
     [XmlElement("result")]
-    public List<SearchResult> Results { get; } = new();
+    public List<SearchResult> Results { get; } = [];
 
     /// <summary>
     /// Performs a feed search query using the <see cref="Config.FeedMirror"/>.

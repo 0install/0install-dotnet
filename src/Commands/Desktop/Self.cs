@@ -12,7 +12,7 @@ public sealed partial class Self(ICommandHandler handler) : CliMultiCommand(hand
     public const string AltName = "maintenance";
 
     /// <inheritdoc/>
-    public override IEnumerable<string> SubCommandNames => new[] {Deploy.Name, Remove.Name, Update.Name};
+    public override IEnumerable<string> SubCommandNames => [Deploy.Name, Remove.Name, Update.Name];
 
     /// <inheritdoc/>
     public override CliCommand GetCommand(string commandName)

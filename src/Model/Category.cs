@@ -17,7 +17,7 @@ public sealed partial class Category : FeedElement, ICloneable<Category>
     /// <summary>
     /// Well-known values for <see cref="Name"/> if <see cref="TypeNamespace"/> is empty.
     /// </summary>
-    public static readonly string[] WellKnownNames = {"AudioVideo", "Audio", "Video", "Development", "Education", "Game", "Graphics", "Network", "Office", "Science", "Settings", "System", "Utility"};
+    public static readonly string[] WellKnownNames = ["AudioVideo", "Audio", "Video", "Development", "Education", "Game", "Graphics", "Network", "Office", "Science", "Settings", "System", "Utility"];
     #endregion
 
     /// <summary>

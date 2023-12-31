@@ -43,7 +43,7 @@ public sealed partial class CapabilityList : XmlUnknown, ICloneable<CapabilityLi
      XmlElement(typeof(DefaultProgram)),
      XmlElement(typeof(RemoveHook))]
     [OrderedEquality]
-    public List<Capability> Entries { get; } = new();
+    public List<Capability> Entries { get; } = [];
 
     /// <summary>
     /// Retrieves the first <see cref="Capability"/> that matches a specific type and ID. Safe for missing elements.

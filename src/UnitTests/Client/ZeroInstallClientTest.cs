@@ -95,8 +95,8 @@ public class ZeroInstallClientTest : TestWithMocks
                      .Returns("");
 
         await _client.IntegrateAsync(FeedTest.Test1Uri,
-            add: new[] { "capability-registration" },
-            remove: new[] { "alias", "auto-start" });
+            add: ["capability-registration"],
+            remove: ["alias", "auto-start"]);
     }
 
     [Fact]

@@ -14,7 +14,7 @@ namespace ZeroInstall.Store.Configuration;
 partial class Config
 {
     private const string AppName = "0install.net", GlobalSection = "global", Base64Suffix = "_base64";
-    private static readonly string[] Resource = {"injector", "global"};
+    private static readonly string[] Resource = ["injector", "global"];
 
     /// <summary>
     /// Aggregates options from all applicable config files and registry locations.

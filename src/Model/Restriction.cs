@@ -60,7 +60,7 @@ public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restri
     [Browsable(false)]
     [XmlElement("version")]
     [OrderedEquality]
-    public List<Constraint> Constraints { get; } = new();
+    public List<Constraint> Constraints { get; } = [];
 
     // Order is not important (but is preserved), duplicate entries are not allowed (but not enforced)
 
@@ -76,7 +76,7 @@ public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restri
     [Browsable(false)]
     [XmlIgnore]
     [OrderedEquality]
-    public List<string> Distributions { get; } = new();
+    public List<string> Distributions { get; } = [];
 
     /// <summary>
     /// Specifies that the selected implementation must be from one of the space-separated distributions (e.g. Debian, RPM).

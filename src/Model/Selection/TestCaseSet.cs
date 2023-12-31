@@ -14,5 +14,5 @@ public class TestCaseSet
     /// A list of input <see cref="Feed"/>s for the solver.
     /// </summary>
     [XmlElement("test", typeof(TestCase), Namespace = Feed.XmlNamespace)]
-    public List<TestCase> TestCases { get; } = new();
+    public List<TestCase> TestCases { get; } = [];
 }

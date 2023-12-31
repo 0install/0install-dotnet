@@ -150,7 +150,7 @@ public class StoreManTest
             _impl2.ManifestDigest = new(Sha256: "2");
 
             var feedCacheMock = GetMock<IFeedCache>();
-            feedCacheMock.Setup(x => x.ListAll()).Returns(new[] {_feed1.Uri, _feed2.Uri});
+            feedCacheMock.Setup(x => x.ListAll()).Returns([_feed1.Uri, _feed2.Uri]);
             void SetupFeed(Feed feed, string path)
             {
                 feedCacheMock.Setup(x => x.GetPath(feed.Uri)).Returns(path);
@@ -160,7 +160,7 @@ public class StoreManTest
             SetupFeed(_feed2, _feedFile2);
 
             StoreMock.SetupGet(x => x.Path).Returns("dummy");
-            StoreMock.Setup(x => x.ListAll()).Returns(new[] {_impl1.ManifestDigest, _impl2.ManifestDigest, _digest3});
+            StoreMock.Setup(x => x.ListAll()).Returns([_impl1.ManifestDigest, _impl2.ManifestDigest, _digest3]);
             void SetupImpl(ManifestDigest digest, string path)
             {
                 StoreMock.Setup(x => x.GetPath(digest)).Returns(path);
@@ -169,7 +169,7 @@ public class StoreManTest
             SetupImpl(_impl1.ManifestDigest, _implDir1);
             SetupImpl(_impl2.ManifestDigest, _implDir2);
             SetupImpl(_digest3, _implDir3);
-            StoreMock.Setup(x => x.ListTemp()).Returns(Enumerable.Empty<string>());
+            StoreMock.Setup(x => x.ListTemp()).Returns([]);
         }
 
         public override void Dispose()
@@ -269,7 +269,7 @@ public class StoreManTest
             var digest2 = new ManifestDigest(Sha256New: "xyz");
 
             var storeMock = StoreMock;
-            storeMock.Setup(x => x.ListAll()).Returns(new[] {digest1, digest2});
+            storeMock.Setup(x => x.ListAll()).Returns([digest1, digest2]);
             storeMock.Setup(x => x.Verify(digest1));
             storeMock.Setup(x => x.Verify(digest2));
 

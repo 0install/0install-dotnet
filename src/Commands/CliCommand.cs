@@ -97,7 +97,7 @@ public abstract partial class CliCommand : ScopedOperation
 
     /// <summary>Feeds to add, terms to search for, etc.</summary>
     [SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists", Justification = "Using a List<T> for performance reasons")]
-    protected readonly List<string> AdditionalArgs = new();
+    protected readonly List<string> AdditionalArgs = [];
 
     /// <summary>
     /// Creates a new command.
@@ -149,7 +149,7 @@ public abstract partial class CliCommand : ScopedOperation
         if (args == null) throw new ArgumentNullException(nameof(args));
 
         // Automatically show help for missing args
-        if (AdditionalArgsMin > 0 && !args.Any()) args = new[] {"--help"};
+        if (AdditionalArgsMin > 0 && !args.Any()) args = ["--help"];
 
         AdditionalArgs.Add(Options.Parse(args));
 

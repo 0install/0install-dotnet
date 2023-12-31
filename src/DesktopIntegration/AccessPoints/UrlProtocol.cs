@@ -22,7 +22,7 @@ public partial class UrlProtocol : DefaultAccessPoint
 
         var capability = appEntry.LookupCapability<Model.Capabilities.UrlProtocol>(Capability);
         return capability.KnownPrefixes.Count == 0
-            ? new[] {$"protocol:{capability.ID}"}
+            ? [$"protocol:{capability.ID}"]
             : capability.KnownPrefixes.Select(prefix => $"protocol:{prefix.Value}");
     }
 

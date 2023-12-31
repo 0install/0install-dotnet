@@ -40,7 +40,7 @@ public class SelectionCandidateProviderTest : TestWithMocksAndRedirect
         var mainFeed = FeedTest.CreateTestFeed();
         mainFeed.Feeds.Clear();
         _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
-        _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(Enumerable.Empty<ExternalImplementation>());
+        _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns([]);
 
         var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
         _provider.GetSortedCandidates(requirements).Should().Equal(
@@ -52,7 +52,7 @@ public class SelectionCandidateProviderTest : TestWithMocksAndRedirect
     {
         var mainFeed = FeedTest.CreateTestFeed();
         _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
-        _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(Enumerable.Empty<ExternalImplementation>());
+        _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns([]);
 
         var subFeed = mainFeed.Clone();
         subFeed.Uri = FeedTest.Sub1Uri;
@@ -119,18 +119,17 @@ public class SelectionCandidateProviderTest : TestWithMocksAndRedirect
         mainFeed.Feeds.Clear();
         _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
 
-        var pathComponents = ArrayUtils.Concat(
-            new [] {"site-packages"},
-            mainFeed.Uri.EscapeComponent(),
-            new[] {"xyz", "0install", "feed.xml"});
-        var localUri = new FeedUri(Locations.GetSaveDataPath("0install.net", isFile: true, resource: pathComponents.ToArray()));
+        var localUri = new FeedUri(Locations.GetSaveDataPath(
+            "0install.net",
+            isFile: true,
+            resource: ["site-packages", ..mainFeed.Uri.EscapeComponent(), "xyz", "0install", "feed.xml"]));
 
         var subFeed = mainFeed.Clone();
         subFeed.Uri = FeedTest.Sub1Uri;
         subFeed.Elements[0].Version = new("2.0");
         subFeed.SaveXml(localUri.LocalPath);
         _feedManagerMock.Setup(x => x[localUri]).Returns(subFeed);
-        _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(Enumerable.Empty<ExternalImplementation>());
+        _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns([]);
 
         var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
         _provider.GetSortedCandidates(requirements).Should().Equal(
@@ -161,7 +160,7 @@ public class SelectionCandidateProviderTest : TestWithMocksAndRedirect
         var mainFeed = FeedTest.CreateTestFeed();
         mainFeed.Feeds.Clear();
         _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
-        _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(Enumerable.Empty<ExternalImplementation>());
+        _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns([]);
 
         var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
         var candidates = _provider.GetSortedCandidates(requirements);

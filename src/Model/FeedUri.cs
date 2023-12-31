@@ -254,9 +254,9 @@ public sealed partial class FeedUri : Uri, ISerializable
     public string[] EscapeComponent()
         => Scheme switch
         {
-            "http" => new[] {"http", UnderscoreEscape(Host), UnderscoreEscape(LocalPath[1..])},
-            "https" => new[] {"https", UnderscoreEscape(Host), UnderscoreEscape(LocalPath[1..])},
-            "file" => new[] {"file", UnderscoreEscape(WindowsUtils.IsWindows ? LocalPath : LocalPath[1..])},
+            "http" => ["http", UnderscoreEscape(Host), UnderscoreEscape(LocalPath[1..])],
+            "https" => ["https", UnderscoreEscape(Host), UnderscoreEscape(LocalPath[1..])],
+            "file" => ["file", UnderscoreEscape(WindowsUtils.IsWindows ? LocalPath : LocalPath[1..])],
             _ => throw new InvalidOperationException()
         };
     #endregion

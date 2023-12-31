@@ -18,8 +18,8 @@ public partial class MockAccessPoint : DefaultAccessPoint
 
     /// <inheritdoc/>
     public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => string.IsNullOrEmpty(ID)
-        ? Enumerable.Empty<string>()
-        : new[] {$"mock:{ID}"};
+        ? []
+        : [$"mock:{ID}"];
 
     /// <summary>
     /// A unique identifier. Determines the conflict ID.

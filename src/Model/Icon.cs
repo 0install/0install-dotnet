@@ -40,7 +40,7 @@ public partial class Icon : FeedElement, ICloneable<Icon>
     /// <summary>
     /// All known <see cref="MimeType"/> values for icons.
     /// </summary>
-    public static readonly string[] KnownMimeTypes = {MimeTypePng, MimeTypeIco, MimeTypeIcns, MimeTypeSvg};
+    public static readonly string[] KnownMimeTypes = [MimeTypePng, MimeTypeIco, MimeTypeIcns, MimeTypeSvg];
     #endregion
 
     /// <summary>

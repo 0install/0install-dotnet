@@ -29,7 +29,7 @@ public sealed class ConflictException : InvalidOperationException
     public static ConflictException NewConflict(ConflictData existingEntry, ConflictData newEntry)
         => new(string.Format(Resources.AccessPointNewConflict, existingEntry, newEntry))
         {
-            Entries = new[] {existingEntry, newEntry}
+            Entries = [existingEntry, newEntry]
         };
 
     /// <summary>

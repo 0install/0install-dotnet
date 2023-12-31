@@ -13,7 +13,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 public partial class QuickLaunch : IconAccessPoint
 {
     /// <inheritdoc/>
-    public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => new[] {$"quick-launch:{Name}"};
+    public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => [$"quick-launch:{Name}"];
 
     /// <inheritdoc/>
     public override void Apply(AppEntry appEntry, Feed feed, IIconStore iconStore, bool machineWide)

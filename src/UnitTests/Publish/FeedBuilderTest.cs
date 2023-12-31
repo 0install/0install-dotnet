@@ -61,7 +61,7 @@ public class FeedBuilderTest : IDisposable
         _builder.Uri = new("http://example.com/test1.xml");
         _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypePng, Href = new("http://example.com/test.png")});
         _builder.Icons.Add(new Icon {MimeType = Icon.MimeTypeIco, Href = new("http://example.com/test.ico")});
-        _builder.SecretKey = new(KeyID: 123, new OpenPgpFingerprint(new byte[] {1, 2, 3}), UserID: "user");
+        _builder.SecretKey = new(KeyID: 123, new OpenPgpFingerprint([1, 2, 3]), UserID: "user");
         var signedFeed = _builder.Build();
 
         signedFeed.Feed.Name.Should().Be(_builder.MainCandidate.Name);
