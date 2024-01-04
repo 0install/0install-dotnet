@@ -63,7 +63,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
-    <value>Arhiva clădirii '{0}'</value>
+    <value>Construirea arhivei '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
@@ -71,11 +71,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
-    <value>Extragerea acestui tip de arhivă este acceptată numai pe macOS.</value>
+    <value>Extragerea acestui tip de arhivă este suportată numai pe macOS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Extragerea acestui tip de arhivă este acceptată numai pe Windows.</value>
+    <value>Extragerea acestui tip de arhivă este suportată numai pe Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">

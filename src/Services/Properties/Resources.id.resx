@@ -91,7 +91,7 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Menjalankan pemecah eksternal</value>
+    <value>Menjalankan pemecah masalah eksternal</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -107,7 +107,7 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' adalah berkas lokal. Seharusnya berupa URL HTTP(S).</value>
+    <value>'{0}' adalah file lokal. Seharusnya berupa URL HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -127,11 +127,11 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Feed harus menentukan URI asalnya agar dapat diimpor.</value>
+    <value>Umpan harus menentukan URI asalnya agar dapat diimpor.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Nama yang tidak ada dalam pengikatan {0}.</value>
+    <value>Nama yang hilang dalam pengikatan {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -162,7 +162,7 @@ Tanggal baru: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Gagal mengunduh {0}. Mencoba untuk mendapatkan dari feed mirror sebagai gantinya.</value>
+    <value>Gagal mengunduh {0}. Mencoba mendapatkan dari feed mirror sebagai gantinya.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -182,7 +182,7 @@ Tanggal baru: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' bukan merupakan ID yang dikenal di pengelola paket {1}.</value>
+    <value>'{0}' bukan ID yang dikenal di pengelola paket {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">

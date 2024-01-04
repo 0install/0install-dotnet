@@ -112,7 +112,7 @@ Jika Anda ingin menghapus keseluruhan direktori ini tanpa menggunakan Zero Insta
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Kesalahan saat memuat bundel kunci OpenPGP dari '{0}'</value>
+    <value>Kesalahan saat memuat paket kunci OpenPGP dari '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -124,7 +124,7 @@ Jika Anda ingin menghapus keseluruhan direktori ini tanpa menggunakan Zero Insta
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Penggunaan cermin umpan, yang diperlukan untuk pencarian, dinonaktifkan.
+    <value>Penggunaan feed mirror, yang diperlukan untuk pencarian, dinonaktifkan.
 Jalankan '0install config feed_mirror default' untuk mengaktifkannya.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -149,7 +149,7 @@ Jalankan '0install config feed_mirror default' untuk mengaktifkannya.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>File '{0}' bukan merupakan tautan simbolis atau file biasa.</value>
+    <value>File '{0}' bukanlah tautan simbolis atau file biasa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
@@ -190,7 +190,7 @@ Jika Anda menggunakan drive berformat FAT, harap ubah ke NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Jumlah bagian yang tidak valid dalam barisan.</value>
+    <value>Jumlah bagian yang tidak valid dalam antrean.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -206,7 +206,7 @@ Jika Anda menggunakan drive berformat FAT, harap ubah ke NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Hanya administrator yang dapat menghapus elemen dari toko bersama.</value>
+    <value>Hanya administrator yang dapat menghapus elemen dari penyimpanan bersama.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
@@ -218,11 +218,11 @@ Jika Anda menggunakan drive berformat FAT, harap ubah ke NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Tidak ada metode pencernaan yang diketahui yang ditentukan.</value>
+    <value>Tidak ada metode penguraian yang diketahui.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Jalur '{0}' bukanlah jalur absolut. Jalur relatif hanya diperbolehkan dalam mode portabel.
+    <value>Jalur '{0}' bukanlah jalur mutlak. Jalur relatif hanya diperbolehkan dalam mode portabel.
 Ditentukan dalam file konfigurasi '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -235,7 +235,7 @@ Ditentukan dalam file konfigurasi '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>Nilai angkanya terlalu besar.</value>
+    <value>Nilai angka terlalu besar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">

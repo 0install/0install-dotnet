@@ -116,7 +116,7 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>신뢰 데이터베이스를 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌리고 있습니다.</value>
+    <value>신뢰 데이터베이스를 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌립니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -124,8 +124,8 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>검색에 필요한 피드 미러 사용이 비활성화됩니다.
-이를 활성화하려면 '0install config feed_mirror default'를 실행하세요.</value>
+    <value>검색에 필요한 피드 미러 사용이 비활성화되어 있습니다.
+활성화하려면 '0install config feed_mirror default'를 실행하세요.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -182,11 +182,11 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>HTTP 및 HTTPS URL만 지원되므로 {0} 에서 아이콘을 다운로드할 수 없습니다.</value>
+    <value>{0} 에서 아이콘을 다운로드할 수 없는 이유는 HTTP 및 HTTPS URL만 지원되기 때문입니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>매니페스트 파일에 잘못된 줄이 있습니다.</value>
+    <value>매니페스트 파일에 유효하지 않은 줄이 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
@@ -194,7 +194,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>아카이브에 잘못된 경로(잠재적 보안 위험)가 포함되어 있습니다: {0}</value>
+    <value>아카이브에 잘못된 경로가 포함되어 있습니다(잠재적 보안 위험): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -218,11 +218,11 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>알려진 다이제스트 메서드가 지정되지 않았습니다.</value>
+    <value>알려진 다이제스트 방법이 지정되지 않았습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>'{0}' 경로는 절대 경로가 아닙니다. 상대 경로는 포터블 모드에서만 허용됩니다.
+    <value>'{0}' 경로는 절대 경로가 아닙니다. 상대 경로는 휴대용 모드에서만 허용됩니다.
 구성 파일 '{1}' 에 지정됩니다.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -270,15 +270,15 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>StoreService에 연결할 수 없습니다.</value>
+    <value>스토어 서비스와의 연결을 설정할 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
-    <value>임시 디렉토리</value>
+    <value>임시 디렉터리</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>지정한 이름의 비밀 키를 찾을 수 없습니다.</value>
+    <value>지정된 이름의 비밀 키를 찾을 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">

@@ -112,7 +112,7 @@ Als u de hele map wilt verwijderen zonder Zero Install te gebruiken, kunt u deze
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Fout bij laden OpenPGP-sleutelbundel van '{0}'</value>
+    <value>Fout bij het laden van OpenPGP-sleutelbundel van '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -124,7 +124,7 @@ Als u de hele map wilt verwijderen zonder Zero Install te gebruiken, kunt u deze
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Het gebruik van de feed mirror, die nodig is voor zoeken, is uitgeschakeld.
+    <value>Gebruik van de feed mirror, die nodig is voor zoeken, is uitgeschakeld.
 Voer '0install config feed_mirror default' uit om het in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -161,11 +161,11 @@ Voer '0install config feed_mirror default' uit om het in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Wil je het verwijderen? Er wordt automatisch een nieuwe kopie gedownload wanneer dat nodig is.</value>
+    <value>Wil je het verwijderen? Er wordt automatisch een nieuwe kopie gedownload als dat nodig is.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Voer '0install store remove {0}' uit om het te verwijderen. Er wordt automatisch een nieuwe kopie gedownload wanneer dat nodig is.</value>
+    <value>Voer '0install store remove {0}' uit om het te verwijderen. Een nieuwe kopie wordt automatisch opnieuw gedownload wanneer nodig.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -182,7 +182,7 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Kan pictogram niet downloaden van {0} omdat alleen HTTP- en HTTPS-URL's worden ondersteund.</value>
+    <value>Kan geen pictogram downloaden van {0} omdat alleen HTTP- en HTTPS-URL's worden ondersteund.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -210,7 +210,7 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>De bestands- of mapnaam mag geen newline bevatten.</value>
+    <value>De bestands- of mapnaam mag geen newline-teken bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -222,7 +222,7 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Het pad '{0}' is geen absoluut pad. Relatieve paden zijn alleen toegestaan in portable modus.
+    <value>Het pad '{0}' is geen absoluut pad. Relatieve paden zijn alleen toegestaan in draagbare modus.
 Opgegeven in het configuratiebestand '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -235,11 +235,11 @@ Opgegeven in het configuratiebestand '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>De getalswaarde is te groot.</value>
+    <value>De getalwaarde is te groot.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Deze optie wordt gecontroleerd door een groepsbeleid en kan daarom niet worden gewijzigd.</value>
+    <value>Deze optie wordt geregeld door een groepsbeleid en kan daarom niet worden gewijzigd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

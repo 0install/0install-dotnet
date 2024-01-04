@@ -63,7 +63,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
-    <value>Archief '{0}'</value>
+    <value>Archief bouwen '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
@@ -75,7 +75,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Het uitpakken van dit archieftype wordt alleen ondersteund onder Windows.</value>
+    <value>Het uitpakken van dit archieftype wordt alleen ondersteund op Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">

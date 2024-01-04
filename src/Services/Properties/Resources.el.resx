@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Σφάλμα αποθήκευσης της βάσης δεδομένων εμπιστοσύνης</value>
+    <value>Αποθήκευση σφάλματος στη βάση δεδομένων εμπιστοσύνης</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -119,7 +119,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Πρόβλημα με την ανάκτηση του '{0}'.</value>
+    <value>Πρόβλημα με τη λήψη του '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
@@ -162,7 +162,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Απέτυχε η λήψη του {0}. Προσπαθούμε να λάβουμε από τον καθρέφτη τροφοδοσίας.</value>
+    <value>Απέτυχε η λήψη του {0}. Προσπαθείτε να λάβετε από τον καθρέφτη τροφοδοσίας.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -170,7 +170,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>Αδυναμία ανάλυσης της τροφοδοσίας που έχει ληφθεί από το {0}.</value>
+    <value>Δεν είναι δυνατή η ανάλυση της τροφοδοσίας που έχει ληφθεί από το {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

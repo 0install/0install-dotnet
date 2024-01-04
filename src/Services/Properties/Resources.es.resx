@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>los enlaces &lt;entorno&gt; deben contener un atributo &lt;valor&gt; o &lt;insertar&gt;.</value>
+    <value>los enlaces &lt;environment&gt; deben contener un atributo &lt;value&gt; o &lt;insert&gt;.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -111,7 +111,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>El atributo uri &lt;interface&gt; ('{0}') no coincide con la URL desde la que se descargó el feed ('{1}').</value>
+    <value>El atributo uri de &lt;interface&gt; ('{0}') no coincide con la URL desde la que se descargó el feed ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Falta el nombre en la encuadernación {0}.</value>
+    <value>Falta el nombre en {0} binding.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -147,11 +147,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>No se ha encontrado el resumen del manifiesto para la aplicación '{0}'.</value>
+    <value>No manifest digest for implementation '{0}' found.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>No se ha encontrado ningún método de recuperación para la implementación '{0}'.</value>
+    <value>No se ha encontrado ningún método de recuperación para la aplicación '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -166,7 +166,7 @@ Nueva fecha: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>No se puede almacenar en caché el catálogo de aplicaciones descargado.</value>
+    <value>No puede almacenar en caché el catálogo de aplicaciones descargadas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
@@ -198,7 +198,7 @@ Nueva fecha: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>El directorio de trabajo contiene una ruta no válida (potencialmente un riesgo de seguridad).</value>
+    <value>El directorio de trabajo contiene una ruta no válida (potencialmente un riesgo para la seguridad).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -67,11 +67,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Kesalahan saat memuat preferensi feed untuk '{0}'. Kembali ke nilai default.</value>
+    <value>Kesalahan memuat preferensi umpan untuk '{0}'. Kembali ke nilai default.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Kesalahan saat memuat preferensi antarmuka untuk '{0}'. Kembali ke nilai default.</value>
+    <value>Kesalahan memuat preferensi antarmuka untuk '{0}'. Kembali ke nilai default.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -79,11 +79,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Ditemukan:</value>
+    <value>Ditemukan sebagai gantinya:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Tidak dapat menemukan implementasi untuk antarmuka '{0}' dalam pemilihan.</value>
+    <value>Tidak dapat menemukan implementasi untuk antarmuka '{0}' dalam pilihan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -103,19 +103,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>Daftar yang dipisahkan dengan titik hanya boleh berisi angka desimal.</value>
+    <value>Daftar yang dipisahkan dengan titik mungkin hanya berisi angka desimal.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Nomor versi hanya boleh berisi desimal yang dipisahkan dengan titik dan string pengubah.</value>
+    <value>Nomor versi hanya boleh berisi desimal yang dipisahkan titik dan string pengubah.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Nomor versi harus dimulai dengan daftar desimal yang dipisahkan dengan titik.</value>
+    <value>Nomor versi harus dimulai dengan daftar desimal yang dipisahkan titik.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Tidak ada metode pencernaan yang diketahui yang ditentukan.</value>
+    <value>Tidak ada metode penguraian yang diketahui.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>atribut 'persentase-peluncuran' pada {0} hanya dapat disetel jika 'stabilitas' adalah 'pengujian' atau tidak disetel.</value>
+    <value>atribut 'persentase-peluncuran' pada {0} hanya dapat diatur ketika 'stabilitas' adalah 'pengujian' atau tidak diatur.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -159,7 +159,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Jenis MIME haruslah jenis MIME yang valid.</value>
+    <value>Harus menggunakan jenis MIME yang valid.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
@@ -175,7 +175,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
-    <value>Pengubah yang tidak diketahui.</value>
+    <value>Pengubah yang tidak dikenal.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">

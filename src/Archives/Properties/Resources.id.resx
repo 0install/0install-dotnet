@@ -63,7 +63,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
-    <value>Arsip bangunan '{0}'</value>
+    <value>Membangun arsip '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">

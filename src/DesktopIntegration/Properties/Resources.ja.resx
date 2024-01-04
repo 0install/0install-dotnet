@@ -59,15 +59,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>以下の既存のアクセスポイントは互いに矛盾している：</value>
+    <value>以下の既存アクセスポイントは互いに競合しています：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>アプリケーション（{0} ）の以下のアクセスポイントは、互いに競合しています：</value>
+    <value>アプリケーション{0} の以下のアクセスポイントは、互いに競合しています：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
-    <value>既存のアクセスポイント（{0} ）は、新しいアクセスポイント（{1} ）と競合している。</value>
+    <value>既存のアクセスポイント{0} は、新しいアクセスポイント{1} と競合しています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
@@ -95,7 +95,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
-    <value>シンクの設定には'0install central'または'0install config'を使用してください。</value>
+    <value>Sync を設定するには、'0install central' または '0install config' を使用してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
@@ -107,16 +107,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
-    <value>ショートカット名 '{0}' に無効な文字が含まれています。</value>
+    <value>ショートカット名 '{0}' には無効な文字が含まれています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>同期サーバーに入力したユーザー名またはパスワードが間違っています。同期オプションを確認してください。</value>
+    <value>同期サーバーに入力したユーザー名またはパスワードが正しくありません。同期オプションを確認してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
     <value>同期に入力した暗号キーが間違っています。同期オプションを確認してください。
-トラブルシューティングウィザード（"Sync "ボタンを右クリックしてください）を実行するか、'0install sync --reset=server'を実行することで、サーバーで使用されている暗号キーを変更することができます。</value>
+トラブルシューティングウィザード（"Sync "ボタンを右クリック）を実行するか、'0install sync --reset=server'を実行することで、サーバーで使用する暗号キーを変更できます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -124,7 +124,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
-    <value>現在シンクサーバーに保存されているデータが破損しています。
+    <value>現在 Sync サーバーに保存されているデータが破損しています。
 トラブルシューティングウィザード（"Sync "ボタンを右クリック）を実行するか、'0install sync --reset=server'を実行することで、サーバーに保存されているデータを置き換えることができます。</value>
     <comment>Automatically translated.</comment>
   </data>

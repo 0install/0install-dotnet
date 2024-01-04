@@ -63,7 +63,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
-    <value>Arquivo do edifício '{0}'</value>
+    <value>Arquivo de construção '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>O tipo de ficheiro MIME '{0}' não é suportado.</value>
+    <value>O arquivo do tipo MIME '{0}' não é suportado.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

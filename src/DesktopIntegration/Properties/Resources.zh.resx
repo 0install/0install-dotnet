@@ -59,11 +59,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>以下现有通道相互冲突：</value>
+    <value>以下现有接入点相互冲突：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>下列应用程序{0} 的访问点相互冲突：</value>
+    <value>应用程序{0} 的以下访问点相互冲突：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">

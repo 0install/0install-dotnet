@@ -63,7 +63,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="BuildingArchive" xml:space="preserve">
-    <value>建筑档案 '{0}'</value>
+    <value>建立档案 '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
@@ -71,11 +71,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
-    <value>仅 macOS 支持提取这种存档类型。</value>
+    <value>仅 macOS 支持提取此压缩包类型。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>该压缩包类型仅支持在 Windows 系统上提取。</value>
+    <value>该压缩包类型仅支持在 Windows 上提取。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">

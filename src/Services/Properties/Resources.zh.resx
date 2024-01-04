@@ -67,15 +67,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>结果命令行为空。</value>
+    <value>由此产生的命令行是空的。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>未指定 "{0}"的命令。</value>
+    <value>未指定 "{0}"命令。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>在本地网络中搜索</value>
+    <value>本地网络搜索</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
@@ -99,7 +99,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>{0}' 无法在饲料缓存中找到。</value>
+    <value>'{0}' 无法在饲料缓存中找到。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -107,11 +107,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>{0}' 是一个本地文件。它应该是 HTTP(S) URL。</value>
+    <value>{0} 是本地文件。应该是 HTTP(S) URL。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>&lt;interface&gt; uri 属性（'{0}'）与下载 feed 的 URL（'{1}'）不匹配。</value>
+    <value>&lt;interface&gt; uri 属性（'{0}'）与下载源的 URL（'{1}'）不匹配。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -131,11 +131,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>{0} 装订中缺少姓名。</value>
+    <value>{0} 绑定中缺少名称。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>未指定接口。</value>
+    <value>未指定界面。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>密钥信息服务器无法提供该密钥的任何其他信息。</value>
+    <value>密钥信息服务器无法提供有关此密钥的任何其他信息。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -162,7 +162,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>下载{0} 失败。尝试从馈镜获取。</value>
+    <value>下载{0} 失败。尝试从 feed 镜像中获取。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

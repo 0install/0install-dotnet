@@ -75,7 +75,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Распаковка архивов этого типа поддерживается только в Windows.</value>
+    <value>Распаковка этого типа архива поддерживается только в Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">

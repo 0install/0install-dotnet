@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DetectingCandidates" xml:space="preserve">
-    <value>Căutarea fișierelor executabile</value>
+    <value>Căutarea de fișiere executabile</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
@@ -72,7 +72,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Descărcarea '{0}' folosind Zero Install</value>
+    <value>Descărcare '{0}' utilizând Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -88,15 +88,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Au fost detectate mai multe programe noi implicite în registru. Le gestionați pe toate, dar ultimul poate avea prioritate în unele cazuri.</value>
+    <value>Au fost detectate mai multe programe noi implicite în registru. Le gestionează pe toate, dar ultimul poate avea prioritate în unele cazuri.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Au fost detectate mai multe directoare de instalare. Se alege primul în mod implicit.</value>
+    <value>Au fost detectate mai multe directoare de instalare. Alegerea primului în mod implicit.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Au fost detectate mai multe înregistrări de aplicații noi în registru. Se alege prima în mod implicit.</value>
+    <value>Au fost detectate mai multe înregistrări de aplicații noi în registru. Alegerea primei în mod implicit.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
@@ -105,7 +105,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>În prezent, această metodă este disponibilă numai pentru Windows.</value>
+    <value>În prezent, această metodă este disponibilă numai pe Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
@@ -113,7 +113,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>Dimensiunea fișierului nu a fost încă determinată.</value>
+    <value>Dimensiunea fișierelor nu a fost încă determinată.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

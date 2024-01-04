@@ -72,7 +72,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Κατέβασμα '{0}' χρησιμοποιώντας Zero Install</value>
+    <value>Λήψη '{0}' με τη χρήση του Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">

@@ -107,7 +107,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' est un fichier local. Il devrait s'agir d'une URL HTTP(S).</value>
+    <value>{0}' est un fichier local. Il devrait s'agir d'une URL HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -127,7 +127,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Les flux doivent spécifier l'URI dont ils proviennent pour pouvoir être importés.</value>
+    <value>Les flux doivent préciser l'URI d'où ils proviennent pour pouvoir être importés.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
@@ -151,7 +151,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Aucune méthode de recherche n'a été trouvée pour l'implémentation '{0}' trouvée.</value>
+    <value>Aucune méthode de recherche n'a été trouvée pour l'implémentation '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -162,11 +162,11 @@ Nouvelle date : {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Le téléchargement de {0} a échoué. Essayer de récupérer le flux miroir à la place.</value>
+    <value>Le téléchargement de {0} a échoué. Essayer de télécharger à partir du miroir de flux à la place.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Impossible de mettre en cache le catalogue d'applications téléchargé.</value>
+    <value>Impossible de mettre en cache le catalogue des applications téléchargées.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
@@ -198,7 +198,7 @@ Nouvelle date : {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Le répertoire de travail contient un chemin non valide (potentiellement un risque de sécurité).</value>
+    <value>Le répertoire de travail contient un chemin d'accès non valide (potentiellement un risque pour la sécurité).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

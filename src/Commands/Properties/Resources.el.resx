@@ -80,11 +80,11 @@
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
     <value>Όλα τα στοιχεία που απαιτούνται για την εκτέλεση του {0} έχουν εξαχθεί στο '{1}'.
-Μπορείτε να χρησιμοποιήσετε το σενάριο εισαγωγής ή το εκτελέσιμο αρχείο Bootstrap στο '{1}' για να εισαγάγετε αυτά τα αρχεία σε έναν άλλο υπολογιστή.</value>
+Μπορείτε να χρησιμοποιήσετε το σενάριο εισαγωγής ή το εκτελέσιμο Bootstrap στο '{1}' για να εισαγάγετε αυτά τα αρχεία σε έναν άλλο υπολογιστή.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>'{0}' βρίσκεται ήδη στη λίστα των προσωρινών αποθηκεύσεων προσαρμοσμένης υλοποίησης.</value>
+    <value>το '{0}' βρίσκεται ήδη στη λίστα με τις προσωρινές μνήμες προσαρμοσμένων εφαρμογών.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -247,7 +247,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Πραγματοποιεί αναζήτηση στους καταχωρημένους καταλόγους για εφαρμογές που ταιριάζουν με το καθορισμένο ερώτημα. Εάν δεν δοθεί ερώτημα, παρατίθενται όλες οι εφαρμογές στους καταλόγους.</value>
+    <value>Ψάχνει σε καταχωρημένους καταλόγους για εφαρμογές που ταιριάζουν με το καθορισμένο ερώτημα. Εάν δεν δοθεί ερώτημα, παρατίθενται όλες οι εφαρμογές στους καταλόγους.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -289,7 +289,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Εμφανίζει όλες τις εφαρμογές που βρίσκονται επί του παρόντος στη λίστα εφαρμογών σας. Εάν δοθεί ένα URI, εμφανίζεται μόνο η εφαρμογή με αυτό το URI τροφοδοσίας. Εάν δοθεί ένα PATTERN, εμφανίζονται μόνο οι εφαρμογές που περιέχουν αυτή τη συμβολοσειρά στο όνομά τους (χωρίς να λαμβάνεται υπόψη η πεζότητα).</value>
+    <value>Εμφανίζει όλες τις εφαρμογές που βρίσκονται αυτή τη στιγμή στη λίστα εφαρμογών σας. Εάν δοθεί ένα URI, εμφανίζεται μόνο η εφαρμογή με αυτό το URI τροφοδοσίας. Εάν δοθεί ένα PATTERN, εμφανίζονται μόνο οι εφαρμογές που περιέχουν αυτή τη συμβολοσειρά στο όνομά τους (χωρίς να λαμβάνεται υπόψη η πεζότητα).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -297,7 +297,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Αναπτύσσει το Zero Install στον καθορισμένο κατάλογο TARGET ή στον προεπιλεγμένο κατάλογο για προγράμματα και το ενσωματώνει στο σύστημα.</value>
+    <value>Αναπτύσσει το Zero Install στον καθορισμένο κατάλογο TARGET ή στον προεπιλεγμένο κατάλογο για τα προγράμματα και το ενσωματώνει στο σύστημα.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
@@ -343,7 +343,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
-    <value>Προσθέτει έναν κατάλογο στη λίστα με τις προσωρινές μνήμες αποθήκευσης προσαρμοσμένων εφαρμογών.</value>
+    <value>Προσθέτει έναν κατάλογο στη λίστα με τις προσωρινές μνήμες προσαρμοσμένης εφαρμογής.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
@@ -357,7 +357,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Εξάγει μια αποθηκευμένη υλοποίηση ως αρχείο (ZIP, TAR κ.λπ.). Το αποτέλεσμα μπορεί να εισαχθεί σε άλλο μηχάνημα χρησιμοποιώντας το '0install store add'.</value>
+    <value>Εξάγει μια αποθηκευμένη εφαρμογή ως αρχείο (ZIP, TAR κ.λπ.). Το αποτέλεσμα μπορεί να εισαχθεί σε άλλο μηχάνημα χρησιμοποιώντας το '0install store add'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
@@ -391,7 +391,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
-    <value>Αφαιρεί έναν κατάλογο από τη λίστα με τις προσωρινές μνήμες προσαρμοσμένης υλοποίησης.</value>
+    <value>Αφαιρεί έναν κατάλογο από τη λίστα προσωρινής αποθήκευσης προσαρμοσμένων εφαρμογών.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
@@ -407,7 +407,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Εμπιστεύεται τις τροφοδοσίες από ένα συγκεκριμένο DOMAIN όταν υπογράφονται με ένα συγκεκριμένο FINGERPRINT.</value>
+    <value>Εμπιστεύεται τροφοδοσίες από ένα συγκεκριμένο DOMAIN όταν υπογράφεται με ένα συγκεκριμένο FINGERPRINT.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -415,7 +415,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Σταματά την εμπιστοσύνη στις τροφοδοσίες που υπογράφονται με ένα συγκεκριμένο FINGERPRINT. Σταματάει την εμπιστοσύνη μόνο για ένα συγκεκριμένο DOMAIN, εάν έχει καθοριστεί.</value>
+    <value>Σταματά την εμπιστοσύνη στις τροφοδοσίες που υπογράφονται με ένα συγκεκριμένο FINGERPRINT. Σταματά την εμπιστοσύνη μόνο για ένα συγκεκριμένο DOMAIN, εάν έχει καθοριστεί.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -432,11 +432,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Εφαρμογή ενσωμάτωσης επιφάνειας εργασίας</value>
+    <value>Εφαρμογή ενσωμάτωσης στην επιφάνεια εργασίας</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Αφαίρεση της ενσωμάτωσης επιφάνειας εργασίας</value>
+    <value>Αφαίρεση της ενσωμάτωσης στην επιφάνεια εργασίας</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -468,7 +468,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
-    <value>Η εξαγωγή ολοκληρώθηκε.</value>
+    <value>Ολοκληρωμένη εξαγωγή.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
@@ -525,7 +525,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
-    <value>Εγκατάσταση της υπηρεσίας Zero Install Store Service</value>
+    <value>Εγκατάσταση της υπηρεσίας Zero Install Store</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
@@ -549,11 +549,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' δεν είναι έγκυρο URI τροφοδοσίας ή διαδρομή αρχείου.</value>
+    <value>το '{0}' δεν είναι έγκυρο URI τροφοδοσίας ή διαδρομή αρχείου.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Υπάρχει μια μεταγενέστερη έκδοση ({0}), αλλά δεν επιλέχθηκε. Χρησιμοποιείται το {1}.</value>
+    <value>Υπάρχει μια μεταγενέστερη έκδοση ({0}), αλλά δεν επιλέχθηκε. Χρησιμοποιείται το {1} αντί αυτού.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -602,7 +602,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Το Zero Install πρέπει να αναπτυχθεί στο σύστημά σας για να λειτουργήσει η ενσωμάτωση της επιφάνειας εργασίας.</value>
+    <value>Το Zero Install πρέπει να αναπτυχθεί στο σύστημά σας για να λειτουργήσει η ενσωμάτωση στην επιφάνεια εργασίας.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -611,7 +611,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Η Zero Install εκτελείται από έναν κατάλογο που αφορά συγκεκριμένο χρήστη. Πρέπει να αναπτυχθεί σε έναν κατάλογο προσβάσιμο από όλους τους χρήστες για να λειτουργήσει η ενσωμάτωση της επιφάνειας εργασίας σε όλο το μηχάνημα.</value>
+    <value>Το Zero Install εκτελείται από έναν κατάλογο που καθορίζεται από τον χρήστη. Πρέπει να αναπτυχθεί σε έναν κατάλογο προσβάσιμο από όλους τους χρήστες για να λειτουργήσει η ενσωμάτωση της επιφάνειας εργασίας σε όλο το μηχάνημα.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -627,7 +627,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NotInImplDirs" xml:space="preserve">
-    <value>το '{0}' δεν περιλαμβάνεται στη λίστα με τις προσωρινές μνήμες προσαρμοσμένης υλοποίησης.</value>
+    <value>το '{0}' δεν περιλαμβάνεται στη λίστα των προσωρινών μνήμης προσαρμοσμένης εφαρμογής.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
@@ -696,11 +696,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Προσπαθήστε να ανακαλύψετε υλοποιήσεις σε άλλα μηχανήματα στο τοπικό δίκτυο αντί να τις αντλείτε από την αρχική τους πηγή.</value>
+    <value>Προσπαθεί να ανακαλύψει υλοποιήσεις σε άλλα μηχανήματα στο τοπικό δίκτυο αντί να τις αντλεί από την αρχική τους πηγή.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Επιλέξτε τον τύπο του Bootstrapper που θα τοποθετηθεί παράλληλα με την εξαγωγή.</value>
+    <value>Επιλέξτε τον τύπο του Bootstrapper που θα τοποθετήσετε παράλληλα με την εξαγωγή.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
@@ -708,7 +708,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>Μην περιλαμβάνετε αρχεία υλοποίησης στην εξαγωγή. Εξάγετε μόνο τροφοδοσίες.</value>
+    <value>Μην συμπεριλάβετε αρχεία εφαρμογής στην εξαγωγή. Εξάγετε μόνο τις τροφοδοσίες.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -762,7 +762,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMessage" xml:space="preserve">
-    <value>Μήνυμα που εμφανίζεται κατά την αλληλεπίδραση με τον χρήστη.</value>
+    <value>Μήνυμα που θα εμφανίζεται κατά την αλληλεπίδραση με τον χρήστη.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
@@ -787,7 +787,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Δημιουργήστε μια φορητή εγκατάσταση που μπορεί να μετακινηθεί (π.χ. σε ένα στικάκι).</value>
+    <value>Δημιουργία μιας φορητής εγκατάστασης που μπορεί να μετακινηθεί (π.χ. σε ένα στικάκι).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -901,7 +901,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>Αυτή η περίπτωση του Zero Install δεν έχει αναπτυχθεί. Δεν υπάρχει τίποτα να αφαιρέσετε.</value>
+    <value>Αυτή η περίπτωση του Zero Install δεν αναπτύσσεται. Δεν υπάρχει τίποτα προς αφαίρεση.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
@@ -930,7 +930,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
-    <value>Η πολιτική σταθερότητας που απαιτείται για την επιλογή υλοποιήσεων από τη διεύθυνση {0} είναι η '{1}'.</value>
+    <value>Η πολιτική σταθερότητας που απαιτείται για την επιλογή υλοποιήσεων από το {0} είναι η '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
@@ -971,7 +971,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
-    <value>Εμπιστευτικά κλειδιά</value>
+    <value>Αξιόπιστα πλήκτρα</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">

@@ -79,11 +79,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Encontrado en su lugar:</value>
+    <value>Se encuentra en su lugar:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>No se ha podido encontrar la implementación de la interface '{0}' en la selección.</value>
+    <value>No se puede encontrar la implementación de la interface '{0}' en la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>No se ha especificado ningún método de digestión conocido.</value>
+    <value>No se ha especificado ningún método de compendio conocido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
@@ -127,11 +127,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>el atributo 'rollout-percentage' en {0} sólo puede establecerse cuando 'stability' es 'testing' o no está establecido.</value>
+    <value>el atributo 'rollout-percentage' en {0} sólo puede establecerse cuando 'stability' está en 'testing' o no está establecido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Aplicación defectuosa</value>
+    <value>Implementación con errores</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>Aplicación insegura</value>
+    <value>Implementación insegura</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
@@ -151,11 +151,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Implementación de fuentes no ejecutables</value>
+    <value>Implementación de código fuente no ejecutable</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Versión de aplicación demasiado antigua o demasiado nueva</value>
+    <value>Versión de la aplicación demasiado antigua o demasiado nueva</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
@@ -163,7 +163,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Debe ser un ID seguro. Sólo puede contener caracteres alfanuméricos, espacios (), puntos (.), guiones bajos (_), guiones (-) y signos más (+).</value>
+    <value>Debe ser un ID seguro. Sólo puede contener caracteres alfanuméricos, espacios ( ), puntos (.), guiones bajos (_), guiones (-) y signos más (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">

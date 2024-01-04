@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>Titik akses yang ada berikut ini saling bertentangan satu sama lain:</value>
+    <value>Jalur akses yang ada saat ini saling bertentangan satu sama lain:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
-    <value>Nama pintasan '{0}' mengandung karakter yang tidak valid.</value>
+    <value>Nama pintasan '{0}' berisi karakter yang tidak valid.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
@@ -115,8 +115,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>Kunci kripto yang Anda masukkan untuk Sinkronisasi salah. Silakan periksa Opsi Sinkronisasi Anda.
-Anda dapat mengubah kunci kripto yang digunakan pada server dengan menjalankan wizard pemecahan masalah (klik kanan pada Tombol "Sinkronisasi" untuk menuju ke sana) atau dengan menjalankan '0install sync --reset = server'.</value>
+    <value>Kunci kripto yang Anda masukkan untuk Sinkronisasi salah. Periksa Opsi Sinkronisasi Anda.
+Anda dapat mengubah kunci kripto yang digunakan di server dengan menjalankan wizard pemecahan masalah (klik kanan pada Tombol "Sinkronisasi" untuk sampai ke sana) atau dengan mengeksekusi '0install sync - reset = server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -124,7 +124,7 @@ Anda dapat mengubah kunci kripto yang digunakan pada server dengan menjalankan w
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
-    <value>Data yang saat ini tersimpan di server Sync rusak.
+    <value>Data yang saat ini disimpan di server Sync rusak.
 Anda dapat mengganti data yang tersimpan di server dengan menjalankan wizard pemecahan masalah (klik kanan pada tombol "Sinkronisasi" untuk menuju ke sana) atau dengan menjalankan '0install sync --reset = server'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -137,7 +137,7 @@ Anda dapat mengganti data yang tersimpan di server dengan menjalankan wizard pem
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Tidak dapat mengganti eksekusi stub yang sudah basi '{0}'.</value>
+    <value>Tidak dapat mengganti stub eksekusi yang sudah basi '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

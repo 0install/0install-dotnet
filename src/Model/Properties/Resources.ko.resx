@@ -67,11 +67,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>'{0}'에 대한 피드 환경설정을 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌리고 있습니다.</value>
+    <value>'{0}'에 대한 피드 환경설정을 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌립니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>'{0}'에 대한 인터페이스 기본 설정을 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌리고 있습니다.</value>
+    <value>'{0}'에 대한 인터페이스 환경 설정을 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌립니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>대신 발견되었습니다:</value>
+    <value>대신 발견됨:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' 는 유효한 'http(s):' URI가 아니며 유효한 로컬 경로도 아닙니다.</value>
+    <value>'{0}'는 유효한 'http(s):' URI가 아니며 유효한 로컬 경로도 아닙니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -95,7 +95,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>{1} 에 '{0}' 속성이 누락되었습니다 .</value>
+    <value>{1} 에 '{0}' 속성이 누락되었습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>버전 번호에는 점으로 구분된 소수점 및 수정자 문자열만 포함할 수 있습니다.</value>
+    <value>버전 번호는 점으로 구분된 소수점 및 수정자 문자열만 포함할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -115,11 +115,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>알려진 다이제스트 메서드가 지정되지 않았습니다.</value>
+    <value>알려진 다이제스트 방법이 지정되지 않았습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>상대 경로 '{0}' 를 확인할 수 없습니다. 로컬 파일로 저장된 피드만 상대 경로를 포함할 수 있습니다.</value>
+    <value>상대 경로 '{0}' 을 확인할 수 없습니다. 로컬 파일로 저장된 피드만 상대 경로를 포함할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>{0} 의 '롤아웃 비율' 속성은 '안정성'이 '테스트 중'이거나 설정되지 않은 경우에만 설정할 수 있습니다.</value>
+    <value>{0} 의 '롤아웃-퍼센트' 속성은 '안정성'이 '테스트 중'이거나 설정되지 않은 경우에만 설정할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -147,15 +147,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>캐시에 구현되지 않음(현재 오프라인 모드)</value>
+    <value>캐시에 저장되지 않은 구현(현재 오프라인 모드)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>비실행형 소스 구현</value>
+    <value>비실행 소스 구현</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>구현 버전이 너무 오래되었거나 너무 새 버전입니다</value>
+    <value>구현 버전이 너무 오래되었거나 너무 새롭습니다</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>버전 범위의 끝은 독점적이어야 합니다. '...{0}' 대신 '...{0}'을 사용합니다.</value>
+    <value>버전 범위의 끝은 독점적이어야 합니다. '...{0}'이 아닌 '...{0}'을 사용하세요.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

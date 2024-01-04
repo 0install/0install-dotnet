@@ -116,7 +116,7 @@ Pokud chcete odstranit celý adresář bez Zero Install, použijte tento příka
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Chyba při načítání databáze důvěryhodnosti. Návrat k výchozím hodnotám.</value>
+    <value>Chybné načítání databáze důvěryhodnosti. Návrat k výchozím hodnotám.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -124,7 +124,7 @@ Pokud chcete odstranit celý adresář bez Zero Install, použijte tento příka
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Používání zrcadla feedu, které je nutné pro vyhledávání, je zakázáno.
+    <value>Používání zrcadla kanálů, které je nutné pro vyhledávání, je zakázáno.
 Chcete-li jej povolit, spusťte příkaz '0install config feed_mirror default'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -145,7 +145,7 @@ Chcete-li jej povolit, spusťte příkaz '0install config feed_mirror default'.<
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Vyhledání duplicitních souborů v '{0}'</value>
+    <value>Vyhledávání duplicitních souborů v aplikaci '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
@@ -153,7 +153,7 @@ Chcete-li jej povolit, spusťte příkaz '0install config feed_mirror default'.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>Implementace '{0}' je již ve skladu.</value>
+    <value>Implementace '{0}' je již v obchodě.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
@@ -161,11 +161,11 @@ Chcete-li jej povolit, spusťte příkaz '0install config feed_mirror default'.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Chcete ji odstranit? V případě potřeby se automaticky stáhne nová kopie.</value>
+    <value>Chcete jej odstranit? V případě potřeby se automaticky znovu stáhne nová kopie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Spusťte příkaz '0install store remove {0}' a odstraňte jej. V případě potřeby se automaticky znovu stáhne nová kopie.</value>
+    <value>Chcete-li jej odstranit, spusťte příkaz '0install store remove {0}'. V případě potřeby se automaticky znovu stáhne nová kopie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -218,7 +218,7 @@ Pokud používáte disk ve formátu FAT, převeďte jej na NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nebyla zadána žádná známá metoda zpracování.</value>
+    <value>Nebyl zadán žádný známý způsob trávení.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
@@ -231,7 +231,7 @@ Zadává se v konfiguračním souboru '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Nulová instalace se nemůže odstranit z mezipaměti implementace.</value>
+    <value>Aplikace Zero Install se nemůže sama odstranit z implementační mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -239,7 +239,7 @@ Zadává se v konfiguračním souboru '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Tato možnost je řízena zásadou skupiny, a proto ji nelze změnit.</value>
+    <value>Tato možnost je řízena zásadami skupiny, a proto ji nelze upravovat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
@@ -278,7 +278,7 @@ Problém vyřešíte odstraněním souboru ‚‚{1}‘‘. Může dojít i ke z
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>Nepodařilo se najít tajný klíč se zadaným názvem.</value>
+    <value>Nelze najít tajný klíč se zadaným názvem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">

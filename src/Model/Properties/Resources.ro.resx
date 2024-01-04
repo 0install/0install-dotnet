@@ -67,11 +67,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Eroare la încărcarea preferințelor de alimentare pentru '{0}'. Se revine la valorile implicite.</value>
+    <value>Eroare la încărcarea preferințelor de alimentare pentru '{0}'. Revenire la valorile implicite.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Eroare la încărcarea preferințelor de interfață pentru '{0}'. Se revine la valorile implicite.</value>
+    <value>Preferințele interfeței de încărcare a erorilor pentru '{0}'. Revenire la valorile implicite.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -79,11 +79,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Găsit în schimb:</value>
+    <value>Găsit în loc de:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Nu s-a putut găsi implementarea pentru interfața '{0}' în selecție.</value>
+    <value>Nu se poate găsi implementarea pentru interfața '{0}' în selecție.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Atributul "{0}" nevalabil pe {1}.</value>
+    <value>Atributul '{0}' nu este valid pe {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>Lista despărțită prin puncte poate conține numai numere zecimale.</value>
+    <value>Lista separată prin puncte poate conține numai numere zecimale.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nu a fost specificată nicio metodă cunoscută de digest.</value>
+    <value>Nu a fost specificată nicio metodă de digest cunoscută.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
@@ -163,7 +163,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Ar trebui să fie o identificare sigură. Poate conține numai caractere alfanumerice, spații ( ), puncte (.), caractere de subliniere (_), liniuțe (-) și semne plus (+).</value>
+    <value>Ar trebui să fie un ID sigur. Poate conține numai caractere alfanumerice, spații ( ), puncte (.), caractere de subliniere (_), liniuțe (-) și semne plus (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Sfârșitul intervalului de versiuni trebuie să fie exclusiv. Folosiți "..!{0}", nu "...{0}".</value>
+    <value>Sfârșitul gamei de versiuni trebuie să fie exclusiv. Folosiți "..!{0}", nu "...{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

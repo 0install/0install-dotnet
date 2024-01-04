@@ -67,11 +67,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>결과 명령줄이 비어 있습니다.</value>
+    <value>결과 명령줄은 비어 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>'{0}' 명령이 지정되지 않았습니다.</value>
+    <value>'{0}'에 대한 명령이 지정되지 않았습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>카탈로그 로드 중 오류</value>
+    <value>카탈로그 로딩 중 오류</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>&lt;인터페이스&gt; uri 속성이 누락되었습니다. '{0}'여야 합니다.</value>
+    <value>&lt;인터페이스&gt; uri 속성이 누락되었습니다. '{0}'이어야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -147,7 +147,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>구현 '{0}' 에 대한 매니페스트 다이제스트를 찾을 수 없습니다.</value>
+    <value>'{0}' 구현에 대한 매니페스트 다이제스트를 찾을 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
@@ -162,7 +162,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>다운로드에 실패했습니다 {0}. 대신 피드 미러에서 가져 오려고 합니다.</value>
+    <value>{0} 을 다운로드하지 못했습니다. 대신 피드 미러에서 가져 오려고 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -182,7 +182,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' 는 {1} 패키지 관리자에서 알려진 ID가 아닙니다.</value>
+    <value>'{0}' 은 {1} 패키지 관리자에서 알려진 ID가 아닙니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -194,11 +194,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>작업 디렉터리는 이전 명령으로 이미 변경되었습니다.</value>
+    <value>작업 디렉터리는 이전 명령에 의해 이미 변경되었습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>작업 디렉터리에 잘못된 경로(잠재적 보안 위험)가 포함되어 있습니다.</value>
+    <value>작업 디렉터리에 잘못된 경로가 포함되어 있음(잠재적 보안 위험).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
