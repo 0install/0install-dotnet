@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>Следующие существующие точки доступа противоречат друг другу:</value>
+    <value>Следующие существующие точки доступа конфликтуют друг с другом:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
@@ -67,15 +67,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
-    <value>Существующая точка доступа {0} находится в конфликте с новой точкой доступа {1}.</value>
+    <value>Существующая точка доступа {0} конфликтует с новой точкой доступа {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>Приложение '{0}' уже есть в списке приложений.</value>
+    <value>Приложение '{0}' уже находится в списке приложений.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
-    <value>Применение изменений</value>
+    <value>Внесение изменений</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>Восстановление интеграции рабочего стола</value>
+    <value>Восстановление интеграции с рабочим столом</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
@@ -116,7 +116,7 @@
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
     <value>Криптографический ключ, введенный для синхронизации, неверен. Проверьте параметры синхронизации.
-Вы можете изменить криптоключ, используемый на сервере, запустив мастер устранения неполадок (для этого щелкните правой кнопкой мыши на кнопке "Синхронизация") или выполнив команду '0install sync --reset=server'.</value>
+Вы можете изменить криптографический ключ, используемый на сервере, запустив мастер устранения неполадок (для этого щелкните правой кнопкой мыши на кнопке "Синхронизация") или выполнив команду '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -125,7 +125,7 @@
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Данные, хранящиеся на сервере синхронизации, повреждены.
-Вы можете заменить данные, хранящиеся на сервере, запустив мастер устранения неполадок (для этого щелкните правой кнопкой мыши кнопку "Sync") или выполнив команду '0install sync --reset=server'.</value>
+Вы можете заменить данные, хранящиеся на сервере, запустив мастер устранения неполадок (для этого щелкните правой кнопкой мыши на кнопке "Sync") или выполнив команду '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">

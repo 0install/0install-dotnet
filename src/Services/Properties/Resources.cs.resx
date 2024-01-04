@@ -71,7 +71,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Příkaz pro '{0}' nebyl zadán.</value>
+    <value>Příkaz pro '{0}' není zadán.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -79,11 +79,11 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>vazby &lt;environment&gt; musí obsahovat buď atribut 'value', nebo 'insert'.</value>
+    <value>vazby &lt;prostředí&gt; musí obsahovat atribut 'value' nebo 'insert'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>Chyba při načítání katalogu</value>
+    <value>Chybné načítání katalogu</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
@@ -127,11 +127,11 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Aby bylo možné kanály importovat, musí být uveden URI, ze kterého pocházejí.</value>
+    <value>Aby bylo možné importovat soubory, musí být uveden URI, ze kterého pocházejí.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Chybějící název ve vazbě {0}.</value>
+    <value>Chybějící název ve vazbě na {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -143,11 +143,11 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Server s informacemi o klíči nebyl schopen poskytnout žádné další informace o tomto klíči.</value>
+    <value>Informační server o klíči nebyl schopen poskytnout žádné další informace o tomto klíči.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Nebyl nalezen žádný souhrn manifestu pro implementaci '{0}'.</value>
+    <value>Pro implementaci '{0}' nebyl nalezen žádný souhrn manifestů.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
@@ -162,11 +162,11 @@ Nová časová značka: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Nepodařilo se stáhnout {0}. Místo toho se pokoušíme získat z feed mirror.</value>
+    <value>Nepodařilo se stáhnout {0}. Místo toho se pokouší získat ze zrcadla feedu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Nelze uložit do mezipaměti stažený katalog aplikací.</value>
+    <value>Nelze uložit do mezipaměti katalog stažených aplikací.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">

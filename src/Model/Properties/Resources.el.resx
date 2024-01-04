@@ -159,7 +159,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Πρέπει να είναι ένας έγκυρος τύπος MIME.</value>
+    <value>Πρέπει να είναι έγκυρος τύπος MIME.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">

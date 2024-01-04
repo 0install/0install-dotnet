@@ -67,11 +67,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>加载 "{0}"的馈送首选项时出错。恢复默认值。</value>
+    <value>加载馈送首选项 "{0}"时出错。恢复为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>加载 "{0}"的界面首选项时出错。恢复默认值。</value>
+    <value>加载 "{0}"界面首选项时出错。恢复为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -79,15 +79,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>找到了</value>
+    <value>可替代</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>无法在选择中找到接口{0} 的实现。</value>
+    <value>无法在选择中找到界面 "{0}"的实现。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>{0}' 不是有效的 "http(s):" URI，也不是有效的本地路径。</value>
+    <value>{0}"不是有效的 "http(s): "URI，也不是有效的本地路径。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -99,7 +99,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>{1} 内缺少{0} 标记。</value>
+    <value>{1} 内缺少{0} 标签。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>没有指定已知的摘要方法。</value>
+    <value>未指定已知的摘要方法。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
@@ -123,19 +123,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>相对 URI '{0}' 无法解析。只有保存为本地文件的供稿才能包含相对 URI。</value>
+    <value>相对 URI '{0}' 无法解析。只有保存为本地文件的 feed 才可能包含相对 URI。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>{0} 上的 "推出百分比 "属性只能在 "稳定性 "为 "测试 "或未设置时设置。</value>
+    <value>{0} 上的 "rollout-percentage "属性只能在 "稳定性 "为 "测试 "或未设置时设置。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>实施过程中的缺陷</value>
+    <value>执行有缺陷</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>不提供命令 "{0}"。</value>
+    <value>不提供 "{0}"命令。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
@@ -143,11 +143,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>实施不安全</value>
+    <value>不安全的实施</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>未在缓存中实施（当前处于离线模式）</value>
+    <value>不在缓存中执行（目前为离线模式）</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
@@ -155,7 +155,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>实施版本太旧或太新</value>
+    <value>执行版本过旧或过新</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>版本范围的末尾必须是排他的。使用"...！{0}"，而不是"...{0}"。</value>
+    <value>版本范围的末尾必须是独占的。使用"..!{0}"，而不是".{0}"。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

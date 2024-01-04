@@ -67,19 +67,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Chyba při načítání předvoleb krmiva pro '{0}'. Návrat k výchozím hodnotám.</value>
+    <value>Předvolby chybového načítání kanálu pro '{0}'. Návrat k výchozím hodnotám.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Chyba při načítání předvoleb rozhraní pro '{0}'. Návrat k výchozím hodnotám.</value>
+    <value>Předvolby rozhraní pro chybové načítání pro '{0}'. Návrat k výchozím hodnotám.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>V katalogu nelze najít zdroj '{0}'.</value>
+    <value>V katalogu nelze najít kanál '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Místo toho nalezeno:</value>
+    <value>Nalezeno místo:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nebyla zadána žádná známá metoda zpracování.</value>
+    <value>Nebyl zadán žádný známý způsob trávení.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
@@ -123,15 +123,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Relativní URI '{0}' se nepodařilo rozluštit. Relativní URI mohou obsahovat pouze kanály uložené jako místní soubory.</value>
+    <value>Relativní URI '{0}' se nepodařilo vyřešit. Relativní URI mohou obsahovat pouze kanály uložené jako místní soubory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>atribut 'rollout-percentage' na stránce {0} lze nastavit pouze tehdy, když je hodnota 'stability' 'testing' nebo není nastavena.</value>
+    <value>atribut 'rollout-percentage' na adrese {0} lze nastavit pouze tehdy, když je hodnota 'stability' 'testing' nebo není nastavena.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Chybná implementace</value>
+    <value>Implementace s chybami</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>Nezabezpečené provádění</value>
+    <value>Nezabezpečená implementace</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
@@ -159,15 +159,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Měl by to být platný typ MIME.</value>
+    <value>Mělo by se jednat o platný typ MIME.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Mělo by jít o bezpečnou identifikaci. Může obsahovat pouze alfanumerické znaky, mezery ( ), tečky (.), podtržítka (_), pomlčky (-) a znaménka plus (+).</value>
+    <value>Mělo by se jednat o bezpečné ID. Může obsahovat pouze alfanumerické znaky, mezery ( ), tečky (.), podtržítka (_), pomlčky (-) a znaménka plus (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>Krok předpisu '{0}' v implementaci '{1}' má neplatný odkaz na implementaci.</value>
+    <value>Krok receptu '{0}' v implementaci '{1}' má neplatný odkaz na implementaci.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Konec rozsahu verzí musí být výlučný. Použijte '..!{0}', nikoli '..{0}'.</value>
+    <value>Konec rozsahu verzí musí být exkluzivní. Použijte '..!{0}', nikoli '..{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

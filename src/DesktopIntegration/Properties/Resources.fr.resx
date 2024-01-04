@@ -129,7 +129,7 @@ Vous pouvez remplacer les données sauvegardées sur le serveur en exécutant l'
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
-    <value>Téléchargement des données de synchronisation</value>
+    <value>Téléchargement de données de synchronisation</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">

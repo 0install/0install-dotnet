@@ -80,7 +80,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>설치 디렉터리로 '{0}'을 감지했습니다.</value>
+    <value>설치 디렉토리로 '{0}'을 감지했습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
@@ -88,11 +88,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>레지스트리에서 여러 개의 새 기본 프로그램이 감지되었습니다. 모두 처리하지만 경우에 따라 마지막 프로그램이 우선할 수 있습니다.</value>
+    <value>레지스트리에서 여러 개의 새로운 기본 프로그램이 감지되었습니다. 모두 처리하지만 경우에 따라 마지막 프로그램이 우선할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>여러 개의 설치 디렉터리가 감지되었습니다. 기본적으로 첫 번째를 선택합니다.</value>
+    <value>여러 설치 디렉토리가 감지되었습니다. 기본적으로 첫 번째를 선택합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
@@ -109,11 +109,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>비밀 키는 사용자의 열쇠고리에 없습니다.</value>
+    <value>비밀 키는 사용자의 키링에 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>파일 크기가 아직 결정되지 않았습니다.</value>
+    <value>파일 크기는 아직 결정되지 않았습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

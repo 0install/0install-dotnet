@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
-    <value>Точка входа приложения не найдена.
+    <value>Точка входа в приложение не найдена.
 Попробуйте указать ее вручную.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -76,7 +76,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
-    <value>Файл '{0}' не может быть найден.</value>
+    <value>Файл '{0}' не найден.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
@@ -92,7 +92,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Обнаружено несколько каталогов установки. По умолчанию выбирается первая.</value>
+    <value>Обнаружено несколько директорий установки. По умолчанию выбирается первая.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
@@ -101,11 +101,11 @@
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Не обнаружен каталог установки.
-Попробуйте указать его вручную.</value>
+Попробуйте указать ее вручную.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>В настоящее время этот метод доступен только для Windows.</value>
+    <value>В настоящее время этот метод доступен только в Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">

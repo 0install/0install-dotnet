@@ -124,7 +124,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>已禁用搜索所需的 feed 镜像。
+    <value>搜索所需的 feed 镜像已禁用。
 运行 "0install config feed_mirror default "可启用它。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -153,11 +153,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>应用程序 "{0}"已经出现在商店中。</value>
+    <value>应用程序 "{0}"已在商店中销售。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>执行程序 "{0}"已损坏。</value>
+    <value>实施 "{0}"已损坏。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
@@ -165,11 +165,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>运行 "0install store remove{0}"将其删除。需要时，系统会自动下载新的副本。</value>
+    <value>运行 "0install store remove{0}"可将其删除。需要时，系统会自动下载新的副本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>无法找到执行程序 "{0}"。</value>
+    <value>无法找到 "{0}"。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -202,7 +202,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>只有管理员才能优化共享存储。</value>
+    <value>只有管理员才能优化共享商店。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
@@ -231,7 +231,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>零安装无法从执行缓存中删除。</value>
+    <value>Zero Install 无法从执行缓存中删除。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -266,7 +266,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
-    <value>签名文件已存在。</value>
+    <value>签名文件已经存在。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
@@ -286,7 +286,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
-    <value>未知接口。</value>
+    <value>未知界面。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">

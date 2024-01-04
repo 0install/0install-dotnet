@@ -112,7 +112,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>{0}' からのOpenPGPキーバンドルの読み込みエラー</value>
+    <value>{0}' からの OpenPGP キーバンドルの読み込みエラー。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -124,7 +124,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>検索に必要なフィードミラーの使用が無効になっています。
+    <value>検索に必要なフィードミラーの使用は無効になっています。
 有効にするには '0install config feed_mirror default' を実行してください。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -145,31 +145,31 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>{0}' の重複ファイルの検索</value>
+    <value>{0}' の重複ファイルを検索します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>ファイル「{0} 」はシンボリックリンクでも通常のファイルでもない。</value>
+    <value>ファイル '{0}' はシンボリックリンクでも通常のファイルでもありません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>実装 '{0}' はすでにストアにある。</value>
+    <value>実装 '{0}' はすでにストアにあります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>実装 '{0}' が破損している。</value>
+    <value>実装 '{0}' が破損しています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>削除しますか？新しいコピーが必要なときに自動的に再ダウンロードされます。</value>
+    <value>削除しますか？必要な時に新しいコピーが自動的にダウンロードされます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>0install store remove{0}' を実行して削除してください。新しいコピーが必要なときに自動的にダウンロードされます。</value>
+    <value>削除するには、'0install store remove{0}' を実行してください。必要なときに新しいコピーが自動的にダウンロードされます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>実装 '{0}' が見つかりません。</value>
+    <value>実装 '{0}' は見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -182,19 +182,19 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>HTTP および HTTPS URL のみがサポートされているため、{0} からアイコンをダウンロードできません。</value>
+    <value>HTTP および HTTPS URL のみに対応しているため、{0} からアイコンをダウンロードできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>マニフェストファイルに無効な行があります。</value>
+    <value>マニフェストファイルには無効な行が含まれています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>並んでいる部品の数が無効です。</value>
+    <value>無効な部品数</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>アーカイブに無効なパスが含まれています（潜在的にセキュリティ上のリスクがあります）：{0}</value>
+    <value>アーカイブには無効なパスが含まれています（潜在的なセキュリティリスク）：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -202,7 +202,7 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>共有ストアを最適化できるのは管理者だけです。</value>
+    <value>管理者だけが共有ストアを最適化できます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
@@ -210,7 +210,7 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>ファイル名またはディレクトリ名には改行文字を含んではならない。</value>
+    <value>ファイル名またはディレクトリ名には改行文字を含めてはいけません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -218,20 +218,20 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>既知のダイジェスト法は指定されていない。</value>
+    <value>既知のダイジェスト方式は指定されていない。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>{0}' というパスは絶対パスではありません。相対パスはポータブル・モードでのみ許可されます。
-設定ファイル '{1}' で指定される。</value>
+    <value>{0}' というパスは絶対パスではありません。相対パスはポータブルモードでのみ許可されます。
+設定ファイル '{1}' で指定します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>選択されたバージョンなし</value>
+    <value>選択したバージョンはありません</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>ゼロインストールは、実装キャッシュから自身を削除することはできません。</value>
+    <value>Zero Install は、インプリメンテーションキャッシュから自身を削除することはできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -239,7 +239,7 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>このオプションはグループポリシーによって制御されるため、変更することはできない。</value>
+    <value>このオプションはグループポリシーによって制御されるため、変更することはできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
@@ -266,11 +266,11 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
-    <value>署名ファイルはすでに存在します。</value>
+    <value>署名ファイルはすでに存在しています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>StoreServiceとの接続を確立できません。</value>
+    <value>StoreServiceとの接続が確立できません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -278,7 +278,7 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>指定された名前の秘密鍵が見つかりません。</value>
+    <value>指定した名前の秘密鍵が見つかりません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
@@ -286,11 +286,11 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
-    <value>不明なインターフェース。</value>
+    <value>未知のインターフェース。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>入力したパスフレーズが正しくありません。</value>
+    <value>入力されたパスフレーズが正しくありません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

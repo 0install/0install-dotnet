@@ -67,11 +67,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>結果のコマンドラインは空である。</value>
+    <value>コマンドラインは空です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>{0}' のコマンドが指定されていない。</value>
+    <value>{0}' のコマンドは指定されていません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt;バインディングは'value'属性か'insert'属性のどちらかを含んでいなければならない。</value>
+    <value>&lt;environment&gt;バインディングには、'value'または'insert'属性が必要です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -107,15 +107,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' はローカルファイルである。HTTP(S)URLでなければならない。</value>
+    <value>'{0}' はローカルファイルです。HTTP(S)URLでなければならない。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>&lt;interface&gt; の uri 属性 ('{0}') が、フィードをダウンロードした URL ('{1}') と一致しません。</value>
+    <value>&lt;interface&gt; の uri 属性 ('{0}') は、フィードがダウンロードされた URL ('{1}') と一致しません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>&lt;interface&gt; uri属性がありません。{0}' とすべきである。</value>
+    <value>&lt;interface&gt; uri属性がありません。{0}' であるべきです。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -127,15 +127,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>フィードをインポートできるようにするためには、そのURIを指定しなければならない。</value>
+    <value>フィードをインポートするには、URIを指定する必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>{0} 装丁に名前欠落。</value>
+    <value>{0} 。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>インターフェースが指定されていない。</value>
+    <value>インターフェースは指定されていない。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>鍵情報サーバーは、この鍵に関する追加情報を提供できなかった。</value>
+    <value>鍵情報サーバーは、この鍵に関する追加情報を提供できませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>実装 '{0}' の検索メソッドが見つかりません。</value>
+    <value>実装 '{0}' の検索方法は見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -166,7 +166,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>ダウンロードしたアプリケーションカタログをキャッシュできません。</value>
+    <value>ダウンロードしたアプリケーションカタログをキャッシュできない。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
@@ -182,7 +182,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' は、{1} パッケージマネージャで既知の ID ではありません。</value>
+    <value>'{0}' は{1} パッケージマネージャの既知の ID ではありません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -194,11 +194,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>作業ディレクトリは以前のコマンドで既に変更されている。</value>
+    <value>作業ディレクトリは以前のコマンドで既に変更されています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>作業ディレクトリに無効なパスが含まれている（潜在的にセキュリティー上のリスクがある）。</value>
+    <value>作業ディレクトリに無効なパスが含まれています（潜在的なセキュリティリスク）。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

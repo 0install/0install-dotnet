@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>De volgende bestaande toegangspunten zijn met elkaar in conflict:</value>
+    <value>De volgende bestaande toegangspunten zijn in strijd met elkaar:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
-    <value>Toepassing '{0}' kan niet worden gevonden in de lijst met toepassingen.</value>
+    <value>Kan toepassing '{0}' niet vinden in de lijst met toepassingen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>Desktopintegratie herstellen</value>
+    <value>Bureaubladintegratie herstellen</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
@@ -133,11 +133,11 @@ Je kunt de gegevens die op de server zijn opgeslagen vervangen door de wizard vo
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
-    <value>{0} met ID '{1}' kan niet worden gevonden.</value>
+    <value>Kan {0} met de ID '{1}' niet vinden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Kan oudbakken uitvoerbaar bestand '{0}' niet vervangen.</value>
+    <value>Kan oud uitvoerbaar bestand '{0}' niet vervangen.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>Полученная командная строка будет пустой.</value>
+    <value>Получаемая командная строка пуста.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>связки &lt;environment&gt; должны содержать либо атрибут 'value', либо атрибут 'insert'.</value>
+    <value>связка &lt;environment&gt; должна содержать атрибут 'value' или 'insert'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -99,7 +99,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' не удалось найти в кэше кормов.</value>
+    <value>'{0}' не удалось найти в фид-кэше.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -111,11 +111,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Атрибут uri &lt;interface&gt; ('{0}') не совпадает с URL, с которого был загружен фид ('{1}').</value>
+    <value>Атрибут uri &lt;interface&gt; ('{0}') не соответствует URL-адресу, с которого был загружен фид ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Отсутствует uri-атрибут &lt;интерфейс&gt;. Должен быть '{0}'.</value>
+    <value>Отсутствует uri-атрибут &lt;interface&gt;. Должен быть '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -127,15 +127,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Для импорта ленты должны быть указаны URI, с которых они были получены.</value>
+    <value>Для импорта файлов необходимо указать URI, с которого они были получены.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Отсутствует название в переплете {0}.</value>
+    <value>Отсутствие имени в привязке {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>Не указан интерфейс.</value>
+    <value>Интерфейс не указан.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Сервер информации о ключе не смог предоставить никакой дополнительной информации об этом ключе.</value>
+    <value>Сервер информации о ключах не смог предоставить никакой дополнительной информации об этом ключе.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Метод извлечения для реализации '{0}' не найден.</value>
+    <value>Метод поиска для реализации '{0}' не найден.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -162,11 +162,11 @@ URI канала: {0}
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Не удалось загрузить {0}. Вместо этого пытаюсь получить из зеркала.</value>
+    <value>Не удалось загрузить {0}. Вместо этого пытаемся получить с зеркала.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Невозможно кэшировать загруженный каталог приложений.</value>
+    <value>Невозможность кэширования каталога загруженных приложений.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
@@ -194,11 +194,11 @@ URI канала: {0}
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>Рабочий каталог уже был изменен предыдущей командой.</value>
+    <value>Рабочая директория уже была изменена предыдущей командой.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Рабочий каталог содержит неверный путь (потенциально опасный для безопасности).</value>
+    <value>В рабочем каталоге указан неверный путь (потенциально опасно для безопасности).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

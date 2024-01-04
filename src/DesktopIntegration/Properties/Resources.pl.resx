@@ -59,11 +59,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>Następujące istniejące punkty dostępu kolidują ze sobą:</value>
+    <value>Następujące istniejące punkty dostępu są ze sobą w konflikcie:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>Następujące punkty dostępu do aplikacji {0} są ze sobą sprzeczne:</value>
+    <value>Następujące punkty dostępu do aplikacji {0} są ze sobą w konflikcie:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
@@ -95,7 +95,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
-    <value>Użyj '0install central' lub '0install config', aby skonfigurować Sync.</value>
+    <value>Użyj "0install central" lub "0install config", aby skonfigurować Sync.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
@@ -133,11 +133,11 @@ Możesz zastąpić dane przechowywane na serwerze, uruchamiając kreatora rozwi�
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
-    <value>Nie można znaleźć strony {0} o identyfikatorze '{1}'.</value>
+    <value>Nie można znaleźć {0} z ID '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Nie można zastąpić nieaktualnego pliku wykonywalnego '{0}'.</value>
+    <value>Nie można zastąpić nieaktualnego pliku wykonywalnego "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

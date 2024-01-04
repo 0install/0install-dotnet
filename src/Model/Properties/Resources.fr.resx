@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Erreur de chargement des préférences d'interface pour '{0}'. Retour aux valeurs par défaut.</value>
+    <value>Erreur de chargement des préférences de l'interface pour "{0}". Rétablissement des valeurs par défaut.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Impossible de trouver une implémentation pour l'interface '{0}' dans la sélection.</value>
+    <value>Impossible de trouver l'implémentation de l'interface '{0}' dans la sélection.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -99,7 +99,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>La balise {0} est manquante à l'intérieur de la balise {1}.</value>
+    <value>Il manque la balise {0} à l'intérieur de {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Aucune méthode de digestion connue n'a été spécifiée.</value>
+    <value>Aucune méthode de condensation connue n'a été spécifiée.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Une mise en œuvre boguée</value>
+    <value>Mise en œuvre boguée</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
@@ -139,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Système d'exploitation ou unité centrale incompatible</value>
+    <value>Système d'exploitation ou unité centrale incompatibles</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Mise en œuvre de la source non exécutable</value>
+    <value>Implémentation de la source non exécutable</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>La fin de la plage de versions doit être exclusive. Utilisez '.. !{0}', et non '..{0}'.</value>
+    <value>La fin de la gamme de versions doit être exclusive. Utilisez '.. !{0}', et non '..{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

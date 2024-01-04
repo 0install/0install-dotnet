@@ -116,7 +116,7 @@ Se pretende eliminar todo o diretório sem utilizar o Zero Install, pode fazê-l
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Erro ao carregar a base de dados de confiança. Reverter para os valores predefinidos.</value>
+    <value>Erro ao carregar a base de dados de confiança. Reverter para valores predefinidos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -145,11 +145,11 @@ Execute '0install config feed_mirror default' para o ativar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Procurar ficheiros duplicados em '{0}'</value>
+    <value>Encontrar ficheiros duplicados em '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>O ficheiro '{0}' não é nem uma ligação simbólica nem um ficheiro normal.</value>
+    <value>O ficheiro '{0}' não é uma ligação simbólica nem um ficheiro normal.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
@@ -161,7 +161,7 @@ Execute '0install config feed_mirror default' para o ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Pretende removê-lo? Quando necessário, será automaticamente descarregada uma nova cópia.</value>
+    <value>Pretende removê-lo? Uma nova cópia será automaticamente descarregada de novo quando necessário.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
@@ -182,7 +182,7 @@ Se estiver a utilizar um disco formatado para FAT, converta-o para NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Não é possível transferir o ícone de {0} porque só são suportados URLs HTTP e HTTPS.</value>
+    <value>Não é possível transferir ícones a partir de {0} porque só são suportados URLs HTTP e HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -190,7 +190,7 @@ Se estiver a utilizar um disco formatado para FAT, converta-o para NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Número inválido de peças na linha.</value>
+    <value>Número inválido de peças em linha.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -202,15 +202,15 @@ Se estiver a utilizar um disco formatado para FAT, converta-o para NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Apenas os administradores podem otimizar um armazenamento partilhado.</value>
+    <value>Apenas os administradores podem otimizar uma loja partilhada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Apenas os administradores podem remover elementos de um arquivo partilhado.</value>
+    <value>Apenas os administradores podem remover elementos de uma loja partilhada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>O nome do ficheiro ou diretório não deve conter um carácter de nova linha.</value>
+    <value>O nome do ficheiro ou diretório não pode conter um carácter de nova linha.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -231,11 +231,11 @@ Especificado no ficheiro de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>A Instalação Zero não pode remover-se de uma cache de implementação.</value>
+    <value>O Zero Install não pode remover-se de uma cache de implementação.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>O valor do número é demasiado grande.</value>
+    <value>O valor numérico é demasiado grande.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
@@ -270,7 +270,7 @@ Para corrigir o problema, pode eliminar o ficheiro "{1}". É possível que se pe
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>Não foi possível estabelecer ligação com o StoreService.</value>
+    <value>Não é possível estabelecer ligação com o StoreService.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">

@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Puteți efectua doar o singură operațiune de integrare a biroului la un moment dat.</value>
+    <value>Puteți efectua doar o singură operațiune de integrare a desktopului la un moment dat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>Repararea integrării desktop-ului</value>
+    <value>Reparații de integrare a desktop-ului</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
@@ -125,7 +125,7 @@ Puteți modifica cheia criptografică utilizată pe server prin rularea expertul
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Datele stocate în prezent pe serverul Sync sunt deteriorate.
-Puteți înlocui datele stocate pe server rulând expertul de depanare (faceți clic dreapta pe butonul "Sync" pentru a ajunge acolo) sau executând "0install sync --reset=server".</value>
+Puteți înlocui datele stocate pe server executând asistentul de depanare (faceți clic dreapta pe butonul "Sync" pentru a ajunge acolo) sau executând "0install sync --reset=server".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
@@ -133,11 +133,11 @@ Puteți înlocui datele stocate pe server rulând expertul de depanare (faceți 
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
-    <value>Nu s-a putut găsi {0} cu ID-ul '{1}'.</value>
+    <value>Nu se poate găsi {0} cu ID-ul '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Nu se poate înlocui executabilul de tip stub '{0}'.</value>
+    <value>Nu se poate înlocui executabilul de tip stub vechi '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

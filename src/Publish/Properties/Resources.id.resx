@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Intisari manifes dihitung untuk direktori yang kosong. Pastikan Anda telah menetapkan nilai "{0}" yang benar untuk arsip.</value>
+    <value>Intisari manifes dihitung untuk direktori kosong. Pastikan Anda telah menetapkan nilai "{0}" yang benar untuk arsip.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
@@ -80,7 +80,7 @@ Coba tentukan secara manual.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>Terdeteksi '{0}' sebagai direktori instalasi.</value>
+    <value>Mendeteksi '{0}' sebagai direktori instalasi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
@@ -88,7 +88,7 @@ Coba tentukan secara manual.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Beberapa program default baru terdeteksi dalam registri. Tangani semuanya, tetapi yang terakhir mungkin lebih diutamakan dalam beberapa kasus.</value>
+    <value>Beberapa program default baru terdeteksi dalam registri. Menangani semuanya, tetapi yang terakhir mungkin lebih diutamakan dalam beberapa kasus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
@@ -105,7 +105,7 @@ Coba tentukan secara manual.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>Metode ini saat ini hanya tersedia pada Windows.</value>
+    <value>Metode ini saat ini hanya tersedia di Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">

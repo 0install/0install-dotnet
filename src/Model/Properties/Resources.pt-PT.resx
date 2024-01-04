@@ -75,11 +75,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Não foi possível encontrar o feed '{0}' no catálogo.</value>
+    <value>Não é possível encontrar o feed '{0}' no catálogo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Encontrado em vez disso:</value>
+    <value>Encontrado em vez de:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>O número da versão só pode conter decimais e cadeias de modificadores separados por pontos.</value>
+    <value>O número da versão só pode conter casas decimais separadas por pontos e cadeias de modificadores.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>o atributo "rollout-percentage" em {0} só pode ser definido quando "stability" é "testing" ou não está definido.</value>
+    <value>o atributo 'rollout-percentage' em {0} só pode ser definido quando 'stability' é 'testing' ou não está definido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -139,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Sistema operativo ou CPU incompatível</value>
+    <value>Sistema operativo ou CPU incompatíveis</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
@@ -147,15 +147,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementação que não está na cache (atualmente em modo off-line)</value>
+    <value>Implementação não em cache (atualmente em modo off-line)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Implementação de fonte não-executável</value>
+    <value>Implementação de fonte não executável</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Versão de aplicação demasiado antiga ou demasiado recente</value>
+    <value>Versão de implementação demasiado antiga ou demasiado recente</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
@@ -163,11 +163,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Deve ser uma identificação segura. Só pode conter caracteres alfanuméricos, espaços ( ), pontos (.), sublinhados (_), hífenes (-) e sinais de mais (+).</value>
+    <value>Deve ser um ID seguro. Só pode conter caracteres alfanuméricos, espaços ( ), pontos (.), sublinhados (_), hífenes (-) e sinais de mais (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>A etapa da receita '{0}' na implementação '{1}' tem uma referência de implementação inválida.</value>
+    <value>O passo da receita '{0}' na implementação '{1}' tem uma referência de implementação inválida.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>O fim do intervalo de versões deve ser exclusivo. Utilizar '...!{0}' e não '...{0}'.</value>
+    <value>O fim do intervalo de versões deve ser exclusivo. Utilize '..!{0}' e não '...{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

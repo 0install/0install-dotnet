@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Ошибка при загрузке предпочтений подачи для '{0}'. Возврат к значениям по умолчанию.</value>
+    <value>Ошибка при загрузке предпочтений фида для '{0}'. Возврат к значениям по умолчанию.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
@@ -75,7 +75,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Невозможно найти корм '{0}' в каталоге.</value>
+    <value>Невозможно найти канал '{0}' в каталоге.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Невозможно найти реализацию для интерфейса '{0}' в выборе.</value>
+    <value>Невозможно найти реализацию для интерфейса '{0}' в подборке.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -99,7 +99,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Отсутствие тега {0} внутри {1}.</value>
+    <value>Отсутствует тег {0} внутри {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -115,19 +115,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Не было указано ни одного известного метода переваривания.</value>
+    <value>Не было указано ни одного известного метода дайджеста.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Относительный путь '{0}' не может быть разрешен. Относительные пути могут содержаться только в фидах, сохраненных как локальные файлы.</value>
+    <value>Не удалось определить относительный путь '{0}'. Относительные пути могут содержаться только в материалах, сохраненных как локальные файлы.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Не удалось разрешить относительный URI '{0}'. Относительные URI могут содержаться только в фидах, сохраненных как локальные файлы.</value>
+    <value>Не удалось разрешить относительный URI '{0}'. Относительные URI могут содержаться только в лентах, сохраненных как локальные файлы.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>атрибут 'rollout-percentage' на {0} может быть установлен только в том случае, если параметр 'stability' имеет значение 'testing' или не установлен.</value>
+    <value>атрибут 'rollout-percentage' на {0} может быть установлен только в том случае, если параметр 'stability' находится в состоянии 'testing' или не установлен.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -147,11 +147,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Реализация отсутствует в кэше (в настоящее время находится в автономном режиме)</value>
+    <value>Реализация не в кэше (в настоящее время находится в автономном режиме)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Неисполняемая исходная реализация</value>
+    <value>Неисполняемая реализация исходного кода</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
@@ -159,11 +159,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Должен быть действительным типом MIME.</value>
+    <value>Должен иметь допустимый тип MIME.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Это должен быть безопасный идентификатор. Может содержать только буквенно-цифровые символы, пробелы ( ), точки (.), знаки подчеркивания (_), дефисы (-) и знаки плюс (+).</value>
+    <value>Должен быть безопасным идентификатором. Может содержать только буквенно-цифровые символы, пробелы ( ), точки (.), знаки подчеркивания (_), дефисы (-) и знаки плюс (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Конец диапазона версий должен быть эксклюзивным. Используйте '...!{0}', а не '...{0}'.</value>
+    <value>Конец диапазона версий должен быть эксклюзивным. Используйте '...{0}', а не '...{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

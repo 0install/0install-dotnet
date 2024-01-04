@@ -112,11 +112,11 @@ Para eliminar el directorio completo sin usar Zero Install, ejecuta esta línea 
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Error al cargar el paquete de claves OpenPGP de '{0}'</value>
+    <value>Error al cargar el paquete de claves OpenPGP desde '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Error al cargar la base de datos de confianza. Volver a los valores por defecto.</value>
+    <value>Error al cargar la base de datos de confianza. Revertir a valores por defecto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -125,7 +125,7 @@ Para eliminar el directorio completo sin usar Zero Install, ejecuta esta línea 
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>El uso del feed mirror, necesario para la búsqueda, está desactivado.
-Ejecute '0install config feed_mirror default' para habilitarlo.</value>
+Ejecuta '0install config feed_mirror default' para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -145,11 +145,11 @@ Ejecute '0install config feed_mirror default' para habilitarlo.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Encontrar archivos duplicados en '{0}'</value>
+    <value>Búsqueda de archivos duplicados en '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>El fichero '{0}' no es ni un enlace simbólico ni un fichero normal.</value>
+    <value>El archivo '{0}' no es ni un enlace simbólico ni un archivo normal.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
@@ -161,7 +161,7 @@ Ejecute '0install config feed_mirror default' para habilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>¿Desea eliminarla? Se volverá a descargar automáticamente una nueva copia cuando sea necesario.</value>
+    <value>¿Quieres eliminarlo? Se volverá a descargar automáticamente una nueva copia cuando sea necesario.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
@@ -169,7 +169,7 @@ Ejecute '0install config feed_mirror default' para habilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>La implementación '{0}' no pudo ser localizada.</value>
+    <value>No se ha podido localizar la aplicación '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -190,11 +190,11 @@ Si estás utilizando una unidad con formato FAT, conviértela a NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Número no válido de piezas en línea.</value>
+    <value>Número inválido de piezas en línea.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>El archivo contiene una ruta inválida (potencialmente un riesgo de seguridad): {0}</value>
+    <value>El archivo contiene una ruta no válida (potencialmente un riesgo para la seguridad): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -218,20 +218,20 @@ Si estás utilizando una unidad con formato FAT, conviértela a NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>No se ha especificado ningún método de digestión conocido.</value>
+    <value>No se ha especificado ningún método de compendio conocido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>La ruta '{0}' no es una ruta absoluta. Las rutas relativas sólo están permitidas en modo portable.
+    <value>La ruta '{0}' no es una ruta absoluta. Las rutas relativas sólo se permiten en modo portable.
 Se especifica en el archivo de configuración '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Ninguna versión seleccionada</value>
+    <value>Versión no seleccionada</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install no puede eliminarse de una caché de implementación.</value>
+    <value>Zero Install no puede eliminarse de la caché de una aplicación.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -270,7 +270,7 @@ Para resolver el problema, elimina el archivo «{1}». Es posible que se pierdan
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>No se ha podido establecer la conexión con StoreService.</value>
+    <value>No se puede establecer conexión con StoreService.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -278,7 +278,7 @@ Para resolver el problema, elimina el archivo «{1}». Es posible que se pierdan
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>No se ha podido encontrar una clave secreta con el nombre especificado.</value>
+    <value>No se puede encontrar una clave secreta con el nombre especificado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">

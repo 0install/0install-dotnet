@@ -153,7 +153,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>Реализация '{0}' уже есть в магазине.</value>
+    <value>Реализация '{0}' уже в магазине.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
@@ -161,7 +161,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Вы хотите удалить его? При необходимости новая копия будет автоматически загружена снова.</value>
+    <value>Хотите удалить его? При необходимости новая копия будет автоматически загружена снова.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
@@ -182,7 +182,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Невозможно загрузить значок с сайта {0}, поскольку поддерживаются только URL-адреса HTTP и HTTPS.</value>
+    <value>Невозможно загрузить значок с сайта {0}, поскольку поддерживаются только HTTP и HTTPS URL.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -190,7 +190,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Недопустимое количество деталей в линии.</value>
+    <value>Неверное количество деталей в линии.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -202,7 +202,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Оптимизировать общее хранилище могут только администраторы.</value>
+    <value>Оптимизировать общий магазин могут только администраторы.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
@@ -218,12 +218,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Не было указано ни одного известного метода переваривания.</value>
+    <value>Не было указано ни одного известного метода дайджеста.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>Путь '{0}' не является абсолютным путем. Относительные пути разрешены только в портативном режиме.
-Указан в конфигурационном файле '{1}'.</value>
+Указывается в конфигурационном файле '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
@@ -231,7 +231,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install не может удалить себя из кэша реализации.</value>
+    <value>Zero Install не может удалить себя из кэша внедрения.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -270,7 +270,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>Невозможно установить соединение со службой StoreService.</value>
+    <value>Не удается установить соединение со службой StoreService.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">

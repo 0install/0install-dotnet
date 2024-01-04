@@ -112,11 +112,11 @@ Se desideri eliminare l'intera directory senza utilizzare Zero Install, esegui q
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Errore nel caricamento del pacchetto di chiavi OpenPGP da '{0}'.</value>
+    <value>Errore nel caricamento del pacchetto di chiavi OpenPGP da '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Errore nel caricamento del database fiduciario. Ritorno ai valori predefiniti.</value>
+    <value>Errore nel caricamento del database fiduciario. Ripristino dei valori predefiniti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -190,7 +190,7 @@ Se utilizzi un'unità formattata come FAT, convertila in NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Numero di pezzi in linea non valido.</value>
+    <value>Numero non valido di parti in linea.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -235,7 +235,7 @@ Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>Il valore del numero è troppo grande.</value>
+    <value>Il valore numerico è troppo grande.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">

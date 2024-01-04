@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
-    <value>El punto de acceso existente {0} está en conflicto con el nuevo punto de acceso {1}.</value>
+    <value>El punto de acceso existente {0} entra en conflicto con el nuevo punto de acceso {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
@@ -75,7 +75,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
-    <value>Aplicar los cambios</value>
+    <value>Aplicación de cambios</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>Reparación de la integración del escritorio</value>
+    <value>Integración del escritorio de reparación</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>La clave criptográfica que ha introducido para la sincronización es incorrecta. Compruebe sus opciones de sincronización.
+    <value>La clave criptográfica que ha introducido para la sincronización es incorrecta. Por favor, compruebe sus Opciones de Sincronización.
 Puede cambiar la clave criptográfica utilizada en el servidor ejecutando el asistente de solución de problemas (haga clic con el botón derecho del ratón en el botón "Sincronizar" para acceder a él) o ejecutando '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -133,11 +133,11 @@ Puede reemplazar los datos almacenados en el servidor ejecutando el asistente de
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
-    <value>No se ha podido encontrar {0} con el ID '{1}'.</value>
+    <value>No se puede encontrar {0} con el ID '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>No se ha podido reemplazar el ejecutable '{0}'.</value>
+    <value>Incapaz de reemplazar el viejo stub ejecutable '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
