@@ -140,10 +140,10 @@ public static class AutoPlay
                 eventKey?.DeleteValue(handlerName, throwOnMissingValue: false);
             }
 
-            hive.DeleteSubKeyTree($@"{RegKeyHandlers}\{handlerName}", throwOnMissingSubKey: false);
+            hive.TryDeleteSubKey($@"{RegKeyHandlers}\{handlerName}");
 
             using var classesKey = RegistryClasses.OpenHive(machineWide);
-            classesKey.DeleteSubKeyTree(progId, throwOnMissingSubKey: false);
+            classesKey.TryDeleteSubKey(progId);
         }
     }
     #endregion

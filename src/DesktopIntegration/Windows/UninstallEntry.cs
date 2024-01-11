@@ -100,7 +100,7 @@ public static class UninstallEntry
         #endregion
 
         using var key = OpenUninstallKey(machineWide);
-        key.DeleteSubKeyTree(id, throwOnMissingSubKey: false);
+        key.TryDeleteSubKey(id);
     }
 
     private static RegistryKey OpenUninstallKey(bool machineWide)

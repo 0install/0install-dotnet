@@ -122,7 +122,7 @@ public static class AppRegistration
             regAppsKey?.DeleteValue(appRegistration.ID, throwOnMissingValue: false);
 
         // TODO: Handle appRegistration.X64
-        hive.DeleteSubKeyTree( /*CapabilityPrefix +*/ appRegistration.CapabilityRegPath, throwOnMissingSubKey: false);
+        hive.TryDeleteSubKey( /*CapabilityPrefix +*/ appRegistration.CapabilityRegPath);
     }
     #endregion
 }

@@ -3,10 +3,7 @@
 
 using System.Runtime.Versioning;
 using Microsoft.Win32;
-
-#if NETFRAMEWORK
 using NanoByte.Common.Native;
-#endif
 
 namespace ZeroInstall.DesktopIntegration.Windows;
 
@@ -89,7 +86,7 @@ public static class AppAlias
     private static void RemoveFromAppPaths(string exeName, bool machineWide)
     {
         var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
-        hive.DeleteSubKeyTree($@"{RegKeyAppPaths}\{exeName}", throwOnMissingSubKey: false);
+        hive.TryDeleteSubKey($@"{RegKeyAppPaths}\{exeName}");
     }
     #endregion
 

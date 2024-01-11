@@ -105,7 +105,7 @@ public static class UrlProtocol
         if (urlProtocol.KnownPrefixes.Count == 0)
         {
             if (accessPoint) // Was registered invasively by registering protocol ProgID
-                classesKey.DeleteSubKeyTree(urlProtocol.ID, throwOnMissingSubKey: false);
+                classesKey.TryDeleteSubKey(urlProtocol.ID);
         }
         else
         { // Was registered non-invasively by registering custom ProgID
@@ -131,7 +131,7 @@ public static class UrlProtocol
 
             // Delete ProgID if there are no other references
             if (!otherFlags)
-                classesKey.DeleteSubKeyTree(RegistryClasses.Prefix + urlProtocol.ID, throwOnMissingSubKey: false);
+                classesKey.TryDeleteSubKey(RegistryClasses.Prefix + urlProtocol.ID);
         }
         #endregion
     }

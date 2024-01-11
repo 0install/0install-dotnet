@@ -74,7 +74,7 @@ internal static class RegistryClasses
         }
 
         // Prevent conflicts with existing entries
-        registryKey.DeleteSubKeyTree(@"shell\ddeexec", throwOnMissingSubKey: false);
+        registryKey.TryDeleteSubKey(@"shell\ddeexec");
     }
 
     /// <summary>

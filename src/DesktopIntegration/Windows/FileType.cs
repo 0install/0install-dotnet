@@ -98,7 +98,7 @@ public static class FileType
                         if (!alreadySet)
                         {
                             // Must delete and recreate instead of direct modification due to wicked ACLs
-                            extensionOverrideKey.DeleteSubKeyTree("UserChoice", throwOnMissingSubKey: false);
+                            extensionOverrideKey.TryDeleteSubKey("UserChoice");
 
                             try
                             {
@@ -159,7 +159,7 @@ public static class FileType
             //         using (var extensionOverrideKey = overridesKey.CreateSubKeyChecked(extension.Value))
             //         {
             //             // Must delete and recreate instead of direct modification due to wicked ACLs
-            //             extensionOverrideKey.DeleteSubKeyTree("UserChoice", throwOnMissingSubKey: false);
+            //             extensionOverrideKey.TryDeleteSubKey("UserChoice");
             //             using (var userChoiceKey = extensionOverrideKey.CreateSubKeyChecked("UserChoice"))
             //                 userChoiceKey.SetValue("ProgID", fileType.PreviousID);
             //         }
@@ -194,7 +194,7 @@ public static class FileType
 
         // Delete ProgID if there are no other references
         if (!otherFlags)
-            classesKey.DeleteSubKeyTree(RegistryClasses.Prefix + fileType.ID, throwOnMissingSubKey: false);
+            classesKey.TryDeleteSubKey(RegistryClasses.Prefix + fileType.ID);
     }
     #endregion
 }

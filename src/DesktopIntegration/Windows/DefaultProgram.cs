@@ -130,7 +130,7 @@ public static class DefaultProgram
 
         // Delete app key if there are no other references
         if (!otherFlags)
-            serviceKey.DeleteSubKeyTree(defaultProgram.ID, throwOnMissingSubKey: false);
+            serviceKey.TryDeleteSubKey(defaultProgram.ID);
     }
     #endregion
 }

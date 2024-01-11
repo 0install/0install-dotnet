@@ -123,14 +123,14 @@ public static class ContextMenu
         if (contextMenu.Verbs.Count == 1)
         { // Simple context menu entry
             foreach (string keyName in GetKeyName(contextMenu.Target))
-                classesKey.DeleteSubKeyTree($@"{keyName}\shell\{RegistryClasses.Prefix}{contextMenu.Verbs.Single().Name}", throwOnMissingSubKey: false);
+                classesKey.TryDeleteSubKey($@"{keyName}\shell\{RegistryClasses.Prefix}{contextMenu.Verbs.Single().Name}");
         }
         else
         { // Cascading context menu
-            classesKey.DeleteSubKeyTree(Prefix + contextMenu.ID, throwOnMissingSubKey: false);
+            classesKey.TryDeleteSubKey(Prefix + contextMenu.ID);
 
             foreach (string keyName in GetKeyName(contextMenu.Target))
-                classesKey.DeleteSubKeyTree($@"{keyName}\shell\{RegistryClasses.Prefix}{contextMenu.ID}", throwOnMissingSubKey: false);
+                classesKey.TryDeleteSubKey($@"{keyName}\shell\{RegistryClasses.Prefix}{contextMenu.ID}");
         }
     }
     #endregion
