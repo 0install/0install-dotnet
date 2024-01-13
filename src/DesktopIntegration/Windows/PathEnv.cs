@@ -24,7 +24,7 @@ public static class PathEnv
         #endregion
 
         var currentPath = Get(machineWide);
-        if (!currentPath.Contains(directory)) Set(currentPath.Append(directory), machineWide);
+        if (!currentPath.Contains(directory)) Set([..currentPath, directory], machineWide);
     }
 
     /// <summary>

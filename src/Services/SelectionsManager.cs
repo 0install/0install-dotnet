@@ -80,8 +80,7 @@ public class SelectionsManager(IFeedManager feedManager, IImplementationStore im
         void AddNodes(IInterfaceUri target, SelectionsTreeNode? parent)
         {
             // Prevent infinite recursion
-            if (visited.Contains(target.InterfaceUri)) return;
-            visited.Add(target.InterfaceUri);
+            if (!visited.Add(target.InterfaceUri)) return;
 
             var implementation = TryGetImplementation(target);
 

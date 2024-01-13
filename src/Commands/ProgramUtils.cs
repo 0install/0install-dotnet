@@ -148,7 +148,7 @@ public static class ProgramUtils
         if (handler == null) throw new ArgumentNullException(nameof(handler));
         #endregion
 
-        if (args.FirstOrDefault() is AsAdminIndicatorArg or DeployedIndicatorArg)
+        if (args is [AsAdminIndicatorArg or DeployedIndicatorArg, ..])
             args = args.Skip(1).ToArray();
 
         try
