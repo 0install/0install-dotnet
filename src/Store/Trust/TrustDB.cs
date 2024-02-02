@@ -140,19 +140,35 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     }
 
     /// <summary>
-    /// Loads the <see cref="TrustDB"/> from the default location. Returns an empty <see cref="TrustDB"/> if the file does not exist.
+    /// Loads the <see cref="TrustDB"/> from the default locations, merging multiple files if found.
+    /// Returns an empty <see cref="TrustDB"/> if no files were found.
     /// </summary>
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     public static TrustDB Load()
+        => Locations.GetLoadConfigPaths(AppName, true, _resource).ToList() switch
+        {
+            [var path] => Load(path),
+            var paths => LoadMerged(paths)
+        };
+
+    private static TrustDB LoadMerged(IEnumerable<string> paths)
     {
-        string path = Locations.GetSaveConfigPath("0install.net", true, "injector", "trustdb.xml");
-        return File.Exists(path) ? Load(path) : new();
+        var merged = new TrustDB();
+        foreach (string path in paths)
+        foreach (var key in Load(path).Keys)
+        foreach (var domain in key.Domains)
+        {
+            if (key.Fingerprint != null)
+                merged.TrustKey(key.Fingerprint, domain);
+        }
+        return merged;
     }
 
     /// <summary>
-    /// Tries to load the <see cref="TrustDB"/> from the default location. Returns an empty <see cref="TrustDB"/> on errors.
+    /// Tries to load the <see cref="TrustDB"/> from the default locations, merging multiple files if found.
+    /// Returns an empty <see cref="TrustDB"/> on errors.
     /// </summary>
     public static TrustDB LoadSafe()
     {
@@ -165,6 +181,19 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
             Log.Warn(Resources.ErrorLoadingTrustDB, ex);
             return new(); // Start empty but do not overwrite existing file
         }
+    }
+
+    /// <summary>
+    /// Loads the <see cref="TrustDB"/> from the machine-wide location.
+    /// Returns an empty <see cref="TrustDB"/> if the file does not exist.
+    /// </summary>
+    /// <exception cref="IOException">A problem occurred while reading the file or creating a directory.</exception>
+    /// <exception cref="UnauthorizedAccessException">Read access to the file or creating a directory is not permitted.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
+    public static TrustDB LoadMachineWide()
+    {
+        string path = Locations.GetSaveSystemConfigPath(AppName, true, _resource);
+        return File.Exists(path) ? Load(path) : new() { _filePath = path };
     }
 
     /// <summary>
