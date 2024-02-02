@@ -121,7 +121,6 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// Loads the <see cref="TrustDB"/> from a file.
     /// </summary>
     /// <param name="path">The file to load from.</param>
-    /// <returns>The loaded <see cref="TrustDB"/>.</returns>
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
@@ -145,7 +144,6 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// <summary>
     /// Loads the <see cref="TrustDB"/> from the <see cref="DefaultLocation"/>. Returns an empty <see cref="TrustDB"/> if the file does not exist.
     /// </summary>
-    /// <returns>The loaded <see cref="TrustDB"/>.</returns>
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
@@ -157,7 +155,6 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// <summary>
     /// Tries to load the <see cref="TrustDB"/> from the <see cref="DefaultLocation"/>. Returns an empty <see cref="TrustDB"/> on errors.
     /// </summary>
-    /// <returns>The loaded <see cref="TrustDB"/> or an empty <see cref="TrustDB"/> if there was a problem.</returns>
     public static TrustDB LoadSafe()
     {
         try
