@@ -101,19 +101,6 @@ public class TrustDBTest
     }
 
     [Fact]
-    public void Save()
-    {
-        using var tempFile = new TemporaryFile("0install-test-trustdb");
-        var original = new TrustDB();
-        original.Save(tempFile);
-
-        var loaded = TrustDB.Load(tempFile);
-
-        original.Save().Should().BeFalse(because: "No loaded-from path to save back to");
-        loaded.Save().Should().BeTrue(because: "Loaded from disk");
-    }
-
-    [Fact]
     public void TestClone()
     {
         var trust1 = new TrustDB() { Keys = { new() { Fingerprint = "abc", Domains = { new("example.com") } } } };

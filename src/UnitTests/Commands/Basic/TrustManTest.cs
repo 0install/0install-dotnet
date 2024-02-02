@@ -31,7 +31,7 @@ public class TrustManTest
             new TrustDB()
                .TrustKey("abc", new("example.com"))
                .TrustKey("abc", new("example2.com"))
-               .Save(TrustDB.DefaultLocation);
+               .Save();
 
             RunAndAssert(null, ExitCode.OK,
                 "abc");
@@ -46,7 +46,7 @@ public class TrustManTest
             new TrustDB()
                .TrustKey("abc", new("example.com"))
                .TrustKey("abc", new("example2.com"))
-               .Save(TrustDB.DefaultLocation);
+               .Save();
 
             RunAndAssert(null, ExitCode.OK,
                 "abc", "example.com");
@@ -64,7 +64,7 @@ public class TrustManTest
             var trust = new TrustDB()
                        .TrustKey("abc", new("example.com"))
                        .TrustKey("abc", new("example2.com"));
-            trust.Save(TrustDB.DefaultLocation);
+            trust.Save();
 
             RunAndAssert(trust.Keys, ExitCode.OK);
         }
@@ -75,7 +75,7 @@ public class TrustManTest
             var trust = new TrustDB()
                        .TrustKey("abc", new("example.com"))
                        .TrustKey("abc", new("example2.com"));
-            trust.Save(TrustDB.DefaultLocation);
+            trust.Save();
 
             RunAndAssert(trust.Keys[0].Domains, ExitCode.OK, "abc");
         }

@@ -115,7 +115,10 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     }
 
     #region Storage
-    private string? _filePath;
+    private const string AppName = "0install.net";
+    private static readonly string[] _resource = ["injector", "trustdb.xml"];
+
+    private string _filePath = Locations.GetSaveConfigPath(AppName, true, _resource);
 
     /// <summary>
     /// Loads the <see cref="TrustDB"/> from a file.
@@ -137,23 +140,19 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     }
 
     /// <summary>
-    /// The default file path used to store the <see cref="TrustDB"/>.
-    /// </summary>
-    public static string DefaultLocation => Locations.GetSaveConfigPath("0install.net", true, "injector", "trustdb.xml");
-
-    /// <summary>
-    /// Loads the <see cref="TrustDB"/> from the <see cref="DefaultLocation"/>. Returns an empty <see cref="TrustDB"/> if the file does not exist.
+    /// Loads the <see cref="TrustDB"/> from the default location. Returns an empty <see cref="TrustDB"/> if the file does not exist.
     /// </summary>
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     public static TrustDB Load()
-        => File.Exists(DefaultLocation)
-            ? Load(DefaultLocation)
-            : new() {_filePath = DefaultLocation};
+    {
+        string path = Locations.GetSaveConfigPath("0install.net", true, "injector", "trustdb.xml");
+        return File.Exists(path) ? Load(path) : new();
+    }
 
     /// <summary>
-    /// Tries to load the <see cref="TrustDB"/> from the <see cref="DefaultLocation"/>. Returns an empty <see cref="TrustDB"/> on errors.
+    /// Tries to load the <see cref="TrustDB"/> from the default location. Returns an empty <see cref="TrustDB"/> on errors.
     /// </summary>
     public static TrustDB LoadSafe()
     {
@@ -169,37 +168,14 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     }
 
     /// <summary>
-    /// Saves the this <see cref="TrustDB"/> to the location it was loaded from if possible.
-    /// </summary>
-    /// <returns><c>true</c> if the file was saved; <c>false</c> if</returns>
-    /// <exception cref="IOException">A problem occurred while writing the file.</exception>
-    /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-    public bool Save()
-    {
-        if (_filePath == null)
-        {
-            Log.Warn("Trust database was not loaded from disk and can therefore not be saved");
-            return false;
-        }
-        else
-        {
-            Save(_filePath);
-            return true;
-        }
-    }
-
-    /// <summary>
     /// Saves this <see cref="TrustDB"/> to a file.
     /// </summary>
-    /// <param name="path">The file to save to.</param>
+    /// <param name="path">The file to save to. Defaults to the location the file was loaded from or the user profile.</param>
     /// <exception cref="IOException">A problem occurred while writing the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
-    public void Save(string path)
+    public void Save(string? path = null)
     {
-        #region Sanity checks
-        if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
-        #endregion
-
+        path ??= _filePath;
         Log.Debug($"Saving trust database to: {path}");
         this.SaveXml(path);
     }
