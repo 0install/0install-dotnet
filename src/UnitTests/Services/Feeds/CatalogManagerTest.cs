@@ -65,34 +65,34 @@ public class CatalogManagerTest : TestWithMocksAndRedirect
     public void AddSourceExisting()
     {
         _sut.AddSource(CatalogManager.DefaultSource).Should().BeFalse();
-        CatalogManager.GetSources().Should().Equal(CatalogManager.DefaultSource);
+        _sut.GetSources().Should().Equal(CatalogManager.DefaultSource);
     }
 
     [Fact]
     public void AddSourceNew()
     {
         _sut.AddSource(_testSource).Should().BeTrue();
-        CatalogManager.GetSources().Should().Equal(CatalogManager.DefaultSource, _testSource);
+        _sut.GetSources().Should().Equal(CatalogManager.DefaultSource, _testSource);
     }
 
     [Fact]
     public void RemoveSource()
     {
         _sut.RemoveSource(CatalogManager.DefaultSource).Should().BeTrue();
-        CatalogManager.GetSources().Should().BeEmpty();
+        _sut.GetSources().Should().BeEmpty();
     }
 
     [Fact]
     public void RemoveSourceMissing()
     {
         _sut.RemoveSource(_testSource).Should().BeFalse();
-        CatalogManager.GetSources().Should().Equal(CatalogManager.DefaultSource);
+        _sut.GetSources().Should().Equal(CatalogManager.DefaultSource);
     }
 
     [Fact]
     public void SetSources()
     {
         CatalogManager.SetSources(new[] {_testSource});
-        CatalogManager.GetSources().Should().Equal(_testSource);
+        _sut.GetSources().Should().Equal(_testSource);
     }
 }

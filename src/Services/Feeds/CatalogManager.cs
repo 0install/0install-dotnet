@@ -148,15 +148,20 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
         return true;
     }
 
+    /// <inheritdoc/>
+    public FeedUri[] GetSources()
+        => GetSources(preferMachineWide: false);
+
     /// <summary>
     /// Returns a list of catalog sources as defined by configuration files.
     /// </summary>
+    /// <param name="preferMachineWide">At most one configuration file is processed. If <c>true</c> machine-wide config is preferred; if <c>false</c> per-user config is preferred.</param>
     /// <remarks>Only the top-most configuration file is processed. I.e., a user config overrides a system config.</remarks>
     /// <exception cref="IOException">There was a problem accessing a configuration file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
     /// <exception cref="UriFormatException">An invalid catalog source is specified in the configuration file.</exception>
-    public static FeedUri[] GetSources()
-        => GetConfigLoadPath() is {} path
+    public static FeedUri[] GetSources(bool preferMachineWide)
+        => GetConfigLoadPath(preferMachineWide) is {} path
             ? ReadAllLines(path).Except(string.IsNullOrEmpty)
                                 .Except(line => line.StartsWith("#"))
                                 .Select(line => new FeedUri(line))
@@ -164,8 +169,11 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
                                 .ToArray()
             : [DefaultSource];
 
-    private static string? GetConfigLoadPath()
-        => Locations.GetLoadConfigPaths(AppName, true, _resource).FirstOrDefault();
+    private static string? GetConfigLoadPath(bool preferMachineWide)
+    {
+        var paths = Locations.GetLoadConfigPaths(AppName, true, _resource);
+        return preferMachineWide ? paths.LastOrDefault() : paths.FirstOrDefault();
+    }
 
     private static string[] ReadAllLines(string path)
     {
