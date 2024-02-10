@@ -150,7 +150,7 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
 
     /// <inheritdoc/>
     public FeedUri[] GetSources()
-        => GetSources(preferMachineWide: false);
+        => GetSources(preferMachineWide: config.KioskMode);
 
     /// <summary>
     /// Returns a list of catalog sources as defined by configuration files.

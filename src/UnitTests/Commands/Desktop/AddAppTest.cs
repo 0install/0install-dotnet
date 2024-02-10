@@ -28,4 +28,22 @@ public class AddAppTest : CliCommandTestBase<AddApp>
         RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
     }
 
+    [Fact]
+    public void KioskModeOK()
+    {
+        Sut.Config.KioskMode = true;
+        MockCatalog(new() {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
+
+        RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
+    }
+
+    [Fact]
+    public void KioskModeReject()
+    {
+        Sut.Config.KioskMode = true;
+        MockCatalog(new());
+
+        Sut.Parse(new[] {Fake.Feed1Uri.ToStringRfc()});
+        Assert.Throws<WebException>(() => Sut.Execute());
+    }
 }

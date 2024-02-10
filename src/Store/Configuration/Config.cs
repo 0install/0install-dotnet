@@ -179,6 +179,12 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
         => SyncServer != null
         && (SyncServer.IsFile || (!string.IsNullOrEmpty(SyncServerUsername) && !string.IsNullOrEmpty(SyncServerPassword) && !string.IsNullOrEmpty(SyncCryptoKey)));
 
+    /// <summary>
+    /// Restrict usage to feeds specified in the catalog.
+    /// </summary>
+    [DefaultValue(false), Category("Restrictions"), DisplayName(@"Kiosk mode"), Description("Restrict usage to feeds specified in the catalog.")]
+    public bool KioskMode { get; set; }
+
     /// <summary>Provides meta-data for loading and saving settings properties.</summary>
     private readonly Dictionary<string, ConfigProperty> _metaData;
 
@@ -203,6 +209,7 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
             ["sync_server_user"] = ConfigProperty.For(() => SyncServerUsername, defaultValue: ""),
             ["sync_server_pw"] = ConfigProperty.For(() => SyncServerPassword, defaultValue: "", needsEncoding: true),
             ["sync_crypto_key"] = ConfigProperty.For(() => SyncCryptoKey, defaultValue: "", needsEncoding: true),
+            ["kiosk_mode"] = ConfigProperty.For(() => KioskMode),
         };
     }
 }

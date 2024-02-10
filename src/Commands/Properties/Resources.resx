@@ -493,6 +493,9 @@ A &lt;feed-for&gt; tag indicates feed compatibility.</value>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>'{0}' is not a valid feed URI or file path.</value>
   </data>
+  <data name="KioskModeNotInCatalog" xml:space="preserve">
+    <value>Kiosk mode is enabled and {0} is not listed in the catalog.</value>
+  </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
     <value>A later version ({0}) exists but was not selected. Using {1} instead.</value>
   </data>

@@ -69,6 +69,7 @@ public abstract class IntegrationCommand : CliCommand
         var existingEntry = integrationManager.AppList.GetEntry(interfaceUri);
 
         var target = GetTarget(ref interfaceUri, out bool replaced);
+        EnsureAllowed(interfaceUri);
 
         return replaced && existingEntry != null
             ? ReplaceAppEntry(integrationManager, existingEntry, target)

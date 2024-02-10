@@ -122,6 +122,7 @@ public class Selection : CliCommand
     /// </summary>
     protected void SetInterfaceUri(FeedUri uri)
     {
+        EnsureAllowed(uri);
         Requirements.InterfaceUri = uri;
         Handler.FeedUri = uri;
 
