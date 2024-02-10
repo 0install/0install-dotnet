@@ -18,7 +18,7 @@ partial class CatalogMan
 
         public override ExitCode Execute()
         {
-            Handler.Output(Resources.CatalogSources, Services.Feeds.CatalogManager.GetSources());
+            Handler.Output(Resources.CatalogSources, CatalogManager.GetSources());
             return ExitCode.OK;
         }
     }

@@ -46,6 +46,14 @@ public interface ICatalogManager
     Catalog DownloadCatalog(FeedUri source);
 
     /// <summary>
+    /// Returns a list of catalog sources as defined by configuration files.
+    /// </summary>
+    /// <exception cref="IOException">There was a problem accessing a configuration file.</exception>
+    /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
+    /// <exception cref="UriFormatException">An invalid catalog source is specified in the configuration file.</exception>
+    public FeedUri[] GetSources();
+
+    /// <summary>
     /// Adds a new source to download <see cref="Catalog"/> files from.
     /// </summary>
     /// <param name="uri">The URI of the source to add.</param>
