@@ -158,7 +158,7 @@ public class Selection : CliCommand
         try
         { // Try to parse as selections document
             Selections = XmlStorage.LoadXml<Selections>(Requirements.InterfaceUri.LocalPath);
-            Selections.Normalize();
+            Selections!.Normalize();
             Requirements.InterfaceUri = Selections.InterfaceUri;
             SelectionsDocument = true;
         }
