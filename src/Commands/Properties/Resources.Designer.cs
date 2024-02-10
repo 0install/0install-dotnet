@@ -1151,6 +1151,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kiosk mode is enabled and {0} is not listed in the catalog..
+        /// </summary>
+        public static string KioskModeNotInCatalog {
+            get {
+                return ResourceManager.GetString("KioskModeNotInCatalog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A later version ({0}) exists but was not selected. Using {1} instead..
         /// </summary>
         public static string LaterVersionNotSelected {

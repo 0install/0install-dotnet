@@ -49,6 +49,7 @@ public abstract class AddRemoveFeedCommand : CliCommand
             suggestedStabilityPolicy = feed.Implementations.Select(x => x.Stability).DefaultIfEmpty().Max();
         }
 
+        EnsureAllowed(feedUri);
         return ExecuteHelper(interfaces, new FeedReference {Source = feedUri}, suggestedStabilityPolicy);
     }
 
