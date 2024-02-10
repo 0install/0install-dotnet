@@ -38,12 +38,10 @@ public abstract class SolverRunBase(Requirements requirements, ISelectionCandida
     {
         try
         {
-            if (!TryFulfill(Demand(_requirements)))
-            {
-                CandidateProvider.FailedFeeds.Values.FirstOrDefault()?.Rethrow();
-                throw new SolverException("No solution found");
-            }
-            return Selections;
+            if (TryFulfill(Demand(_requirements))) return Selections;
+
+            CandidateProvider.FailedFeeds.Values.FirstOrDefault()?.Rethrow();
+            throw new SolverException("No solution found");
         }
         finally
         {
