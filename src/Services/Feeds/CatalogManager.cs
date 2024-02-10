@@ -155,24 +155,22 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
     /// <exception cref="IOException">There was a problem accessing a configuration file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
     /// <exception cref="UriFormatException">An invalid catalog source is specified in the configuration file.</exception>
-    [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reads data from a config file with no caching")]
     public static FeedUri[] GetSources()
+        => GetConfigLoadPath() is {} path
+            ? ReadAllLines(path).Except(string.IsNullOrEmpty)
+                                .Except(line => line.StartsWith("#"))
+                                .Select(line => new FeedUri(line))
+                                .Select(uri => uri == _oldDefaultSource ? DefaultSource : uri)
+                                .ToArray()
+            : [DefaultSource];
+
+    private static string? GetConfigLoadPath()
+        => Locations.GetLoadConfigPaths(AppName, true, _resource).FirstOrDefault();
+
+    private static string[] ReadAllLines(string path)
     {
-        if (Locations.GetLoadConfigPaths(AppName, true, _resource).FirstOrDefault() is not {Length: >0} path)
-            return [DefaultSource];
-
-        string[] ReadAllLines()
-        {
-            using (new AtomicRead(path))
-                return File.ReadAllLines(path, Encoding.UTF8);
-        }
-
-        return ReadAllLines()
-              .Except(string.IsNullOrEmpty)
-              .Except(line => line.StartsWith("#"))
-              .Select(line => new FeedUri(line))
-              .Select(uri => uri == _oldDefaultSource ? DefaultSource : uri)
-              .ToArray();
+        using (new AtomicRead(path))
+            return File.ReadAllLines(path, Encoding.UTF8);
     }
 
     /// <summary>
