@@ -22,7 +22,10 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
     private static readonly FeedUri _oldDefaultSource = new("http://0install.de/catalog/");
     #endregion
 
-    private readonly string _cacheFilePath = Path.Combine(Locations.GetCacheDirPath("0install.net", machineWide: false), "catalog.xml");
+    private const string AppName = "0install.net";
+    private static readonly string[] _resource = ["catalog-sources"];
+
+    private readonly string _cacheFilePath = Path.Combine(Locations.GetCacheDirPath(AppName, machineWide: false), "catalog.xml");
 
     /// <inheritdoc/>
     [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "File system access")]
@@ -155,7 +158,7 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
     [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reads data from a config file with no caching")]
     public static FeedUri[] GetSources()
     {
-        if (Locations.GetLoadConfigPaths("0install.net", true, "catalog-sources").FirstOrDefault() is not {Length: >0} path)
+        if (Locations.GetLoadConfigPaths(AppName, true, _resource).FirstOrDefault() is not {Length: >0} path)
             return [DefaultSource];
 
         string[] ReadAllLines()
@@ -186,8 +189,8 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
         #endregion
 
         string path = machineWide
-            ? Locations.GetSaveSystemConfigPath("0install.net", isFile: true, "catalog-sources")
-            : Locations.GetSaveConfigPath("0install.net", isFile: true, "catalog-sources");
+            ? Locations.GetSaveSystemConfigPath(AppName, isFile: true, _resource)
+            : Locations.GetSaveConfigPath(AppName, isFile: true, _resource);
 
         using var atomic = new AtomicWrite(path);
         using (var configFile = new StreamWriter(atomic.WritePath, append: false, EncodingUtils.Utf8) {NewLine = "\n"})
