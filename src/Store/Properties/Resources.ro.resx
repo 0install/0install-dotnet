@@ -165,7 +165,7 @@ Rulați "0install config feed_mirror default" pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Rulați '0install store remove {0}' pentru a-l elimina. O nouă copie va fi descărcată automat din nou atunci când este necesar.</value>
+    <value>Rulați '0install store remove {0}' pentru a o elimina. O nouă copie va fi descărcată automat din nou atunci când este necesar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -218,7 +218,7 @@ Dacă utilizați o unitate formatată FAT, vă rugăm să o convertiți în NTFS
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nu a fost specificată nicio metodă cunoscută de digest.</value>
+    <value>Nu a fost specificată nicio metodă de digest cunoscută.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">

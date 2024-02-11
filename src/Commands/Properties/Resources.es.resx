@@ -400,7 +400,7 @@ Los argumentos adicionales especifican ubicaciones de caché personalizadas.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>Asegura que una aplicación no ha sido dañada (es decir, que el resumen de su manifiesto no ha cambiado).</value>
+    <value>Asegura que una aplicación no ha sido dañada (es decir, que el resumen del manifiesto no ha cambiado).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -551,6 +551,10 @@ Una etiqueta &lt;feed-for&gt; indica la compatibilidad del feed.</value>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>'{0}' no es un URI de feed o una ruta de archivo válidos.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="KioskModeNotInCatalog" xml:space="preserve">
+    <value>El modo quiosco está activado y {0} no aparece en el catálogo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
@@ -775,7 +779,7 @@ No puede contener argumentos de línea de comandos Los espacios en blanco no nec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Vuelve inmediatamente una vez lanzado el programa elegido en lugar de esperar a que termine de ejecutarse. En Windows, el código de salida es el ID de proceso del programa iniciado.</value>
+    <value>Vuelve inmediatamente una vez lanzado el programa elegido en lugar de esperar a que termine de ejecutarse. En Windows, el código de salida es el ID del proceso del programa iniciado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -827,7 +831,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
     <value>Requiere una versión del programa principal dentro del rango dado {RANGE}.
 Los rangos están separados por tubos (|).
 Cada rango tiene la forma "START...END". El rango coincide con versiones donde START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
-Se puede utilizar un único número de versión en lugar de un intervalo para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
+Se puede utilizar un único número de versión en lugar de un rango para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
@@ -878,7 +882,7 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Es posible que tengas que cerrar y volver a abrir el terminal para que esto se haga efectivo.</value>
+    <value>Es posible que tenga que cerrar y volver a abrir el terminal para que esto se haga efectivo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">

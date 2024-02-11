@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>'{0}'에 대한 인터페이스 환경 설정을 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌립니다.</value>
+    <value>'{0}'에 대한 인터페이스 기본 설정을 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌립니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}'는 유효한 'http(s):' URI가 아니며 유효한 로컬 경로도 아닙니다.</value>
+    <value>'{0}' 는 유효한 'http(s):' URI가 아니며 유효한 로컬 경로도 아닙니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>버전 번호는 점으로 구분된 소수점 및 수정자 문자열만 포함할 수 있습니다.</value>
+    <value>버전 번호에는 점으로 구분된 소수점 및 수정자 문자열만 포함할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -119,7 +119,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>상대 경로 '{0}' 을 확인할 수 없습니다. 로컬 파일로 저장된 피드만 상대 경로를 포함할 수 있습니다.</value>
+    <value>상대 경로 '{0}' 를 확인할 수 없습니다. 로컬 파일로 저장된 피드만 상대 경로를 포함할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
@@ -147,7 +147,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>캐시에 저장되지 않은 구현(현재 오프라인 모드)</value>
+    <value>캐시에 구현되지 않음(현재 오프라인 모드)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
@@ -155,7 +155,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>구현 버전이 너무 오래되었거나 너무 새롭습니다</value>
+    <value>구현 버전이 너무 오래되었거나 너무 최신 버전</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
@@ -163,7 +163,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>안전한 ID여야 합니다. 영숫자, 공백( ), 점(.), 밑줄(_), 하이픈(-) 및 더하기 기호(+)만 포함할 수 있습니다.</value>
+    <value>안전한 ID여야 합니다. 영숫자, 공백( ), 점(.), 밑줄(_), 하이픈(-), 더하기 기호(+)만 포함할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
@@ -171,7 +171,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>파일 확장자 '{0}' 는 알려진 아카이브 유형에 해당하지 않습니다.</value>
+    <value>파일 확장자 '{0}'는 알려진 아카이브 유형에 해당하지 않습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>버전 범위의 끝은 독점적이어야 합니다. '...{0}'이 아닌 '...{0}'을 사용하세요.</value>
+    <value>버전 범위의 끝은 독점적이어야 합니다. '..!{0}' 대신 '..!{0}'을 사용하세요.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

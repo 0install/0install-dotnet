@@ -215,7 +215,7 @@ Můžete ji použít spuštěním souboru ZeroInstall.exe v tomto adresáři.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Vytvoření aliasu pro spuštění aplikace prostřednictvím 0install, aniž byste museli vždy zadávat celý URI.</value>
+    <value>Vytvoření aliasu pro spuštění aplikace prostřednictvím 0install bez nutnosti vždy zadávat celý URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -273,7 +273,7 @@ Vrátí výstupní stav 0, pokud vybral vhodnou sadu verzí a všechny jsou nyn�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importuje zdroj z místního souboru, jako by byl stažen ze sítě. To je užitečné při testování souboru feedu, abyste jej nemuseli nahrávat na vzdálený server za účelem jeho opětovného stažení.
+    <value>Importuje kanál z místního souboru, jako by byl stažen ze sítě. To je užitečné při testování souboru feedu, abyste jej nemuseli nahrávat na vzdálený server za účelem jeho opětovného stažení.
 Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sítě.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -553,8 +553,12 @@ Značka &lt;feed-for&gt; označuje kompatibilitu s kanály.</value>
     <value>'{0}' není platný URI kanálu nebo cesta k souboru.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="KioskModeNotInCatalog" xml:space="preserve">
+    <value>Režim kiosku je povolen a stránka {0} není uvedena v katalogu.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Existuje i pozdější verze ({0}), ale nebyla vybrána. Místo ní se používá stránka {1}.</value>
+    <value>Existuje i pozdější verze ({0}), ale nebyla vybrána. Místo ní se používá {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -796,7 +800,7 @@ V off-line režimu se neobnovují žádná rozhraní, i když jsou zastaralá, a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Po aktualizaci restartujte grafické uživatelské rozhraní "0install central".</value>
+    <value>Po aktualizaci restartujte grafické rozhraní "0install central".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">

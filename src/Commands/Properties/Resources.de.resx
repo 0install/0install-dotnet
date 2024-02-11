@@ -553,6 +553,10 @@ Ein &lt;feed-for&gt; Tag zeigt die Kompatibilität des Feeds an.</value>
     <value>'{0}' ist keine gültige Feed URI oder Pfad.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="KioskModeNotInCatalog" xml:space="preserve">
+    <value>Der Kioskmodus ist aktiviert und {0} ist nicht im Katalog aufgeführt.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
     <value>Eine spätere Version ({0}) existiert, wurde aber nicht ausgewählt. Verwende stattdessen {1}.</value>
     <comment>Manually overriden.</comment>

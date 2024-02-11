@@ -91,7 +91,7 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Rularea unui rezolvator extern</value>
+    <value>Rularea rezolvatorului extern</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -162,7 +162,7 @@ Ora nouă: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Nu a reușit să descarce {0}. Încearcă să descarci din feed mirror în schimb.</value>
+    <value>Nu a reușit să descarce {0}. Încearcă să descarce din feed mirror în schimb.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
