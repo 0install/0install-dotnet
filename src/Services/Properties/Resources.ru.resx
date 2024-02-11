@@ -94,6 +94,14 @@
     <value>Запуск внешнего решателя</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>Не удалось найти подходящие версии {0} и его зависимостей.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>Не удалось найти версию {0}, подходящую для {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Канал '{0}' не сохраняется в кэше, и Zero Install в настоящее время работает в офлайн-режиме.</value>
     <comment>Manually overriden.</comment>

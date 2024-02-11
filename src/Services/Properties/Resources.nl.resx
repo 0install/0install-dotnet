@@ -94,6 +94,14 @@ Wilt u deze sleutel vertrouwen om feeds van "{3}" te ondertekenen?
     <value>Externe oplosser uitvoeren</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>Het is niet gelukt om geschikte versies van {0} en de afhankelijkheden daarvan te vinden.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>Geen versie van {0} gevonden die geschikt is voor {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>De feed "{0}" is niet in de cache geplaatst en Zero Install staat momenteel in offline modus.</value>
     <comment>Manually overriden.</comment>

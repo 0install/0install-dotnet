@@ -914,7 +914,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>この Zero Install インスタンスはデプロイされていません。そのため、インスタンス自体をアップデートすることはできません。</value>
+    <value>この Zero Install インスタンスはデプロイされていません。そのため、インスタンス自体を更新することはできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">

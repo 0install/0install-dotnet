@@ -302,7 +302,7 @@ Het bestand moet een vertrouwde digitale handtekening hebben, net als bij het op
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Verwijdert het huidige exemplaar van Zero Install van het systeem.</value>
+    <value>Verwijdert de huidige versie van Zero Install van het systeem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">

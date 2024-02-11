@@ -94,6 +94,14 @@
     <value>외부 솔버 실행</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>{0} 및 해당 종속성의 적합한 버전을 찾지 못했습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>{1} 에 적합한 {0} 버전을 찾지 못했습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>'{0}' 피드가 캐시되지 않았으며 Zero Install이 현재 오프라인 모드입니다.</value>
     <comment>Manually overriden.</comment>

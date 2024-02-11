@@ -358,7 +358,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na inny komputer za pomocą "0install store add".</value>
+    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na innym komputerze za pomocą "0install store add".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">

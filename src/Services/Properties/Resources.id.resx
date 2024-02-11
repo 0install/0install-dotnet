@@ -94,6 +94,14 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <value>Menjalankan pemecah masalah eksternal</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>Gagal menemukan versi yang sesuai dari {0} dan ketergantungannya.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>Gagal menemukan versi {0} yang sesuai untuk {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Feed '{0}' tidak disimpan dalam cache dan Zero Install saat ini dalam mode offline.</value>
     <comment>Manually overriden.</comment>

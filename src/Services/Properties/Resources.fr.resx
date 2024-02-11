@@ -94,6 +94,14 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <value>Lancer un solveur externe</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>N'a pas réussi à trouver les versions appropriées de {0} et de ses dépendances.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>N'a pas réussi à trouver une version de {0} adaptée à {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Le flux '{0}' n'a pas été mis en cache et Zero Install est actuellement en mode hors ligne.</value>
     <comment>Manually overriden.</comment>

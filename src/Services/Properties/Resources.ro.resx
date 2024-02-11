@@ -94,6 +94,14 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <value>Rularea rezolvatorului extern</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>Nu a reușit să găsească versiuni adecvate ale {0} și ale dependențelor sale.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>Nu a reușit să găsească o versiune de {0} potrivită pentru {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Fluxul '{0}' nu se află în memoria cache, iar Zero Install se află în prezent în modul off-line.</value>
     <comment>Automatically translated.</comment>

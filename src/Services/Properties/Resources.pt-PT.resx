@@ -94,6 +94,14 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <value>Execução de um solucionador externo</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>Falha ao encontrar versões adequadas de {0} e suas dependências.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>Não foi possível encontrar uma versão de {0} adequada para {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>O feed "{0}" não está armazenado em cache e o Zero Install está atualmente no modo offline.</value>
     <comment>Manually overriden.</comment>

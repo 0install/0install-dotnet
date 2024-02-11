@@ -750,7 +750,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Distribuire Zero Install come libreria per l'utilizzo da parte di altre applicazioni senza integrazione nel desktop.</value>
+    <value>Distribuire Zero Install come libreria per l'utilizzo da parte di altre applicazioni senza integrazione con il desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">

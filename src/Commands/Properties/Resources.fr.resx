@@ -84,7 +84,7 @@ Vous pouvez utiliser le script d'importation ou le fichier Bootstrap exécutable
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>{0}' figure déjà dans la liste des caches d'implémentation personnalisés.</value>
+    <value>{0}" figure déjà dans la liste des caches d'implémentation personnalisés.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -417,7 +417,7 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Ne fait plus confiance aux flux signés avec une empreinte digitale spécifique. N'arrête de faire confiance qu'à un DOMAINE spécifique, s'il est spécifié.</value>
+    <value>Ne fait plus confiance aux flux signés avec une empreinte digitale spécifique. N'arrête de faire confiance qu'à un DOMAINE spécifique, si spécifié.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -701,7 +701,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Essaie de découvrir des implémentations sur d'autres machines du réseau local au lieu d'aller les chercher à leur source d'origine.</value>
+    <value>Essaie de découvrir des implémentations sur d'autres machines du réseau local au lieu de les récupérer à partir de leur source d'origine.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
@@ -713,7 +713,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>N'incluez pas les archives d'implémentation dans l'exportation. N'exporter que les flux.</value>
+    <value>N'incluez pas les archives d'implémentation dans l'exportation. Exporter uniquement les flux.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">

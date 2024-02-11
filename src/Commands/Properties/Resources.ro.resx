@@ -203,7 +203,7 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din director.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Când utilizați opțiunea {0} trebuie să specificați explicit directorul țintă.</value>
+    <value>Atunci când utilizați opțiunea {0} trebuie să specificați explicit directorul țintă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -302,7 +302,7 @@ Fișierul trebuie să aibă o semnătură digitală de încredere, la fel ca atu
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Îndepărtează instanța curentă a programului Zero Install din sistem.</value>
+    <value>Îndepărtează instanța curentă de Zero Install din sistem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -412,7 +412,7 @@ Argumentele suplimentare specifică locațiile personalizate ale cache-ului.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Lista cheilor de încredere pentru semnarea fluxurilor. Listează numai domeniile pentru care este de încredere o anumită FINGERPRINT, dacă este specificat.</value>
+    <value>Lista cheilor de încredere pentru semnarea fluxurilor. Listează numai domeniile pentru care este de încredere un anumit FINGERPRINT, dacă este specificat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -616,7 +616,7 @@ Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă d
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install rulează dintr-un director specific utilizatorului. Trebuie să fie implementat într-un director accesibil tuturor utilizatorilor pentru ca integrarea la nivelul întregii mașini să funcționeze.</value>
+    <value>Zero Install rulează dintr-un director specific utilizatorului. Trebuie să fie implementat într-un director accesibil tuturor utilizatorilor pentru ca integrarea desktop la nivelul întregii mașini să funcționeze.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">

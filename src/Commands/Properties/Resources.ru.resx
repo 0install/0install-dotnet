@@ -269,7 +269,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Экспортирует в каталог DIRECTORY все материалы и реализации, необходимые для запуска программы, указанной в URI.</value>
+    <value>Экспортирует в директорию все материалы и реализации, необходимые для запуска программы, указанной в URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">

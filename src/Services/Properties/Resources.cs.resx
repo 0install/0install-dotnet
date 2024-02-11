@@ -94,6 +94,14 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <value>Spuštění externího řešitele</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>Nepodařilo se najít vhodné verze stránek {0} a jejich závislostí.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>Nepodařilo se najít verzi {0} vhodnou pro {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Kanál ‚‚{0}‘‘ není uložen v mezipaměti a aplikace Zero Install je momentálně v režimu offline.</value>
     <comment>Manually overriden.</comment>

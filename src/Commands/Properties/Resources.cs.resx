@@ -558,7 +558,7 @@ Značka &lt;feed-for&gt; označuje kompatibilitu s kanály.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Existuje i pozdější verze ({0}), ale nebyla vybrána. Místo ní se používá {1}.</value>
+    <value>Existuje i pozdější verze ({0}), ale nebyla vybrána. Místo ní se používá stránka {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">

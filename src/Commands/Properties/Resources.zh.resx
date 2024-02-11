@@ -713,7 +713,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>导出时不包含执行存档。只导出源文件。</value>
+    <value>导出时不包括执行存档。只导出源文件。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">

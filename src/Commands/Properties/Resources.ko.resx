@@ -112,7 +112,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
-    <value>지금 사용해 보시겠습니까?</value>
+    <value>지금 사용해 보시겠어요?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
@@ -955,7 +955,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>긴 경로에 대한 Windows 지원을 활성화하면 이 문제가 해결될 수 있습니다.</value>
+    <value>긴 경로에 대한 Windows 지원을 활성화하면 이 문제를 해결할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

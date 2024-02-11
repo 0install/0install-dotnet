@@ -94,6 +94,14 @@ Bu anahtar '{3}' adresinden gelen feed'leri imzalasın mı?
     <value>Dış çözümleyici çalışıyor</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>{0} ve bağımlılıklarının uygun sürümleri bulunamadı.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>{0}'ın {1} için uygun bir sürümü bulunamadı.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>'{0}' feed'i önbelleğe alınamadı ve Zero Install şu anda çevrimdışı modda.</value>
     <comment>Manually overriden.</comment>

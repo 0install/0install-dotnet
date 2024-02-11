@@ -94,6 +94,14 @@
     <value>外部ソルバーの実行</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>{0} とその依存関係の適切なバージョンを見つけることができませんでした。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>{1} に適した{0} のバージョンが見つかりませんでした。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>フィード「{0}」はキャッシュされておらず、Zero Installは現在オフラインモードです。</value>
     <comment>Manually overriden.</comment>
