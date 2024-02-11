@@ -151,7 +151,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>未找到执行 "{0}"的检索方法。</value>
+    <value>未找到实施 "{0}"的检索方法。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">

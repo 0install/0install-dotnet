@@ -327,7 +327,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>指定したキーワードに一致する、ミラーサーバーによってインデックス化されたフィードを検索します。デフォルトのミラー・サーバーは、品質に関係なく、既知のすべてのフィードをインデックス化することに注意してください。</value>
+    <value>指定したキーワードに一致する、ミラーサーバーによってインデックス化されたフィードを検索します。デフォルトのミラー・サーバーは、品質にかかわらず、既知のフィードをすべてインデックス化することに注意。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -553,6 +553,10 @@
     <value>'{0}' は有効なフィード URI またはファイルパスではありません。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="KioskModeNotInCatalog" xml:space="preserve">
+    <value>キオスクモードが有効で、{0} はカタログに掲載されていません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
     <value>それ以降のバージョン ({0}) も存在しますが、選択されませんでした。代わりに{1} を使用。</value>
     <comment>Automatically translated.</comment>
@@ -579,7 +583,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
-    <value>マシン全体の操作を実行するには、管理者である必要があります。</value>
+    <value>マシン全体の操作を行うには管理者である必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
@@ -689,7 +693,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>グラフィカル・ポリシー・エディターを表示します。これにより、使用するプログラムやライブラリのバージョンをカスタマイズできます。</value>
+    <value>グラフィカルポリシーエディターを表示します。これにより、使用するプログラムやライブラリのバージョンをカスタマイズできます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -754,7 +758,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>デフォルトの代わりに指定された実行ファイル{MAIN} を実行します。'/'または'˶'で始まる場合、パスは実装のトップレベルディレクトリからの相対パスとなり、そうでない場合はデフォルトのメインプログラムを含むディレクトリからの相対パスとなります。
+    <value>デフォルトの代わりに、指定された実行ファイル{MAIN} を実行します。'/'または'˶'で始まる場合、パスは実装のトップレベルディレクトリからの相対パスとなり、そうでない場合はデフォルトのメインプログラムを含むディレクトリからの相対パスとなります。
 コマンドライン引数を含めることはできない！空白文字はエスケープする必要はありません。</value>
     <comment>Automatically translated.</comment>
   </data>

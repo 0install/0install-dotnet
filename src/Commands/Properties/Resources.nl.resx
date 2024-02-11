@@ -251,7 +251,7 @@ Je kunt het gebruiken door het ZeroInstall.exe bestand in de directory uit te vo
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>Opent de centrale grafische gebruikersinterface voor het starten en beheren van applicaties.</value>
+    <value>Opent de centrale grafische gebruikersinterface voor het starten en beheren van toepassingen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
@@ -551,6 +551,10 @@ Een &lt;feed-for&gt; tag geeft feedcompatibiliteit aan.</value>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>{0}' is geen geldige feed URI of bestandspad.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="KioskModeNotInCatalog" xml:space="preserve">
+    <value>Kioskmodus is ingeschakeld en {0} staat niet in de catalogus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
