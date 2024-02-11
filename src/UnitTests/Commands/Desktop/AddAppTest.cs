@@ -13,13 +13,19 @@ namespace ZeroInstall.Commands.Desktop;
 [Collection("Desktop integration")]
 public class AddAppTest : CliCommandTestBase<AddApp>
 {
+    public AddAppTest()
+        => GetMock<IFeedCache>().Setup(x => x.GetFeed(Fake.Feed1Uri)).Returns(Fake.Feed);
+
+    private void MockCatalog(Catalog catalog)
+        => GetMock<ICatalogManager>().Setup(x => x.GetCached()).Returns(catalog);
+
     [Fact]
     public void WithoutAlias()
     {
-        GetMock<IFeedCache>().Setup(x => x.GetFeed(Fake.Feed1Uri)).Returns(Fake.Feed);
         if (WindowsUtils.IsWindows)
-            GetMock<ICatalogManager>().Setup(x => x.GetCached()).Returns(new Catalog());
+            MockCatalog(new());
 
         RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
     }
+
 }
