@@ -137,6 +137,24 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to find suitable versions of {0} and its dependencies..
+        /// </summary>
+        internal static string FailedToSolve {
+            get {
+                return ResourceManager.GetString("FailedToSolve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to find a version of {0} suitable for {1}..
+        /// </summary>
+        internal static string FailedToSolveForArchitecture {
+            get {
+                return ResourceManager.GetString("FailedToSolveForArchitecture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The feed &apos;{0}&apos; is not cached and Zero Install is currently in off-line mode..
         /// </summary>
         internal static string FeedNotCachedOffline {
