@@ -46,7 +46,6 @@ public abstract class SolverRunBase(Requirements requirements, ISelectionCandida
         finally
         {
             Selections.PurgeRestrictions();
-            Selections.Implementations.Sort();
         }
     }
 
