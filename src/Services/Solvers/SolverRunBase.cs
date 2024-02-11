@@ -42,7 +42,11 @@ public abstract class SolverRunBase(Requirements requirements, ISelectionCandida
             else
             {
                 CandidateProvider.FailedFeeds.Values.FirstOrDefault()?.Rethrow();
-                throw new SolverException("No solution found");
+
+                bool failedBecauseOfArchitecture = TryFulfill(Demand(_requirements with { Architecture = new() }));
+                throw new SolverException(failedBecauseOfArchitecture
+                    ? string.Format(Resources.FailedToSolveForArchitecture, _requirements.InterfaceUri, _requirements.Architecture)
+                    : string.Format(Resources.FailedToSolve, _requirements.InterfaceUri));
             }
         }
         finally

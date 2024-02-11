@@ -145,6 +145,12 @@ Do you want to trust this key to sign feeds from '{3}'?
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Running external solver</value>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>Failed to find suitable versions of {0} and its dependencies.</value>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>Failed to find a version of {0} suitable for {1}.</value>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>The feed '{0}' is not cached and Zero Install is currently in off-line mode.</value>
   </data>
