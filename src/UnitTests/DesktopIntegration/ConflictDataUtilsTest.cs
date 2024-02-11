@@ -18,7 +18,7 @@ public sealed class ConflictDataUtilsTest
         {
             Name = "App1",
             InterfaceUri = FeedTest.Test1Uri,
-            AccessPoints = new AccessPointList {Entries = {accessPointA}}
+            AccessPoints = new() {Entries = {accessPointA}}
         };
         var accessPointB = new MockAccessPoint {ID = "b"};
         var appEntry2 = new AppEntry {Name = "App2", InterfaceUri = FeedTest.Test2Uri};
@@ -35,7 +35,7 @@ public sealed class ConflictDataUtilsTest
         {
             Name = "App1",
             InterfaceUri = FeedTest.Test1Uri,
-            AccessPoints = new AccessPointList {Entries = {accessPointA}}
+            AccessPoints = new() {Entries = {accessPointA}}
         };
 
         var appList = new AppList {Entries = {appEntry1}};
@@ -50,7 +50,7 @@ public sealed class ConflictDataUtilsTest
         {
             Name = "App1",
             InterfaceUri = FeedTest.Test1Uri,
-            AccessPoints = new AccessPointList {Entries = {accessPointA}}
+            AccessPoints = new() {Entries = {accessPointA}}
         };
         var appEntry2 = new AppEntry {Name = "App2", InterfaceUri = FeedTest.Test2Uri};
 

@@ -18,7 +18,7 @@ public sealed class AppListTest
     {
         Entries =
         {
-            new AppEntry
+            new()
             {
                 InterfaceUri = FeedTest.Test1Uri,
                 Name = "Test",
@@ -149,7 +149,7 @@ public sealed class AppListTest
         {
             InterfaceUri = FeedTest.Test1Uri,
             Name = "Test",
-            AccessPoints = new AccessPointList {Entries = {appAlias}}
+            AccessPoints = new() {Entries = {appAlias}}
         };
         var appList = new AppList {Entries = {appEntry}};
 
@@ -166,11 +166,11 @@ public sealed class AppListTest
         {
             Entries =
             {
-                new AppEntry
+                new()
                 {
                     Name = "Test",
                     InterfaceUri = uri,
-                    AccessPoints = new AccessPointList {Entries =
+                    AccessPoints = new() {Entries =
                     {
                         new AppAlias {Name = "foobar", Command = Command.NameTest}
                     }}
