@@ -90,11 +90,10 @@ public class ExternalSolver(
     }
 
     private static Requirements GetEffectiveRequirements(Requirements requirements)
-    {
-        var effectiveRequirements = requirements.Clone();
-        effectiveRequirements.Command = requirements.Command ?? (requirements.Architecture.Cpu == Cpu.Source ? Command.NameCompile : Command.NameRun);
-        return effectiveRequirements;
-    }
+        => requirements with
+        {
+            Command = requirements.Command ?? (requirements.Architecture.Cpu == Cpu.Source ? Command.NameCompile : Command.NameRun)
+        };
 
     private string DoConfirm(string message) => handler.Ask(message) ? "ok" : "cancel";
 

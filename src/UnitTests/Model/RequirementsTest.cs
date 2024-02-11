@@ -26,7 +26,7 @@ public class RequirementsTest
     {
         var requirements1 = CreateTestRequirements();
         requirements1.Languages.Add("fr");
-        var requirements2 = requirements1.Clone();
+        var requirements2 = requirements1 with {};
 
         // Ensure data stayed the same
         requirements2.Should().Be(requirements1, because: "Cloned objects should be equal.");
