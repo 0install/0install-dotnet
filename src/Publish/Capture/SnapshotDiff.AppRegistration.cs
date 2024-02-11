@@ -93,7 +93,7 @@ partial class SnapshotDiff
                 capabilities.Entries.Add(new UrlProtocol
                 {
                     ID = progID,
-                    Descriptions = {progIDKey.GetValue("", defaultValue: "")?.ToString() ?? ""},
+                    Descriptions = {progIDKey.GetValue("")?.ToString() ?? ""},
                     KnownPrefixes = {prefix},
                     Verbs = {GetVerbs(progIDKey, commandMapper)}
                 });
