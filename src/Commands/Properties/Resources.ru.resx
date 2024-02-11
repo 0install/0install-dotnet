@@ -354,7 +354,7 @@
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
     <value>Копирует реализацию в кэш. Аналогично '0install store add', но дайджест извлекается из имени каталога.
-Дополнительный аргумент задает пользовательское местоположение целевого кэша.</value>
+В дополнительных аргументах указывается пользовательское местоположение целевого кэша.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
@@ -530,7 +530,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>Интегрировать {0}</value>
+    <value>Интеграция {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
@@ -553,12 +553,16 @@
     <value>'{0}' не является правильным URI подачи или путем к файлу.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="KioskModeNotInCatalog" xml:space="preserve">
+    <value>Включен режим киоска, а {0} отсутствует в каталоге.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
     <value>Существует более поздняя версия ({0}), но она не была выбрана. Вместо нее используется {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
-    <value>На эту программу не распространяется АБСОЛЮТНО НИКАКИХ ГАРАНТИЙ, насколько это разрешено законом.
+    <value>Эта программа поставляется с АБСОЛЮТНО НЕОБХОДИМОЙ ГАРАНТИЕЙ, в пределах, разрешенных законом.
 Вы можете распространять копии этой программы в соответствии с условиями GNU Lesser General Public License.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -603,7 +607,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Для интеграции с рабочим столом Zero Install должен быть развернут на вашей системе.</value>
+    <value>Для интеграции с настольными системами Zero Install должен быть развернут на вашей системе.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -729,7 +733,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">
-    <value>Добавление рекомендованных стандартных точек доступа.</value>
+    <value>Добавление рекомендуемых стандартных точек доступа.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
@@ -840,7 +844,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Вместо непосредственного выполнения выбранной программы выполните команду {COMMAND} PROGRAM ARGS. Это полезно для запуска отладчиков и инструментов трассировки на программе (а не на Zero Install!).
+    <value>Вместо того чтобы напрямую выполнять выбранную программу, выполните команду {COMMAND} PROGRAM ARGS. Это полезно для запуска отладчиков и инструментов трассировки на программе (а не на Zero Install!).
 Обратите внимание, что обертка выполняется в окружении, выбранном программой; следовательно, этот механизм нельзя использовать для создания "песочницы".
 Может содержать аргументы командной строки. Пробелы должны быть экранированы!</value>
     <comment>Automatically translated.</comment>
@@ -959,7 +963,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>Криптоключ используется для локального шифрования данных перед их передачей на сервер.
+    <value>Криптоключ используется для локального шифрования данных перед передачей их на сервер.
 Храните этот ключ в секрете и используйте другой пароль. Таким образом, никто не сможет получить доступ к вашим данным, даже если сервер будет взломан.</value>
     <comment>Automatically translated.</comment>
   </data>

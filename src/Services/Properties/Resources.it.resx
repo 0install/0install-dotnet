@@ -94,6 +94,14 @@ Vuoi considerare attendibile questa chiave per firmare i feed da '{3}'?
     <value>Esecuzione di un solutore esterno</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>Non è stato possibile trovare versioni adeguate di {0} e delle sue dipendenze.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>Impossibile trovare una versione di {0} adatta a {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Il feed '{0}' non è memorizzato nella cache e Zero Install al momento è in modalità offline.</value>
     <comment>Manually overriden.</comment>

@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>빈 디렉토리에 대한 매니페스트 다이제스트가 계산되었습니다. 아카이브에 올바른 "{0}" 값을 설정했는지 확인합니다.</value>
+    <value>빈 디렉터리에 대한 매니페스트 다이제스트가 계산되었습니다. 아카이브에 올바른 "{0}" 값을 설정했는지 확인하세요.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
@@ -80,7 +80,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>설치 디렉토리로 '{0}'을 감지했습니다.</value>
+    <value>설치 디렉토리로 '{0}'를 감지했습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
@@ -92,11 +92,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>여러 설치 디렉토리가 감지되었습니다. 기본적으로 첫 번째를 선택합니다.</value>
+    <value>여러 설치 디렉터리가 감지되었습니다. 기본적으로 첫 번째를 선택합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>레지스트리에서 여러 개의 새 애플리케이션 등록이 감지되었습니다. 기본적으로 첫 번째를 선택합니다.</value>
+    <value>레지스트리에서 여러 개의 새 애플리케이션 등록이 감지되었습니다. 기본적으로 먼저 선택합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">

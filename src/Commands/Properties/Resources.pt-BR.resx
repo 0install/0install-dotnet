@@ -553,6 +553,10 @@ Uma tag &lt;feed-for&gt; indica a compatibilidade do feed.</value>
     <value>{0}' não é um URI de feed válido ou caminho de arquivo.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="KioskModeNotInCatalog" xml:space="preserve">
+    <value>O modo de quiosque está ativado e {0} não está listado no catálogo.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
     <value>Uma versão posterior ({0}) existe, mas não foi selecionada. {1} está sendo utilizada em seu lugar.</value>
     <comment>Manually overriden.</comment>

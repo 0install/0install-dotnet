@@ -108,7 +108,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
-    <value>Tem a certeza de que pretende remover o Zero Install deste computador?</value>
+    <value>Tem a certeza que pretende remover o Zero Install deste computador?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
@@ -290,7 +290,7 @@ O ficheiro tem de ter uma assinatura digital fiável, tal como acontece quando �
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Lista todas as aplicações atualmente na sua lista de aplicações. Se for fornecido um URI, só é mostrada a aplicação com esse URI de feed. Se for fornecido um PATTERN, apenas são mostradas as aplicações que contenham essa cadeia de caracteres no seu nome (sem distinção entre maiúsculas e minúsculas).</value>
+    <value>Lista todas as aplicações atualmente na sua lista de aplicações. Se for fornecido um URI, só é mostrada a aplicação com esse URI de feed. Se for fornecido um PATTERN, só são mostradas as aplicações que contenham essa cadeia de caracteres no seu nome (sem distinção entre maiúsculas e minúsculas).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -322,7 +322,7 @@ O ficheiro tem de ter uma assinatura digital fiável, tal como acontece quando �
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>Comporta-se de forma semelhante a '0install download', exceto que também executa o programa depois de garantir que está na cache.
+    <value>Comporta-se de forma semelhante ao '0install download', exceto que também executa o programa depois de garantir que está na cache.
 Retorna um status de saída de 1 se a etapa de download falhar. Caso contrário, o estado de saída será o estado de saída do programa que está a ser executado.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -421,7 +421,7 @@ Argumentos adicionais especificam localizações de cache personalizadas.</value
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Verifica se há actualizações para o programa e descarrega-as se forem encontradas.
-Isto é semelhante ao '0install download --refresh', exceto que imprime informação sobre se foram encontradas quaisquer alterações.</value>
+Isto é semelhante ao '0install download --refresh', exceto que imprime informação sobre se foram encontradas alterações.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -553,6 +553,10 @@ Uma tag &lt;feed-for&gt; indica compatibilidade de feed.</value>
     <value>'{0}' não é um URI de feed ou caminho de ficheiro válido.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="KioskModeNotInCatalog" xml:space="preserve">
+    <value>O modo de quiosque está ativado e {0} não está listado no catálogo.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
     <value>Existe uma versão posterior ({0}) mas não foi selecionada. Em vez disso, está a ser utilizado {1}.</value>
     <comment>Automatically translated.</comment>
@@ -571,7 +575,7 @@ Pode redistribuir cópias deste programa ao abrigo dos termos da GNU Lesser Gene
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>Falta o elemento &lt;feed-for&gt; em '{0}'; não pode ser usado como um feed para qualquer outra interface.</value>
+    <value>Elemento &lt;feed-for&gt; em falta em '{0}'; não pode ser utilizado como um feed para qualquer outra interface.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -824,7 +828,7 @@ No modo off-line, as interfaces não são actualizadas, mesmo que estejam desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Requer uma versão do programa principal dentro do intervalo {RANGE}.
+    <value>Exigir uma versão do programa principal dentro do {RANGE}.
 Os intervalos são separados por tubos (|).
 Cada intervalo tem a forma "START...END". O intervalo corresponde às versões em que START &lt;= VERSION &lt; END. O início ou o fim podem ser omitidos.
 Um único número de versão pode ser usado em vez de um intervalo para corresponder apenas àquela versão, ou !VERSION para corresponder a tudo, exceto aquela versão.</value>
@@ -951,7 +955,7 @@ Execute '0install config self_update_uri default' para a ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>A ativação do suporte do Windows para caminhos longos pode resolver este problema.</value>
+    <value>A ativação do suporte do Windows para Caminhos Longos pode resolver este problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

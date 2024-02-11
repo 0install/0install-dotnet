@@ -94,6 +94,14 @@ Czy chcesz zezwolić temu kluczowi na podpisywanie kanałów z „{3}”?
     <value>Uruchamianie zewnętrznego solwera</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>Nie udało się znaleźć odpowiednich wersji {0} i jego zależności.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>Nie udało się znaleźć wersji {0} odpowiedniej dla {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Kanał „{0}” nie został zapisany w pamięci podręcznej, a Zero Install działa obecnie w trybie offline.</value>
     <comment>Manually overriden.</comment>

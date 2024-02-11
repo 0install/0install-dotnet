@@ -167,7 +167,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>De receptstap '{0}' in de implementatie '{1}' heeft een ongeldige implementatieverwijzing.</value>
+    <value>De receptstap '{0}' in de implementatie '{1}' heeft een ongeldige implementatiereferentie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">

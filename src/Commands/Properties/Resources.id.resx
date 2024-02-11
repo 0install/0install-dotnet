@@ -553,6 +553,10 @@ Tag &lt;feed-for&gt; mengindikasikan kompatibilitas feed.</value>
     <value>'{0}' bukan URI feed atau jalur file yang valid.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="KioskModeNotInCatalog" xml:space="preserve">
+    <value>Mode kios diaktifkan dan {0} tidak tercantum dalam katalog.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
     <value>Versi yang lebih baru ({0}) ada tetapi tidak dipilih. Sebagai gantinya, gunakan {1}.</value>
     <comment>Automatically translated.</comment>
@@ -746,7 +750,7 @@ Anda dapat menggunakan opsi ini beberapa kali untuk menentukan beberapa bahasa y
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Menyebarkan Zero Install sebagai pustaka untuk digunakan oleh aplikasi lain tanpa integrasi desktopnya sendiri.</value>
+    <value>Menyebarkan Zero Install sebagai perpustakaan untuk digunakan oleh aplikasi lain tanpa integrasi desktopnya sendiri.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -988,7 +992,7 @@ Rahasiakan kunci ini dan gunakan sesuatu yang berbeda untuk kata sandi Anda. Den
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
-    <value>Perintah yang tidak diketahui '{0}'.</value>
+    <value>Perintah yang tidak dikenal '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Usage" xml:space="preserve">

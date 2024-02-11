@@ -116,7 +116,7 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>신뢰 데이터베이스를 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌립니다.</value>
+    <value>신뢰 데이터베이스를 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌리기.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -153,11 +153,11 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>'{0}' 구현은 이미 스토어에 있습니다.</value>
+    <value>구현 '{0}' 이미 스토어에 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>'{0}' 구현이 손상되었습니다.</value>
+    <value>구현 '{0}' 이 손상되었습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
@@ -165,7 +165,7 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>'0install store remove {0}'를 실행하여 제거합니다. 필요한 경우 새 사본이 자동으로 다시 다운로드됩니다.</value>
+    <value>'0install store remove {0}'를 실행하여 제거합니다. 필요할 때 새 복사본이 자동으로 다시 다운로드됩니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -186,7 +186,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>매니페스트 파일에 유효하지 않은 줄이 있습니다.</value>
+    <value>매니페스트 파일에 유효하지 않은 줄이 포함되어 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
@@ -270,7 +270,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>스토어 서비스와의 연결을 설정할 수 없습니다.</value>
+    <value>StoreService와 연결할 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -278,7 +278,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>지정된 이름의 비밀 키를 찾을 수 없습니다.</value>
+    <value>지정한 이름의 비밀 키를 찾을 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
@@ -290,7 +290,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>입력한 비밀번호가 올바르지 않습니다.</value>
+    <value>입력한 암호가 올바르지 않습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

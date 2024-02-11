@@ -94,6 +94,14 @@
     <value>运行外部求解器</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>未找到合适的{0} 及其依赖版本。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>未能找到适合{1} 的{0} 版本。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>来源'{0}'未缓存，Zero Install 目前处于离线模式。</value>
     <comment>Manually overriden.</comment>
@@ -151,7 +159,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>未找到执行 "{0}"的检索方法。</value>
+    <value>未找到实施 "{0}"的检索方法。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">

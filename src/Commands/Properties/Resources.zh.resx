@@ -465,7 +465,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
-    <value>在 '{0}' 中检测到一个现有的 Zero Install 副本。</value>
+    <value>在 '{0}' 中检测到 Zero Install 的现有副本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
@@ -489,7 +489,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
-    <value>{0}"已被 "{1}"取代。考虑更新。</value>
+    <value>{0}"已被 "{1}"取代。请考虑更新。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
@@ -551,6 +551,10 @@
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>{0}"不是有效的馈送 URI 或文件路径。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="KioskModeNotInCatalog" xml:space="preserve">
+    <value>已启用 Kiosk 模式，目录中未列出{0} 。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
@@ -846,7 +850,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>以机器可读的 XML 格式将输出写入控制台。</value>
+    <value>将输出以机器可读的 XML 格式写入控制台。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
@@ -862,11 +866,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>您想从列表中删除{0} 选中的按键吗？</value>
+    <value>您想从列表中删除{0} 已选中的按键吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>要从列表中删除{0} 选定的条目吗？</value>
+    <value>您想从列表中删除{0} 选定的条目吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">

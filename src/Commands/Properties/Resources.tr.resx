@@ -553,6 +553,10 @@ Akış uyumluluğu için bir &lt;feed-for&gt; kodu bulunmalıdır.</value>
     <value>'{0}' geçerli bir akış adresi ya da dosya yolu değil.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="KioskModeNotInCatalog" xml:space="preserve">
+    <value>Der Kioskmodus ist aktiviert und {0} ist nicht im Katalog aufgeführt.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
     <value>Daha sonra yayınlanmış bir sürüm ({0}) var, ancak seçilmemiş. Bunun yerine {1} kullanılıyor.</value>
     <comment>Manually overriden.</comment>

@@ -94,6 +94,14 @@
     <value>Εκτέλεση εξωτερικής επιλυτής</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>Απέτυχε να βρει τις κατάλληλες εκδόσεις του {0} και των εξαρτήσεών του.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>Απέτυχε να βρει μια έκδοση του {0} κατάλληλη για το {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Η τροφοδοσία '{0}' δεν αποθηκεύεται προσωρινά και το Zero Install είναι επί του παρόντος σε λειτουργία εκτός σύνδεσης.</value>
     <comment>Manually overriden.</comment>

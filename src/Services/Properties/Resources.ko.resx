@@ -67,11 +67,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>결과 명령줄은 비어 있습니다.</value>
+    <value>결과 명령줄이 비어 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>'{0}'에 대한 명령이 지정되지 않았습니다.</value>
+    <value>'{0}' 명령이 지정되지 않았습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -92,6 +92,14 @@
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>외부 솔버 실행</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>{0} 및 해당 종속성의 적합한 버전을 찾지 못했습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>{1} 에 적합한 {0} 버전을 찾지 못했습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -115,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>&lt;인터페이스&gt; uri 속성이 누락되었습니다. '{0}'이어야 합니다.</value>
+    <value>&lt;인터페이스&gt; URL 속성이 누락되었습니다. '{0}'여야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -127,7 +135,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>피드를 가져올 수 있으려면 피드의 출처가 되는 URI를 지정해야 합니다.</value>
+    <value>피드를 가져올 수 있으려면 피드의 출처를 URI로 지정해야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
@@ -143,11 +151,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>키 정보 서버가 이 키에 대한 추가 정보를 제공하지 못했습니다.</value>
+    <value>키 정보 서버에서 이 키에 대한 추가 정보를 제공할 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>'{0}' 구현에 대한 매니페스트 다이제스트를 찾을 수 없습니다.</value>
+    <value>구현에 대한 매니페스트 다이제스트 '{0}' 를 찾을 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
@@ -162,7 +170,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>{0} 을 다운로드하지 못했습니다. 대신 피드 미러에서 가져 오려고 합니다.</value>
+    <value>다운로드에 실패했습니다 {0}. 대신 피드 미러에서 가져 오려고 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -182,7 +190,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' 은 {1} 패키지 관리자에서 알려진 ID가 아닙니다.</value>
+    <value>'{0}' 는 {1} 패키지 관리자에서 알려진 ID가 아닙니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -198,7 +206,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>작업 디렉터리에 잘못된 경로가 포함되어 있음(잠재적 보안 위험).</value>
+    <value>작업 디렉터리에 잘못된 경로가 포함되어 있습니다(잠재적 보안 위험).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

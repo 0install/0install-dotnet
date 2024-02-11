@@ -94,6 +94,14 @@ Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
     <value>Externer Solver läuft</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>Es konnten keine geeigneten Versionen von {0} und seinen Abhängigkeiten gefunden werden.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>Es konnte keine Version von {0} gefunden werden, die für {1} geeignet ist.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Der Feed '{0}' wird nicht im Cache gespeichert, und Zero Install befindet sich derzeit im Offline-Modus.</value>
     <comment>Manually overriden.</comment>

@@ -94,6 +94,14 @@
     <value>Ejecutar solver externo</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FailedToSolve" xml:space="preserve">
+    <value>No se han encontrado versiones adecuadas de {0} y sus dependencias.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FailedToSolveForArchitecture" xml:space="preserve">
+    <value>No se ha encontrado una versión de {0} adecuada para {1}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>El feed «{0}» no está almacenado en caché y Zero Install se encuentra en modo sin conexión.</value>
     <comment>Manually overriden.</comment>
