@@ -118,11 +118,11 @@ public class RunTest : SelectionTestBase<Run>
         {
             Entries =
             {
-                new AppEntry
+                new()
                 {
                     InterfaceUri = Fake.Feed1Uri,
                     Name = "Test",
-                    AccessPoints = new AccessPointList {Entries = {new AppAlias {Name = "test"}}}
+                    AccessPoints = new() {Entries = {new AppAlias {Name = "test"}}}
                 }
             }
         }.SaveXml(AppList.GetDefaultPath());
@@ -134,7 +134,7 @@ public class RunTest : SelectionTestBase<Run>
     [Fact]
     public void GetCanonicalUriCatalogCached()
     {
-        CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog {Feeds = {new Feed {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
+        CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
         Sut.GetCanonicalUri("MyApp").Should().Be(Fake.Feed1Uri);
     }
 
@@ -142,7 +142,7 @@ public class RunTest : SelectionTestBase<Run>
     public void GetCanonicalUriCatalogOnline()
     {
         Sut.FeedManager.Refresh = true;
-        CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog {Feeds = {new Feed {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
+        CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
         Sut.GetCanonicalUri("MyApp").Should().Be(Fake.Feed1Uri);
     }
 }

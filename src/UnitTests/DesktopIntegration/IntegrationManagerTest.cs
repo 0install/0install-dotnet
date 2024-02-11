@@ -49,7 +49,7 @@ public sealed class IntegrationManagerTest : TestWithRedirect
 
         // Inject access point into AppEntry (without running integration)
         using var unapplyFlag = new TemporaryFlagFile("0install-test-flag");
-        appEntry.AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {UnapplyFlagPath = unapplyFlag}}};
+        appEntry.AccessPoints = new() {Entries = {new MockAccessPoint {UnapplyFlagPath = unapplyFlag}}};
 
         _integrationManager.RemoveApp(appEntry);
         _integrationManager.AppList.Entries.Should().BeEmpty();
@@ -101,7 +101,7 @@ public sealed class IntegrationManagerTest : TestWithRedirect
 
         // Inject access point into AppEntry (without running integration)
         var appEntry = _integrationManager.AddApp(new FeedTarget(FeedTest.Test1Uri, testApp));
-        appEntry.AccessPoints = new AccessPointList {Entries = {accessPoint}};
+        appEntry.AccessPoints = new() {Entries = {accessPoint}};
 
         _integrationManager.RemoveAccessPoints(appEntry, [accessPoint]);
         _integrationManager.AppList.Entries[0].AccessPoints!.Entries.Should().BeEmpty();
@@ -146,7 +146,7 @@ public sealed class IntegrationManagerTest : TestWithRedirect
 
         using var applyFlag = new TemporaryFlagFile("0install-test-flag");
         // Inject access point into AppEntry (without running integration)
-        appEntry.AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = applyFlag}}};
+        appEntry.AccessPoints = new() {Entries = {new MockAccessPoint {ApplyFlagPath = applyFlag}}};
         _integrationManager.Repair(_ => new Feed {Name = "Test"});
 
         applyFlag.Set.Should().BeTrue(because: "Access points should be reapplied");

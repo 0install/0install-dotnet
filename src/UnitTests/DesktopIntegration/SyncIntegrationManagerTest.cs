@@ -25,11 +25,11 @@ public sealed class SyncIntegrationManagerTest : TestWithRedirect
         {
             Entries =
             {
-                new AppEntry
+                new()
                 {
                     Name = "test",
                     InterfaceUri = FeedTest.Test1Uri,
-                    AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apNotApplied}}}
+                    AccessPoints = new() {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apNotApplied}}}
                 }
             }
         };
@@ -49,11 +49,11 @@ public sealed class SyncIntegrationManagerTest : TestWithRedirect
         {
             Entries =
             {
-                new AppEntry
+                new()
                 {
                     InterfaceUri = FeedTest.Test1Uri,
                     Name = "Test",
-                    AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apNotApplied}}}
+                    AccessPoints = new() {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apNotApplied}}}
                 }
             }
         };
@@ -75,13 +75,13 @@ public sealed class SyncIntegrationManagerTest : TestWithRedirect
         {
             Entries =
             {
-                new AppEntry
+                new()
                 {
                     InterfaceUri = FeedTest.Test1Uri,
                     Name = "Test",
                     AutoUpdate = true,
                     Timestamp = new DateTime(2001, 1, 1),
-                    AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apLocalApplied, UnapplyFlagPath = apLocalNotApplied}}}
+                    AccessPoints = new() {Entries = {new MockAccessPoint {ApplyFlagPath = apLocalApplied, UnapplyFlagPath = apLocalNotApplied}}}
                 }
             }
         };
@@ -90,13 +90,13 @@ public sealed class SyncIntegrationManagerTest : TestWithRedirect
         {
             Entries =
             {
-                new AppEntry
+                new()
                 {
                     InterfaceUri = FeedTest.Test1Uri,
                     Name = "Test",
                     AutoUpdate = false,
                     Timestamp = new DateTime(2000, 1, 1),
-                    AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apRemoteApplied, UnapplyFlagPath = apRemoteNotApplied}}}
+                    AccessPoints = new() {Entries = {new MockAccessPoint {ApplyFlagPath = apRemoteApplied, UnapplyFlagPath = apRemoteNotApplied}}}
                 }
             }
         };
@@ -118,11 +118,11 @@ public sealed class SyncIntegrationManagerTest : TestWithRedirect
         {
             Entries =
             {
-                new AppEntry
+                new()
                 {
                     InterfaceUri = FeedTest.Test1Uri,
                     Name = "Test",
-                    AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apNotApplied}, new MockAccessPoint()}}
+                    AccessPoints = new() {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apNotApplied}, new MockAccessPoint()}}
                 }
             }
         };
@@ -142,11 +142,11 @@ public sealed class SyncIntegrationManagerTest : TestWithRedirect
         {
             Entries =
             {
-                new AppEntry
+                new()
                 {
                     InterfaceUri = FeedTest.Test1Uri,
                     Name = "Test",
-                    AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apNotApplied}}}
+                    AccessPoints = new() {Entries = {new MockAccessPoint {ApplyFlagPath = apApplied, UnapplyFlagPath = apNotApplied}}}
                 }
             }
         };
@@ -168,13 +168,13 @@ public sealed class SyncIntegrationManagerTest : TestWithRedirect
         {
             Entries =
             {
-                new AppEntry
+                new()
                 {
                     InterfaceUri = FeedTest.Test1Uri,
                     Name = "Test",
                     AutoUpdate = true,
                     Timestamp = new DateTime(1999, 1, 1, 0, 0, 0, DateTimeKind.Utc),
-                    AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apLocalApplied, UnapplyFlagPath = apLocalNotApplied}}}
+                    AccessPoints = new() {Entries = {new MockAccessPoint {ApplyFlagPath = apLocalApplied, UnapplyFlagPath = apLocalNotApplied}}}
                 }
             }
         };
@@ -183,13 +183,13 @@ public sealed class SyncIntegrationManagerTest : TestWithRedirect
         {
             Entries =
             {
-                new AppEntry
+                new()
                 {
                     InterfaceUri = FeedTest.Test1Uri,
                     Name = "Test",
                     AutoUpdate = false,
                     Timestamp = new DateTime(2001, 1, 1, 0, 0, 0, DateTimeKind.Utc),
-                    AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = apRemoteApplied, UnapplyFlagPath = apRemoteNotApplied}}}
+                    AccessPoints = new() {Entries = {new MockAccessPoint {ApplyFlagPath = apRemoteApplied, UnapplyFlagPath = apRemoteNotApplied}}}
                 }
             }
         };
@@ -350,13 +350,13 @@ public sealed class SyncIntegrationManagerTest : TestWithRedirect
         {
             InterfaceUri = FeedTest.Test3Uri,
             Name = "Test",
-            AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = ap3Applied, UnapplyFlagPath = ap3NotApplied}}}
+            AccessPoints = new() {Entries = {new MockAccessPoint {ApplyFlagPath = ap3Applied, UnapplyFlagPath = ap3NotApplied}}}
         };
         var appEntry4 = new AppEntry
         {
             InterfaceUri = new("http://example.com/test4.xml"),
             Name = "Test",
-            AccessPoints = new AccessPointList {Entries = {new MockAccessPoint {ApplyFlagPath = ap4Applied, UnapplyFlagPath = ap4NotApplied}}}
+            AccessPoints = new() {Entries = {new MockAccessPoint {ApplyFlagPath = ap4Applied, UnapplyFlagPath = ap4NotApplied}}}
         };
         var appListLocal = new AppList {Entries = {appEntry1, appEntry4}};
         var appListLast = new AppList {Entries = {appEntry2, appEntry4}};
