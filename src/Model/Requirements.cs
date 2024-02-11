@@ -12,7 +12,7 @@ namespace ZeroInstall.Model;
 /// </summary>
 [Serializable, XmlRoot("requirements", Namespace = Feed.XmlNamespace), XmlType("requirements", Namespace = Feed.XmlNamespace)]
 [Equatable]
-public partial class Requirements : ICloneable<Requirements>
+public partial record Requirements
 {
     /// <summary>
     /// The URI or local path (must be absolute) to the interface to solve the dependencies for.
@@ -162,20 +162,6 @@ public partial class Requirements : ICloneable<Requirements>
         ExtraRestrictions = {ExtraRestrictions},
         Distributions = {Distributions}
     };
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Requirements"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Requirements"/>.</returns>
-    public Requirements Clone() => new(InterfaceUri, Command, Architecture)
-    {
-        Languages = {Languages},
-        ExtraRestrictions = {ExtraRestrictions},
-        Distributions = {Distributions},
-        Message = Message
-    };
-    #endregion
 
     #region Conversion
     /// <summary>

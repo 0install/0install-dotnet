@@ -130,7 +130,7 @@ public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, IClonea
         UnknownElements = UnknownElements,
         Name = Name,
         InterfaceUri = InterfaceUri,
-        Requirements = Requirements?.Clone(),
+        Requirements = Requirements == null ? null : Requirements with {},
         AccessPoints = AccessPoints?.Clone(),
         CapabilityLists = {CapabilityLists.CloneElements()}
     };
