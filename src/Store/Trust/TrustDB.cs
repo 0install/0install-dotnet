@@ -147,23 +147,20 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     public static TrustDB Load()
-        => Locations.GetLoadConfigPaths(AppName, true, _resource).ToList() switch
-        {
-            [var path] => Load(path),
-            var paths => LoadMerged(paths)
-        };
-
-    private static TrustDB LoadMerged(IEnumerable<string> paths)
     {
-        var merged = new TrustDB();
-        foreach (string path in paths)
+        var paths = Locations.GetLoadConfigPaths(AppName, true, _resource).ToList();
+        var trustDB = paths.FirstOrDefault() is {} firstPath ? Load(firstPath) : new();
+
+        // Merge additional files into first, keeping path of first one for future saving
+        foreach (string path in paths.Skip(1))
         foreach (var key in Load(path).Keys)
         foreach (var domain in key.Domains)
         {
             if (key.Fingerprint != null)
-                merged.TrustKey(key.Fingerprint, domain);
+                trustDB.TrustKey(key.Fingerprint, domain);
         }
-        return merged;
+
+        return trustDB;
     }
 
     /// <summary>
