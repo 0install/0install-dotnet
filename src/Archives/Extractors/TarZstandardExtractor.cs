@@ -22,7 +22,7 @@ public class TarZstandardExtractor(ITaskHandler handler) : TarExtractor(handler)
             base.Extract(builder, decompressionStream, subDir);
         }
         #region Error handling
-        catch (ZstdException ex)
+        catch (Exception ex) when (ex is ZstdException or ArgumentException)
         {
             // Wrap exception since only certain exception types are allowed
             throw new IOException(Resources.ArchiveInvalid, ex);
