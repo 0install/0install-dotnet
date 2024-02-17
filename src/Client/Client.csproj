@@ -7,9 +7,9 @@
     <Description>Client for invoking Zero Install commands from within other applications</Description>
     <PackageProjectUrl>https://dotnet.0install.net/md_client.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
-    <TargetFrameworks>net462;net472;net6.0</TargetFrameworks>
+    <TargetFrameworks>net462;net472;net6.0;net8.0</TargetFrameworks>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net6.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net6.0' Or '$(TargetFramework)'=='net8.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <Sdk Name="Microsoft.DotNet.PackageValidation" Version="1.0.0-preview.7.21379.12" />

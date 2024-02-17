@@ -1,8 +1,12 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Runtime.Serialization;
 using ZeroInstall.Store.Feeds;
+
+#if !NET8_0_OR_GREATER
+using System.Runtime.Serialization;
+#endif
+
 #if NETFRAMEWORK
 using System.Security.Permissions;
 #endif
@@ -12,7 +16,9 @@ namespace ZeroInstall.Services.Feeds;
 /// <summary>
 /// Indicates a feed file that downloaded by the <see cref="IFeedManager"/> is older than a version already located in the <see cref="IFeedCache"/>.
 /// </summary>
+#if !NET8_0_OR_GREATER
 [Serializable]
+#endif
 public sealed class ReplayAttackException : IOException
 {
     /// <summary>
@@ -45,6 +51,7 @@ public sealed class ReplayAttackException : IOException
     }
 
     #region Serialization
+#if !NET8_0_OR_GREATER
     /// <summary>
     /// Deserializes an exception.
     /// </summary>
@@ -76,6 +83,7 @@ public sealed class ReplayAttackException : IOException
 
         base.GetObjectData(info, context);
     }
+#endif
     #endregion
 }
 

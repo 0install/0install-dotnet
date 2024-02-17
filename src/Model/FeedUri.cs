@@ -1,11 +1,14 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Runtime.Serialization;
 using System.Text;
 using NanoByte.Common.Native;
 using NanoByte.Common.Values.Design;
 using ZeroInstall.Model.Selection;
+
+#if !NET8_0_OR_GREATER
+using System.Runtime.Serialization;
+#endif
 
 #if NETFRAMEWORK
 using System.Security.Permissions;
@@ -17,9 +20,14 @@ namespace ZeroInstall.Model;
 /// Represents a feed or interface URI or local path. Unlike <see cref="System.Uri"/> this class only accepts HTTP(S) URLs and absolute local paths.
 /// </summary>
 [TypeConverter(typeof(StringConstructorConverter<FeedUri>))]
+#if !NET8_0_OR_GREATER
 [Serializable]
+#endif
 [Equatable]
-public sealed partial class FeedUri : Uri, ISerializable
+public sealed partial class FeedUri : Uri
+#if !NET8_0_OR_GREATER
+    , ISerializable
+#endif
 {
     #region Prefixes
     /// <summary>
@@ -262,6 +270,7 @@ public sealed partial class FeedUri : Uri, ISerializable
     #endregion
 
     #region Serialization
+#if !NET8_0_OR_GREATER
     private FeedUri(SerializationInfo serializationInfo, StreamingContext streamingContext)
         : base(serializationInfo, streamingContext)
     {
@@ -282,6 +291,7 @@ public sealed partial class FeedUri : Uri, ISerializable
         serializationInfo.AddValue("IsFake", IsFake);
         serializationInfo.AddValue("IsFromDistribution", IsFromDistribution);
     }
+#endif
     #endregion
 
     #region Conversion

@@ -9,10 +9,10 @@
 
   <group license="LGPL v3 (GNU Lesser General Public License)">
     <command name="run" path="0install.dll">
-      <runner interface="https://apps.0install.net/dotnet/runtime.xml" version="6.0..!6.1"/>
+      <runner interface="https://apps.0install.net/dotnet/runtime.xml" version="8.0..!8.1"/>
     </command>
 
-    <implementation version="{version}" local-path="artifacts/Release/net6.0/publish">
+    <implementation version="{version}" local-path="artifacts/Release/net8.0/publish">
       <manifest-digest/>
       <archive href="0install-dotnet-{version}.tar.gz"/>
     </implementation>

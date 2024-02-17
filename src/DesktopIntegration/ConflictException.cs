@@ -1,8 +1,11 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Runtime.Serialization;
 using ZeroInstall.DesktopIntegration.AccessPoints;
+
+#if !NET8_0_OR_GREATER
+using System.Runtime.Serialization;
+#endif
 
 #if NETFRAMEWORK
 using System.Security.Permissions;
@@ -13,7 +16,9 @@ namespace ZeroInstall.DesktopIntegration;
 /// <summary>
 /// Indicates a desktop integration operation could not be completed due to conflicting <see cref="AccessPoint"/>s.
 /// </summary>
+#if !NET8_0_OR_GREATER
 [Serializable]
+#endif
 public sealed class ConflictException : InvalidOperationException
 {
     /// <summary>
@@ -71,6 +76,7 @@ public sealed class ConflictException : InvalidOperationException
     {}
 
     #region Serialization
+#if !NET8_0_OR_GREATER
     /// <summary>
     /// Deserializes an exception.
     /// </summary>
@@ -83,5 +89,6 @@ public sealed class ConflictException : InvalidOperationException
     [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 #endif
     public override void GetObjectData(SerializationInfo info, StreamingContext context) => base.GetObjectData(info, context);
+#endif
     #endregion
 }

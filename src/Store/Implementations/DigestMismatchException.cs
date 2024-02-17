@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Runtime.Serialization;
 using System.Text;
 using NanoByte.Common.Dispatch;
 using ZeroInstall.Store.Manifests;
@@ -10,12 +9,18 @@ using ZeroInstall.Store.Manifests;
 using System.Security.Permissions;
 #endif
 
+#if !NET8_0_OR_GREATER
+using System.Runtime.Serialization;
+#endif
+
 namespace ZeroInstall.Store.Implementations;
 
 /// <summary>
 /// Indicates that the <see cref="ManifestDigest"/> of an implementation does not match the expected value.
 /// </summary>
+#if !NET8_0_OR_GREATER
 [Serializable]
+#endif
 public sealed class DigestMismatchException : Exception
 {
     /// <summary>
@@ -101,6 +106,7 @@ public sealed class DigestMismatchException : Exception
     {}
 
     #region Serialization
+#if !NET8_0_OR_GREATER
     /// <summary>
     /// Deserializes an exception.
     /// </summary>
@@ -134,5 +140,6 @@ public sealed class DigestMismatchException : Exception
 
         base.GetObjectData(info, context);
     }
+#endif
     #endregion
 }

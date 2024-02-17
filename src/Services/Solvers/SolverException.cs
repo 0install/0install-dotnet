@@ -1,15 +1,20 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Runtime.Serialization;
 using ZeroInstall.Model.Selection;
+
+#if !NET8_0_OR_GREATER
+using System.Runtime.Serialization;
+#endif
 
 namespace ZeroInstall.Services.Solvers;
 
 /// <summary>
 /// Indicates the <see cref="ISolver"/> was unable to provide <see cref="Selections"/> that fulfill the <see cref="Requirements"/>.
 /// </summary>
+#if !NET8_0_OR_GREATER
 [Serializable]
+#endif
 public sealed class SolverException : Exception
 {
     /// <summary>
@@ -32,11 +37,13 @@ public sealed class SolverException : Exception
     {}
 
     #region Serialization
+#if !NET8_0_OR_GREATER
     /// <summary>
     /// Deserializes an exception.
     /// </summary>
     private SolverException(SerializationInfo info, StreamingContext context)
         : base(info, context)
     {}
+#endif
     #endregion
 }

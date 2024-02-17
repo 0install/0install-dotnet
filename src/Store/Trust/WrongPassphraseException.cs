@@ -1,14 +1,18 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !NET8_0_OR_GREATER
 using System.Runtime.Serialization;
+#endif
 
 namespace ZeroInstall.Store.Trust;
 
 /// <summary>
 /// Indicates that an incorrect passphrase was passed to <see cref="GnuPG"/>.
 /// </summary>
+#if !NET8_0_OR_GREATER
 [Serializable]
+#endif
 public sealed class WrongPassphraseException : Exception
 {
     /// <summary>
@@ -29,11 +33,13 @@ public sealed class WrongPassphraseException : Exception
     {}
 
     #region Serialization
+#if !NET8_0_OR_GREATER
     /// <summary>
     /// Deserializes an exception.
     /// </summary>
     private WrongPassphraseException(SerializationInfo info, StreamingContext context)
         : base(info, context)
     {}
+#endif
     #endregion
 }

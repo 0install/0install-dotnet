@@ -1,7 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !NET8_0_OR_GREATER
 using System.Runtime.Serialization;
+#endif
 
 #if NETFRAMEWORK
 using System.Security.Permissions;
@@ -12,7 +14,9 @@ namespace ZeroInstall.Store.Implementations;
 /// <summary>
 /// Indicates an <see cref="Implementation"/> being added to an <see cref="IImplementationStore"/> is already in the store.
 /// </summary>
+#if !NET8_0_OR_GREATER
 [Serializable]
+#endif
 public sealed class ImplementationAlreadyInStoreException : Exception
 {
     #region Properties
@@ -47,7 +51,10 @@ public sealed class ImplementationAlreadyInStoreException : Exception
     public ImplementationAlreadyInStoreException(string message, Exception innerException)
         : base(message, innerException)
     {}
+    #endregion
 
+    #region Serialization
+#if !NET8_0_OR_GREATER
     /// <summary>
     /// Deserializes an exception.
     /// </summary>
@@ -60,9 +67,7 @@ public sealed class ImplementationAlreadyInStoreException : Exception
 
         ManifestDigest = (ManifestDigest)info.GetValue("ManifestDigest", typeof(ManifestDigest))!;
     }
-    #endregion
 
-    #region Serialization
     /// <inheritdoc/>
 #if NETFRAMEWORK
     [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
@@ -77,6 +82,7 @@ public sealed class ImplementationAlreadyInStoreException : Exception
 
         base.GetObjectData(info, context);
     }
+#endif
     #endregion
 }
 

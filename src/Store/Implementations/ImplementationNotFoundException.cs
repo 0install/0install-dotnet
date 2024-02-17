@@ -1,7 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !NET8_0_OR_GREATER
 using System.Runtime.Serialization;
+#endif
 
 #if NETFRAMEWORK
 using System.Security.Permissions;
@@ -12,7 +14,9 @@ namespace ZeroInstall.Store.Implementations;
 /// <summary>
 /// Indicates an <see cref="Implementation"/> could not be found in a <see cref="IImplementationStore"/>.
 /// </summary>
+#if !NET8_0_OR_GREATER
 [Serializable]
+#endif
 public sealed class ImplementationNotFoundException : IOException
 {
     #region Properties
@@ -49,7 +53,10 @@ public sealed class ImplementationNotFoundException : IOException
     public ImplementationNotFoundException(string message, Exception innerException)
         : base(message, innerException)
     {}
+    #endregion
 
+    #region Serialization
+#if !NET8_0_OR_GREATER
     /// <summary>
     /// Deserializes an exception.
     /// </summary>
@@ -62,9 +69,7 @@ public sealed class ImplementationNotFoundException : IOException
 
         ManifestDigest = (ManifestDigest)info.GetValue("ManifestDigest", typeof(ManifestDigest))!;
     }
-    #endregion
 
-    #region Serialization
     /// <inheritdoc/>
 #if NETFRAMEWORK
     [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
@@ -79,6 +84,7 @@ public sealed class ImplementationNotFoundException : IOException
 
         base.GetObjectData(info, context);
     }
+#endif
     #endregion
 }
 

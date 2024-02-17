@@ -1,7 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !NET8_0_OR_GREATER
 using System.Runtime.Serialization;
+#endif
 
 #if NETFRAMEWORK
 using System.Security.Permissions;
@@ -45,6 +47,7 @@ public sealed class UnsuitableInstallBaseException : NotSupportedException
     {}
 
     #region Serialization
+#if !NET8_0_OR_GREATER
     /// <summary>
     /// Deserializes an exception.
     /// </summary>
@@ -72,5 +75,6 @@ public sealed class UnsuitableInstallBaseException : NotSupportedException
 
         base.GetObjectData(info, context);
     }
+#endif
     #endregion
 }
