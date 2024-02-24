@@ -12,8 +12,8 @@ public class Central : CliCommand
 {
     public const string Name = "central";
     public override string Description => Resources.DescriptionCentral;
-    public override string Usage => "[OPTIONS]";
-    protected override int AdditionalArgsMax => 0;
+    public override string Usage => "[OPTIONS] [URI]";
+    protected override int AdditionalArgsMax => 1;
 
     private bool _machineWide;
 
@@ -30,9 +30,13 @@ public class Central : CliCommand
         if (_machineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
             throw new NotAdminException(Resources.MustBeAdminForMachineWide);
 
-        var process = _machineWide
-            ? ProcessUtils.Assembly("ZeroInstall", "--machine")
-            : ProcessUtils.Assembly("ZeroInstall");
-        return (ExitCode)process.Run();
+        var startInfo = ProcessUtils.Assembly(
+            "ZeroInstall",
+            AdditionalArgs is [var uri]
+                ? [GetCanonicalUri(uri).ToStringRfc()]
+                : _machineWide
+                    ? ["--machine"]
+                    : []);
+        return (ExitCode)startInfo.Run();
     }
 }
