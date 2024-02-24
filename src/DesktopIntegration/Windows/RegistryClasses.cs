@@ -135,7 +135,7 @@ internal static class RegistryClasses
             #endregion
         }
 
-        if (verb.Arguments.Count == 0)
+        if (verb.Arguments is [])
         {
             string arguments = string.IsNullOrEmpty(verb.ArgumentsLiteral) ? "\"%V\"" : verb.ArgumentsLiteral;
             return GetCommandLine().JoinEscapeArguments() + " " + arguments;

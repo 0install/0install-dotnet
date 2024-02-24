@@ -71,7 +71,7 @@ partial class Self
 
         private string GetTargetDir()
         {
-            if (AdditionalArgs.Count == 0)
+            if (AdditionalArgs is [])
             {
                 if (_portable) throw new OptionException(string.Format(Resources.DeployMissingTargetForPortable, "--portable"), "portable");
                 return ZeroInstallDeployment.GetPath(_machineWide)

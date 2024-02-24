@@ -42,7 +42,7 @@ public class AddFeed(ICommandHandler handler) : AddRemoveFeedCommand(handler)
             preferences.SaveFor(interfaceUri);
         }
 
-        if (modifiedInterfaces.Count == 0)
+        if (modifiedInterfaces is [])
         {
             Handler.OutputLow(Resources.FeedManagement, Resources.FeedAlreadyRegistered);
             return ExitCode.NoChanges;

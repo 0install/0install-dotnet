@@ -14,7 +14,7 @@ public class UrlProtocolModel : IconCapabilityModel
     /// All <see cref="UrlProtocol.KnownPrefixes"/> concatenated with ", ". If no <see cref="UrlProtocol.KnownPrefixes"/> is available <see cref="Capability.ID"/> will be returned.
     /// </summary>
     public string KnownPrefixes
-        => _urlProtocol.KnownPrefixes.Count == 0
+        => _urlProtocol.KnownPrefixes is []
             ? Capability.ID
             : string.Join(", ", _urlProtocol.KnownPrefixes.Select(extension => extension.Value));
 

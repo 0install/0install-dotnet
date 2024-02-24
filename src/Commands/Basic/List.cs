@@ -20,8 +20,8 @@ public class List(ICommandHandler handler) : CliCommand(handler)
     public override ExitCode Execute()
     {
         var feeds = new CacheNodeBuilder(Handler, FeedCache).Build().OfType<FeedNode>();
-        if (AdditionalArgs.Count > 0)
-            feeds = feeds.Where(x => x.Uri.ToStringRfc().ContainsIgnoreCase(AdditionalArgs[0]) || x.Name.Contains(AdditionalArgs[0]));
+        if (AdditionalArgs is [var pattern])
+            feeds = feeds.Where(x => x.Uri.ToStringRfc().ContainsIgnoreCase(pattern) || x.Name.Contains(pattern));
 
         Handler.Output(Resources.FeedsCached, feeds);
         return ExitCode.OK;

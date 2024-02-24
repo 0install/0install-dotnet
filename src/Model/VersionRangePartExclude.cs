@@ -16,7 +16,7 @@ public sealed record VersionRangePartExclude(ImplementationVersion Version) : Ve
         if (versions == null) throw new ArgumentNullException(nameof(versions));
         #endregion
 
-        if (versions.Parts.Count == 0)
+        if (versions.Parts is [])
             yield return this;
 
         foreach (var part in versions.Parts)

@@ -49,7 +49,7 @@ public sealed partial class StoreMan(ICommandHandler handler) : CliMultiCommand(
         /// <exception cref="DirectoryNotFoundException">A specified directory does not exist.</exception>
         protected void SetStorePaths(IReadOnlyList<string> paths)
         {
-            if (paths.Count == 0) return;
+            if (paths is []) return;
 
             foreach (string path in paths)
             {

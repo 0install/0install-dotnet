@@ -26,18 +26,18 @@ public class Configure : CliCommand
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
-        switch (AdditionalArgs.Count)
+        switch (AdditionalArgs)
         {
-            case 0:
+            case []:
                 Handler.Output(Resources.Configuration, Config);
                 break;
 
-            case 1:
-                GetOptions(AdditionalArgs[0]);
+            case [var key]:
+                GetOptions(key);
                 break;
 
-            case 2:
-                SetOption(AdditionalArgs[0], AdditionalArgs[1]);
+            case [var key, var value]:
+                SetOption(key, value);
                 Config.Save();
                 break;
         }

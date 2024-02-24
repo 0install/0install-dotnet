@@ -21,9 +21,9 @@ partial class StoreMan
         {
             NamedCollection<CacheNode> GetNodes() => new CacheNodeBuilder(Handler, FeedCache, ImplementationStore).Build();
 
-            if (AdditionalArgs.Count == 1)
+            if (AdditionalArgs is [var feedUri])
             {
-                var uri = GetCanonicalUri(AdditionalArgs[0]);
+                var uri = GetCanonicalUri(feedUri);
                 if (uri.IsFile && !File.Exists(uri.LocalPath))
                     throw new FileNotFoundException(string.Format(Resources.FileOrDirNotFound, uri.LocalPath), uri.LocalPath);
 
@@ -111,7 +111,7 @@ partial class StoreMan
 
         private ushort GetPort()
         {
-            if (AdditionalArgs.Count == 0) return 0;
+            if (AdditionalArgs is []) return 0;
 
             try
             {

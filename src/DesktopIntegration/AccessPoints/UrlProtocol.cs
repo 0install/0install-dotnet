@@ -21,7 +21,7 @@ public partial class UrlProtocol : DefaultAccessPoint
         #endregion
 
         var capability = appEntry.LookupCapability<Model.Capabilities.UrlProtocol>(Capability);
-        return capability.KnownPrefixes.Count == 0
+        return capability.KnownPrefixes is []
             ? [$"protocol:{capability.ID}"]
             : capability.KnownPrefixes.Select(prefix => $"protocol:{prefix.Value}");
     }

@@ -37,7 +37,7 @@ public class UpdateApps : IntegrationCommand
             throw new NotAdminException();
 
         var apps = GetApps();
-        if (apps.Count == 1) Handler.FeedUri = apps[0].InterfaceUri;
+        if (apps is [var app]) Handler.FeedUri = app.InterfaceUri;
 
         var implementations = SolveAll(apps);
         DownloadUncachedImplementations(implementations);
@@ -79,7 +79,7 @@ public class UpdateApps : IntegrationCommand
     private void DownloadUncachedImplementations(IEnumerable<ImplementationSelection> implementations)
     {
         var uncachedImplementations = SelectionsManager.GetUncached(implementations).ToList();
-        if (uncachedImplementations.Count == 0) return;
+        if (uncachedImplementations is []) return;
 
         Handler.ShowSelections(new()
         {

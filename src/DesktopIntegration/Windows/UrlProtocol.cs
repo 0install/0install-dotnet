@@ -43,7 +43,7 @@ public static class UrlProtocol
 
         using var classesKey = RegistryClasses.OpenHive(machineWide);
 
-        if (urlProtocol.KnownPrefixes.Count == 0)
+        if (urlProtocol.KnownPrefixes is [])
         {
             if (accessPoint)
             { // Can only be registered invasively by registering protocol ProgID (will replace existing and become default)
@@ -102,7 +102,7 @@ public static class UrlProtocol
 
         using var classesKey = RegistryClasses.OpenHive(machineWide);
 
-        if (urlProtocol.KnownPrefixes.Count == 0)
+        if (urlProtocol.KnownPrefixes is [])
         {
             if (accessPoint) // Was registered invasively by registering protocol ProgID
                 classesKey.TryDeleteSubKey(urlProtocol.ID);

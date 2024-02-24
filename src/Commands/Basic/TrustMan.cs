@@ -69,10 +69,10 @@ public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
         {
             var trustDB = TrustDB.Load();
 
-            bool found = AdditionalArgs.Count switch
+            bool found = AdditionalArgs switch
             {
-                1 => trustDB.UntrustKey(AdditionalArgs[0]),
-                2 => trustDB.UntrustKey(AdditionalArgs[0], new(AdditionalArgs[1])),
+                [var fingerprint] => trustDB.UntrustKey(fingerprint),
+                [var fingerprint, var domain] => trustDB.UntrustKey(fingerprint, new(domain)),
                 _ => throw new InvalidOperationException()
             };
             if (!found) return ExitCode.NoChanges;
@@ -94,9 +94,9 @@ public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
         {
             var trustDB = TrustDB.Load();
 
-            switch (AdditionalArgs.Count)
+            switch (AdditionalArgs)
             {
-                case 0:
+                case []:
                     if (Handler.IsGui)
                     {
                         Config.InitialTab = ConfigTab.Trust;
@@ -105,8 +105,7 @@ public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
                     else Handler.Output(Resources.TrustedKeys, trustDB.Keys);
                     return ExitCode.OK;
 
-                case 1:
-                    string fingerprint = AdditionalArgs[0];
+                case [var fingerprint]:
                     Handler.Output(
                         string.Format(Resources.TrustedForDomains, fingerprint),
                         trustDB.Keys.FirstOrDefault(x => x.Fingerprint == fingerprint)?.Domains ?? new());

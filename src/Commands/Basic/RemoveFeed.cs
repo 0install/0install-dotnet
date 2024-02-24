@@ -37,7 +37,7 @@ public class RemoveFeed(ICommandHandler handler) : AddRemoveFeedCommand(handler)
             }
         }
 
-        if (modifiedInterfaces.Count == 0)
+        if (modifiedInterfaces is [])
         {
             Handler.OutputLow(Resources.FeedManagement, Resources.FeedNotRegistered);
             return ExitCode.NoChanges;

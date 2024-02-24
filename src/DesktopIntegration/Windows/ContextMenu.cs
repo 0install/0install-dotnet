@@ -70,10 +70,8 @@ public static class ContextMenu
                 key.SetOrDelete("AppliesTo", string.Join(" OR ", contextMenu.Extensions.Select(x => x.Value)));
         }
 
-        if (contextMenu.Verbs.Count == 1)
+        if (contextMenu.Verbs is [var verb])
         { // Simple context menu entry
-            var verb = contextMenu.Verbs[0];
-
             foreach (string keyName in GetKeyName(contextMenu.Target))
             {
                 using var verbKey = classesKey.CreateSubKeyChecked($@"{keyName}\shell\{RegistryClasses.Prefix}{verb.Name}");
@@ -120,10 +118,10 @@ public static class ContextMenu
 
         using var classesKey = RegistryClasses.OpenHive(machineWide);
 
-        if (contextMenu.Verbs.Count == 1)
+        if (contextMenu.Verbs is [var verb])
         { // Simple context menu entry
             foreach (string keyName in GetKeyName(contextMenu.Target))
-                classesKey.TryDeleteSubKey($@"{keyName}\shell\{RegistryClasses.Prefix}{contextMenu.Verbs.Single().Name}");
+                classesKey.TryDeleteSubKey($@"{keyName}\shell\{RegistryClasses.Prefix}{verb.Name}");
         }
         else
         { // Cascading context menu

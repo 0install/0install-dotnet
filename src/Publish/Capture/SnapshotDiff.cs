@@ -55,7 +55,7 @@ public partial class SnapshotDiff : Snapshot
     public string GetInstallationDir()
     {
         string installationDir;
-        if (ProgramsDirs.Count == 0)
+        if (ProgramsDirs is [])
             throw new InvalidOperationException(Resources.NoInstallationDirDetected);
         else
         {

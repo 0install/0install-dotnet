@@ -34,15 +34,15 @@ public class ListApps : CliCommand
     {
         var apps = AppList.LoadSafe(_machineWide);
 
-        if (AdditionalArgs.Count > 0)
+        if (AdditionalArgs is [var pattern])
         {
-            if (Uri.TryCreate(AdditionalArgs[0], UriKind.Absolute, out var uri))
+            if (Uri.TryCreate(pattern, UriKind.Absolute, out var uri))
             {
                 var feedUri = new FeedUri(uri);
                 apps.Entries.RemoveAll(x => x.InterfaceUri != feedUri);
             }
             else
-                apps.Entries.RemoveAll(x => !x.Name.ContainsIgnoreCase(AdditionalArgs[0]));
+                apps.Entries.RemoveAll(x => !x.Name.ContainsIgnoreCase(pattern));
         }
 
         if (_xmlOutput) Handler.Output(Resources.MyApps, apps.ToXmlString());

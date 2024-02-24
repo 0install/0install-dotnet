@@ -52,7 +52,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
         if (_selections != null) throw new InvalidOperationException($"{nameof(Inject)}() may not be called more than once.");
 
         if (string.IsNullOrEmpty(selections.Command)) throw new ExecutorException("The Selections document does not specify a start command.");
-        if (selections.Implementations.Count == 0) throw new ExecutorException("The Selections document does not list any implementations.");
+        if (selections.Implementations is []) throw new ExecutorException("The Selections document does not list any implementations.");
         _selections = selections;
 
         try
@@ -262,7 +262,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
     /// <param name="commandLine">The command-line to split.</param>
     private static (string fileName, string arguments) SplitCommandLine(IReadOnlyList<string> commandLine)
     {
-        if (commandLine.Count == 0) throw new ExecutorException(Resources.CommandLineEmpty);
+        if (commandLine is []) throw new ExecutorException(Resources.CommandLineEmpty);
         return (commandLine[0], commandLine.Skip(1).JoinEscapeArguments());
     }
 }

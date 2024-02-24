@@ -21,7 +21,7 @@ public partial class ContextMenu : DefaultAccessPoint
         #endregion
 
         var capability = appEntry.LookupCapability<Model.Capabilities.ContextMenu>(Capability);
-        return [$@"context-menu-{capability.Target}:{(capability.Verbs.Count == 1 ? capability.Verbs.Single().Name : capability.ID)}"];
+        return [$@"context-menu-{capability.Target}:{(capability.Verbs is [var verb] ? verb.Name : capability.ID)}"];
     }
 
     /// <inheritdoc/>

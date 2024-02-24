@@ -32,8 +32,7 @@ public static class OpenPgpExtensions
         #endregion
 
         var secretKeys = openPgp.ListSecretKeys().ToList();
-        if (secretKeys.Count == 0)
-            throw new KeyNotFoundException(Resources.UnableToFindSecretKey);
+        if (secretKeys is []) throw new KeyNotFoundException(Resources.UnableToFindSecretKey);
 
         if (string.IsNullOrEmpty(keySpecifier))
             return secretKeys[0];

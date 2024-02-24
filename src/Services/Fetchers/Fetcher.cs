@@ -59,7 +59,7 @@ public class Fetcher(Config config, IImplementationStore store, ITaskHandler han
             if (GetPath(implementation) != null) return;
 
             var retrievalMethods = implementation.RetrievalMethods;
-            if (retrievalMethods.Count == 0) throw new NotSupportedException(string.Format(Resources.NoRetrievalMethod, implementation.ID));
+            if (retrievalMethods is []) throw new NotSupportedException(string.Format(Resources.NoRetrievalMethod, implementation.ID));
             if (retrievalMethods.OfType<ExternalRetrievalMethod>().FirstOrDefault() is {} external)
             {
                 Retrieve(external);

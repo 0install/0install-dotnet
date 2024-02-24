@@ -100,7 +100,7 @@ public sealed partial class VersionRange
     /// </summary>
     public VersionRange Intersect(VersionRange other)
     {
-        if (Parts.Count == 0) return other;
+        if (Parts is []) return other;
 
         var parts = Parts.SelectMany(x => x.Intersect(other)).Distinct().ToArray();
         return parts.Length == 0 ? None : new(parts);
@@ -110,7 +110,7 @@ public sealed partial class VersionRange
     /// Determines whether a specific version lies within this range set.
     /// </summary>
     public bool Match(ImplementationVersion version)
-        => Parts.Count == 0
+        => Parts is []
         || Parts.Any(part => part.Match(version));
 
     /// <summary>

@@ -26,7 +26,7 @@ partial class SnapshotDiff
         #endregion
 
         // Ambiguity warnings
-        if (RegisteredApplications.Count == 0)
+        if (RegisteredApplications is [])
             return null;
         if (RegisteredApplications.Count > 1)
             Log.Warn(Resources.MultipleRegisteredAppsDetected);

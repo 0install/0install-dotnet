@@ -81,6 +81,6 @@ partial class SnapshotDiff
         capability.Verbs.Add(GetVerbs(progIDKey, commandMapper));
 
         // Only return capabilities that have verbs associated with them
-        return capability.Verbs.Count == 0 ? null : capability;
+        return capability.Verbs is [] ? null : capability;
     }
 }
