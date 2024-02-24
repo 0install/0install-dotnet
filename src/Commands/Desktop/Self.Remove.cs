@@ -8,12 +8,8 @@ namespace ZeroInstall.Commands.Desktop;
 
 partial class Self
 {
-    public abstract class RemoveSubCommandBase : SelfSubCommand
+    public abstract class RemoveSubCommandBase(ICommandHandler handler) : SelfSubCommand(handler)
     {
-        protected RemoveSubCommandBase(ICommandHandler handler)
-            : base(handler)
-        {}
-
         protected abstract string TargetDir { get; }
 
         // Auto-detect portable targets by looking for flag file
@@ -33,16 +29,12 @@ partial class Self
     /// <summary>
     /// Removes the current instance of Zero Install from the system.
     /// </summary>
-    public class Remove : RemoveSubCommandBase
+    public class Remove(ICommandHandler handler) : RemoveSubCommandBase(handler)
     {
         public const string Name = "remove";
         public override string Description => Resources.DescriptionMaintenanceRemove;
         public override string Usage => "";
         protected override int AdditionalArgsMax => 0;
-
-        public Remove(ICommandHandler handler)
-            : base(handler)
-        {}
 
         protected override string TargetDir => Locations.InstallBase;
 
@@ -110,17 +102,13 @@ partial class Self
     /// <summary>
     /// Internal helper for <see cref="Remove"/> used to support self-removal on Windows.
     /// </summary>
-    private class RemoveHelper : RemoveSubCommandBase
+    private class RemoveHelper(ICommandHandler handler) : RemoveSubCommandBase(handler)
     {
         public const string Name = "remove-helper";
         public override string Description => "Internal helper for '0install maintenance remove' used to support self-removal on Windows.";
         public override string Usage => "TARGET";
         protected override int AdditionalArgsMin => 1;
         protected override int AdditionalArgsMax => 1;
-
-        public RemoveHelper(ICommandHandler handler)
-            : base(handler)
-        {}
 
         protected override string TargetDir => AdditionalArgs[0];
 

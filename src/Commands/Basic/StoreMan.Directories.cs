@@ -36,14 +36,10 @@ partial class StoreMan
         }
     }
 
-    private class AddDir : DirCommand
+    private class AddDir(ICommandHandler handler) : DirCommand(handler)
     {
         public const string Name = "add-dir";
         public override string Description => Resources.DescriptionStoreAddDir;
-
-        public AddDir(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {
@@ -66,14 +62,10 @@ partial class StoreMan
         }
     }
 
-    private class RemoveDir : DirCommand
+    private class RemoveDir(ICommandHandler handler) : DirCommand(handler)
     {
         public const string Name = "remove-dir";
         public override string Description => Resources.DescriptionStoreRemoveDir;
-
-        public RemoveDir(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {
@@ -93,16 +85,12 @@ partial class StoreMan
         }
     }
 
-    public class List : StoreSubCommand
+    public class List(ICommandHandler handler) : StoreSubCommand(handler)
     {
         public const string Name = "list";
         public override string Description => Resources.DescriptionStoreList;
         public override string Usage => "";
         protected override int AdditionalArgsMax => 0;
-
-        public List(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {

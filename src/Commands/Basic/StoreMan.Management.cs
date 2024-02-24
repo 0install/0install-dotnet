@@ -9,17 +9,13 @@ namespace ZeroInstall.Commands.Basic;
 
 partial class StoreMan
 {
-    public class ListImplementations : StoreSubCommand
+    public class ListImplementations(ICommandHandler handler) : StoreSubCommand(handler)
     {
         public const string Name = "list-implementations";
         public const string AltName = "manage";
         public override string Description => Handler.IsGui ? Resources.DescriptionStoreManage : Resources.DescriptionStoreListImplementations;
         public override string Usage => "[FEED-URI]";
         protected override int AdditionalArgsMax => 1;
-
-        public ListImplementations(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {
@@ -45,15 +41,11 @@ partial class StoreMan
         }
     }
 
-    public class Audit : StoreSubCommand
+    public class Audit(ICommandHandler handler) : StoreSubCommand(handler)
     {
         public const string Name = "audit";
         public override string Description => Resources.DescriptionStoreAudit;
         public override string Usage => "[CACHE-DIR+]";
-
-        public Audit(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {
@@ -65,17 +57,13 @@ partial class StoreMan
         }
     }
 
-    public class Optimise : StoreSubCommand
+    public class Optimise(ICommandHandler handler) : StoreSubCommand(handler)
     {
         public const string Name = "optimise";
 
         public const string AltName = "optimize";
         public override string Description => Resources.DescriptionStoreOptimise;
         public override string Usage => "[CACHE-DIR+]";
-
-        public Optimise(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {
@@ -87,15 +75,11 @@ partial class StoreMan
         }
     }
 
-    public class Purge : StoreSubCommand
+    public class Purge(ICommandHandler handler) : StoreSubCommand(handler)
     {
         public const string Name = "purge";
         public override string Description => Resources.DescriptionStorePurge;
         public override string Usage => "[CACHE-DIR+]";
-
-        public Purge(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {
@@ -110,16 +94,12 @@ partial class StoreMan
         }
     }
 
-    public class Serve : StoreSubCommand
+    public class Serve(ICommandHandler handler) : StoreSubCommand(handler)
     {
         public const string Name = "serve";
         public override string Description => Resources.DescriptionStoreServe;
         public override string Usage => "[PORT]";
         protected override int AdditionalArgsMax => 1;
-
-        public Serve(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {

@@ -5,17 +5,13 @@ namespace ZeroInstall.Commands.Basic;
 
 partial class CatalogMan
 {
-    private class Remove : CatalogSubCommand
+    private class Remove(ICommandHandler handler) : CatalogSubCommand(handler)
     {
         public const string Name = "remove";
         public override string Description => Resources.DescriptionCatalogRemove;
         public override string Usage => "URI";
         protected override int AdditionalArgsMin => 1;
         protected override int AdditionalArgsMax => 1;
-
-        public Remove(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {

@@ -5,16 +5,12 @@ namespace ZeroInstall.Commands.Basic;
 
 partial class CatalogMan
 {
-    private class List : CatalogSubCommand
+    private class List(ICommandHandler handler) : CatalogSubCommand(handler)
     {
         public const string Name = "list";
         public override string Description => Resources.DescriptionCatalogList;
         public override string Usage => "";
         protected override int AdditionalArgsMax => 0;
-
-        public List(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {

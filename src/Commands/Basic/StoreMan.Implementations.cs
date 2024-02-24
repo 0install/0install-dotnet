@@ -12,16 +12,12 @@ namespace ZeroInstall.Commands.Basic;
 
 partial class StoreMan
 {
-    public class Add : StoreSubCommand
+    public class Add(ICommandHandler handler) : StoreSubCommand(handler)
     {
         public const string Name = "add";
         public override string Description => Resources.DescriptionStoreAdd;
         public override string Usage => "DIGEST (DIRECTORY | (ARCHIVE [EXTRACT [MIME-TYPE [...]]))";
         protected override int AdditionalArgsMin => 2;
-
-        public Add(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {
@@ -59,17 +55,13 @@ partial class StoreMan
         }
     }
 
-    public class Copy : StoreSubCommand
+    public class Copy(ICommandHandler handler) : StoreSubCommand(handler)
     {
         public const string Name = "copy";
         public override string Description => Resources.DescriptionStoreCopy;
         public override string Usage => "(DIRECTORY | URI | discover:DIGEST) [CACHE]";
         protected override int AdditionalArgsMin => 1;
         protected override int AdditionalArgsMax => 2;
-
-        public Copy(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {
@@ -98,17 +90,13 @@ partial class StoreMan
             }));
     }
 
-    public class Export : StoreSubCommand
+    public class Export(ICommandHandler handler) : StoreSubCommand(handler)
     {
         public const string Name = "export";
         public override string Description => Resources.DescriptionStoreExport;
         public override string Usage => "DIGEST OUTPUT-ARCHIVE [MIME-TYPE]";
         protected override int AdditionalArgsMin => 2;
         protected override int AdditionalArgsMax => 3;
-
-        public Export(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {
@@ -123,17 +111,13 @@ partial class StoreMan
         }
     }
 
-    public class Find : StoreSubCommand
+    public class Find(ICommandHandler handler) : StoreSubCommand(handler)
     {
         public const string Name = "find";
         public override string Description => Resources.DescriptionStoreFind;
         public override string Usage => "DIGEST";
         protected override int AdditionalArgsMin => 1;
         protected override int AdditionalArgsMax => 1;
-
-        public Find(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {
@@ -145,16 +129,12 @@ partial class StoreMan
         }
     }
 
-    public class Remove : StoreSubCommand
+    public class Remove(ICommandHandler handler) : StoreSubCommand(handler)
     {
         public const string Name = "remove";
         public override string Description => Resources.DescriptionStoreRemove;
         public override string Usage => "DIGEST+";
         protected override int AdditionalArgsMin => 1;
-
-        public Remove(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {
@@ -165,17 +145,13 @@ partial class StoreMan
         }
     }
 
-    public class Verify : StoreSubCommand
+    public class Verify(ICommandHandler handler) : StoreSubCommand(handler)
     {
         public const string Name = "verify";
         public override string Description => Resources.DescriptionStoreVerify;
         public override string Usage => "[DIRECTORY] DIGEST";
         protected override int AdditionalArgsMin => 1;
         protected override int AdditionalArgsMax => 2;
-
-        public Verify(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {

@@ -28,12 +28,8 @@ public sealed partial class CatalogMan(ICommandHandler handler) : CliMultiComman
             _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
         };
 
-    private abstract class CatalogSubCommand : CliCommand, ICliSubCommand
+    private abstract class CatalogSubCommand(ICommandHandler handler) : CliCommand(handler), ICliSubCommand
     {
         public string ParentName => Name;
-
-        protected CatalogSubCommand(ICommandHandler handler)
-            : base(handler)
-        {}
     }
 }

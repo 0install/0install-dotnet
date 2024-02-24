@@ -26,26 +26,18 @@ public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
             _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
         };
 
-    public abstract class TrustSubCommand : CliCommand, ICliSubCommand
+    public abstract class TrustSubCommand(ICommandHandler handler) : CliCommand(handler), ICliSubCommand
     {
         public string ParentName => Name;
-
-        protected TrustSubCommand(ICommandHandler handler)
-            : base(handler)
-        {}
     }
 
-    public class Add : TrustSubCommand
+    public class Add(ICommandHandler handler) : TrustSubCommand(handler)
     {
         public const string Name = "add";
         public override string Description => Resources.DescriptionTrustAdd;
         public override string Usage => "FINGERPRINT DOMAIN";
         protected override int AdditionalArgsMin => 2;
         protected override int AdditionalArgsMax => 2;
-
-        public Add(ICommandHandler handler)
-            : base(handler)
-        {}
 
         /// <inheritdoc />
         public override ExitCode Execute()
@@ -64,17 +56,13 @@ public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
         }
     }
 
-    public class Remove : TrustSubCommand
+    public class Remove(ICommandHandler handler) : TrustSubCommand(handler)
     {
         public const string Name = "remove";
         public override string Description => Resources.DescriptionTrustRemove;
         public override string Usage => "FINGERPRINT [DOMAIN]";
         protected override int AdditionalArgsMin => 1;
         protected override int AdditionalArgsMax => 2;
-
-        public Remove(ICommandHandler handler)
-            : base(handler)
-        {}
 
         /// <inheritdoc />
         public override ExitCode Execute()
@@ -94,16 +82,12 @@ public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
         }
     }
 
-    public class List : TrustSubCommand
+    public class List(ICommandHandler handler) : TrustSubCommand(handler)
     {
         public const string Name = "list";
         public override string Description => Resources.DescriptionTrustList;
         public override string Usage => "[FINGERPRINT]";
         protected override int AdditionalArgsMax => 1;
-
-        public List(ICommandHandler handler)
-            : base(handler)
-        {}
 
         /// <inheritdoc />
         public override ExitCode Execute()

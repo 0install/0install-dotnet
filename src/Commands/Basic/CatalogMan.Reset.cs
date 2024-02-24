@@ -7,16 +7,12 @@ namespace ZeroInstall.Commands.Basic;
 
 partial class CatalogMan
 {
-    private class Reset : CatalogSubCommand
+    private class Reset(ICommandHandler handler) : CatalogSubCommand(handler)
     {
         public const string Name = "reset";
         public override string Description => Resources.DescriptionCatalogReset;
         public override string Usage => "";
         protected override int AdditionalArgsMax => 0;
-
-        public Reset(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {

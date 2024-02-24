@@ -5,15 +5,11 @@ namespace ZeroInstall.Commands.Basic;
 
 partial class CatalogMan
 {
-    private class Search : CatalogSubCommand
+    private class Search(ICommandHandler handler) : CatalogSubCommand(handler)
     {
         public const string Name = "search";
         public override string Description => Resources.DescriptionCatalogSearch;
         public override string Usage => "[QUERY]";
-
-        public Search(ICommandHandler handler)
-            : base(handler)
-        {}
 
         public override ExitCode Execute()
         {

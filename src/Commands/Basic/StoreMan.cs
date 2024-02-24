@@ -38,13 +38,9 @@ public sealed partial class StoreMan(ICommandHandler handler) : CliMultiCommand(
             _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
         };
 
-    public abstract class StoreSubCommand : CliCommand, ICliSubCommand
+    public abstract class StoreSubCommand(ICommandHandler handler) : CliCommand(handler), ICliSubCommand
     {
         public string ParentName => Name;
-
-        protected StoreSubCommand(ICommandHandler handler)
-            : base(handler)
-        {}
 
         /// <summary>
         /// Sets the paths of the directories to use as <see cref="ImplementationStore"/>s.

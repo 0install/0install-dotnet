@@ -25,12 +25,8 @@ public sealed partial class Self(ICommandHandler handler) : CliMultiCommand(hand
             _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
         };
 
-    public abstract class SelfSubCommand : CliCommand, ICliSubCommand
+    public abstract class SelfSubCommand(ICommandHandler handler) : CliCommand(handler), ICliSubCommand
     {
         public string ParentName => Name;
-
-        protected SelfSubCommand(ICommandHandler handler)
-            : base(handler)
-        {}
     }
 }
