@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.Commands.Basic;
-using ZeroInstall.DesktopIntegration.AccessPoints;
 
 namespace ZeroInstall.Commands.Desktop;
 
@@ -33,42 +32,48 @@ public class AddAlias : AppCommand
     /// <inheritdoc />
     protected override ExitCode ExecuteHelper()
     {
-        string aliasName = AdditionalArgs[0];
-
-        if (_resolve || _remove)
+        switch (AdditionalArgs)
         {
-            if (AdditionalArgs.Count > 1) throw new OptionException(Resources.TooManyArguments + Environment.NewLine + AdditionalArgs[1].EscapeArgument(), null);
-
-            var match = IntegrationManager.AppList.FindAppAlias(aliasName);
-            if (!match.HasValue)
+            case [var aliasName] when _resolve:
             {
-                Handler.Output(Resources.AppAlias, string.Format(Resources.AliasNotFound, aliasName));
-                return ExitCode.NoChanges;
-            }
-            var (alias, appEntry) = match.Value;
+                if (IntegrationManager.AppList.FindAppAlias(aliasName) is not var (alias, appEntry))
+                {
+                    Handler.Output(Resources.AppAlias, string.Format(Resources.AliasNotFound, aliasName));
+                    return ExitCode.IOError;
+                }
 
-            if (_resolve)
-            {
                 string result = appEntry.InterfaceUri.ToStringRfc();
                 if (!string.IsNullOrEmpty(alias.Command)) result += $"{Environment.NewLine}Command: {alias.Command}";
                 Handler.OutputLow(Resources.AppAlias, result);
+                return ExitCode.OK;
             }
-            if (_remove)
+
+            case [var aliasName] when _remove:
             {
-                IntegrationManager.RemoveAccessPoints(appEntry, new AccessPoint[] {alias});
+                if (IntegrationManager.AppList.FindAppAlias(aliasName) is not var (alias, appEntry))
+                {
+                    Handler.OutputLow(Resources.AppAlias, string.Format(Resources.AliasNotFound, aliasName));
+                    return ExitCode.NoChanges;
+                }
 
+                IntegrationManager.RemoveAccessPoints(appEntry, [alias]);
                 Handler.OutputLow(Resources.AppAlias, string.Format(Resources.AliasRemoved, aliasName, appEntry.Name));
+                return ExitCode.OK;
             }
-            return ExitCode.OK;
-        }
-        else
-        {
-            if (AdditionalArgs.Count < 2 || string.IsNullOrEmpty(AdditionalArgs[1])) throw new OptionException(Resources.MissingArguments, null);
-            string? command = (AdditionalArgs.Count >= 3) ? AdditionalArgs[2] : null;
 
-            var appEntry = GetAppEntry(IntegrationManager, ref InterfaceUri);
-            CreateAlias(appEntry, aliasName, command);
-            return ExitCode.OK;
+            case [_, var arg, ..] when _resolve || _remove:
+                throw new OptionException(Resources.TooManyArguments + Environment.NewLine + arg.EscapeArgument(), null);
+
+            case [var aliasName, _]:
+                CreateAlias(GetAppEntry(IntegrationManager, ref InterfaceUri), aliasName);
+                return ExitCode.OK;
+
+            case [var aliasName, _, var command]:
+                CreateAlias(GetAppEntry(IntegrationManager, ref InterfaceUri), aliasName, command);
+                return ExitCode.OK;
+
+            default:
+                throw new OptionException(Resources.MissingArguments, null);
         }
     }
 }
