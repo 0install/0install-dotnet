@@ -46,8 +46,8 @@ public class AddApp : AppCommand
         {
             var appEntry = GetAppEntry(IntegrationManager, ref InterfaceUri);
 
-            if (AdditionalArgs.Count == 2)
-                CreateAlias(appEntry, AdditionalArgs[0], _command);
+            if (AdditionalArgs is [var alias, _])
+                CreateAlias(appEntry, alias, _command);
             else if (_command != null)
                 throw new OptionException(string.Format(Resources.NoAddCommandWithoutAlias, "--command"), "command");
 

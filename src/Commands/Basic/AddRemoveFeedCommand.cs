@@ -28,29 +28,33 @@ public abstract class AddRemoveFeedCommand : CliCommand
     public override ExitCode Execute()
     {
         FeedUri feedUri;
-        ICollection<FeedUri> interfaces;
+        List<FeedUri> interfaces;
         Stability suggestedStabilityPolicy;
 
-        if (AdditionalArgs.Count == 2)
-        { // Main interface for feed specified explicitly
-            interfaces = [GetCanonicalUri(AdditionalArgs[0])];
-            feedUri = GetCanonicalUri(AdditionalArgs[1]);
-            suggestedStabilityPolicy = Stability.Unset;
-        }
-        else
-        { // Determine interfaces from feed content (<feed-for> tags)
-            feedUri = GetCanonicalUri(AdditionalArgs[0]);
+        switch (AdditionalArgs)
+        {
+            case [var interfaceArg, var feedArg]: // Main interface for feed specified explicitly
+                interfaces = [GetCanonicalUri(interfaceArg)];
+                feedUri = GetCanonicalUri(feedArg);
+                suggestedStabilityPolicy = Stability.Unset;
+                break;
 
-            var feed = FeedManager.GetFresh(feedUri);
-            interfaces = feed.FeedFor.Select(reference => reference.Target).WhereNotNull().ToList();
-            if (interfaces.Count == 0)
-                throw new OptionException(string.Format(Resources.MissingFeedFor, feedUri), null);
+            case [var feedArg]: // Determine interfaces from feed content (<feed-for> tags)
+                feedUri = GetCanonicalUri(feedArg);
 
-            suggestedStabilityPolicy = feed.Implementations.Select(x => x.Stability).DefaultIfEmpty().Max();
+                var feed = FeedManager.GetFresh(feedUri);
+                interfaces = feed.FeedFor.Select(reference => reference.Target).WhereNotNull().ToList();
+                if (interfaces is []) throw new OptionException(string.Format(Resources.MissingFeedFor, feedUri), null);
+
+                suggestedStabilityPolicy = feed.Implementations.Select(x => x.Stability).DefaultIfEmpty().Max();
+                break;
+
+            default:
+                throw new Exception("Unreachable");
         }
 
         EnsureAllowed(feedUri);
-        return ExecuteHelper(interfaces, new FeedReference {Source = feedUri}, suggestedStabilityPolicy);
+        return ExecuteHelper(interfaces, new() {Source = feedUri}, suggestedStabilityPolicy);
     }
 
     /// <summary>

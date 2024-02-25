@@ -51,7 +51,7 @@ public class Digest : CliCommand
     {
         var manifest = GenerateManifest(
             AdditionalArgs[0],
-            (AdditionalArgs.Count == 2) ? AdditionalArgs[1] : null);
+            AdditionalArgs is [_, var subdir] ? subdir : null);
 
         Handler.Output("Manifest digest", GetOutput(manifest));
         return ExitCode.OK;
