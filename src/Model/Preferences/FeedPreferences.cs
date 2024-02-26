@@ -122,7 +122,7 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
         {
             Normalize();
 
-            string path = Locations.GetSaveConfigPath("0install.net", true, "injector", "feeds", feedUri.PrettyEscape());
+            string path = Locations.GetSaveConfigPath("0install.net", isFile: true, "injector", "feeds", feedUri.PrettyEscape());
 
             Log.Debug($"Saving feed preferences for {feedUri.ToStringRfc()} to: {path}");
             this.SaveXml(path);

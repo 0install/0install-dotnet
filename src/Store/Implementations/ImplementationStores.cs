@@ -110,7 +110,7 @@ public static class ImplementationStores
         => SetDirectories(GetUserConfigFile(), paths);
 
     private static string GetUserConfigFile()
-        => Locations.GetSaveConfigPath("0install.net", true, "injector", "implementation-dirs");
+        => Locations.GetSaveConfigPath("0install.net", isFile: true, "injector", "implementation-dirs");
 
     /// <summary>
     /// Returns a list of custom implementation directories in the current machine-wide configuration.

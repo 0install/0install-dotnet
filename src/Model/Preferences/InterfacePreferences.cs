@@ -101,7 +101,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
         if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
         #endregion
 
-        string path = Locations.GetSaveConfigPath("0install.net", true, "injector", "interfaces", interfaceUri.PrettyEscape());
+        string path = Locations.GetSaveConfigPath("0install.net", isFile: true, "injector", "interfaces", interfaceUri.PrettyEscape());
 
         Log.Debug($"Saving interface preferences for {interfaceUri.ToStringRfc()} to: {path}");
         this.SaveXml(path);
