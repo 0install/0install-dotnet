@@ -118,7 +118,10 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     private const string AppName = "0install.net";
     private static readonly string[] _resource = ["injector", "trustdb.xml"];
 
-    private string _filePath = Locations.GetSaveConfigPath(AppName, true, _resource);
+    /// <summary>
+    /// The path of the file the trust DB was loaded from and/or will be saved to.
+    /// </summary>
+    internal string FilePath = Locations.GetSaveConfigPath(AppName, isFile: true, _resource);
 
     /// <summary>
     /// Loads the <see cref="TrustDB"/> from a file.
@@ -135,7 +138,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
 
         Log.Debug($"Loading trust database from: {path}");
         var trustDB = XmlStorage.LoadXml<TrustDB>(path);
-        trustDB._filePath = path;
+        trustDB.FilePath = path;
         return trustDB;
     }
 
@@ -190,7 +193,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     public static TrustDB LoadMachineWide()
     {
         string path = Locations.GetSaveSystemConfigPath(AppName, true, _resource);
-        return File.Exists(path) ? Load(path) : new() { _filePath = path };
+        return File.Exists(path) ? Load(path) : new() { FilePath = path };
     }
 
     /// <summary>
@@ -201,7 +204,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
     public void Save(string? path = null)
     {
-        path ??= _filePath;
+        path ??= FilePath;
         Log.Debug($"Saving trust database to: {path}");
         this.SaveXml(path);
     }

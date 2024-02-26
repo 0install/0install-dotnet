@@ -34,7 +34,8 @@ public class TrustManagerTest : TestWithMocks
         AutoApproveKeys = false
     };
 
-    private readonly TrustDB _trustDB = new();
+    private readonly TemporaryFile _tempFile = new("0install-test-feed");
+    private readonly TrustDB _trustDB;
     private readonly MockTaskHandler _handler = new();
     private readonly Mock<IOpenPgp> _openPgpMock;
     private readonly Mock<IFeedCache> _feedCacheMock;
@@ -42,9 +43,16 @@ public class TrustManagerTest : TestWithMocks
 
     public TrustManagerTest()
     {
+        _trustDB = new() {FilePath = _tempFile};
         _feedCacheMock = GetMock<IFeedCache>();
         _openPgpMock = GetMock<IOpenPgp>();
         _trustManager = new TrustManager(_trustDB, _config, _openPgpMock.Object, _feedCacheMock.Object, _handler);
+    }
+
+    public override void Dispose()
+    {
+        _tempFile.Dispose();
+        base.Dispose();
     }
 
     [Fact]
