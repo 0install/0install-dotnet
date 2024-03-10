@@ -241,7 +241,21 @@ partial class Config
     /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
     public void Save(string path)
     {
-        var iniData = _lastIniFromFile ?? new();
+        var iniData = ToIniData();
+
+        Log.Debug($"Saving config to file: {path}");
+        using var atomic = new AtomicWrite(path);
+        using (var writer = new StreamWriter(atomic.WritePath, append: false, EncodingUtils.Utf8))
+            new StreamIniDataParser().WriteData(writer, iniData);
+        atomic.Commit();
+    }
+
+    /// <summary>
+    /// Converts the options into an in-memory representation of an INI file.
+    /// </summary>
+    public IniData ToIniData()
+    {
+        var iniData = new IniData(_lastIniFromFile ?? new());
         iniData.Sections.RemoveSection("__global__section__"); // Throw away section-less data
 
         if (!iniData.Sections.ContainsSection(GlobalSection)) iniData.Sections.AddSection(GlobalSection);
@@ -263,10 +277,6 @@ partial class Config
             }
         }
 
-        Log.Debug($"Saving config to file: {path}");
-        using var atomic = new AtomicWrite(path);
-        using (var writer = new StreamWriter(atomic.WritePath, append: false, EncodingUtils.Utf8))
-            new StreamIniDataParser().WriteData(writer, iniData);
-        atomic.Commit();
+        return iniData;
     }
 }
