@@ -192,14 +192,9 @@ public class Selection : CliCommand
         {
             Selections = Solver.Solve(Requirements);
         }
-        catch (SolverException ex) when (_version != null && !FeedManager.Refresh && Config.NetworkUse != NetworkLevel.Offline)
-        {
-            Log.Info($"Solving for version {_version} failed, possibly because feed is outdated; trying refresh", ex);
-            RefreshSolve();
-        }
         catch
         {
-            // Suppress any left-over errors if the user canceled anyway
+            // Suppress errors if the user canceled anyway
             Handler.CancellationToken.ThrowIfCancellationRequested();
             throw;
         }

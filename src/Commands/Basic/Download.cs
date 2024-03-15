@@ -95,7 +95,15 @@ public class Download : Selection
     [MemberNotNull(nameof(UncachedImplementations))]
     protected override void Solve()
     {
-        base.Solve();
+        try
+        {
+            base.Solve();
+        }
+        catch (SolverException ex) when (!FeedManager.Refresh && Config.EffectiveNetworkUse == NetworkLevel.Full)
+        {
+            Log.Info("Solving failed, possibly because feeds are outdated; trying Refresh Solve", ex);
+            RefreshSolve();
+        }
 
         try
         {
