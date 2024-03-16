@@ -1,6 +1,6 @@
 <Project>
 
-  <ItemGroup Condition="'$(MSBuildRuntimeType)'=='Full'">
+  <ItemGroup Condition="'$(OS)'=='Windows_NT'">
     <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="8.0.0" />
     <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
