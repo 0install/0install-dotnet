@@ -118,7 +118,16 @@ partial class SelfManager
     /// </summary>
     private void DeleteServiceLogFiles()
     {
-        File.Delete(Path.Combine(TargetDir, "0store-service.InstallLog"));
-        File.Delete(Path.Combine(TargetDir, "InstallUtil.InstallLog"));
+        try
+        {
+            File.Delete(Path.Combine(TargetDir, "0store-service.InstallLog"));
+            File.Delete(Path.Combine(TargetDir, "InstallUtil.InstallLog"));
+        }
+        #region Error handling
+        catch (IOException ex)
+        {
+            Log.Info("Failed to remove log files", ex);
+        }
+        #endregion
     }
 }
