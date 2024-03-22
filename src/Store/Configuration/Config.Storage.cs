@@ -52,16 +52,25 @@ partial class Config
     /// <summary>
     /// Reads options from config files in default locations and merges them into the config instance.
     /// </summary>
-    /// <param name="machineWideOnly"><c>true</c> to only load config from machine-wide locations; <c>false</c> to load from the user profile aswell.</param>
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
     /// <exception cref="InvalidDataException">The file contains invalid config values.</exception>
-    public void ReadFromFiles(bool machineWideOnly = false)
+    public void ReadFromFiles()
     {
-        var paths = Locations.GetLoadConfigPaths(AppName, isFile: true, Resource);
-        if (machineWideOnly) paths = paths.Where(x => x.StartsWith(Locations.UserConfigDir));
-        foreach (string path in paths.Reverse()) // Revers order for precedence
+        foreach (string path in Locations.GetLoadConfigPaths(AppName, isFile: true, Resource).Reverse()) // Revers order for precedence
             ReadFromFile(path);
+    }
+
+    /// <summary>
+    /// Reads options from config files in machine-wide locations.
+    /// </summary>
+    /// <exception cref="IOException">A problem occurred while reading the file.</exception>
+    /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
+    /// <exception cref="InvalidDataException">The file contains invalid config values.</exception>
+    public void ReadFromFilesMachineWideOnly()
+    {
+        string path = Locations.GetSaveSystemConfigPath(AppName, isFile: true, Resource);
+        if (File.Exists(path)) ReadFromFile(path);
     }
 
     /// <summary>
