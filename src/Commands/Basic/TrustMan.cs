@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Native;
 using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Trust;
 
@@ -26,9 +27,20 @@ public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
             _ => throw new OptionException(string.Format(Resources.UnknownCommand, commandName), commandName)
         };
 
-    public abstract class TrustSubCommand(ICommandHandler handler) : CliCommand(handler), ICliSubCommand
+    public abstract class TrustSubCommand : CliCommand, ICliSubCommand
     {
+        protected bool MachineWide;
+
+        protected TrustSubCommand(ICommandHandler handler)
+            : base(handler)
+        {
+            Options.Add("m|machine", () => Resources.OptionMachine, _ => MachineWide = true);
+        }
+
         public string ParentName => Name;
+
+        protected TrustDB Load()
+            => MachineWide ? TrustDB.LoadMachineWide() : TrustDB.Load();
     }
 
     public class Add(ICommandHandler handler) : TrustSubCommand(handler)
@@ -42,7 +54,10 @@ public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
         /// <inheritdoc />
         public override ExitCode Execute()
         {
-            var trustDB = TrustDB.Load();
+            if (MachineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
+                throw new NotAdminException(Resources.MustBeAdminForMachineWide);
+
+            var trustDB = Load();
 
             string fingerprint = AdditionalArgs[0];
             var domain = new Domain(AdditionalArgs[1]);
@@ -67,7 +82,10 @@ public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
         /// <inheritdoc />
         public override ExitCode Execute()
         {
-            var trustDB = TrustDB.Load();
+            if (MachineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
+                throw new NotAdminException(Resources.MustBeAdminForMachineWide);
+
+            var trustDB = Load();
 
             bool found = AdditionalArgs switch
             {
@@ -92,7 +110,7 @@ public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
         /// <inheritdoc />
         public override ExitCode Execute()
         {
-            var trustDB = TrustDB.Load();
+            var trustDB = Load();
 
             switch (AdditionalArgs)
             {
