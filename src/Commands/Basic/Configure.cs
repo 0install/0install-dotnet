@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Native;
 using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Commands.Basic;
@@ -15,41 +16,63 @@ public class Configure : CliCommand
     public override string Usage => "[NAME [VALUE|default]]";
     protected override int AdditionalArgsMax => 2;
 
+    private bool _machineWide;
+    private ConfigTab _tab;
+
     /// <inheritdoc/>
     public Configure(ICommandHandler handler)
         : base(handler)
     {
+        Options.Add("m|machine", () => Resources.OptionMachine, _ => _machineWide = true);
         if (handler.IsGui)
-            Options.Add("tab=", () => Resources.OptionConfigTab, (ConfigTab tab) => Config.InitialTab = tab);
+            Options.Add("tab=", () => Resources.OptionConfigTab, (ConfigTab tab) => _tab = tab);
     }
 
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
+        var config = Load();
+
         switch (AdditionalArgs)
         {
             case []:
-                Handler.Output(Resources.Configuration, Config);
+                config.InitialTab = _tab;
+                Handler.Output(Resources.Configuration, config);
                 break;
 
             case [var key]:
-                GetOptions(key);
+                GetOptions(config, key);
                 break;
 
             case [var key, var value]:
-                SetOption(key, value);
-                Config.Save();
+                if (_machineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
+                    throw new NotAdminException(Resources.MustBeAdminForMachineWide);
+
+                SetOption(config, key, value);
+                config.Save(_machineWide);
                 break;
         }
 
         return ExitCode.OK;
     }
 
-    private void GetOptions(string key)
+    private Config Load()
+    {
+        if (_machineWide)
+        {
+            var config = new Config();
+            config.ReadFromFilesMachineWideOnly();
+            return config;
+        }
+
+        return Config;
+    }
+
+    private void GetOptions(Config config, string key)
     {
         try
         {
-            Handler.Output(key, Config.GetOption(key));
+            Handler.Output(key, config.GetOption(key));
         }
         #region Error handling
         catch (KeyNotFoundException)
@@ -59,12 +82,12 @@ public class Configure : CliCommand
         #endregion
     }
 
-    private void SetOption(string key, string value)
+    private static void SetOption(Config config, string key, string value)
     {
         try
         {
-            if (value == "default") Config.ResetOption(key);
-            else Config.SetOption(key, value);
+            if (value == "default") config.ResetOption(key);
+            else config.SetOption(key, value);
         }
         #region Error handling
         catch (KeyNotFoundException)
