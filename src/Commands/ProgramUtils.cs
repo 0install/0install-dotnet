@@ -231,7 +231,9 @@ public static class ProgramUtils
         }
         catch (OptionException ex)
         {
-            handler.Error(new OptionException(ex.Message + Environment.NewLine + string.Format(Resources.TryHelp, $"{exeName} --help"), ex.OptionName));
+            string message = ex.Message + Environment.NewLine + string.Format(Resources.TryHelp, $"{exeName} --help");
+            if (!string.IsNullOrEmpty(ex.OptionName)) message = ex.OptionName + ": " + message;
+            handler.Error(new OptionException(message, ex.OptionName));
             return ExitCode.InvalidArguments;
         }
         catch (FormatException ex)
