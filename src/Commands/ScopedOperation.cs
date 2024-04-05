@@ -88,7 +88,7 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
     /// <exception cref="WebException"><see cref="Config.KioskMode"/> is <c>true</c> and the <paramref name="uri"/> is not the the <see cref="Catalog"/>.</exception>
     protected void EnsureAllowed(FeedUri uri)
     {
-        if (Config.KioskMode && !GetCatalog().ContainsFeed(uri))
+        if (Config.KioskMode && uri != Config.SelfUpdateUri && !GetCatalog().ContainsFeed(uri))
             throw new WebException(string.Format(Resources.KioskModeNotInCatalog, uri));
     }
 
