@@ -251,7 +251,7 @@ Je kunt het gebruiken door het ZeroInstall.exe bestand in de directory uit te vo
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>Opent de centrale grafische gebruikersinterface voor het starten en beheren van toepassingen.</value>
+    <value>Opent de centrale grafische gebruikersinterface voor het starten en beheren van applicaties.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
@@ -290,7 +290,7 @@ Het bestand moet een vertrouwde digitale handtekening hebben, net als bij het op
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Toont alle toepassingen die momenteel in je lijst met toepassingen staan. Als er een URI is opgegeven, wordt alleen de toepassing met die URI weergegeven. Als er een PATTERN is opgegeven, worden alleen toepassingen weergegeven die die tekenreeks in hun naam hebben (hoofdletterongevoelig).</value>
+    <value>Toont alle toepassingen die momenteel in je lijst met toepassingen staan. Als er een URI is opgegeven, wordt alleen de toepassing met die URI weergegeven. Als er een PATTERN is opgegeven, worden alleen toepassingen getoond die die tekenreeks in hun naam hebben (hoofdletterongevoelig).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -302,7 +302,7 @@ Het bestand moet een vertrouwde digitale handtekening hebben, net als bij het op
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Verwijdert de huidige versie van Zero Install van het systeem.</value>
+    <value>Verwijdert het huidige exemplaar van Zero Install van het systeem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -607,7 +607,7 @@ Je mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Le
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install moet op je systeem geïnstalleerd zijn om desktopintegratie te laten werken.</value>
+    <value>Zero Install moet op je systeem geïnstalleerd worden om desktopintegratie te laten werken.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -831,7 +831,7 @@ In offline modus worden geen interfaces ververst, zelfs als ze verouderd zijn, e
     <value>Vereist een versie van het hoofdprogramma binnen de opgegeven {RANGE}.
 Bereiken worden gescheiden door pijpen (|).
 Elk bereik heeft de vorm "START..!END". Het bereik komt overeen met versies waarbij START &lt;= VERSIE &lt; EINDE. Het begin of einde kan worden weggelaten.
-Een enkel versienummer kan worden gebruikt in plaats van een bereik om alleen met die versie overeen te komen, of !VERSION om met alles behalve die versie overeen te komen.</value>
+Er kan een enkel versienummer worden gebruikt in plaats van een bereik om alleen met die versie overeen te komen, of !VERSION om met alles behalve die versie overeen te komen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
@@ -882,7 +882,7 @@ Kan commandoregel argumenten bevatten. Whitespaces moeten geëscaped worden!</va
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Het kan zijn dat u uw terminal moet sluiten en opnieuw moet openen om dit te laten werken.</value>
+    <value>Het is mogelijk dat u uw terminal moet sluiten en opnieuw openen om dit effectief te laten worden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">

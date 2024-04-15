@@ -91,7 +91,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Lancer un solveur externe</value>
+    <value>Exécution d'un solveur externe</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
@@ -107,7 +107,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' n'a pas pu être localisé dans le cache du flux.</value>
+    <value>'{0}' n'a pas pu être localisé dans le cache de flux.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -135,7 +135,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Les flux doivent préciser l'URI d'où ils proviennent pour pouvoir être importés.</value>
+    <value>Les flux doivent spécifier l'URI d'où ils proviennent pour pouvoir être importés.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
@@ -170,7 +170,7 @@ Nouvelle date : {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Le téléchargement de {0} a échoué. Essayer de télécharger à partir du miroir de flux à la place.</value>
+    <value>Le téléchargement de {0} a échoué. Essayer de télécharger à partir d'un miroir de flux à la place.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

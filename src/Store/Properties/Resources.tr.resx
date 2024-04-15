@@ -63,15 +63,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Bu dizin bir uygulama önbelleğidir. Buradaki dosyalar dosya sistemi izinleri kullanılarak salt okunur hale getirilir. Bu sayede normal şekilde silinmeleri engellenir.
+    <value>Bu klasör bir uygulama ön belleğidir. Buradaki dosyalar dosya sistemi izinleri kullanılarak salt okunur hale getirilir. Böylece normal şekilde silinmeleri engellenir.
 
-Eğer tek bir uygulamayı silmek istersen bu komut satırını kullanabilirsin:
+Tek bir uygulamayı silmek isterseniz şu komut satırını kullanabilirsiniz:
 {0}
 
-Eğer bu dizinin tamamını silmek istersen bu komut satırını kullanabilirsin:
+Bu klasörü tümüyle silmek isterseniz şu komut satırını kullanabilirsiniz:
 {1}
 
-Eğer Zero Install kullanmadan bu dizinin tamamını silmek istersen bu komut satırını kullanabilirsin:
+Zero Install kullanmadan bu klasörün tümünü silmek isterseniz şu komut satırını kullanabilirsiniz:
 {2}</value>
     <comment>Manually overriden.</comment>
   </data>
@@ -80,7 +80,7 @@ Eğer Zero Install kullanmadan bu dizinin tamamını silmek istersen bu komut sa
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>{0} dizini siliniyor</value>
+    <value>{0} klasörü siliniyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
@@ -92,15 +92,15 @@ Eğer Zero Install kullanmadan bu dizinin tamamını silmek istersen bu komut sa
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>Bir uygulamanın dosya listesi beklenen değerle eşleşmiyor.</value>
+    <value>Bir uygulamanın öge listesi karması beklenen değerle eşleşmiyor.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>Mevcut değer: {0}</value>
+    <value>Geçerli değer: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Mevcut dosya listesi: {0}</value>
+    <value>Geçerli öge listesi: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
@@ -108,7 +108,7 @@ Eğer Zero Install kullanmadan bu dizinin tamamını silmek istersen bu komut sa
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Beklenen dosya listesi: {0}</value>
+    <value>Beklenen öge listesi: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
@@ -116,7 +116,7 @@ Eğer Zero Install kullanmadan bu dizinin tamamını silmek istersen bu komut sa
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Güvenilirlik veritabanı yüklenirken sorun çıktı. Varsayılan ayarlara geri dönülüyor.</value>
+    <value>Güvenilirlik veri tabanı yüklenirken sorun çıktı. Varsayılan ayarlara geri dönülüyor.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -129,19 +129,19 @@ Etkinleştirmek için '0install config feed_mirror default' komutunu kullanın.<
     <comment>Manually overriden.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Dosya veya '{0}' dizini bulunamıyor.</value>
+    <value>Dosya ya da '{0}' klasörü bulunamadı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>Silmek istediğin dosyalar şu anda kullanılıyor.</value>
+    <value>Silmek istediğiniz dosyalar şu anda kullanılıyor.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
-    <value>Bu uygulamaları kapatıp devam etmek istiyor musun?</value>
+    <value>Bu uygulamaları kapatıp ilerlemek istiyor musunuz?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>Aşağıdaki uygulamaların kapatılması gerekiyor:</value>
+    <value>Şu uygulamaların kapatılması gerekiyor:</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
@@ -174,7 +174,7 @@ Etkinleştirmek için '0install config feed_mirror default' komutunu kullanın.<
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
     <value>Temel dosya sistemi, dosyaların değiştirildiği zamanları yeterli doğrulukta saklamaz.
-FAT biçimli bir sürücü kullanıyorsan lütfen bunu NTFS'ye dönüştür.</value>
+FAT biçimindeki bir sürücü kullanıyorsanız lütfen bunu NTFS biçimine dönüştürün.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
@@ -186,7 +186,7 @@ FAT biçimli bir sürücü kullanıyorsan lütfen bunu NTFS'ye dönüştür.</va
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>Özet dosyasında geçersiz satırlar var.</value>
+    <value>Öge listesi dosyasında geçersiz satırlar var.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
@@ -214,11 +214,11 @@ FAT biçimli bir sürücü kullanıyorsan lütfen bunu NTFS'ye dönüştür.</va
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Zero Install çevrimdışı modda olduğu için {0} indirilemiyor.</value>
+    <value>Zero Install çevrim dışı kipte olduğundan {0} indirilemedi.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Bilinen bir özet yöntemi belirtilmemiş.</value>
+    <value>Bilinen bir öge listesi hazırlama yöntemi belirtilmemiş.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
@@ -243,26 +243,26 @@ FAT biçimli bir sürücü kullanıyorsan lütfen bunu NTFS'ye dönüştür.</va
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>'{0}' uygulama deposuna erişilirken bir sorun oluştu.</value>
+    <value>'{0}' uygulama deposuna erişilirken bir sorun çıktı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>'{0}' uygulama deposuna erişilirken bir sorun oluştu.
-'{1}' yapılandırma dosyasında belirtilmiştir.</value>
+    <value>'{0}' uygulama deposuna erişilirken bir sorun çıktı.
+'{1}' yapılandırma dosyasında belirtildi.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
-    <value>Yapılandırma dosyası yüklenirken bir sorun oluştu.
-Sorunu çözmek için '{0}' dosyasını silebilirsin.</value>
+    <value>Yapılandırma dosyası yüklenirken bir sorun çıktı.
+Sorunu çözmek için '{0}' dosyasını silebilirsiniz.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>'{0}' yapılandırma değeri yüklenirken bir sorun oluştu.
-Sorunu çözmek için '{1}' dosyasını silebilirsin. Diğer ayarlar da kaybolabilir.</value>
+    <value>'{0}' yapılandırma değeri yüklenirken bir sorun çıktı.
+Sorunu çözmek için '{1}' dosyasını silebilirsiniz. Diğer ayarlar da kaybolabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">
-    <value>'{0}' dizini okunuyor</value>
+    <value>'{0}' klasörü okunuyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
@@ -282,7 +282,7 @@ Sorunu çözmek için '{1}' dosyasını silebilirsin. Diğer ayarlar da kaybolab
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>'{0}' için yazma koruması etkinleştirilemiyor.</value>
+    <value>'{0}' için yazma koruması etkinleştirilemedi.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
@@ -294,11 +294,11 @@ Sorunu çözmek için '{1}' dosyasını silebilirsin. Diğer ayarlar da kaybolab
     <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
-    <value>İmza bloğunun sonu, dosyanın son satırı olmalıdır.</value>
+    <value>Dosyanın son satırı, imza bloğunun sonu olmalıdır.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
-    <value>XML imzası yeni bir satırda başlamalıdır.</value>
+    <value>XML imzası yeni bir satırla başlamalıdır.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">

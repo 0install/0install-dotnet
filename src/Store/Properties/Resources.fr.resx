@@ -124,8 +124,8 @@ Pour supprimer l'intégralité du répertoire sans passer par Zero Install, veui
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>L'utilisation du miroir de flux, nécessaire à la recherche, est désactivée.
-Lancez '0install config feed_mirror default' pour l'activer.</value>
+    <value>L'utilisation du miroir de flux, qui est nécessaire pour la recherche, est désactivée.
+Exécutez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -165,7 +165,7 @@ Lancez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Lancez '0install store remove {0}' pour le supprimer. Une nouvelle copie sera automatiquement téléchargée en cas de besoin.</value>
+    <value>Exécutez '0install store remove {0}' pour le supprimer. Une nouvelle copie sera automatiquement téléchargée en cas de besoin.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -218,7 +218,7 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Aucune méthode d'analyse connue n'a été spécifiée.</value>
+    <value>Aucune méthode de condensation connue n'a été spécifiée.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">

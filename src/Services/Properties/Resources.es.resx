@@ -91,7 +91,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Ejecutar solver externo</value>
+    <value>Ejecución de un solucionador externo</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
@@ -107,7 +107,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' no ha podido ser localizado en la caché de feeds.</value>
+    <value>'{0}' no pudo ser localizado en la caché de alimentación.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>No se ha especificado ninguna interface.</value>
+    <value>No se ha especificado ninguna interfaz.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -170,7 +170,7 @@ Nueva fecha: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>No se ha podido descargar {0}. Intentando descargar desde feed mirror.</value>
+    <value>No se ha podido descargar {0}. Tratando de obtener de espejo de alimentación en su lugar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

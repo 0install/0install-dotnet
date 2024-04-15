@@ -79,7 +79,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
-    <value>{0} için masaüstü entegrasyonu uygulanıyor</value>
+    <value>{0} için masaüstü bütünleştirmesi uygulanıyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
@@ -87,11 +87,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Tek seferde yalnızca bir masaüstü entegrasyonu yapabilirsin.</value>
+    <value>Tek seferde yalnızca bir masaüstü bütünleştirmesi uygulayabilirsiniz.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
-    <value>'{0}' adı geçersiz karakterler içeriyor.</value>
+    <value>'{0}' adında geçersiz karakterler var.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
@@ -99,7 +99,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
-    <value>'{0}' yüklenirken bir sorun oluştu.</value>
+    <value>'{0}' yüklenirken bir sorun çıktı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">

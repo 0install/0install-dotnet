@@ -186,7 +186,7 @@ Zaznacz cały wiersz, klikając w pierwszej kolumnie, a następnie naciśnij kla
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
     <value>Ustaw pole wyboru, aby ustawić funkcję jako domyślną obsługę.
-Usuń pole wyboru, aby usunąć domyślny status funkcji (nadal pozostaje ona dostępna).</value>
+Usuń pole wyboru, aby usunąć domyślny status funkcji (nadal pozostaje dostępna).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
@@ -358,7 +358,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na innym komputerze za pomocą "0install store add".</value>
+    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na inny komputer za pomocą "0install store add".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
@@ -374,7 +374,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
-    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Pokazuje skojarzenia z buforowanymi kanałami.</value>
+    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Wyświetla skojarzenia z buforowanymi kanałami.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
@@ -697,7 +697,7 @@ Ustaw puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Wyświetla skrót manifestu (domyślnie włączone, jeśli --manifest nie jest ustawione).</value>
+    <value>Wyświetla skrót manifestu (domyślnie włączony, jeśli opcja --manifest nie jest ustawiona).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">

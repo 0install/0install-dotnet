@@ -327,7 +327,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>指定したキーワードに一致する、ミラーサーバーによってインデックス化されたフィードを検索します。デフォルトのミラー・サーバーは、品質にかかわらず、既知のフィードをすべてインデックス化することに注意。</value>
+    <value>指定したキーワードに一致する、ミラーサーバーによってインデックス化されたフィードを検索します。デフォルトのミラー・サーバーは、品質に関係なく、既知のすべてのフィードをインデックス化することに注意してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -384,7 +384,7 @@
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
     <value>キャッシュからすべての実装を削除します。Zero Install を削除する前に、このコマンドを使用してシステムをクリーンアップします。実装を変更から保護するために NTFS ACL が採用されているため、キャッシュディレクトリを手動で削除するのは困難な場合があります。
-追加の引数は、カスタムキャッシュの場所を指定します。</value>
+追加の引数でカスタムキャッシュの場所を指定します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreRemove" xml:space="preserve">
@@ -693,7 +693,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>グラフィカルポリシーエディターを表示します。これにより、使用するプログラムやライブラリのバージョンをカスタマイズできます。</value>
+    <value>グラフィカル・ポリシー・エディターを表示します。これにより、使用するプログラムやライブラリのバージョンをカスタマイズできます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -882,7 +882,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>この機能を有効にするには、ターミナルを閉じて開き直す必要があります。</value>
+    <value>この機能を有効にするには、一度ターミナルを閉じて再度開く必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -914,7 +914,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>この Zero Install インスタンスはデプロイされていません。そのため、インスタンス自体を更新することはできません。</value>
+    <value>この Zero Install インスタンスはデプロイされていません。そのため、インスタンス自体をアップデートすることはできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
