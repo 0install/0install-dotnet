@@ -146,7 +146,7 @@ Dacă selectați "Nu", Zero Install va continua să utilizeze vechile capacită�
     <comment>Automatically translated.</comment>
   </data>
   <data name="Change" xml:space="preserve">
-    <value>Schimbare</value>
+    <value>Modificare</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ChangesFound" xml:space="preserve">
@@ -203,7 +203,7 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din director.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Atunci când utilizați opțiunea {0} trebuie să specificați explicit directorul țintă.</value>
+    <value>Atunci când utilizați opțiunea {0} trebuie să specificați în mod explicit directorul țintă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
@@ -227,7 +227,7 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din director.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogAdd" xml:space="preserve">
-    <value>Adaugă un URI în lista de cataloage.</value>
+    <value>Adaugă un URI la lista de cataloage.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogList" xml:space="preserve">
@@ -302,7 +302,7 @@ Fișierul trebuie să aibă o semnătură digitală de încredere, la fel ca atu
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Îndepărtează instanța curentă de Zero Install din sistem.</value>
+    <value>Îndepărtează instanța curentă a programului Zero Install din sistem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -310,7 +310,7 @@ Fișierul trebuie să aibă o semnătură digitală de încredere, la fel ca atu
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>Îndepărtează o aplicație din lista de aplicații și anulează orice integrare a mediului desktop.</value>
+    <value>Elimină o aplicație din lista de aplicații și anulează orice integrare a mediului desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
@@ -453,7 +453,7 @@ Este similar cu "0install download --refresh", cu excepția faptului că tipăre
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Introduceți URL-ul sau calea fișierului local al catalogului de feed-uri care urmează să fie adăugat:</value>
+    <value>Introduceți URL-ul sau calea fișierului local al catalogului de feed-uri pe care doriți să îl adăugați:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
@@ -607,12 +607,12 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii licen
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install trebuie să fie implementat pe sistemul dumneavoastră pentru ca integrarea pe desktop să funcționeze.</value>
+    <value>Zero Install trebuie să fie implementat pe sistemul dvs. pentru ca integrarea pe desktop să funcționeze.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install rulează în modul portabil. Trebuie să fie implementat într-o locație permanentă pentru ca integrarea pe desktop să funcționeze.
-Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă de copia dvs. portabilă.</value>
+Puteți face acest lucru folosind '{0}'. Aceasta va fi complet independentă de copia dvs. portabilă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
@@ -754,7 +754,7 @@ Puteți utiliza această opțiune de mai multe ori pentru a specifica mai multe 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Aplică configurația la nivelul întregii mașini (pentru întregul calculator) în loc să o aplice doar pentru utilizatorul curent.</value>
+    <value>Aplică configurația la nivelul întregii mașini (pentru întregul computer) în loc să o aplice doar pentru utilizatorul curent.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
@@ -854,7 +854,7 @@ Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie sc
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
-    <value>Mod portabil</value>
+    <value>Modul portabil</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PropertiesFor" xml:space="preserve">
@@ -870,7 +870,7 @@ Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie sc
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>Doriți să eliminați din listă intrările selectate de pe {0}?</value>
+    <value>Doriți să eliminați din listă intrările selectate {0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">

@@ -171,7 +171,7 @@ Jika Anda memilih 'Tidak', Zero Install akan terus menggunakan kemampuan lama.</
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
     <value>Apakah Anda ingin menghapus semua file aplikasi dari cache Zero Install?
-Berkas-berkas ini dapat diunduh kembali jika diperlukan.</value>
+Berkas-berkas ini dapat diunduh lagi jika diperlukan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
@@ -408,7 +408,7 @@ Argumen tambahan menentukan lokasi cache khusus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Memercayai umpan dari DOMAIN tertentu ketika ditandatangani dengan sidik jari tertentu.</value>
+    <value>Memercayai feed dari DOMAIN tertentu ketika ditandatangani dengan sidik jari tertentu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -750,7 +750,7 @@ Anda dapat menggunakan opsi ini beberapa kali untuk menentukan beberapa bahasa y
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Menyebarkan Zero Install sebagai perpustakaan untuk digunakan oleh aplikasi lain tanpa integrasi desktopnya sendiri.</value>
+    <value>Menyebarkan Zero Install sebagai pustaka untuk digunakan oleh aplikasi lain tanpa integrasi desktopnya sendiri.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">

@@ -59,10 +59,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
-    <value>Feed: {0}
+    <value>Akış: {0}
 - {1} imzası geçerli
 - {2}
-Bu anahtar '{3}' adresinden gelen feed'leri imzalasın mı?
+Bu anahtar '{3}' adresinden gelen akışları imzalasın mı?
 </value>
     <comment>Manually overriden.</comment>
   </data>
@@ -87,7 +87,7 @@ Bu anahtar '{3}' adresinden gelen feed'leri imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Güven veritabanı kaydedilirken hata oluştu</value>
+    <value>Güvenilirlik veri tabanı kaydedilirken sorun çıktı</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -99,11 +99,11 @@ Bu anahtar '{3}' adresinden gelen feed'leri imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>{0}'ın {1} için uygun bir sürümü bulunamadı.</value>
+    <value>{1} için uygun bir {0} sürümü bulunamadı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>'{0}' feed'i önbelleğe alınamadı ve Zero Install şu anda çevrimdışı modda.</value>
+    <value>'{0}' akışı ön belleğe alınamadı ve Zero Install şu anda çevrim dışı kipte.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
@@ -111,7 +111,7 @@ Bu anahtar '{3}' adresinden gelen feed'leri imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>'{0}' feed'i güvenilir bir anahtarla imzalanmadı.</value>
+    <value>'{0}' akışı güvenilen bir anahtarla imzalanmamış.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
@@ -127,7 +127,7 @@ Bu anahtar '{3}' adresinden gelen feed'leri imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>'{0}' indirilemiyor.</value>
+    <value>'{0}' alınırken sorun çıktı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
@@ -147,7 +147,7 @@ Bu anahtar '{3}' adresinden gelen feed'leri imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Zero Install çevrimdışı modda olduğu için {0} indirilemiyor.</value>
+    <value>Zero Install çevrim dışı kipte olduğundan {0} indirilemedi.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
@@ -155,7 +155,7 @@ Bu anahtar '{3}' adresinden gelen feed'leri imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>'{0}' uyarlaması için bildirim özeti bulunamadı.</value>
+    <value>'{0}' uyarlaması için öge listesi dosyası bulunamadı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
@@ -163,8 +163,8 @@ Bu anahtar '{3}' adresinden gelen feed'leri imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>İndirilen feed, önbellekte bulunan sürümden daha eski. Daha yeni olan sürümü kullanmaya devam edeceğiz.
-Feed URI'si: {0}
+    <value>İndirilen akış, ön bellekte bulunan sürümden daha eski. Daha yeni olan sürümü kullanmayı sürdüreceğiz.
+Akış adresi: {0}
 Eski zaman: {1}
 Yeni zaman: {2}</value>
     <comment>Manually overriden.</comment>
@@ -178,15 +178,15 @@ Yeni zaman: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>{0} adresinden indirilen feed ayrıştırılamıyor.</value>
+    <value>{0} adresinden indirilen akış işlenemedi.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>'{0}' için anahtar bilgileri ayrıştırılamıyor.</value>
+    <value>'{0}' için anahtar bilgileri işlenemedi.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>'{0}' için anahtar bilgileri alınamıyor.</value>
+    <value>'{0}' için anahtar bilgileri alınamadı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
@@ -194,7 +194,7 @@ Yeni zaman: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Feed güvenilmeyen anahtarlarla imzalanmış!</value>
+    <value>Akış güvenilmeyen anahtarlarla imzalanmış!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">

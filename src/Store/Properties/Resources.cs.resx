@@ -190,7 +190,7 @@ Pokud používáte disk ve formátu FAT, převeďte jej na NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Nesprávný počet dílů v řadě.</value>
+    <value>Neplatný počet dílů v řadě.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -239,7 +239,7 @@ Zadává se v konfiguračním souboru '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Tato možnost je řízena zásadami skupiny, a proto ji nelze změnit.</value>
+    <value>Tato možnost je řízena zásadami skupiny, a proto ji nelze upravovat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

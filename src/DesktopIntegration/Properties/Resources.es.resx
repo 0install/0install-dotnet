@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
-    <value>El nombre del acceso directo '{0}' contiene caracteres no válidos.</value>
+    <value>El nombre de acceso directo '{0}' contiene caracteres no válidos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
@@ -137,7 +137,7 @@ Puede reemplazar los datos almacenados en el servidor ejecutando el asistente de
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>No se puede reemplazar el viejo ejecutable '{0}'.</value>
+    <value>Incapaz de reemplazar el viejo stub ejecutable '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

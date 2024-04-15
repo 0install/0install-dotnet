@@ -115,7 +115,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Bilinen bir özet yöntemi belirtilmemiş.</value>
+    <value>Bilinen bir öge listesi hazırlama yöntemi belirtilmemiş.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">

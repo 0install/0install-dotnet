@@ -173,7 +173,7 @@ Rulați "0install config feed_mirror default" pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Sistemul de fișiere de bază nu stochează cu suficientă precizie timpii de modificare a fișierelor.
+    <value>Sistemul de fișiere de bază nu stochează cu suficientă acuratețe timpii de modificare a fișierelor.
 Dacă utilizați o unitate formatată FAT, vă rugăm să o convertiți în NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>

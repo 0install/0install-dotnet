@@ -575,7 +575,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>{0} 中缺少 &lt;feed-for&gt; 元素；它不能用作其他界面的 feed。</value>
+    <value>{0}' 中缺少 &lt;feed-for&gt; 元素；它不能用作其他界面的 feed。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -583,7 +583,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
-    <value>您必须是管理员才能执行全机操作。</value>
+    <value>必须是管理员才能执行全机操作。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
@@ -713,7 +713,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>导出时不包括执行存档。只导出源文件。</value>
+    <value>导出时不包含执行存档。只导出源文件。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -750,7 +750,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>将 Zero Install 作为库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
+    <value>将零安装作为库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -850,7 +850,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>将输出以机器可读的 XML 格式写入控制台。</value>
+    <value>以机器可读的 XML 格式将输出写入控制台。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">

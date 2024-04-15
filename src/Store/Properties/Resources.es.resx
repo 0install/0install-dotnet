@@ -125,7 +125,7 @@ Para eliminar el directorio completo sin usar Zero Install, ejecuta esta línea 
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>El uso del feed mirror, necesario para la búsqueda, está desactivado.
-Ejecuta '0install config feed_mirror default' para activarlo.</value>
+Ejecute '0install config feed_mirror default' para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -218,11 +218,11 @@ Si estás utilizando una unidad con formato FAT, conviértela a NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>No se ha especificado ningún método de resumen conocido.</value>
+    <value>No se ha especificado ningún método de compendio conocido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>La ruta '{0}' no es una ruta absoluta. Las rutas relativas sólo se permiten en modo portable.
+    <value>La ruta '{0}' no es una ruta absoluta. Las rutas relativas sólo están permitidas en modo portable.
 Se especifica en el archivo de configuración '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>

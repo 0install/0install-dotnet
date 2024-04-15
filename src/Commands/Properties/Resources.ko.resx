@@ -265,7 +265,7 @@
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>선택한 버전이 아직 캐시되지 않은 경우 다운로드한다는 점을 제외하면 '0install select'와 유사하게 작동합니다.
-적절한 버전 집합을 선택했고 현재 모두 다운로드되어 캐시에 있는 경우 종료 상태 0을 반환하고, 그렇지 않으면 상태 1을 반환합니다.</value>
+적절한 버전 집합을 선택했고 현재 모두 다운로드되어 캐시에 있는 경우 종료 상태 0을 반환하고, 그렇지 않은 경우 1을 반환합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -353,7 +353,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>구현을 캐시에 복사합니다. '0install store add'와 유사하지만 디렉토리 이름에서 다이제스트가 추출됩니다.
+    <value>구현을 캐시에 복사합니다. '0install store add'와 유사하지만 디렉터리 이름에서 다이제스트가 추출됩니다.
 추가 인수는 사용자 지정 대상 캐시 위치를 지정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -758,7 +758,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>기본값 대신 지정된 실행 파일 {MAIN} 을 실행합니다. 경로가 '/' 또는 '\'로 시작하면 구현의 최상위 디렉터리를 기준으로 하고, 그렇지 않으면 기본 주 프로그램이 포함된 디렉터리를 기준으로 합니다.
+    <value>기본값 대신 지정된 실행 파일( {MAIN} )을 실행합니다. 경로가 '/' 또는 '\'로 시작하면 구현의 최상위 디렉터리를 기준으로 하고, 그렇지 않으면 기본 주 프로그램이 포함된 디렉터리를 기준으로 합니다.
 명령줄 인수를 포함할 수 없습니다! 공백은 이스케이프 처리할 필요가 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -882,7 +882,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>이 기능을 적용하려면 단말기를 닫았다가 다시 열어야 할 수 있습니다.</value>
+    <value>이 기능을 사용하려면 단말기를 닫았다가 다시 열어야 할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -955,7 +955,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>긴 경로에 대한 Windows 지원을 활성화하면 이 문제를 해결할 수 있습니다.</value>
+    <value>긴 경로에 대한 Windows 지원을 활성화하면 이 문제가 해결될 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

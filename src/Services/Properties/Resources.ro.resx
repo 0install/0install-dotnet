@@ -123,7 +123,7 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Lipsește atributul uri &lt;interface&gt;. Ar trebui să fie "{0}".</value>
+    <value>Lipsește atributul uri &lt;interface&gt;. Ar trebui să fie '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">

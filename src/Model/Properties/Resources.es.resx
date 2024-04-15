@@ -67,15 +67,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Error al cargar las preferencias de feed para '{0}'. Volver a los valores por defecto.</value>
+    <value>Error al cargar las preferencias de alimentación de '{0}'. Volver a los valores por defecto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Error al cargar las preferencias de interface para '{0}'. Volver a los valores por defecto.</value>
+    <value>Error al cargar las preferencias de interfaz para '{0}'. Volver a los valores por defecto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>No se encuentra el feed '{0}' en el catálogo.</value>
+    <value>No se puede encontrar el feed '{0}' en el catálogo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>No se puede encontrar la implementación de la interface '{0}' en la selección.</value>
+    <value>No se puede encontrar la implementación de la interfaz '{0}' en la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -115,15 +115,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>No se ha especificado ningún método de resumen conocido.</value>
+    <value>No se ha especificado ningún método de compendio conocido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>No se ha podido resolver la ruta relativa '{0}'. Sólo los feeds guardados como archivos locales pueden contener rutas relativas.</value>
+    <value>No se ha podido resolver la ruta relativa '{0}'. Sólo las fuentes guardadas como archivos locales pueden contener rutas relativas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>No se ha podido resolver el URI relativo '{0}'. Sólo los feeds guardados como archivos locales pueden contener URI relativas.</value>
+    <value>No se ha podido resolver el URI relativo '{0}'. Sólo las fuentes guardadas como archivos locales pueden contener URI relativas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">

@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Eroare la încărcarea preferințelor de alimentare pentru '{0}'. Revenire la valorile implicite.</value>
+    <value>Eroare de încărcare a preferințelor de alimentare pentru '{0}'. Revenire la valorile implicite.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nu a fost specificată nicio metodă de digest cunoscută.</value>
+    <value>Nu a fost specificată nicio metodă cunoscută de digest.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">

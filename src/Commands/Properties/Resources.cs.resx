@@ -264,7 +264,7 @@ Bez argumentů zobrazí všechna nastavení a jejich aktuální hodnoty. S jedn�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>Chová se podobně jako "0install select", s tím rozdílem, že stahuje také vybrané verze, pokud ještě nejsou uloženy v mezipaměti.
+    <value>Chová se podobně jako '0install select', s tím rozdílem, že stahuje i vybrané verze, pokud ještě nejsou uloženy v mezipaměti.
 Vrátí výstupní stav 0, pokud vybral vhodnou sadu verzí a všechny jsou nyní staženy a uloženy v mezipaměti; v opačném případě vrátí stav 1.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -273,7 +273,7 @@ Vrátí výstupní stav 0, pokud vybral vhodnou sadu verzí a všechny jsou nyn�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importuje kanál z místního souboru, jako by byl stažen ze sítě. To je užitečné při testování souboru feedu, abyste jej nemuseli nahrávat na vzdálený server za účelem jeho opětovného stažení.
+    <value>Importuje zdroj z místního souboru, jako by byl stažen ze sítě. To je užitečné při testování souboru feedu, abyste jej nemuseli nahrávat na vzdálený server za účelem jeho opětovného stažení.
 Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sítě.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -522,7 +522,7 @@ Podobá se příkazu '0install download --refresh' s tím rozdílem, že vypisuj
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
     <value>Zdá se, že tento kanál není určen pro stejnou aplikaci. Přidat ho přesto?
-Značka &lt;feed-for&gt; označuje kompatibilitu s kanály.</value>
+Značka &lt;feed-for&gt; označuje kompatibilitu feedu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">

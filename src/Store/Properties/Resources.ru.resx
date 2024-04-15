@@ -165,7 +165,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Выполните команду '0install store remove {0}', чтобы удалить его. При необходимости новая копия будет автоматически загружена снова.</value>
+    <value>Выполните команду '0install store remove {0}', чтобы удалить его. При необходимости новая копия будет загружена автоматически.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
