@@ -12,6 +12,7 @@ namespace ZeroInstall.Publish;
 /// <summary>
 /// Builds simple <see cref="Feed"/>s containing a single <see cref="Implementation"/>.
 /// </summary>
+[MustDisposeResource]
 public class FeedBuilder : IDisposable
 {
     #region Directories

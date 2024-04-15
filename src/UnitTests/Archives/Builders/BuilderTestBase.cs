@@ -19,6 +19,7 @@ public abstract class ArchiveBuilderTestBase
         return new MemoryStream(stream.AsArray());
     }
 
+    [MustDisposeResource]
     protected abstract IArchiveBuilder NewBuilder(Stream stream);
 
     protected abstract void AddElements(IForwardOnlyBuilder builder);

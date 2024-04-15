@@ -10,4 +10,5 @@ namespace ZeroInstall.Archives.Builders;
 /// Builds a Lzip-compressed TAR archive (.tar.lz).
 /// </summary>
 /// <param name="stream">The stream to write the archive to. Will be disposed when the builder is disposed.</param>
+[MustDisposeResource]
 public class TarLzipBuilder(Stream stream) : TarBuilder(new LZipStream(stream, CompressionMode.Compress));

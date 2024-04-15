@@ -13,6 +13,7 @@ namespace ZeroInstall.Store.Deployment;
 /// <param name="sourceManifest">The contents of a <see cref="Manifest"/> file describing the source directory.</param>
 /// <param name="destinationPath">The path of the destination directory to copy to.</param>
 /// <param name="handler">A callback object used when the user needs to be asked questions or informed about IO tasks.</param>
+[MustDisposeResource]
 public class DeployDirectory(string sourcePath, Manifest sourceManifest, string destinationPath, ITaskHandler handler)
     : DirectoryOperation(sourcePath, sourceManifest, handler)
 {

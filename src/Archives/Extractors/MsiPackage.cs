@@ -8,6 +8,7 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Provides access to files stored within a Windows Installer package (.msi).
 /// </summary>
+[MustDisposeResource]
 internal sealed class MsiPackage : IDisposable
 {
     private readonly Database _database;

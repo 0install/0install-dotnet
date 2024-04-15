@@ -10,6 +10,7 @@ partial class ImplementationStore
     /// <summary>
     /// Manages state during a single <see cref="IImplementationStore.Optimise"/> run.
     /// </summary>
+    [MustDisposeResource]
     private sealed record OptimiseRun(string StorePath) : IDisposable
     {
         [SuppressMessage("ReSharper", "NotAccessedPositionalProperty.Local")]

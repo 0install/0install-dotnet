@@ -22,6 +22,7 @@ public static class ArchiveBuilder
     /// <param name="mimeType">The MIME type of archive format to create.</param>
     /// <param name="fast">The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.</param>
     /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> doesn't belong to a known and supported archive type.</exception>
+    [MustDisposeResource]
     public static IArchiveBuilder Create(Stream stream, string mimeType, bool fast = false)
     {
         #region Sanity checks
@@ -51,6 +52,7 @@ public static class ArchiveBuilder
     /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> doesn't belong to a known and supported archive type.</exception>
     /// <exception cref="IOException">Failed to create the archive file.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the archive file was denied.</exception>
+    [MustDisposeResource]
     public static IArchiveBuilder Create(string path, string mimeType, bool fast = false)
     {
         #region Sanity checks

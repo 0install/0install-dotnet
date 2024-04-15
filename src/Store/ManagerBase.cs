@@ -15,6 +15,7 @@ namespace ZeroInstall.Store;
 /// </summary>
 /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
 /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
+[MustDisposeResource]
 public abstract class ManagerBase(ITaskHandler handler, bool machineWide) : IDisposable
 {
     /// <summary>

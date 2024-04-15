@@ -11,6 +11,7 @@ namespace ZeroInstall.Services.Solvers;
 /// An external solver process controlled via a JSON API (https://docs.0install.net/developers/json-api/).
 /// </summary>
 /// <seealso cref="ExternalSolver"/>
+[MustDisposeResource]
 internal sealed class ExternalSolverSession : Dictionary<string, Func<object[], object?>>, IDisposable
 {
     public const string ApiVersion = "2.7";

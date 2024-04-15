@@ -14,6 +14,7 @@ namespace ZeroInstall.DesktopIntegration;
 /// <exception cref="IOException">A problem occurred while accessing the <see cref="AppList"/> file.</exception>
 /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>
 /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
+[MustDisposeResource]
 public abstract class IntegrationManagerBase(ITaskHandler handler, bool machineWide = false) : ManagerBase(handler, machineWide), IIntegrationManager
 {
     /// <summary>

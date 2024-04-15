@@ -78,6 +78,7 @@ public static class RetrievalMethodExtensions
     /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
     /// <exception cref="IOException">There is a problem writing a temporary file.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to a temporary file is not permitted.</exception>
+    [MustDisposeResource]
     public static TemporaryDirectory ToTempDir(this DownloadRetrievalMethod retrievalMethod, ITaskHandler handler, string? localPath = null)
     {
         #region Sanity checks

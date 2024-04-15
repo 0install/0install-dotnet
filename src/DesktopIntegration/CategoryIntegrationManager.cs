@@ -14,6 +14,7 @@ namespace ZeroInstall.DesktopIntegration;
 /// To prevent race-conditions there may only be one desktop integration class instance active at any given time.
 /// This class acquires a mutex upon calling its constructor and releases it upon calling <see cref="IDisposable.Dispose"/>.
 /// </remarks>
+[MustDisposeResource]
 public class CategoryIntegrationManager(Config config, ITaskHandler handler, bool machineWide = false) : IntegrationManager(config, handler, machineWide), ICategoryIntegrationManager
 {
     #region Constants
