@@ -31,7 +31,7 @@ public sealed class Export : Download
     /// <summary>
     /// Creates a new export command.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     public Export(ICommandHandler handler)
         : base(handler, outputOptions: false)
     {

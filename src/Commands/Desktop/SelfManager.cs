@@ -34,7 +34,7 @@ public partial class SelfManager : ManagerBase
     /// Creates a new maintenance manager.
     /// </summary>
     /// <param name="targetDir">The full path to the directory containing the Zero Install instance.</param>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
     /// <param name="portable">Controls whether the Zero Install instance at <paramref name="targetDir"/> should be a portable instance.</param>
     public SelfManager(string targetDir, ITaskHandler handler, bool machineWide = false, bool portable = false)

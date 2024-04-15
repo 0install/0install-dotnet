@@ -17,7 +17,7 @@ public static class ImplementationStores
     /// <summary>
     /// Creates an <see cref="IImplementationStore"/> instance that uses the default cache locations (based on <see cref="ImplementationStores"/>.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user is to be informed about progress or asked questions.</param>
+    /// <param name="handler">A callback object used when the user is to be informed about progress or asked questions.</param>
     /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to a configuration file or one of the stores was not permitted.</exception>
     public static IImplementationStore Default(ITaskHandler handler)

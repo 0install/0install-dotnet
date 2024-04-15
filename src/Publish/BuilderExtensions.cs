@@ -21,7 +21,7 @@ public static class BuilderExtensions
     /// <param name="builder">The builder.</param>
     /// <param name="retrievalMethod">The retrieval method.</param>
     /// <param name="executor">Used to modify properties in an undoable fashion.</param>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
     public static void Add(this IBuilder builder, RetrievalMethod retrievalMethod, ICommandExecutor executor, ITaskHandler handler)
@@ -73,7 +73,7 @@ public static class BuilderExtensions
     /// <param name="builder">The builder.</param>
     /// <param name="retrievalMethod">The retrieval method.</param>
     /// <param name="executor">Used to modify properties in an undoable fashion.</param>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <param name="localPath">An optional local file path where the <paramref name="retrievalMethod"/> has already been downloaded.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
@@ -118,7 +118,7 @@ public static class BuilderExtensions
     /// </summary>
     /// <param name="builder">The builder.</param>
     /// <param name="metadata">The path of the source and destination file or directory.</param>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
     /// <exception cref="IOException">An IO operation failed.</exception>
     public static void CopyFrom(this IBuilder builder, CopyFromStep metadata, ITaskHandler handler)

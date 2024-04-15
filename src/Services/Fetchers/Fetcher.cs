@@ -16,8 +16,8 @@ namespace ZeroInstall.Services.Fetchers;
 /// Downloads <see cref="Implementation"/>s, extracts them and adds them to an <see cref="IImplementationStore"/>.
 /// </summary>
 /// <param name="config">User settings controlling network behaviour, solving, etc.</param>
-/// <param name="store">The location to store the downloaded and unpacked &lt;see cref="Implementation"/&gt;s in.</param>
-/// <param name="handler">&gt;A callback object used when the the user needs to be informed about progress.</param>
+/// <param name="store">The location to store the downloaded and unpacked <see cref="Implementation"/>s in.</param>
+/// <param name="handler">A callback object used when the user needs to be informed about progress.</param>
 /// <remarks>This class is immutable and thread-safe.</remarks>
 public class Fetcher(Config config, IImplementationStore store, ITaskHandler handler) : IFetcher
 {

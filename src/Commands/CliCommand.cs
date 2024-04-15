@@ -90,7 +90,7 @@ public abstract partial class CliCommand : ScopedOperation
     protected internal readonly OptionSet Options = new();
 
     /// <summary>
-    /// A callback object used when the the user needs to be asked questions or informed about download and IO tasks.
+    /// A callback object used when the user needs to be asked questions or informed about download and IO tasks.
     /// </summary>
     // Type covariance: ServiceLocator -> CommandBase, ITaskHandler -> ICommandHandler
     public new ICommandHandler Handler { get; }
@@ -102,7 +102,7 @@ public abstract partial class CliCommand : ScopedOperation
     /// <summary>
     /// Creates a new command.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     protected CliCommand(ICommandHandler handler)
         : base(handler)
     {

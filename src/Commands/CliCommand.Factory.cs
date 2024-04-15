@@ -21,7 +21,7 @@ partial class CliCommand
     /// Creates a new <see cref="CliCommand"/> based on a name.
     /// </summary>
     /// <param name="commandName">The command name to look for; case-insensitive; can be <c>null</c>.</param>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     /// <returns>The requested <see cref="CliCommand"/> or <see cref="DefaultCommand"/> if <paramref name="commandName"/> was <c>null</c>.</returns>
     /// <exception cref="OptionException"><paramref name="commandName"/> is an unknown command.</exception>
     /// <exception cref="IOException">There was a problem accessing a configuration file or one of the stores.</exception>
@@ -69,7 +69,7 @@ partial class CliCommand
     /// Parses command-line arguments, automatically creating an appropriate <see cref="CliCommand"/>.
     /// </summary>
     /// <param name="args">The command-line arguments to be parsed.</param>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     /// <returns>The newly created <see cref="CliCommand"/> after <see cref="CliCommand.Parse"/> has been called.</returns>
     /// <exception cref="OperationCanceledException">The user asked to see help information, version information, etc..</exception>
     /// <exception cref="OptionException"><paramref name="args"/> contains unknown options or specified an unknown command.</exception>

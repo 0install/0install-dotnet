@@ -29,7 +29,7 @@ public class FeedManager : IFeedManager
     /// <param name="config">User settings controlling network behaviour, solving, etc.</param>
     /// <param name="feedCache">The disk-based cache to store downloaded <see cref="Feed"/>s.</param>
     /// <param name="trustManager">Methods for verifying signatures and user trust.</param>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     public FeedManager(Config config, IFeedCache feedCache, ITrustManager trustManager, ITaskHandler handler)
     {
         _config = config ?? throw new ArgumentNullException(nameof(config));

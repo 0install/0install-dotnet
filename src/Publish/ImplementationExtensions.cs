@@ -19,7 +19,7 @@ public static class ImplementationExtensions
     /// </summary>
     /// <param name="implementation">The implementation.</param>
     /// <param name="executor">Used to modify properties in an undoable fashion.</param>
-    /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
+    /// <param name="handler">A callback object used when the user is to be informed about progress.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="WebException">A file could not be downloaded from the internet.</exception>
     /// <exception cref="DigestMismatchException">An existing digest does not match the newly calculated one.</exception>

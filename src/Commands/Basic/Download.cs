@@ -29,7 +29,7 @@ public class Download : Selection
     /// <summary>
     /// Creates a new download command.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     public Download(ICommandHandler handler)
         : this(handler, outputOptions: true)
     {}
@@ -37,7 +37,7 @@ public class Download : Selection
     /// <summary>
     /// Creates a new download command.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     /// <param name="outputOptions">Whether to add command-line options controlling output.</param>
     /// <param name="refreshOptions">Whether to add command-line options controlling refresh behavior.</param>
     /// <param name="customizeOptions">Whether to add command-line options for customizing selected implementations.</param>

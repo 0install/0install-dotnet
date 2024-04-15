@@ -9,7 +9,7 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Extracts implementation archives.
 /// </summary>
-/// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+/// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
 public abstract class ArchiveExtractor(ITaskHandler handler) : IArchiveExtractor
 {
     private static readonly Dictionary<string, Func<ITaskHandler, IArchiveExtractor>> _factories = [];
@@ -44,7 +44,7 @@ public abstract class ArchiveExtractor(ITaskHandler handler) : IArchiveExtractor
     /// Creates a new <see cref="IArchiveExtractor"/> for a specific type of archive.
     /// </summary>
     /// <param name="mimeType">The MIME type of archive format to extract.</param>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <exception cref="NotSupportedException">No extractor registered for <paramref name="mimeType"/>.</exception>
     public static IArchiveExtractor For(string mimeType, ITaskHandler handler)
     {
@@ -60,7 +60,7 @@ public abstract class ArchiveExtractor(ITaskHandler handler) : IArchiveExtractor
     }
 
     /// <summary>
-    /// A callback object used when the the user needs to be informed about IO tasks.
+    /// A callback object used when the user needs to be informed about IO tasks.
     /// </summary>
     protected readonly ITaskHandler Handler = handler;
 

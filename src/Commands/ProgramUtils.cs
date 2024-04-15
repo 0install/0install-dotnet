@@ -138,7 +138,7 @@ public static class ProgramUtils
     /// </summary>
     /// <param name="exeName">The name of the executable to use as a reference in help messages and self-invocation.</param>
     /// <param name="args">The arguments to be processed.</param>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     /// <returns>The exit status code to end the process with. Cast to <see cref="int"/> to return from a Main method.</returns>
     public static ExitCode Run(string exeName, string[] args, ICommandHandler handler)
     {
@@ -339,7 +339,7 @@ public static class ProgramUtils
     /// </summary>
     /// <param name="exeName">The name of the executable to call in the target instance.</param>
     /// <param name="args">The arguments to pass to the target instance.</param>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     /// <param name="needsMachineWide"><c>true</c> if a machine-wide install location is required; <c>false</c> if a user-specific location will also do.</param>
     /// <returns>The exit code returned by the other instance; <c>null</c> if no other instance could be found.</returns>
     /// <exception cref="IOException">There was a problem launching the target instance.</exception>
@@ -360,7 +360,7 @@ public static class ProgramUtils
     /// </summary>
     /// <param name="exeName">The name of the executable to call in the target instance.</param>
     /// <param name="args">The arguments to pass to the target instance.</param>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     /// <param name="machineWide"><c>true</c> to deploy to a machine-wide location; <c>false</c> to deploy to a user-specific location.</param>
     /// <returns>The exit code returned by the other instance; <c>null</c> if no other instance could be found.</returns>
     /// <exception cref="IOException">There was a problem launching the target instance.</exception>

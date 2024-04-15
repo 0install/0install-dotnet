@@ -63,7 +63,7 @@ public class FeedBuilder : IDisposable
     /// <summary>
     /// Detects <see cref="Candidates"/> in the <see cref="ImplementationDirectory"/>.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <exception cref="InvalidOperationException"><see cref="ImplementationDirectory"/> is <c>null</c> or empty.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">There was a problem generating the manifest or detecting the executables.</exception>
@@ -146,7 +146,7 @@ public class FeedBuilder : IDisposable
     /// <summary>
     /// Generates the <see cref="ID"/> and <see cref="ManifestDigest"/>.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <exception cref="InvalidOperationException"><see cref="ImplementationDirectory"/> is <c>null</c> or empty.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">There was a problem generating the manifest.</exception>

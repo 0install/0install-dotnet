@@ -45,7 +45,7 @@ public static class RetrievalMethodExtensions
     /// </summary>
     /// <param name="retrievalMethod">The retrieval method.</param>
     /// <param name="executor">Used to modify properties in an undoable fashion.</param>
-    /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
+    /// <param name="handler">A callback object used when the user is to be informed about progress.</param>
     /// <param name="format">The manifest format. Leave <c>null</c> for default.</param>
     /// <returns>The generated digest.</returns>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
@@ -71,7 +71,7 @@ public static class RetrievalMethodExtensions
     /// Creates a temporary directory from a retrieval method. Sets missing properties in the process.
     /// </summary>
     /// <param name="retrievalMethod">The retrieval method.</param>
-    /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
+    /// <param name="handler">A callback object used when the user is to be informed about progress.</param>
     /// <param name="localPath">An optional local file path where the <paramref name="retrievalMethod"/> has already been downloaded. Leave <c>null</c> to download automatically.</param>
     /// <returns>A temporary directory built using the retrieval method.</returns>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>

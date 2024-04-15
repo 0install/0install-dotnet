@@ -18,7 +18,7 @@ public sealed class CacheNodeBuilder
     /// <summary>
     /// Creates a new cache node builder.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <param name="feedCache">Used to get local feed files.</param>
     /// <param name="implementationStore">Used to get cached implementations. Leave unset to only list feeds.</param>
     public CacheNodeBuilder(ITaskHandler handler, IFeedCache feedCache, IImplementationStore? implementationStore = null)

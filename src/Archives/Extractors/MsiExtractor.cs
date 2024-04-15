@@ -11,7 +11,7 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Extracts Windows Installer packages (.msi) with one or more embedded CAB archives.
 /// </summary>
-/// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+/// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
 /// <exception cref="PlatformNotSupportedException">The current platform is not Windows.</exception>
 /// <remarks>This class is immutable and thread-safe.</remarks>
 public class MsiExtractor(ITaskHandler handler)

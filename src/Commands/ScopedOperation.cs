@@ -13,7 +13,7 @@ namespace ZeroInstall.Commands;
 /// <summary>
 /// Common base class for Zero Install operations that require scoped dependency resolution.
 /// </summary>
-/// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+/// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
 public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(handler)
 {
     /// <summary>

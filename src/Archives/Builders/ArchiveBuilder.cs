@@ -67,7 +67,7 @@ public static class ArchiveBuilder
     /// <param name="sourcePath">The path of the directory to read.</param>
     /// <param name="archivePath">The path of the archive file to create.</param>
     /// <param name="mimeType">The MIME type of archive format to create.</param>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <exception cref="NotSupportedException">The <paramref name="mimeType"/> doesn't belong to a known and supported archive type.</exception>
     /// <exception cref="IOException">Failed to read the directory or create the archive file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the directory or write access to the archive file was denied.</exception>

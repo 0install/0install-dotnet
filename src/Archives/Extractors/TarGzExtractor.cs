@@ -9,7 +9,7 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Extracts GZip-compressed TAR archives (.tar.gz).
 /// </summary>
-/// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+/// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
 /// <remarks>This class is immutable and thread-safe.</remarks>
 public class TarGzExtractor(ITaskHandler handler) : TarExtractor(handler)
 {

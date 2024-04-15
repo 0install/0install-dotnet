@@ -43,7 +43,7 @@ public class CaptureSession
     /// <summary>
     /// Collects data from the locations indicated by the differences between the <see cref="Start"/> state and the current system state.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <exception cref="InvalidOperationException">No installation directory was detected.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">There was an error accessing the registry or file system.</exception>
@@ -102,7 +102,7 @@ public class CaptureSession
     /// <remarks>Sets <see cref="FeedBuilder.RetrievalMethod"/> and calls <see cref="FeedBuilder.GenerateDigest"/>.</remarks>
     /// <param name="archivePath">The path of the archive file to create.</param>
     /// <param name="archiveUrl">The URL where the archive will be uploaded.</param>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <exception cref="InvalidOperationException"><see cref="Diff"/> was not called or <see cref="FeedBuilder.MainCandidate"/> is not set.</exception>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">There was an error reading the installation files or writing the archive.</exception>

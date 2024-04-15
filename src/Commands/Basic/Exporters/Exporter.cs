@@ -81,7 +81,7 @@ public class Exporter
     /// Exports all implementations listed in a <see cref="Selections"/> document as archives.
     /// </summary>
     /// <param name="implementationStore">Used to get cached implementations.</param>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">An implementation archive could not be created.</exception>
     /// <exception cref="UnauthorizedAccessException">Read or access to a file is not permitted.</exception>

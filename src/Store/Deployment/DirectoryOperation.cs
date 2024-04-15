@@ -11,7 +11,7 @@ namespace ZeroInstall.Store.Deployment;
 /// </summary>
 /// <param name="path">The path of the directory to operate on.</param>
 /// <param name="manifest">The contents of a &lt;see cref="Manifests.Manifest"/&gt; file describing the directory.</param>
-/// <param name="handler">A callback object used when the the user needs to be asked questions or informed about IO tasks.</param>
+/// <param name="handler">A callback object used when the user needs to be asked questions or informed about IO tasks.</param>
 public abstract class DirectoryOperation(string path, Manifest manifest, ITaskHandler handler) : StagedOperation
 {
     /// <summary>
@@ -25,7 +25,7 @@ public abstract class DirectoryOperation(string path, Manifest manifest, ITaskHa
     protected readonly Manifest Manifest = manifest;
 
     /// <summary>
-    /// A callback object used when the the user needs to be asked questions or informed about IO tasks.
+    /// A callback object used when the user needs to be asked questions or informed about IO tasks.
     /// </summary>
     protected readonly ITaskHandler Handler = handler;
 

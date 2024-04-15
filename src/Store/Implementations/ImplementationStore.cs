@@ -10,7 +10,7 @@ namespace ZeroInstall.Store.Implementations;
 /// Manages a directory that stores implementations. Also known as an implementation cache.
 /// </summary>
 /// <param name="path">A fully qualified directory path. The directory will be created if it doesn't exist yet.</param>
-/// <param name="handler">A callback object used when the the user is to be informed about progress or asked questions.</param>
+/// <param name="handler">A callback object used when the user is to be informed about progress or asked questions.</param>
 /// <param name="useWriteProtection">Controls whether implementation directories are made write-protected once added to the store to prevent unintentional modification (which would invalidate the manifest digests).</param>
 /// <exception cref="IOException">The <paramref name="path"/> could not be created or the underlying filesystem can not store file-changed times accurate to the second.</exception>
 /// <exception cref="UnauthorizedAccessException">Creating the <paramref name="path"/> is not permitted.</exception>

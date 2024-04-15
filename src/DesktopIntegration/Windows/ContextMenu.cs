@@ -49,7 +49,7 @@ public static class ContextMenu
     /// </summary>
     /// <param name="target">The application being integrated.</param>
     /// <param name="contextMenu">The context menu entry to add.</param>
-    /// <param name="iconStore">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+    /// <param name="iconStore">A callback object used when the user is to be informed about the progress of long-running operations such as downloads.</param>
     /// <param name="machineWide">Add the context menu entry machine-wide instead of just for the current user.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>

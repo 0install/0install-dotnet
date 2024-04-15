@@ -26,7 +26,7 @@ public static class ServiceCollectionExtensions
     /// <summary>
     /// Registers a set of scoped services for using Zero Install functionality.
     /// </summary>
-    /// <typeparam name="TTaskHandler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</typeparam>
+    /// <typeparam name="TTaskHandler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</typeparam>
     /// <param name="services">The service collection to add the services to.</param>
     /// <param name="configuration">An optional configuration source for building <see cref="Config"/> instead of the default config files.</param>
     public static IServiceCollection AddZeroInstall<TTaskHandler>(this IServiceCollection services, IConfiguration? configuration = null)

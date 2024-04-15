@@ -17,7 +17,7 @@ public static class BuilderExtensions
     /// <param name="builder">The builder.</param>
     /// <param name="retrievalMethod">The metadata of the file.</param>
     /// <param name="stream">The contents of the file.</param>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars. Usually <see cref="ManifestDigest.Best"/>.</param>
     /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
     /// <exception cref="IOException">An IO operation failed.</exception>
@@ -42,7 +42,7 @@ public static class BuilderExtensions
     /// <param name="builder">The builder.</param>
     /// <param name="archive">The metadata of the archive.</param>
     /// <param name="stream">The archive data to be extracted.</param>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <param name="tag">A <see cref="ITask.Tag"/> used to group progress bars. Usually <see cref="ManifestDigest.Best"/>.</param>
     /// <exception cref="OperationCanceledException">The operation was canceled.</exception>
     /// <exception cref="IOException">A problem occurred while extracting the archive.</exception>

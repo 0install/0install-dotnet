@@ -64,7 +64,7 @@ public class IntegrationManager : IntegrationManagerBase
     /// Creates a new integration manager using the default <see cref="DesktopIntegration.AppList"/> (creating a new one if missing). Performs Mutex-based locking!
     /// </summary>
     /// <param name="config">User settings controlling network behaviour.</param>
-    /// <param name="handler">A callback object used when the the user is to be informed about the progress of long-running operations such as downloads.</param>
+    /// <param name="handler">A callback object used when the user is to be informed about the progress of long-running operations such as downloads.</param>
     /// <param name="machineWide">Apply operations machine-wide instead of just for the current user.</param>
     /// <exception cref="IOException">A problem occurred while accessing the <see cref="AppList"/> file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read or write access to the <see cref="AppList"/> file is not permitted or another desktop integration class is currently active.</exception>

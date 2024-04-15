@@ -32,7 +32,7 @@ public class Run : Download
     /// <summary>
     /// Creates a new run command.
     /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     public Run(ICommandHandler handler)
         : base(handler, outputOptions: false)
     {

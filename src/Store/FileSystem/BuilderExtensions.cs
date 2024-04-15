@@ -60,7 +60,7 @@ public static class BuilderExtensions
     /// <param name="builder">The builder.</param>
     /// <param name="metadata">The path of the source and destination file or directory.</param>
     /// <param name="path">The path of the implementation referenced by <paramref name="metadata"/>.</param>
-    /// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+    /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
     /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
     /// <exception cref="IOException">An IO operation failed.</exception>
     public static void CopyFrom(this IBuilder builder, CopyFromStep metadata, string path, ITaskHandler handler)

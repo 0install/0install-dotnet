@@ -66,7 +66,7 @@ public static class ImplementationStoreUtils
     /// </summary>
     /// <param name="path">The path of the directory ot check.</param>
     /// <param name="manifestDigest">The expected digest.</param>
-    /// <param name="handler">A callback object used when the the user is to be informed about progress.</param>
+    /// <param name="handler">A callback object used when the user is to be informed about progress.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="NotSupportedException"><paramref name="manifestDigest"/> does not list any supported digests.</exception>
     /// <exception cref="IOException">The directory could not be processed.</exception>

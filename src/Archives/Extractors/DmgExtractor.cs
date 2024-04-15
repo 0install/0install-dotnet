@@ -9,7 +9,7 @@ namespace ZeroInstall.Archives.Extractors;
 /// <summary>
 /// Extracts Apple Disk images (.dmg).
 /// </summary>
-/// <param name="handler">A callback object used when the the user needs to be informed about IO tasks.</param>
+/// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
 /// <exception cref="PlatformNotSupportedException">The current platform is not macOS.</exception>
 /// <remarks>This class is immutable and thread-safe.</remarks>
 public class DmgExtractor(ITaskHandler handler)
