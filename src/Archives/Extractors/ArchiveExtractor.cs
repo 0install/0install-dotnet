@@ -113,8 +113,10 @@ public abstract class ArchiveExtractor(ITaskHandler handler) : IArchiveExtractor
     /// <param name="path">The Unix-style path of the archive entry relative to the archive's root.</param>
     /// <param name="subDir">The Unix-style path of the subdirectory in the archive to extract; <c>null</c> to extract entire archive.</param>
     /// <returns>The relative path without the <paramref name="subDir"/>; <c>null</c> if the <paramref name="path"/> doesn't lie within the <paramref name="subDir"/>.</returns>
-    protected static string? NormalizePath(string path, string? subDir)
+    protected static string? NormalizePath(string? path, string? subDir)
     {
+        if (string.IsNullOrEmpty(path)) return null;
+
         path = path.ToNativePath().Trim(Path.DirectorySeparatorChar);
         if (path.StartsWith("." + Path.DirectorySeparatorChar, out string? rest))
             path = rest;
