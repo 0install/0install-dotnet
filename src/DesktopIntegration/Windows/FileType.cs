@@ -12,7 +12,7 @@ namespace ZeroInstall.DesktopIntegration.Windows;
 /// Contains control logic for applying <see cref="Model.Capabilities.FileType"/> and <see cref="AccessPoints.FileType"/> on Windows systems.
 /// </summary>
 [SupportedOSPlatform("windows")]
-public static class FileType
+public static partial class FileType
 {
     #region Constants
     /// <summary>The HKCU/HKLM registry key backing HKCR.</summary>
@@ -105,6 +105,7 @@ public static class FileType
                             {
                                 using var userChoiceKey = extensionOverrideKey.CreateSubKeyChecked("UserChoice");
                                 userChoiceKey.SetValue("Progid", progID);
+                                userChoiceKey.SetValue("Hash", CalculateHash(extension.Value, progID, userChoiceKey.GetLastWriteTime()));
                             }
                             catch (Exception ex) when (ex is UnauthorizedAccessException or SecurityException)
                             {
