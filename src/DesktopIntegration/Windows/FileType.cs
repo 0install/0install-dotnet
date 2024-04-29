@@ -63,7 +63,8 @@ public static class FileType
         using var classesKey = RegistryClasses.OpenHive(machineWide);
 
         // Register ProgID
-        using (var progIDKey = classesKey.CreateSubKeyChecked(RegistryClasses.Prefix + fileType.ID))
+        string progID = RegistryClasses.Prefix + fileType.ID;
+        using (var progIDKey = classesKey.CreateSubKeyChecked(progID))
         {
             progIDKey.SetValue("", fileType.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture) ?? fileType.ID);
             progIDKey.SetValue(accessPoint ? RegistryClasses.PurposeFlagAccessPoint : RegistryClasses.PurposeFlagCapability, "");
@@ -79,7 +80,7 @@ public static class FileType
                 extensionKey.SetOrDelete(RegValuePerceivedType, extension.PerceivedType);
 
                 using (var openWithKey = extensionKey.CreateSubKeyChecked(RegSubKeyOpenWith))
-                    openWithKey.SetValue(RegistryClasses.Prefix + fileType.ID, "");
+                    openWithKey.SetValue(progID, "");
 
                 if (accessPoint)
                 {
@@ -92,7 +93,7 @@ public static class FileType
                         using (var userChoiceKey = extensionOverrideKey.TryOpenSubKey("UserChoice", writable: false))
                         {
                             if (userChoiceKey == null) alreadySet = false;
-                            else alreadySet = ((userChoiceKey.GetValue("Progid") ?? "").ToString() == RegistryClasses.Prefix + fileType.ID);
+                            else alreadySet = (userChoiceKey.GetValue("Progid") ?? "").ToString() == progID;
                         }
 
                         if (!alreadySet)
@@ -103,7 +104,7 @@ public static class FileType
                             try
                             {
                                 using var userChoiceKey = extensionOverrideKey.CreateSubKeyChecked("UserChoice");
-                                userChoiceKey.SetValue("Progid", RegistryClasses.Prefix + fileType.ID);
+                                userChoiceKey.SetValue("Progid", progID);
                             }
                             catch (Exception ex) when (ex is UnauthorizedAccessException or SecurityException)
                             {
@@ -111,7 +112,7 @@ public static class FileType
                             }
                         }
                     }
-                    else extensionKey.SetValue("", RegistryClasses.Prefix + fileType.ID);
+                    else extensionKey.SetValue("", progID);
                 }
             }
 
