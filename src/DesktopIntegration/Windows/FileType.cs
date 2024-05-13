@@ -15,14 +15,8 @@ namespace ZeroInstall.DesktopIntegration.Windows;
 public static partial class FileType
 {
     #region Constants
-    /// <summary>The HKCU/HKLM registry key backing HKCR.</summary>
-    public const string RegKeyOverrides = @"Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts";
-
     /// <summary>The registry value name for friendly type name storage.</summary>
     public const string RegValueFriendlyName = "FriendlyTypeName";
-
-    /// <summary>The registry value name for application user model IDs (used by the Windows 7 taskbar).</summary>
-    public const string RegValueAppUserModelID = "AppUserModelID";
 
     /// <summary>The registry value name for MIME type storage.</summary>
     public const string RegValueContentType = "Content Type";
@@ -34,10 +28,13 @@ public static partial class FileType
     public const string RegSubKeyOpenWith = "OpenWithProgIDs";
 
     /// <summary>The registry subkey below HKEY_CLASSES_ROOT that contains MIME type to extension mapping.</summary>
-    public const string RegSubKeyMimeType = @"MIME\Database\Content Type";
+    private const string RegSubKeyMimeType = @"MIME\Database\Content Type";
 
     /// <summary>The registry value name for a MIME type extension association.</summary>
-    public const string RegValueExtension = "Extension";
+    private const string RegValueExtension = "Extension";
+
+    /// <summary>The registry key containing Windows Explorer file extension settings.</summary>
+    private const string RegKeyExplorerFileExtensions = @"Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts";
     #endregion
 
     #region Register
@@ -84,35 +81,7 @@ public static partial class FileType
 
                 if (accessPoint)
                 {
-                    if (!machineWide && WindowsUtils.IsWindowsVista)
-                    { // Windows Vista and later store per-user file extension overrides
-                        using var overridesKey = Registry.CurrentUser.OpenSubKeyChecked(RegKeyOverrides, writable: true);
-                        using var extensionOverrideKey = overridesKey.CreateSubKeyChecked(extension.Value);
-                        // Only mess with this part of the registry when necessary
-                        bool alreadySet;
-                        using (var userChoiceKey = extensionOverrideKey.TryOpenSubKey("UserChoice", writable: false))
-                        {
-                            if (userChoiceKey == null) alreadySet = false;
-                            else alreadySet = (userChoiceKey.GetValue("Progid") ?? "").ToString() == progID;
-                        }
-
-                        if (!alreadySet)
-                        {
-                            // Must delete and recreate instead of direct modification due to wicked ACLs
-                            extensionOverrideKey.TryDeleteSubKey("UserChoice");
-
-                            try
-                            {
-                                using var userChoiceKey = extensionOverrideKey.CreateSubKeyChecked("UserChoice");
-                                userChoiceKey.SetValue("Progid", progID);
-                                userChoiceKey.SetValue("Hash", CalculateHash(extension.Value, progID, userChoiceKey.GetLastWriteTime()));
-                            }
-                            catch (Exception ex) when (ex is UnauthorizedAccessException or SecurityException)
-                            {
-                                Log.Debug("Windows blocked modification to file type association user choice", ex);
-                            }
-                        }
-                    }
+                    if (!machineWide && WindowsUtils.IsWindowsVista) SetUserChoice(extension, progID);
                     else extensionKey.SetValue("", progID);
                 }
             }
@@ -124,6 +93,34 @@ public static partial class FileType
                 mimeKey.SetValue(RegValueExtension, extension.Value);
             }
         }
+    }
+
+    private static void SetUserChoice(FileTypeExtension extension, string progID)
+    {
+        using var extensionsKey = Registry.CurrentUser.OpenSubKeyChecked(RegKeyExplorerFileExtensions, writable: true);
+        using var extensionKey = extensionsKey.CreateSubKeyChecked(extension.Value);
+
+        using (var userChoiceKey = extensionKey.TryOpenSubKey("UserChoice", writable: false))
+        {
+            // Leave unchanged if user choice already points to the desired value
+            if ((userChoiceKey?.GetValue("Progid") ?? "").ToString() == progID) return;
+        }
+
+        try
+        {
+            // Must delete and recreate instead of direct modification due to ACLs
+            extensionKey.DeleteSubKey("UserChoice", throwOnMissingSubKey: false);
+
+            using var userChoiceKey = extensionKey.CreateSubKeyChecked("UserChoice");
+            userChoiceKey.SetValue("Progid", progID);
+            userChoiceKey.SetValue("Hash", CalculateHash(extension.Value, progID, userChoiceKey.GetLastWriteTime()));
+        }
+        #region Error handling
+        catch (Exception ex) when (ex is UnauthorizedAccessException or SecurityException)
+        {
+            Log.Info("Failed to modify file type association user choice", ex);
+        }
+        #endregion
     }
     #endregion
 
