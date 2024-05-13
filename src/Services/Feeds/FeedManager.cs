@@ -228,7 +228,13 @@ public class FeedManager : IFeedManager
     {
         Log.Debug($"Importing feed {feedUri.ToStringRfc()}");
 
-        var data = stream.AsArray();
+        const int maxFeedSize = 32 * 1024 * 1024;
+        // ReSharper disable once ParameterOnlyUsedForPreconditionCheck.Local
+        byte[] data = new ProgressStream(stream, new SynchronousProgress<long>(processedBytes =>
+        {
+            if (processedBytes > maxFeedSize) throw new IOException($"Unable to parse feeds larger than {StringUtils.FormatBytes(maxFeedSize)}.");
+        })).AsArray();
+
         CheckFeed(data, feedUri);
         CheckTrust(data, feedUri, keyCallback);
         AddToCache(data, feedUri);
