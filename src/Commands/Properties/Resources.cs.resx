@@ -918,7 +918,7 @@ Může obsahovat argumenty příkazového řádku. Bílé znaky musí být escap
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>Samočinná aktualizace je zakázána.
+    <value>Vlastní aktualizace je vypnuta.
 Chcete-li ji povolit, spusťte příkaz '0install config self_update_uri default'.</value>
     <comment>Automatically translated.</comment>
   </data>

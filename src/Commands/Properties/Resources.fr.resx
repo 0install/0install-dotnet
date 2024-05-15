@@ -701,7 +701,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Essaie de découvrir des implémentations sur d'autres machines du réseau local au lieu de les récupérer à partir de leur source d'origine.</value>
+    <value>Essaie de découvrir des implémentations sur d'autres machines du réseau local au lieu d'aller les chercher à leur source d'origine.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportBootstrap" xml:space="preserve">
@@ -779,7 +779,7 @@ Peut ne pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas be
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Retourne immédiatement une fois que le programme choisi a été lancé au lieu d'attendre qu'il ait fini de s'exécuter. Sous Windows, le code de sortie est l'ID du processus du programme lancé.</value>
+    <value>Retourne immédiatement au lancement du programme choisi au lieu d'attendre qu'il ait fini de s'exécuter. Sous Windows, le code de sortie est l'ID du processus du programme lancé.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">

@@ -620,7 +620,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
-    <value>インプリメンテーションを実行する際、コマンドが空にならない場合があります。</value>
+    <value>インプリメンテーションを実行する際、コマンドが空でない場合があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
@@ -846,7 +846,7 @@
   <data name="OptionWrapper" xml:space="preserve">
     <value>選択したプログラムを直接実行する代わりに、{COMMAND} PROGRAM ARGS を実行します。これは、デバッガやトレース・ツールをプログラム上で実行するのに便利です（ゼロ・インストール上ではなく！）。
 ラッパーはプログラムによって選択された環境で実行されることに注意してください。
-コマンドライン引数を含むことができます。空白文字はエスケープしなければなりません！</value>
+コマンドライン引数を含むことができます。空白文字はエスケープする必要があります！</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
@@ -882,7 +882,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>この機能を有効にするには、一度ターミナルを閉じて再度開く必要があります。</value>
+    <value>この機能を有効にするには、ターミナルを閉じて開き直す必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">

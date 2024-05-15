@@ -95,7 +95,7 @@ Vuoi considerare attendibile questa chiave per firmare i feed da '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>Non è stato possibile trovare versioni adeguate di {0} e delle sue dipendenze.</value>
+    <value>Impossibile trovare versioni adeguate di {0} e delle sue dipendenze.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">

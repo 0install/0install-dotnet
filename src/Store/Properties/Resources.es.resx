@@ -218,7 +218,7 @@ Si estás utilizando una unidad con formato FAT, conviértela a NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>No se ha especificado ningún método de compendio conocido.</value>
+    <value>No se ha especificado ningún método de resumen conocido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">

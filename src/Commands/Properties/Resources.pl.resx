@@ -616,7 +616,7 @@ Można to zrobić za pomocą "{0}". Będzie to całkowicie niezależne od kopii 
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install działa z katalogu specyficznego dla użytkownika. Musi zostać wdrożony w katalogu dostępnym dla wszystkich użytkowników, aby integracja pulpitu w całej maszynie działała.</value>
+    <value>Zero Install działa z katalogu specyficznego dla użytkownika. Musi zostać wdrożony w katalogu dostępnym dla wszystkich użytkowników, aby integracja pulpitu w całym komputerze działała.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -664,7 +664,7 @@ Można to zrobić za pomocą "{0}". Będzie to całkowicie niezależne od kopii 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Automatycznie odpowiada na pytania z domyślnymi ustawieniami, jeśli to możliwe i upraszcza wyjście konsoli (bez tabel i pasków postępu).</value>
+    <value>Automatyczne odpowiadanie na pytania z domyślnymi ustawieniami, jeśli to możliwe i uproszczenie wyjścia konsoli (bez tabel i pasków postępu).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -697,7 +697,7 @@ Ustaw puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Wyświetla skrót manifestu (domyślnie włączony, jeśli opcja --manifest nie jest ustawiona).</value>
+    <value>Wyświetla skrót manifestu (domyślnie włączone, jeśli --manifest nie jest ustawione).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
@@ -754,7 +754,7 @@ Można użyć tej opcji wielokrotnie, aby określić wiele akceptowanych język�
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Stosuje konfigurację dla całej maszyny (dla całego komputera) zamiast tylko dla bieżącego użytkownika.</value>
+    <value>Zastosowanie konfiguracji dla całej maszyny (dla całego komputera) zamiast tylko dla bieżącego użytkownika.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">

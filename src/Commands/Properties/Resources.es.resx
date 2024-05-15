@@ -294,7 +294,7 @@ El archivo debe tener una firma digital de confianza, como cuando se obtiene de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>Lista todos los feeds adicionales añadidos a URI mediante '0install add-feed'.</value>
+    <value>Lista todos los feeds adicionales añadidos al URI mediante '0install add-feed'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
@@ -358,7 +358,7 @@ Un argumento adicional especifica una ubicación de caché de destino personaliz
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Exporta una aplicación almacenada en caché como archivo (ZIP, TAR, etc.). El resultado se puede importar en otra máquina utilizando '0install store add'.</value>
+    <value>Exporta una aplicación en caché como archivo (ZIP, TAR, etc.). El resultado se puede importar en otra máquina utilizando '0install store add'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
@@ -672,7 +672,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Omite la descarga del catálogo para comprobar que es válido antes de añadirlo a la lista.</value>
+    <value>Omite la descarga del catálogo para verificar que es válido antes de añadirlo a la lista.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -745,7 +745,7 @@ Póngalo vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Especifica el idioma preferido para la aplicación. Utiliza códigos de idioma cortos ISO (por ejemplo, en o en-US).
+    <value>Especifica el idioma preferido para la aplicación. Utiliza los códigos cortos de idioma ISO (por ejemplo, en o en-US).
 Puede utilizar esta opción varias veces para especificar varios idiomas aceptables.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -831,7 +831,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
     <value>Requiere una versión del programa principal dentro del rango dado {RANGE}.
 Los rangos están separados por tubos (|).
 Cada rango tiene la forma "START...END". El rango coincide con versiones donde START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
-Se puede utilizar un único número de versión en lugar de un intervalo para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
+Se puede utilizar un único número de versión en lugar de un rango para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
