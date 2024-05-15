@@ -199,7 +199,7 @@
   </data>
   <data name="DeployedPortable" xml:space="preserve">
     <value>Zero Install 的便携版已部署到 "{0}"。
-您可以运行该目录中的 ZeroInstall.exe 文件来使用它。</value>
+运行该目录中的 ZeroInstall.exe 文件即可使用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
@@ -247,7 +247,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>搜索注册目录中与指定查询匹配的应用程序。如果没有给出查询条件，则会列出目录中的所有应用程序。</value>
+    <value>搜索已注册目录中与指定查询匹配的应用程序。如果没有给出查询条件，则会列出目录中的所有应用程序。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -575,7 +575,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>{0}' 中缺少 &lt;feed-for&gt; 元素；它不能用作其他界面的 feed。</value>
+    <value>{0} 中缺少 &lt;feed-for&gt; 元素；它不能用作其他界面的 feed。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -750,7 +750,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>将零安装作为库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
+    <value>将 Zero Install 作为库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">

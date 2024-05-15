@@ -265,7 +265,7 @@ Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con 
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Si comporta in modo simile a '0install select', tranne per il fatto che scarica anche le versioni selezionate se non sono già nella cache.
-Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; in caso contrario restituisce uno stato pari a 1.</value>
+Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; restituisce uno stato pari a 1 altrimenti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -286,7 +286,7 @@ Il file deve avere una firma digitale affidabile, come quando si preleva dalla r
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Elenca tutti gli URI di alimentazione conosciuti localmente. Se viene fornito un termine di ricerca, vengono visualizzati solo gli URI che contengono tale stringa (senza distinzione tra maiuscole e minuscole).</value>
+    <value>Elenca tutti gli URI di alimentazione conosciuti localmente. Se viene fornito un termine di ricerca, vengono mostrati solo gli URI che contengono tale stringa (senza distinzione tra maiuscole e minuscole).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -408,7 +408,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Si fida dei feed provenienti da un DOMINIO specifico quando vengono firmati con una specifica STAMPA DEL DITO.</value>
+    <value>Si fida dei feed provenienti da un DOMINIO specifico quando vengono firmati con una specifica PUNTA DEL DITO.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -680,7 +680,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Invece di eseguire il comando predefinito, utilizzare {COMMAND}. I nomi dei comandi validi sono specificati nel feed del programma.
+    <value>Invece di eseguire il comando predefinito, si può usare {COMMAND}. I nomi dei comandi validi sono specificati nel feed del programma.
 Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -721,7 +721,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
-    <value>Mostra il testo di aiuto incorporato.</value>
+    <value>Mostra il testo della guida integrata.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
@@ -733,7 +733,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">
-    <value>Aggiunge i punti di accesso standard consigliati.</value>
+    <value>Aggiungere i punti di accesso standard consigliati.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">

@@ -96,7 +96,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Configuração da instalação zero para todos os utilizadores (em toda a máquina) em vez de apenas para o utilizador atual?</value>
+    <value>Configuração da Instalação Zero para todos os utilizadores (em toda a máquina) em vez de apenas para o utilizador atual?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -104,7 +104,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>Isto irá adicionar a Instalação Zero ao menu Iniciar e à linha de comandos. Continuar?</value>
+    <value>Isto irá adicionar o Zero Install ao menu Iniciar e à linha de comandos. Continuar?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -370,7 +370,7 @@ Um argumento adicional especifica uma localização de cache de destino personal
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, apenas são listadas as implementações desse feed específico.</value>
+    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, são listadas apenas as implementações desse feed específico.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -668,7 +668,7 @@ Pode fazê-lo utilizando '{0}'. Isto será completamente independente da sua có
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Requer uma versão do programa principal anterior a {VERSION}. Ou seja, força a utilização de uma versão antiga do programa.</value>
+    <value>Requer uma versão do programa principal anterior a {VERSION}. ou seja, força a utilização de uma versão antiga do programa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -828,7 +828,7 @@ No modo off-line, as interfaces não são actualizadas, mesmo que estejam desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Requer uma versão do programa principal dentro do intervalo {RANGE}.
+    <value>Exigir uma versão do programa principal dentro do {RANGE}.
 Os intervalos são separados por tubos (|).
 Cada intervalo tem a forma "START...END". O intervalo corresponde às versões em que START &lt;= VERSION &lt; END. O início ou o fim podem ser omitidos.
 Um único número de versão pode ser usado em vez de um intervalo para corresponder apenas àquela versão, ou !VERSION para corresponder a tudo, exceto aquela versão.</value>
@@ -923,7 +923,7 @@ Execute '0install config self_update_uri default' para a ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Implementações de serviço no porto {0}</value>
+    <value>Implementações de serviço na porta {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -955,7 +955,7 @@ Execute '0install config self_update_uri default' para a ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>A ativação do suporte do Windows para caminhos longos pode resolver este problema.</value>
+    <value>A ativação do suporte do Windows para Caminhos Longos pode resolver este problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

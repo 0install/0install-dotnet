@@ -100,7 +100,7 @@ Puteți utiliza scriptul de import sau executabilul Bootstrap din '{1}' pentru a
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
-    <value>Sunteți sigur că doriți să implementați o nouă copie a programului Zero Install la '{0}'?</value>
+    <value>Sunteți sigur că doriți să implementați o nouă copie a programului Zero Install pe '{0}'?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
@@ -412,7 +412,7 @@ Argumentele suplimentare specifică locațiile personalizate ale cache-ului.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Lista cheilor de încredere pentru semnarea fluxurilor. Listează numai domeniile pentru care este de încredere un anumit FINGERPRINT, dacă este specificat.</value>
+    <value>Lista cheilor de încredere pentru semnarea fluxurilor. Listează numai domeniile pentru care este de încredere o anumită FINGERPRINT, dacă este specificat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -542,7 +542,7 @@ O etichetă &lt;feed-for&gt; indică compatibilitatea feed-ului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
-    <value>Vă rugăm să utilizați versiunea GUI a Zero Install sau să specificați opțiuni de integrare explicite utilizând argumente de linie de comandă.</value>
+    <value>Vă rugăm să folosiți versiunea GUI a Zero Install sau să specificați opțiuni de integrare explicite folosind argumente în linia de comandă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
@@ -607,7 +607,7 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii licen
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install trebuie să fie implementat pe sistemul dvs. pentru ca integrarea pe desktop să funcționeze.</value>
+    <value>Zero Install trebuie să fie implementat pe sistemul dumneavoastră pentru ca integrarea pe desktop să funcționeze.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -754,7 +754,7 @@ Puteți utiliza această opțiune de mai multe ori pentru a specifica mai multe 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Aplică configurația la nivelul întregii mașini (pentru întregul computer) în loc să o aplice doar pentru utilizatorul curent.</value>
+    <value>Aplică configurația la nivelul întregii mașini (pentru întregul calculator) în loc să o aplice doar pentru utilizatorul curent.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
@@ -870,7 +870,7 @@ Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie sc
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>Doriți să eliminați din listă intrările selectate {0}?</value>
+    <value>Doriți să eliminați din listă intrările selectate de pe {0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
