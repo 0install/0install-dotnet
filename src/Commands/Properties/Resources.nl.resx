@@ -704,10 +704,6 @@ Stel in op leeg ("") om de opdracht tijdens de selectie te negeren.</value>
     <value>Probeert implementaties te ontdekken op andere machines in het lokale netwerk in plaats van ze op te halen bij de oorspronkelijke bron.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Kies het type Bootstrapper om naast de export te plaatsen.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Neem Zero Install zelf op in de export naast de applicatie.</value>
     <comment>Automatically translated.</comment>

@@ -704,10 +704,6 @@
     <value>Пытается обнаружить реализации на других машинах в локальной сети вместо того, чтобы получать их из первоисточника.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Выберите тип Bootstrapper для размещения рядом с экспортом.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Включите саму программу Zero Install в экспорт вместе с приложением.</value>
     <comment>Automatically translated.</comment>

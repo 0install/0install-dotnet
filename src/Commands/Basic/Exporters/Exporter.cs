@@ -1,9 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Web;
 using NanoByte.Common.Native;
-using NanoByte.Common.Net;
 using NanoByte.Common.Streams;
 using ZeroInstall.Archives.Builders;
 using ZeroInstall.Model.Selection;
@@ -127,7 +125,7 @@ public class Exporter
     }
 
     /// <summary>
-    /// Deploys a bootstrap file for importing exported feeds and implementations.
+    /// Deploys a script for importing exported feeds and implementations.
     /// </summary>
     /// <exception cref="IOException">A problem occurred while writing the script.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the script is not permitted.</exception>
@@ -137,39 +135,6 @@ public class Exporter
         string target = Path.Combine(_destination, fileName);
 
         typeof(Exporter).CopyEmbeddedToFile(fileName, target);
-        if (UnixUtils.IsUnix)
-            UnixUtils.SetExecutable(target, executable: true);
-    }
-
-    /// <summary>
-    /// Deploys a bootstrap file for importing exported feeds and implementations.
-    /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-    /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-    /// <exception cref="IOException">A problem occurred while writing the bootstrapper.</exception>
-    /// <exception cref="UnauthorizedAccessException">Write access to the bootstrapper is not permitted.</exception>
-    /// <exception cref="WebException">A problem occurred while downloading the bootstrapper.</exception>
-    public void DeployBootstrapRun(ITaskHandler handler)
-        => DeployBootstrap(handler ?? throw new ArgumentNullException(nameof(handler)), mode: "run");
-
-    /// <summary>
-    /// Deploys a bootstrap file for importing exported feeds and implementations.
-    /// </summary>
-    /// <param name="handler">A callback object used when the the user needs to be asked questions or informed about download and IO tasks.</param>
-    public void DeployBootstrapIntegrate(ITaskHandler handler)
-        => DeployBootstrap(handler ?? throw new ArgumentNullException(nameof(handler)), mode: "integrate");
-
-    private void DeployBootstrap(ITaskHandler handler, string mode)
-    {
-        string appName = _selections.Name ?? "App";
-        string fileName = (_architecture.OS == OS.Windows)
-            ? $"{mode} {appName}.exe"
-            : $"{mode}-{appName.ToLowerInvariant().Replace(" ", "-")}.sh";
-
-        var source = new Uri($"https://get.0install.net/bootstrap/?platform={(_architecture.OS == OS.Windows ? "windows" : "linux")}&mode={mode}&name={HttpUtility.UrlEncode(appName)}&uri={HttpUtility.UrlEncode(_selections.InterfaceUri.ToStringRfc())}");
-        string target = Path.Combine(_destination, fileName);
-
-        handler.RunTask(new DownloadFile(source, target));
         if (UnixUtils.IsUnix)
             UnixUtils.SetExecutable(target, executable: true);
     }

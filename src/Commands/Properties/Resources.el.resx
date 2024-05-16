@@ -703,10 +703,6 @@
     <value>Προσπαθεί να ανακαλύψει υλοποιήσεις σε άλλα μηχανήματα στο τοπικό δίκτυο αντί να τις αντλεί από την αρχική τους πηγή.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Επιλέξτε τον τύπο του Bootstrapper που θα τοποθετήσετε παράλληλα με την εξαγωγή.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Συμπεριλάβετε το ίδιο το Zero Install στην εξαγωγή μαζί με την εφαρμογή.</value>
     <comment>Automatically translated.</comment>

@@ -704,10 +704,6 @@ Nastavením na prázdnou hodnotu ("") příkaz při výběru ignorujete.</value>
     <value>Pokusí se objevit implementace na jiných počítačích v místní síti namísto jejich stahování z původního zdroje.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Vyberte typ nástroje Bootstrapper, který chcete umístit vedle exportu.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Zahrňte samotnou aplikaci Zero Install do exportu spolu s aplikací.</value>
     <comment>Automatically translated.</comment>

@@ -233,6 +233,9 @@ You can use it by running the ZeroInstall.exe file in the directory.</value>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
     <value>The specified target directory ({0}) is located outside your home directory.</value>
   </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>Deprecated option. Please use '{0}' instead.</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
@@ -606,9 +609,6 @@ Set to empty ("") to ignore the command during selection.</value>
   </data>
   <data name="OptionDigest" xml:space="preserve">
     <value>Display the manifest's digest (enabled by default if --manifest is not set).</value>
-  </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Choose the type of Bootstrapper to place alongside the export.</value>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Include Zero Install itself in the export alongside the application.</value>

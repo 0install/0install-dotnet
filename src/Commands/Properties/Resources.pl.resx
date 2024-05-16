@@ -704,10 +704,6 @@ Ustaw puste (""), aby zignorować polecenie podczas wyboru.</value>
     <value>Próbuje wykryć implementacje na innych maszynach w sieci lokalnej zamiast pobierać je z ich oryginalnego źródła.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Wybierz typ Bootstrappera do umieszczenia obok eksportu.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Dołącz Zero Install do eksportu wraz z aplikacją.</value>
     <comment>Automatically translated.</comment>

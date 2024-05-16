@@ -704,10 +704,6 @@ Atur ke kosong ("") untuk mengabaikan perintah selama pemilihan.</value>
     <value>Mencoba menemukan implementasi pada mesin lain di jaringan lokal alih-alih mengambilnya dari sumber aslinya.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Pilih jenis Bootstrapper untuk ditempatkan bersama ekspor.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Menyertakan Zero Install itu sendiri dalam ekspor bersama aplikasi.</value>
     <comment>Automatically translated.</comment>

@@ -704,10 +704,6 @@
     <value>元のソースから取得する代わりに、ローカルネットワーク内の他のマシン上の実装を検出しようとします。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>ブートストラッパーの種類を選択して、エクスポートと一緒に配置します。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>アプリケーションと一緒に Zero Install 自体をエクスポートに含めます。</value>
     <comment>Automatically translated.</comment>

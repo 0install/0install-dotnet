@@ -704,10 +704,6 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <value>Essaie de découvrir des implémentations sur d'autres machines du réseau local au lieu d'aller les chercher à leur source d'origine.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Choisissez le type de Bootstrapper à placer à côté de l'exportation.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Inclure Zero Install lui-même dans l'exportation avec l'application.</value>
     <comment>Automatically translated.</comment>

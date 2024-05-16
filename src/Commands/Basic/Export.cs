@@ -4,7 +4,6 @@
 using ZeroInstall.Commands.Basic.Exporters;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Services;
-using ZeroInstall.Store;
 using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Commands.Basic;
@@ -26,7 +25,6 @@ public sealed class Export : Download
 
     private bool _noImplementations;
     private bool _includeZeroInstall;
-    private BootstrapMode _bootstrapType;
 
     /// <summary>
     /// Creates a new export command.
@@ -37,8 +35,12 @@ public sealed class Export : Download
     {
         Options.Add("no-implementations", () => Resources.OptionExportNoImplementations, _ => _noImplementations = true);
         Options.Add("include-zero-install", () => Resources.OptionExportIncludeZeroInstall, _ => _includeZeroInstall = true);
-        if (Config.SelfUpdateUri == new FeedUri(Config.DefaultSelfUpdateUri))
-            Options.Add("bootstrap=", () => Resources.OptionExportBootstrap + Environment.NewLine + SupportedValues<BootstrapMode>(), (BootstrapMode x) => _bootstrapType = x);
+
+        Options.Add("bootstrap=", () => string.Format(Resources.DeprecatedOption, "0install run https://apps.0install.net/0install/0bootstrap.xml"), mode =>
+        {
+            if (!StringUtils.EqualsIgnoreCase(mode, "none"))
+                throw new OptionException(string.Format(Resources.DeprecatedOption, "0install run https://apps.0install.net/0install/0bootstrap.xml"), "bootstrap");
+        });
     }
 
     private string? _outputPath;
@@ -84,15 +86,6 @@ public sealed class Export : Download
         }
 
         exporter.DeployImportScript();
-        switch (_bootstrapType)
-        {
-            case BootstrapMode.Run:
-                exporter.DeployBootstrapRun(Handler);
-                break;
-            case BootstrapMode.Integrate:
-                exporter.DeployBootstrapIntegrate(Handler);
-                break;
-        }
 
         BackgroundSelfUpdate();
 

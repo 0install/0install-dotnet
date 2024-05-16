@@ -704,10 +704,6 @@ Auf leer ("") setzen, um den Command bei der Auswahl zu ignorieren.</value>
     <value>Versuche Implementierungen auf anderen Rechnern im lokalen Netzwerk zu finden, anstatt sie von ihrer ursprünglichen Quelle zu laden.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Wählt den Typ des Bootstrappers, der neben dem Export platziert werden soll.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Fügt dem Export zusätzlich zur Anwendung Zero Install selbst hinzu.</value>
     <comment>Manually overriden.</comment>

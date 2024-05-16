@@ -704,10 +704,6 @@
     <value>원본 소스에서 가져오는 대신 로컬 네트워크의 다른 컴퓨터에서 구현을 찾아보세요.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>내보내기와 함께 배치할 부트스트랩퍼 유형을 선택합니다.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>제로 인스톨 자체를 애플리케이션과 함께 내보내기에 포함하세요.</value>
     <comment>Automatically translated.</comment>

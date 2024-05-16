@@ -704,10 +704,6 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <value>Cerca di scoprire le implementazioni su altri computer della rete locale invece di recuperarle dalla fonte originale.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Scegliete il tipo di Bootstrapper da affiancare all'esportazione.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Includere Zero Install stesso nell'esportazione insieme all'applicazione.</value>
     <comment>Automatically translated.</comment>

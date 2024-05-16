@@ -704,10 +704,6 @@ Setați la gol (""") pentru a ignora comanda în timpul selecției.</value>
     <value>Încearcă să descopere implementări pe alte mașini din rețeaua locală în loc să le aducă de la sursa originală.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Alegeți tipul de Bootstrapper pentru a-l plasa alături de export.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Include Zero Install însuși în export alături de aplicație.</value>
     <comment>Automatically translated.</comment>

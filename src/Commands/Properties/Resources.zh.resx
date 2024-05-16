@@ -704,10 +704,6 @@
     <value>尝试发现本地网络中其他机器上的实现，而不是从原始来源获取。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>选择与导出程序一起放置的 Bootstrapper 类型。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>将零安装本身与应用程序一起导出。</value>
     <comment>Automatically translated.</comment>

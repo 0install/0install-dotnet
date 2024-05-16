@@ -704,10 +704,6 @@ Seçim sırasında komut kullanılmaması için boş ("") bırakın.</value>
     <value>Uygulamaları özgün kaynaklarından indirmek yerine yerel ağdaki diğer bilgisayarlarda bulmaya çalışın.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="OptionExportBootstrap" xml:space="preserve">
-    <value>Dışa aktarılan dosyalara eklenecek Ön yükleyici türünü seçin.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
     <value>Dışa aktarılırken uygulamanın yanına Zero Install uygulaması da eklensin.</value>
     <comment>Manually overriden.</comment>
