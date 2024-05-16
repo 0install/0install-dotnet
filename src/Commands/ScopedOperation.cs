@@ -88,19 +88,9 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
     /// <exception cref="WebException"><see cref="Config.KioskMode"/> is <c>true</c> and the <paramref name="uri"/> is not the the <see cref="Catalog"/>.</exception>
     protected void EnsureAllowed(FeedUri uri)
     {
-        if (Config.KioskMode && uri != Config.SelfUpdateUri && !GetCatalog().ContainsFeed(uri))
+        if (Config.KioskMode && uri != Config.SelfUpdateUri && !(CatalogManager.GetCached() ?? CatalogManager.GetOnlineSafe()).ContainsFeed(uri))
             throw new WebException(string.Format(Resources.KioskModeNotInCatalog, uri));
     }
-
-    /// <summary>
-    /// Returns a merged view of all <see cref="Catalog"/>s specified by the configuration files.
-    /// </summary>
-    /// <remarks>Handles caching based on <see cref="FeedManager.Refresh"/> flag.</remarks>
-    /// <exception cref="WebException">Attempted to download catalog and failed.</exception>
-    [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Performs network IO")]
-    protected Catalog GetCatalog()
-        => (FeedManager.Refresh ? null : CatalogManager.GetCached())
-        ?? CatalogManager.GetOnlineSafe();
 
     /// <summary>
     /// Uses <see cref="Catalog.FindByShortName"/> to find a <see cref="Feed"/> matching a specific short name.
