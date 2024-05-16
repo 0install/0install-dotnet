@@ -16,14 +16,16 @@ public class AddAppTest : CliCommandTestBase<AddApp>
     public AddAppTest()
         => GetMock<IFeedCache>().Setup(x => x.GetFeed(Fake.Feed1Uri)).Returns(Fake.Feed);
 
-    private void MockCatalog(Catalog catalog)
-        => GetMock<ICatalogManager>().Setup(x => x.GetCached()).Returns(catalog);
+    private Mock<ICatalogManager> CatalogManagerMock => GetMock<ICatalogManager>();
 
     [Fact]
     public void WithoutAlias()
     {
         if (WindowsUtils.IsWindows)
-            MockCatalog(new());
+        {
+            Catalog catalog = new();
+            CatalogManagerMock.Setup(x => x.GetCached()).Returns(catalog);
+        }
 
         RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
     }
@@ -32,7 +34,8 @@ public class AddAppTest : CliCommandTestBase<AddApp>
     public void KioskModeOK()
     {
         Sut.Config.KioskMode = true;
-        MockCatalog(new() {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
+        Catalog catalog = new() {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}};
+        CatalogManagerMock.Setup(x => x.GetCached()).Returns(catalog);
 
         RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
     }
@@ -41,7 +44,9 @@ public class AddAppTest : CliCommandTestBase<AddApp>
     public void KioskModeReject()
     {
         Sut.Config.KioskMode = true;
-        MockCatalog(new());
+        Catalog catalog = new();
+        CatalogManagerMock.Setup(x => x.GetCached()).Returns(catalog);
+        CatalogManagerMock.Setup(x => x.GetOnline()).Returns(catalog);
 
         Sut.Parse(new[] {Fake.Feed1Uri.ToStringRfc()});
         Assert.Throws<WebException>(() => Sut.Execute());

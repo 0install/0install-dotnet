@@ -85,11 +85,15 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
     /// <summary>
     /// Ensures that the current config does not prohibit the use of the specified feed URI.
     /// </summary>
-    /// <exception cref="WebException"><see cref="Config.KioskMode"/> is <c>true</c> and the <paramref name="uri"/> is not the the <see cref="Catalog"/>.</exception>
+    /// <exception cref="WebException"><see cref="Config.KioskMode"/> is <c>true</c> and the <paramref name="uri"/> is not the <see cref="Catalog"/>.</exception>
     protected void EnsureAllowed(FeedUri uri)
     {
-        if (Config.KioskMode && uri != Config.SelfUpdateUri && !(CatalogManager.GetCached() ?? CatalogManager.GetOnlineSafe()).ContainsFeed(uri))
-            throw new WebException(string.Format(Resources.KioskModeNotInCatalog, uri));
+        if (!Config.KioskMode) return;
+        if (uri == Config.SelfUpdateUri) return;
+        if (CatalogManager.GetCached() is {} catalog && catalog.ContainsFeed(uri)) return;
+        if (CatalogManager.GetOnlineSafe().ContainsFeed(uri)) return;
+
+        throw new WebException(string.Format(Resources.KioskModeNotInCatalog, uri));
     }
 
     /// <summary>

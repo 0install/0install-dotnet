@@ -160,6 +160,7 @@ public class RunTest : SelectionTestBase<Run>
     {
         Sut.Config.KioskMode = true;
         CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog());
+        CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog());
 
         Assert.Throws<WebException>(() => Sut.Parse(new[] {"http://example.com/test1.xml"}));
     }
