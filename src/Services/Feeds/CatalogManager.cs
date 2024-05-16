@@ -25,7 +25,7 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
     private const string AppName = "0install.net";
     private static readonly string[] _resource = ["catalog-sources"];
 
-    private readonly string _cacheFilePath = Path.Combine(Locations.GetCacheDirPath(AppName, machineWide: false), "catalog.xml");
+    private static string _cacheFilePath => Path.Combine(Locations.GetCacheDirPath(AppName, machineWide: false), "catalog.xml");
 
     /// <inheritdoc/>
     [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "File system access")]
@@ -205,5 +205,17 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
                 configFile.WriteLine(uri.ToStringRfc());
         }
         atomic.Commit();
+
+        // Clear cache based on old sources
+        try
+        {
+            File.Delete(_cacheFilePath);
+        }
+        #region Error handling
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            Log.Info($"Failed to delete {_cacheFilePath} after modifying catalog sources", ex);
+        }
+        #endregion
     }
 }
