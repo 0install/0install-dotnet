@@ -96,7 +96,7 @@ Anda dapat menggunakan skrip impor atau Bootstrap yang dapat dieksekusi di '{1}'
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Mengatur Penginstalan Nol untuk semua pengguna (seluruh mesin), bukan hanya pengguna saat ini?</value>
+    <value>Mengatur Penginstalan Nol untuk semua pengguna (di seluruh mesin), bukan hanya pengguna saat ini?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -208,6 +208,10 @@ Anda dapat menggunakannya dengan menjalankan file ZeroInstall.exe di direktori t
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
     <value>Direktori target yang ditentukan ({0}) terletak di luar direktori rumah Anda.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>Opsi yang tidak digunakan lagi. Silakan gunakan '{0}' sebagai gantinya.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -746,7 +750,7 @@ Anda dapat menggunakan opsi ini beberapa kali untuk menentukan beberapa bahasa y
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Menyebarkan Zero Install sebagai perpustakaan untuk digunakan oleh aplikasi lain tanpa integrasi desktopnya sendiri.</value>
+    <value>Menyebarkan Zero Install sebagai pustaka untuk digunakan oleh aplikasi lain tanpa integrasi desktopnya sendiri.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -825,7 +829,7 @@ Dalam mode off-line, tidak ada antarmuka yang di-refresh meskipun sudah ketingga
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Memerlukan versi program utama dalam {RANGE} yang diberikan.
-Rentang dipisahkan oleh pipa (|).
+Rentang dipisahkan dengan pipa (|).
 Setiap rentang berbentuk "MULAI ... AKHIR". Rentang ini cocok dengan versi di mana MULAI &lt;= VERSI &lt; AKHIR. Bagian awal atau akhir dapat dihilangkan.
 Satu nomor versi dapat digunakan sebagai pengganti rentang untuk mencocokkan hanya versi tersebut, atau !VERSI untuk mencocokkan semuanya kecuali versi tersebut.</value>
     <comment>Automatically translated.</comment>

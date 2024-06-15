@@ -210,6 +210,10 @@ Başlatmak için klasördeki ZeroInstall.exe dosyasını çalıştırın.</value
     <value>Belirtilen hedef klasörü ({0}) ana klasörünüzün dışında.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>Bu seçenek kullanımdan kaldırıldı. Yerine '{0}' kullanın.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Açıklama</value>
     <comment>Manually overriden.</comment>

@@ -91,7 +91,7 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Rularea unui rezolvator extern</value>
+    <value>Rularea rezolvatorului extern</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
@@ -123,7 +123,7 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Lipsește atributul uri &lt;interface&gt;. Ar trebui să fie '{0}'.</value>
+    <value>Lipsește atributul uri &lt;interface&gt;. Ar trebui să fie "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -174,7 +174,7 @@ Ora nouă: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Imposibilitatea de a stoca în memoria cache catalogul de aplicații descărcate.</value>
+    <value>Nu poate stoca în memoria cache catalogul de aplicații descărcate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">

@@ -210,6 +210,10 @@ Rimuovere una casella di controllo per rimuovere lo stato predefinito di una fun
     <value>La directory di destinazione specificata ({0}) si trova al di fuori della propria home directory.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>Opzione deprecata. Utilizzare invece '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Descrizione</value>
     <comment>Automatically translated.</comment>
@@ -408,7 +412,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Si fida dei feed provenienti da un DOMINIO specifico quando vengono firmati con una specifica PUNTA DEL DITO.</value>
+    <value>Si fida dei feed provenienti da un DOMINIO specifico quando vengono firmati con una specifica STAMPA DEL DITO.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -611,7 +615,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install funziona in modalità portatile. Deve essere distribuito in una posizione permanente perché l'integrazione con il desktop funzioni.
+    <value>Zero Install funziona in modalità portatile. Per far funzionare l'integrazione con il desktop, deve essere distribuito in una posizione permanente.
 È possibile farlo utilizzando '{0}'. Questo sarà completamente indipendente dalla copia portatile.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -701,7 +705,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Cerca di scoprire le implementazioni su altri computer della rete locale invece di recuperarle dalla fonte originale.</value>
+    <value>Cerca di scoprire le implementazioni su altre macchine della rete locale invece di recuperarle dalla fonte originale.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
@@ -729,7 +733,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">
-    <value>Aggiungere i punti di accesso standard consigliati.</value>
+    <value>Aggiunge i punti di accesso standard consigliati.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
@@ -947,7 +951,7 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
-    <value>Controllo del negozio</value>
+    <value>Verifica del negozio</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">

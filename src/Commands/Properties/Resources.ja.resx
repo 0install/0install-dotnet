@@ -210,6 +210,10 @@
     <value>指定されたターゲットディレクトリ({0})はホームディレクトリの外にあります。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>非推奨オプションです。代わりに '{0}' を使用してください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>説明</value>
     <comment>Automatically translated.</comment>
@@ -842,7 +846,7 @@
   <data name="OptionWrapper" xml:space="preserve">
     <value>選択したプログラムを直接実行する代わりに、{COMMAND} PROGRAM ARGS を実行します。これは、デバッガやトレース・ツールをプログラム上で実行するのに便利です（ゼロ・インストール上ではなく！）。
 ラッパーはプログラムによって選択された環境で実行されることに注意してください。
-コマンドライン引数を含むことができます。空白文字はエスケープする必要があります！</value>
+コマンドライン引数を含むことができます。空白文字はエスケープしなければなりません！</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">

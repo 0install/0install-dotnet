@@ -210,6 +210,10 @@ Vous pouvez l'utiliser en exécutant le fichier ZeroInstall.exe qui se trouve da
     <value>Le répertoire cible spécifié ({0}) est situé en dehors de votre répertoire personnel.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>Option obsolète. Veuillez utiliser '{0}' à la place.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
     <comment>Manually overriden.</comment>
@@ -701,7 +705,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Essaie de découvrir des implémentations sur d'autres machines du réseau local au lieu d'aller les chercher à leur source d'origine.</value>
+    <value>Essaie de découvrir des implémentations sur d'autres machines du réseau local au lieu de les récupérer à partir de leur source d'origine.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">

@@ -175,7 +175,7 @@ Deze bestanden kunnen indien nodig opnieuw worden gedownload.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>Wil je alle applicaties verwijderen uit de lijst 'Mijn applicaties'? Dit voorkomt achtergebleven menu-items na het verwijderen van Zero Install.
+    <value>Wil je alle applicaties verwijderen uit de lijst 'Mijn applicaties'? Dit voorkomt achterblijvende menu-items na het verwijderen van Zero Install.
 Je kunt een back-up van deze lijst maken door '0install sync' te gebruiken.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -208,6 +208,10 @@ Je kunt het gebruiken door het ZeroInstall.exe bestand in de directory uit te vo
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
     <value>De opgegeven doelmap ({0}) bevindt zich buiten je thuismap.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>Verouderde optie. Gebruik in plaats daarvan '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -251,7 +255,7 @@ Je kunt het gebruiken door het ZeroInstall.exe bestand in de directory uit te vo
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>Opent de centrale grafische gebruikersinterface voor het starten en beheren van applicaties.</value>
+    <value>Opent de centrale grafische gebruikersinterface voor het starten en beheren van toepassingen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
@@ -349,7 +353,7 @@ Geeft een exit-status van 0 als het een set versies heeft geselecteerd en een st
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
     <value>Controleert of alle implementaties in de cache onbeschadigd zijn.
-Extra argumenten specificeren aangepaste cache-locaties.</value>
+Extra argumenten specificeren aangepaste cache locaties.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
@@ -420,7 +424,7 @@ Extra argumenten specificeren aangepaste cache locaties.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Controleert of er updates voor het programma zijn en downloadt ze als ze worden gevonden.
+    <value>Controleert op updates voor het programma en downloadt ze als ze gevonden worden.
 Dit is vergelijkbaar met '0install download --refresh', behalve dat het informatie afdrukt over of er wijzigingen zijn gevonden.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -680,7 +684,7 @@ Je kunt dit doen met behulp van '{0}'. Dit zal volledig onafhankelijk zijn van j
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Gebruik in plaats van het standaardcommando {COMMAND}. Geldige opdrachtnamen worden gespecificeerd in de invoer van het programma.
+    <value>Gebruik in plaats van het standaardcommando {COMMAND}. Geldige opdrachtnamen worden gespecificeerd in de feed van het programma.
 Stel in op leeg ("") om de opdracht tijdens de selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>

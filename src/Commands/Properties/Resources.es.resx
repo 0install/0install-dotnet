@@ -96,7 +96,7 @@ Puedes utilizar el script de importación o el ejecutable de Bootstrap en «{1}�
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Instalación cero para todos los usuarios (en toda la máquina) en lugar de sólo para el usuario actual</value>
+    <value>Instalación Cero para todos los usuarios (en toda la máquina) en lugar de sólo para el usuario actual</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -208,6 +208,10 @@ Puede utilizarla ejecutando el archivo ZeroInstall.exe del directorio.</value>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
     <value>El directorio de destino especificado ({0}) se encuentra fuera de su directorio personal.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>Opción obsoleta. Utilice '{0}' en su lugar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -624,7 +628,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Sólo puede actualizarse con URIs de fuentes, no con documentos de selecciones.</value>
+    <value>Sólo puede actualizarse con URI de fuentes, no con documentos de selecciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -741,7 +745,7 @@ Póngalo vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Especifica el idioma preferido para la aplicación. Utiliza los códigos cortos de idioma ISO (por ejemplo, en o en-US).
+    <value>Especifica el idioma preferido para la aplicación. Utiliza códigos de idioma cortos ISO (por ejemplo, en o en-US).
 Puede utilizar esta opción varias veces para especificar varios idiomas aceptables.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -775,7 +779,7 @@ No puede contener argumentos de línea de comandos Los espacios en blanco no nec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Vuelve inmediatamente una vez lanzado el programa elegido en lugar de esperar a que termine de ejecutarse. En Windows, el código de salida es el ID del proceso del programa iniciado.</value>
+    <value>Vuelve inmediatamente una vez lanzado el programa elegido en lugar de esperar a que termine de ejecutarse. En Windows, el código de salida es el ID de proceso del programa iniciado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -796,7 +800,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Reinicia la GUI '0install central' tras la actualización.</value>
+    <value>Reinicia la GUI '0install central' después de la actualización.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">
@@ -825,7 +829,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Requiere una versión del programa principal dentro del rango dado {RANGE}.
-Los rangos están separados por tubos (|).
+Los rangos están separados por tuberías (|).
 Cada rango tiene la forma "START...END". El rango coincide con versiones donde START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
 Se puede utilizar un único número de versión en lugar de un rango para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
     <comment>Automatically translated.</comment>
@@ -878,7 +882,7 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Es posible que tenga que cerrar y volver a abrir el terminal para que esto se haga efectivo.</value>
+    <value>Es posible que tengas que cerrar y volver a abrir el terminal para que esto se haga efectivo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
