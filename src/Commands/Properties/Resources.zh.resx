@@ -210,6 +210,10 @@
     <value>指定的目标目录 ({0}) 位于你的主目录之外。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>已废弃的选项。请使用 "{0}"代替。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>说明</value>
     <comment>Automatically translated.</comment>
@@ -247,7 +251,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>搜索已注册目录中与指定查询匹配的应用程序。如果没有给出查询条件，则会列出目录中的所有应用程序。</value>
+    <value>搜索注册目录中与指定查询匹配的应用程序。如果没有给出查询条件，则会列出目录中的所有应用程序。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -746,7 +750,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>将 Zero Install 作为库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
+    <value>将零安装作为库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">

@@ -210,6 +210,10 @@
     <value>Ο καθορισμένος κατάλογος-στόχος ({0}) βρίσκεται εκτός του αρχικού σας καταλόγου.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>Επιλογή που έχει καταργηθεί. Παρακαλούμε χρησιμοποιήστε το '{0}'.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Περιγραφή</value>
     <comment>Manually overriden.</comment>
@@ -343,7 +347,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
-    <value>Προσθέτει έναν κατάλογο στη λίστα με τις προσωρινές μνήμες προσαρμοσμένων εφαρμογών.</value>
+    <value>Προσθέτει έναν κατάλογο στη λίστα με τις προσωρινές μνήμες προσαρμοσμένης εφαρμογής.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
@@ -415,7 +419,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Σταματά την εμπιστοσύνη στις τροφοδοσίες που υπογράφονται με ένα συγκεκριμένο FINGERPRINT. Σταματάει την εμπιστοσύνη μόνο για ένα συγκεκριμένο DOMAIN, εάν έχει καθοριστεί.</value>
+    <value>Σταματά την εμπιστοσύνη στις τροφοδοσίες που υπογράφονται με ένα συγκεκριμένο FINGERPRINT. Σταματά την εμπιστοσύνη μόνο για ένα συγκεκριμένο DOMAIN, εάν έχει καθοριστεί.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">

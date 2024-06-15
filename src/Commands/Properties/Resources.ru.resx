@@ -199,7 +199,7 @@
   </data>
   <data name="DeployedPortable" xml:space="preserve">
     <value>Портативная версия Zero Install была развернута на '{0}'.
-Вы можете использовать ее, запустив файл ZeroInstall.exe в директории.</value>
+Вы можете использовать ее, запустив файл ZeroInstall.exe в каталоге.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
@@ -208,6 +208,10 @@
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
     <value>Указанный целевой каталог ({0}) находится вне вашего домашнего каталога.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>Устаревшая опция. Вместо нее используйте '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -274,7 +278,7 @@
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>Импортирует фид из локального файла, как если бы он был загружен из сети. Это удобно при тестировании файла фида, чтобы не загружать его на удаленный сервер для повторной загрузки.
-Файл должен иметь доверенную цифровую подпись, как при загрузке из сети.</value>
+Файл должен иметь доверенную цифровую подпись, как и при загрузке из сети.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
@@ -400,7 +404,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>Проверяет, не была ли повреждена реализация (т. е. не изменился ли манифестный дайджест).</value>
+    <value>Проверяет, не повреждена ли реализация (т. е. не изменился ли манифестный дайджест).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -530,7 +534,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>Интегрировать {0}</value>
+    <value>Интеграция {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">

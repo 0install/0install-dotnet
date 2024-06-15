@@ -112,7 +112,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
-    <value>지금 사용해 보시겠습니까?</value>
+    <value>지금 사용해 보시겠어요?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
@@ -199,7 +199,7 @@
   </data>
   <data name="DeployedPortable" xml:space="preserve">
     <value>제로 인스톨의 휴대용 버전이 '{0}'에 배포되었습니다.
-해당 디렉토리에서 제로인스톨.exe 파일을 실행하여 사용할 수 있습니다.</value>
+해당 디렉터리에서 제로인스톨.exe 파일을 실행하여 사용할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
@@ -208,6 +208,10 @@
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
     <value>지정된 대상 디렉토리({0})는 홈 디렉토리 외부에 있습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>더 이상 사용되지 않는 옵션입니다. 대신 '{0}' 을 사용하세요.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -681,7 +685,7 @@
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>기본 명령을 실행하는 대신 {COMMAND} 을 사용하세요. 유효한 명령 이름은 프로그램 피드에 지정되어 있습니다.
-선택 중에 명령을 무시하려면 빈("")으로 설정합니다.</value>
+선택 중 명령을 무시하려면 빈("")으로 설정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -697,7 +701,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>매니페스트 다이제스트 표시(--manifest를 설정하지 않은 경우 기본적으로 활성화됨).</value>
+    <value>매니페스트의 다이제스트를 표시합니다(--manifest가 설정되지 않은 경우 기본적으로 활성화됨).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
@@ -780,7 +784,7 @@
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>기본 설정을 재정의하여 오프라인 모드로 실행합니다.
-오프라인 모드에서는 인터페이스가 오래되었더라도 새로 고쳐지지 않으며, 인젝터가 이미 알고 있는 최신 버전의 프로그램(예: 이전 새로 고침에서)이라도 다운로드되지 않습니다.</value>
+오프라인 모드에서는 인터페이스가 오래된 경우에도 새로 고쳐지지 않으며, 인젝터가 이미 알고 있는 최신 버전의 프로그램(예: 이전 새로 고침에서)이라도 다운로드되지 않습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
