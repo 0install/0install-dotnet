@@ -21,33 +21,29 @@ public partial class GnuPG(string homeDir) : IOpenPgp
         if (signature == null) throw new ArgumentNullException(nameof(signature));
         #endregion
 
-        string result;
-        using (var signatureFile = new TemporaryFile("0install-sig"))
-        {
-            File.WriteAllBytes(signatureFile, signature);
-            result = _gpg.RunAndCapture(data, "--status-fd", "1", "--verify", signatureFile.Path, "-");
-        }
-        var lines = result.SplitMultilineText();
+        string output = VerifyInner(data, signature);
 
-        // Each signature is represented by one line of encoded information
-        var signatures = new List<OpenPgpSignature>(lines.Length);
-        foreach (string line in lines)
+        try
         {
-            try
-            {
-                if (ParseSignatureLine(line) is {} parsedSignature)
-                    signatures.Add(parsedSignature);
-            }
-            #region Error handling
-            catch (FormatException ex)
-            {
-                // Wrap exception since only certain exception types are allowed
-                throw new IOException(ex.Message, ex);
-            }
-            #endregion
+            return output.SplitMultilineText()
+                         .Select(ParseSignatureLine)
+                         .WhereNotNull()
+                         .ToList();
         }
+        #region Error handling
+        catch (FormatException ex)
+        {
+            // Wrap exception since only certain exception types are allowed
+            throw new IOException(ex.Message, ex);
+        }
+        #endregion
+    }
 
-        return signatures;
+    private string VerifyInner(ArraySegment<byte> data, byte[] signature)
+    {
+        using var signatureFile = new TemporaryFile("0install-sig");
+        File.WriteAllBytes(signatureFile, signature);
+        return _gpg.RunAndCapture(data, "--status-fd", "1", "--verify", signatureFile.Path, "-");
     }
 
     /// <summary>
