@@ -72,7 +72,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Descărcare '{0}' utilizând Zero Install</value>
+    <value>Descărcarea '{0}' utilizând Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -88,11 +88,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Au fost detectate mai multe programe noi implicite în registru. Le gestionează pe toate, dar ultimul poate avea prioritate în unele cazuri.</value>
+    <value>Mai multe programe implicite noi au fost detectate în registru. Gestionați-le pe toate, dar ultimul poate avea prioritate în unele cazuri.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Au fost detectate mai multe directoare de instalare. Alegerea primului în mod implicit.</value>
+    <value>Au fost detectate directoare de instalare multiple. Alege prima în mod implicit.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
@@ -101,19 +101,19 @@
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Nu a fost detectat niciun director de instalare.
-Încercați să îl specificați manual.</value>
+Încercați să-l specificați manual.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>În prezent, această metodă este disponibilă numai pe Windows.</value>
+    <value>Această metodă este disponibilă în prezent numai pe Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>Cheia secretă nu se află în brelocul de chei al utilizatorului.</value>
+    <value>Cheia secretă nu se află în brelocul utilizatorului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>Dimensiunea fișierelor nu a fost încă determinată.</value>
+    <value>Dimensiunea fișierului nu a fost încă determinată.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

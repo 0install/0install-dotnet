@@ -107,11 +107,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
-    <value>El nombre del acceso directo '{0}' contiene caracteres no válidos.</value>
+    <value>El nombre de acceso directo '{0}' contiene caracteres no válidos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>El nombre de usuario y/o la contraseña que ha introducido para el servidor de sincronización son incorrectos. Compruebe sus opciones de sincronización.</value>
+    <value>El nombre de usuario y/o la contraseña que ha introducido para el servidor de sincronización son incorrectos. Compruebe las opciones de sincronización.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">

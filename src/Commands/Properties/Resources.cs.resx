@@ -219,7 +219,7 @@ Můžete ji použít spuštěním souboru ZeroInstall.exe v tomto adresáři.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Vytvoření aliasu pro spuštění aplikace prostřednictvím 0install, aniž byste museli vždy zadávat celý URI.</value>
+    <value>Vytvoření aliasu pro spuštění aplikace prostřednictvím 0install bez nutnosti vždy zadávat celý URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -268,7 +268,7 @@ Bez argumentů zobrazí všechna nastavení a jejich aktuální hodnoty. S jedn�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>Chová se podobně jako "0install select", s tím rozdílem, že stahuje i vybrané verze, pokud ještě nejsou uloženy v mezipaměti.
+    <value>Chová se podobně jako "0install select", s tím rozdílem, že stahuje také vybrané verze, pokud ještě nejsou uloženy v mezipaměti.
 Vrátí výstupní stav 0, pokud vybral vhodnou sadu verzí a všechny jsou nyní staženy a uloženy v mezipaměti; v opačném případě vrátí stav 1.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -327,7 +327,7 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>Chová se podobně jako "0install download", s tím rozdílem, že program spustí i poté, co se ujistí, že je v mezipaměti.
-Vrací stav ukončení 1, pokud krok stahování selhal. V opačném případě bude stav ukončení odpovídat stavu ukončení spouštěného programu.</value>
+Vrátí stav ukončení 1, pokud krok stahování selhal. V opačném případě bude stav ukončení odpovídat stavu ukončení spouštěného programu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
@@ -481,7 +481,7 @@ Je podobný funkci '0install download --refresh', s tím rozdílem, že vypisuje
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
-    <value>Správa kanálů</value>
+    <value>Správa krmiv</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
@@ -918,7 +918,7 @@ Může obsahovat argumenty příkazového řádku. Bílé znaky musí být escap
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>Vlastní aktualizace je vypnuta.
+    <value>Samočinná aktualizace je zakázána.
 Chcete-li ji povolit, spusťte příkaz '0install config self_update_uri default'.</value>
     <comment>Automatically translated.</comment>
   </data>

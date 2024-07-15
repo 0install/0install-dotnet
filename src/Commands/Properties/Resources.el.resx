@@ -347,7 +347,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
-    <value>Προσθέτει έναν κατάλογο στη λίστα με τις προσωρινές μνήμες προσαρμοσμένης εφαρμογής.</value>
+    <value>Προσθέτει έναν κατάλογο στη λίστα με τις προσωρινές μνήμες προσαρμοσμένων εφαρμογών.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
@@ -766,7 +766,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMessage" xml:space="preserve">
-    <value>Μήνυμα που εμφανίζεται όταν αλληλεπιδρά με τον χρήστη.</value>
+    <value>Μήνυμα που θα εμφανίζεται κατά την αλληλεπίδραση με τον χρήστη.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">

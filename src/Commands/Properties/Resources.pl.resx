@@ -118,7 +118,7 @@ Aby zaimportować te pliki na inny komputer, możesz użyć skryptu importu albo
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Czy chcesz zaktualizować istniejące integracje desktopowe, aby to odzwierciedlały?
 Jeśli wybierzesz "Tak", potencjalnie niekompatybilne integracje zostaną usunięte.
-Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych funkcji.</value>
+Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych możliwości.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
@@ -176,7 +176,7 @@ W razie potrzeby pliki te można pobrać ponownie.</value>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
     <value>Czy chcesz usunąć wszystkie aplikacje z listy "Moje aplikacje"? Zapobiegnie to pozostaniu wpisów w menu po usunięciu Zero Install.
-Możesz utworzyć kopię zapasową tej listy za pomocą "0install sync".</value>
+Możesz utworzyć kopię zapasową tej listy za pomocą funkcji "0install sync".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
@@ -260,7 +260,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Wyświetla lub zmienia ustawienia konfiguracyjne.
-Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem, wyświetla bieżącą wartość nazwanego ustawienia. Po podaniu dwóch argumentów ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "{0}".</value>
+Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem wyświetla bieżącą wartość nazwanego ustawienia. Po podaniu dwóch argumentów ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -362,7 +362,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na inny komputer za pomocą "0install store add".</value>
+    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na innym komputerze za pomocą "0install store add".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
@@ -754,7 +754,7 @@ Można użyć tej opcji wielokrotnie, aby określić wiele akceptowanych język�
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Stosuje konfigurację dla całej maszyny (dla całego komputera) zamiast tylko dla bieżącego użytkownika.</value>
+    <value>Zastosowanie konfiguracji dla całej maszyny (dla całego komputera) zamiast tylko dla bieżącego użytkownika.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">

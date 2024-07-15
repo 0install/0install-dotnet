@@ -71,15 +71,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
-    <value>Extragerea acestui tip de arhivă este suportată numai pe macOS.</value>
+    <value>Extragerea acestui tip de arhivă este acceptată numai pe macOS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Extragerea acestui tip de arhivă este suportată numai pe Windows.</value>
+    <value>Extragerea acestui tip de arhivă este acceptată numai pe Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>Tipul MIME al arhivei '{0}' nu este acceptat.</value>
+    <value>Tipul MIME de arhivă '{0}' nu este acceptat.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
