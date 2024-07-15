@@ -59,10 +59,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
-    <value>Hrană: {0}
+    <value>Alimentare: {0}
 - Semnătură valabilă de la {1}
 - {2}
-Doriți să aveți încredere în această cheie pentru a semna fluxurile de la '{3}'?
+Doriți să aveți încredere în această cheie pentru semnarea fluxurilor de la '{3}'?
 </value>
     <comment>Automatically translated.</comment>
   </data>
@@ -71,7 +71,7 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Comandă pentru '{0}' nespecificată.</value>
+    <value>Comanda pentru '{0}' nu este specificată.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -91,7 +91,7 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Rularea rezolvatorului extern</value>
+    <value>Rularea soluționatorului extern</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
@@ -99,47 +99,47 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>Nu s-a reușit să se găsească o versiune de {0} potrivită pentru {1}.</value>
+    <value>Nu a reușit să găsească o versiune a {0} potrivită pentru {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Fluxul '{0}' nu se află în memoria cache, iar Zero Install se află în prezent în modul off-line.</value>
+    <value>Feed-ul '{0}' nu este stocat în cache și Zero Install este în prezent în modul off-line.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' nu a putut fi localizat în memoria cache a feed-ului.</value>
+    <value>'{0}' nu a putut fi localizat în feed cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>Fluxul '{0}' nu a fost semnat cu nicio cheie de încredere.</value>
+    <value>Feed-ul '{0}' nu a fost semnat cu nicio cheie de încredere.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' este un fișier local. Ar trebui să fie un URL HTTP(S).</value>
+    <value>'{0}' este un fișier local. Ar trebui să fie o adresă URL HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Atributul uri &lt;interface&gt; ('{0}') nu se potrivește cu URL-ul de la care a fost descărcat feed-ul ('{1}').</value>
+    <value>Atributul &lt;interface&gt; uri ('{0}') nu corespunde URL-ului de la care a fost descărcat feed-ul ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Lipsește atributul uri &lt;interface&gt;. Ar trebui să fie "{0}".</value>
+    <value>Atributul uri &lt;interface&gt; lipsește. Ar trebui să fie '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Probleme la accesarea '{0}'.</value>
+    <value>Probleme la preluarea '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Caracter ilegal în numele de legătură {0}.</value>
+    <value>Caracter ilegal în numele legăturii {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Fluxurile trebuie să specifice URI-ul din care provin pentru a putea fi importate.</value>
+    <value>Pentru a putea fi importate, fluxurile trebuie să specifice URI-ul din care provin.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Nume lipsă în {0} binding.</value>
+    <value>Lipsește numele în legătura {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -147,15 +147,15 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Nu se poate descărca {0} deoarece Zero Install este în modul offline.</value>
+    <value>Imposibilitatea de a descărca {0} deoarece Zero Install este în modul offline.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Serverul de informații despre chei nu a putut furniza informații suplimentare despre această cheie.</value>
+    <value>Serverul de informații privind cheile nu a fost în măsură să furnizeze informații suplimentare despre această cheie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Nu s-a găsit niciun manifest digest pentru implementarea '{0}'.</value>
+    <value>Nu a fost găsit niciun manifest digest pentru implementarea '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
@@ -163,18 +163,18 @@ Doriți să aveți încredere în această cheie pentru a semna fluxurile de la 
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Fluxul descărcat este mai vechi decât versiunea aflată deja în memoria cache. Vom continua să folosim versiunea mai nouă.
-Feed URI: {0}
-Timp vechi: {1}
+    <value>Fișierul descărcat este mai vechi decât versiunea aflată deja în cache. Vom continua să folosim versiunea mai nouă.
+URI al fluxului: {0}
+Ora veche: {1}
 Ora nouă: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Nu a reușit să descarce {0}. Încearcă să descarce din feed mirror în schimb.</value>
+    <value>Nu a reușit să descarce {0}. Încercarea de a obține din feed mirror în schimb.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Nu poate stoca în memoria cache catalogul de aplicații descărcate.</value>
+    <value>Imposibilitatea de a memora în cache catalogul aplicațiilor descărcate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
@@ -182,11 +182,11 @@ Ora nouă: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Imposibil de analizat informațiile despre cheia pentru '{0}'.</value>
+    <value>Nu se pot analiza informațiile cheie pentru '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>Nu se pot prelua informații cheie pentru '{0}'.</value>
+    <value>Imposibil de recuperat informații cheie pentru '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
@@ -194,7 +194,7 @@ Ora nouă: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Alimentarea este semnată cu chei nesigure!</value>
+    <value>Alimentarea este semnată cu chei care nu sunt de încredere!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">

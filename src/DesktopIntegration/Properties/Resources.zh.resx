@@ -59,32 +59,32 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>以下现有接入点相互冲突：</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>应用程序{0} 的以下访问点相互冲突：</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
-    <value>现有接入点{0} 与新接入点{1} 冲突。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>应用程序 "{0}"已在应用程序列表中。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
-    <value>应用更改</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
     <value>将桌面集成应用于 {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
-    <value>无法在应用程序列表中找到应用程序 "{0}"。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
     <value>一次只能执行一个桌面集成操作。</value>
@@ -95,49 +95,47 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
-    <value>请使用 "0install central "或 "0install config "设置同步。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
     <value>加载'{0}'时出现问题。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>修复桌面集成</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
-    <value>快捷方式名称 "{0}"包含无效字符。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>您输入的同步服务器用户名和/或密码不正确。请检查您的同步选项。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>您为同步输入的加密密钥不正确。请检查同步选项。
-您可以通过运行故障排除向导（右键单击 "同步 "按钮进入）或执行 "0install sync --reset=server" 来更改服务器上使用的加密密钥。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
-    <value>下载同步数据</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
-    <value>当前存储在同步服务器上的数据已损坏。
-您可以通过运行故障排除向导（右键单击 "同步 "按钮进入）或执行 "0install sync --reset=server" 来替换服务器上存储的数据。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
-    <value>上传同步数据</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
-    <value>无法找到 ID 为 "{1}"的{0} 。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>无法替换陈旧的存根可执行文件 "{0}"。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
 </root>

@@ -67,100 +67,100 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>由此产生的命令行是空的。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>未指定 "{0}"命令。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>本地网络搜索</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt; 绑定必须包含 "value "或 "insert "属性。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>加载目录出错</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
     <value>保存信任数据库时出错</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>运行外部求解器</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>未找到合适的{0} 及其依赖版本。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>未能找到适合{1} 的{0} 版本。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>来源'{0}'未缓存，Zero Install 目前处于离线模式。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' 无法在饲料缓存中找到。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
     <value>来源'{0}'未使用任何可信密钥签名。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>{0} 是本地文件。应该是 HTTP(S) URL。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>&lt;interface&gt; uri 属性（'{0}'）与下载源的 URL（'{1}'）不匹配。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>缺少 &lt;interface&gt; uri 属性。应为 "{0}"。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
     <value>获取'{0}'时出现问题。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>{0} 绑定名称中的非法字符。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>馈送必须指定其来源的 URI 才能导入。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>{0} 绑定中缺少名称。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>未指定界面。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
     <value>由于 Zero Install 处于脱机模式，因此无法下载{0}。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>密钥信息服务器无法提供有关此密钥的任何其他信息。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>未找到实施 "{0}"的清单摘要。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>未找到执行 "{0}"的检索方法。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>下载的信息源比缓存中已有的版本要早。我们将继续使用较新的版本。
@@ -170,12 +170,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>下载{0} 失败。尝试从 feed 镜像中获取。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>无法缓存下载的应用程序目录。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
     <value>无法解析从 {0} 下载的信息。</value>
@@ -190,8 +190,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>{0} 不是{1} 软件包管理器中的已知 ID。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
     <value>信息源是用不可靠的密钥签署的！</value>
@@ -202,11 +202,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>工作目录已被前一条命令更改。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>工作目录包含无效路径（潜在安全风险）。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
 </root>

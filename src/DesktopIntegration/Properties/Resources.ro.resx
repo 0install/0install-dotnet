@@ -59,11 +59,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>Următoarele puncte de acces existente sunt în conflict între ele:</value>
+    <value>Următoarele puncte de acces existente sunt în conflict unele cu altele:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>Următoarele puncte de acces pentru aplicația {0} sunt în conflict între ele:</value>
+    <value>Următoarele puncte de acces pentru aplicația {0} sunt în conflict unele cu altele:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
-    <value>Puteți efectua doar o singură operațiune de integrare a desktopului la un moment dat.</value>
+    <value>Puteți efectua o singură operațiune de integrare desktop în același timp.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>Reparații de integrare a desktop-ului</value>
+    <value>Repararea integrării desktop-ului</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
@@ -111,12 +111,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>Numele de utilizator și/sau parola pe care le-ați introdus pentru serverul Sync sunt incorecte. Vă rugăm să verificați opțiunile de sincronizare.</value>
+    <value>Numele de utilizator și/sau parola introduse pentru serverul Sync sunt incorecte. Vă rugăm să verificați opțiunile de sincronizare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>Cheia criptografică pe care ați introdus-o pentru Sync este incorectă. Vă rugăm să verificați opțiunile de sincronizare.
-Puteți modifica cheia criptografică utilizată pe server prin rularea expertului de depanare (faceți clic dreapta pe butonul "Sync" pentru a ajunge acolo) sau prin executarea '0install sync --reset=server'.</value>
+    <value>Cheia criptografică introdusă pentru sincronizare este incorectă. Vă rugăm să verificați opțiunile de sincronizare.
+Puteți schimba cheia criptografică utilizată pe server executând expertul de depanare (faceți clic dreapta pe butonul "Sync" pentru a ajunge acolo) sau executând '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -125,7 +125,7 @@ Puteți modifica cheia criptografică utilizată pe server prin rularea expertul
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Datele stocate în prezent pe serverul Sync sunt deteriorate.
-Puteți înlocui datele stocate pe server executând asistentul de depanare (faceți clic dreapta pe butonul "Sync" pentru a ajunge acolo) sau executând "0install sync --reset=server".</value>
+Puteți înlocui datele stocate pe server executând expertul de depanare (faceți clic dreapta pe butonul "Sync" pentru a ajunge acolo) sau executând "0install sync --reset=server".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
@@ -137,7 +137,7 @@ Puteți înlocui datele stocate pe server executând asistentul de depanare (fac
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Nu se poate înlocui executabilul de tip stub vechi '{0}'.</value>
+    <value>Nu se poate înlocui executabilul de tip stub '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

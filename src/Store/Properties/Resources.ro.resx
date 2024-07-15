@@ -59,24 +59,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyFiles" xml:space="preserve">
-    <value>Copiere de fișiere</value>
+    <value>Copierea fișierelor</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Acest director este o memorie cache de implementare. Fișierele de aici sunt făcute numai pentru citire cu ajutorul permisiunilor sistemului de fișiere. Acest lucru le împiedică să fie șterse în mod normal.
+    <value>Acest director este un cache de implementare. Fișierele de aici sunt făcute numai pentru citire utilizând permisiunile sistemului de fișiere. Acest lucru le împiedică să fie șterse în mod normal.
 
 Dacă doriți să ștergeți o singură implementare, puteți utiliza această linie de comandă:
 {0}
 
-Dacă doriți să ștergeți întregul director, puteți utiliza această linie de comandă:
+Dacă doriți să ștergeți acest întreg director, puteți utiliza această linie de comandă:
 {1}
 
-Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, puteți utiliza această linie de comandă:
+Dacă doriți să ștergeți acest întreg director fără a utiliza Zero Install, puteți utiliza această linie de comandă:
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
-    <value>Cum se șterge</value>
+    <value>Cum să ștergeți</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
@@ -104,7 +104,7 @@ Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, p
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>Valoarea așteptată: {0}</value>
+    <value>Valoare așteptată: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
@@ -116,15 +116,15 @@ Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, p
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Eroare de încărcare a bazei de date de încredere. Revenire la valorile implicite.</value>
+    <value>Eroare la încărcarea bazei de date de încredere. Revenirea la valorile implicite.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Nu a reușit să deblocheze fișierele în uz în '{0}'</value>
+    <value>A eșuat deblocarea fișierelor în uz în '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Utilizarea oglinzii feed, necesară pentru căutare, este dezactivată.
+    <value>Utilizarea feed mirror, care este necesară pentru căutare, este dezactivată.
 Rulați "0install config feed_mirror default" pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -133,7 +133,7 @@ Rulați "0install config feed_mirror default" pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>Fișierele pe care doriți să le ștergeți sunt în curs de utilizare.</value>
+    <value>Fișierele pe care doriți să le ștergeți sunt utilizate în prezent.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
@@ -141,7 +141,7 @@ Rulați "0install config feed_mirror default" pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>Următoarele aplicații trebuie închise:</value>
+    <value>Următoarele aplicații trebuie să fie închise:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
@@ -153,7 +153,7 @@ Rulați "0install config feed_mirror default" pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>Implementarea '{0}' se află deja în magazin.</value>
+    <value>Implementarea '{0}' este deja în magazin.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
@@ -161,11 +161,11 @@ Rulați "0install config feed_mirror default" pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Doriți să îl eliminați? O nouă copie va fi descărcată din nou în mod automat atunci când este necesar.</value>
+    <value>Doriți să îl eliminați? O nouă copie va fi descărcată automat din nou atunci când este necesar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Rulați '0install store remove {0}' pentru a o elimina. O nouă copie va fi descărcată automat din nou atunci când este necesar.</value>
+    <value>Rulați '0install store remove {0}' pentru a-l elimina. O nouă copie va fi descărcată automat din nou atunci când este necesar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -173,16 +173,16 @@ Rulați "0install config feed_mirror default" pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Sistemul de fișiere de bază nu stochează cu suficientă acuratețe timpii de modificare a fișierelor.
+    <value>Sistemul de fișiere de bază nu stochează timpii de modificare a fișierelor cu suficientă precizie.
 Dacă utilizați o unitate formatată FAT, vă rugăm să o convertiți în NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Pictograma încărcată de pe {0} nu este o pictogramă validă {1}.</value>
+    <value>Pictograma încărcată de la {0} nu este validă {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Nu poate descărca pictograme de pe {0}, deoarece sunt acceptate doar URL-urile HTTP și HTTPS.</value>
+    <value>Nu se pot descărca pictograme de pe {0} deoarece sunt acceptate numai URL-urile HTTP și HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -190,11 +190,11 @@ Dacă utilizați o unitate formatată FAT, vă rugăm să o convertiți în NTFS
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Număr nevalabil de piese în linie.</value>
+    <value>Număr nevalid de piese în linie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>Arhiva conține o cale de acces invalidă (potențial un risc de securitate): {0}</value>
+    <value>Arhiva conține o cale invalidă (potențial un risc de securitate): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -202,11 +202,11 @@ Dacă utilizați o unitate formatată FAT, vă rugăm să o convertiți în NTFS
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Numai administratorii pot optimiza un magazin partajat.</value>
+    <value>Doar administratorii pot optimiza un magazin partajat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Numai administratorii pot elimina elemente dintr-un magazin partajat.</value>
+    <value>Doar administratorii pot elimina elemente dintr-un magazin partajat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
@@ -214,15 +214,15 @@ Dacă utilizați o unitate formatată FAT, vă rugăm să o convertiți în NTFS
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Nu se poate descărca {0} deoarece Zero Install este în modul offline.</value>
+    <value>Imposibilitatea de a descărca {0} deoarece Zero Install este în modul offline.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nu a fost specificată nicio metodă cunoscută de digest.</value>
+    <value>Nu a fost specificată nicio metodă de digest cunoscută.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Calea de acces '{0}' nu este o cale absolută. Căile relative sunt permise numai în modul portabil.
+    <value>Calea '{0}' nu este o cale absolută. Căile relative sunt permise numai în modul portabil.
 Specificată în fișierul de configurare '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -231,11 +231,11 @@ Specificată în fișierul de configurare '{1}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install nu se poate elimina singur din memoria cache de implementare.</value>
+    <value>Zero Install nu se poate elimina din memoria cache a unei implementări.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>Valoarea numerică este prea mare.</value>
+    <value>Valoarea numărului este prea mare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
@@ -243,17 +243,17 @@ Specificată în fișierul de configurare '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>A existat o problemă la accesarea magazinului de aplicații '{0}'.</value>
+    <value>A existat o problemă la accesarea magazinului de implementare '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>A existat o problemă la accesarea magazinului de aplicații '{0}'.
-Specificată în fișierul de configurare '{1}'.</value>
+    <value>A existat o problemă la accesarea magazinului de implementare '{0}'.
+Specificat în fișierul de configurare '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>A existat o problemă la încărcarea unui fișier de configurare.
-Puteți șterge fișierul '{0}' pentru a remedia problema.</value>
+Puteți șterge fișierul '{0}' pentru a rezolva problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
@@ -290,7 +290,7 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Fraza de acces pe care ați introdus-o este incorectă.</value>
+    <value>Fraza de acces introdusă este incorectă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
@@ -298,11 +298,11 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
-    <value>Semnătura XML nu începe pe o linie nouă.</value>
+    <value>Semnătura XML nu începe pe un rând nou.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>Semnătura nu este valabilă baza 64:</value>
+    <value>Semnătura nu este valabilă pentru baza 64:</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -112,21 +112,20 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>从 "{0}"加载 OpenPGP 密钥包出错</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>加载信任数据库时出错。恢复默认值。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>无法解锁'{0}'中当前使用的文件</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>搜索所需的 feed 镜像已禁用。
-运行 "0install config feed_mirror default "可启用它。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>无法找到文件或目录'{0}'。</value>
@@ -145,32 +144,32 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>在 '{0}' 中查找重复文件</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>文件 "{0}"既不是符号链接，也不是普通文件。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>应用程序 "{0}"已在商店中销售。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>实施 "{0}"已损坏。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>要删除吗？需要时，系统会自动下载新的副本。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>运行 "0install store remove{0}"可将其删除。需要时，系统会自动下载新的副本。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>无法找到 "{0}"。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
     <value>底层文件系统不会存储各文件的准确修改时间。
@@ -182,65 +181,64 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>无法从{0} 下载图标，因为只支持 HTTP 和 HTTPS URL。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>清单文件包含无效行。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>行中部件数量无效。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>存档包含无效路径（潜在安全风险）：{0}</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
     <value>签名无效或损坏。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>只有管理员才能优化共享商店。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>只有管理员才能从共享存储中删除元素。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>文件或目录名不得包含换行符。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
     <value>由于 Zero Install 处于脱机模式，因此无法下载{0}。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>未指定已知的摘要方法。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>路径 "{0}"不是绝对路径。只有在便携模式下才允许使用相对路径。
-在配置文件 "{1}"中指定。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>未选择版本</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install 无法从执行缓存中删除。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>数值太大。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>该选项由组策略控制，因此无法修改。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>访问执行存储'{0}'时遇到问题。</value>
@@ -266,32 +264,32 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
-    <value>签名文件已经存在。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>无法与 StoreService 建立连接。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
-    <value>临时目录</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>无法找到指定名称的密钥。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>无法为'{0}'启用写保护。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
-    <value>未知界面。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>您输入的密码不正确。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
     <value>文件的最后一行不是签名栏的结尾。</value>

@@ -366,7 +366,7 @@ Un argomento aggiuntivo specifica una posizione personalizzata della cache di de
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
-    <value>Determina il percorso locale di un'implementazione memorizzata nella cache.</value>
+    <value>Determina il percorso locale di un'implementazione nella cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
@@ -517,7 +517,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
-    <value>Utilizzare file:///path per i percorsi assoluti, non file:/path.</value>
+    <value>Per i percorsi assoluti utilizzare file:///path e non file:/path.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Hide" xml:space="preserve">
@@ -705,7 +705,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Cerca di scoprire le implementazioni su altre macchine della rete locale invece di recuperarle dalla fonte originale.</value>
+    <value>Cerca di scoprire le implementazioni su altri computer della rete locale invece di recuperarle dalla fonte originale.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
@@ -829,7 +829,7 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Richiede una versione del programma principale all'interno dell'intervallo indicato {RANGE}.
-Gli intervalli sono separati da pipe (|).
+Gli intervalli sono separati da tubi (|).
 Ogni intervallo ha la forma "START... END". L'intervallo corrisponde alle versioni in cui START &lt;= VERSION &lt; END. L'inizio o la fine possono essere omessi.
 Si può usare un singolo numero di versione al posto di un intervallo, per trovare solo quella versione, oppure !VERSION per trovare tutto tranne quella versione.</value>
     <comment>Automatically translated.</comment>
@@ -951,11 +951,11 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
-    <value>Verifica del negozio</value>
+    <value>Controllo del negozio</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
+    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere questo problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

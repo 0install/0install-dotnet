@@ -170,7 +170,7 @@ Nouvelle date : {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Le téléchargement de {0} a échoué. Essayer de télécharger à partir d'un miroir de flux à la place.</value>
+    <value>Échec du téléchargement de {0}. Essayer de télécharger à partir d'un miroir de flux à la place.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

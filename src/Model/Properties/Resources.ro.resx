@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>Șirul de caractere trebuie să fie de forma "{0}".</value>
+    <value>Șirul trebuie să fie de forma "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Preferințe de interfață de încărcare a erorilor pentru '{0}'. Revenire la valorile implicite.</value>
+    <value>Eroare la încărcarea preferințelor interfeței pentru '{0}'. Revenire la valorile implicite.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -79,23 +79,23 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Găsit în loc de:</value>
+    <value>Găsit în schimb:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Nu se poate găsi implementarea pentru interfața '{0}' în selecție.</value>
+    <value>Nu a fost posibilă găsirea implementării pentru interfața '{0}' în selecție.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' nu este un URI 'http(s):' valid și nici o cale locală validă.</value>
+    <value>'{0}' nu este un URI "http(s):" valid și nici o cale locală validă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Atributul '{0}' nu este valid pe {1}.</value>
+    <value>Atribut '{0}' nevalid pe {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Lipsește atributul '{0}' pe {1}.</value>
+    <value>Lipsește atributul "{0}" pe {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Implementare eronată</value>
+    <value>Implementare greșită</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
@@ -147,7 +147,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementarea nu se află în memoria cache (în prezent în modul off-line)</value>
+    <value>Implementarea nu se află în cache (în prezent în modul off-line)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
@@ -163,11 +163,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Ar trebui să fie un ID sigur. Poate conține numai caractere alfanumerice, spații ( ), puncte (.), caractere de subliniere (_), liniuțe (-) și semne plus (+).</value>
+    <value>Ar trebui să fie un ID sigur. Poate conține numai caractere alfanumerice, spații ( ), puncte (.), caractere de subliniere (_), liniuțe (-) și semne de plus (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>Pasul de rețetă '{0}' din implementarea '{1}' are o referință de implementare invalidă.</value>
+    <value>Pasul rețetei '{0}' din implementarea '{1}' are o referință de implementare invalidă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Sfârșitul gamei de versiuni trebuie să fie exclusiv. Folosiți "..!{0}", nu "...{0}".</value>
+    <value>Sfârșitul intervalului de versiuni trebuie să fie exclusiv. Utilizați "..!{0}", nu "..{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

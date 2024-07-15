@@ -59,61 +59,59 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DetectingCandidates" xml:space="preserve">
-    <value>搜索可执行文件</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>为空目录计算了清单摘要。检查您是否为压缩包设置了正确的 "{0}" 值。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
-    <value>未找到应用程序的入口点。
-请尝试手动指定。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>使用 "零安装 "下载 '{0}</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
-    <value>无法找到文件 "{0}"。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>检测到 "{0}"为安装目录。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
-    <value>未找到 32 位 %ProgramFiles% 目录。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>在注册表中检测到多个新的默认程序。处理所有程序，但在某些情况下可能优先处理最后一个程序。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>检测到多个安装目录。默认选择第一个。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>在注册表中检测到多个新的应用程序注册。默认选择第一个。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
-    <value>未检测到安装目录。
-请尝试手动指定。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>这种方法目前仅适用于 Windows。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>秘钥不在用户的钥匙圈中。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>文件大小尚未确定。</value>
-    <comment>Automatically translated.</comment>
+    <value></value>
+    <comment>Neither a manually overriden nor an automatically translated value found</comment>
   </data>
 </root>

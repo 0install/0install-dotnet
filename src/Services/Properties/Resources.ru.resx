@@ -135,7 +135,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Для импорта файлов необходимо указать URI, с которого они были получены.</value>
+    <value>Для импорта файлов необходимо указывать URI, с которого они были получены.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
