@@ -3,6 +3,7 @@
 
 using System.Diagnostics;
 using NanoByte.Common.Native;
+using ZeroInstall.Services.Executors;
 using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Commands.Basic;
@@ -68,7 +69,7 @@ public class Run : Download
                               .SetEnvironmentVariable(ZeroInstallEnvironment.FeedUriName, Requirements.InterfaceUri.ToStringRfc())
                               .SetCallbackEnvironmentVariables();
 
-        using var process = builder.Start();
+        using var process = TryStart(builder);
         if (process == null)
         {
             Log.Warn("No process launched");
@@ -92,6 +93,28 @@ public class Run : Download
             Log.Debug("Waiting for program to exit");
             return (ExitCode)process.WaitForExitCode();
         }
+    }
+
+    private static Process? TryStart(IEnvironmentBuilder builder)
+    {
+        try
+        {
+            return builder.Start();
+        }
+        #region Error handling
+        catch (FileNotFoundException ex)
+        {
+            if (ZeroInstallInstance.IsLibraryMode && ProgramUtils.GuiStartInfo("store", "audit") is {} storeAudit)
+            {
+                Log.Info("Automatically starting store audit because of missing file in Kiosk mode", ex);
+                storeAudit.Start();
+                return null;
+            }
+
+            // Wrap exception to add context information
+            throw new FileNotFoundException(string.Format(Resources.TryHelp, "0install store audit"), ex);
+        }
+        #endregion
     }
 
     private void WaitForGui(Process process)
