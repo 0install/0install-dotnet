@@ -73,7 +73,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
     /// </summary>
     /// <param name="manifestDigest">The digest the implementation to look for.</param>
     /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store.</returns>
-    public virtual string? GetPath(ManifestDigest manifestDigest)
+    public string? GetPath(ManifestDigest manifestDigest)
         => manifestDigest.AvailableDigests.Select(digest => System.IO.Path.Combine(Path, digest)).FirstOrDefault(Directory.Exists);
 
     /// <inheritdoc/>

@@ -39,17 +39,6 @@ public class ImplementationStoreTest : IDisposable
     }
 
     [Fact]
-    public void ContainsMissingContent()
-    {
-        string? path = Path.Combine(_tempDir, "sha256new_123ABC");
-        Directory.CreateDirectory(path);
-
-        Directory.Exists(path).Should().BeTrue();
-        _store.Contains(new(Sha256New: "123ABC")).Should().BeFalse();
-        Directory.Exists(path).Should().BeFalse();
-    }
-
-    [Fact]
     public void ListAll()
     {
         Directory.CreateDirectory(Path.Combine(_tempDir, "sha1=test1"));
@@ -123,17 +112,6 @@ public class ImplementationStoreTest : IDisposable
     public void GetPathMissingImplementation()
         => _store.GetPath(new(Sha256: "123"))
                  .Should().BeNull();
-
-    [Fact]
-    public void GetPathAutoDeleteEmptyDir()
-    {
-        string? path = Path.Combine(_tempDir, "sha256new_123ABC");
-        Directory.CreateDirectory(path);
-
-        Directory.Exists(path).Should().BeTrue();
-        _store.GetPath(new(Sha256New: "123ABC")).Should().BeNull();
-        Directory.Exists(path).Should().BeFalse();
-    }
 
     private static readonly ManifestDigest _referenceDigest = new(Sha256New: "DIXH3X4A5UJ537O2B36IYYVNRO2MYJVJYX74GBF4EOY5CDCCWGQA");
 
