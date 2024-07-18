@@ -92,6 +92,7 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
     }
 
     /// <inheritdoc/>
+    [MustDisposeResource]
     IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)_directories).GetEnumerator();
 
     /// <inheritdoc/>
