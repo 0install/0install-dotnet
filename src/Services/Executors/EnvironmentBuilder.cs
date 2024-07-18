@@ -147,7 +147,21 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
     }
 
     /// <inheritdoc/>
-    public Process Start() => ToStartInfo().Start();
+    public Process Start()
+    {
+        var startInfo = ToStartInfo();
+        try
+        {
+            return startInfo.Start();
+        }
+        #region Error handling
+        catch (IOException ex) when (!File.Exists(startInfo.FileName))
+        {
+            // Replace with more specialized exception type
+            throw new FileNotFoundException(ex.Message + ": " + startInfo.FileName, startInfo.FileName);
+        }
+        #endregion
+    }
 
     /// <summary>
     /// Returns the main (first) implementation of the selection.
