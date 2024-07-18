@@ -55,7 +55,7 @@ public static class ModelUtils
     /// <returns>An absolute path.</returns>
     /// <exception cref="UriFormatException"><paramref name="path"/> is a relative URI that cannot be resolved.</exception>
     public static string GetAbsolutePath(string path, string? source)
-        => GetAbsolutePath(path, string.IsNullOrEmpty(source) ? null : new FeedUri(source));
+        => GetAbsolutePath(path, source.EmptyAsNull()?.To(x => new FeedUri(x)));
 
     /// <summary>
     /// Turns a relative HREF into an absolute one, using the file containing the reference as the base.
@@ -83,5 +83,5 @@ public static class ModelUtils
     /// <returns>An absolute HREF.</returns>
     /// <exception cref="UriFormatException"><paramref name="href"/> is a relative URI that cannot be resolved.</exception>
     public static Uri GetAbsoluteHref(Uri href, string? source)
-        => GetAbsoluteHref(href, string.IsNullOrEmpty(source) ? null : new FeedUri(source));
+        => GetAbsoluteHref(href, source.EmptyAsNull()?.To(x => new FeedUri(x)));
 }

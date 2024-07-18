@@ -35,7 +35,7 @@ public class WindowsExe : NativeExecutable, IIconContainer
     private void Parse(FileVersionInfo versionInfo)
     {
         Name = versionInfo.ProductName;
-        Summary = string.IsNullOrEmpty(versionInfo.Comments) ? versionInfo.FileDescription : versionInfo.Comments;
+        Summary = versionInfo.Comments.EmptyAsNull() ?? versionInfo.FileDescription;
         if (!string.IsNullOrEmpty(versionInfo.ProductVersion))
         {
             try

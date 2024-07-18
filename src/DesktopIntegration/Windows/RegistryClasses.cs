@@ -136,10 +136,7 @@ internal static class RegistryClasses
         }
 
         if (verb.Arguments is [])
-        {
-            string arguments = string.IsNullOrEmpty(verb.ArgumentsLiteral) ? "\"%V\"" : verb.ArgumentsLiteral;
-            return GetCommandLine().JoinEscapeArguments() + " " + arguments;
-        }
+            return GetCommandLine().JoinEscapeArguments() + " " + (verb.ArgumentsLiteral.EmptyAsNull() ?? "\"%V\"");
 
         return GetCommandLine()
               .Concat(verb.Arguments.Select(x => x.Value))

@@ -21,7 +21,7 @@ public abstract record VersionRangePart
         if (value.Contains(".."))
         {
             string start = value.GetLeftPartAtFirstOccurrence("..");
-            var startVersion = string.IsNullOrEmpty(start) ? null : new ImplementationVersion(start);
+            var startVersion = start.EmptyAsNull()?.To(x => new ImplementationVersion(x));
 
             ImplementationVersion? endVersion;
             string end = value.GetRightPartAtFirstOccurrence("..");
