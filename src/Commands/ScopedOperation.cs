@@ -91,7 +91,7 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
         if (!Config.KioskMode) return;
         if (uri == Config.SelfUpdateUri) return;
         if (CatalogManager.TryGetCached()?.ContainsFeed(uri) ?? false) return;
-        if (CatalogManager.TryGetOnline()?.ContainsFeed(uri) ?? false) return;
+        if (CatalogManager.TryGetOnline()?.ContainsFeed(uri) ?? true) return;
 
         throw new WebException(string.Format(Resources.KioskModeNotInCatalog, uri));
     }
