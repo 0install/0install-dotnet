@@ -3,7 +3,6 @@
 
 using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration;
-using ZeroInstall.Services.Feeds;
 
 namespace ZeroInstall.Commands.Desktop;
 
@@ -51,7 +50,8 @@ public class AddApp : AppCommand
             else if (_command != null)
                 throw new OptionException(string.Format(Resources.NoAddCommandWithoutAlias, "--command"), "command");
 
-            if (WindowsUtils.IsWindows && !CatalogManager.GetCachedSafe().ContainsFeed(appEntry.InterfaceUri))
+            var catalog = CatalogManager.TryGetCached() ?? new();
+            if (WindowsUtils.IsWindows && !catalog.ContainsFeed(appEntry.InterfaceUri))
                 WindowsUtils.BroadcastMessage(AddedNonCatalogAppWindowMessageID); // Notify Zero Install GUIs of changes
 
             return ExitCode.OK;

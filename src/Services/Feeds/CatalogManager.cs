@@ -27,22 +27,8 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
 
     private static string _cacheFilePath => Path.Combine(Locations.GetCacheDirPath(AppName, machineWide: false), "catalog.xml");
 
-    /// <inheritdoc/>
-    [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "File system access")]
-    public Catalog? GetCached()
-    {
-        try
-        {
-            return XmlStorage.LoadXml<Catalog>(_cacheFilePath);
-        }
-        catch (FileNotFoundException)
-        {
-            return null;
-        }
-    }
-
     /// <summary>
-    /// Saves a merged <see cref="Catalog"/> to the cache file for later retrieval by <see cref="GetCached"/>.
+    /// Saves a merged <see cref="Catalog"/> to the cache file for later retrieval by <see cref="TryGetCached"/>.
     /// </summary>
     private void SaveCache(Catalog catalog)
     {
@@ -83,6 +69,27 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
         {
             throw ex.RethrowFirstInner();
         }
+    }
+
+    /// <inheritdoc/>
+    [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "File system access")]
+    public Catalog? TryGetCached()
+    {
+        try
+        {
+            return XmlStorage.LoadXml<Catalog>(_cacheFilePath);
+        }
+        #region Error handling
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
+        {
+            Log.Warn(Resources.ErrorLoadingCatalog, ex);
+            return null;
+        }
+        catch (FileNotFoundException)
+        {
+            return null;
+        }
+        #endregion
     }
 
     /// <inheritdoc/>
@@ -139,7 +146,7 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
         SetSources(sources);
 
         // Remove relevant entries from cache
-        if (GetCached() is {} cached)
+        if (TryGetCached() is {} cached)
         {
             cached.Feeds.RemoveAll(x => x.CatalogUri == uri);
             SaveCache(cached);

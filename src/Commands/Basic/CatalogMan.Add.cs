@@ -30,7 +30,7 @@ partial class CatalogMan
 
             if (CatalogManager.AddSource(uri))
             {
-                if (!_skipVerify) CatalogManager.GetOnlineSafe();
+                if (!_skipVerify) CatalogManager.TryGetOnline();
                 return ExitCode.OK;
             }
             else

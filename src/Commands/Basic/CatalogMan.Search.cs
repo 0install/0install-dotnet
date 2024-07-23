@@ -1,6 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using ZeroInstall.Services.Feeds;
+
 namespace ZeroInstall.Commands.Basic;
 
 partial class CatalogMan
@@ -13,10 +15,9 @@ partial class CatalogMan
 
         public override ExitCode Execute()
         {
-            var catalog = CatalogManager.GetCached() ?? CatalogManager.GetOnline();
-            string query = AdditionalArgs.JoinEscapeArguments();
-
-            Handler.Output(Resources.AppList, catalog.Search(query));
+            Handler.Output(
+                Resources.AppList,
+                CatalogManager.Get().Search(query: AdditionalArgs.JoinEscapeArguments()));
             return ExitCode.OK;
         }
     }

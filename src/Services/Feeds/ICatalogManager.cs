@@ -11,19 +11,9 @@ namespace ZeroInstall.Services.Feeds;
 public interface ICatalogManager
 {
     /// <summary>
-    /// Returns the result of the last successful <see cref="GetOnline"/> call.
-    /// </summary>
-    /// <returns>A <see cref="Catalog"/>; <c>null</c> if there is no cached data.</returns>
-    /// <exception cref="IOException">A problem occurred while reading the cache file.</exception>
-    /// <exception cref="UnauthorizedAccessException">Access to the cache file was not permitted.</exception>
-    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
-    [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "File system access")]
-    Catalog? GetCached();
-
-    /// <summary>
     /// Downloads and merges all <see cref="Catalog"/>s specified by the configuration files.
     /// </summary>
-    /// <returns>A <see cref="Catalog"/>.</returns>
+    /// <returns>The merged <see cref="Catalog"/>s.</returns>
     /// <exception cref="IOException">A problem occurred while reading a local catalog file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to a local catalog file was not permitted.</exception>
     /// <exception cref="WebException">A problem occurred while fetching a remote catalog file.</exception>
@@ -31,11 +21,16 @@ public interface ICatalogManager
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
     /// <exception cref="SignatureException">The signature data of a remote catalog file could not be verified.</exception>
     /// <exception cref="UriFormatException">An invalid catalog source is specified in the configuration file.</exception>
-    [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Performs network IO and has side-effects")]
     Catalog GetOnline();
 
     /// <summary>
-    /// Downloads and normalizes a remote catalog file. Mainly for internal use.
+    /// Tries to return a locally cached copy of the merged <see cref="Catalog"/>s specified by the configuration files, as previously returned by <see cref="GetOnline"/>.
+    /// </summary>
+    /// <returns>The merged <see cref="Catalog"/>s; <c>null</c> if there was a problem loading them.</returns>
+    Catalog? TryGetCached();
+
+    /// <summary>
+    /// Downloads and normalizes a remote catalog file.
     /// </summary>
     /// <param name="source">The URL to download the catalog file from.</param>
     /// <returns>The parsed <see cref="Catalog"/>.</returns>

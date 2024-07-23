@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using NanoByte.Common.Native;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store.Feeds;
 
@@ -21,11 +20,7 @@ public class AddAppTest : CliCommandTestBase<AddApp>
     [Fact]
     public void WithoutAlias()
     {
-        if (WindowsUtils.IsWindows)
-        {
-            Catalog catalog = new();
-            CatalogManagerMock.Setup(x => x.GetCached()).Returns(catalog);
-        }
+        CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(new Catalog());
 
         RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
     }
@@ -35,7 +30,7 @@ public class AddAppTest : CliCommandTestBase<AddApp>
     {
         Sut.Config.KioskMode = true;
         Catalog catalog = new() {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}};
-        CatalogManagerMock.Setup(x => x.GetCached()).Returns(catalog);
+        CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(catalog);
 
         RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
     }
@@ -45,7 +40,7 @@ public class AddAppTest : CliCommandTestBase<AddApp>
     {
         Sut.Config.KioskMode = true;
         Catalog catalog = new();
-        CatalogManagerMock.Setup(x => x.GetCached()).Returns(catalog);
+        CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(catalog);
         CatalogManagerMock.Setup(x => x.GetOnline()).Returns(catalog);
 
         Sut.Parse(new[] {Fake.Feed1Uri.ToStringRfc()});

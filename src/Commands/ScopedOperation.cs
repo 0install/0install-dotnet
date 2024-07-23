@@ -90,8 +90,8 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
     {
         if (!Config.KioskMode) return;
         if (uri == Config.SelfUpdateUri) return;
-        if (CatalogManager.GetCached() is {} catalog && catalog.ContainsFeed(uri)) return;
-        if (CatalogManager.GetOnlineSafe().ContainsFeed(uri)) return;
+        if (CatalogManager.TryGetCached()?.ContainsFeed(uri) ?? false) return;
+        if (CatalogManager.TryGetOnline()?.ContainsFeed(uri) ?? false) return;
 
         throw new WebException(string.Format(Resources.KioskModeNotInCatalog, uri));
     }
@@ -108,15 +108,15 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
         if (string.IsNullOrEmpty(shortName)) throw new ArgumentNullException(nameof(shortName));
         #endregion
 
-        Feed? GetCached() => CatalogManager.GetCachedSafe().FindByShortName(shortName);
-        Feed? GetOnline() => CatalogManager.GetOnlineSafe().FindByShortName(shortName);
+        Feed? Cached() => CatalogManager.TryGetCached()?.FindByShortName(shortName);
+        Feed? Online() => CatalogManager.TryGetOnline()?.FindByShortName(shortName);
 
         if (FeedManager.Refresh)
-            return GetOnline();
+            return Online();
         else if (Config.EffectiveNetworkUse == NetworkLevel.Full)
-            return GetCached() ?? GetOnline();
+            return Cached() ?? Online();
         else
-            return GetCached();
+            return Cached();
     }
 
     /// <summary>

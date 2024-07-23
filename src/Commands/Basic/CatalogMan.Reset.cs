@@ -17,7 +17,7 @@ partial class CatalogMan
         public override ExitCode Execute()
         {
             Services.Feeds.CatalogManager.SetSources([Services.Feeds.CatalogManager.DefaultSource]);
-            CatalogManager.GetOnlineSafe();
+            CatalogManager.TryGetOnline();
             return ExitCode.OK;
         }
     }

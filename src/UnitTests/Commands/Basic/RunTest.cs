@@ -134,7 +134,7 @@ public class RunTest : SelectionTestBase<Run>
     [Fact]
     public void GetCanonicalUriCatalogCached()
     {
-        CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
+        CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(new Catalog {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
         Sut.GetCanonicalUri("MyApp").Should().Be(Fake.Feed1Uri);
     }
 
@@ -150,7 +150,7 @@ public class RunTest : SelectionTestBase<Run>
     public void KioskModeOK()
     {
         Sut.Config.KioskMode = true;
-        CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
+        CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(new Catalog {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}});
 
         TestNormal();
     }
@@ -159,7 +159,7 @@ public class RunTest : SelectionTestBase<Run>
     public void KioskModeReject()
     {
         Sut.Config.KioskMode = true;
-        CatalogManagerMock.Setup(x => x.GetCached()).Returns(new Catalog());
+        CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(new Catalog());
         CatalogManagerMock.Setup(x => x.GetOnline()).Returns(new Catalog());
 
         Assert.Throws<WebException>(() => Sut.Parse(new[] {"http://example.com/test1.xml"}));

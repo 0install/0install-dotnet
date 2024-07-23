@@ -54,9 +54,9 @@ public class CatalogManagerTest : TestWithMocksAndRedirect
         var catalog = CatalogTest.CreateTestCatalog();
         catalog.Normalize();
 
-        _sut.GetCached().Should().BeNull();
+        _sut.TryGetCached().Should().BeNull();
         GetOnline();
-        _sut.GetCached().Should().Be(catalog);
+        _sut.TryGetCached().Should().Be(catalog);
     }
 
     private static readonly FeedUri _testSource = new("http://localhost/test/");
