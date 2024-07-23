@@ -11,7 +11,7 @@ namespace ZeroInstall.Services.Feeds;
 public interface ICatalogManager
 {
     /// <summary>
-    /// Loads the last result of <see cref="GetOnline"/>.
+    /// Returns the result of the last successful <see cref="GetOnline"/> call.
     /// </summary>
     /// <returns>A <see cref="Catalog"/>; <c>null</c> if there is no cached data.</returns>
     /// <exception cref="IOException">A problem occurred while reading the cache file.</exception>

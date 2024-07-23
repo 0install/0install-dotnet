@@ -11,7 +11,7 @@ namespace ZeroInstall.Services.Feeds;
 public static class CatalogManagerExtensions
 {
     /// <summary>
-    /// Loads the last result of <see cref="ICatalogManager.GetOnline"/>.
+    /// Tries to return the result of the last successful <see cref="ICatalogManager.GetOnline"/> call.
     /// </summary>
     /// <returns>A <see cref="Catalog"/>; an empty <see cref="Catalog"/> if there was a problem.</returns>
     [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "File system access")]
@@ -35,7 +35,7 @@ public static class CatalogManagerExtensions
     }
 
     /// <summary>
-    /// Downloads and merges all <see cref="Catalog"/>s specified by the configuration files.
+    /// Tries to download and merge all <see cref="Catalog"/>s specified by the configuration files.
     /// </summary>
     /// <returns>A <see cref="Catalog"/>; an empty <see cref="Catalog"/> if there was a problem.</returns>
     [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Performs network IO and has side-effects")]
