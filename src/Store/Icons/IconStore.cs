@@ -22,7 +22,7 @@ public sealed class IconStore(string path, Config config, ITaskHandler handler) 
     private const long MaximumIconSize = 2 * 1024 * 1024; // 2MiB
 
     /// <inheritdoc/>
-    public string? GetCached(Icon icon, out bool shouldRefresh)
+    public string? TryGetCached(Icon icon, out bool shouldRefresh)
     {
         #region Sanity checks
         if (icon == null) throw new ArgumentNullException(nameof(icon));
@@ -48,7 +48,7 @@ public sealed class IconStore(string path, Config config, ITaskHandler handler) 
     public string Get(Icon icon, out bool shouldRefresh)
     {
         using (new MutexLock("ZeroInstall.Model.Icon." + GetPath(icon).GetHashCode()))
-            return GetCached(icon, out shouldRefresh) ?? Download(icon);
+            return TryGetCached(icon, out shouldRefresh) ?? Download(icon);
     }
 
     private readonly ConcurrentSet<Uri> _updatedIcons = [];

@@ -14,6 +14,6 @@ public static class IconStoreExtensions
     /// <param name="iconStore">The icon store.</param>
     /// <param name="icon">The icon to get.</param>
     /// <returns>The file path of the icon in the cache; <c>null</c> if the icon is not cached yet.</returns>
-    public static string? GetCached(this IIconStore iconStore, Icon icon)
-        => iconStore.GetCached(icon, out _);
+    public static string? TryGetCached(this IIconStore iconStore, Icon icon)
+        => iconStore.TryGetCached(icon, out _);
 }

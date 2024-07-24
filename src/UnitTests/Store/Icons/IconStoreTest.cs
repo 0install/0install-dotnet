@@ -133,7 +133,7 @@ public class IconStoreTest : IDisposable
     {
         var icon = new Icon {Href = new("https://example.com/file"), MimeType = mimeType};
         _store.Import(icon, bytes.ToStream());
-        File.ReadAllBytes(_store.GetCached(icon)!)
+        File.ReadAllBytes(_store.TryGetCached(icon)!)
             .Should().BeEquivalentTo(bytes);
     }
 
