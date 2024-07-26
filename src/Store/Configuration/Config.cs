@@ -165,6 +165,15 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     public string SyncServerPassword { get; set; } = "";
 
     /// <summary>
+    /// The credentials specified in <see cref="SyncServerUsername"/> and <see cref="SyncServerPassword"/>.
+    /// </summary>
+    [Browsable(false)]
+    public NetworkCredential? SyncServerCredentials
+        => !string.IsNullOrEmpty(SyncServerUsername) && !string.IsNullOrEmpty(SyncServerPassword)
+            ? new(SyncServerUsername, SyncServerPassword)
+            : null;
+
+    /// <summary>
     /// The local key used to encrypt data before sending it to the <see cref="SyncServer"/>.
     /// </summary>
     [DefaultValue(""), PasswordPropertyText(true), Category("Sync"), DisplayName(@"Crypto key"), Description("The local key used to encrypt data before sending it to the sync server.")]
@@ -177,7 +186,7 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     [MemberNotNullWhen(true, nameof(SyncServer))]
     public bool IsSyncConfigured
         => SyncServer != null
-        && (SyncServer.IsFile || (!string.IsNullOrEmpty(SyncServerUsername) && !string.IsNullOrEmpty(SyncServerPassword) && !string.IsNullOrEmpty(SyncCryptoKey)));
+        && (SyncServer.IsFile || (SyncServerCredentials != null && !string.IsNullOrEmpty(SyncCryptoKey)));
 
     /// <summary>
     /// Restrict usage to feeds specified in the catalog.

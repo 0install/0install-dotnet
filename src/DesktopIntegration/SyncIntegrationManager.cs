@@ -59,7 +59,7 @@ public class SyncIntegrationManager : IntegrationManager
         {
             DefaultRequestHeaders =
             {
-                Authorization = new NetworkCredential(Config.SyncServerUsername, Config.SyncServerPassword).ToBasicAuth(),
+                Authorization = Config.SyncServerCredentials?.ToBasicAuth(),
                 CacheControl = new() {NoCache = true}
             }
         };
