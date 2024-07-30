@@ -55,11 +55,16 @@ public class SyncIntegrationManager : IntegrationManager
             _appListLastSync.SaveXml(AppListPath + AppListLastSyncSuffix);
         }
 
-        _httpClient = new()
+        _httpClient = new(new HttpClientHandler
+        {
+            Credentials = Config.SyncServerKerberos
+                ? Config.SyncServerCredentials ?? CredentialCache.DefaultCredentials
+                : null
+        })
         {
             DefaultRequestHeaders =
             {
-                Authorization = Config.SyncServerCredentials?.ToBasicAuth(),
+                Authorization = Config.SyncServerKerberos ? null : Config.SyncServerCredentials?.ToBasicAuth(),
                 CacheControl = new() {NoCache = true}
             }
         };

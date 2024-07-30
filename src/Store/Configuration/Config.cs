@@ -174,6 +174,12 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
             : null;
 
     /// <summary>
+    /// Always prefer the newest versions, even if they have not been marked as <see cref="Stability.Stable"/> yet.
+    /// </summary>
+    [DefaultValue(false), Category("Sync"), DisplayName(@"Use Kerberos authentication"), Description("Use Kerberos.")]
+    public bool SyncServerKerberos { get; set; }
+
+    /// <summary>
     /// The local key used to encrypt data before sending it to the <see cref="SyncServer"/>.
     /// </summary>
     [DefaultValue(""), PasswordPropertyText(true), Category("Sync"), DisplayName(@"Crypto key"), Description("The local key used to encrypt data before sending it to the sync server.")]
@@ -186,7 +192,7 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     [MemberNotNullWhen(true, nameof(SyncServer))]
     public bool IsSyncConfigured
         => SyncServer != null
-        && (SyncServer.IsFile || (SyncServerCredentials != null && !string.IsNullOrEmpty(SyncCryptoKey)));
+        && (SyncServer.IsFile || ((SyncServerCredentials != null || SyncServerKerberos) && !string.IsNullOrEmpty(SyncCryptoKey)));
 
     /// <summary>
     /// Restrict usage to feeds specified in the catalog.
@@ -217,6 +223,7 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
             ["sync_server"] = ConfigProperty.For(() => SyncServer, DefaultSyncServer),
             ["sync_server_user"] = ConfigProperty.For(() => SyncServerUsername, defaultValue: ""),
             ["sync_server_pw"] = ConfigProperty.For(() => SyncServerPassword, defaultValue: "", needsEncoding: true),
+            ["sync_server_kerberos"] = ConfigProperty.For(() => SyncServerKerberos),
             ["sync_crypto_key"] = ConfigProperty.For(() => SyncCryptoKey, defaultValue: "", needsEncoding: true),
             ["kiosk_mode"] = ConfigProperty.For(() => KioskMode),
         };
