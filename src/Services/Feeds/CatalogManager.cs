@@ -80,13 +80,13 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
             return XmlStorage.LoadXml<Catalog>(_cacheFilePath);
         }
         #region Error handling
+        catch (FileNotFoundException)
+        {
+            return null;
+        }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
         {
             Log.Warn(Resources.ErrorLoadingCatalog, ex);
-            return null;
-        }
-        catch (FileNotFoundException)
-        {
             return null;
         }
         #endregion
