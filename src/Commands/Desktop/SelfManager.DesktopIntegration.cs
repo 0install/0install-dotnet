@@ -37,14 +37,14 @@ partial class SelfManager
                 size,
                 MachineWide);
 
-            RegistryUtils.SetSoftwareString(@"Microsoft\PackageManagement", "ZeroInstall", Path.Combine(TargetDir, "ZeroInstall.OneGet.dll"), MachineWide);
-
-            PathEnv.AddDir(TargetDir, MachineWide);
-
             Shortcut.Create(
                 path: Shortcut.GetStartMenuPath("", "Zero Install", MachineWide),
                 targetPath: Path.Combine(TargetDir, "ZeroInstall.exe"),
                 appId: "ZeroInstall");
+
+            RegistryUtils.SetSoftwareString(@"Microsoft\PackageManagement", "ZeroInstall", Path.Combine(TargetDir, "ZeroInstall.OneGet.dll"), MachineWide);
+
+            PathEnv.AddDir(TargetDir, MachineWide);
         }));
     }
 
@@ -61,12 +61,12 @@ partial class SelfManager
     {
         Handler.RunTask(new ActionTask(Resources.DesktopIntegrationRemove, () =>
         {
-            string path = Shortcut.GetStartMenuPath("", "Zero Install", MachineWide);
-            if (File.Exists(path)) File.Delete(path);
-
             PathEnv.RemoveDir(TargetDir, MachineWide);
 
             RegistryUtils.DeleteSoftwareValue(@"Microsoft\PackageManagement", "ZeroInstall", MachineWide);
+
+            string path = Shortcut.GetStartMenuPath("", "Zero Install", MachineWide);
+            if (File.Exists(path)) File.Delete(path);
 
             UninstallEntry.Unregister(UninstallID, MachineWide);
         }));
