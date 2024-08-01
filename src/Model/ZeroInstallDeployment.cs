@@ -58,7 +58,7 @@ public static class ZeroInstallDeployment
     /// </summary>
     /// <param name="path">The directory path of the deployment of Zero Install.</param>
     /// <param name="machineWide"><c>true</c> if <paramref name="path"/> is a machine-wide location; <c>false</c> if it is a user-specific location.</param>
-    /// <param name="libraryMode">Indicates whether the deployment was made in library mode.</param>
+    /// <param name="libraryMode">Indicates whether Zero Install was deployed as a library for use by other applications.</param>
     public static void Register(string path, bool machineWide, bool libraryMode)
     {
         if (!WindowsUtils.IsWindows) return;

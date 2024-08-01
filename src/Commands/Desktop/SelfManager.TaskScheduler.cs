@@ -16,7 +16,7 @@ partial class SelfManager
     /// <summary>
     /// Adds scheduled tasks for automatic maintenance.
     /// </summary>
-    /// <param name="libraryMode">Deploy Zero Install as a library for use by other applications without its own desktop integration.</param>
+    /// <param name="libraryMode">Deploy Zero Install as a library for use by other applications. Perform more automatic maintenance because the user will most likely not operate Zero Install themselves.</param>
     private void TaskSchedulerApply(bool libraryMode)
     {
         if (!WindowsUtils.IsWindowsNT) return;

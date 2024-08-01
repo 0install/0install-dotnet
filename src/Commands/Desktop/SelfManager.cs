@@ -62,7 +62,7 @@ public partial class SelfManager : ManagerBase
     /// <summary>
     /// Runs the deployment process.
     /// </summary>
-    /// <param name="libraryMode">Deploy Zero Install as a library for use by other applications without its own desktop integration.</param>
+    /// <param name="libraryMode">Deploy Zero Install as a library for use by other applications.</param>
     /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
     /// <exception cref="IOException">An IO operation failed.</exception>
     public void Deploy(bool libraryMode = false)
