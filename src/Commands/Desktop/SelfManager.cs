@@ -92,8 +92,7 @@ public partial class SelfManager : ManagerBase
 
             if (!Portable)
             {
-                if (!libraryMode)
-                    DesktopIntegrationApply(newManifest.TotalSize);
+                DesktopIntegrationApply(newManifest.TotalSize, libraryMode);
                 ZeroInstallDeployment.Register(TargetDir, MachineWide, libraryMode);
                 RemoveOneGetBootstrap();
             }

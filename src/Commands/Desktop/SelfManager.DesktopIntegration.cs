@@ -16,33 +16,37 @@ partial class SelfManager
     /// Adds Zero Install to the start menu and the PATH environment variable.
     /// </summary>
     /// <param name="size">The size of the installed files in bytes.</param>
-    private void DesktopIntegrationApply(long size)
+    /// <param name="libraryMode">Deploy Zero Install as a library for use by other applications. Do not create menu or uninstall entries.</param>
+    private void DesktopIntegrationApply(long size, bool libraryMode)
     {
-        if (WindowsUtils.IsWindows) DesktopIntegrationApplyWindows(size);
+        if (WindowsUtils.IsWindows) DesktopIntegrationApplyWindows(size, libraryMode);
     }
 
     [SupportedOSPlatform("windows")]
-    private void DesktopIntegrationApplyWindows(long size)
+    private void DesktopIntegrationApplyWindows(long size, bool libraryMode)
     {
         Handler.RunTask(new ActionTask(Resources.DesktopIntegrationApply, () =>
         {
-            UninstallEntry.Register(
-                UninstallID,
-                [Path.Combine(TargetDir, "0install-win.exe"), Self.Name, Self.Remove.Name],
-                "Zero Install",
-                "0install.net",
-                new("https://0install.net/"),
-                iconPath: Path.Combine(TargetDir, "ZeroInstall.exe"),
-                AppInfo.Current.Version,
-                size,
-                MachineWide);
+            if (!libraryMode)
+            {
+                UninstallEntry.Register(
+                    UninstallID,
+                    [Path.Combine(TargetDir, "0install-win.exe"), Self.Name, Self.Remove.Name],
+                    "Zero Install",
+                    "0install.net",
+                    new("https://0install.net/"),
+                    iconPath: Path.Combine(TargetDir, "ZeroInstall.exe"),
+                    AppInfo.Current.Version,
+                    size,
+                    MachineWide);
 
-            Shortcut.Create(
-                path: Shortcut.GetStartMenuPath("", "Zero Install", MachineWide),
-                targetPath: Path.Combine(TargetDir, "ZeroInstall.exe"),
-                appId: "ZeroInstall");
+                Shortcut.Create(
+                    path: Shortcut.GetStartMenuPath("", "Zero Install", MachineWide),
+                    targetPath: Path.Combine(TargetDir, "ZeroInstall.exe"),
+                    appId: "ZeroInstall");
 
-            RegistryUtils.SetSoftwareString(@"Microsoft\PackageManagement", "ZeroInstall", Path.Combine(TargetDir, "ZeroInstall.OneGet.dll"), MachineWide);
+                RegistryUtils.SetSoftwareString(@"Microsoft\PackageManagement", "ZeroInstall", Path.Combine(TargetDir, "ZeroInstall.OneGet.dll"), MachineWide);
+            }
 
             PathEnv.AddDir(TargetDir, MachineWide);
         }));
