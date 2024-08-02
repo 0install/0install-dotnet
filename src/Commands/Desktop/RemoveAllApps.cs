@@ -29,6 +29,13 @@ public class RemoveAllApps(ICommandHandler handler) : IntegrationCommand(handler
         // Purge sync status, otherwise next sync would remove everything from server as well instead of restoring from there
         File.Delete(AppList.GetDefaultPath(MachineWide) + SyncIntegrationManager.AppListLastSyncSuffix);
 
+        if (ZeroInstallInstance.IsLibraryMode
+            && (!ZeroInstallInstance.IsMachineWide || !ExistingDesktopIntegration(machineWide: true)))
+        {
+            Log.Info("All apps removed, auto-removing library mode Zero Install instance");
+            StartCommandBackground(Self.Name, Self.Remove.Name, "--batch");
+        }
+
         return ExitCode.OK;
     }
 }
