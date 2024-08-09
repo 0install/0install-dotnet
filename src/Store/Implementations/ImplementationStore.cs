@@ -51,7 +51,7 @@ public partial class ImplementationStore(string path, ITaskHandler handler, bool
             Log.Info(ex.LongMessage);
             if (handler.Ask(
                     question: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedAskRemove, ex.ExpectedDigest),
-                    defaultAnswer: false, alternateMessage: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedBatchInformation, ex.ExpectedDigest)))
+                    defaultAnswer: true, alternateMessage: string.Format(Resources.ImplementationDamaged + Environment.NewLine + Resources.ImplementationDamagedBatchInformation, ex.ExpectedDigest)))
                 Remove(new(ex.ExpectedDigest));
         }
     }

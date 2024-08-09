@@ -197,10 +197,10 @@ Run '0install config feed_mirror default' to enable it.</value>
     <value>The implementation '{0}' is damaged.</value>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Do you want to remove it? A new copy will be automatically downloaded again when needed.</value>
+    <value>Do you want to remove the implementation? A new copy will be automatically downloaded again when needed.</value>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Run '0install store remove {0}' to remove it. A new copy will be automatically downloaded again when needed.</value>
+    <value>The implementation has been removed. A new copy will be automatically downloaded again when needed.</value>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
     <value>The implementation '{0}' could not be located.</value>

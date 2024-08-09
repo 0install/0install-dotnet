@@ -278,7 +278,7 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to remove it? A new copy will be automatically downloaded again when needed..
+        ///   Looks up a localized string similar to Do you want to remove the implementation? A new copy will be automatically downloaded again when needed..
         /// </summary>
         internal static string ImplementationDamagedAskRemove {
             get {
@@ -287,7 +287,7 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Run &apos;0install store remove {0}&apos; to remove it. A new copy will be automatically downloaded again when needed..
+        ///   Looks up a localized string similar to The implementation has been removed. A new copy will be automatically downloaded again when needed..
         /// </summary>
         internal static string ImplementationDamagedBatchInformation {
             get {
