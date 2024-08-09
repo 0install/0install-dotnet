@@ -149,4 +149,14 @@ public interface IZeroInstallClient
     /// <exception cref="TemporarilyUnavailableException">0install is temporarily unavailable. Try again in a few seconds.</exception>
     /// <exception cref="ExitCodeException">0install returned another error.</exception>
     Task FetchAsync(Implementation implementation);
+
+    /// <summary>
+    /// Checks that all implementations in the cache are undamaged.
+    /// </summary>
+    /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
+    /// <exception cref="UnauthorizedAccessException">0install reported that access to a resource was denied.</exception>
+    /// <exception cref="OperationCanceledException">The user canceled the operation.</exception>
+    /// <exception cref="TemporarilyUnavailableException">0install is temporarily unavailable. Try again in a few seconds.</exception>
+    /// <exception cref="ExitCodeException">0install returned another error.</exception>
+    Task AuditAsync();
 }

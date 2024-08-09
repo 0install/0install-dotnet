@@ -195,4 +195,8 @@ public class ZeroInstallClient(IProcessLauncher launcher, IProcessLauncher? guiL
         => await Task.Run(() => launcher.RunAndCapture(
             writer => writer.WriteLineAsync(new Feed { Name = "Fetch", Elements = { implementation } }.ToXmlString().Replace("\n", "")),
             "fetch"));
+
+    /// <inheritdoc />
+    public async Task AuditAsync()
+        => await Task.Run(() => (guiLauncher ?? launcher).Run("store", "audit", "--batch"));
 }
