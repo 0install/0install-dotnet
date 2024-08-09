@@ -127,9 +127,9 @@ public class Selection : CliCommand
         Handler.FeedUri = uri;
 
         if (_version != null)
-            Requirements.ExtraRestrictions[Requirements.InterfaceUri] = _version;
+            Requirements.Versions = _version;
         else if (_notBefore != null || _before != null)
-            Requirements.ExtraRestrictions[Requirements.InterfaceUri] = new Constraint {NotBefore = _notBefore, Before = _before};
+            Requirements.Versions = new Constraint {NotBefore = _notBefore, Before = _before};
     }
 
     /// <inheritdoc/>

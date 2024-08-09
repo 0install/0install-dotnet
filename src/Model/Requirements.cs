@@ -103,6 +103,21 @@ public partial record Requirements
     public Dictionary<FeedUri, VersionRange> ExtraRestrictions { get; } = [];
 
     /// <summary>
+    /// The ranges of versions that can be chosen.
+    /// </summary>
+    [Browsable(false)]
+    [XmlIgnore, JsonIgnore]
+    public VersionRange? Versions
+    {
+        get => ExtraRestrictions.TryGetValue(InterfaceUri, out var range) ? range : null;
+        set
+        {
+            if (value == null) ExtraRestrictions.Remove(InterfaceUri);
+            else ExtraRestrictions[InterfaceUri] = value;
+        }
+    }
+
+    /// <summary>
     /// Adds version restriction for a specific feeds. Merges with any existing restrictions for that feed.
     /// </summary>
     /// <param name="feedUri">The feed URI to apply the restriction for.</param>
