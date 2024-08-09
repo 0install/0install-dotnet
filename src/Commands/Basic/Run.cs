@@ -104,7 +104,7 @@ public class Run : Download
         #region Error handling
         catch (FileNotFoundException ex)
         {
-            if (ZeroInstallInstance.IsLibraryMode && ProgramUtils.GuiStartInfo(StoreMan.Name, StoreMan.Audit.Name) is {} storeAudit)
+            if (ZeroInstallInstance.IsLibraryMode && ProgramUtils.GuiStartInfo(StoreMan.Name, StoreMan.Audit.Name, "--batch") is {} storeAudit)
             {
                 Log.Info("Automatically starting store audit because of missing file in Kiosk mode", ex);
                 storeAudit.Start();
