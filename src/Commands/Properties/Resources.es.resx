@@ -404,7 +404,7 @@ Los argumentos adicionales especifican ubicaciones de caché personalizadas.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>Asegura que una aplicación no ha sido dañada (es decir, que el resumen de su manifiesto no ha cambiado).</value>
+    <value>Asegura que una aplicación no ha sido dañada (es decir, que el resumen del manifiesto no ha cambiado).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -628,7 +628,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Sólo puede actualizarse con URI de fuentes, no con documentos de selecciones.</value>
+    <value>Sólo puede actualizarse con URIs de fuentes, no con documentos de selecciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -676,7 +676,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Omite la descarga del catálogo para comprobar que es válido antes de añadirlo a la lista.</value>
+    <value>Omite la descarga del catálogo para verificar que es válido antes de añadirlo a la lista.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -779,7 +779,7 @@ No puede contener argumentos de línea de comandos Los espacios en blanco no nec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Vuelve inmediatamente una vez lanzado el programa elegido en lugar de esperar a que termine de ejecutarse. En Windows, el código de salida es el ID de proceso del programa iniciado.</value>
+    <value>Vuelve inmediatamente una vez lanzado el programa elegido en lugar de esperar a que termine de ejecutarse. En Windows, el código de salida es el ID del proceso del programa iniciado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -919,7 +919,7 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>La autoactualización está desactivada.
-Ejecute '0install config self_update_uri default' para activarlo.</value>
+Ejecute '0install config self_update_uri default' para activarla.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">

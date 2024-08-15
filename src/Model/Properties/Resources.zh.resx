@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>无法在选择中找到界面 "{0}"的实现。</value>
+    <value>无法在选项中找到界面 "{0}"的实现。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
