@@ -108,7 +108,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
-    <value>Tem a certeza de que pretende remover o Zero Install deste computador?</value>
+    <value>Tem a certeza que pretende remover o Zero Install deste computador?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
@@ -181,7 +181,7 @@ Pode criar uma cópia de segurança desta lista utilizando '0install sync'.</val
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
     <value>Comece a introduzir texto na última linha para criar uma nova entrada.
-Seleccione uma linha inteira clicando na primeira coluna e, em seguida, prima DEL no teclado para remover uma entrada.</value>
+Selecione uma linha inteira clicando na primeira coluna e, em seguida, prima DEL no teclado para remover uma entrada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
@@ -268,7 +268,7 @@ Sem argumentos, apresenta todas as definições e os respectivos valores actuais
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>Comporta-se de forma semelhante a '0install select', exceto que também descarrega as versões seleccionadas se ainda não estiverem em cache.
+    <value>Comporta-se de forma semelhante a '0install select', exceto que também descarrega as versões selecionadas se ainda não estiverem em cache.
 Devolve um estado de saída de 0 se tiver selecionado um conjunto adequado de versões e estas estiverem agora todas descarregadas e na cache; devolve um estado de 1 caso contrário.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -335,8 +335,8 @@ Retorna um status de saída de 1 se a etapa de download falhar. Caso contrário,
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>Selecciona uma versão do programa identificada pelo URI e versões compatíveis de todas as suas dependências.
-Devolve um estado de saída de 0 se seleccionou um conjunto de versões, e um estado de 1 se não conseguiu encontrar um conjunto consistente.</value>
+    <value>Seleciona uma versão do programa identificada pelo URI e versões compatíveis de todas as suas dependências.
+Devolve um estado de saída de 0 se selecionou um conjunto de versões, e um estado de 1 se não conseguiu encontrar um conjunto consistente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
@@ -370,11 +370,11 @@ Um argumento adicional especifica uma localização de cache de destino personal
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Lista todos os directórios de cache de implementação.</value>
+    <value>Lista todos os diretórios de cache de implementação.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, são listadas apenas as implementações desse feed específico.</value>
+    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, apenas são listadas as implementações desse feed específico.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -387,7 +387,7 @@ Argumentos adicionais especificam localizações de cache personalizadas.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Remove todas as implementações da cache. Use este comando para limpar o sistema antes de remover o Zero Install. Eliminar manualmente os directórios da cache pode ser difícil devido às ACLs NTFS utilizadas para proteger as implementações contra modificações.
+    <value>Remove todas as implementações da cache. Utilize este comando para limpar o sistema antes de remover o Zero Install. Eliminar manualmente os diretórios da cache pode ser difícil devido às ACLs NTFS utilizadas para proteger as implementações contra modificações.
 Argumentos adicionais especificam localizações de cache personalizadas.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -425,7 +425,7 @@ Argumentos adicionais especificam localizações de cache personalizadas.</value
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Verifica se há actualizações para o programa e descarrega-as se forem encontradas.
-Isto é semelhante ao '0install download --refresh', exceto que imprime informação sobre se foram encontradas quaisquer alterações.</value>
+Isto é semelhante ao '0install download --refresh', exceto que imprime informação sobre se foram encontradas alterações.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -579,7 +579,7 @@ Pode redistribuir cópias deste programa ao abrigo dos termos da GNU Lesser Gene
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>Falta o elemento &lt;feed-for&gt; em '{0}'; não pode ser usado como um feed para qualquer outra interface.</value>
+    <value>Elemento &lt;feed-for&gt; em falta em '{0}'; não pode ser utilizado como um feed para qualquer outra interface.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -737,7 +737,7 @@ Definir como vazio ("") para ignorar o comando durante a seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
-    <value>Remover todos os pontos de acesso de um determinado {CATEGORY}.</value>
+    <value>Remove todos os pontos de acesso de um determinado {CATEGORY}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemoveAll" xml:space="preserve">
@@ -808,7 +808,7 @@ No modo off-line, as interfaces não são actualizadas, mesmo que estejam desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionShow" xml:space="preserve">
-    <value>Mostra onde os componentes seleccionados estão armazenados no disco.</value>
+    <value>Mostra onde os componentes selecionados estão armazenados no disco.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
@@ -816,7 +816,7 @@ No modo off-line, as interfaces não são actualizadas, mesmo que estejam desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Repor os dados de sincronização. As opções válidas em {MODE}são "none" (fundir normalmente os dados do cliente e do servidor), "client" (substituir todos os dados do cliente pelos dados do servidor) e "server" (substituir todos os dados do servidor pelos dados do cliente).</value>
+    <value>Repor os dados de sincronização. Os {MODE}s válidos são "none" (fundir normalmente os dados do cliente e do servidor), "client" (substituir todos os dados do cliente pelos dados do servidor) e "server" (substituir todos os dados do servidor pelos dados do cliente).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -870,7 +870,7 @@ Pode conter argumentos de linha de comando. Espaços em branco devem ser escapad
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>Pretende remover as entradas {0} seleccionadas da lista?</value>
+    <value>Pretende remover as entradas {0} selecionadas da lista?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
@@ -902,7 +902,7 @@ Pode conter argumentos de linha de comando. Espaços em branco devem ser escapad
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
-    <value>Implementações seleccionadas</value>
+    <value>Implementações selecionadas</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
@@ -955,7 +955,7 @@ Execute '0install config self_update_uri default' para a ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>A ativação do suporte do Windows para caminhos longos pode resolver este problema.</value>
+    <value>A ativação do suporte do Windows para Caminhos Longos pode resolver este problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

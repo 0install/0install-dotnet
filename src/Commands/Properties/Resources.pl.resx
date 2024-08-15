@@ -362,7 +362,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na innym komputerze za pomocą "0install store add".</value>
+    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na inny komputer za pomocą "0install store add".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
@@ -620,7 +620,7 @@ Można to zrobić za pomocą "{0}". Będzie to całkowicie niezależne od kopii 
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install działa z katalogu specyficznego dla użytkownika. Musi zostać wdrożony w katalogu dostępnym dla wszystkich użytkowników, aby integracja pulpitu w całej maszynie działała.</value>
+    <value>Zero Install działa z katalogu specyficznego dla użytkownika. Musi zostać wdrożony w katalogu dostępnym dla wszystkich użytkowników, aby integracja pulpitu w całym komputerze działała.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -668,7 +668,7 @@ Można to zrobić za pomocą "{0}". Będzie to całkowicie niezależne od kopii 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Automatyczne odpowiadanie na pytania z domyślnymi ustawieniami, jeśli to możliwe i uproszczenie wyjścia konsoli (bez tabel i pasków postępu).</value>
+    <value>Automatycznie odpowiada na pytania z domyślnymi ustawieniami, jeśli to możliwe i upraszcza wyjście konsoli (bez tabel i pasków postępu).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">

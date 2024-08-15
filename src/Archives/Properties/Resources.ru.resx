@@ -71,7 +71,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
-    <value>Распаковка этого типа архива поддерживается только на macOS.</value>
+    <value>Распаковка архивов этого типа поддерживается только на macOS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">

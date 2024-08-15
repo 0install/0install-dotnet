@@ -419,7 +419,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Σταματά την εμπιστοσύνη στις τροφοδοσίες που υπογράφονται με ένα συγκεκριμένο FINGERPRINT. Σταματά την εμπιστοσύνη μόνο για ένα συγκεκριμένο DOMAIN, εάν έχει καθοριστεί.</value>
+    <value>Σταματά την εμπιστοσύνη στις τροφοδοσίες που υπογράφονται με ένα συγκεκριμένο FINGERPRINT. Σταματάει την εμπιστοσύνη μόνο για ένα συγκεκριμένο DOMAIN, εάν έχει καθοριστεί.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -561,7 +561,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Υπάρχει μια μεταγενέστερη έκδοση ({0}), αλλά δεν επιλέχθηκε. Χρησιμοποιείται το {1} αντί αυτού.</value>
+    <value>Υπάρχει μια μεταγενέστερη έκδοση ({0}) αλλά δεν επιλέχθηκε. Χρησιμοποιείται το {1} αντί αυτού.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -766,7 +766,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMessage" xml:space="preserve">
-    <value>Μήνυμα που θα εμφανίζεται κατά την αλληλεπίδραση με τον χρήστη.</value>
+    <value>Μήνυμα που εμφανίζεται όταν αλληλεπιδρά με τον χρήστη.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">

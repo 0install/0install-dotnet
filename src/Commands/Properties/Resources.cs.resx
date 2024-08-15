@@ -268,7 +268,7 @@ Bez argumentů zobrazí všechna nastavení a jejich aktuální hodnoty. S jedn�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>Chová se podobně jako "0install select", s tím rozdílem, že stahuje také vybrané verze, pokud ještě nejsou uloženy v mezipaměti.
+    <value>Chová se podobně jako '0install select', s tím rozdílem, že stahuje i vybrané verze, pokud ještě nejsou uloženy v mezipaměti.
 Vrátí výstupní stav 0, pokud vybral vhodnou sadu verzí a všechny jsou nyní staženy a uloženy v mezipaměti; v opačném případě vrátí stav 1.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -327,7 +327,7 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>Chová se podobně jako "0install download", s tím rozdílem, že program spustí i poté, co se ujistí, že je v mezipaměti.
-Vrátí stav ukončení 1, pokud krok stahování selhal. V opačném případě bude stav ukončení odpovídat stavu ukončení spouštěného programu.</value>
+Vrací stav ukončení 1, pokud krok stahování selhal. V opačném případě bude stav ukončení odpovídat stavu ukončení spouštěného programu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
@@ -425,7 +425,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Kontroluje aktualizace programu a v případě jejich nalezení je stáhne.
-Je podobný funkci '0install download --refresh', s tím rozdílem, že vypisuje informace o tom, zda byly nalezeny nějaké změny.</value>
+Podobá se příkazu '0install download --refresh' s tím rozdílem, že vypisuje informace o tom, zda byly nalezeny nějaké změny.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -481,7 +481,7 @@ Je podobný funkci '0install download --refresh', s tím rozdílem, že vypisuje
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
-    <value>Správa krmiv</value>
+    <value>Správa kanálů</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
