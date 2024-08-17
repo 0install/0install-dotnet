@@ -133,7 +133,7 @@ public class IntegrateApp : AppCommand
             string changedMessage = string.Format(Resources.CapabilitiesChanged, appEntry.Name);
             if (Handler.Ask(
                     changedMessage + " " + Resources.AskUpdateCapabilities,
-                    defaultAnswer: false, alternateMessage: changedMessage))
+                    defaultAnswer: ZeroInstallInstance.IsLibraryMode, alternateMessage: changedMessage))
                 integrationManager.UpdateApp(appEntry, feed);
         }
 
