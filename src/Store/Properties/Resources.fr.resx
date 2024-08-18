@@ -161,8 +161,8 @@ Exécutez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Souhaitez-vous le supprimer? Une nouvelle copie sera automatiquement téléchargée en cas de besoin.</value>
-    <comment>Manually overriden.</comment>
+    <value>Voulez-vous le supprimer ? Une nouvelle copie sera automatiquement téléchargée en cas de besoin.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
     <value>Exécutez '0install store remove {0}' pour le supprimer. Une nouvelle copie sera automatiquement téléchargée en cas de besoin.</value>
