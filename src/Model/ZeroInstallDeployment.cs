@@ -21,11 +21,24 @@ public static class ZeroInstallDeployment
     /// <param name="machineWide"><c>true</c> to look for machine-wide deployments; <c>false</c> to look for user-specific deployments.</param>
     /// <returns>The directory path of an deployment of Zero Install; <c>null</c> if none was found.</returns>
     public static string? GetPath(bool machineWide)
-        => WindowsUtils.IsWindows
-        && RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide) is {Length: > 0} path
-        && File.Exists(Path.Combine(path, "0install.exe"))
-            ? path
-            : null;
+    {
+        if (WindowsUtils.IsWindows
+         && RegistryUtils.GetSoftwareString(RegKeyName, InstallLocation, machineWide) is {Length: > 0} path)
+        {
+            try
+            {
+                if (File.Exists(Path.Combine(path, "0install.exe"))) return path;
+            }
+            #region Error handling
+            catch (ArgumentException ex)
+            {
+                Log.Warn($"Invalid Zero Install path found in registry: {path}", ex);
+            }
+            #endregion
+        }
+
+        return null;
+    }
 
     /// <summary>
     /// Indicates whether a deployment of Zero Install was made in library mode.
