@@ -161,11 +161,11 @@ Execute '0install config feed_mirror default' para habilitar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Você deseja removê-lo? Uma nova cópia será baixada automaticamente quando necessário.</value>
+    <value>Você deseja remover a implementação? Uma nova cópia será baixada automaticamente quando necessário.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Execute '0install store remove {0}' para remover. Uma nova cópia será baixada automaticamente quando necessário.</value>
+    <value>A implementação foi removida. Uma nova cópia será baixada automaticamente quando necessário.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">

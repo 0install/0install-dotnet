@@ -165,7 +165,7 @@ Etkinleştirmek için '0install config feed_mirror default' komutunu kullanın.<
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Kaldırmak için '0install store remove {0}' komutunu kullanın. Daha sonra gerek duyulduğunda yeni bir kopya otomatik olarak indirilir.</value>
+    <value>Uygulama kaldırılmıştır. Daha sonra gerek duyulduğunda yeni bir kopya otomatik olarak indirilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">

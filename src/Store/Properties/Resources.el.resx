@@ -161,11 +161,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Θέλετε να το καταργήσετε; Ένα νέο αντίγραφο θα γίνει αυτόματα και πάλι όταν χρειαστεί.</value>
+    <value>Θέλετε να καταργήσετε την εφαρμογή; Ένα νέο αντίγραφο θα μεταφορτωθεί αυτόματα ξανά όταν χρειαστεί.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Θέλετε να το καταργήσετε {0}' ; Ένα νέο αντίγραφο θα γίνει αυτόματα και πάλι όταν χρειαστεί.</value>
+    <value>Η εφαρμογή έχει καταργηθεί. Ένα νέο αντίγραφο θα μεταφορτωθεί αυτόματα ξανά όταν χρειαστεί.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">

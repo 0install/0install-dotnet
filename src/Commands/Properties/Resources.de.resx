@@ -210,6 +210,10 @@ Sie können sie verwenden, indem Sie die ZeroInstall.exe Datei in dem Verzeichni
     <value>Das angegebene Zielverzeichnis ({0}) befindet sich außerhalb Ihres Home-Verzeichnisses.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>Veraltete Option. Bitte verwenden Sie stattdessen '{0}'.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Beschreibung</value>
     <comment>Manually overriden.</comment>
