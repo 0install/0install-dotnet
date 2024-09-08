@@ -246,11 +246,6 @@ Specificato nel file di configurazione '{1}'.</value>
     <value>Si è verificato un problema di accesso all'archivio delle implementazioni '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Si è verificato un problema di accesso all'archivio delle implementazioni '{0}'.
-Specificato nel file di configurazione '{1}'.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Si è verificato un problema durante il caricamento di un file di configurazione.
 Puoi eliminare il file '{0}' per risolvere il problema.</value>

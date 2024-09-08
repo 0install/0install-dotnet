@@ -34,12 +34,12 @@ public static class ImplementationStores
             catch (IOException ex)
             {
                 // Wrap exception to add context information
-                throw new IOException(string.Format(Resources.ProblemAccessingStore, path), ex);
+                throw new IOException(ProblemAccessingStoreMessage(path), ex);
             }
             catch (UnauthorizedAccessException ex)
             {
                 // Wrap exception to add context information
-                throw new UnauthorizedAccessException(string.Format(Resources.ProblemAccessingStore, path), ex);
+                throw new UnauthorizedAccessException(ProblemAccessingStoreMessage(path), ex);
             }
             #endregion
         }
@@ -171,13 +171,16 @@ public static class ImplementationStores
             catch (ArgumentException ex)
             {
                 // Wrap exception to add context information
-                throw new IOException(string.Format(Resources.ProblemAccessingStoreEx, path, configPath), ex);
+                throw new IOException(ProblemAccessingStoreMessage(path), ex);
             }
             #endregion
 
             yield return result;
         }
     }
+
+    private static string ProblemAccessingStoreMessage(string path)
+        => string.Format(Resources.ProblemAccessingStore, path, $"0install store remove-dir {path.EscapeArgument()}");
 
     /// <summary>
     /// Sets the list of implementation directories in a specific configuration file.

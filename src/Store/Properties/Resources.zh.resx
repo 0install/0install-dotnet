@@ -246,11 +246,6 @@
     <value>访问执行存储'{0}'时遇到问题。</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>访问执行存储'{0}'时遇到问题。
-在配置文件'{1}'中指定。</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>加载配置文件时出现问题。
 你可以删除文件'{0}'以解决该问题。</value>

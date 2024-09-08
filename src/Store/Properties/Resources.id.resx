@@ -246,11 +246,6 @@ Ditentukan dalam file konfigurasi '{1}'.</value>
     <value>Ada masalah dalam mengakses implementation store '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Ada masalah dalam mengakses implementation store '{0}'.
-Ditentukan dalam berkas konfigurasi '{1}'.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Ada masalah saat memuat berkas konfigurasi.
 Anda dapat menghapus berkas '{0}' untuk memperbaiki masalah.</value>

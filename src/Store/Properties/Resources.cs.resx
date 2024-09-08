@@ -246,11 +246,6 @@ Zadává se v konfiguračním souboru '{1}'.</value>
     <value>Došlo k problému s přístupem k úložišti implementace ‚‚{0}‘‘.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Došlo k problému s přístupem k úložišti implementace ‚‚{0}‘‘.
-Zadáno v konfiguračním souboru ‚‚{1}‘‘.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Došlo k problému při stahování konfiguračního souboru.
 Problém vyřešíte odstraněním souboru ‚‚{0}‘‘.</value>

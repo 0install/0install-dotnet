@@ -246,11 +246,6 @@ Określona w pliku konfiguracyjnym '{1}'.</value>
     <value>Wystąpił problem z dostępem do magazynu implementacji „{0}”.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Wystąpił problem z dostępem do magazynu implementacji „{0}”.
-Więcej informacji znajduje się w pliku konfiguracyjnym „{1}”.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Wystąpił problem z załadowaniem pliku konfiguracyjnego.
 Aby rozwiązać ten problem, usuń plik „{0}”.</value>

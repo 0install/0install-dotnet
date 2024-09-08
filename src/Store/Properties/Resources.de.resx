@@ -243,12 +243,8 @@ Festgelegt in der Konfigurationsdatei '{1}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Auf den Implementierungsspeicher '{0}' konnte nicht zugegriffen werden.</value>
-    <comment>Manually overriden.</comment>
-  </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
     <value>Auf den Implementierungsspeicher '{0}' konnte nicht zugegriffen werden.
-Mehr Informationen finden Sie in der Konfigurationsdatei '{1}'.</value>
+Führen Sie '{1}' aus, um ihn aus der Liste der registrierten Verzeichnisse zu entfernen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

@@ -246,11 +246,6 @@ Specificată în fișierul de configurare '{1}'.</value>
     <value>A existat o problemă la accesarea magazinului de implementare '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>A existat o problemă la accesarea magazinului de implementare '{0}'.
-Specificat în fișierul de configurare '{1}'.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>A existat o problemă la încărcarea unui fișier de configurare.
 Puteți șterge fișierul '{0}' pentru a rezolva problema.</value>

@@ -246,11 +246,6 @@ Spécifié dans le fichier de configuration '{1}'.</value>
     <value>Problème d'accès à la bibliothèque d'implémentation '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Problème d'accès à la bibliothèque d'implémentation '{0}'.
-Spécifié dans le fichier de configuration '{1}'.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Problème lors du chargement d'un fichier de configuration.
 Vous pouvez supprimer le fichier '{0}' pour résoudre le problème.</value>

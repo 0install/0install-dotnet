@@ -246,11 +246,6 @@ FAT biçimindeki bir sürücü kullanıyorsanız lütfen bunu NTFS biçimine dö
     <value>'{0}' uygulama deposuna erişilirken bir sorun çıktı.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>'{0}' uygulama deposuna erişilirken bir sorun çıktı.
-'{1}' yapılandırma dosyasında belirtildi.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Yapılandırma dosyası yüklenirken bir sorun çıktı.
 Sorunu çözmek için '{0}' dosyasını silebilirsiniz.</value>

@@ -246,11 +246,6 @@ Opgegeven in het configuratiebestand '{1}'.</value>
     <value>Er is een probleem opgetreden bij de toegang tot de implementation store "{0}".</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Er is een probleem opgetreden bij de toegang tot de implementation store "{0}".
-Gespecificeerd in het configuratiebestand "{1}".</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Er is een probleem opgetreden bij het laden van een configuratiebestand.
 U kunt het bestand "{0}" verwijderen om het probleem op te lossen.</value>
