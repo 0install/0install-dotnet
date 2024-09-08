@@ -246,11 +246,6 @@
     <value>Возникла проблема с доступом к хранилищу реализаций '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Возникла проблема с доступом к хранилищу реализаций '{0}',
-указанному в файле конфигурации '{1}'.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Возникла проблема с загрузкой файла конфигурации.
 Для устранения проблемы можно удалить файл '{0}'.</value>

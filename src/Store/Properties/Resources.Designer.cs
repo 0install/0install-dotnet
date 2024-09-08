@@ -460,21 +460,12 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There was a problem accessing the implementation store &apos;{0}&apos;..
+        ///   Looks up a localized string similar to There was a problem accessing the implementation store &apos;{0}&apos;.
+        ///Run &apos;{1}&apos; to remove it from the list of registered directories..
         /// </summary>
         internal static string ProblemAccessingStore {
             get {
                 return ResourceManager.GetString("ProblemAccessingStore", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to There was a problem accessing the implementation store &apos;{0}&apos;.
-        ///Specified in the configuration file &apos;{1}&apos;..
-        /// </summary>
-        internal static string ProblemAccessingStoreEx {
-            get {
-                return ResourceManager.GetString("ProblemAccessingStoreEx", resourceCulture);
             }
         }
         

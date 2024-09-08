@@ -246,11 +246,6 @@ Se especifica en el archivo de configuración '{1}'.</value>
     <value>No ha sido posible acceder a la memoria de implementación «{0}».</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>No ha sido posible acceder a la memoria de implementación «{0}».
-Especificado en el archivo de configuración «{1}».</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Ha habido un problema al cargar el archivo de configuración.
 Para resolver el problema, elimina el archivo «{0}».</value>

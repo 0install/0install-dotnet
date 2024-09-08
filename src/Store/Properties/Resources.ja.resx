@@ -246,11 +246,6 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <value>実装されたストア「{0}」へのアクセスに問題が発生しました。</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>実装されたストア「{0}」へのアクセスに問題が発生しました。
-構成ファイル「{1}」で指定されています。</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>構成ファイルの読み込み時に問題が発生しました。
 ファイル「{0}」を削除すると問題を解決できます。</value>

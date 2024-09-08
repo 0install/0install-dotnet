@@ -246,11 +246,6 @@
     <value>Υπήρξε έναν πρόβλημα κατά την πρόσβαση στο κατάστημα εφαρμογής '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
-    <value>Υπήρξε ένα πρόβλημα κατά την πρόσβαση στο κατάστημα εφαρμογής '{0}'.
-Καθορίζεται στο αρχείο ρυθμίσεων '{1}'.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Υπήρξε ένα πρόβλημα κατά τη φόρτωση ενός αρχείου διαμόρφωσης.
 Μπορείτε να διαγράψετε το αρχείο '{0}' για να διορθώσετε το πρόβλημα.</value>

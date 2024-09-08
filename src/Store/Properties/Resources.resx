@@ -259,11 +259,8 @@ Specified in the configuration file '{1}'.</value>
     <value>This option is controlled by a group policy and can therefore not be modified.</value>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>There was a problem accessing the implementation store '{0}'.</value>
-  </data>
-  <data name="ProblemAccessingStoreEx" xml:space="preserve">
     <value>There was a problem accessing the implementation store '{0}'.
-Specified in the configuration file '{1}'.</value>
+Run '{1}' to remove it from the list of registered directories.</value>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>There was a problem loading a configuration file.
