@@ -161,11 +161,11 @@ Uruchom "0install config feed_mirror default", aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Czy chcesz go usunąć? W razie potrzeby nowa kopia zostanie automatycznie pobrana ponownie.</value>
+    <value>Czy chcesz usunąć implementację? W razie potrzeby nowa kopia zostanie automatycznie pobrana ponownie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Uruchom "0install store remove {0}", aby go usunąć. W razie potrzeby nowa kopia zostanie automatycznie pobrana ponownie.</value>
+    <value>Implementacja została usunięta. Nowa kopia zostanie automatycznie pobrana ponownie w razie potrzeby.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -243,8 +243,9 @@ Określona w pliku konfiguracyjnym '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Wystąpił problem z dostępem do magazynu implementacji „{0}”.</value>
-    <comment>Manually overriden.</comment>
+    <value>Wystąpił problem z dostępem do magazynu implementacji '{0}'.
+Uruchom '{1}', aby usunąć go z listy zarejestrowanych katalogów.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Wystąpił problem z załadowaniem pliku konfiguracyjnego.

@@ -185,7 +185,7 @@ Selecteer een hele regel door in de eerste kolom te klikken en druk vervolgens o
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Stel een selectievakje in om van een capaciteit de gewenste standaardhandler te maken.
+    <value>Stel een selectievakje in om van een functie de gewenste standaardbehandelaar te maken.
 Verwijder een selectievakje om de standaardstatus van een capaciteit te verwijderen (deze blijft beschikbaar).</value>
     <comment>Automatically translated.</comment>
   </data>

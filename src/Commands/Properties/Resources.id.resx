@@ -750,7 +750,7 @@ Anda dapat menggunakan opsi ini beberapa kali untuk menentukan beberapa bahasa y
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Menyebarkan Zero Install sebagai pustaka untuk digunakan oleh aplikasi lain tanpa integrasi desktopnya sendiri.</value>
+    <value>Menyebarkan Zero Install sebagai perpustakaan untuk digunakan oleh aplikasi lain tanpa integrasi desktopnya sendiri.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">

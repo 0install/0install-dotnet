@@ -161,11 +161,11 @@ Rulați "0install config feed_mirror default" pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Doriți să îl eliminați? O nouă copie va fi descărcată automat din nou atunci când este necesar.</value>
+    <value>Doriți să eliminați implementarea? O nouă copie va fi descărcată automat din nou atunci când este necesar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Rulați '0install store remove {0}' pentru a-l elimina. O nouă copie va fi descărcată automat din nou atunci când este necesar.</value>
+    <value>Implementarea a fost eliminată. O nouă copie va fi descărcată automat din nou atunci când este necesar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -182,7 +182,7 @@ Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Nu se pot descărca pictograme de pe {0} deoarece sunt acceptate numai URL-urile HTTP și HTTPS.</value>
+    <value>Nu poate descărca pictograme de pe {0} deoarece sunt acceptate numai URL-urile HTTP și HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -243,7 +243,8 @@ Specificată în fișierul de configurare '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>A existat o problemă la accesarea magazinului de implementare '{0}'.</value>
+    <value>A existat o problemă la accesarea depozitului de implementare '{0}'.
+Rulați '{1}' pentru a-l elimina din lista de directoare înregistrate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

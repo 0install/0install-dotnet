@@ -137,7 +137,7 @@ Puteți înlocui datele stocate pe server executând expertul de depanare (face�
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Nu se poate înlocui executabilul vechi '{0}'.</value>
+    <value>Nu se poate înlocui executabilul de tip stub '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -161,11 +161,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>削除しますか？必要な時に新しいコピーが自動的にダウンロードされます。</value>
+    <value>実装を削除しますか？新しいコピーが必要なときに自動的に再ダウンロードされます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>削除するには、'0install store remove{0}' を実行してください。必要なときに新しいコピーが自動的にダウンロードされます。</value>
+    <value>実装は削除されました。新しいコピーが必要なときに自動的に再ダウンロードされます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -243,8 +243,9 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>実装されたストア「{0}」へのアクセスに問題が発生しました。</value>
-    <comment>Manually overriden.</comment>
+    <value>実装ストア '{0}' へのアクセスに問題がありました。
+{1}' を実行して、登録ディレクトリリストから削除してください。</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>構成ファイルの読み込み時に問題が発生しました。

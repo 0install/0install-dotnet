@@ -96,7 +96,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Установка Zero Install для всех пользователей (в масштабах всей машины), а не только для текущего пользователя?</value>
+    <value>Установить Zero Install для всех пользователей (в масштабах всей машины), а не только для текущего пользователя?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -175,7 +175,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>Хотите ли вы удалить все приложения из списка "Мои приложения"? Это предотвратит появление остатков в меню после удаления Zero Install.
+    <value>Вы хотите удалить все приложения из списка "Мои приложения"? Это предотвратит появление остатков в меню после удаления Zero Install.
 Вы можете создать резервную копию этого списка с помощью команды '0install sync'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -273,12 +273,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Экспортирует в директорию все материалы и реализации, необходимые для запуска программы, указанной в URI.</value>
+    <value>Экспортирует в каталог DIRECTORY все материалы и реализации, необходимые для запуска программы, указанной в URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>Импортирует фид из локального файла, как если бы он был загружен из сети. Это удобно при тестировании файла фида, чтобы не загружать его на удаленный сервер для повторной загрузки.
-Файл должен иметь доверенную цифровую подпись, как при загрузке из сети.</value>
+Файл должен иметь доверенную цифровую подпись, как и при загрузке из сети.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
@@ -358,7 +358,7 @@
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
     <value>Копирует реализацию в кэш. Аналогично '0install store add', но дайджест извлекается из имени каталога.
-Дополнительный аргумент задает пользовательское расположение целевого кэша.</value>
+В дополнительных аргументах указывается пользовательское местоположение целевого кэша.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
@@ -844,7 +844,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Вместо того чтобы напрямую выполнять выбранную программу, выполните команду {COMMAND} PROGRAM ARGS. Это полезно для запуска отладчиков и инструментов трассировки на программе (а не на Zero Install!).
+    <value>Вместо непосредственного выполнения выбранной программы выполните команду {COMMAND} PROGRAM ARGS. Это полезно для запуска отладчиков и инструментов трассировки на программе (а не на Zero Install!).
 Обратите внимание, что обертка выполняется в окружении, выбранном программой; следовательно, этот механизм нельзя использовать для создания "песочницы".
 Может содержать аргументы командной строки. Пробелы должны быть экранированы!</value>
     <comment>Automatically translated.</comment>

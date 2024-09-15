@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Eroare la încărcarea preferințelor interfeței pentru '{0}'. Revenirea la valorile implicite.</value>
+    <value>Eroare la încărcarea preferințelor interfeței pentru '{0}'. Revenire la valorile implicite.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Nu s-a putut găsi implementarea pentru interfața '{0}' în selecție.</value>
+    <value>Nu a fost posibilă găsirea implementării pentru interfața '{0}' în selecție.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">

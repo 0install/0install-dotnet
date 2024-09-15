@@ -112,7 +112,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>从 "{0}"加载 OpenPGP 密钥包出错</value>
+    <value>从 '{0}' 加载 OpenPGP 密钥包出错</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -161,11 +161,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>要删除吗？需要时，系统会自动下载新的副本。</value>
+    <value>您想移除执行的程序吗？需要时，系统会自动下载新的副本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>运行 "0install store remove{0}"可将其删除。需要时，系统会自动下载新的副本。</value>
+    <value>已删除执行程序。需要时会自动重新下载新的副本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -243,8 +243,9 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>访问执行存储'{0}'时遇到问题。</value>
-    <comment>Manually overriden.</comment>
+    <value>访问执行存储 "{0}"时出现问题。
+运行 "{1}"，将其从注册目录列表中删除。</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>加载配置文件时出现问题。

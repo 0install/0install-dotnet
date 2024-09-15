@@ -161,11 +161,11 @@ Voer '0install config feed_mirror default' uit om het in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Wil je het verwijderen? Er wordt automatisch een nieuwe kopie gedownload als dat nodig is.</value>
+    <value>Wil je de implementatie verwijderen? Er wordt automatisch een nieuwe kopie gedownload wanneer dat nodig is.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Voer '0install store remove {0}' uit om het te verwijderen. Een nieuwe kopie wordt automatisch opnieuw gedownload wanneer nodig.</value>
+    <value>De implementatie is verwijderd. Een nieuwe kopie wordt automatisch opnieuw gedownload als dat nodig is.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -243,7 +243,8 @@ Opgegeven in het configuratiebestand '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Er is een probleem opgetreden bij de toegang tot de implementation store "{0}".</value>
+    <value>Er is een probleem opgetreden bij de toegang tot de implementation store "{0}".
+Voer '{1}' uit om het te verwijderen uit de lijst met geregistreerde bestandsmappen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

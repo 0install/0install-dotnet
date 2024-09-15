@@ -139,7 +139,7 @@ Doriți să aveți încredere în această cheie pentru semnarea fluxurilor de l
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Lipsește numele în legarea {0}.</value>
+    <value>Lipsește numele în legătura {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -155,7 +155,7 @@ Doriți să aveți încredere în această cheie pentru semnarea fluxurilor de l
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Nu s-a găsit niciun manifest digest pentru implementarea '{0}'.</value>
+    <value>Nu a fost găsit niciun manifest digest pentru implementarea '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
@@ -174,7 +174,7 @@ Ora nouă: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Imposibilitatea de a memora în cache catalogul aplicațiilor descărcate.</value>
+    <value>Imposibilitatea de a stoca în cache catalogul aplicațiilor descărcate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">

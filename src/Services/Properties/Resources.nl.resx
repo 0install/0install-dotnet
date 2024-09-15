@@ -107,7 +107,7 @@ Wilt u deze sleutel vertrouwen om feeds van "{3}" te ondertekenen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' kon niet worden gevonden in de feed cache.</value>
+    <value>{0}' kon niet worden gevonden in de feed cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">

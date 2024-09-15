@@ -125,7 +125,7 @@ Para eliminar el directorio completo sin usar Zero Install, ejecuta esta línea 
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>El uso del feed mirror, necesario para la búsqueda, está desactivado.
-Ejecute '0install config feed_mirror default' para activarlo.</value>
+Ejecute '0install config feed_mirror default' para habilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -161,11 +161,11 @@ Ejecute '0install config feed_mirror default' para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>¿Quieres eliminarlo? Se volverá a descargar automáticamente una nueva copia cuando sea necesario.</value>
+    <value>¿Quieres eliminar la aplicación? Se volverá a descargar automáticamente una nueva copia cuando sea necesario.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Ejecute '0install store remove {0}' para eliminarlo. Una nueva copia se descargará automáticamente de nuevo cuando sea necesario.</value>
+    <value>La aplicación se ha eliminado. Se volverá a descargar automáticamente una nueva copia cuando sea necesario.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -218,7 +218,7 @@ Si estás utilizando una unidad con formato FAT, conviértela a NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>No se ha especificado ningún método de compendio conocido.</value>
+    <value>No se ha especificado ningún método de resumen conocido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
@@ -243,7 +243,8 @@ Se especifica en el archivo de configuración '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>No ha sido posible acceder a la memoria de implementación «{0}».</value>
+    <value>No ha sido posible acceder a la memoria de implementación «{0}».
+Ejecuta «{1}» para eliminarlo de la lista de directorios de archivos registrados.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

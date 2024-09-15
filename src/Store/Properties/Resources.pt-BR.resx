@@ -243,7 +243,8 @@ Especificado no arquivo de configuração '{1}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Ocorreu um problema ao acessar a memória de implementação "{0}".</value>
+    <value>Ocorreu um problema ao acessar a memória de implementação "{0}".
+Execute '{1}' para removê-lo da lista de diretórios registrados.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

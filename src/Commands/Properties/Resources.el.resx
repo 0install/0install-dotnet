@@ -561,7 +561,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Υπάρχει μια μεταγενέστερη έκδοση ({0}) αλλά δεν επιλέχθηκε. Χρησιμοποιείται το {1} αντί αυτού.</value>
+    <value>Υπάρχει μια μεταγενέστερη έκδοση ({0}), αλλά δεν επιλέχθηκε. Χρησιμοποιείται το {1} αντί αυτού.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">

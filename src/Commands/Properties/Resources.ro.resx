@@ -277,7 +277,7 @@ Returnează un status de ieșire de 0 dacă a selectat un set adecvat de versiun
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importă un feed dintr-un fișier local, ca și cum ar fi fost descărcat din rețea. Acest lucru este util atunci când se testează un fișier de alimentare, pentru a evita încărcarea acestuia pe un server de la distanță pentru a-l descărca din nou.
+    <value>Importă un feed dintr-un fișier local, ca și cum ar fi fost descărcat din rețea. Acest lucru este util atunci când se testează un fișier de alimentare, pentru a evita încărcarea acestuia pe un server la distanță pentru a-l descărca din nou.
 Fișierul trebuie să aibă o semnătură digitală de încredere, ca atunci când este preluat din rețea.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -672,7 +672,7 @@ Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă d
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Necesită o versiune a programului principal mai veche decât {VERSION}. Adică, forțează utilizarea unei versiuni vechi a programului.</value>
+    <value>Necesită o versiune a programului principal anterioară {VERSION}. Adică, forțează utilizarea unei versiuni vechi a programului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -775,7 +775,7 @@ Nu poate conține argumente de linie de comandă! Spațiile albe nu trebuie să 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Necesită o versiune a programului principal care să nu fie anterioară lui {VERSION}. De exemplu, dacă doriți să rulați versiunea 2.0 sau ulterioară, utilizați --not-before=2.0.</value>
+    <value>Necesită o versiune a programului principal nu mai veche de {VERSION}. De exemplu, dacă doriți să rulați versiunea 2.0 sau ulterioară, utilizați --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -800,7 +800,7 @@ Nu poate conține argumente de linie de comandă! Spațiile albe nu trebuie să 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Reporniți interfața grafică "0install central" după actualizare.</value>
+    <value>Repornește interfața grafică "0install central" după actualizare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">
