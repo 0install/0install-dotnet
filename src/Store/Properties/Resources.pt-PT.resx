@@ -161,11 +161,11 @@ Execute '0install config feed_mirror default' para o ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Pretende removê-lo? Uma nova cópia será automaticamente descarregada de novo quando necessário.</value>
+    <value>Pretende remover a aplicação? Uma nova cópia será automaticamente descarregada quando necessário.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Execute '0install store remove {0}' para o remover. Uma nova cópia será automaticamente descarregada de novo quando necessário.</value>
+    <value>A implementação foi removida. Uma nova cópia será automaticamente descarregada de novo quando necessário.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -235,7 +235,7 @@ Especificado no ficheiro de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>O valor numérico é demasiado grande.</value>
+    <value>O valor do número é demasiado grande.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
@@ -243,8 +243,9 @@ Especificado no ficheiro de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Não foi possível aceder à memória de implementação "{0}".</value>
-    <comment>Manually overriden.</comment>
+    <value>Houve um problema ao aceder à loja de implementação '{0}'.
+Execute '{1}' para a remover da lista de diretórios registados.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Ocorreu um problema durante o carregamento de um ficheiro de configuração.

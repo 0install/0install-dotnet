@@ -243,7 +243,8 @@ Spécifié dans le fichier de configuration '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Problème d'accès à la bibliothèque d'implémentation '{0}'.</value>
+    <value>Problème d'accès à la bibliothèque d'implémentation '{0}'.
+Exécutez '{1}' pour le supprimer de la liste des répertoires enregistrés.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

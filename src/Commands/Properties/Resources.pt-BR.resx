@@ -210,6 +210,10 @@ Você pode usá-la executando o arquivo ZeroInstall.exe na pasta.</value>
     <value>A pasta de destino especificada ({0}) está localizada fora da pasta inicial.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DeprecatedOption" xml:space="preserve">
+    <value>Opção obsoleta. Por favor, use '{0}' .</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>Descrição</value>
     <comment>Manually overriden.</comment>

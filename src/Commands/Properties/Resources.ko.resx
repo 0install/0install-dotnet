@@ -269,7 +269,7 @@
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>선택한 버전이 아직 캐시되지 않은 경우 다운로드한다는 점을 제외하면 '0install select'와 유사하게 작동합니다.
-적절한 버전 집합을 선택했고 현재 모두 다운로드되어 캐시에 있는 경우 종료 상태 0을 반환하고, 그렇지 않으면 상태 1을 반환합니다.</value>
+적절한 버전 집합을 선택했고 현재 모두 다운로드되어 캐시에 있는 경우 종료 상태 0을 반환하고, 그렇지 않은 경우 1을 반환합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -294,7 +294,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>현재 애플리케이션 목록에 있는 모든 애플리케이션을 나열합니다. URI를 지정하면 해당 피드 URI를 가진 애플리케이션만 표시됩니다. 패턴을 지정하면 이름에 해당 문자열이 포함된 애플리케이션만 표시됩니다(대소문자 구분 없음).</value>
+    <value>현재 애플리케이션 목록에 있는 모든 애플리케이션을 나열합니다. URI를 지정하면 해당 피드 URI를 가진 애플리케이션만 표시됩니다. 패턴이 지정된 경우 이름에 해당 문자열이 포함된 애플리케이션만 표시됩니다(대소문자 구분 없음).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -701,7 +701,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>매니페스트의 다이제스트를 표시합니다(--manifest가 설정되지 않은 경우 기본적으로 활성화됨).</value>
+    <value>매니페스트 다이제스트 표시(--manifest를 설정하지 않은 경우 기본적으로 활성화됨).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
@@ -1004,7 +1004,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
-    <value>대신 '{0}'을 사용하세요.</value>
+    <value>대신 '{0}'를 사용하세요.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">

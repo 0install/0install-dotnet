@@ -96,7 +96,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Configuração da Instalação Zero para todos os utilizadores (em toda a máquina) em vez de apenas para o utilizador atual?</value>
+    <value>Configuração da instalação zero para todos os utilizadores (em toda a máquina) em vez de apenas para o utilizador atual?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -108,7 +108,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
-    <value>Tem a certeza que pretende remover o Zero Install deste computador?</value>
+    <value>Tem a certeza de que pretende remover o Zero Install deste computador?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
@@ -374,7 +374,7 @@ Um argumento adicional especifica uma localização de cache de destino personal
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, apenas são listadas as implementações desse feed específico.</value>
+    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, são listadas apenas as implementações desse feed específico.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -387,7 +387,7 @@ Argumentos adicionais especificam localizações de cache personalizadas.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Remove todas as implementações da cache. Utilize este comando para limpar o sistema antes de remover o Zero Install. Eliminar manualmente os diretórios da cache pode ser difícil devido às ACLs NTFS utilizadas para proteger as implementações contra modificações.
+    <value>Remove todas as implementações da cache. Use este comando para limpar o sistema antes de remover o Zero Install. Eliminar manualmente os diretórios da cache pode ser difícil devido às ACLs NTFS utilizadas para proteger as implementações contra modificações.
 Argumentos adicionais especificam localizações de cache personalizadas.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -567,7 +567,7 @@ Uma tag &lt;feed-for&gt; indica compatibilidade de feed.</value>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Este programa é fornecido SEM NENHUMA GARANTIA, até ao limite permitido por lei.
-Pode redistribuir cópias deste programa ao abrigo dos termos da GNU Lesser General Public License.</value>
+Pode redistribuir cópias deste programa sob os termos da GNU Lesser General Public License.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
@@ -1004,7 +1004,7 @@ Mantenha esta chave secreta e utilize algo diferente para a sua palavra-passe. D
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
-    <value>Utilize '{0}' em vez disso.</value>
+    <value>Utilizar '{0}' em vez disso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">

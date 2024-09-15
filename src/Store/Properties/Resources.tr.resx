@@ -161,11 +161,11 @@ Etkinleştirmek için '0install config feed_mirror default' komutunu kullanın.<
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Kaldırmak ister misiniz? Daha sonra gerek duyulduğunda yeni bir kopya otomatik olarak indirilir.</value>
+    <value>Uyarlamayı kaldırmak ister misiniz? Daha sonra gerek duyulduğunda yeni bir kopya otomatik olarak indirilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Uygulama kaldırılmıştır. Daha sonra gerek duyulduğunda yeni bir kopya otomatik olarak indirilir.</value>
+    <value>Uyarlama kaldırıldı. Daha sonra gerek duyulduğunda yeni bir kopya otomatik olarak indirilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -243,7 +243,8 @@ FAT biçimindeki bir sürücü kullanıyorsanız lütfen bunu NTFS biçimine dö
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>'{0}' uygulama deposuna erişilirken bir sorun çıktı.</value>
+    <value>'{0}' uyarlama deposuna erişilirken bir sorun çıktı.
+Kayıtlı klasörler listesinden kaldırmak için '{1}' çalıştırın.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

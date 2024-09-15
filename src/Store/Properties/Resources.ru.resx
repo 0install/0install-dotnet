@@ -161,11 +161,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Хотите удалить его? При необходимости новая копия будет автоматически загружена снова.</value>
+    <value>Хотите удалить внедрение? При необходимости новая копия будет автоматически загружена снова.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Выполните команду '0install store remove {0}', чтобы удалить его. При необходимости новая копия будет загружена автоматически.</value>
+    <value>Реализация была удалена. При необходимости новая копия будет загружена автоматически.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -243,8 +243,9 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Возникла проблема с доступом к хранилищу реализаций '{0}'.</value>
-    <comment>Manually overriden.</comment>
+    <value>Возникла проблема с доступом к хранилищу реализации '{0}'.
+Запустите '{1}', чтобы удалить его из списка зарегистрированных каталогов.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Возникла проблема с загрузкой файла конфигурации.

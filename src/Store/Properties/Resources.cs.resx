@@ -161,11 +161,11 @@ Chcete-li jej povolit, spusťte příkaz '0install config feed_mirror default'.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Chcete jej odstranit? V případě potřeby se automaticky znovu stáhne nová kopie.</value>
+    <value>Chcete odstranit implementaci? V případě potřeby se automaticky znovu stáhne nová kopie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Chcete-li jej odstranit, spusťte příkaz '0install store remove {0}'. V případě potřeby se automaticky znovu stáhne nová kopie.</value>
+    <value>Implementace byla odstraněna. V případě potřeby se automaticky znovu stáhne nová kopie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -243,8 +243,9 @@ Zadává se v konfiguračním souboru '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Došlo k problému s přístupem k úložišti implementace ‚‚{0}‘‘.</value>
-    <comment>Manually overriden.</comment>
+    <value>Došlo k problému s přístupem k úložišti implementace '{0}'.
+Spusťte '{1}' a odstraňte jej ze seznamu registrovaných adresářů.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Došlo k problému při stahování konfiguračního souboru.
