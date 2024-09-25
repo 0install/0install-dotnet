@@ -25,16 +25,20 @@ public static class UninstallEntry
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
     public static void Register(FeedTarget target, IIconStore iconStore, bool machineWide)
     {
-        string[] uninstallCommand = [Path.Combine(Locations.InstallBase, "0install-win.exe"), "remove", target.Uri.ToStringRfc()];
-        if (machineWide) uninstallCommand = [..uninstallCommand, "--machine"];
+        string[] GetCommand(string verb)
+        {
+            string[] command = [Path.Combine(Locations.InstallBase, "0install-win.exe"), verb, target.Uri.ToStringRfc()];
+            return machineWide ? [..command, "--machine"] : command;
+        }
 
         Register(
-            target.Uri.PrettyEscape(),
-            uninstallCommand,
-            target.Feed.Name,
-            target.Feed.Publisher,
-            target.Feed.Homepage,
-            GetIconPath(target.Feed, iconStore),
+            id: target.Uri.PrettyEscape(),
+            name: target.Feed.Name,
+            uninstallCommand: GetCommand("remove"),
+            modifyCommand: GetCommand("integrate"),
+            publisher: target.Feed.Publisher,
+            homepage: target.Feed.Homepage,
+            iconPath: GetIconPath(target.Feed, iconStore),
             machineWide: machineWide);
     }
 
@@ -48,8 +52,9 @@ public static class UninstallEntry
     /// Adds an entry to the list of uninstallable applications.
     /// </summary>
     /// <param name="id">The ID of the entry to create.</param>
-    /// <param name="uninstallCommand">The command-line to invoke for uninstalling the application.</param>
     /// <param name="name">The name of the application.</param>
+    /// <param name="uninstallCommand">The command-line to invoke for uninstalling the application.</param>
+    /// <param name="modifyCommand">>The command-line to invoke for modifying the state of the application.</param>
     /// <param name="publisher">The publisher (company or organization) of the application.</param>
     /// <param name="homepage">The URL of a web-page describing application in more detail.</param>
     /// <param name="iconPath">The path of an icon file.</param>
@@ -58,22 +63,28 @@ public static class UninstallEntry
     /// <param name="machineWide">Apply the registration machine-wide instead of just for the current user.</param>
     /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-    public static void Register(string id, string[] uninstallCommand, string name, string? publisher = null, Uri? homepage = null, string? iconPath = null, string? version = null, long? size = null, bool machineWide = false)
+    public static void Register(string id, string name, string[] uninstallCommand, string[]? modifyCommand = null, string? publisher = null, Uri? homepage = null, string? iconPath = null, string? version = null, long? size = null, bool machineWide = false)
     {
         using var uninstallKey = OpenUninstallKey(machineWide);
         using var appKey = uninstallKey.CreateSubKeyChecked(id);
 
         appKey.SetValue("UninstallString", uninstallCommand.JoinEscapeArguments());
         appKey.SetValue("QuietUninstallString", uninstallCommand.Concat(["--batch", "--background"]).JoinEscapeArguments());
-        appKey.SetValue("NoModify", 1, RegistryValueKind.DWord);
+
+        appKey.SetOrDelete("ModifyPath", modifyCommand?.JoinEscapeArguments());
+        appKey.SetValue("NoModify", modifyCommand == null ? 1 : 0, RegistryValueKind.DWord);
+
         appKey.SetValue("NoRepair", 1, RegistryValueKind.DWord);
+
         appKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
         appKey.SetValue("DisplayName", name);
         appKey.SetOrDelete("DisplayIcon", iconPath);
         appKey.SetOrDelete("Publisher", publisher);
         appKey.SetOrDelete("URLInfoAbout", homepage?.ToString());
         appKey.SetOrDelete("DisplayVersion", version);
+
         if (size.HasValue) appKey.SetValue("EstimatedSize", size / 1024, RegistryValueKind.DWord);
+        else appKey.DeleteValue("EstimatedSize", throwOnMissingValue: false);
     }
 
     /// <summary>
