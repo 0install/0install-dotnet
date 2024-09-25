@@ -66,14 +66,16 @@ public abstract class IntegrationCommand : CliCommand
         if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
         #endregion
 
-        var existingEntry = integrationManager.AppList.GetEntry(interfaceUri);
-
         var target = GetTarget(ref interfaceUri, out bool replaced);
         EnsureAllowed(interfaceUri);
 
-        return replaced && existingEntry != null
-            ? ReplaceAppEntry(integrationManager, existingEntry, target)
-            : existingEntry ?? CreateAppEntry(integrationManager, target);
+        if (integrationManager.AppList.GetEntry(interfaceUri) is {} existingEntry)
+        {
+            return replaced
+                ? ReplaceAppEntry(integrationManager, existingEntry, target)
+                : existingEntry;
+        }
+        else return CreateAppEntry(integrationManager, target);
     }
 
     private FeedTarget GetTarget(ref FeedUri interfaceUri, out bool replaced)
