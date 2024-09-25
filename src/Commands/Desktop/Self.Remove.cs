@@ -63,10 +63,12 @@ partial class Self
                 {
                     ImplementationStore.Purge();
                 }
-                catch (NotAdminException ex) when (ZeroInstallInstance.IsLibraryMode)
+                #region Error handling
+                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException && ZeroInstallInstance.IsLibraryMode)
                 {
-                    Log.Info("Unable to purge implementation store", ex);
+                    Log.Warn("Unable to purge implementation store", ex);
                 }
+                #endregion
             }
 
             if (WindowsUtils.IsWindows) DelegateToTempCopy();
