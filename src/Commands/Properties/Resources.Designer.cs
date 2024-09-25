@@ -1059,6 +1059,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File check complete.
+        /// </summary>
+        public static string FileCheckComplete {
+            get {
+                return ResourceManager.GetString("FileCheckComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to find file or directory &apos;{0}&apos;..
         /// </summary>
         public static string FileOrDirNotFound {
@@ -2105,6 +2114,15 @@ namespace ZeroInstall.Commands.Properties {
         public static string TryHelpWith {
             get {
                 return ResourceManager.GetString("TryHelpWith", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please try running {0} again..
+        /// </summary>
+        public static string TryRunAgain {
+            get {
+                return ResourceManager.GetString("TryRunAgain", resourceCulture);
             }
         }
         

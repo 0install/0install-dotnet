@@ -462,6 +462,9 @@ This is similar to '0install download --refresh', except that it prints informat
   <data name="FeedUnregistered" xml:space="preserve">
     <value>The feed was successfully unregistered for the following interfaces:</value>
   </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>File check complete</value>
+  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Unable to find file or directory '{0}'.</value>
   </data>
@@ -821,6 +824,9 @@ Keep this key secret and use something different for your password. This way nob
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Try {0} with one of these:</value>
+  </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>Please try running {0} again.</value>
   </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Uninstalling Zero Install Store Service</value>

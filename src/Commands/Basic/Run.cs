@@ -5,6 +5,7 @@ using System.Diagnostics;
 using NanoByte.Common.Native;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Store.Configuration;
+using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Basic;
 
@@ -95,26 +96,19 @@ public class Run : Download
         }
     }
 
-    private static Process? TryStart(IEnvironmentBuilder builder)
+    private Process? TryStart(IEnvironmentBuilder builder)
     {
         try
         {
             return builder.Start();
         }
-        #region Error handling
-        catch (FileNotFoundException ex)
+        catch (FileNotFoundException ex) when (ZeroInstallInstance.IsLibraryMode && Handler.IsGui)
         {
-            if (ZeroInstallInstance.IsLibraryMode && ProgramUtils.GuiStartInfo(StoreMan.Name, StoreMan.Audit.Name, "--batch") is {} storeAudit)
-            {
-                Log.Info("Automatically starting store audit because of missing file in Kiosk mode", ex);
-                storeAudit.Start();
-                return null;
-            }
-
-            // Wrap exception to add context information
-            throw new FileNotFoundException(string.Format(Resources.TryHelp, "0install store audit"), ex);
+            Log.Warn("Missing executable file; running automatic store audit because users can't trigger it themselves in library mode", ex);
+            ImplementationStore.Audit(Handler);
+            Handler.Output(Resources.FileCheckComplete, string.Format(Resources.TryRunAgain, Selections?.Name));
+            throw new OperationCanceledException();
         }
-        #endregion
     }
 
     private void WaitForGui(Process process)
