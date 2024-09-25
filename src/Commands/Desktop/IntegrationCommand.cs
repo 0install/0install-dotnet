@@ -6,6 +6,7 @@ using ZeroInstall.Commands.Basic;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store.Configuration;
+using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Desktop;
 
@@ -71,6 +72,13 @@ public abstract class IntegrationCommand : CliCommand
 
         if (integrationManager.AppList.GetEntry(interfaceUri) is {} existingEntry)
         {
+            if (ZeroInstallInstance.IsLibraryMode && Handler.IsGui)
+            {
+                Log.Info("Modifying existing integration; running automatic store audit because users can't trigger it themselves in library mode");
+                Handler.Background = false;
+                ImplementationStore.Audit(Handler);
+            }
+
             return replaced
                 ? ReplaceAppEntry(integrationManager, existingEntry, target)
                 : existingEntry;
