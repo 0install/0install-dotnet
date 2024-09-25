@@ -33,8 +33,11 @@ public class UpdateApps : IntegrationCommand
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
-        if (_clean && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator && ImplementationsInReadOnlyStores && !ZeroInstallInstance.IsLibraryMode)
+        if (_clean && ImplementationsInReadOnlyStores && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator && !ZeroInstallInstance.IsLibraryMode)
+        {
+            Log.Info("Requesting elevation to admin to be able to remove implementations from read-only stores");
             throw new NotAdminException();
+        }
 
         var apps = GetApps();
         if (apps is [var app]) Handler.FeedUri = app.InterfaceUri;

@@ -49,7 +49,7 @@ partial class Self
             if (MachineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
                 throw new NotAdminException(Resources.MustBeAdminForMachineWide);
 
-            if (!ZeroInstallInstance.IsLibraryMode && !Handler.Ask(Resources.AskRemoveZeroInstall, defaultAnswer: true))
+            if (!Handler.Ask(Resources.AskRemoveZeroInstall, defaultAnswer: true))
                 return ExitCode.UserCanceled;
 
             if (IntegrationCommand.ExistingDesktopIntegration())
@@ -57,7 +57,8 @@ partial class Self
             if (MachineWide && IntegrationCommand.ExistingDesktopIntegration(machineWide: true))
                 new RemoveAllApps(Handler) {MachineWide = true}.Execute();
 
-            if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: ZeroInstallInstance.IsLibraryMode && ZeroInstallDeployment.FindOther() == null))
+            bool autoPurgeStore = ZeroInstallInstance.IsLibraryMode && ZeroInstallDeployment.FindOther() == null;
+            if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: autoPurgeStore))
             {
                 try
                 {
