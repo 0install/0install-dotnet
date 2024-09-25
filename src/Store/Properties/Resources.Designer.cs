@@ -61,6 +61,15 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Checking for damaged files.
+        /// </summary>
+        internal static string CheckingForDamagedFiles {
+            get {
+                return ResourceManager.GetString("CheckingForDamagedFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copying files.
         /// </summary>
         internal static string CopyFiles {

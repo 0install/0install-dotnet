@@ -118,4 +118,16 @@ public static class ImplementationStoreUtils
 
         return null;
     }
+
+    /// <summary>
+    /// Checks whether all implementations in the store still matches the expected digest.
+    /// Asks the user whether to delete the implementation if it does not match.
+    /// </summary>
+    /// <param name="store">The store containing the implementation.</param>
+    /// <param name="handler">A callback object used when the user needs to be asked questions or informed about IO tasks.</param>
+    /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+    /// <exception cref="IOException">An implementation's directory could not be processed.</exception>
+    /// <exception cref="UnauthorizedAccessException">Read access to an implementation's directory is not permitted.</exception>
+    public static void Audit(this IImplementationStore store, ITaskHandler handler)
+        => handler.RunTask(ForEachTask.Create(Resources.CheckingForDamagedFiles, store.ListAll().ToList(), store.Verify));
 }

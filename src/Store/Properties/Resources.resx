@@ -303,4 +303,7 @@ You can delete the file '{1}' to fix the problem. Other settings may also be los
   <data name="XmlSignatureNotBase64" xml:space="preserve">
     <value>The signature is not valid base 64:</value>
   </data>
+  <data name="CheckingForDamagedFiles" xml:space="preserve">
+    <value>Checking for damaged files</value>
+  </data>
 </root>

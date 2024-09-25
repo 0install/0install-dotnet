@@ -3,6 +3,7 @@
 
 using NanoByte.Common.Threading;
 using ZeroInstall.Archives;
+using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.ViewModel;
 
 namespace ZeroInstall.Commands.Basic;
@@ -50,9 +51,7 @@ partial class StoreMan
         public override ExitCode Execute()
         {
             SetStorePaths(AdditionalArgs);
-
-            Handler.RunTask(ForEachTask.Create(Resources.StoreAudit,
-                ImplementationStore.ListAll().ToList(), digest => ImplementationStore.Verify(digest)));
+            ImplementationStore.Audit(Handler);
             return ExitCode.OK;
         }
     }
