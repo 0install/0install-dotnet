@@ -1,0 +1,4888 @@
+{
+  "source_base_path": "C:/projects/0install-dotnet/doc",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "logo.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.BuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.BuilderExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Builders.ArchiveBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Builders.ArchiveBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Builders.IArchiveBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Builders.IArchiveBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Builders.TarBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Builders.TarBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Builders.TarBz2Builder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Builders.TarBz2Builder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Builders.TarGzBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Builders.TarGzBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Builders.TarLzipBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Builders.TarLzipBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Builders.TarZstandardBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Builders.TarZstandardBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Builders.ZipBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Builders.ZipBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Builders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Builders.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.ArchiveExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.ArchiveExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.CabExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.CabExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.DmgExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.DmgExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.IArchiveExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.IArchiveExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.MsiExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.MsiExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.RarExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.RarExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.RubyGemExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.RubyGemExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.SevenZipExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.SevenZipExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.TarBz2Extractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.TarBz2Extractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.TarExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.TarExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.TarGzExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.TarGzExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.TarLzipExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.TarLzipExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.TarLzmaExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.TarLzmaExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.TarXzExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.TarXzExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.TarZstandardExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.TarZstandardExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.ZipExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.ZipExtractor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.Extractors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.Extractors.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.ImplementationServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.ImplementationServer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Archives.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Archives.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Client.IZeroInstallClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Client.IZeroInstallClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Client.TemporarilyUnavailableException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Client.TemporarilyUnavailableException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Client.ZeroInstallClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Client.ZeroInstallClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Client.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.AddFeed.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.AddFeed.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.AddRemoveFeedCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.AddRemoveFeedCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.CatalogMan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.CatalogMan.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Configure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Configure.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.DefaultCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.DefaultCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Digest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Digest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Download.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Download.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Export.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Export.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.ExportHelp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.ExportHelp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Exporters.Exporter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Exporters.Exporter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Exporters.HelpExporterBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Exporters.HelpExporterBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Exporters.HtmlHelpExporter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Exporters.HtmlHelpExporter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Exporters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Exporters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Fetch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Fetch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Import.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Import.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.List.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.List.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.ListFeeds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.ListFeeds.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.RemoveFeed.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.RemoveFeed.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Run.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Run.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Search.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Search.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Selection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Selection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Add.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Add.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Audit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Audit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Copy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Copy.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Export.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Export.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Find.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Find.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.List.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.List.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.ListImplementations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.ListImplementations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Optimise.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Optimise.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Purge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Purge.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Remove.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Remove.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Serve.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Serve.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.StoreSubCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.StoreSubCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Verify.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.Verify.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.StoreMan.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.TrustMan.Add.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.TrustMan.Add.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.TrustMan.List.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.TrustMan.List.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.TrustMan.Remove.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.TrustMan.Remove.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.TrustMan.TrustSubCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.TrustMan.TrustSubCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.TrustMan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.TrustMan.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.Update.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.Update.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Basic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Basic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.CliCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.CliCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.CliCommandHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.CliCommandHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.CliMultiCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.CliMultiCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.AddAlias.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.AddAlias.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.AddApp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.AddApp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.AppCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.AppCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.Central.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.Central.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.ImportApps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.ImportApps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.IntegrateApp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.IntegrateApp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.IntegrationCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.IntegrationCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.ListApps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.ListApps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.RemoveAllApps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.RemoveAllApps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.RemoveApp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.RemoveApp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.RepairApps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.RepairApps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.Self.Deploy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.Self.Deploy.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.Self.Remove.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.Self.Remove.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.Self.RemoveSubCommandBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.Self.RemoveSubCommandBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.Self.SelfSubCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.Self.SelfSubCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.Self.Update.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.Self.Update.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.Self.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.Self.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.SelfManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.SelfManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.SyncApps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.SyncApps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.UpdateApps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.UpdateApps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Desktop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Desktop.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.EnvironmentBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.EnvironmentBuilderExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.ExitCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.ExitCode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.ICliSubCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.ICliSubCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.ICommandHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.ICommandHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.NeedsGuiException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.NeedsGuiException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.ProgramUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.ProgramUtils.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Properties.Resources.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Properties.Resources.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.Properties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.Properties.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.ScopedOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.ScopedOperation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.UnsuitableInstallBaseException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.UnsuitableInstallBaseException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.ZeroInstallInstance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.ZeroInstallInstance.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Commands.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Commands.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.AccessPointList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.AccessPointList.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.AppAlias.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.AppAlias.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.AutoPlay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.AutoPlay.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.AutoStart.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.AutoStart.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.CapabilityRegistration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.CapabilityRegistration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.CommandAccessPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.CommandAccessPoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.ContextMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.ContextMenu.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.DefaultAccessPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.DefaultAccessPoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.DefaultProgram.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.DefaultProgram.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.DesktopIcon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.DesktopIcon.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.FileType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.FileType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.IconAccessPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.IconAccessPoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.MenuEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.MenuEntry.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.MockAccessPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.MockAccessPoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.QuickLaunch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.QuickLaunch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.SendTo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.SendTo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.UrlProtocol.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.UrlProtocol.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AccessPoints.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AppEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AppEntry.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.AppList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.AppList.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.CapabilityExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.CapabilityExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.CategoryIntegrationManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.CategoryIntegrationManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ConflictData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ConflictData.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ConflictDataUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ConflictDataUtils.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ConflictException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ConflictException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ICategoryIntegrationManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ICategoryIntegrationManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.IIntegrationManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.IIntegrationManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.IconStores.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.IconStores.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.IntegrationManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.IntegrationManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.IntegrationManagerBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.IntegrationManagerBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Suggest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Suggest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.SyncIntegrationManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.SyncIntegrationManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.SyncRaceException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.SyncRaceException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.SyncResetMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.SyncResetMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Unix.AppAlias.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Unix.AppAlias.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Unix.ContextMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Unix.ContextMenu.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Unix.DefaultProgram.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Unix.DefaultProgram.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Unix.FileType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Unix.FileType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Unix.FreeDesktop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Unix.FreeDesktop.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Unix.UrlProtocol.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Unix.UrlProtocol.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Unix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Unix.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.AutoPlayModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.AutoPlayModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.CapabilityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.CapabilityModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.CapabilityModelExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.CapabilityModelExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.ContextMenuModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.ContextMenuModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.DefaultProgramModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.DefaultProgramModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.FileTypeModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.FileTypeModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.IconCapabilityModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.IconCapabilityModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.UrlProtocolModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.UrlProtocolModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.ViewModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.AppAlias.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.AppAlias.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.AppRegistration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.AppRegistration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.AutoPlay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.AutoPlay.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.ComServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.ComServer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.ContextMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.ContextMenu.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.DefaultProgram.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.DefaultProgram.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.FileType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.FileType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.PathEnv.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.PathEnv.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.Shortcut.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.Shortcut.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.StubBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.StubBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.UninstallEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.UninstallEntry.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.UrlProtocol.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.UrlProtocol.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.Windows.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.Windows.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.DesktopIntegration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.DesktopIntegration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Architecture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Architecture.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ArchitectureExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ArchitectureExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Archive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Archive.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Arg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Arg.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ArgBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ArgBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Binding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Binding.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.AppRegistration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.AppRegistration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.AutoPlay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.AutoPlay.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.AutoPlayEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.AutoPlayEvent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.Capability.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.Capability.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.CapabilityList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.CapabilityList.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.CapabilityListExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.CapabilityListExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.ComServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.ComServer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.ContextMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.ContextMenu.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.ContextMenuTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.ContextMenuTarget.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.DefaultCapability.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.DefaultCapability.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.DefaultProgram.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.DefaultProgram.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.FileType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.FileType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.FileTypeExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.FileTypeExtension.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.IconCapability.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.IconCapability.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.InstallCommands.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.InstallCommands.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.KnownProtocolPrefix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.KnownProtocolPrefix.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.RemoveHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.RemoveHook.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.UrlProtocol.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.UrlProtocol.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.Verb.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.Verb.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.VerbCapability.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.VerbCapability.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Capabilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Capabilities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Catalog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Catalog.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Category.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Category.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Command.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Command.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Constraint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Constraint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.CopyFromStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.CopyFromStep.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Cpu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Cpu.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Dependency.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Dependency.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.DependencyContainerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.DependencyContainerExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Design.ArgBaseConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Design.ArgBaseConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Design.CategoryNameConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Design.CategoryNameConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Design.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Design.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.DownloadRetrievalMethod.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.DownloadRetrievalMethod.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Element.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Element.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ElementCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ElementCollectionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.EntryPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.EntryPoint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.EnvironmentBinding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.EnvironmentBinding.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.EnvironmentMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.EnvironmentMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ExecutableInBinding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ExecutableInBinding.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ExecutableInPath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ExecutableInPath.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ExecutableInVar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ExecutableInVar.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Feed.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Feed.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.FeedElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.FeedElement.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.FeedReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.FeedReference.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.FeedTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.FeedTarget.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.FeedUri.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.FeedUri.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ForEachArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ForEachArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.GenericBinding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.GenericBinding.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Group.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Group.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.IArgBaseContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.IArgBaseContainer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.IBindingContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.IBindingContainer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.IDependencyContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.IDependencyContainer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.IDescriptionContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.IDescriptionContainer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.IElementContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.IElementContainer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.IIconContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.IIconContainer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.IInterfaceUri.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.IInterfaceUri.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.IInterfaceUriBindingContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.IInterfaceUriBindingContainer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.IRecipeStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.IRecipeStep.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ISummaryContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ISummaryContainer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Icon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Icon.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.IconExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.IconExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Implementation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Implementation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ImplementationBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ImplementationBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ImplementationVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ImplementationVersion.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Importance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Importance.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.InterfaceReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.InterfaceReference.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ManifestDigest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ManifestDigest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ManifestDigestPartialEqualityComparer-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ManifestDigestPartialEqualityComparer-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ManifestDigestPartialEqualityComparer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ManifestDigestPartialEqualityComparer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ModelUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ModelUtils.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.OS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.OS.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.OverlayBinding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.OverlayBinding.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.PackageImplementation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.PackageImplementation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Preferences.FeedPreferences.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Preferences.FeedPreferences.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Preferences.ImplementationPreferences.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Preferences.ImplementationPreferences.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Preferences.InterfacePreferences.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Preferences.InterfacePreferences.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Preferences.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Preferences.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Recipe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Recipe.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.RemoveStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.RemoveStep.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.RenameStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.RenameStep.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Requirements.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Requirements.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Restriction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Restriction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.RetrievalMethod.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.RetrievalMethod.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Runner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Runner.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Selection.ImplementationSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Selection.ImplementationSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Selection.SelectionCandidate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Selection.SelectionCandidate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Selection.SelectionCandidateExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Selection.SelectionCandidateExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Selection.Selections.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Selection.Selections.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Selection.TestCase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Selection.TestCase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Selection.TestCaseSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Selection.TestCaseSet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Selection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Selection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.SingleFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.SingleFile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.Stability.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.Stability.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.TargetBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.TargetBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.VersionDottedList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.VersionDottedList.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.VersionModifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.VersionModifier.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.VersionPart.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.VersionPart.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.VersionRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.VersionRange.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.VersionRangePart.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.VersionRangePart.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.VersionRangePartExact.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.VersionRangePartExact.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.VersionRangePartExclude.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.VersionRangePartExclude.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.VersionRangePartRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.VersionRangePartRange.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.WorkingDir.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.WorkingDir.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.XmlUnknown.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.XmlUnknown.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ZeroInstallDeployment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ZeroInstallDeployment.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.ZeroInstallEnvironment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.ZeroInstallEnvironment.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Model.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Model.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.BuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.BuilderExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.Capture.CaptureSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.Capture.CaptureSession.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.Capture.CommandMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.Capture.CommandMapper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.Capture.Snapshot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.Capture.Snapshot.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.Capture.SnapshotDiff.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.Capture.SnapshotDiff.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.Capture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.Capture.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.BashScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.BashScript.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.Candidate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.Candidate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.DetectCandidates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.DetectCandidates.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.DotNetDll.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.DotNetDll.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.DotNetExe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.DotNetExe.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.DotNetFrameworkExe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.DotNetFrameworkExe.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.DotNetRuntimeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.DotNetRuntimeType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.IIconContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.IIconContainer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.InterpretedScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.InterpretedScript.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.Java.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.Java.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.JavaClass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.JavaClass.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.JavaJar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.JavaJar.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.MacOSApp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.MacOSApp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.NativeExecutable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.NativeExecutable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PEHeader.ImageDataDirectory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PEHeader.ImageDataDirectory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PEHeader.ImageDosHeader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PEHeader.ImageDosHeader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PEHeader.ImageFileHeader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PEHeader.ImageFileHeader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PEHeader.ImageOptionalHeader32.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PEHeader.ImageOptionalHeader32.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PEHeader.ImageOptionalHeader64.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PEHeader.ImageOptionalHeader64.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PEHeader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PEHeader.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PEMachineType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PEMachineType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PESubsystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PESubsystem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PerlScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PerlScript.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PhpScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PhpScript.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PosixBinary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PosixBinary.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PosixExecutable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PosixExecutable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PosixScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PosixScript.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PowerShellScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PowerShellScript.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PowerShellType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PowerShellType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.PythonScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.PythonScript.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.RubyScript.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.RubyScript.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.WindowsBatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.WindowsBatch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.WindowsExe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.WindowsExe.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.EntryPoints.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.EntryPoints.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.FeedBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.FeedBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.FeedEditing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.FeedEditing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.FeedUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.FeedUtils.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.ImplementationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.ImplementationExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.RetrievalMethodExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.RetrievalMethodExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.SignedCatalog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.SignedCatalog.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.SignedFeed.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.SignedFeed.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Publish.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Publish.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Executors.EnvironmentBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Executors.EnvironmentBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Executors.Executor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Executors.Executor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Executors.ExecutorException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Executors.ExecutorException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Executors.IEnvironmentBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Executors.IEnvironmentBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Executors.IExecutor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Executors.IExecutor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Executors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Executors.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Feeds.CatalogManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Feeds.CatalogManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Feeds.CatalogManagerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Feeds.CatalogManagerExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Feeds.FeedManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Feeds.FeedManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Feeds.FeedManagerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Feeds.FeedManagerExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Feeds.ICatalogManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Feeds.ICatalogManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Feeds.IFeedManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Feeds.IFeedManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Feeds.ITrustManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Feeds.ITrustManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Feeds.OpenPgpKeyCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Feeds.OpenPgpKeyCallback.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Feeds.ReplayAttackException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Feeds.ReplayAttackException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Feeds.TrustManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Feeds.TrustManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Feeds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Feeds.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Fetchers.Fetcher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Fetchers.Fetcher.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Fetchers.IFetcher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Fetchers.IFetcher.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Fetchers.IImplementationDiscovery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Fetchers.IImplementationDiscovery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Fetchers.ImplementationDiscovery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Fetchers.ImplementationDiscovery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Fetchers.ImplementationDiscoveryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Fetchers.ImplementationDiscoveryExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Fetchers.RetrievalMethodRanker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Fetchers.RetrievalMethodRanker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Fetchers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Fetchers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.ISelectionsManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.ISelectionsManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Native.CompositePackageManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Native.CompositePackageManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Native.ExternalImplementation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Native.ExternalImplementation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Native.ExternalRetrievalMethod.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Native.ExternalRetrievalMethod.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Native.IPackageManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Native.IPackageManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Native.PackageManagerBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Native.PackageManagerBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Native.PackageManagers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Native.PackageManagers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Native.WindowsPackageManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Native.WindowsPackageManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Native.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Native.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.SelectionsManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.SelectionsManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.SelectionsManagerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.SelectionsManagerExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.ServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.ServiceCollectionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.ServiceProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.ServiceProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.BacktrackingSolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.BacktrackingSolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.ExternalSolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.ExternalSolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.FallbackSolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.FallbackSolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.ISelectionCandidateProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.ISelectionCandidateProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.ISolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.ISolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.SelectionCandidateComparer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.SelectionCandidateComparer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.SelectionCandidateProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.SelectionCandidateProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.SolverDemand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.SolverDemand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.SolverException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.SolverException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.SolverExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.SolverExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.SolverRunBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.SolverRunBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.SolverUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.SolverUtils.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.Solvers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.Solvers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.WebExceptionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.WebExceptionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Services.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Configuration.Config.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Configuration.Config.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Configuration.ConfigTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Configuration.ConfigTab.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Configuration.NetworkLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Configuration.NetworkLevel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Configuration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Configuration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Deployment.ClearDirectory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Deployment.ClearDirectory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Deployment.DeployDirectory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Deployment.DeployDirectory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Deployment.DirectoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Deployment.DirectoryOperation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Deployment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Deployment.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Feeds.FeedCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Feeds.FeedCache.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Feeds.FeedCaches.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Feeds.FeedCaches.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Feeds.FeedUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Feeds.FeedUtils.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Feeds.IFeedCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Feeds.IFeedCache.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Feeds.SearchResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Feeds.SearchResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Feeds.SearchResults.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Feeds.SearchResults.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Feeds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Feeds.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.FileSystem.BuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.FileSystem.BuilderExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.FileSystem.DirectoryBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.FileSystem.DirectoryBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.FileSystem.IBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.FileSystem.IBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.FileSystem.IForwardOnlyBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.FileSystem.IForwardOnlyBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.FileSystem.ImplFileUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.FileSystem.ImplFileUtils.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.FileSystem.PrefixBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.FileSystem.PrefixBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.FileSystem.ReadDirectory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.FileSystem.ReadDirectory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.FileSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.FileSystem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Icons.IIconStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Icons.IIconStore.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Icons.IconStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Icons.IconStore.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Icons.IconStoreExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Icons.IconStoreExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Icons.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Icons.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.CompositeImplementationSink.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.CompositeImplementationSink.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.CompositeImplementationStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.CompositeImplementationStore.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.DigestMismatchException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.DigestMismatchException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.IImplementationSink.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.IImplementationSink.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.IImplementationStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.IImplementationStore.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.ImplementationAlreadyInStoreException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.ImplementationAlreadyInStoreException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.ImplementationNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.ImplementationNotFoundException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.ImplementationSink.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.ImplementationSink.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.ImplementationStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.ImplementationStore.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.ImplementationStoreKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.ImplementationStoreKind.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.ImplementationStoreUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.ImplementationStoreUtils.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.ImplementationStores.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.ImplementationStores.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Implementations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Implementations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.ManagerBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.ManagerBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Manifests.Manifest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Manifests.Manifest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Manifests.ManifestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Manifests.ManifestBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Manifests.ManifestElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Manifests.ManifestElement.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Manifests.ManifestExecutableFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Manifests.ManifestExecutableFile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Manifests.ManifestFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Manifests.ManifestFile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Manifests.ManifestFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Manifests.ManifestFormat.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Manifests.ManifestNormalFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Manifests.ManifestNormalFile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Manifests.ManifestSymlink.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Manifests.ManifestSymlink.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Manifests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Manifests.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.BadSignature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.BadSignature.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.BouncyCastle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.BouncyCastle.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.Domain.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.Domain.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.DomainSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.DomainSet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.ErrorSignature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.ErrorSignature.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.GnuPG.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.GnuPG.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.IFingerprintContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.IFingerprintContainer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.IKeyIDContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.IKeyIDContainer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.IOpenPgp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.IOpenPgp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.Key.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.Key.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.MissingKeySignature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.MissingKeySignature.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.OpenPgp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.OpenPgp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.OpenPgpExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.OpenPgpExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.OpenPgpFingerprint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.OpenPgpFingerprint.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.OpenPgpSecretKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.OpenPgpSecretKey.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.OpenPgpSignature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.OpenPgpSignature.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.OpenPgpUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.OpenPgpUtils.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.SignatureException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.SignatureException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.TrustDB.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.TrustDB.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.ValidSignature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.ValidSignature.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.WrongPassphraseException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.WrongPassphraseException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.Trust.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.Trust.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.ViewModel.CacheNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.ViewModel.CacheNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.ViewModel.CacheNodeBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.ViewModel.CacheNodeBuilder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.ViewModel.FeedNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.ViewModel.FeedNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.ViewModel.ImplementationNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.ViewModel.ImplementationNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.ViewModel.OwnedImplementationNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.ViewModel.OwnedImplementationNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.ViewModel.SelectionsDiffNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.ViewModel.SelectionsDiffNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.ViewModel.SelectionsTreeNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.ViewModel.SelectionsTreeNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.ViewModel.TempDirectoryNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.ViewModel.TempDirectoryNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.ViewModel.TrustNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.ViewModel.TrustNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.ViewModel.TrustNodeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.ViewModel.TrustNodeExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.ViewModel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.Store.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.Store.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ZeroInstall.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ZeroInstall.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "cli.md",
+      "output": {
+        ".html": {
+          "relative_path": "cli.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "client.md",
+      "output": {
+        ".html": {
+          "relative_path": "client.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "file-system.md",
+      "output": {
+        ".html": {
+          "relative_path": "file-system.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "model.md",
+      "output": {
+        ".html": {
+          "relative_path": "model.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "publish.md",
+      "output": {
+        ".html": {
+          "relative_path": "publish.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "services.md",
+      "output": {
+        ".html": {
+          "relative_path": "services.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
