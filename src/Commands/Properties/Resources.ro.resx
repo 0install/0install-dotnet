@@ -277,7 +277,7 @@ Returnează un status de ieșire de 0 dacă a selectat un set adecvat de versiun
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importă un feed dintr-un fișier local, ca și cum ar fi fost descărcat din rețea. Acest lucru este util atunci când se testează un fișier de alimentare, pentru a evita încărcarea acestuia pe un server la distanță pentru a-l descărca din nou.
+    <value>Importă un feed dintr-un fișier local, ca și cum ar fi fost descărcat din rețea. Acest lucru este util atunci când se testează un fișier de alimentare, pentru a evita încărcarea acestuia pe un server de la distanță pentru a-l descărca din nou.
 Fișierul trebuie să aibă o semnătură digitală de încredere, ca atunci când este preluat din rețea.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -512,6 +512,10 @@ Acest lucru este similar cu "0install download --refresh", cu excepția faptului
     <value>Feed-ul a fost neînregistrat cu succes pentru următoarele interfețe:</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>Verificare fișier completă</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Nu se poate găsi fișierul sau directorul '{0}'.</value>
     <comment>Automatically translated.</comment>
@@ -571,7 +575,7 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii GNU L
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
-    <value>Calea locală a {0}</value>
+    <value>Calea locală de {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingArguments" xml:space="preserve">
@@ -628,7 +632,7 @@ Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă d
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Se poate actualiza numai cu URI-uri de alimentare, nu și cu documente de selectare.</value>
+    <value>Se poate actualiza numai cu URI-uri de alimentare, nu și cu documente de selecție.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -775,7 +779,7 @@ Nu poate conține argumente de linie de comandă! Spațiile albe nu trebuie să 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Necesită o versiune a programului principal nu mai veche de {VERSION}. De exemplu, dacă doriți să rulați versiunea 2.0 sau ulterioară, utilizați --not-before=2.0.</value>
+    <value>Necesită o versiune a programului principal care să nu fie anterioară lui {VERSION}. De exemplu, dacă doriți să rulați versiunea 2.0 sau ulterioară, utilizați --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -816,7 +820,7 @@ Nu poate conține argumente de linie de comandă! Spațiile albe nu trebuie să 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Resetează datele de sincronizare. Site-urile {MODE}valide sunt "none" (fuzionează datele din client și server în mod normal), "client" (înlocuiește toate datele de pe client cu datele de pe server) și "server" (înlocuiește toate datele de pe server cu datele de pe client).</value>
+    <value>Resetează datele de sincronizare. Site-urile {MODE}valide sunt "none" (fuzionează datele de la client și server în mod normal), "client" (înlocuiește toate datele de pe client cu datele de pe server) și "server" (înlocuiește toate datele de pe server cu datele de pe client).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -985,6 +989,10 @@ Păstrați secretă această cheie și folosiți ceva diferit pentru parolă. Î
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Încercați {0} cu unul dintre acestea:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>Vă rugăm să încercați din nou să rulați {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">

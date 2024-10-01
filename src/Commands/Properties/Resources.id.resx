@@ -512,6 +512,10 @@ Ini mirip dengan '0install download - refresh', kecuali bahwa ia mencetak inform
     <value>Umpan berhasil dibatalkan pendaftarannya untuk antarmuka berikut ini:</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>Pemeriksaan file selesai</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Tidak dapat menemukan berkas atau direktori '{0}'.</value>
     <comment>Manually overriden.</comment>
@@ -987,12 +991,16 @@ Rahasiakan kunci ini dan gunakan sesuatu yang berbeda untuk kata sandi Anda. Den
     <value>Coba {0} dengan salah satunya:</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>Silakan coba jalankan {0} lagi.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Mencopot pemasangan Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
-    <value>Perintah yang tidak dikenal '{0}'.</value>
+    <value>Perintah yang tidak diketahui '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Usage" xml:space="preserve">

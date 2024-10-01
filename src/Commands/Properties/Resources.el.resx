@@ -511,6 +511,10 @@
     <value>Η τροφοδοσία αποκαταχωρηθηκε με επιτυχία για τις ακόλουθες διεπαφές:</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>Ολοκλήρωση ελέγχου αρχείων</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Δεν είναι δυνατή η εύρεση του αρχείου ή του καταλόγου '{0}'.</value>
     <comment>Manually overriden.</comment>
@@ -985,6 +989,10 @@
   <data name="TryHelpWith" xml:space="preserve">
     <value>Δοκιμάστε {0} με ένα από αυτά:</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>Προσπαθήστε να εκτελέσετε ξανά το {0}.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Απεγκατάσταση της υπηρεσίας Zero Install Store Service</value>

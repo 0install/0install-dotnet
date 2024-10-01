@@ -512,6 +512,10 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <value>Aşağıdaki arabirimlerin akış kaydı silindi:</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>Dosya kontrolü tamamlandı</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Dosya ya da '{0}' klasörü bulunamadı.</value>
     <comment>Manually overriden.</comment>
@@ -985,6 +989,10 @@ Bu anahtarı gizleyin ve parolanızdan farklı olmasına özen gösterin. Böyle
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Şunlardan biriyle {0} deneyin:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>Lütfen {0} adresini tekrar çalıştırmayı deneyin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">

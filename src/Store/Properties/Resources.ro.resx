@@ -58,6 +58,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CheckingForDamagedFiles" xml:space="preserve">
+    <value>Verificarea fișierelor deteriorate</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Copierea fișierelor</value>
     <comment>Automatically translated.</comment>
@@ -206,7 +210,7 @@ Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Doar administratorii pot elimina elemente dintr-un magazin partajat.</value>
+    <value>Numai administratorii pot elimina elemente dintr-un magazin partajat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
@@ -214,7 +218,7 @@ Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Nu se poate descărca {0} deoarece Zero Install este în modul offline.</value>
+    <value>Imposibilitatea de a descărca {0} deoarece Zero Install este în modul offline.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -286,7 +290,7 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Fraza de acces introdusă nu este corectă.</value>
+    <value>Fraza de acces introdusă este incorectă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

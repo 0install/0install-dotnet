@@ -512,6 +512,10 @@ Podobá se příkazu '0install download --refresh' s tím rozdílem, že vypisuj
     <value>Kanál byl úspěšně odregistrován pro následující rozhraní:</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>Kontrola souborů dokončena</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Nelze najít soubor nebo adresář ‚‚{0}‘‘.</value>
     <comment>Manually overriden.</comment>
@@ -526,7 +530,7 @@ Podobá se příkazu '0install download --refresh' s tím rozdílem, že vypisuj
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
     <value>Zdá se, že tento kanál není určen pro stejnou aplikaci. Přidat ho přesto?
-Značka &lt;feed-for&gt; označuje kompatibilitu s kanály.</value>
+Značka &lt;feed-for&gt; označuje kompatibilitu feedu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
@@ -562,7 +566,7 @@ Značka &lt;feed-for&gt; označuje kompatibilitu s kanály.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Existuje i pozdější verze ({0}), ale nebyla vybrána. Místo ní se používá {1}.</value>
+    <value>Existuje i pozdější verze ({0}), ale nebyla vybrána. Místo ní se používá stránka {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -800,7 +804,7 @@ V off-line režimu se neobnovují žádná rozhraní, i když jsou zastaralá, a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Po aktualizaci restartujte grafické uživatelské rozhraní "0install central".</value>
+    <value>Po aktualizaci restartujte grafické rozhraní "0install central".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">
@@ -918,7 +922,7 @@ Může obsahovat argumenty příkazového řádku. Bílé znaky musí být escap
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>Samočinná aktualizace je zakázána.
+    <value>Vlastní aktualizace je vypnuta.
 Chcete-li ji povolit, spusťte příkaz '0install config self_update_uri default'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -985,6 +989,10 @@ Tento klíč udržujte v tajnosti a pro heslo používejte něco jiného. Tímto
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Vyzkoušejte {0} s jedním z nich:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>Zkuste znovu spustit stránku {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">

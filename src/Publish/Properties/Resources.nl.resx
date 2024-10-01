@@ -96,7 +96,7 @@ Probeer het handmatig op te geven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Er zijn meerdere nieuwe applicatieregistraties gedetecteerd in het register. Standaard de eerste kiezen.</value>
+    <value>Er zijn meerdere nieuwe applicatieregistraties gedetecteerd in het register. Kiest standaard de eerste.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">

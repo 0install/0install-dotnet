@@ -353,7 +353,7 @@ Devuelve un estado de salida de 0 si seleccionó un conjunto de versiones, y un 
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
     <value>Comprueba que todas las implementaciones de la caché estén intactas.
-Argumentos adicionales especifican ubicaciones de caché personalizadas.</value>
+Los argumentos adicionales especifican ubicaciones de caché personalizadas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
@@ -512,6 +512,10 @@ Es similar a '0install download --refresh', salvo que imprime información sobre
     <value>El feed se ha desregistrado correctamente para las siguientes interfaces:</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>Comprobación de archivos completa</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>No ha sido posible encontrar el archivo o directorio «{0}».</value>
     <comment>Manually overriden.</comment>
@@ -628,7 +632,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Sólo puede actualizarse con URI de fuentes, no con documentos de selecciones.</value>
+    <value>Sólo puede actualizarse con URIs de fuentes, no con documentos de selecciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -779,7 +783,7 @@ No puede contener argumentos de línea de comandos Los espacios en blanco no nec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Vuelve inmediatamente una vez lanzado el programa elegido en lugar de esperar a que termine de ejecutarse. En Windows, el código de salida es el ID del proceso del programa iniciado.</value>
+    <value>Vuelve inmediatamente una vez lanzado el programa elegido en lugar de esperar a que termine de ejecutarse. En Windows, el código de salida es el ID de proceso del programa iniciado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -800,7 +804,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Reinicia la GUI '0install central' tras la actualización.</value>
+    <value>Reinicia la GUI '0install central' después de la actualización.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">
@@ -829,7 +833,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Requiere una versión del programa principal dentro del rango dado {RANGE}.
-Los rangos están separados por tubos (|).
+Los rangos están separados por tuberías (|).
 Cada rango tiene la forma "START...END". El rango coincide con versiones donde START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
 Se puede utilizar un único número de versión en lugar de un rango para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
     <comment>Automatically translated.</comment>
@@ -985,6 +989,10 @@ Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. De e
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Prueba {0} con uno de estos:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>Intente ejecutar de nuevo {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
