@@ -81,44 +81,4 @@ partial class SelfManager
         _updateMutex?.Dispose();
         _legacyUpdateMutex?.Dispose();
     }
-
-    /// <summary>
-    /// Try to remove OneGet Bootstrap module to prevent future PowerShell sessions from loading it again.
-    /// </summary>
-    private void RemoveOneGetBootstrap()
-    {
-        if (!WindowsUtils.IsWindows) return;
-
-        try
-        {
-            RemoveOneGetBootstrap(Path.Combine(
-                WindowsUtils.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.MyDocuments),
-                "PackageManagement", "ProviderAssemblies", "0install"));
-            RemoveOneGetBootstrap(Path.Combine(
-                WindowsUtils.GetFolderPath(MachineWide ? Environment.SpecialFolder.ProgramFiles : Environment.SpecialFolder.LocalApplicationData),
-                "WindowsPowerShell", "Modules", "0install"));
-        }
-        catch (Exception ex)
-        {
-            Log.Warn("Failed to remove OneGet Bootstrap module", ex);
-        }
-    }
-
-    private static void RemoveOneGetBootstrap(string dirPath)
-    {
-        if (!Directory.Exists(dirPath)) return;
-
-        foreach (string subDirPath in Directory.GetDirectories(dirPath))
-        {
-            foreach (string filePath in Directory.GetFiles(subDirPath))
-            {
-                string tempPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-                Log.Debug($"Trying to move '{filePath}' to '{tempPath}' to prevent future PowerShell sessions from loading it again");
-                File.Move(filePath, tempPath);
-            }
-            Directory.Delete(subDirPath);
-        }
-
-        Directory.Delete(dirPath);
-    }
 }

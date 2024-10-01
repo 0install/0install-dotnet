@@ -21,7 +21,6 @@ partial class SelfManager
         "0store.exe",
         "0store-service.exe",
         "ZeroInstall.exe",
-        "ZeroInstall.OneGet.dll",
         "ZeroInstall.Model.XmlSerializers.dll"
     ];
 #endif

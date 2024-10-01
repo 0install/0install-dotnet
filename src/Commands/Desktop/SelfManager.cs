@@ -94,7 +94,6 @@ public partial class SelfManager : ManagerBase
             {
                 DesktopIntegrationApply(newManifest.TotalSize, libraryMode);
                 ZeroInstallDeployment.Register(TargetDir, MachineWide, libraryMode);
-                RemoveOneGetBootstrap();
             }
 
             MutexRelease();
