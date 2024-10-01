@@ -512,6 +512,10 @@ Dies ist vergleichbar mit '0install download --refresh', außer dass es Informat
     <value>Der Feed wurde für die folgenden Interfaces erfolgreich deregistriert:</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>Dateiüberprüfung abgeschlossen</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Datei oder Verzeichnis '{0}' konnte nicht gefunden werden.</value>
     <comment>Manually overriden.</comment>
@@ -985,6 +989,10 @@ Halten Sie diesen Schlüssel geheim und verwenden Sie für Ihr Passwort etwas an
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Probieren Sie {0} mit einem der folgenden:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>Bitte versuchen Sie, {0} erneut auszuführen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">

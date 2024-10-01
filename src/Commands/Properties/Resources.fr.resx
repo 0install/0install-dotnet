@@ -84,7 +84,7 @@ Vous pouvez utiliser le script d'importation ou le fichier Bootstrap exécutable
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>{0}' figure déjà dans la liste des caches d'implémentation personnalisés.</value>
+    <value>{0}" figure déjà dans la liste des caches d'implémentation personnalisés.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -273,7 +273,7 @@ Retourne un code de retour à 0 si un ensemble conforme de versions a été sél
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exporte tous les éléments et implémentations nécessaires pour lancer le programme spécifié par un URI dans un RÉPERTOIRE.</value>
+    <value>Exporte tous les flux et implémentations nécessaires pour lancer le programme spécifié par un URI dans un RÉPERTOIRE.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -421,7 +421,7 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Ne fait plus confiance aux flux signés avec une empreinte digitale spécifique. Ne fait plus confiance qu'à un DOMAINE spécifique, s'il est spécifié.</value>
+    <value>Ne fait plus confiance aux flux signés avec une empreinte digitale spécifique. N'arrête de faire confiance qu'à un DOMAINE spécifique, s'il est spécifié.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -510,6 +510,10 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
     <value>Le flux a été désenregistré avec succès pour les interfaces suivantes :</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>Vérification des fichiers terminée</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -705,7 +709,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Essaie de découvrir des implémentations sur d'autres machines du réseau local au lieu de les récupérer à partir de leur source d'origine.</value>
+    <value>Essaie de découvrir des implémentations sur d'autres machines du réseau local au lieu d'aller les chercher à leur source d'origine.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
@@ -779,7 +783,7 @@ Peut ne pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas be
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Retourne immédiatement une fois que le programme choisi a été lancé au lieu d'attendre qu'il ait fini de s'exécuter. Sous Windows, le code de sortie est l'ID du processus du programme lancé.</value>
+    <value>Retourne immédiatement au lancement du programme choisi au lieu d'attendre qu'il ait fini de s'exécuter. Sous Windows, le code de sortie est l'ID du processus du programme lancé.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -985,6 +989,10 @@ gardez cette clé secrète et ne l'utilisez pas comme mot de passe. De cette fa�
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Essayez {0} avec l'un de ces logiciels :</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>Veuillez réessayer d'exécuter {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">

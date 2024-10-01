@@ -96,7 +96,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Configuração da instalação zero para todos os utilizadores (em toda a máquina) em vez de apenas para o utilizador atual?</value>
+    <value>Configuração da Instalação Zero para todos os utilizadores (em toda a máquina) em vez de apenas para o utilizador atual?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -374,7 +374,7 @@ Um argumento adicional especifica uma localização de cache de destino personal
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, são listadas apenas as implementações desse feed específico.</value>
+    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, apenas são listadas as implementações desse feed específico.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -425,7 +425,7 @@ Argumentos adicionais especificam localizações de cache personalizadas.</value
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Verifica se há actualizações para o programa e descarrega-as se forem encontradas.
-Isto é semelhante ao '0install download --refresh', exceto que imprime informação sobre se foram encontradas alterações.</value>
+Isto é semelhante ao '0install download --refresh', exceto que imprime informação sobre se foram encontradas quaisquer alterações.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -497,7 +497,7 @@ Isto é semelhante ao '0install download --refresh', exceto que imprime informa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>O feed para '{0}' ({1}) foi substituído por '{2}'. Pretende utilizar o novo feed?</value>
+    <value>O feed de '{0}' ({1}) foi substituído por '{2}'. Pretende utilizar o novo feed?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -510,6 +510,10 @@ Isto é semelhante ao '0install download --refresh', exceto que imprime informa�
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
     <value>O feed foi desregistado com êxito para as seguintes interfaces:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>Verificação de ficheiros concluída</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -567,7 +571,7 @@ Uma tag &lt;feed-for&gt; indica compatibilidade de feed.</value>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Este programa é fornecido SEM NENHUMA GARANTIA, até ao limite permitido por lei.
-Pode redistribuir cópias deste programa sob os termos da GNU Lesser General Public License.</value>
+Pode redistribuir cópias deste programa ao abrigo dos termos da GNU Lesser General Public License.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
@@ -737,7 +741,7 @@ Definir como vazio ("") para ignorar o comando durante a seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
-    <value>Remove todos os pontos de acesso de um determinado {CATEGORY}.</value>
+    <value>Remover todos os pontos de acesso de um determinado {CATEGORY}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemoveAll" xml:space="preserve">
@@ -771,7 +775,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
-    <value>Não descarregue ainda a aplicação propriamente dita. Em vez disso, a aplicação será descarregada automaticamente na primeira utilização.</value>
+    <value>Não descarregue ainda a aplicação propriamente dita. A aplicação será descarregada automaticamente na primeira utilização.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
@@ -955,7 +959,7 @@ Execute '0install config self_update_uri default' para a ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>A ativação do suporte do Windows para Caminhos Longos pode resolver este problema.</value>
+    <value>A ativação do suporte do Windows para caminhos longos pode resolver este problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
@@ -985,6 +989,10 @@ Mantenha esta chave secreta e utilize algo diferente para a sua palavra-passe. D
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Experimente {0} com um destes:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>Tente executar {0} novamente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">

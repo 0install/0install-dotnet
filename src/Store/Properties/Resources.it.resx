@@ -58,6 +58,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CheckingForDamagedFiles" xml:space="preserve">
+    <value>Controllo dei file danneggiati</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Copia dei file in corso</value>
     <comment>Manually overriden.</comment>
@@ -116,7 +120,7 @@ Se desideri eliminare l'intera directory senza utilizzare Zero Install, esegui q
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Errore nel caricamento del database fiduciario. Ripristino dei valori predefiniti.</value>
+    <value>Errore nel caricamento del database fiduciario. Ritorno ai valori predefiniti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">

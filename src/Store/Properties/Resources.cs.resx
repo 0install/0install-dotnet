@@ -58,6 +58,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CheckingForDamagedFiles" xml:space="preserve">
+    <value>Kontrola poškozených souborů</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Kopíruju soubory</value>
     <comment>Manually overriden.</comment>
@@ -239,7 +243,7 @@ Zadává se v konfiguračním souboru '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Tato možnost je řízena zásadami skupiny, a proto ji nelze upravovat.</value>
+    <value>Tato možnost je řízena zásadami skupiny, a proto ji nelze změnit.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

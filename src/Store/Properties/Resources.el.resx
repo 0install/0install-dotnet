@@ -58,12 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CheckingForDamagedFiles" xml:space="preserve">
+    <value>Έλεγχος για κατεστραμμένα αρχεία</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Αντιγραφή αρχείων</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Αυτός ο κατάλογος είναι μια κρυφή μνήμη εφαρμογής. Τα αρχεία εδώ γίνονται μόνο για ανάγνωση χρησιμοποιώντας δικαιώματα του συστήματος αρχείων. Αυτό εμποδίζει τη φυσιολογική διαγραφή τους.
+    <value>Αυτός ο κατάλογος είναι μια κρυφή μνήμη εφαρμογής. Τα αρχεία εδώ γίνονται μόνο για ανάγνωση χρησιμοποιώντας δικαιώματα του συστήματος αρχείων. Αυτό εμποδίζει τη διαγραφή τους κανονικά.
 
 Αν θέλετε να διαγράψετε μια μεμονωμένη υλοποίηση, μπορείτε να χρησιμοποιήσετε αυτή τη γραμμή εντολών:
 {0}

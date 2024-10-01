@@ -294,7 +294,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>현재 애플리케이션 목록에 있는 모든 애플리케이션을 나열합니다. URI를 지정하면 해당 피드 URI를 가진 애플리케이션만 표시됩니다. 패턴이 지정된 경우 이름에 해당 문자열이 포함된 애플리케이션만 표시됩니다(대소문자 구분 없음).</value>
+    <value>현재 애플리케이션 목록에 있는 모든 애플리케이션을 나열합니다. URI를 지정하면 해당 피드 URI를 가진 애플리케이션만 표시됩니다. 패턴을 지정하면 이름에 해당 문자열이 포함된 애플리케이션만 표시됩니다(대소문자 구분 없음).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -512,6 +512,10 @@
     <value>다음 인터페이스에 대한 피드 등록이 성공적으로 해제되었습니다:</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>파일 확인 완료</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>파일 또는 디렉토리 '{0}'을(를) 찾을 수 없습니다.</value>
     <comment>Manually overriden.</comment>
@@ -701,7 +705,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>매니페스트 다이제스트 표시(--manifest를 설정하지 않은 경우 기본적으로 활성화됨).</value>
+    <value>매니페스트의 다이제스트를 표시합니다(--manifest가 설정되지 않은 경우 기본적으로 활성화됨).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
@@ -792,7 +796,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>이동이 가능한 휴대용 설치(예: 썸 드라이브)를 만듭니다.</value>
+    <value>이동이 가능한 휴대용 설치 파일(예: 썸 드라이브)을 만듭니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -987,6 +991,10 @@
     <value>{0} 을 사용해 보세요:</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>{0} 을 다시 실행해 보세요.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="UninstallService" xml:space="preserve">
     <value>Zero Install Store Service 제거 중</value>
     <comment>Manually overriden.</comment>
@@ -1004,7 +1012,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
-    <value>대신 '{0}'를 사용하세요.</value>
+    <value>대신 '{0}'을 사용하세요.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">

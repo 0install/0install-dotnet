@@ -58,6 +58,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CheckingForDamagedFiles" xml:space="preserve">
+    <value>Memeriksa file yang rusak</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Menyalin berkas</value>
     <comment>Manually overriden.</comment>
@@ -243,7 +247,7 @@ Ditentukan dalam file konfigurasi '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Ada masalah saat mengakses toko implementasi '{0}'.
+    <value>Ada masalah dalam mengakses toko implementasi '{0}'.
 Jalankan '{1}' untuk menghapusnya dari daftar direktori terdaftar.</value>
     <comment>Automatically translated.</comment>
   </data>

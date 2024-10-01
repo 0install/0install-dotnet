@@ -260,7 +260,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Wyświetla lub zmienia ustawienia konfiguracyjne.
-Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem, wyświetla bieżącą wartość nazwanego ustawienia. Po podaniu dwóch argumentów ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "{0}".</value>
+Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem wyświetla bieżącą wartość nazwanego ustawienia. Po podaniu dwóch argumentów ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -512,6 +512,10 @@ Jest to podobne do "0install download --refresh", z wyjątkiem tego, że drukuje
     <value>Kanał został pomyślnie wyrejestrowany dla następujących interfejsów:</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>Kontrola plików zakończona</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Nie udało się znaleźć pliku ani katalogu '{0}'.</value>
     <comment>Manually overriden.</comment>
@@ -620,7 +624,7 @@ Można to zrobić za pomocą "{0}". Będzie to całkowicie niezależne od kopii 
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install działa z katalogu specyficznego dla użytkownika. Musi zostać wdrożony w katalogu dostępnym dla wszystkich użytkowników, aby integracja pulpitu w całym komputerze działała.</value>
+    <value>Zero Install działa z katalogu specyficznego dla użytkownika. Musi zostać wdrożony w katalogu dostępnym dla wszystkich użytkowników, aby integracja pulpitu w całej maszynie działała.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -701,7 +705,7 @@ Ustaw puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Wyświetla skrót manifestu (domyślnie włączony, jeśli opcja --manifest nie jest ustawiona).</value>
+    <value>Wyświetla skrót manifestu (domyślnie włączone, jeśli --manifest nie jest ustawione).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
@@ -935,7 +939,7 @@ Uruchom "0install config self_update_uri default", aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
-    <value>Polityka stabilności wymagana do wybrania implementacji z {0} to '{1}'.</value>
+    <value>Polityka stabilności wymagana do wyboru implementacji z {0} to '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
@@ -985,6 +989,10 @@ Klucz ten należy zachować w tajemnicy i użyć innego hasła. W ten sposób ni
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Wypróbuj {0} z jednym z nich:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>Spróbuj ponownie uruchomić {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">

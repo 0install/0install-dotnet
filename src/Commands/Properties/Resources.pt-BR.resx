@@ -512,6 +512,10 @@ Isso é semelhante a '0install download --refresh', exceto que imprime informaç
     <value>O registro do feed foi removido com sucesso para as seguintes interfaces:</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="FileCheckComplete" xml:space="preserve">
+    <value>Verificação de arquivo concluída</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Não foi possível encontrar o arquivo ou diretório "{0}".</value>
     <comment>Manually overriden.</comment>
@@ -985,6 +989,10 @@ Mantenha essa chave em segredo e use algo diferente para sua senha. Dessa forma,
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Tente {0} com um destes:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="TryRunAgain" xml:space="preserve">
+    <value>Tente executar o {0} novamente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
