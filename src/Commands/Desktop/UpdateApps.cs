@@ -2,9 +2,9 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Text.RegularExpressions;
-using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Model.Selection;
+using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Desktop;
 
@@ -33,11 +33,8 @@ public class UpdateApps : IntegrationCommand
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
-        if (_clean && ImplementationsInReadOnlyStores && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator && !ZeroInstallInstance.IsLibraryMode)
-        {
-            Log.Info("Requesting elevation to admin to be able to remove implementations from read-only stores");
+        if (_clean && ImplementationStore.NeedsAdminToRemove() && !ZeroInstallInstance.IsLibraryMode)
             throw new NotAdminException();
-        }
 
         var apps = GetApps();
         if (apps is [var app]) Handler.FeedUri = app.InterfaceUri;

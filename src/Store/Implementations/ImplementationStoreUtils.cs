@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Text;
+using NanoByte.Common.Native;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Manifests;
 
@@ -59,6 +60,18 @@ public static class ImplementationStoreUtils
         implementationPath = null;
         return false;
     }
+
+    /// <summary>
+    /// Indicates whether there are implementations in the store that would throw <see cref="NotAdminException"/> on <see cref="IImplementationStore.Remove"/>.
+    /// </summary>
+    public static bool NeedsAdminToRemove(this IImplementationStore store)
+        => store switch
+           {
+               CompositeImplementationStore composite => composite.Stores.Any(NeedsAdminToRemove),
+               _ => store.Kind == ImplementationStoreKind.ReadOnly && store.ListAll().Any()
+           }
+        && WindowsUtils.IsWindows
+        && !WindowsUtils.IsAdministrator;
 
     /// <summary>
     /// Checks whether an implementation directory matches the expected digest.

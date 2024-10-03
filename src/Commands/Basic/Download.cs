@@ -83,7 +83,7 @@ public class Download : Selection
         if (ZeroInstallInstance.IsLibraryMode // Only needed in library-mode because it lacks UI for manual clean
          && !ZeroInstallInstance.IsMachineWide // Machine-wide setups use scheduled task for clean instead
          && UncachedImplementations is {Count: 0} // Don't clean if we just downloaded new stuff (old versions may still be running)
-         && !ImplementationsInReadOnlyStores // Avoid prompting for admin rights
+         && !ImplementationStore.NeedsAdminToRemove()
          && !FeedManager.RateLimit(new("https://0install.net/background-clean-marker")))
         {
             Log.Info("Starting background removal of outdated implementations");

@@ -226,11 +226,4 @@ public abstract partial class CliCommand : ScopedOperation
         => elements.AsParallel()
                    .WithDegreeOfParallelism(Config.MaxParallelDownloads)
                    .WithCancellation(Handler.CancellationToken);
-
-    /// <summary>
-    /// Indicates whether there are currently any implementations stored in read-only <see cref="IImplementationStore"/>s.
-    /// </summary>
-    protected bool ImplementationsInReadOnlyStores
-        => ImplementationStore is CompositeImplementationStore composite
-        && composite.Stores.Any(x => x.Kind == ImplementationStoreKind.ReadOnly && x.ListAll().Any());
 }
