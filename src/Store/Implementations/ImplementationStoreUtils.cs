@@ -96,7 +96,7 @@ public static class ImplementationStoreUtils
 
     /// <summary>
     /// Checks whether a <see cref="Manifest"/> matches the expected digest.
-    /// Returns the original manifest or one with backwards-compatability modifications applied if it matches.
+    /// Returns the original manifest or one with backwards-compatibility modifications applied if it matches.
     /// </summary>
     /// <param name="manifest">The manifest to check.</param>
     /// <param name="expectedDigest">The expected digest.</param>
