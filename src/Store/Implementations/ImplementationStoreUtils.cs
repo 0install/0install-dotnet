@@ -142,5 +142,12 @@ public static class ImplementationStoreUtils
     /// <exception cref="IOException">An implementation's directory could not be processed.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to an implementation's directory is not permitted.</exception>
     public static void Audit(this IImplementationStore store, ITaskHandler handler)
-        => handler.RunTask(ForEachTask.Create(Resources.CheckingForDamagedFiles, store.ListAll().ToList(), store.Verify));
+    {
+        if (store.NeedsAdminToRemove()) throw new NotAdminException();
+
+        handler.RunTask(ForEachTask.Create(
+            name: Resources.CheckingForDamagedFiles,
+            target: store.ListAll().ToList(),
+            action: store.Verify));
+    }
 }

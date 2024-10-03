@@ -269,6 +269,7 @@ public class StoreManTest
             var digest2 = new ManifestDigest(Sha256New: "xyz");
 
             var storeMock = StoreMock;
+            storeMock.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
             storeMock.Setup(x => x.ListAll()).Returns([digest1, digest2]);
             storeMock.Setup(x => x.Verify(digest1));
             storeMock.Setup(x => x.Verify(digest2));
