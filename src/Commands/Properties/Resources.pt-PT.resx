@@ -374,7 +374,7 @@ Um argumento adicional especifica uma localização de cache de destino personal
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, apenas são listadas as implementações desse feed específico.</value>
+    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, são listadas apenas as implementações desse feed específico.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -775,7 +775,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
-    <value>Não descarregue ainda a aplicação propriamente dita. A aplicação será descarregada automaticamente na primeira utilização.</value>
+    <value>Não descarregue ainda a aplicação propriamente dita. Em vez disso, a aplicação será descarregada automaticamente na primeira utilização.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
@@ -816,7 +816,7 @@ No modo off-line, as interfaces não são actualizadas, mesmo que estejam desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Selecionar o código fonte em vez de um binário. Isto é utilizado internamente por '0compile'.</value>
+    <value>Selecionar o código fonte em vez de um binário. Isto é utilizado internamente pelo '0compile'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
@@ -959,7 +959,7 @@ Execute '0install config self_update_uri default' para a ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>A ativação do suporte do Windows para caminhos longos pode resolver este problema.</value>
+    <value>A ativação do suporte do Windows para Caminhos Longos pode resolver este problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
@@ -1012,7 +1012,7 @@ Mantenha esta chave secreta e utilize algo diferente para a sua palavra-passe. D
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
-    <value>Utilizar '{0}' em vez disso.</value>
+    <value>Utilize '{0}' em vez disso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">

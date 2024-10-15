@@ -175,7 +175,7 @@ Deze bestanden kunnen indien nodig opnieuw worden gedownload.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>Wil je alle applicaties verwijderen uit de lijst 'Mijn applicaties'? Dit voorkomt achterblijvende menu-items na het verwijderen van Zero Install.
+    <value>Wil je alle applicaties verwijderen uit de lijst 'Mijn applicaties'? Dit voorkomt achtergebleven menu-items na het verwijderen van Zero Install.
 Je kunt een back-up van deze lijst maken door '0install sync' te gebruiken.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -306,7 +306,7 @@ Het bestand moet een vertrouwde digitale handtekening hebben, net als bij het op
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Verwijdert het huidige exemplaar van Zero Install van het systeem.</value>
+    <value>Verwijdert de huidige versie van Zero Install van het systeem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -424,7 +424,7 @@ Extra argumenten specificeren aangepaste cache locaties.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Controleert of er updates voor het programma zijn en downloadt ze als ze worden gevonden.
+    <value>Controleert op updates voor het programma en downloadt ze als ze gevonden worden.
 Dit is vergelijkbaar met '0install download --refresh', behalve dat het informatie afdrukt over of er wijzigingen zijn gevonden.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -615,7 +615,7 @@ Je mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Le
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install moet op je systeem geïnstalleerd zijn om desktopintegratie te laten werken.</value>
+    <value>Zero Install moet op je systeem geïnstalleerd worden om desktopintegratie te laten werken.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -688,7 +688,7 @@ Je kunt dit doen met behulp van '{0}'. Dit zal volledig onafhankelijk zijn van j
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Gebruik in plaats van het standaardcommando {COMMAND}. Geldige opdrachtnamen worden gespecificeerd in de feed van het programma.
+    <value>Gebruik in plaats van het standaardcommando {COMMAND}. Geldige opdrachtnamen worden gespecificeerd in de invoer van het programma.
 Stel in op leeg ("") om de opdracht tijdens de selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -835,7 +835,7 @@ In offline modus worden geen interfaces ververst, zelfs als ze verouderd zijn, e
     <value>Vereist een versie van het hoofdprogramma binnen de opgegeven {RANGE}.
 Bereiken worden gescheiden door pijpen (|).
 Elk bereik heeft de vorm "START..!END". Het bereik komt overeen met versies waarbij START &lt;= VERSIE &lt; EINDE. Het begin of einde kan worden weggelaten.
-Een enkel versienummer kan worden gebruikt in plaats van een bereik om alleen met die versie overeen te komen, of !VERSION om met alles behalve die versie overeen te komen.</value>
+Er kan een enkel versienummer worden gebruikt in plaats van een bereik om alleen met die versie overeen te komen, of !VERSION om met alles behalve die versie overeen te komen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">

@@ -112,7 +112,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
-    <value>지금 사용해 보시겠어요?</value>
+    <value>지금 사용해 보시겠습니까?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
@@ -788,7 +788,7 @@
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>기본 설정을 재정의하여 오프라인 모드로 실행합니다.
-오프라인 모드에서는 인터페이스가 오래되었더라도 새로 고쳐지지 않으며, 인젝터가 이미 알고 있는 최신 버전의 프로그램(예: 이전 새로 고침에서)이라도 다운로드되지 않습니다.</value>
+오프라인 모드에서는 인터페이스가 오래된 경우에도 새로 고쳐지지 않으며, 인젝터가 이미 알고 있는 최신 버전의 프로그램(예: 이전 새로 고침에서)이라도 다운로드되지 않습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -796,7 +796,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>이동이 가능한 휴대용 설치 파일(예: 썸 드라이브)을 만듭니다.</value>
+    <value>이동이 가능한 휴대용 설치(예: 썸 드라이브)를 만듭니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">

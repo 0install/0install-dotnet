@@ -298,7 +298,7 @@ El archivo debe tener una firma digital de confianza, como cuando se obtiene de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>Lista todos los feeds adicionales añadidos al URI mediante '0install add-feed'.</value>
+    <value>Lista todos los feeds adicionales añadidos a URI mediante '0install add-feed'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
@@ -493,7 +493,7 @@ Es similar a '0install download --refresh', salvo que imprime información sobre
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
-    <value>{0} ha sido sustituido por{1}. Considera la posibilidad de actualizarlo.</value>
+    <value>'{0}' ha sido sustituido por '{1}'. Considera la posibilidad de actualizarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
@@ -804,7 +804,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Reinicia la GUI '0install central' después de la actualización.</value>
+    <value>Reinicia la GUI '0install central' tras la actualización.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">
@@ -833,7 +833,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Requiere una versión del programa principal dentro del rango dado {RANGE}.
-Los rangos están separados por tuberías (|).
+Los rangos están separados por tubos (|).
 Cada rango tiene la forma "START...END". El rango coincide con versiones donde START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
 Se puede utilizar un único número de versión en lugar de un rango para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
     <comment>Automatically translated.</comment>
@@ -923,7 +923,7 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>La autoactualización está desactivada.
-Ejecute '0install config self_update_uri default' para activarlo.</value>
+Ejecute '0install config self_update_uri default' para activarla.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
