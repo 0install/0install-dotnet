@@ -469,7 +469,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
-    <value>在 '{0}' 中检测到一个现有的 Zero Install 副本。</value>
+    <value>在 '{0}' 中检测到 Zero Install 的现有副本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
@@ -493,7 +493,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
-    <value>{0}"已被 "{1}"取代。考虑更新。</value>
+    <value>{0}"已被 "{1}"取代。请考虑更新。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
@@ -583,7 +583,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>{0}' 中缺少 &lt;feed-for&gt; 元素；它不能用作其他界面的 feed。</value>
+    <value>{0} 中缺少 &lt;feed-for&gt; 元素；它不能用作其他界面的 feed。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -591,7 +591,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
-    <value>您必须是管理员才能执行全机操作。</value>
+    <value>必须是管理员才能执行全机操作。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
@@ -615,7 +615,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install 需要在系统中部署，以便进行桌面集成。</value>
+    <value>Zero Install 需要在系统中部署，以便进行桌面整合。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -721,7 +721,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
-    <value>即使当前安装的版本相同或更新，也能执行更新。</value>
+    <value>即使当前安装的版本相同或更新，也可执行更新。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
@@ -754,7 +754,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>将 Zero Install 作为库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
+    <value>将零安装作为库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -870,7 +870,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>您想从列表中删除{0} 选中的按键吗？</value>
+    <value>您想从列表中删除{0} 已选中的按键吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">

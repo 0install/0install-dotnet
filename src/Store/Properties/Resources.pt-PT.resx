@@ -239,7 +239,7 @@ Especificado no ficheiro de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>O valor do número é demasiado grande.</value>
+    <value>O valor numérico é demasiado grande.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">

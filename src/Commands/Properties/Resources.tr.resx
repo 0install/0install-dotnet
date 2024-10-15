@@ -513,7 +513,7 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FileCheckComplete" xml:space="preserve">
-    <value>Dosya kontrolü tamamlandı</value>
+    <value>Dosya denetimi tamamlandı</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -992,7 +992,7 @@ Bu anahtarı gizleyin ve parolanızdan farklı olmasına özen gösterin. Böyle
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryRunAgain" xml:space="preserve">
-    <value>Lütfen {0} adresini tekrar çalıştırmayı deneyin.</value>
+    <value>Lütfen {0} uygulamasını yeniden çalıştırmayı deneyin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">

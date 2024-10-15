@@ -186,7 +186,7 @@ Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Nu poate descărca pictograme de pe {0} deoarece sunt acceptate numai URL-urile HTTP și HTTPS.</value>
+    <value>Nu se pot descărca pictograme de pe {0} deoarece sunt acceptate numai URL-urile HTTP și HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -210,7 +210,7 @@ Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Numai administratorii pot elimina elemente dintr-un magazin partajat.</value>
+    <value>Doar administratorii pot elimina elemente dintr-un magazin partajat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
@@ -218,7 +218,7 @@ Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Imposibilitatea de a descărca {0} deoarece Zero Install este în modul offline.</value>
+    <value>Nu se poate descărca {0} deoarece Zero Install este în modul offline.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">

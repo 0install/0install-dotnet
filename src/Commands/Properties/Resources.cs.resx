@@ -219,7 +219,7 @@ Můžete ji použít spuštěním souboru ZeroInstall.exe v tomto adresáři.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Vytvoření aliasu pro spuštění aplikace prostřednictvím 0install bez nutnosti vždy zadávat celý URI.</value>
+    <value>Vytvoření aliasu pro spuštění aplikace prostřednictvím 0install, aniž byste museli vždy zadávat celý URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -357,7 +357,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>Zkopíruje implementaci do mezipaměti. Podobně jako '0install store add', ale digest se extrahuje z názvu adresáře.
+    <value>Zkopíruje implementaci do mezipaměti. Podobně jako '0install store add', ale z názvu adresáře se extrahuje digest.
 Další argumenty určují vlastní cílové umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -425,7 +425,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Kontroluje aktualizace programu a v případě jejich nalezení je stáhne.
-Podobá se příkazu '0install download --refresh' s tím rozdílem, že vypisuje informace o tom, zda byly nalezeny nějaké změny.</value>
+Je podobný funkci '0install download --refresh', s tím rozdílem, že vypisuje informace o tom, zda byly nalezeny nějaké změny.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -481,7 +481,7 @@ Podobá se příkazu '0install download --refresh' s tím rozdílem, že vypisuj
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
-    <value>Správa krmiv</value>
+    <value>Správa kanálů</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
@@ -804,7 +804,7 @@ V off-line režimu se neobnovují žádná rozhraní, i když jsou zastaralá, a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Po aktualizaci restartujte grafické rozhraní "0install central".</value>
+    <value>Po aktualizaci restartujte grafické uživatelské rozhraní "0install central".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">
@@ -922,7 +922,7 @@ Může obsahovat argumenty příkazového řádku. Bílé znaky musí být escap
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>Vlastní aktualizace je vypnuta.
+    <value>Samočinná aktualizace je zakázána.
 Chcete-li ji povolit, spusťte příkaz '0install config self_update_uri default'.</value>
     <comment>Automatically translated.</comment>
   </data>

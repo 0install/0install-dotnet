@@ -95,7 +95,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>未找到{0} 及其依赖程序的合适版本。</value>
+    <value>未找到合适的{0} 及其依赖版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">

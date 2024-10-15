@@ -96,7 +96,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Установить Zero Install для всех пользователей (в масштабах всей машины), а не только для текущего пользователя?</value>
+    <value>Установка Zero Install для всех пользователей (в масштабах всей машины), а не только для текущего пользователя?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -175,7 +175,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>Хотите ли вы удалить все приложения из списка "Мои приложения"? Это предотвратит появление остатков в меню после удаления Zero Install.
+    <value>Вы хотите удалить все приложения из списка "Мои приложения"? Это предотвратит появление остатков в меню после удаления Zero Install.
 Вы можете создать резервную копию этого списка с помощью команды '0install sync'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -199,7 +199,7 @@
   </data>
   <data name="DeployedPortable" xml:space="preserve">
     <value>Портативная версия Zero Install была развернута на '{0}'.
-Вы можете использовать ее, запустив файл ZeroInstall.exe в каталоге.</value>
+Вы можете использовать ее, запустив файл ZeroInstall.exe в директории.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
@@ -273,7 +273,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Экспортирует в каталог DIRECTORY все материалы и реализации, необходимые для запуска программы, указанной в URI.</value>
+    <value>Экспортирует в директорию все материалы и реализации, необходимые для запуска программы, указанной в URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -358,7 +358,7 @@
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
     <value>Копирует реализацию в кэш. Аналогично '0install store add', но дайджест извлекается из имени каталога.
-Дополнительный аргумент задает пользовательское расположение целевого кэша.</value>
+Дополнительный аргумент задает пользовательское местоположение целевого кэша.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
@@ -538,7 +538,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>Интеграция {0}</value>
+    <value>Интегрировать {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
@@ -615,7 +615,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Для интеграции с рабочим столом Zero Install должен быть развернут на вашей системе.</value>
+    <value>Для интеграции с настольными системами Zero Install должен быть развернут на вашей системе.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -737,7 +737,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">
-    <value>Добавление рекомендуемых стандартных точек доступа.</value>
+    <value>Добавление рекомендованных стандартных точек доступа.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
@@ -833,7 +833,7 @@
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Требуется версия основной программы в пределах заданного {RANGE}.
-Диапазоны разделены трубками (|).
+Диапазоны разделяются трубками (|).
 Каждый диапазон имеет вид "START...END". Диапазон соответствует версиям, где START &lt;= VERSION &lt; END. Начало или конец могут быть опущены.
 Вместо диапазона можно использовать номер одной версии, чтобы соответствовать только этой версии, или !VERSION, чтобы соответствовать всем версиям, кроме этой.</value>
     <comment>Automatically translated.</comment>
