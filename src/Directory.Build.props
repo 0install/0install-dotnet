@@ -47,10 +47,13 @@
     </AssemblyAttribute>
   </ItemGroup>
 
-  <!-- Build-time dependencies -->
   <ItemGroup>
+    <!-- Build-time dependencies -->
     <PackageReference Include="Generator.Equals" Version="3.1.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+
+    <!-- Avoid inconsistent versions pulled in as transitive dependencies -->
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
   </ItemGroup>
 
   <!-- Global usings -->
