@@ -12,15 +12,14 @@ namespace ZeroInstall.Commands.Desktop;
 [Collection("Desktop integration")]
 public class AddAppTest : CliCommandTestBase<AddApp>
 {
-    public AddAppTest()
-        => GetMock<IFeedCache>().Setup(x => x.GetFeed(Fake.Feed1Uri)).Returns(Fake.Feed);
-
+    private Mock<IFeedCache> FeedCache => GetMock<IFeedCache>();
     private Mock<ICatalogManager> CatalogManagerMock => GetMock<ICatalogManager>();
 
     [Fact]
     public void WithoutAlias()
     {
         CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(new Catalog());
+        FeedCache.Setup(x => x.GetFeed(Fake.Feed1Uri)).Returns(Fake.Feed);
 
         RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
     }
@@ -31,6 +30,8 @@ public class AddAppTest : CliCommandTestBase<AddApp>
         Sut.Config.KioskMode = true;
         Catalog catalog = new() {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}};
         CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(catalog);
+
+        FeedCache.Setup(x => x.GetFeed(Fake.Feed1Uri)).Returns(Fake.Feed);
 
         RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
     }

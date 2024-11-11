@@ -67,23 +67,23 @@ public abstract class IntegrationCommand : CliCommand
         if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
         #endregion
 
-        var target = GetTarget(ref interfaceUri, out bool replaced);
+        var existingEntry = integrationManager.AppList.GetEntry(interfaceUri);
+
+        if (existingEntry != null && ZeroInstallInstance.IsLibraryMode && Handler.IsGui)
+        {
+            Log.Info("Modifying existing integration; running automatic store audit because users can't trigger it themselves in library mode");
+            Handler.Background = false; // Must be set before any other network/IO operations have triggered the UI
+            ImplementationStore.Audit(Handler);
+        }
+
         EnsureAllowed(interfaceUri);
 
-        if (integrationManager.AppList.GetEntry(interfaceUri) is {} existingEntry)
-        {
-            if (ZeroInstallInstance.IsLibraryMode && Handler.IsGui)
-            {
-                Log.Info("Modifying existing integration; running automatic store audit because users can't trigger it themselves in library mode");
-                Handler.Background = false;
-                ImplementationStore.Audit(Handler);
-            }
-
-            return replaced
+        var target = GetTarget(ref interfaceUri, out bool replaced);
+        return existingEntry == null
+            ? CreateAppEntry(integrationManager, target)
+            : replaced
                 ? ReplaceAppEntry(integrationManager, existingEntry, target)
                 : existingEntry;
-        }
-        else return CreateAppEntry(integrationManager, target);
     }
 
     private FeedTarget GetTarget(ref FeedUri interfaceUri, out bool replaced)
