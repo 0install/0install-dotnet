@@ -55,8 +55,8 @@ public abstract class SolverTest : TestWithRedirect
         }.SaveFor(interfaceUri);
 
         var actual = Solve(
-            feeds: new[]
-            {
+            feeds:
+            [
                 new Feed
                 {
                     Uri = interfaceUri,
@@ -69,7 +69,7 @@ public abstract class SolverTest : TestWithRedirect
                     Name = "prog2",
                     Elements = {new Implementation {Version = new("2.0"), ID = "app2", Commands = {new() {Name = Command.NameRun, Path = "test-app2"}}}}
                 }
-            },
+            ],
             requirements: new Requirements(interfaceUri, Command.NameRun));
 
         actual.Should().Be(new Selections
@@ -95,8 +95,8 @@ public abstract class SolverTest : TestWithRedirect
     public void ExtraRestrictions()
     {
         var actual = Solve(
-            feeds: new[]
-            {
+            feeds:
+            [
                 new Feed
                 {
                     Uri = new("http://example.com/prog.xml"),
@@ -107,7 +107,7 @@ public abstract class SolverTest : TestWithRedirect
                         new Implementation {Version = new("2.0"), ID = "app2", Commands = {new() {Name = Command.NameRun, Path = "test-app2"}}}
                     }
                 }
-            },
+            ],
             requirements: new Requirements(new("http://example.com/prog.xml"), Command.NameRun)
             {
                 ExtraRestrictions = {{new("http://example.com/prog.xml"), new VersionRange("..!2.0")}}

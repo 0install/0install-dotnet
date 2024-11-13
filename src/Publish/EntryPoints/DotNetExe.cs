@@ -83,7 +83,7 @@ public partial class DotNetExe : WindowsExe
 
     private VersionRange GetRuntimeVersionRange()
     {
-        var decimals = RuntimeVersion.FirstPart.Decimals?.Count > 2 ? RuntimeVersion.FirstPart.Decimals : new[] {5L, 0L};
+        var decimals = RuntimeVersion.FirstPart.Decimals?.Count > 2 ? RuntimeVersion.FirstPart.Decimals : [5L, 0L];
         return new Constraint
         {
             NotBefore = RuntimeVersion,

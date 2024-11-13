@@ -41,10 +41,10 @@ public class ExporterTest : TestWithMocks
         feedCacheMock.Setup(x => x.GetPath(Fake.SubFeed2Uri)).Returns(subFeedFile2);
 
         var signature = new ValidSignature(123, new OpenPgpFingerprint([]), new DateTime(2000, 1, 1));
-        feedCacheMock.Setup(x => x.GetSignatures(Fake.Feed1Uri)).Returns(new OpenPgpSignature[] {signature});
-        feedCacheMock.Setup(x => x.GetSignatures(Fake.SubFeed1Uri)).Returns(new OpenPgpSignature[] {signature});
-        feedCacheMock.Setup(x => x.GetSignatures(Fake.Feed2Uri)).Returns(new OpenPgpSignature[] {signature});
-        feedCacheMock.Setup(x => x.GetSignatures(Fake.SubFeed2Uri)).Returns(new OpenPgpSignature[] {signature});
+        feedCacheMock.Setup(x => x.GetSignatures(Fake.Feed1Uri)).Returns([signature]);
+        feedCacheMock.Setup(x => x.GetSignatures(Fake.SubFeed1Uri)).Returns([signature]);
+        feedCacheMock.Setup(x => x.GetSignatures(Fake.Feed2Uri)).Returns([signature]);
+        feedCacheMock.Setup(x => x.GetSignatures(Fake.SubFeed2Uri)).Returns([signature]);
 
         var openPgpMock = GetMock<IOpenPgp>();
         openPgpMock.Setup(x => x.ExportKey(signature)).Returns("abc");

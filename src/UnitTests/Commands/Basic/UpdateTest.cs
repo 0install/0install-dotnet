@@ -46,7 +46,7 @@ public class UpdateTest : SelectionTestBase<Update>
         var selections = Fake.Selections;
         using var tempFile = new TemporaryFile("0install-test-selections");
         selections.SaveXml(tempFile);
-        Sut.Parse(new string[] {tempFile});
+        Sut.Parse([tempFile]);
         Assert.Throws<NotSupportedException>(() => Sut.Execute());
     }
 }

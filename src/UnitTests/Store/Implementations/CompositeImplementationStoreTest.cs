@@ -20,7 +20,7 @@ public class CompositeImplementationStoreTest : IDisposable
 
     public CompositeImplementationStoreTest()
     {
-        _testStore = new CompositeImplementationStore(new[] {_mockStore1.Object, _mockStore2.Object});
+        _testStore = new CompositeImplementationStore([_mockStore1.Object, _mockStore2.Object]);
     }
 
     public void Dispose()
@@ -33,9 +33,9 @@ public class CompositeImplementationStoreTest : IDisposable
     [Fact]
     public void ListAll()
     {
-        _mockStore1.Setup(x => x.ListAll()).Returns(new[] {_digest1});
-        _mockStore2.Setup(x => x.ListAll()).Returns(new[] {_digest2});
-        _testStore.ListAll().Should().BeEquivalentTo(new[] {_digest1, _digest2}, because: "Should combine results from all stores");
+        _mockStore1.Setup(x => x.ListAll()).Returns([_digest1]);
+        _mockStore2.Setup(x => x.ListAll()).Returns([_digest2]);
+        _testStore.ListAll().Should().BeEquivalentTo([_digest1, _digest2], because: "Should combine results from all stores");
     }
     #endregion
 
@@ -225,9 +225,9 @@ public class CompositeImplementationStoreTest : IDisposable
     [Fact]
     public void ListTemp()
     {
-        _mockStore1.Setup(x => x.ListTemp()).Returns(new[] {"abc"});
-        _mockStore2.Setup(x => x.ListTemp()).Returns(new[] {"def"});
-        _testStore.ListTemp().Should().BeEquivalentTo(new[] {"abc", "def"}, because: "Should combine results from all stores");
+        _mockStore1.Setup(x => x.ListTemp()).Returns(["abc"]);
+        _mockStore2.Setup(x => x.ListTemp()).Returns(["def"]);
+        _testStore.ListTemp().Should().BeEquivalentTo(["abc", "def"], because: "Should combine results from all stores");
     }
 
     [Fact]

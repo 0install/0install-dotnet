@@ -74,7 +74,7 @@ public class FeedCacheTest : TestWithMocks
     [Fact]
     public void ListAll()
         => _cache.ListAll()
-                 .Should().BeEquivalentTo(new[] {FeedTest.Test1Uri!, FeedTest.Test2Uri});
+                 .Should().BeEquivalentTo([FeedTest.Test1Uri!, FeedTest.Test2Uri]);
 
     [Fact]
     public void GetFeed()

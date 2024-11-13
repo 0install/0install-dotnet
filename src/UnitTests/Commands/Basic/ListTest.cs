@@ -38,18 +38,17 @@ public class ListTest : CliCommandTestBase<List>
     [Fact]
     public void TestAll()
     {
-        RunAndAssert(new[]
-        {
+        RunAndAssert([
             new FeedNode(_feedFile1, _feed1),
             new FeedNode(_feedFile2, _feed2)
-        }, ExitCode.OK);
+        ], ExitCode.OK);
     }
 
     [Fact]
     public void TestFiltered()
     {
-        RunAndAssert(new[] {
+        RunAndAssert([
             new FeedNode(_feedFile2, _feed2)
-        }, ExitCode.OK, "test2");
+        ], ExitCode.OK, "test2");
     }
 }

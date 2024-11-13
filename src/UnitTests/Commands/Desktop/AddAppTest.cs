@@ -44,7 +44,7 @@ public class AddAppTest : CliCommandTestBase<AddApp>
         CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(catalog);
         CatalogManagerMock.Setup(x => x.GetOnline()).Returns(catalog);
 
-        Sut.Parse(new[] {Fake.Feed1Uri.ToStringRfc()});
+        Sut.Parse([Fake.Feed1Uri.ToStringRfc()]);
         Assert.Throws<WebException>(() => Sut.Execute());
     }
 }

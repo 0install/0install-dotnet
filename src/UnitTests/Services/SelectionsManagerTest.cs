@@ -37,7 +37,7 @@ public class SelectionsManagerTest : TestWithMocks
 
         var implementationSelections = _selectionsManager.GetUncached(selections.Implementations);
 
-        implementationSelections.Should().BeEquivalentTo(new[] {selections.Implementations[0]}, because: "Only the first implementation should be listed as uncached");
+        implementationSelections.Should().BeEquivalentTo([selections.Implementations[0]], because: "Only the first implementation should be listed as uncached");
     }
 
     [Fact]
@@ -66,7 +66,7 @@ public class SelectionsManagerTest : TestWithMocks
         var implementationSelections = _selectionsManager.GetUncached(selections.Implementations);
 
         // Only the first implementation should be listed as uncached
-        implementationSelections.Should().BeEquivalentTo(new[] {selections.Implementations[0]}, because: "Only the first implementation should be listed as uncached");
+        implementationSelections.Should().BeEquivalentTo([selections.Implementations[0]], because: "Only the first implementation should be listed as uncached");
     }
 
     [Fact]
@@ -90,7 +90,7 @@ public class SelectionsManagerTest : TestWithMocks
         _packageManagerMock.Setup(x => x.Lookup(implementationSelections[2])).Returns(impl3);
 
         _selectionsManager.GetImplementations(implementationSelections)
-                          .Should().BeEquivalentTo(new[] {impl1, impl2, impl3});
+                          .Should().BeEquivalentTo([impl1, impl2, impl3]);
     }
 
     [Fact]

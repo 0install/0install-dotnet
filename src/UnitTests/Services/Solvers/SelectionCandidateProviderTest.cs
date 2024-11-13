@@ -145,7 +145,7 @@ public class SelectionCandidateProviderTest : TestWithMocksAndRedirect
         _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
 
         var nativeImplementation = new ExternalImplementation("rpm", "firefox", new("1.0")) {Languages = {"en-US"}};
-        _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns(new[] {nativeImplementation});
+        _packageManagerMock.Setup(x => x.Query((PackageImplementation)mainFeed.Elements[1])).Returns([nativeImplementation]);
 
         var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun);
 

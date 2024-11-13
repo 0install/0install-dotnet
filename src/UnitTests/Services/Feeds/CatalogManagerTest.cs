@@ -35,7 +35,7 @@ public class CatalogManagerTest : TestWithMocksAndRedirect
 
         using var server = new MicroServer("catalog.xml", catalogStream);
         var uri = new FeedUri(server.FileUri);
-        CatalogManager.SetSources(new[] {uri});
+        CatalogManager.SetSources([uri]);
         _trustManagerMock.Setup(x => x.CheckTrust(array, uri, null)).Returns(OpenPgpUtilsTest.TestSignature);
 
         _sut.GetOnline().Should().Be(catalog);
@@ -92,7 +92,7 @@ public class CatalogManagerTest : TestWithMocksAndRedirect
     [Fact]
     public void SetSources()
     {
-        CatalogManager.SetSources(new[] {_testSource});
+        CatalogManager.SetSources([_testSource]);
         _sut.GetSources().Should().Equal(_testSource);
     }
 }

@@ -253,7 +253,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
 
                 case ForEachArgs forEach:
                     foreach (string value in EnvironmentVariables[forEach.ItemFrom]
-                                          ?.Split(new[] {forEach.Separator ?? Path.PathSeparator.ToString(CultureInfo.InvariantCulture)}, StringSplitOptions.RemoveEmptyEntries)
+                                          ?.Split([forEach.Separator ?? Path.PathSeparator.ToString(CultureInfo.InvariantCulture)], StringSplitOptions.RemoveEmptyEntries)
                                          ?? [])
                     {
                         EnvironmentVariables["item"] = value;

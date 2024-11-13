@@ -68,7 +68,7 @@ public class TrustManagerTest : TestWithMocks
     [Fact]
     public void BadSignature()
     {
-        _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns(new OpenPgpSignature[] {new BadSignature(KeyID: 123)});
+        _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns([new BadSignature(KeyID: 123)]);
 
         Assert.Throws<SignatureException>(() => _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml")));
         IsKeyTrusted().Should().BeFalse(because: "Key should not be trusted");
@@ -77,7 +77,7 @@ public class TrustManagerTest : TestWithMocks
     [Fact]
     public void MultipleSignatures()
     {
-        _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns(new OpenPgpSignature[] {new BadSignature(KeyID: 123), OpenPgpUtilsTest.TestSignature});
+        _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns([new BadSignature(KeyID: 123), OpenPgpUtilsTest.TestSignature]);
         TrustKey();
 
         _trustManager.CheckTrust(_combinedBytes, new("http://localhost/test.xml"))
@@ -196,7 +196,7 @@ public class TrustManagerTest : TestWithMocks
     }
 
     private void RegisterKey()
-        => _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns(new OpenPgpSignature[] {OpenPgpUtilsTest.TestSignature});
+        => _openPgpMock.Setup(x => x.Verify(_feedBytes, _signatureBytes)).Returns([OpenPgpUtilsTest.TestSignature]);
 
     private void TrustKey()
         => _trustDB.TrustKey(OpenPgpUtilsTest.TestSignature.FormatFingerprint(), new Domain("localhost"));
@@ -207,8 +207,8 @@ public class TrustManagerTest : TestWithMocks
     private void ExpectKeyImport()
     {
         _openPgpMock.SetupSequence(x => x.Verify(_feedBytes, _signatureBytes))
-                    .Returns(new OpenPgpSignature[] {new MissingKeySignature(OpenPgpUtilsTest.TestKeyID)})
-                    .Returns(new OpenPgpSignature[] {OpenPgpUtilsTest.TestSignature});
+                    .Returns([new MissingKeySignature(OpenPgpUtilsTest.TestKeyID)])
+                    .Returns([OpenPgpUtilsTest.TestSignature]);
         _openPgpMock.Setup(x => x.ImportKey(It.Is<ArraySegment<byte>>(segment => segment.SequenceEqual(_keyBytes))));
     }
 

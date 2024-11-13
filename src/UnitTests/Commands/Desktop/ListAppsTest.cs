@@ -22,7 +22,7 @@ public class ListAppsTest : CliCommandTestBase<ListApps>
     [Fact]
     public void ListAll()
     {
-        RunAndAssert(new[] { _app1, _app2 }, ExitCode.OK);
+        RunAndAssert([_app1, _app2], ExitCode.OK);
     }
 
     [Fact]
@@ -35,7 +35,7 @@ public class ListAppsTest : CliCommandTestBase<ListApps>
     [Fact]
     public void FilterByUri()
     {
-        RunAndAssert(new[] { _app2 }, ExitCode.OK,
+        RunAndAssert([_app2], ExitCode.OK,
             "http://example.com/app2.xml");
     }
 
@@ -49,7 +49,7 @@ public class ListAppsTest : CliCommandTestBase<ListApps>
     [Fact]
     public void FilterByName()
     {
-        RunAndAssert(new[] { _app2 }, ExitCode.OK,
+        RunAndAssert([_app2], ExitCode.OK,
             "app 2");
     }
 

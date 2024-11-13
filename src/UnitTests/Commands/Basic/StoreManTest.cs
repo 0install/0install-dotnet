@@ -129,7 +129,7 @@ public class StoreManTest
     public class List : StoreSubCommand<StoreMan.List>
     {
         [Fact]
-        public void Test() => RunAndAssert(new[] {StoreMock.Object}, ExitCode.OK);
+        public void Test() => RunAndAssert([StoreMock.Object], ExitCode.OK);
     }
 
     public class ListImplementations : StoreSubCommand<StoreMan.ListImplementations>
@@ -185,21 +185,19 @@ public class StoreManTest
         [Fact]
         public void TestAll()
         {
-            RunAndAssert(new[]
-            {
+            RunAndAssert([
                 new OwnedImplementationNode(_implDir1, _impl1, new FeedNode(_feedFile1, _feed1)),
                 new OwnedImplementationNode(_implDir2, _impl2, new FeedNode(_feedFile2, _feed2)),
                 new ImplementationNode(_implDir3, _digest3)
-            }, ExitCode.OK);
+            ], ExitCode.OK);
         }
 
         [Fact]
         public void TestFiltered()
         {
-            RunAndAssert(new[]
-            {
+            RunAndAssert([
                 new OwnedImplementationNode(_implDir2, _impl2, new FeedNode(_feedFile2, _feed2))
-            }, ExitCode.OK, _feed2.Uri!.ToStringRfc());
+            ], ExitCode.OK, _feed2.Uri!.ToStringRfc());
         }
     }
 

@@ -68,7 +68,7 @@ public abstract class AppCommand(ICommandHandler handler) : IntegrationCommand(h
 
         // Apply the new alias
         var alias = new AppAlias {Name = aliasName, Command = command};
-        IntegrationManager.AddAccessPoints(appEntry, FeedManager[InterfaceUri], new AccessPoint[] {alias});
+        IntegrationManager.AddAccessPoints(appEntry, FeedManager[InterfaceUri], [alias]);
 
         string message = string.Format(Resources.AliasCreated, aliasName, appEntry.Name);
         if (needsReopenTerminal) message += Environment.NewLine + Resources.ReopenTerminal;

@@ -183,7 +183,7 @@ public class FeedManagerTest : TestWithMocksAndRedirect
     {
         _feedCacheMock.Setup(x => x.Add(feed.Uri, feedData));
         _feedCacheMock.Setup(x => x.GetFeed(feed.Uri)).Returns(feed);
-        _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Returns(new[] {OpenPgpUtilsTest.TestSignature});
+        _feedCacheMock.Setup(x => x.GetSignatures(feed.Uri)).Returns([OpenPgpUtilsTest.TestSignature]);
 
         // ReSharper disable once AccessToDisposedClosure
         _trustManagerMock.Setup(x => x.CheckTrust(feedData, feed.Uri, It.IsAny<OpenPgpKeyCallback>())).Returns(OpenPgpUtilsTest.TestSignature);
@@ -231,10 +231,9 @@ public class FeedManagerTest : TestWithMocksAndRedirect
         var (uri, data) = FakeSignedFeed();
 
         // Newer signature present => replay attack
-        _feedCacheMock.Setup(x => x.GetSignatures(uri)).Returns(new[]
-        {
+        _feedCacheMock.Setup(x => x.GetSignatures(uri)).Returns([
             new ValidSignature(OpenPgpUtilsTest.TestKeyID, OpenPgpUtilsTest.TestFingerprint, new DateTime(2002, 1, 1, 0, 0, 0, DateTimeKind.Utc))
-        });
+        ]);
 
         Assert.Throws<ReplayAttackException>(() => _feedManager.ImportFeed(data.ToStream()));
     }
