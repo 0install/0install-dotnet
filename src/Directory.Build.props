@@ -13,7 +13,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <NoWarn>$(NoWarn);1591;NETSDK1187</NoWarn><!-- Missing XML comments + NuGet locale casing -->
+    <NoWarn>$(NoWarn);1591;NETSDK1187;NU1901;NU1902;NU1903;NU1904</NoWarn><!-- Missing XML comments + NuGet locale casing + NuGet advisories -->
 
     <!-- Dummy version number, overridden by GitVersion -->
     <Version>1.0.0-pre</Version>
