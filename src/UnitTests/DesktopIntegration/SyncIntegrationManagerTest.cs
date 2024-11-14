@@ -215,7 +215,7 @@ public sealed class SyncIntegrationManagerTest : TestWithRedirect
         appListLocal.SaveXml(appListLocalPath);
         appListLast?.SaveXml(appListLocalPath + SyncIntegrationManager.AppListLastSyncSuffix);
 
-        using var appListServerPath = new TemporaryFile("0install-test-applist");
+        using (var appListServerPath = new TemporaryFile("0install-test-applist"))
         {
             using (var stream = File.Create(appListServerPath))
                 appListServer.SaveXmlZip(stream, CryptoKey);
