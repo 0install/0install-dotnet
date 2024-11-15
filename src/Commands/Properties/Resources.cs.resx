@@ -219,7 +219,7 @@ Můžete ji použít spuštěním souboru ZeroInstall.exe v tomto adresáři.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Vytvoření aliasu pro spuštění aplikace prostřednictvím 0install, aniž byste museli vždy zadávat celý URI.</value>
+    <value>Vytvoření aliasu pro spuštění aplikace prostřednictvím 0install bez nutnosti vždy zadávat celý URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -357,7 +357,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>Zkopíruje implementaci do mezipaměti. Podobně jako '0install store add', ale z názvu adresáře se extrahuje digest.
+    <value>Zkopíruje implementaci do mezipaměti. Podobně jako '0install store add', ale digest se extrahuje z názvu adresáře.
 Další argumenty určují vlastní cílové umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -425,7 +425,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Kontroluje aktualizace programu a v případě jejich nalezení je stáhne.
-Je podobný funkci '0install download --refresh', s tím rozdílem, že vypisuje informace o tom, zda byly nalezeny nějaké změny.</value>
+Podobá se příkazu '0install download --refresh' s tím rozdílem, že vypisuje informace o tom, zda byly nalezeny nějaké změny.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -481,7 +481,7 @@ Je podobný funkci '0install download --refresh', s tím rozdílem, že vypisuje
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
-    <value>Správa kanálů</value>
+    <value>Správa krmiv</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
@@ -848,7 +848,7 @@ Do tohoto adresáře se však nebudou zapisovat nové stažené soubory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Místo přímého spuštění vybraného programu spusťte {COMMAND} PROGRAM ARGS. To je užitečné pro spouštění ladicích a trasovacích nástrojů na programu (spíše než na Zero Install!).
+    <value>Místo přímého spuštění vybraného programu spusťte {COMMAND} PROGRAM ARGS. To je užitečné pro spuštění ladicích a trasovacích nástrojů na programu (spíše než na Zero Install!).
 Všimněte si, že wrapper je spuštěn v prostředí vybraném programem; tento mechanismus tedy nelze použít pro sandboxing.
 Může obsahovat argumenty příkazového řádku. Bílé znaky musí být escapovány!</value>
     <comment>Automatically translated.</comment>

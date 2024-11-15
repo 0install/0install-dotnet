@@ -92,7 +92,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppList" xml:space="preserve">
-    <value>アプリケーション一覧</value>
+    <value>アプリケーションリスト</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
@@ -219,7 +219,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>常に完全な URI を入力することなく、0install 経由でアプリケーションを起動するためのエイリアスを作成します。</value>
+    <value>0install経由でアプリケーションを起動するためのエイリアスを作成することで、常に完全なURIを入力する必要がなくなります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -331,11 +331,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>指定したキーワードに一致する、ミラーサーバーによってインデックス化されたフィードを検索します。デフォルトのミラー・サーバーは、品質に関係なく、既知のフィードをすべてインデックス化することに注意。</value>
+    <value>指定したキーワードに一致する、ミラーサーバーによってインデックス化されたフィードを検索します。デフォルトのミラー・サーバーは、品質に関係なく、既知のすべてのフィードをインデックス化することに注意してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>URIで識別されるプログラムのバージョンと、その依存関係のすべての互換バージョンを選択します。
+    <value>URIで識別されるプログラムのバージョンと、その依存関係すべての互換バージョンを選択します。
 バージョンのセットを選択した場合は0、一貫性のあるセットを見つけられなかった場合は1の終了ステータスを返します。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -388,7 +388,7 @@
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
     <value>キャッシュからすべての実装を削除します。Zero Install を削除する前に、このコマンドを使用してシステムをクリーンアップします。実装を変更から保護するために NTFS ACL が採用されているため、キャッシュディレクトリを手動で削除するのは困難な場合があります。
-追加の引数でカスタムキャッシュの場所を指定します。</value>
+追加の引数は、カスタムキャッシュの場所を指定します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreRemove" xml:space="preserve">
@@ -788,7 +788,7 @@
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>オフラインモードで実行し、デフォルト設定を上書きします。
-オフラインモードでは、インターフェイスが古くてもリフレッシュされず、インジェクターがすでに知っていても（例えば以前のリフレッシュから）プログラムの新しいバージョンはダウンロードされません。</value>
+オフラインモードでは、インターフェイスが古くてもリフレッシュされず、インジェクターが既に知っていても（例えば以前のリフレッシュから）プログラムの新しいバージョンはダウンロードされません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -820,7 +820,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>同期データのリセット。有効な{MODE}は「none」（クライアントとサーバーのデータを通常通りマージ）、「client」（クライアントの全データをサーバーのデータに置き換える）、「server」（サーバーの全データをクライアントのデータに置き換える）です。</value>
+    <value>同期データのリセット。有効な{MODE}は、「none」（クライアントとサーバーのデータを正常にマージ）、「client」（クライアントの全データをサーバーのデータに置き換える）、「server」（サーバーの全データをクライアントのデータに置き換える）です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -850,7 +850,7 @@
   <data name="OptionWrapper" xml:space="preserve">
     <value>選択したプログラムを直接実行する代わりに、{COMMAND} PROGRAM ARGS を実行します。これは、デバッガやトレース・ツールをプログラム上で実行するのに便利です（ゼロ・インストール上ではなく！）。
 ラッパーはプログラムによって選択された環境で実行されることに注意してください。
-コマンドライン引数を含むことができます。空白文字はエスケープする必要があります！</value>
+コマンドライン引数を含むことができます。空白文字はエスケープしなければなりません！</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">

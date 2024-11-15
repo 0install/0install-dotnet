@@ -104,7 +104,7 @@ Puteți utiliza scriptul de import sau executabilul Bootstrap din '{1}' pentru a
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>Acest lucru va adăuga Zero Install la meniul Start și la linia de comandă. Continuați?</value>
+    <value>Aceasta va adăuga Zero Install în meniul Start și în linia de comandă. Continuați?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -457,7 +457,7 @@ Acest lucru este similar cu "0install download --refresh", cu excepția faptului
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de fluxuri care urmează să fie adăugat:</value>
+    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de fluxuri de adăugat:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
@@ -632,7 +632,7 @@ Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă d
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Se poate actualiza numai cu URI-uri de alimentare, nu și cu documente de selecție.</value>
+    <value>Se poate actualiza numai cu URI-uri de alimentare, nu și cu documente de selectare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -676,7 +676,7 @@ Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă d
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Necesită o versiune a programului principal anterioară {VERSION}. Adică, forțează utilizarea unei versiuni vechi a programului.</value>
+    <value>Necesită o versiune a programului principal mai veche decât {VERSION}. Adică, forțează utilizarea unei versiuni vechi a programului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">

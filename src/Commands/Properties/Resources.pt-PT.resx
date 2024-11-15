@@ -108,7 +108,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
-    <value>Tem a certeza de que pretende remover o Zero Install deste computador?</value>
+    <value>Tem a certeza que pretende remover o Zero Install deste computador?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
@@ -571,7 +571,7 @@ Uma tag &lt;feed-for&gt; indica compatibilidade de feed.</value>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Este programa é fornecido SEM NENHUMA GARANTIA, até ao limite permitido por lei.
-Pode redistribuir cópias deste programa ao abrigo dos termos da GNU Lesser General Public License.</value>
+Pode redistribuir cópias deste programa sob os termos da GNU Lesser General Public License.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
@@ -788,7 +788,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Executar em modo off-line, substituindo a definição predefinida.
-No modo off-line, as interfaces não são actualizadas, mesmo que estejam desactualizadas, e as versões mais recentes dos programas não serão descarregadas, mesmo que o injetor já as conheça (por exemplo, a partir de uma atualização anterior).</value>
+No modo off-line, nenhuma interface é actualizada, mesmo que esteja desactualizada, e as versões mais recentes dos programas não serão descarregadas, mesmo que o injetor já as conheça (por exemplo, de uma atualização anterior).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -816,7 +816,7 @@ No modo off-line, as interfaces não são actualizadas, mesmo que estejam desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Selecionar o código fonte em vez de um binário. Isto é utilizado internamente pelo '0compile'.</value>
+    <value>Selecionar o código fonte em vez de um binário. Isto é utilizado internamente por '0compile'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
@@ -959,7 +959,7 @@ Execute '0install config self_update_uri default' para a ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>A ativação do suporte do Windows para Caminhos Longos pode resolver este problema.</value>
+    <value>A ativação do suporte do Windows para caminhos longos pode resolver este problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

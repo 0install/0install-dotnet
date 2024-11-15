@@ -181,7 +181,7 @@ Możesz utworzyć kopię zapasową tej listy za pomocą funkcji "0install sync".
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
     <value>Rozpocznij wprowadzanie tekstu w ostatnim wierszu, aby utworzyć nowy wpis.
-Zaznacz cały wiersz, klikając w pierwszej kolumnie, a następnie naciśnij DEL na klawiaturze, aby usunąć wpis.</value>
+Zaznacz cały wiersz, klikając w pierwszej kolumnie, a następnie naciśnij klawisz DEL na klawiaturze, aby usunąć wpis.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
@@ -219,7 +219,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Tworzy alias do uruchamiania aplikacji przez 0install bez konieczności wprowadzania pełnego URI.</value>
+    <value>Tworzy alias do uruchamiania aplikacji poprzez 0install bez konieczności wprowadzania pełnego URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -260,7 +260,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Wyświetla lub zmienia ustawienia konfiguracyjne.
-Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem, wyświetla bieżącą wartość nazwanego ustawienia. Po podaniu dwóch argumentów ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "{0}".</value>
+Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem wyświetla bieżącą wartość nazwanego ustawienia. Po podaniu dwóch argumentów ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -362,7 +362,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na innym komputerze za pomocą "0install store add".</value>
+    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na inny komputer za pomocą "0install store add".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
@@ -400,7 +400,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
-    <value>Serwuje implementacje z pamięci podręcznej jako archiwa przez HTTP.</value>
+    <value>Serwuje implementacje z pamięci podręcznej jako archiwa za pośrednictwem protokołu HTTP.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
@@ -680,7 +680,7 @@ Można to zrobić za pomocą "{0}". Będzie to całkowicie niezależne od kopii 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Pomija pobieranie katalogu, aby sprawdzić jego poprawność przed dodaniem go do listy.</value>
+    <value>Pomija pobieranie katalogu w celu sprawdzenia jego poprawności przed dodaniem go do listy.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -697,7 +697,7 @@ Ustaw puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>Wymusza ukierunkowanie solvera na konkretną stronę {CPU}.</value>
+    <value>Wymusza ukierunkowanie solvera na określoną stronę {CPU}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
@@ -717,7 +717,7 @@ Ustaw puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>W eksporcie nie należy uwzględniać archiwów implementacji. Eksportuj tylko kanały.</value>
+    <value>Eksport nie obejmuje archiwów implementacji. Eksportuj tylko kanały.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -843,7 +843,7 @@ Pojedynczy numer wersji może być użyty zamiast zakresu, aby dopasować tylko 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>Dodaje {DIR} do listy pamięci podręcznych implementacji do przeszukania.
+    <value>Dodaje {DIR} do listy pamięci podręcznych wdrożeń do przeszukania.
 Nowe pliki do pobrania nie będą jednak zapisywane w tym katalogu.</value>
     <comment>Automatically translated.</comment>
   </data>
