@@ -165,7 +165,7 @@ Uruchom "0install config feed_mirror default", aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Czy chcesz usunąć wdrożenie? W razie potrzeby nowa kopia zostanie automatycznie pobrana ponownie.</value>
+    <value>Czy chcesz usunąć implementację? W razie potrzeby nowa kopia zostanie automatycznie pobrana ponownie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">

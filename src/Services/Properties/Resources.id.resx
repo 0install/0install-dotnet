@@ -170,7 +170,7 @@ Tanggal baru: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Gagal mengunduh {0}. Mencoba mendapatkan dari feed mirror sebagai gantinya.</value>
+    <value>Gagal mengunduh {0}. Mencoba untuk mendapatkan dari feed mirror sebagai gantinya.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
