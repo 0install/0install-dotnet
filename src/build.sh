@@ -9,9 +9,9 @@ cd `dirname $0`
     dotnet="../0install.sh run --version 8.0.. https://apps.0install.net/dotnet/sdk.xml"
 #fi
 
-# Build
+echo "Build binaries"
 $dotnet msbuild -v:Quiet -t:Restore -t:Build -p:Configuration=Release -p:Version=${1:-1.0.0-pre} ${CI+-p:ContinuousIntegrationBuild=True}
 
-# Prepare for publishing
+echo "Prepare binaries for publishing"
 $dotnet msbuild -v:Quiet -t:Publish -p:NoBuild=True -p:BuildProjectReferences=False -p:Configuration=Release -p:TargetFramework=net8.0 -p:Version=${1:-1.0.0-pre} Commands
 find ../artifacts/Release/net8.0/publish -name "{*.xml,*.pdb}" -type f -delete

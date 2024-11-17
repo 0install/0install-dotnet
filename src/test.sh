@@ -9,5 +9,5 @@ cd `dirname $0`
     dotnet="../0install.sh run --version 8.0..!8.1 https://apps.0install.net/dotnet/sdk.xml"
 #fi
 
-# Unit tests (without .NET Framework)
-$dotnet test --no-build --configuration Release --framework net8.0 UnitTests/UnitTests.csproj
+echo "Unit tests"
+$dotnet test --verbosity quiet --no-build --configuration Release --framework net8.0 UnitTests/UnitTests.csproj

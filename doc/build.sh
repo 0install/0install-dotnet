@@ -9,6 +9,6 @@ cd `dirname $0`
     dotnet="../0install.sh run --version 8.0.. https://apps.0install.net/dotnet/sdk.xml"
 #fi
 
-# Build docs
+echo "Build docs"
 $dotnet tool restore
 $dotnet docfx --logLevel=warning --warningsAsErrors docfx.json

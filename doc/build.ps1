@@ -6,7 +6,7 @@ function Run-DotNet {
     if ($LASTEXITCODE -ne 0) {throw "Exit Code: $LASTEXITCODE"}
 }
 
-# Build docs
+echo "Build docs"
 Run-DotNet tool restore
 Run-DotNet docfx --logLevel=warning --warningsAsErrors docfx.json
 
