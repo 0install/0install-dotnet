@@ -25,7 +25,7 @@
   <!-- Dependencies -->
   <ItemGroup>
     <PackageReference Include="NanoByte.Common" Version="$(NanoByteCommonVersion)" />
-    <PackageReference Include="Generator.Equals.Runtime" Version="3.1.1" />
+    <PackageReference Include="Generator.Equals.Runtime" Version="3.2.0" />
   </ItemGroup>
 
 </Project>
