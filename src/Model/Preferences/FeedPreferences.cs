@@ -104,6 +104,7 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
         #endregion
     }
 
+    [IgnoreEquality]
     private readonly object _saveLock = new();
 
     /// <summary>
