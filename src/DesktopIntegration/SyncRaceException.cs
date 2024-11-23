@@ -1,7 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if !NET8_0_OR_GREATER
+#if !NET
 using System.Runtime.Serialization;
 #endif
 
@@ -10,7 +10,7 @@ namespace ZeroInstall.DesktopIntegration;
 /// <summary>
 /// Multiple computers are trying to sync with the same account at the same time.
 /// </summary>
-#if !NET8_0_OR_GREATER
+#if !NET
 [Serializable]
 #endif
 public class SyncRaceException : WebException
@@ -19,7 +19,7 @@ public class SyncRaceException : WebException
         : base("Multiple computers are trying to sync with the same account at the same time.")
     {}
 
-#if !NET8_0_OR_GREATER
+#if !NET
     protected SyncRaceException(SerializationInfo serializationInfo, StreamingContext streamingContext)
         : base(serializationInfo, streamingContext)
     {}

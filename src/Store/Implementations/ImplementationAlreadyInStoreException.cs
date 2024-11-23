@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if !NET8_0_OR_GREATER
+#if !NET
 using System.Runtime.Serialization;
 #endif
 
@@ -14,7 +14,7 @@ namespace ZeroInstall.Store.Implementations;
 /// <summary>
 /// Indicates an <see cref="Implementation"/> being added to an <see cref="IImplementationStore"/> is already in the store.
 /// </summary>
-#if !NET8_0_OR_GREATER
+#if !NET
 [Serializable]
 #endif
 public sealed class ImplementationAlreadyInStoreException : Exception
@@ -54,7 +54,7 @@ public sealed class ImplementationAlreadyInStoreException : Exception
     #endregion
 
     #region Serialization
-#if !NET8_0_OR_GREATER
+#if !NET
     /// <summary>
     /// Deserializes an exception.
     /// </summary>

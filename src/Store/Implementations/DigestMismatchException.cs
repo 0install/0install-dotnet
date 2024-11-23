@@ -9,7 +9,7 @@ using ZeroInstall.Store.Manifests;
 using System.Security.Permissions;
 #endif
 
-#if !NET8_0_OR_GREATER
+#if !NET
 using System.Runtime.Serialization;
 #endif
 
@@ -18,7 +18,7 @@ namespace ZeroInstall.Store.Implementations;
 /// <summary>
 /// Indicates that the <see cref="ManifestDigest"/> of an implementation does not match the expected value.
 /// </summary>
-#if !NET8_0_OR_GREATER
+#if !NET
 [Serializable]
 #endif
 public sealed class DigestMismatchException : Exception
@@ -106,7 +106,7 @@ public sealed class DigestMismatchException : Exception
     {}
 
     #region Serialization
-#if !NET8_0_OR_GREATER
+#if !NET
     /// <summary>
     /// Deserializes an exception.
     /// </summary>

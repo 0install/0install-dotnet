@@ -3,7 +3,7 @@
 
 using ZeroInstall.Store.Feeds;
 
-#if !NET8_0_OR_GREATER
+#if !NET
 using System.Runtime.Serialization;
 #endif
 
@@ -16,7 +16,7 @@ namespace ZeroInstall.Services.Feeds;
 /// <summary>
 /// Indicates a feed file that downloaded by the <see cref="IFeedManager"/> is older than a version already located in the <see cref="IFeedCache"/>.
 /// </summary>
-#if !NET8_0_OR_GREATER
+#if !NET
 [Serializable]
 #endif
 public sealed class ReplayAttackException : IOException
@@ -51,7 +51,7 @@ public sealed class ReplayAttackException : IOException
     }
 
     #region Serialization
-#if !NET8_0_OR_GREATER
+#if !NET
     /// <summary>
     /// Deserializes an exception.
     /// </summary>

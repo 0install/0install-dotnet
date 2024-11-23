@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if !NET8_0_OR_GREATER
+#if !NET
 using System.Runtime.Serialization;
 #endif
 
@@ -47,7 +47,7 @@ public sealed class UnsuitableInstallBaseException : NotSupportedException
     {}
 
     #region Serialization
-#if !NET8_0_OR_GREATER
+#if !NET
     /// <summary>
     /// Deserializes an exception.
     /// </summary>

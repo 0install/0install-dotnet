@@ -3,7 +3,7 @@
 
 using ZeroInstall.Model.Selection;
 
-#if !NET8_0_OR_GREATER
+#if !NET
 using System.Runtime.Serialization;
 #endif
 
@@ -12,7 +12,7 @@ namespace ZeroInstall.Services.Solvers;
 /// <summary>
 /// Indicates the <see cref="ISolver"/> was unable to provide <see cref="Selections"/> that fulfill the <see cref="Requirements"/>.
 /// </summary>
-#if !NET8_0_OR_GREATER
+#if !NET
 [Serializable]
 #endif
 public sealed class SolverException : Exception
@@ -37,7 +37,7 @@ public sealed class SolverException : Exception
     {}
 
     #region Serialization
-#if !NET8_0_OR_GREATER
+#if !NET
     /// <summary>
     /// Deserializes an exception.
     /// </summary>

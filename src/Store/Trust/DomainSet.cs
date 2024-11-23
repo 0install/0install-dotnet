@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if !NET8_0_OR_GREATER
+#if !NET
 using System.Runtime.Serialization;
 #endif
 
@@ -12,7 +12,7 @@ namespace ZeroInstall.Store.Trust;
 /// </summary>
 [SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Justification = "A Set is a specific type of Collection.")]
 
-#if !NET8_0_OR_GREATER
+#if !NET
 [Serializable]
 #endif
 public class DomainSet : SortedSet<Domain>
@@ -23,7 +23,7 @@ public class DomainSet : SortedSet<Domain>
 
     public Domain this[int index] => this.Skip(index).First();
 
-#if !NET8_0_OR_GREATER
+#if !NET
     protected DomainSet(SerializationInfo info, StreamingContext context)
         : base(info, context)
     {}

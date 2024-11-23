@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if !NET8_0_OR_GREATER
+#if !NET
 using System.Runtime.Serialization;
 #endif
 
@@ -14,7 +14,7 @@ namespace ZeroInstall.Store.Implementations;
 /// <summary>
 /// Indicates an <see cref="Implementation"/> could not be found in a <see cref="IImplementationStore"/>.
 /// </summary>
-#if !NET8_0_OR_GREATER
+#if !NET
 [Serializable]
 #endif
 public sealed class ImplementationNotFoundException : IOException
@@ -56,7 +56,7 @@ public sealed class ImplementationNotFoundException : IOException
     #endregion
 
     #region Serialization
-#if !NET8_0_OR_GREATER
+#if !NET
     /// <summary>
     /// Deserializes an exception.
     /// </summary>

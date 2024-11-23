@@ -6,7 +6,7 @@ using NanoByte.Common.Native;
 using NanoByte.Common.Values.Design;
 using ZeroInstall.Model.Selection;
 
-#if !NET8_0_OR_GREATER
+#if !NET
 using System.Runtime.Serialization;
 #endif
 
@@ -20,12 +20,12 @@ namespace ZeroInstall.Model;
 /// Represents a feed or interface URI or local path. Unlike <see cref="System.Uri"/> this class only accepts HTTP(S) URLs and absolute local paths.
 /// </summary>
 [TypeConverter(typeof(StringConstructorConverter<FeedUri>))]
-#if !NET8_0_OR_GREATER
+#if !NET
 [Serializable]
 #endif
 [Equatable]
 public sealed partial class FeedUri : Uri
-#if !NET8_0_OR_GREATER
+#if !NET
     , ISerializable
 #endif
 {
@@ -270,7 +270,7 @@ public sealed partial class FeedUri : Uri
     #endregion
 
     #region Serialization
-#if !NET8_0_OR_GREATER
+#if !NET
     private FeedUri(SerializationInfo serializationInfo, StreamingContext streamingContext)
         : base(serializationInfo, streamingContext)
     {

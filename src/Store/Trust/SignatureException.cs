@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if !NET8_0_OR_GREATER
+#if !NET
 using System.Runtime.Serialization;
 #endif
 
@@ -10,7 +10,7 @@ namespace ZeroInstall.Store.Trust;
 /// <summary>
 /// Indicates the <see cref="IOpenPgp"/> implementation detected a problem with a digital signature.
 /// </summary>
-#if !NET8_0_OR_GREATER
+#if !NET
 [Serializable]
 #endif
 public sealed class SignatureException : Exception
@@ -31,7 +31,7 @@ public sealed class SignatureException : Exception
     {}
 
     #region Serialization
-#if !NET8_0_OR_GREATER
+#if !NET
     /// <summary>
     /// Deserializes an exception.
     /// </summary>

@@ -3,7 +3,7 @@
 
 using ZeroInstall.DesktopIntegration.AccessPoints;
 
-#if !NET8_0_OR_GREATER
+#if !NET
 using System.Runtime.Serialization;
 #endif
 
@@ -16,7 +16,7 @@ namespace ZeroInstall.DesktopIntegration;
 /// <summary>
 /// Indicates a desktop integration operation could not be completed due to conflicting <see cref="AccessPoint"/>s.
 /// </summary>
-#if !NET8_0_OR_GREATER
+#if !NET
 [Serializable]
 #endif
 public sealed class ConflictException : InvalidOperationException
@@ -76,7 +76,7 @@ public sealed class ConflictException : InvalidOperationException
     {}
 
     #region Serialization
-#if !NET8_0_OR_GREATER
+#if !NET
     /// <summary>
     /// Deserializes an exception.
     /// </summary>
