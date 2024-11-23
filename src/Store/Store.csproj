@@ -9,7 +9,7 @@
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
     <SGenTypes>ZeroInstall.Store.Trust.TrustDB;ZeroInstall.Store.Feeds.SearchResults</SGenTypes>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <Import Project="..\Resources.Designer.targets" />

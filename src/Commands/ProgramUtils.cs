@@ -68,7 +68,9 @@ public static class ProgramUtils
 
         ProcessUtils.SanitizeEnvironmentVariables();
         NetUtils.ApplyProxy();
+#if !NET9_0_OR_GREATER
         ServicePointManager.DefaultConnectionLimit = 16;
+#endif
     }
 
     [Conditional("NETFRAMEWORK")]
