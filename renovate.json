@@ -29,7 +29,7 @@
     },
     {
       "matchPackagePatterns": ["docfx", "SourceLink"],
-      "matchPackageNames": ["SharpZipLib", "SharpCompress", "ELFSharp"],
+      "matchPackageNames": ["SharpZipLib", "SharpCompress", "ZstdSharp.Port", "ELFSharp"],
       "automerge": true,
       "automergeType": "branch"
     },
