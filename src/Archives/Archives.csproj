@@ -8,7 +8,7 @@
     <PackageProjectUrl>https://dotnet.0install.net/namespace_zero_install_1_1_archives.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net6.0' Or '$(TargetFramework)'=='net8.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <Import Project="..\Resources.Designer.targets" />

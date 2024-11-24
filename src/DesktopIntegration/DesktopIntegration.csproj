@@ -9,7 +9,7 @@
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
     <SGenTypes>ZeroInstall.DesktopIntegration.AppList</SGenTypes>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net6.0' Or '$(TargetFramework)'=='net8.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <Import Project="..\Resources.Designer.targets" />
