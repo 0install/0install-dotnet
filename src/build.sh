@@ -10,7 +10,7 @@ cd `dirname $0`
 #fi
 
 echo "Build binaries"
-$dotnet msbuild -v:Quiet -t:Restore -t:Build -p:Configuration=Release -p:Version=${1:-1.0.0-pre} ${CI+-p:ContinuousIntegrationBuild=True}
+$dotnet msbuild -v:Quiet -t:Restore -t:Build -p:Configuration=Release -p:Version=${1:-1.0.0-pre} ${CI+-p:ContinuousIntegrationBuild=True -terminalLogger:off}
 
 echo "Prepare binaries for publishing"
 $dotnet msbuild -v:Quiet -t:Publish -p:NoBuild=True -p:BuildProjectReferences=False -p:Configuration=Release -p:TargetFramework=net8.0 -p:Version=${1:-1.0.0-pre} Commands
