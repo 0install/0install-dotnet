@@ -16,7 +16,11 @@ namespace ZeroInstall.Services.Feeds;
 /// <remarks>This class is immutable and thread-safe.</remarks>
 public class TrustManager(TrustDB trustDB, Config config, IOpenPgp openPgp, IFeedCache feedCache, ITaskHandler handler) : ITrustManager
 {
-    private readonly object _lock = new();
+#if NET9_0_OR_GREATER
+    private static readonly Lock _lock = new();
+#else
+    private static readonly object _lock = new();
+#endif
 
     /// <inheritdoc/>
     public ValidSignature CheckTrust(byte[] data, FeedUri uri, OpenPgpKeyCallback? keyCallback = null)

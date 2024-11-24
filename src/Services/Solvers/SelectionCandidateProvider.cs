@@ -83,7 +83,11 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
     public IReadOnlyDictionary<FeedUri, Exception> FailedFeeds => _failedFeeds;
 
     /// <summary>Provides separate locks for each feed URI.</summary>
+#if NET9_0_OR_GREATER
+    private readonly TransparentCache<FeedUri, Lock> _feedLocks = new(_ => new());
+#else
     private readonly TransparentCache<FeedUri, object> _feedLocks = new(_ => new());
+#endif
 
     /// <summary>
     /// Loads the main feed for the specified <paramref name="requirements"/>, additional feeds added by local configuration and <see cref="Feed.Feeds"/> references.

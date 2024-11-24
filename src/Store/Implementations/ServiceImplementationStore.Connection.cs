@@ -39,7 +39,12 @@ public partial class ServiceImplementationStore
         IpcAcl = new(false, false, ControlFlags.GroupDefaulted | ControlFlags.OwnerDefaulted | ControlFlags.DiscretionaryAclPresent, null, null, null, dacl);
     }
 
+#if NET9_0_OR_GREATER
+    private static readonly Lock _lock = new();
+#else
     private static readonly object _lock = new();
+#endif
+
     private static volatile IImplementationSink? _proxy;
 
     /// <summary>

@@ -105,7 +105,11 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
     }
 
     [IgnoreEquality]
-    private readonly object _saveLock = new();
+#if NET9_0_OR_GREATER
+    private static readonly Lock _saveLock = new();
+#else
+    private static readonly object _saveLock = new();
+#endif
 
     /// <summary>
     /// Saves these <see cref="FeedPreferences"/> for a specific feed.
