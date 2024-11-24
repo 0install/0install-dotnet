@@ -107,7 +107,7 @@ public class StubBuilder(IIconStore iconStore)
     private static readonly IEnumerable<PortableExecutableReference> _references =
         new[] {"mscorlib.dll", "System.dll", "System.Core.dll"}
            .Select(x => MetadataReference.CreateFromFile(Path.Combine(_netFxDirectory, x)))
-           .ToArray();
+           .ToList();
 
     /// <summary>
     /// Builds a stub EXE that executes the "0install run" command at a specific path.

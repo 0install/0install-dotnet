@@ -72,7 +72,7 @@ public static class AppRegistration
             var icon = target.Feed.Icons.GetIcon(Icon.MimeTypeIco);
             capabilitiesKey.SetOrDelete(RegValueAppIcon, icon?.To(x => $"{iconStore.GetFresh(x)},0"));
 
-            verbCapabilities = verbCapabilities.ToArray();
+            verbCapabilities = verbCapabilities.ToList();
 
             using (var fileAssocsKey = capabilitiesKey.CreateSubKeyChecked(RegSubKeyFileAssocs))
             {

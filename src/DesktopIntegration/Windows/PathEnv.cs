@@ -39,7 +39,7 @@ public static class PathEnv
         #endregion
 
         var currentPath = Get(machineWide);
-        Set(currentPath.Except(directory).ToArray(), machineWide);
+        Set(currentPath.Except(directory), machineWide);
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ public static class PathEnv
     /// </summary>
     /// <param name="directories">The individual directories to list in the search PATH.</param>
     /// <param name="machineWide"><c>true</c> to use the machine-wide PATH variable; <c>false</c> for the per-user variant.</param>
-    public static void Set(string[] directories, bool machineWide)
+    public static void Set(IEnumerable<string> directories, bool machineWide)
     {
         #region Sanity checks
         if (directories == null) throw new ArgumentNullException(nameof(directories));

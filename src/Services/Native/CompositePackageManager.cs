@@ -12,7 +12,7 @@ namespace ZeroInstall.Services.Native;
 /// <remarks>This class is immutable and thread-safe.</remarks>
 public class CompositePackageManager(IEnumerable<IPackageManager> packageManagers) : IPackageManager
 {
-    private readonly IPackageManager[] _packageManagers = packageManagers.ToArray();
+    private readonly List<IPackageManager> _packageManagers = packageManagers.ToList();
 
     /// <inheritdoc/>
     public IEnumerable<ExternalImplementation> Query(PackageImplementation package, params string[] distributions)

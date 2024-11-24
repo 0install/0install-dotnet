@@ -156,7 +156,7 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
     }
 
     /// <inheritdoc/>
-    public FeedUri[] GetSources()
+    public IReadOnlyList<FeedUri> GetSources()
         => GetSources(preferMachineWide: config.KioskMode);
 
     /// <summary>
@@ -167,13 +167,13 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
     /// <exception cref="IOException">There was a problem accessing a configuration file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
     /// <exception cref="UriFormatException">An invalid catalog source is specified in the configuration file.</exception>
-    public static FeedUri[] GetSources(bool preferMachineWide)
+    public static IReadOnlyList<FeedUri> GetSources(bool preferMachineWide)
         => GetConfigLoadPath(preferMachineWide) is {} path
             ? ReadAllLines(path).Except(string.IsNullOrEmpty)
                                 .Except(line => line.StartsWith("#"))
                                 .Select(line => new FeedUri(line))
                                 .Select(uri => uri == _oldDefaultSource ? DefaultSource : uri)
-                                .ToArray()
+                                .ToList()
             : [DefaultSource];
 
     private static string? GetConfigLoadPath(bool preferMachineWide)

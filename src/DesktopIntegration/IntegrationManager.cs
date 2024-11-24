@@ -289,7 +289,7 @@ public class IntegrationManager : IntegrationManagerBase
 
         if (appEntry.AccessPoints == null) return;
 
-        accessPoints = accessPoints.ToArray();
+        accessPoints = accessPoints.ToList();
         foreach (var accessPoint in accessPoints)
             accessPoint.Unapply(appEntry, MachineWide);
 

@@ -46,7 +46,7 @@ public interface ICatalogManager
     /// <exception cref="IOException">There was a problem accessing a configuration file.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to a configuration file was not permitted.</exception>
     /// <exception cref="UriFormatException">An invalid catalog source is specified in the configuration file.</exception>
-    public FeedUri[] GetSources();
+    public IReadOnlyList<FeedUri> GetSources();
 
     /// <summary>
     /// Adds a new source to download <see cref="Catalog"/> files from.

@@ -11,7 +11,7 @@ public class ManifestTest
     public void SortingDirs()
     {
         var manifest = new Manifest(ManifestFormat.Sha256New) {"b/y", "b-x", "b/x", "b", "a", "Z"};
-        manifest.Keys.ToArray().Should().Equal("", "Z", "a", "b", "b/x", "b/y", "b-x");
+        manifest.Keys.Should().Equal("", "Z", "a", "b", "b/x", "b/y", "b-x");
     }
 
     [Fact]
