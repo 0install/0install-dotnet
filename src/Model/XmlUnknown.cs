@@ -82,21 +82,11 @@ public abstract class XmlUnknown : IEquatable<XmlUnknown>
         public static readonly XmlElementComparer Instance = new();
 
         public bool Equals(XmlElement? x, XmlElement? y)
-        {
-            if (x == null || y == null) return false;
-            if (x.NamespaceURI != y.NamespaceURI || x.Name != y.Name || x.InnerText != y.InnerText) return false;
-
-            // ReSharper disable once InvokeAsExtensionMethod
-            bool attributesEqual = EnumerableExtensions.UnsequencedEquals(
-                x.Attributes.OfType<XmlAttribute>().ToArray(),
-                y.Attributes.OfType<XmlAttribute>().ToArray(),
-                comparer: XmlAttributeComparer.Instance);
-            bool elementsEqual = EnumerableExtensions.SequencedEquals(
-                x.ChildNodes.OfType<XmlElement>().ToArray(),
-                y.ChildNodes.OfType<XmlElement>().ToArray(),
-                comparer: Instance);
-            return attributesEqual && elementsEqual;
-        }
+            => x != null
+            && y != null
+            && x.NamespaceURI == y.NamespaceURI && x.Name == y.Name && x.InnerText == y.InnerText
+            && x.Attributes.OfType<XmlAttribute>().UnsequencedEquals(y.Attributes.OfType<XmlAttribute>(), comparer: XmlAttributeComparer.Instance)
+            && x.ChildNodes.OfType<XmlElement>().SequencedEquals(y.ChildNodes.OfType<XmlElement>(), comparer: Instance);
 
         public int GetHashCode(XmlElement obj)
             => HashCode.Combine(obj.Name, obj.Value);
@@ -105,19 +95,9 @@ public abstract class XmlUnknown : IEquatable<XmlUnknown>
 
     #region Equatable
     public bool Equals(XmlUnknown? other)
-    {
-        if (other == null) return false;
-        // ReSharper disable once InvokeAsExtensionMethod
-        bool attributesEqual = EnumerableExtensions.UnsequencedEquals(
-            UnknownAttributes ?? [],
-            other.UnknownAttributes ?? [],
-            comparer: XmlAttributeComparer.Instance);
-        bool elementsEqual = EnumerableExtensions.SequencedEquals(
-            UnknownElements ?? [],
-            other.UnknownElements ?? [],
-            comparer: XmlElementComparer.Instance);
-        return attributesEqual && elementsEqual;
-    }
+        => other != null
+        && (UnknownAttributes ?? []).UnsequencedEquals(other.UnknownAttributes ?? [], comparer: XmlAttributeComparer.Instance)
+        && (UnknownElements ?? []).SequencedEquals(other.UnknownElements ?? [], comparer: XmlElementComparer.Instance);
 
     /// <inheritdoc/>
     public override int GetHashCode()
