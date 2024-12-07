@@ -230,8 +230,12 @@ public sealed class SyncIntegrationManagerTest : TestWithRedirect
                     SyncServerPassword = "dummy",
                     SyncCryptoKey = CryptoKey
                 };
-                using (var integrationManager = new SyncIntegrationManager(config, _ => new Feed {Name = "Test"}, new SilentTaskHandler()))
+
+                ExceptionUtils.Retry<UnauthorizedAccessException>(() => // Other processes might be competing for IntegrationManager mutex
+                {
+                    using var integrationManager = new SyncIntegrationManager(config, _ => new Feed {Name = "Test"}, new SilentTaskHandler());
                     integrationManager.Sync(resetMode);
+                });
 
                 appListServer = AppList.LoadXmlZip(syncServer.FileContent, CryptoKey);
             }

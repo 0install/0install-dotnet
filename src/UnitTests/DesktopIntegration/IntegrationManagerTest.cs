@@ -19,7 +19,8 @@ public sealed class IntegrationManagerTest : TestWithRedirect
     // ReSharper disable once ConvertConstructorToMemberInitializers
     public IntegrationManagerTest()
     {
-        _integrationManager = new IntegrationManager(new Config(), new MockTaskHandler());
+        _integrationManager = ExceptionUtils.Retry<UnauthorizedAccessException, IntegrationManager>( // Other processes might be competing for IntegrationManager mutex
+            () => new(new Config(), new MockTaskHandler()));
     }
 
     public override void Dispose()

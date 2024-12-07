@@ -21,7 +21,8 @@ public class AddAppTest : CliCommandTestBase<AddApp>
         CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(new Catalog());
         FeedCache.Setup(x => x.GetFeed(Fake.Feed1Uri)).Returns(Fake.Feed);
 
-        RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
+        ExceptionUtils.Retry<UnauthorizedAccessException>(() => // Other processes might be competing for IntegrationManager mutex
+            RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc()));
     }
 
     [Fact]
@@ -33,7 +34,8 @@ public class AddAppTest : CliCommandTestBase<AddApp>
 
         FeedCache.Setup(x => x.GetFeed(Fake.Feed1Uri)).Returns(Fake.Feed);
 
-        RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc());
+        ExceptionUtils.Retry<UnauthorizedAccessException>(() => // Other processes might be competing for IntegrationManager mutex
+            RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc()));
     }
 
     [Fact]
