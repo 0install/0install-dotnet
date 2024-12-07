@@ -45,18 +45,16 @@ public class FeedManager : IFeedManager
         });
     }
 
-    private bool _refresh;
-
     /// <summary>
     /// Set to <c>true</c> to re-download <see cref="Feed"/>s even if they are already in the <see cref="IFeedCache"/>.
     /// </summary>
     /// <remarks>Setting this to <c>true</c> implicitly also flushes the in-memory cache.</remarks>
     public bool Refresh
     {
-        get => _refresh;
+        get;
         set
         {
-            _refresh = value;
+            field = value;
             if (value) Clear();
         }
     }

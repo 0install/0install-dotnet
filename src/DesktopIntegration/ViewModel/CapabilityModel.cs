@@ -15,11 +15,6 @@ public abstract class CapabilityModel
     public DefaultCapability Capability { get; }
 
     /// <summary>
-    /// Stores whether the <see cref="CapabilityModel.Capability" /> was already used or not.
-    /// </summary>
-    private readonly bool _wasUsed;
-
-    /// <summary>
     /// Indicates whether the <see cref="CapabilityModel.Capability" /> shall be used or not.
     /// </summary>
     public bool Use { get; set; }
@@ -28,7 +23,7 @@ public abstract class CapabilityModel
     /// Indicates whether the <see cref="Use" /> of the <see cref="CapabilityModel.Capability" /> has been changed.
     /// </summary>
     [Browsable(false)]
-    public bool Changed => (_wasUsed != Use);
+    public bool Changed => (field != Use);
 
     /// <summary>
     /// Creates a new instance.
@@ -38,6 +33,6 @@ public abstract class CapabilityModel
     protected CapabilityModel(DefaultCapability capability, bool used)
     {
         Capability = capability ?? throw new ArgumentNullException(nameof(capability));
-        _wasUsed = Use = used;
+        Changed = Use = used;
     }
 }
