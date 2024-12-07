@@ -9,26 +9,25 @@ partial class BouncyCastle
 {
     private readonly string _publicBundlePath = Path.Combine(homeDir, "pubring.gpg");
 
-    private PgpPublicKeyRingBundle? _publicBundle;
-
     /// <summary>
     /// Stores imported public keys on disk.
     /// Intentionally separate from the normal GnuPG public keyring to keep the user's GnuPG profile clean.
     /// </summary>
     /// <remarks>Data is cached in memory for life-time of instance.</remarks>
+    [field: AllowNull, MaybeNull]
     private PgpPublicKeyRingBundle PublicBundle
     {
         get
         {
             // Multiple-read races are OK
-            if (_publicBundle != null) return _publicBundle;
+            if (field != null) return field;
 
             try
             {
                 using (new AtomicRead(_publicBundlePath))
                 {
                     using var stream = File.OpenRead(_publicBundlePath);
-                    return _publicBundle = new(PgpUtilities.GetDecoderStream(stream));
+                    return field = new(PgpUtilities.GetDecoderStream(stream));
                 }
             }
             #region Error handling
@@ -38,7 +37,7 @@ partial class BouncyCastle
             }
             catch (IOException ex)
             {
-                Log.Warn(string.Format(Resources.ErrorLoadingKeyBundle, _publicBundle), ex);
+                Log.Warn(string.Format(Resources.ErrorLoadingKeyBundle, field), ex);
                 return new(Enumerable.Empty<PgpSecretKeyRing>());
             }
             #endregion
@@ -46,7 +45,7 @@ partial class BouncyCastle
         set
         {
             // Lost-write races are OK, since public keys are easily reacquired
-            _publicBundle = value;
+            field = value;
             using var atomic = new AtomicWrite(_publicBundlePath);
             using (var stream = File.Create(atomic.WritePath))
                 value.Encode(stream);
@@ -56,23 +55,22 @@ partial class BouncyCastle
 
     private readonly string _secretBundlePath = Path.Combine(homeDir, "secring.gpg");
 
-    private PgpSecretKeyRingBundle? _secretBundle;
-
     /// <summary>
     /// Stores secret keys on disk.
     /// </summary>
     /// <remarks>Data is cached in memory for life-time of instance.</remarks>
+    [field: AllowNull, MaybeNull]
     private PgpSecretKeyRingBundle SecretBundle
     {
         get
         {
             // Multiple-read races are OK
-            if (_secretBundle != null) return _secretBundle;
+            if (field != null) return field;
 
             try
             {
                 using var stream = File.OpenRead(_secretBundlePath);
-                return _secretBundle = new(PgpUtilities.GetDecoderStream(stream));
+                return field = new(PgpUtilities.GetDecoderStream(stream));
             }
             #region Error handling
             catch (IOException ex) when (ex is DirectoryNotFoundException or FileNotFoundException)
@@ -81,7 +79,7 @@ partial class BouncyCastle
             }
             catch (IOException ex)
             {
-                Log.Warn(string.Format(Resources.ErrorLoadingKeyBundle, _secretBundle), ex);
+                Log.Warn(string.Format(Resources.ErrorLoadingKeyBundle, field), ex);
                 return new(Enumerable.Empty<PgpSecretKeyRing>());
             }
             #endregion
