@@ -44,7 +44,7 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
             lock (Implementations)
             {
                 if (Implementations.FirstOrDefault(implementation => implementation.ID == id) is not {} result)
-                    Implementations.Add(result = new ImplementationPreferences { ID = id });
+                    Implementations.Add(result = new() { ID = id });
                 return result;
             }
         }

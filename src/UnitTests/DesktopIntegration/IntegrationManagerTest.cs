@@ -16,6 +16,7 @@ public sealed class IntegrationManagerTest : TestWithRedirect
 {
     private readonly IntegrationManager _integrationManager;
 
+    // ReSharper disable once ConvertConstructorToMemberInitializers
     public IntegrationManagerTest()
     {
         _integrationManager = new IntegrationManager(new Config(), new MockTaskHandler());
