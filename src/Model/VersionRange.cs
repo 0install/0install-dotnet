@@ -45,9 +45,9 @@ public sealed partial class VersionRange
     /// Creates a new version range set.
     /// </summary>
     /// <param name="parts">The individual ranges.</param>
-    public VersionRange(params VersionRangePart[] parts)
+    public VersionRange(params IEnumerable<VersionRangePart> parts)
     {
-        Parts = (parts ?? throw new ArgumentNullException(nameof(parts))).ToArray();
+        Parts = parts.ToArray();
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ public sealed partial class VersionRange
     /// <param name="value">The string containing the version ranges.</param>
     /// <exception cref="FormatException"><paramref name="value"/> is not a valid version range string.</exception>
     public VersionRange(string value)
-        : this(Array.ConvertAll((value ?? throw new ArgumentNullException(nameof(value))).Split('|'), part => VersionRangePart.Parse(part.Trim())))
+        : this(value.Split('|').Select(part => VersionRangePart.Parse(part.Trim())))
     {}
 
     /// <summary>
@@ -102,8 +102,8 @@ public sealed partial class VersionRange
     {
         if (Parts is []) return other;
 
-        var parts = Parts.SelectMany(x => x.Intersect(other)).Distinct().ToArray();
-        return parts.Length == 0 ? None : new(parts);
+        var parts = Parts.SelectMany(x => x.Intersect(other)).Distinct().ToList();
+        return parts.Count == 0 ? None : new(parts);
     }
 
     /// <summary>

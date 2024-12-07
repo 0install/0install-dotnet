@@ -110,7 +110,7 @@ public static class ProgramUtils
     /// <summary>
     /// Creates a <see cref="ProcessStartInfo"/> for launching an instance of the 0install graphical interface.
     /// </summary>
-    public static ProcessStartInfo? GuiStartInfo(params string[] arguments)
+    public static ProcessStartInfo? GuiStartInfo(params IEnumerable<string> arguments)
     {
         try
         {
@@ -142,7 +142,7 @@ public static class ProgramUtils
     /// <param name="args">The arguments to be processed.</param>
     /// <param name="handler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</param>
     /// <returns>The exit status code to end the process with. Cast to <see cref="int"/> to return from a Main method.</returns>
-    public static ExitCode Run(string exeName, string[] args, ICommandHandler handler)
+    public static ExitCode Run(string exeName, IReadOnlyList<string> args, ICommandHandler handler)
     {
         #region Sanity checks
         if (string.IsNullOrEmpty(exeName)) throw new ArgumentNullException(nameof(exeName));
@@ -346,7 +346,7 @@ public static class ProgramUtils
     /// <returns>The exit code returned by the other instance; <c>null</c> if no other instance could be found.</returns>
     /// <exception cref="IOException">There was a problem launching the target instance.</exception>
     /// <exception cref="NotAdminException">The target process requires elevation.</exception>
-    private static ExitCode? TryRunOtherInstance(string exeName, string[] args, ICommandHandler handler, bool needsMachineWide)
+    private static ExitCode? TryRunOtherInstance(string exeName, IEnumerable<string> args, ICommandHandler handler, bool needsMachineWide)
     {
         if (ZeroInstallDeployment.FindOther(needsMachineWide) is {} installLocation)
         {
@@ -367,7 +367,7 @@ public static class ProgramUtils
     /// <returns>The exit code returned by the other instance; <c>null</c> if no other instance could be found.</returns>
     /// <exception cref="IOException">There was a problem launching the target instance.</exception>
     /// <exception cref="NotAdminException">The target process requires elevation.</exception>
-    private static ExitCode DeployAndRunOtherInstance(string exeName, string[] args, ICommandHandler handler, bool machineWide)
+    private static ExitCode DeployAndRunOtherInstance(string exeName, IEnumerable<string> args, ICommandHandler handler, bool machineWide)
     {
         Log.Info("Deploying new Zero Install instance to redirect to");
 

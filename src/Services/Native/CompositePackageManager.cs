@@ -10,7 +10,7 @@ namespace ZeroInstall.Services.Native;
 /// </summary>
 /// <param name="packageManagers">A priority-sorted list of <see cref="IPackageManager"/>s. Queried first-to-last.</param>
 /// <remarks>This class is immutable and thread-safe.</remarks>
-public class CompositePackageManager(IEnumerable<IPackageManager> packageManagers) : IPackageManager
+public class CompositePackageManager(params IEnumerable<IPackageManager> packageManagers) : IPackageManager
 {
     private readonly List<IPackageManager> _packageManagers = packageManagers.ToList();
 

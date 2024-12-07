@@ -21,7 +21,7 @@ public interface ICategoryIntegrationManager : IIntegrationManager
     /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
     /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-    void AddAccessPointCategories(AppEntry appEntry, Feed feed, params string[] categories);
+    void AddAccessPointCategories(AppEntry appEntry, Feed feed, params IReadOnlyList<string> categories);
 
     /// <summary>
     /// Removes a category of already applied <see cref="AccessPoint"/>s for an application.
@@ -30,5 +30,5 @@ public interface ICategoryIntegrationManager : IIntegrationManager
     /// <param name="categories">A list of all <see cref="AccessPoint"/> categories to be removed from the already applied ones.</param>
     /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-    void RemoveAccessPointCategories(AppEntry appEntry, params string[] categories);
+    void RemoveAccessPointCategories(AppEntry appEntry, params IReadOnlyList<string> categories);
 }

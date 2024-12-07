@@ -27,9 +27,9 @@ public readonly struct VersionDottedList : IEquatable<VersionDottedList>, ICompa
     /// Creates a new version dotted-list.
     /// </summary>
     /// <param name="decimals">The numeric parts of the dotted-list.</param>
-    public VersionDottedList(params long[] decimals)
+    public VersionDottedList(params IEnumerable<long> decimals)
     {
-        Decimals = decimals ?? throw new ArgumentNullException(nameof(decimals));
+        Decimals = decimals.ToArray();
     }
 
     private static readonly Regex _dottedListPattern = new(@"^(\d+(\.\d+)*)$");
