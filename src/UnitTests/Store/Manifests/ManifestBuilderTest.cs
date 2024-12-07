@@ -29,6 +29,50 @@ public class ManifestBuilderTest
     }
 
     [Fact]
+    public void AddFileFilterAppleDoubleAfter()
+    {
+        _builder.AddFile("file", DataStream, 1337);
+        _builder.AddFile("._file", DataStream, 1337);
+
+        _builder.Manifest.Should().BeEquivalentTo(new Manifest(ManifestFormat.Sha1New)
+        {
+            [""] =
+            {
+                ["file"] = new ManifestNormalFile(_dataHash, 1337, 4)
+            }
+        });
+    }
+
+    [Fact]
+    public void AddFileFilterAppleDoubleBefore()
+    {
+        _builder.AddFile("._file", DataStream, 1337);
+        _builder.AddFile("file", DataStream, 1337);
+
+        _builder.Manifest.Should().BeEquivalentTo(new Manifest(ManifestFormat.Sha1New)
+        {
+            [""] =
+            {
+                ["file"] = new ManifestNormalFile(_dataHash, 1337, 4)
+            }
+        });
+    }
+
+    [Fact]
+    public void AddFileDontFilterAppleDoubleIfNoOriginalFile()
+    {
+        _builder.AddFile("._file", DataStream, 1337);
+
+        _builder.Manifest.Should().BeEquivalentTo(new Manifest(ManifestFormat.Sha1New)
+        {
+            [""] =
+            {
+                ["._file"] = new ManifestNormalFile(_dataHash, 1337, 4)
+            }
+        });
+    }
+
+    [Fact]
     public void OverwriteFile()
     {
         _builder.AddFile("file", "dummy".ToStream(), 42);

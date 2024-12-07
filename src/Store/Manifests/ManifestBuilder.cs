@@ -35,7 +35,18 @@ public class ManifestBuilder(ManifestFormat format) : MarshalNoTimeout, IBuilder
 
         string digest = Manifest.Format.DigestContent(stream);
 
-        Manifest[dir][file] = executable
+        var manifestDir = Manifest[dir];
+
+        const string appleDoublePrefix = "._";
+        if (file.StartsWith(appleDoublePrefix, out var rest) && manifestDir.ContainsKey(rest))
+        {
+            Log.Debug($"Ignoring AppleDouble file '{path}' in manifest");
+            return;
+        }
+        if (manifestDir.Remove(appleDoublePrefix + file))
+            Log.Debug($"Ignoring AppleDouble file '{Path.Combine(dir, appleDoublePrefix + "path")}' in manifest");
+
+        manifestDir[file] = executable
             ? new ManifestExecutableFile(digest, modifiedTime, stream.Length)
             : new ManifestNormalFile(digest, modifiedTime, stream.Length);
     }
