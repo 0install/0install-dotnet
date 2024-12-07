@@ -35,13 +35,10 @@ public sealed class CacheNodeBuilder
     /// <exception cref="UnauthorizedAccessException">Read access to a cache is not permitted.</exception>
     public NamedCollection<CacheNode> Build()
     {
-        var input = new List<object>();
-        input.AddRange(_feedCache.ListAll());
-        if (_implementationStore != null)
-        {
-            input.AddRange(_implementationStore.ListAll());
-            input.AddRange(_implementationStore.ListTemp());
-        }
+        List<object> input = [
+            .._feedCache.ListAll(),
+            .._implementationStore?.ListAll() ?? [],
+            .._implementationStore?.ListTemp() ?? []];
 
         var nodes = new NamedCollection<CacheNode>();
 

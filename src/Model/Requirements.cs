@@ -190,7 +190,7 @@ public partial record Requirements
     /// <summary>
     /// Transforms the requirements into a command-line arguments.
     /// </summary>
-    public string[] ToCommandLineArgs()
+    public IReadOnlyList<string> ToCommandLineArgs()
     {
         var args = new List<string>();
 
@@ -208,7 +208,7 @@ public partial record Requirements
             args.AddRange(["--version-for", uri.ToStringRfc(), range.ToString()]);
         args.Add(InterfaceUri.ToStringRfc());
 
-        return args.ToArray();
+        return args;
     }
     #endregion
 }
