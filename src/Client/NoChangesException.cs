@@ -6,9 +6,5 @@ namespace ZeroInstall.Client;
 /// <summary>
 /// The operation was successful but resulted in no changes.
 /// </summary>
-internal class NoChangesException : Exception
-{
-    public NoChangesException()
-        : base("The operation was successful but resulted in no changes.")
-    {}
-}
+internal class NoChangesException()
+    : Exception("The operation was successful but resulted in no changes.");

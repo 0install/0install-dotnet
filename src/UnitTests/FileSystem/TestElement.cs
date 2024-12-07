@@ -8,17 +8,12 @@ namespace ZeroInstall.FileSystem;
 /// It can either be realized on-disk or compared against an existing on-disk element.
 /// </summary>
 /// <seealso cref="TestRoot"/>
-public abstract class TestElement
+public abstract class TestElement(string name)
 {
     /// <summary>
     /// The name of the file system element.
     /// </summary>
-    public string Name { get; }
-
-    protected TestElement(string name)
-    {
-        Name = name;
-    }
+    public string Name { get; } = name;
 
     /// <summary>
     /// Realizes the element as an on-disk element.
