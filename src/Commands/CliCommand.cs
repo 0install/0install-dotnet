@@ -29,8 +29,7 @@ public abstract partial class CliCommand : ScopedOperation
         get
         {
             // Get value from "public string const Name" on this type
-            var field = GetType().GetField("Name", BindingFlags.Public | BindingFlags.Static);
-            string name = field?.GetValue(null)?.ToString() ?? "";
+            string name = GetType().GetField("Name", BindingFlags.Public | BindingFlags.Static)?.GetValue(null)?.ToString() ?? "";
 
             return this switch
             {
