@@ -135,7 +135,7 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Os feeds devem especificar o URI de onde foram originados para poderem ser importados.</value>
+    <value>Os feeds têm de especificar o URI de onde foram originados para poderem ser importados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">

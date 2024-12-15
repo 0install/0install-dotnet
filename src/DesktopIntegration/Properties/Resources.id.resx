@@ -116,7 +116,7 @@
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
     <value>Kunci kripto yang Anda masukkan untuk Sinkronisasi salah. Periksa Opsi Sinkronisasi Anda.
-Anda dapat mengubah kunci kripto yang digunakan pada server dengan menjalankan wizard pemecahan masalah (klik kanan pada Tombol "Sinkronisasi" untuk sampai ke sana) atau dengan mengeksekusi '0install sync - reset = server'.</value>
+Anda dapat mengubah kunci kripto yang digunakan di server dengan menjalankan wizard pemecahan masalah (klik kanan pada Tombol "Sinkronisasi" untuk sampai ke sana) atau dengan mengeksekusi '0install sync - reset = server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">

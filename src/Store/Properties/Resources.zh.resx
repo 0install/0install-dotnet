@@ -116,7 +116,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>从 "{0}"加载 OpenPGP 密钥包出错</value>
+    <value>从 '{0}' 加载 OpenPGP 密钥包出错</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">

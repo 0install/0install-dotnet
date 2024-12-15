@@ -194,7 +194,7 @@ Pokud používáte disk ve formátu FAT, převeďte jej na NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Neplatný počet dílů v řadě.</value>
+    <value>Nesprávný počet dílů v řadě.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">

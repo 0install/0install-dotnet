@@ -135,7 +135,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Aby bylo možné soubory importovat, musí být uveden URI, ze kterého pocházejí.</value>
+    <value>Aby bylo možné importovat soubory, musí být uveden URI, ze kterého pocházejí.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
