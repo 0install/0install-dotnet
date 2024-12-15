@@ -318,7 +318,7 @@ Il file deve avere una firma digitale affidabile, come quando si preleva dalla r
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
-    <value>Disinstalla un feed, invertendo l'effetto di "0install add-feed".</value>
+    <value>Disinstalla un feed, invertendo l'effetto di '0install add-feed'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
@@ -521,7 +521,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
-    <value>Utilizzare file:///path per i percorsi assoluti, non file:/path.</value>
+    <value>Per i percorsi assoluti utilizzare file:///path e non file:/path.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Hide" xml:space="preserve">
@@ -619,7 +619,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install funziona in modalità portatile. Deve essere distribuito in una posizione permanente perché l'integrazione con il desktop funzioni.
+    <value>Zero Install funziona in modalità portatile. Per far funzionare l'integrazione con il desktop, deve essere distribuito in una posizione permanente.
 È possibile farlo utilizzando '{0}'. Questo sarà completamente indipendente dalla copia portatile.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -725,7 +725,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
-    <value>Mostra il testo di aiuto incorporato.</value>
+    <value>Mostra il testo della guida integrata.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
@@ -754,7 +754,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Distribuire Zero Install come libreria per l'utilizzo da parte di altre applicazioni senza integrazione nel desktop.</value>
+    <value>Distribuire Zero Install come libreria per l'utilizzo da parte di altre applicazioni senza integrazione con il desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -833,7 +833,7 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Richiede una versione del programma principale all'interno dell'intervallo indicato {RANGE}.
-Gli intervalli sono separati da pipe (|).
+Gli intervalli sono separati da tubi (|).
 Ogni intervallo ha la forma "START... END". L'intervallo corrisponde alle versioni in cui START &lt;= VERSION &lt; END. L'inizio o la fine possono essere omessi.
 Si può usare un singolo numero di versione al posto di un intervallo, per trovare solo quella versione, oppure !VERSION per trovare tutto tranne quella versione.</value>
     <comment>Automatically translated.</comment>
@@ -959,7 +959,7 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
+    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere questo problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

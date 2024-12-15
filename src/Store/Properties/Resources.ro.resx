@@ -182,11 +182,11 @@ Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Pictograma încărcată de la {0} nu este validă {1}.</value>
+    <value>Pictograma încărcată de pe {0} nu este validă {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Nu poate descărca pictograme de pe {0} deoarece sunt acceptate numai URL-urile HTTP și HTTPS.</value>
+    <value>Nu se pot descărca pictograme de pe {0} deoarece sunt acceptate numai URL-urile HTTP și HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -218,7 +218,7 @@ Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Nu se poate descărca {0} deoarece Zero Install este în modul offline.</value>
+    <value>Imposibilitatea de a descărca {0} deoarece Zero Install este în modul offline.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -290,7 +290,7 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Fraza de acces introdusă nu este corectă.</value>
+    <value>Fraza de acces introdusă este incorectă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

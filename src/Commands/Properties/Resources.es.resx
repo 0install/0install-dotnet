@@ -632,7 +632,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Sólo puede actualizarse con URIs de fuentes, no con documentos de selecciones.</value>
+    <value>Sólo puede actualizarse con URI de fuentes, no con documentos de selecciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -680,7 +680,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Omite la descarga del catálogo para comprobar que es válido antes de añadirlo a la lista.</value>
+    <value>Omite la descarga del catálogo para verificar que es válido antes de añadirlo a la lista.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -749,7 +749,7 @@ Póngalo vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Especifica el idioma preferido para la aplicación. Utiliza códigos de idioma cortos ISO (por ejemplo, en o en-US).
+    <value>Especifica el idioma preferido para la aplicación. Utiliza los códigos cortos de idioma ISO (por ejemplo, en o en-US).
 Puede utilizar esta opción varias veces para especificar varios idiomas aceptables.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -783,7 +783,7 @@ No puede contener argumentos de línea de comandos Los espacios en blanco no nec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Vuelve inmediatamente una vez lanzado el programa elegido en lugar de esperar a que termine de ejecutarse. En Windows, el código de salida es el ID del proceso del programa iniciado.</value>
+    <value>Vuelve inmediatamente una vez lanzado el programa elegido en lugar de esperar a que termine de ejecutarse. En Windows, el código de salida es el ID de proceso del programa iniciado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -835,7 +835,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
     <value>Requiere una versión del programa principal dentro del rango dado {RANGE}.
 Los rangos están separados por tubos (|).
 Cada rango tiene la forma "START...END". El rango coincide con versiones donde START &lt;= VERSION &lt; END. El inicio o el final pueden omitirse.
-Se puede utilizar un único número de versión en lugar de un intervalo para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
+Se puede utilizar un único número de versión en lugar de un rango para buscar sólo esa versión, o !VERSION para buscar todo excepto esa versión.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
@@ -968,7 +968,7 @@ Ejecute '0install config self_update_uri default' para activarla.</value>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>La clave criptográfica se utiliza para cifrar tus datos localmente antes de transmitirlos al servidor.
-Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. De este modo, nadie podrá acceder a tus datos, incluso si el servidor se viera comprometido.</value>
+Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. Así nadie podrá acceder a tus datos, incluso si el servidor se viera comprometido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

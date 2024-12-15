@@ -108,7 +108,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
-    <value>Tem a certeza que pretende remover o Zero Install deste computador?</value>
+    <value>Tem a certeza de que pretende remover o Zero Install deste computador?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
@@ -374,7 +374,7 @@ Um argumento adicional especifica uma localização de cache de destino personal
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, são listadas apenas as implementações desse feed específico.</value>
+    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, apenas são listadas as implementações desse feed específico.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -497,7 +497,7 @@ Isto é semelhante ao '0install download --refresh', exceto que imprime informa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>O feed de '{0}' ({1}) foi substituído por '{2}'. Pretende utilizar o novo feed?</value>
+    <value>O feed para '{0}' ({1}) foi substituído por '{2}'. Pretende utilizar o novo feed?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -676,7 +676,7 @@ Pode fazê-lo utilizando '{0}'. Isto será completamente independente da sua có
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Requer uma versão do programa principal anterior a {VERSION}. Ou seja, força a utilização de uma versão antiga do programa.</value>
+    <value>Requer uma versão do programa principal anterior a {VERSION}. ou seja, força a utilização de uma versão antiga do programa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -788,7 +788,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Executar em modo off-line, substituindo a definição predefinida.
-No modo off-line, nenhuma interface é actualizada, mesmo que esteja desactualizada, e as versões mais recentes dos programas não serão descarregadas, mesmo que o injetor já as conheça (por exemplo, de uma atualização anterior).</value>
+No modo off-line, as interfaces não são actualizadas, mesmo que estejam desactualizadas, e as versões mais recentes dos programas não serão descarregadas, mesmo que o injetor já as conheça (por exemplo, a partir de uma atualização anterior).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -820,7 +820,7 @@ No modo off-line, nenhuma interface é actualizada, mesmo que esteja desactualiz
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Repor os dados de sincronização. Os {MODE}s válidos são "none" (fundir normalmente os dados do cliente e do servidor), "client" (substituir todos os dados do cliente pelos dados do servidor) e "server" (substituir todos os dados do servidor pelos dados do cliente).</value>
+    <value>Repor os dados de sincronização. As opções válidas em {MODE}são "none" (fundir normalmente os dados do cliente e do servidor), "client" (substituir todos os dados do cliente pelos dados do servidor) e "server" (substituir todos os dados do servidor pelos dados do cliente).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -959,7 +959,7 @@ Execute '0install config self_update_uri default' para a ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>A ativação do suporte do Windows para caminhos longos pode resolver este problema.</value>
+    <value>A ativação do suporte do Windows para Caminhos Longos pode resolver este problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

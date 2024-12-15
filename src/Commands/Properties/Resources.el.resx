@@ -347,7 +347,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
-    <value>Προσθέτει έναν κατάλογο στη λίστα με τις προσωρινές μνήμες προσαρμοσμένης εφαρμογής.</value>
+    <value>Προσθέτει έναν κατάλογο στη λίστα με τις προσωρινές μνήμες προσαρμοσμένων εφαρμογών.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
@@ -419,7 +419,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Σταματά την εμπιστοσύνη στις τροφοδοσίες που υπογράφονται με ένα συγκεκριμένο FINGERPRINT. Σταματά την εμπιστοσύνη μόνο για ένα συγκεκριμένο DOMAIN, εάν έχει καθοριστεί.</value>
+    <value>Σταματά την εμπιστοσύνη στις τροφοδοσίες που υπογράφονται με ένα συγκεκριμένο FINGERPRINT. Σταματάει την εμπιστοσύνη μόνο για ένα συγκεκριμένο DOMAIN, εάν έχει καθοριστεί.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -716,7 +716,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>Μην συμπεριλάβετε αρχεία εφαρμογής στην εξαγωγή. Εξάγετε μόνο τις τροφοδοσίες.</value>
+    <value>Μην περιλαμβάνετε αρχεία εφαρμογής στην εξαγωγή. Εξάγετε μόνο τις τροφοδοσίες.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
