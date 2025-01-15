@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Linq.Expressions;
-using FluentAssertions.Execution;
 using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Implementations;
 
@@ -44,10 +43,10 @@ public abstract class CliCommandTestBase<TCommand> : TestWithMocksAndRedirect
     }
 
     /// <summary>
-    /// Verifies that calling <see cref="CliCommand.Parse"/> and <see cref="Execute"/> causes a specific result.
+    /// Verifies that calling <see cref="CliCommand.Parse"/> and <see cref="CliCommand.Execute"/> causes a specific result.
     /// </summary>
     /// <param name="expectedOutput">The expected string for a <see cref="ITaskHandler.Output"/> call; <c>null</c> if none.</param>
-    /// <param name="expectedExitCode">The expected exit status code returned by <see cref="Execute"/>.</param>
+    /// <param name="expectedExitCode">The expected exit status code returned by <see cref="CliCommand.Execute"/>.</param>
     /// <param name="args">The arguments to pass to <see cref="CliCommand.Parse"/>.</param>
     protected void RunAndAssert(string? expectedOutput, ExitCode expectedExitCode, params string[] args)
     {
@@ -57,10 +56,10 @@ public abstract class CliCommandTestBase<TCommand> : TestWithMocksAndRedirect
     }
 
     /// <summary>
-    /// Verifies that calling <see cref="CliCommand.Parse"/> and <see cref="Execute"/> causes a specific result.
+    /// Verifies that calling <see cref="CliCommand.Parse"/> and <see cref="CliCommand.Execute"/> causes a specific result.
     /// </summary>
     /// <param name="expectedOutput">The expected tabular data for a <see cref="ITaskHandler.Output{T}(string,IEnumerable{T})"/> call.</param>
-    /// <param name="expectedExitCode">The expected exit status code returned by <see cref="Execute"/>.</param>
+    /// <param name="expectedExitCode">The expected exit status code returned by <see cref="CliCommand.Execute"/>.</param>
     /// <param name="args">The arguments to pass to <see cref="CliCommand.Parse"/>.</param>
     protected void RunAndAssert<T>(IEnumerable<T> expectedOutput, ExitCode expectedExitCode, params string[] args)
     {
