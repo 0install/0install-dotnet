@@ -35,7 +35,7 @@
     },
     {
       "matchPackagePatterns": ["^Microsoft\\.Extensions"],
-      "matchPackageNames": ["System.Drawing.Common"],
+      "matchPackageNames": ["System.Drawing.Common", "System.IO.Pipelines", "Microsoft.XmlSerializer.Generator"],
       "groupName": "Microsoft Extensions",
       "automerge": true,
       "automergeType": "branch",
@@ -43,7 +43,7 @@
     },
     {
       "matchPackagePatterns": ["^Microsoft\\.Extensions"],
-      "matchPackageNames": ["System.Drawing.Common"],
+      "matchPackageNames": ["System.Drawing.Common", "System.IO.Pipelines", "Microsoft.XmlSerializer.Generator"],
       "matchUpdateTypes": ["major", "minor"],
       "enabled": false
     }
