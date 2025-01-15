@@ -118,7 +118,7 @@ Aby zaimportować te pliki na inny komputer, możesz użyć skryptu importu albo
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Czy chcesz zaktualizować istniejące integracje desktopowe, aby to odzwierciedlały?
 Jeśli wybierzesz "Tak", potencjalnie niekompatybilne integracje zostaną usunięte.
-Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych funkcji.</value>
+Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych możliwości.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
@@ -181,7 +181,7 @@ Możesz utworzyć kopię zapasową tej listy za pomocą funkcji "0install sync".
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
     <value>Rozpocznij wprowadzanie tekstu w ostatnim wierszu, aby utworzyć nowy wpis.
-Zaznacz całą linię, klikając w pierwszej kolumnie, a następnie naciśnij DEL na klawiaturze, aby usunąć wpis.</value>
+Zaznacz cały wiersz, klikając w pierwszej kolumnie, a następnie naciśnij klawisz DEL na klawiaturze, aby usunąć wpis.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
@@ -362,7 +362,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na innym komputerze za pomocą "0install store add".</value>
+    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na inny komputer za pomocą "0install store add".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
@@ -378,7 +378,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
-    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Pokazuje skojarzenia z buforowanymi kanałami.</value>
+    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Wyświetla skojarzenia z buforowanymi kanałami.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
@@ -705,7 +705,7 @@ Ustaw na puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Wyświetla skrót manifestu (domyślnie włączony, jeśli opcja --manifest nie jest ustawiona).</value>
+    <value>Wyświetla skrót manifestu (domyślnie włączone, jeśli --manifest nie jest ustawione).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
@@ -1016,7 +1016,7 @@ Klucz ten należy zachować w tajemnicy i użyć innego hasła. W ten sposób ni
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">
-    <value>Używanie języka systemowego</value>
+    <value>Używa języka systemowego</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">

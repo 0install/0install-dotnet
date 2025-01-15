@@ -175,7 +175,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>Вы хотите удалить все приложения из списка "Мои приложения"? Это предотвратит появление остатков в меню после удаления Zero Install.
+    <value>Хотите ли вы удалить все приложения из списка "Мои приложения"? Это предотвратит появление остатков в меню после удаления Zero Install.
 Вы можете создать резервную копию этого списка с помощью команды '0install sync'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -278,7 +278,7 @@
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>Импортирует фид из локального файла, как если бы он был загружен из сети. Это удобно при тестировании файла фида, чтобы не загружать его на удаленный сервер для повторной загрузки.
-Файл должен иметь доверенную цифровую подпись, как и при загрузке из сети.</value>
+Файл должен иметь доверенную цифровую подпись, как при загрузке из сети.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
@@ -404,7 +404,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>Проверяет, не была ли повреждена реализация (т. е. не изменился ли манифестный дайджест).</value>
+    <value>Проверяет, не повреждена ли реализация (т. е. не изменился ли манифестный дайджест).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -737,7 +737,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">
-    <value>Добавление рекомендованных стандартных точек доступа.</value>
+    <value>Добавление рекомендуемых стандартных точек доступа.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">

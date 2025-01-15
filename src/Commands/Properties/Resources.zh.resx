@@ -310,7 +310,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>从应用程序列表中删除所有应用程序，并撤销任何桌面环境整合。在删除 Zero Install 前，请使用该命令清理系统。</value>
+    <value>从应用程序列表中删除所有应用程序，并撤销任何桌面环境整合。在移除 Zero Install 前，请使用该命令清理系统。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
@@ -583,7 +583,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>{0} 中缺少 &lt;feed-for&gt; 元素；它不能用作其他界面的 feed。</value>
+    <value>{0}' 中缺少 &lt;feed-for&gt; 元素；它不能用作其他界面的 feed。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -754,11 +754,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>将零安装作为库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
+    <value>将 Zero Install 作为库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>将配置应用于全机（整台电脑），而非仅应用于当前用户。</value>
+    <value>将配置应用于整个机器（整台电脑），而非仅应用于当前用户。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
@@ -910,7 +910,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>这个零安装实例没有部署。没有任何需要删除的内容。</value>
+    <value>这个零安装实例没有部署。没有任何东西需要移除。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">

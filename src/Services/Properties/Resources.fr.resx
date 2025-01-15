@@ -99,7 +99,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>N'a pas trouvé de version de {0} adaptée à {1}.</value>
+    <value>N'a pas réussi à trouver une version de {0} adaptée à {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">

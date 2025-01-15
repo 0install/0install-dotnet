@@ -96,7 +96,7 @@ Anda dapat menggunakan skrip impor atau Bootstrap yang dapat dieksekusi di '{1}'
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Mengatur Penginstalan Nol untuk semua pengguna (di seluruh mesin), bukan hanya pengguna saat ini?</value>
+    <value>Mengatur Penginstalan Nol untuk semua pengguna (seluruh mesin), bukan hanya pengguna saat ini?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -412,7 +412,7 @@ Argumen tambahan menentukan lokasi cache khusus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Memercayai feed dari DOMAIN tertentu ketika ditandatangani dengan FINGERPRINT tertentu.</value>
+    <value>Memercayai umpan dari DOMAIN tertentu ketika ditandatangani dengan sidik jari tertentu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">

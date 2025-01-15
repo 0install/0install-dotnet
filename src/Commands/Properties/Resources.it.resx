@@ -96,7 +96,7 @@ Puoi utilizzare lo script di importazione o il file Bootstrap eseguibile in '{1}
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Configurazione di Zero Install per tutti gli utenti (a livello di macchina) invece che solo per l'utente corrente?</value>
+    <value>Impostare Zero Install per tutti gli utenti (a livello di macchina) invece che solo per l'utente corrente?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -290,7 +290,7 @@ Il file deve avere una firma digitale affidabile, come quando si preleva dalla r
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Elenca tutti gli URI di alimentazione conosciuti localmente. Se viene fornito un termine di ricerca, vengono mostrati solo gli URI che contengono tale stringa (senza distinzione tra maiuscole e minuscole).</value>
+    <value>Elenca tutti gli URI di alimentazione conosciuti localmente. Se viene fornito un termine di ricerca, vengono visualizzati solo gli URI che contengono tale stringa (senza distinzione tra maiuscole e minuscole).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -318,7 +318,7 @@ Il file deve avere una firma digitale affidabile, come quando si preleva dalla r
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
-    <value>Disinstalla un feed, invertendo l'effetto di '0install add-feed'.</value>
+    <value>Disinstalla un feed, invertendo l'effetto di "0install add-feed".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
@@ -366,7 +366,7 @@ Un argomento aggiuntivo specifica una posizione personalizzata della cache di de
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
-    <value>Determina il percorso locale di un'implementazione nella cache.</value>
+    <value>Determina il percorso locale di un'implementazione memorizzata nella cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
@@ -412,7 +412,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Si fida dei feed provenienti da un DOMINIO specifico quando vengono firmati con una specifica STAMPA DEL DITO.</value>
+    <value>Si fida dei feed provenienti da un DOMINIO specifico quando vengono firmati con una specifica PUNTA DEL DITO.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -754,7 +754,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Distribuire Zero Install come libreria per l'utilizzo da parte di altre applicazioni senza integrazione con il desktop.</value>
+    <value>Distribuire Zero Install come libreria per l'utilizzo da parte di altre applicazioni senza integrazione nel desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -959,7 +959,7 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere questo problema.</value>
+    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
