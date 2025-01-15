@@ -26,6 +26,9 @@
     <ProjectReference Include="..\Commands\Commands.csproj" />
     <ProjectReference Include="..\Publish\Publish.csproj" />
   </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'!='net9.0'">
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="8.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
