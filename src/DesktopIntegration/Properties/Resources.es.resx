@@ -137,7 +137,7 @@ Puede reemplazar los datos almacenados en el servidor ejecutando el asistente de
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Incapaz de reemplazar el viejo stub ejecutable '{0}'.</value>
+    <value>No se puede reemplazar el viejo ejecutable '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

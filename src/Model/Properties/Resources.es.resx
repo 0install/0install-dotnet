@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>No se puede encontrar la implementación para la interfaz '{0}' en la selección.</value>
+    <value>No se puede encontrar la implementación de la interfaz '{0}' en la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">

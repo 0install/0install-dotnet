@@ -489,7 +489,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
-    <value>このフィードは、以下のインターフェースで正常に登録されました：</value>
+    <value>このフィードは、以下のインターフェースに正常に登録されました：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
@@ -628,7 +628,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
-    <value>インプリメンテーションを実行する際、コマンドが空でない場合があります。</value>
+    <value>インプリメンテーションを実行する際、コマンドが空にならない場合があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
@@ -672,7 +672,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>可能な限りデフォルトで自動的に質問に答え、コンソール出力を簡素化（テーブルやプログレスバーはありません）。</value>
+    <value>可能な限りデフォルトで質問に自動的に回答し、コンソール出力を簡素化（テーブルやプログレスバーなし）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -701,7 +701,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>グラフィカルポリシーエディターを表示します。これにより、使用するプログラムやライブラリのバージョンをカスタマイズできます。</value>
+    <value>グラフィカル・ポリシー・エディターを表示します。これにより、使用するプログラムやライブラリのバージョンをカスタマイズできます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -922,7 +922,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>セルフアップデートは無効です。
+    <value>セルフアップデートは無効になっています。
 有効にするには '0install config self_update_uri default' を実行してください。</value>
     <comment>Automatically translated.</comment>
   </data>

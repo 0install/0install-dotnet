@@ -151,7 +151,7 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>O servidor de informações de chaves não conseguiu fornecer quaisquer informações adicionais sobre esta chave.</value>
+    <value>O servidor de informação de chaves não conseguiu fornecer qualquer informação adicional sobre esta chave.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
