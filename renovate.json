@@ -10,6 +10,10 @@
       "automergeType": "branch"
     },
     {
+      "matchPackageNames": ["FluentAssertions"],
+      "allowedVersions": "<8"
+    },
+    {
       "matchPackagePatterns": ["NanoByte"],
       "groupName": "NanoByte deps",
       "automerge": true,
