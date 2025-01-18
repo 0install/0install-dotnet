@@ -26,11 +26,24 @@ public class ClearDirectory(string path, Manifest manifest, ITaskHandler handler
 
         _pendingDirectoryDeletes.Push(Path);
 
-        var filesToDelete = new List<string>();
+        var filesToDelete = GetFilesToDelete().ToList();
+        if (filesToDelete.Count == 0) return;
 
+        UnlockFiles(filesToDelete);
+
+        Handler.RunTask(ForEachTask.Create(Resources.DeletingObsoleteFiles, filesToDelete, path =>
+        {
+            string tempPath = Randomize(path);
+            File.Move(path, tempPath);
+            _pendingFilesDeletes.Push((path, tempPath));
+        }));
+    }
+
+    private IEnumerable<string> GetFilesToDelete()
+    {
         string manifestPath = System.IO.Path.Combine(Path, Manifest.ManifestFile);
         if (File.Exists(manifestPath))
-            filesToDelete.Add(manifestPath);
+            yield return manifestPath;
 
         foreach ((string directoryPath, var directory) in Manifest)
         {
@@ -39,22 +52,11 @@ public class ClearDirectory(string path, Manifest manifest, ITaskHandler handler
             if (Directory.Exists(fullDirectoryPath))
                 _pendingDirectoryDeletes.Push(fullDirectoryPath);
 
-            filesToDelete.Add(
-                directory.Keys
-                         .Select(elementName => System.IO.Path.Combine(fullDirectoryPath, elementName))
-                         .Where(File.Exists));
-        }
-
-        if (filesToDelete.Count != 0)
-        {
-            UnlockFiles(filesToDelete);
-
-            Handler.RunTask(ForEachTask.Create(Resources.DeletingObsoleteFiles, filesToDelete, path =>
+            foreach (string elementName in directory.Keys)
             {
-                string tempPath = Randomize(path);
-                File.Move(path, tempPath);
-                _pendingFilesDeletes.Push((path, tempPath));
-            }));
+                string path = System.IO.Path.Combine(fullDirectoryPath, elementName);
+                if (File.Exists(path)) yield return path;
+            }
         }
     }
 

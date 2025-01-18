@@ -44,45 +44,45 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
         _pendingFileRenames.Push((tempManifestPath, manifestPath));
         Manifest.Save(tempManifestPath);
 
-        Handler.RunTask(new ActionTask(Resources.CopyFiles, () =>
+        Handler.RunTask(new ActionTask(Resources.CopyFiles, CopyFromSourceToTemp));
+    }
+
+    private void CopyFromSourceToTemp()
+    {
+        foreach ((string directoryPath, var directory) in Manifest)
         {
-            foreach ((string directoryPath, var directory) in Manifest)
+            string dirPath = directoryPath.ToNativePath();
+            string sourceDir = System.IO.Path.Combine(Path, dirPath);
+            string destinationDir = System.IO.Path.Combine(DestinationPath, dirPath);
+            if (!Directory.Exists(destinationDir))
             {
-                string dirPath = directoryPath.ToNativePath();
-                string sourceDir = System.IO.Path.Combine(Path, dirPath);
-                string destinationDir = System.IO.Path.Combine(DestinationPath, dirPath);
-                if (!Directory.Exists(destinationDir))
+                Directory.CreateDirectory(destinationDir);
+                _createdDirectories.Push(destinationDir);
+            }
+
+            foreach ((string path, var element) in directory)
+            {
+                string sourcePath = System.IO.Path.Combine(sourceDir, path);
+                string destinationPath = System.IO.Path.Combine(destinationDir, path);
+
+                string tempPath = Randomize(destinationPath);
+                _pendingFileRenames.Push((tempPath, destinationPath));
+
+                switch (element)
                 {
-                    Directory.CreateDirectory(destinationDir);
-                    _createdDirectories.Push(destinationDir);
-                }
+                    case ManifestFile file:
+                        File.Copy(sourcePath, tempPath);
+                        File.SetLastWriteTimeUtc(tempPath, file.ModifiedTime);
 
-                foreach ((string path, var element) in directory)
-                {
-                    string sourcePath = System.IO.Path.Combine(sourceDir, path);
-                    string destinationPath = System.IO.Path.Combine(destinationDir, path);
+                        if (file is ManifestExecutableFile) ImplFileUtils.SetExecutable(tempPath);
+                        break;
 
-                    string tempPath = Randomize(destinationPath);
-                    _pendingFileRenames.Push((tempPath, destinationPath));
-
-                    switch (element)
-                    {
-                        case ManifestFile file:
-                            File.Copy(sourcePath, tempPath);
-                            File.SetLastWriteTimeUtc(tempPath, file.ModifiedTime);
-
-                            if (file is ManifestExecutableFile)
-                                ImplFileUtils.SetExecutable(tempPath);
-                            break;
-
-                        case ManifestSymlink:
-                            if (ImplFileUtils.IsSymlink(sourcePath, out string? symlinkTarget))
-                                ImplFileUtils.CreateSymlink(tempPath, symlinkTarget);
-                            break;
-                    }
+                    case ManifestSymlink:
+                        if (ImplFileUtils.IsSymlink(sourcePath, out string? symlinkTarget)) ImplFileUtils.CreateSymlink(tempPath, symlinkTarget);
+                        break;
                 }
             }
-        }));
+        }
     }
 
     /// <inheritdoc/>
@@ -91,13 +91,16 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
         Log.Debug($"Committing atomic deployment to {DestinationPath}");
 
         UnlockFiles(_pendingFileRenames.Select(x => x.destination).Where(File.Exists));
+        Handler.RunTask(new ActionTask(Resources.CopyFiles, MoveFromTempToDestination));
+    }
 
-        Handler.RunTask(new ActionTask(Resources.CopyFiles, () =>
-            _pendingFileRenames.PopEach(x =>
-            {
-                if (File.Exists(x.destination)) File.Delete(x.destination);
-                File.Move(x.source, x.destination);
-            })));
+    private void MoveFromTempToDestination()
+    {
+        _pendingFileRenames.PopEach(x =>
+        {
+            if (File.Exists(x.destination)) File.Delete(x.destination);
+            File.Move(x.source, x.destination);
+        });
     }
 
     /// <inheritdoc/>
