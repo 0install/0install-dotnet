@@ -26,17 +26,26 @@ public class ClearDirectory(string path, Manifest manifest, ITaskHandler handler
 
         _pendingDirectoryDeletes.Push(Path);
 
-        var filesToDelete = GetFilesToDelete().ToList();
-        if (filesToDelete.Count == 0) return;
-
-        UnlockFiles(filesToDelete);
-
-        Handler.RunTask(ForEachTask.Create(Resources.DeletingObsoleteFiles, filesToDelete, path =>
+        try
         {
-            string tempPath = Randomize(path);
-            File.Move(path, tempPath);
-            _pendingFilesDeletes.Push((path, tempPath));
-        }));
+            var filesToDelete = GetFilesToDelete().ToList();
+            if (filesToDelete.Count == 0) return;
+
+            UnlockFiles(filesToDelete);
+
+            Handler.RunTask(ForEachTask.Create(Resources.DeletingObsoleteFiles, filesToDelete, path =>
+            {
+                string tempPath = Randomize(path);
+                File.Move(path, tempPath);
+                _pendingFilesDeletes.Push((path, tempPath));
+            }));
+        }
+        #region Error handling
+        catch (ArgumentException ex)
+        {
+            Log.Warn($"Unable to determine old files to delete in '{Path}' due to invalid manifest", ex);
+        }
+        #endregion
     }
 
     private IEnumerable<string> GetFilesToDelete()

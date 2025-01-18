@@ -44,7 +44,17 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
         _pendingFileRenames.Push((tempManifestPath, manifestPath));
         Manifest.Save(tempManifestPath);
 
-        Handler.RunTask(new ActionTask(Resources.CopyFiles, CopyFromSourceToTemp));
+        try
+        {
+            Handler.RunTask(new ActionTask(Resources.CopyFiles, CopyFromSourceToTemp));
+        }
+        #region Error handling
+        catch (ArgumentException ex)
+        {
+            // Wrap exception to add context and since only certain exception types are allowed
+            throw new IOException("Unable to deploy from directory '{Path}' due to invalid manifest.", ex);
+        }
+        #endregion
     }
 
     private void CopyFromSourceToTemp()
