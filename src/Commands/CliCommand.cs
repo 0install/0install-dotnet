@@ -182,7 +182,7 @@ public abstract partial class CliCommand : ScopedOperation
     /// Generates a localized instruction string describing multiple selectable values.
     /// </summary>
     /// <param name="values">The values to list.</param>
-    protected static string SupportedValues<T>(params IEnumerable<T> values)
+    protected static string SupportedValues<T>(params T[] values)
         => string.Format(Resources.SupportedValues, string.Join(", ", values.Select(ConversionUtils.ConvertToString)));
 
     /// <summary>
@@ -190,7 +190,7 @@ public abstract partial class CliCommand : ScopedOperation
     /// </summary>
     /// <typeparam name="T">The enum type to list values for.</typeparam>
     protected static string SupportedValues<T>()
-        => SupportedValues(Enum.GetValues(typeof(T)).Cast<T>());
+        => SupportedValues(Enum.GetValues(typeof(T)).Cast<T>().ToArray());
 
     /// <summary>
     /// Downloads a set of <see cref="Implementation"/>s to the <see cref="Store"/> in parallel.

@@ -52,10 +52,10 @@ public sealed partial class ImplementationVersion : IComparable<ImplementationVe
     /// </summary>
     /// <param name="firstPart">The first part of the version number.</param>
     /// <param name="additionalParts">All additional parts of the version number.</param>
-    public ImplementationVersion(VersionDottedList firstPart, params IEnumerable<VersionPart> additionalParts)
+    public ImplementationVersion(VersionDottedList firstPart, params VersionPart[] additionalParts)
     {
         FirstPart = firstPart;
-        AdditionalParts = additionalParts.ToArray();
+        AdditionalParts = additionalParts ?? throw new ArgumentNullException(nameof(additionalParts));
     }
 
     /// <summary>

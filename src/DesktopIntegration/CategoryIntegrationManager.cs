@@ -29,7 +29,7 @@ public class CategoryIntegrationManager(Config config, ITaskHandler handler, boo
 
     #region Add
     /// <inheritdoc/>
-    public void AddAccessPointCategories(AppEntry appEntry, Feed feed, params IReadOnlyList<string> categories)
+    public void AddAccessPointCategories(AppEntry appEntry, Feed feed, params string[] categories)
     {
         #region Sanity checks
         if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
@@ -83,7 +83,7 @@ public class CategoryIntegrationManager(Config config, ITaskHandler handler, boo
 
     #region Remove
     /// <inheritdoc/>
-    public void RemoveAccessPointCategories(AppEntry appEntry, params IReadOnlyList<string> categories)
+    public void RemoveAccessPointCategories(AppEntry appEntry, params string[] categories)
     {
         #region Sanity checks
         if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));

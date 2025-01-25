@@ -10,7 +10,7 @@ The <xref:ZeroInstall.Commands> namespace provides a command-line interface for 
 
 [ProgramUtils.Init()](xref:ZeroInstall.Commands.ProgramUtils#ZeroInstall_Commands_ProgramUtils_Init) should be called by all clients right after startup to initialize process-wide state.
 
-Afterwards [ProgramUtils.Run()](xref:ZeroInstall.Commands.ProgramUtils#ZeroInstall_Commands_ProgramUtils_Run_System_String_System_Collections_Generic_IReadOnlyList_System_String__ZeroInstall_Commands_ICommandHandler_) can be called with the command-line arguments to be parsed along with an <xref:ZeroInstall.Commands.ICommandHandler>. `ICommandHandler` extends the <xref:NanoByte.Common.Tasks.ITaskHandler> interface with various UI interactions that commands can use to display intermediate results, ask for user input, etc..
+Afterwards [ProgramUtils.Run()](xref:ZeroInstall.Commands.ProgramUtils#ZeroInstall_Commands_ProgramUtils_Run_System_String_System_String___ZeroInstall_Commands_ICommandHandler_) can be called with the command-line arguments to be parsed along with an <xref:ZeroInstall.Commands.ICommandHandler>. `ICommandHandler` extends the <xref:NanoByte.Common.Tasks.ITaskHandler> interface with various UI interactions that commands can use to display intermediate results, ask for user input, etc..
 
 `ProgramUtils.Run()` parses the provided command-line arguments and selects the appropriate <xref:ZeroInstall.Commands.CliCommand> to handle them.
 

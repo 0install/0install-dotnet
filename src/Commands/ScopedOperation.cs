@@ -150,7 +150,7 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
     /// </summary>
     /// <param name="command">The name of the command to execute.</param>
     /// <param name="args">Additional arguments to pass to the command.</param>
-    protected static void StartCommandBackground(string command, params IEnumerable<string> args)
+    protected static void StartCommandBackground(string command, params string[] args)
     {
         #region Sanity checks
         if (string.IsNullOrEmpty(command)) throw new ArgumentNullException(nameof(command));

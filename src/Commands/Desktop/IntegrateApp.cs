@@ -57,7 +57,7 @@ public class IntegrateApp : AppCommand
     {
         if (RemoveOnly)
         {
-            IntegrationManager.RemoveAccessPointCategories(IntegrationManager.AppList[InterfaceUri], _removeCategories);
+            IntegrationManager.RemoveAccessPointCategories(IntegrationManager.AppList[InterfaceUri], _removeCategories.ToArray());
             return ExitCode.OK;
         }
         else
@@ -98,9 +98,9 @@ public class IntegrateApp : AppCommand
             else
             {
                 if (_removeCategories.Any())
-                    IntegrationManager.RemoveAccessPointCategories(appEntry, _removeCategories);
+                    IntegrationManager.RemoveAccessPointCategories(appEntry, _removeCategories.ToArray());
                 if (_addCategories.Any())
-                    IntegrationManager.AddAccessPointCategories(appEntry, feed, _addCategories);
+                    IntegrationManager.AddAccessPointCategories(appEntry, feed, _addCategories.ToArray());
                 return ExitCode.OK;
             }
         }
