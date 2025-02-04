@@ -23,14 +23,25 @@ public partial class ImplementationStore(string path, ITaskHandler handler, bool
     /// <inheritdoc/>
     public IEnumerable<ManifestDigest> ListAll()
     {
-        if (!Directory.Exists(Path)) yield break;
+        if (!Directory.Exists(Path)) return [];
 
-        foreach (string path in Directory.GetDirectories(Path))
+        var digests = new List<ManifestDigest>();
+        try
         {
-            var digest = new ManifestDigest();
-            digest.TryParse(System.IO.Path.GetFileName(path));
-            if (digest.AvailableDigests.Any()) yield return digest;
+            foreach (string subDir in Directory.GetDirectories(Path))
+            {
+                var digest = new ManifestDigest();
+                digest.TryParse(System.IO.Path.GetFileName(subDir));
+                if (digest.AvailableDigests.Any()) digests.Add(digest);
+            }
         }
+        #region Error handling
+        catch (ArgumentException ex)
+        {
+            Log.Warn($"Directory '{Path}' contains sub-directories with invalid characters", ex);
+        }
+        #endregion
+        return digests;
     }
 
     /// <inheritdoc/>
