@@ -640,7 +640,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotInImplDirs" xml:space="preserve">
-    <value>'{0}' 사용자 정의 구현 캐시 목록에 없습니다.</value>
+    <value>'{0}' 사용자 지정 구현 캐시 목록에 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
@@ -689,7 +689,7 @@
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>기본 명령을 실행하는 대신 {COMMAND} 을 사용하세요. 유효한 명령 이름은 프로그램 피드에 지정되어 있습니다.
-선택 중 명령을 무시하려면 빈("")으로 설정합니다.</value>
+선택 중에 명령을 무시하려면 빈("")으로 설정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">

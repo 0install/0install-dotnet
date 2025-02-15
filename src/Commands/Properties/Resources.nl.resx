@@ -175,7 +175,7 @@ Deze bestanden kunnen indien nodig opnieuw worden gedownload.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>Wil je alle applicaties verwijderen uit de lijst 'Mijn applicaties'? Dit voorkomt achtergebleven menu-items na het verwijderen van Zero Install.
+    <value>Wil je alle applicaties verwijderen uit de lijst 'Mijn applicaties'? Dit voorkomt achterblijvende menu-items na het verwijderen van Zero Install.
 Je kunt een back-up van deze lijst maken door '0install sync' te gebruiken.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -615,7 +615,7 @@ Je mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Le
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install moet op je systeem geïnstalleerd worden om desktopintegratie te laten werken.</value>
+    <value>Zero Install moet op je systeem geïnstalleerd zijn om desktopintegratie te laten werken.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">

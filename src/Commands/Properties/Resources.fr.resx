@@ -788,7 +788,7 @@ Peut ne pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas be
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Exécuter en mode hors ligne, en remplaçant le paramètre par défaut.
-En mode hors ligne, aucune interface n'est actualisée, même si elle n'est plus à jour, et les nouvelles versions des programmes ne sont pas téléchargées, même si l'injecteur en a déjà connaissance (par exemple, à la suite d'une actualisation précédente).</value>
+En mode hors ligne, aucune interface n'est actualisée, même si elle n'est plus à jour, et les nouvelles versions des programmes ne sont pas téléchargées, même si l'injecteur en a déjà connaissance (par exemple, à la suite d'une précédente actualisation).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">

@@ -84,7 +84,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>'{0}' はカスタム実装キャッシュのリストに既に含まれています。</value>
+    <value>'{0}' は、カスタム実装キャッシュのリストに既に含まれています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -92,7 +92,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppList" xml:space="preserve">
-    <value>アプリケーションリスト</value>
+    <value>アプリケーション一覧</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
@@ -286,7 +286,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>アプリケーションリストにアプリケーションを追加し、デスクトップ環境に統合します。</value>
+    <value>アプリケーションリストにアプリケーションを追加し（不足している場合）、デスクトップ環境に統合します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
@@ -489,7 +489,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
-    <value>このフィードは、以下のインターフェースに正常に登録されました：</value>
+    <value>このフィードは、以下のインターフェースで正常に登録されました：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
@@ -672,7 +672,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>可能な限りデフォルトで質問に自動的に回答し、コンソール出力を簡素化（テーブルやプログレスバーなし）。</value>
+    <value>可能な限りデフォルトで自動的に質問に答え、コンソール出力を簡素化（テーブルやプログレスバーはありません）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -701,7 +701,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>グラフィカル・ポリシー・エディターを表示します。これにより、使用するプログラムやライブラリのバージョンをカスタマイズできます。</value>
+    <value>グラフィカルポリシーエディターを表示します。これにより、使用するプログラムやライブラリのバージョンをカスタマイズできます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -762,7 +762,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>デフォルトの代わりに、指定された実行ファイル{MAIN} を実行します。'/'または'˶'で始まる場合、パスは実装のトップレベルディレクトリからの相対パスとなり、そうでない場合はデフォルトのメインプログラムを含むディレクトリからの相対パスとなります。
+    <value>デフォルトの代わりに指定された実行ファイル{MAIN} を実行します。'/'または'˶'で始まる場合、パスは実装のトップレベルディレクトリからの相対パスとなり、そうでない場合はデフォルトのメインプログラムを含むディレクトリからの相対パスとなります。
 コマンドライン引数を含めることはできない！空白文字はエスケープする必要はありません。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -886,7 +886,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>この機能を有効にするには、一度ターミナルを閉じて再度開く必要があります。</value>
+    <value>この機能を有効にするには、ターミナルを閉じて開き直す必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -922,7 +922,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>セルフアップデートは無効になっています。
+    <value>セルフアップデートは無効です。
 有効にするには '0install config self_update_uri default' を実行してください。</value>
     <comment>Automatically translated.</comment>
   </data>
