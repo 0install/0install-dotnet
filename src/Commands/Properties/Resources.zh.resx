@@ -758,7 +758,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>将配置应用于整个机器（整台电脑），而非仅应用于当前用户。</value>
+    <value>将配置应用于全机（整台电脑），而非仅应用于当前用户。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
@@ -835,7 +835,7 @@
     <value>要求主程序的版本在给定的{RANGE} 范围内。
 范围用管道 (|) 分隔。
 每个范围的形式为 "START...!END"。范围匹配 START &lt;= VERSION &lt; END 的版本。开始或结束可以省略。
-可以使用单个版本号代替范围，以便只匹配该版本，或者使用 !VERSION 来匹配除该版本之外的所有版本。</value>
+可以使用单个版本号代替范围，以便只匹配该版本，或使用 !VERSION 来匹配除该版本之外的所有版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
