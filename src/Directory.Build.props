@@ -17,9 +17,6 @@
 
     <!-- Dummy version number, overridden by GitVersion -->
     <Version>1.0.0-pre</Version>
-
-    <!-- Dependency versions -->
-    <NanoByteCommonVersion>2.19.3</NanoByteCommonVersion>
   </PropertyGroup>
 
   <!-- NuGet metadata -->

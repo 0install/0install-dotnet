@@ -14,8 +14,8 @@
       "allowedVersions": "<8"
     },
     {
-      "matchPackagePatterns": ["NanoByte"],
-      "groupName": "NanoByte deps",
+      "matchPackagePatterns": ["^NanoByte\\.Common"],
+      "groupName": "NanoByte.Common",
       "automerge": true,
       "automergeType": "branch"
     },
