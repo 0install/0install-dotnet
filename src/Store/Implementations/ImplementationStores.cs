@@ -180,7 +180,24 @@ public static class ImplementationStores
     }
 
     private static string ProblemAccessingStoreMessage(string path)
-        => string.Format(Resources.ProblemAccessingStore, path, $"0install store remove-dir {path.EscapeArgument()}");
+    {
+        string suggestedCommand = IsMachineWide()
+            ? $"0install store remove-dir --machine {path.EscapeArgument()}"
+            : $"0install store remove-dir {path.EscapeArgument()}";
+        return string.Format(Resources.ProblemAccessingStore, path, suggestedCommand);
+
+        bool IsMachineWide()
+        {
+            try
+            {
+                return File.ReadAllLines(GetMachineWideConfigFile()).Contains(path, StringComparer.OrdinalIgnoreCase);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    }
 
     /// <summary>
     /// Sets the list of implementation directories in a specific configuration file.
