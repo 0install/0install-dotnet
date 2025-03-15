@@ -107,7 +107,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' не удалось найти в фид-кэше.</value>
+    <value>'{0}' не удалось найти в кэше фидов.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">

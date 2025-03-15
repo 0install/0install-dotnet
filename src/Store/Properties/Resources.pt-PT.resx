@@ -165,7 +165,7 @@ Execute '0install config feed_mirror default' para o ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Pretende remover a aplicação? Uma nova cópia será automaticamente descarregada quando necessário.</value>
+    <value>Pretende remover a aplicação? Quando necessário, será automaticamente descarregada uma nova cópia.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">

@@ -182,7 +182,7 @@ Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Pictograma încărcată de la {0} nu este validă {1}.</value>
+    <value>Pictograma încărcată de pe {0} nu este validă {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
