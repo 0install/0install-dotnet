@@ -294,7 +294,7 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Pokud je zadán URI, zobrazí se pouze aplikace s tímto URI kanálu. Je-li zadán VZOR, zobrazí se pouze aplikace obsahující tento řetězec v názvu (nerozlišuje velká a malá písmena).</value>
+    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Je-li zadán URI, zobrazí se pouze aplikace s tímto URI kanálu. Je-li zadán VZOR, zobrazí se pouze aplikace obsahující tento řetězec v názvu (nerozlišuje velká a malá písmena).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -705,7 +705,7 @@ Nastavením na prázdnou hodnotu ("") příkaz při výběru ignorujete.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Zobrazuje digest manifestu (ve výchozím nastavení povoleno, pokud není nastaven parametr --manifest).</value>
+    <value>Zobrazí digest manifestu (ve výchozím nastavení povoleno, pokud není nastaven parametr --manifest).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">

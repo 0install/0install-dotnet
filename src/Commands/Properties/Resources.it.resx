@@ -96,7 +96,7 @@ Puoi utilizzare lo script di importazione o il file Bootstrap eseguibile in '{1}
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Impostare Zero Install per tutti gli utenti (a livello di macchina) invece che solo per l'utente corrente?</value>
+    <value>Configurazione di Zero Install per tutti gli utenti (a livello di macchina) invece che solo per l'utente corrente?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -247,7 +247,7 @@ Rimuovere una casella di controllo per rimuovere lo stato predefinito di una fun
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>Ripristina l'elenco dei cataloghi alla sorgente predefinita.</value>
+    <value>Ripristina l'elenco dei cataloghi alla fonte predefinita.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
@@ -412,7 +412,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Si fida dei feed provenienti da un DOMINIO specifico quando vengono firmati con una specifica PUNTA DEL DITO.</value>
+    <value>Si fida dei feed provenienti da un DOMINIO specifico quando vengono firmati con una specifica STAMPA DEL DITO.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -688,7 +688,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Invece di eseguire il comando predefinito, si può usare {COMMAND}. I nomi dei comandi validi sono specificati nel feed del programma.
+    <value>Invece di eseguire il comando predefinito, utilizzare {COMMAND}. I nomi dei comandi validi sono specificati nel feed del programma.
 Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>

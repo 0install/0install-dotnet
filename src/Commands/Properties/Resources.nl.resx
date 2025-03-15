@@ -424,7 +424,7 @@ Extra argumenten specificeren aangepaste cache locaties.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Controleert of er updates voor het programma zijn en downloadt ze als ze worden gevonden.
+    <value>Controleert op updates voor het programma en downloadt ze als ze gevonden worden.
 Dit is vergelijkbaar met '0install download --refresh', behalve dat het informatie afdrukt over of er wijzigingen zijn gevonden.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -615,7 +615,7 @@ Je mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Le
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install moet op je systeem geïnstalleerd zijn om desktopintegratie te laten werken.</value>
+    <value>Zero Install moet op je systeem geïnstalleerd worden om desktopintegratie te laten werken.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">

@@ -347,7 +347,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
-    <value>Προσθέτει έναν κατάλογο στη λίστα με τις προσωρινές μνήμες προσαρμοσμένων εφαρμογών.</value>
+    <value>Προσθέτει έναν κατάλογο στη λίστα με τις προσωρινές μνήμες προσαρμοσμένης εφαρμογής.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
@@ -623,7 +623,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Η Zero Install εκτελείται από έναν κατάλογο που καθορίζεται από τον χρήστη. Πρέπει να αναπτυχθεί σε έναν κατάλογο προσβάσιμο από όλους τους χρήστες για να λειτουργήσει η ενσωμάτωση της επιφάνειας εργασίας σε όλο το μηχάνημα.</value>
+    <value>Το Zero Install εκτελείται από έναν κατάλογο που καθορίζεται από τον χρήστη. Πρέπει να αναπτυχθεί σε έναν κατάλογο προσβάσιμο από όλους τους χρήστες για να λειτουργήσει η ενσωμάτωση της επιφάνειας εργασίας σε όλο το μηχάνημα.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">

@@ -185,7 +185,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Установить флажок, чтобы сделать возможность обработчиком по умолчанию.
+    <value>Установите флажок, чтобы сделать возможность обработчиком по умолчанию.
 Снимите флажок, чтобы убрать статус возможности по умолчанию (она по-прежнему остается доступной).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -278,7 +278,7 @@
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>Импортирует фид из локального файла, как если бы он был загружен из сети. Это удобно при тестировании файла фида, чтобы не загружать его на удаленный сервер для повторной загрузки.
-Файл должен иметь доверенную цифровую подпись, как при загрузке из сети.</value>
+Файл должен иметь доверенную цифровую подпись, как и при загрузке из сети.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
@@ -314,7 +314,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>Удаление приложения из списка приложений и отмена любой интеграции со средой рабочего стола.</value>
+    <value>Удаление приложения из списка приложений и отмена интеграции со средой рабочего стола.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
@@ -358,7 +358,7 @@
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
     <value>Копирует реализацию в кэш. Аналогично '0install store add', но дайджест извлекается из имени каталога.
-В дополнительных аргументах указывается пользовательское местоположение целевого кэша.</value>
+Дополнительный аргумент задает пользовательское местоположение целевого кэша.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
@@ -624,7 +624,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install запускается из каталога, предназначенного для конкретного пользователя. Для интеграции с рабочим столом всей машины его необходимо развернуть в каталоге, доступном всем пользователям.</value>
+    <value>Zero Install запускается из каталога, предназначенного для конкретного пользователя. Для интеграции с рабочим столом всей машины ее необходимо развернуть в каталоге, доступном всем пользователям.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -834,7 +834,7 @@
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Требуется версия основной программы в пределах заданного {RANGE}.
 Диапазоны разделены трубками (|).
-Каждый диапазон имеет вид "START...END". Диапазон соответствует версиям, где START &lt;= VERSION &lt; END. Начало или конец могут быть опущены.
+Каждый диапазон имеет вид "START...END". Диапазон соответствует версиям, в которых START &lt;= VERSION &lt; END. Начало или конец могут быть опущены.
 Вместо диапазона можно использовать номер одной версии, чтобы соответствовать только этой версии, или !VERSION, чтобы соответствовать всем версиям, кроме этой.</value>
     <comment>Automatically translated.</comment>
   </data>

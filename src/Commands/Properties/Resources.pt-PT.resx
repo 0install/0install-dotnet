@@ -84,7 +84,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>'{0}' já se encontra na lista de caches de implementação personalizados.</value>
+    <value>'{0}' já está na lista de caches de implementação personalizados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -374,7 +374,7 @@ Um argumento adicional especifica uma localização de cache de destino personal
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, apenas são listadas as implementações desse feed específico.</value>
+    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, são listadas apenas as implementações desse feed específico.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -387,7 +387,7 @@ Argumentos adicionais especificam localizações de cache personalizadas.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Remove todas as implementações da cache. Use este comando para limpar o sistema antes de remover o Zero Install. Eliminar manualmente os diretórios da cache pode ser difícil devido às ACLs NTFS utilizadas para proteger as implementações contra modificações.
+    <value>Remove todas as implementações da cache. Utilize este comando para limpar o sistema antes de remover o Zero Install. Eliminar manualmente os diretórios da cache pode ser difícil devido às ACLs NTFS utilizadas para proteger as implementações contra modificações.
 Argumentos adicionais especificam localizações de cache personalizadas.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -497,7 +497,7 @@ Isto é semelhante ao '0install download --refresh', exceto que imprime informa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>O feed de '{0}' ({1}) foi substituído por '{2}'. Pretende utilizar o novo feed?</value>
+    <value>O feed para '{0}' ({1}) foi substituído por '{2}'. Pretende utilizar o novo feed?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -550,7 +550,7 @@ Uma tag &lt;feed-for&gt; indica compatibilidade de feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
-    <value>Utilize a versão GUI do Zero Install ou especifique opções de integração explícitas utilizando argumentos de linha de comandos.</value>
+    <value>Utilize a versão GUI do Zero Install ou especifique opções de integração explícitas utilizando argumentos da linha de comandos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
@@ -927,7 +927,7 @@ Execute '0install config self_update_uri default' para a ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Implementações de serviço no porto {0}</value>
+    <value>Implementações de serviço na porta {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -959,7 +959,7 @@ Execute '0install config self_update_uri default' para a ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>A ativação do suporte do Windows para caminhos longos pode resolver este problema.</value>
+    <value>A ativação do suporte do Windows para Caminhos Longos pode resolver este problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

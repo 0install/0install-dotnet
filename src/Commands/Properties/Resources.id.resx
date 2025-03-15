@@ -326,7 +326,7 @@ File harus memiliki tanda tangan digital tepercaya, seperti saat mengambil dari 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>Berperilaku mirip dengan '0install download', kecuali bahwa ia juga menjalankan program setelah memastikan program tersebut ada di cache.
+    <value>Berperilaku mirip dengan '0install download', kecuali bahwa ia juga menjalankan program setelah memastikan program tersebut ada dalam cache.
 Mengembalikan status keluar 1 jika langkah pengunduhan gagal. Jika tidak, status keluar akan menjadi status keluar dari program yang sedang dijalankan.</value>
     <comment>Automatically translated.</comment>
   </data>
