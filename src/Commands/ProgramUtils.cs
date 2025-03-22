@@ -73,9 +73,9 @@ public static class ProgramUtils
 #endif
     }
 
-    [Conditional("NETFRAMEWORK")]
     private static void ReplaceMissingRuntimeConfig()
     {
+#if NETFRAMEWORK
         string path = Assembly.GetEntryAssembly()!.Location + ".config";
         if (File.Exists(path)) return;
 
@@ -90,6 +90,7 @@ public static class ProgramUtils
             Log.Error("Failed to replace missing runtime config file", ex);
         }
         #endregion
+#endif
     }
 
     /// <summary>
