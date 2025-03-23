@@ -2,11 +2,9 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
-using System.Reflection;
 using System.Security;
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
-using NanoByte.Common.Streams;
 using NanoByte.Common.Values;
 using ZeroInstall.Commands.Desktop;
 using ZeroInstall.DesktopIntegration;
@@ -14,6 +12,11 @@ using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Trust;
+
+#if NETFRAMEWORK
+using System.Reflection;
+using NanoByte.Common.Streams;
+#endif
 
 namespace ZeroInstall.Commands;
 
