@@ -53,7 +53,7 @@ public abstract class XmlUnknown : IEquatable<XmlUnknown>
     /// </summary>
     /// <remarks>
     /// Intended for use in error messages. Not suitable for parsing.
-    /// Use <see cref="XmlStorage.ToXmlString"/> instead if you need a full XML representation.
+    /// Use <see cref="XmlStorage.ToXmlString{T}"/> instead if you need a full XML representation.
     /// </remarks>
     public string ToShortXml()
         => this.ToXmlString()
