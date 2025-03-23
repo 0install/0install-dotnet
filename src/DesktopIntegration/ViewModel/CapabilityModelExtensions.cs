@@ -14,7 +14,7 @@ public static class CapabilityModelExtensions
     /// <typeparam name="T">The specific kind of <see cref="DesktopIntegration.AccessPoints.DefaultAccessPoint"/> to handle.</typeparam>
     /// <param name="model">A model representing the underlying <see cref="DefaultCapability"/>s and their selection states.</param>
     /// <param name="value">The value to set.</param>
-    public static void SetAllUse<T>(this BindingList<T> model, bool value)
+    public static void SetAllUse<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(this BindingList<T> model, bool value)
         where T : CapabilityModel
     {
         #region Sanity checks
