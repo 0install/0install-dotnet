@@ -3,7 +3,7 @@
 
 using ZeroInstall.Commands.Basic.Exporters;
 using ZeroInstall.DesktopIntegration;
-using ZeroInstall.Services;
+using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Commands.Basic;

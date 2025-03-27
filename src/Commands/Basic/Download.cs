@@ -2,7 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.Commands.Desktop;
-using ZeroInstall.Services;
+using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Implementations;

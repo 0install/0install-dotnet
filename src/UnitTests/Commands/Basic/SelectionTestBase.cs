@@ -3,7 +3,7 @@
 
 using NDesk.Options;
 using ZeroInstall.Model.Selection;
-using ZeroInstall.Services;
+using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Fetchers;
 using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Feeds;

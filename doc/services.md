@@ -19,7 +19,7 @@ You can also use the [.AddZeroInstall()](xref:ZeroInstall.Services.ServiceCollec
 A simplified version of the `0install run` logic can be implemented using the Zero Install services as follows:
 
 1. Pass <xref:ZeroInstall.Model.Requirements> to [ISolver.Solve()](xref:ZeroInstall.Services.Solvers.ISolver) and get <xref:ZeroInstall.Model.Selection.Selections>.
-1. Pass <xref:ZeroInstall.Model.Selection.Selections> to [ISelectionsManager.GetUncachedImplementations()](xref:ZeroInstall.Services.SelectionsManagerExtensions#ZeroInstall_Services_SelectionsManagerExtensions_GetUncachedImplementations_ZeroInstall_Services_ISelectionsManager_ZeroInstall_Model_Selection_Selections_) and get uncached <xref:ZeroInstall.Model.Implementation>.
+1. Pass <xref:ZeroInstall.Model.Selection.Selections> to [ISelectionsManager.GetUncachedImplementations()](xref:ZeroInstall.Services.Feeds.SelectionsManagerExtensions#ZeroInstall_Services_Feeds_SelectionsManagerExtensions_GetUncachedImplementations_ZeroInstall_Services_Feeds_ISelectionsManager_ZeroInstall_Model_Selection_Selections_) and get uncached <xref:ZeroInstall.Model.Implementation>.
 1. Pass <xref:ZeroInstall.Model.Implementation> to [IFetcher.Fetch()](xref:ZeroInstall.Services.Fetchers.IFetcher).
 v Pass <xref:ZeroInstall.Model.Selection.Selections> to [IExecutor.Start()](xref:ZeroInstall.Services.Executors.IExecutor#ZeroInstall_Services_Executors_IExecutor_Start_ZeroInstall_Model_Selection_Selections_).
 

@@ -3,7 +3,7 @@
 
 using ZeroInstall.Model.Selection;
 
-namespace ZeroInstall.Services;
+namespace ZeroInstall.Services.Feeds;
 
 /// <summary>
 /// Provides extension methods for <see cref="ISelectionsManager"/>.

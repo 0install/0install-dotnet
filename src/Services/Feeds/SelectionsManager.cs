@@ -2,12 +2,11 @@
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.Model.Selection;
-using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Native;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.ViewModel;
 
-namespace ZeroInstall.Services;
+namespace ZeroInstall.Services.Feeds;
 
 /// <summary>
 /// Provides methods for filtering <see cref="Selections"/>.

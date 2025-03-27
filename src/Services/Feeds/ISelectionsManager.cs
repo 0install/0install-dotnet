@@ -5,7 +5,7 @@ using ZeroInstall.Model.Selection;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.ViewModel;
 
-namespace ZeroInstall.Services;
+namespace ZeroInstall.Services.Feeds;
 
 /// <summary>
 /// Provides methods for filtering <see cref="Selections"/>.
