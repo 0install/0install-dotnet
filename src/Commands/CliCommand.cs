@@ -182,15 +182,21 @@ public abstract partial class CliCommand : ScopedOperation
     /// Generates a localized instruction string describing multiple selectable values.
     /// </summary>
     /// <param name="values">The values to list.</param>
-    protected static string SupportedValues<T>(params T[] values)
+    protected static string SupportedValues<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>(IEnumerable<T> values) where T : notnull
         => string.Format(Resources.SupportedValues, string.Join(", ", values.Select(ConversionUtils.ConvertToString)));
 
     /// <summary>
     /// Generates a localized instruction string describing multiple selectable enum values.
     /// </summary>
     /// <typeparam name="T">The enum type to list values for.</typeparam>
-    protected static string SupportedValues<T>()
-        => SupportedValues(Enum.GetValues(typeof(T)).Cast<T>().ToArray());
+    protected static string SupportedValues<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] T>() where T : struct, Enum
+        => SupportedValues(
+#if NET
+            Enum.GetValues<T>()
+#else
+            Enum.GetValues(typeof(T)).Cast<T>()
+#endif
+        );
 
     /// <summary>
     /// Downloads a set of <see cref="Implementation"/>s to the <see cref="Store"/> in parallel.
