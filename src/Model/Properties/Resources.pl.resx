@@ -74,6 +74,10 @@
     <value>Błąd ładowania preferencji interfejsu dla "{0}". Przywrócenie wartości domyślnych.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Błąd ładowania bazy danych zaufania. Przywracanie wartości domyślnych.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Nie można znaleźć kanału '{0}' w katalogu.</value>
     <comment>Automatically translated.</comment>

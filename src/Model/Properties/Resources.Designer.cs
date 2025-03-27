@@ -97,6 +97,15 @@ namespace ZeroInstall.Model.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error loading the trust database. Reverting to default values..
+        /// </summary>
+        internal static string ErrorLoadingTrustDB {
+            get {
+                return ResourceManager.GetString("ErrorLoadingTrustDB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to find feed &apos;{0}&apos; in catalog..
         /// </summary>
         internal static string FeedNotInCatalog {

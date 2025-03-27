@@ -119,10 +119,6 @@ Para excluir o diretório inteiro sem usar o Zero Install, use a seguinte linha 
     <value>Erro ao carregar o pacote de chaves OpenPGP a partir de '{0}'</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Erro ao carregar o banco de dados de confiança. Revertendo para os valores padrão.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>Falha ao desbloquear os arquivos usados em "{0}"</value>
     <comment>Manually overriden.</comment>

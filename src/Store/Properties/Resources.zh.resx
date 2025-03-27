@@ -119,10 +119,6 @@
     <value>从 '{0}' 加载 OpenPGP 密钥包出错</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>加载信任数据库时出错。恢复默认值。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>无法解锁'{0}'中当前使用的文件</value>
     <comment>Manually overriden.</comment>

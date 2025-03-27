@@ -74,6 +74,10 @@
     <value>Erro ao carregar as preferências da interface para '{0}'. Revertendo aos valores padrão.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Erro ao carregar o banco de dados de confiança. Revertendo para os valores padrão.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Não foi possível localizar o feed '{0}' no catálogo.</value>
     <comment>Manually overriden.</comment>

@@ -1,7 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using ZeroInstall.Store.Trust;
+using ZeroInstall.Model.Trust;
 
 namespace ZeroInstall.Commands.Basic;
 

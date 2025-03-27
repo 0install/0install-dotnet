@@ -119,10 +119,6 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
     <value>'{0}' 에서 OpenPGP 키 번들을 로드하는 동안 오류가 발생했습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>신뢰 데이터베이스를 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌리기.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>'{0}'에서 사용 중인 파일을 잠금 해제하지 못했습니다</value>
     <comment>Manually overriden.</comment>

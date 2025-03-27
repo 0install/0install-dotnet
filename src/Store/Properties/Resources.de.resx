@@ -119,10 +119,6 @@ Wenn Sie das gesamte Verzeichnis ohne Zero Install löschen möchten, verwenden 
     <value>Fehler beim Laden des OpenPGP-Schlüsselbündels von '{0}'</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Fehler beim Laden der Trust Datenbank. Zurücksetzen auf Standardwerte.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>Aktuell verwendete Dateien in '{0}' konnten nicht entsperrt werden</value>
     <comment>Manually overriden.</comment>

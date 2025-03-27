@@ -74,6 +74,10 @@
     <value>Fehler beim Laden der Interface-Einstellungen für '{0}'. Zurücksetzen auf Standardwerte.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Fehler beim Laden der Trust Datenbank. Zurücksetzen auf Standardwerte.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Feed '{0}' konnte nicht im Katalog gefunden werden.</value>
     <comment>Manually overriden.</comment>

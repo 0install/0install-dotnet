@@ -119,10 +119,6 @@
     <value>Ошибка при загрузке связки ключей OpenPGP с '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Ошибка при загрузке базы данных доверия. Возврат к значениям по умолчанию.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>Не удалось разблокировать используемые файлы в '{0}'</value>
     <comment>Manually overriden.</comment>

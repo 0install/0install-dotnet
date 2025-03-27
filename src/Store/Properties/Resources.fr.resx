@@ -119,10 +119,6 @@ Pour supprimer l'intégralité du répertoire sans passer par Zero Install, veui
     <value>Erreur de chargement du paquet de clés OpenPGP à partir de '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Erreur de chargement de la base de données de confiance. Retour aux valeurs par défaut.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>Échec du déverrouillage des fichiers en cours d'utilisation dans '{0}'</value>
     <comment>Manually overriden.</comment>

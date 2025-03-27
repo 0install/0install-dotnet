@@ -4,6 +4,7 @@
 using System.Text;
 using NanoByte.Common.Net;
 using NanoByte.Common.Streams;
+using ZeroInstall.Model.Trust;
 using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.Trust;

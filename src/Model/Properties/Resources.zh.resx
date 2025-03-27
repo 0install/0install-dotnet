@@ -74,6 +74,10 @@
     <value>加载 "{0}"界面首选项时出错。恢复为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>加载信任数据库时出错。恢复默认值。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>无法在目录中找到 feed '{0}'。</value>
     <comment>Automatically translated.</comment>

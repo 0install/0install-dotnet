@@ -119,10 +119,6 @@ Zero Install kullanmadan bu klasörün tümünü silmek isterseniz şu komut sat
     <value>'{0}' üzerinden OpenPGP anahtar paketi yüklenirken sorun çıktı</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Güvenilirlik veri tabanı yüklenirken sorun çıktı. Varsayılan ayarlara geri dönülüyor.</value>
-    <comment>Manually overriden.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>'{0}' kullanımındaki dosyaların kilidi açılamadı</value>
     <comment>Manually overriden.</comment>

@@ -2,8 +2,8 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Native;
+using ZeroInstall.Model.Trust;
 using ZeroInstall.Store.Configuration;
-using ZeroInstall.Store.Trust;
 
 namespace ZeroInstall.Commands.Basic;
 

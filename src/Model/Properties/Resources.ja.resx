@@ -74,6 +74,10 @@
     <value>{0}' のインターフェース設定読み込みエラー。デフォルト値に戻す。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>信頼データベースの読み込みエラー。デフォルト値に戻す。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>カタログでフィード '{0}' が見つかりません。</value>
     <comment>Automatically translated.</comment>

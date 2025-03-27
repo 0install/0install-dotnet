@@ -74,6 +74,10 @@
     <value>Předvolby rozhraní pro chybové načítání pro '{0}'. Návrat k výchozím hodnotám.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Chybné načítání databáze důvěryhodnosti. Návrat k výchozím hodnotám.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>V katalogu nelze najít kanál '{0}'.</value>
     <comment>Automatically translated.</comment>

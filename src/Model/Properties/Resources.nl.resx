@@ -74,6 +74,10 @@
     <value>Fout bij het laden van interfacevoorkeuren voor '{0}'. Terugzetten naar standaardwaarden.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Fout bij het laden van de vertrouwensdatabase. Terugkeren naar standaardwaarden.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Kan feed '{0}' niet vinden in catalogus.</value>
     <comment>Automatically translated.</comment>

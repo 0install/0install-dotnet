@@ -74,6 +74,10 @@
     <value>Erreur de chargement des préférences d'interface pour '{0}'. Rétablissement des valeurs par défaut.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Erreur de chargement de la base de données de confiance. Retour aux valeurs par défaut.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Impossible de trouver le flux '{0}' dans catalogue.</value>
     <comment>Manually overriden.</comment>

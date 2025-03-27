@@ -74,6 +74,10 @@
     <value>Eroare la încărcarea preferințelor interfeței pentru '{0}'. Revenire la valorile implicite.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Eroare la încărcarea bazei de date de încredere. Revenirea la valorile implicite.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Nu se poate găsi feed-ul '{0}' în catalog.</value>
     <comment>Automatically translated.</comment>

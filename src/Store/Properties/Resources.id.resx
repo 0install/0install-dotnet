@@ -119,10 +119,6 @@ Jika Anda ingin menghapus keseluruhan direktori ini tanpa menggunakan Zero Insta
     <value>Kesalahan saat memuat paket kunci OpenPGP dari '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Kesalahan saat memuat basis data kepercayaan. Kembali ke nilai default.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>Gagal membuka kunci berkas yang sedang digunakan di '{0}'</value>
     <comment>Manually overriden.</comment>

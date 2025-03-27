@@ -129,6 +129,9 @@
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
     <value>Error loading interface preferences for '{0}'. Reverting to default values.</value>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Error loading the trust database. Reverting to default values.</value>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Unable to find feed '{0}' in catalog.</value>
   </data>

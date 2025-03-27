@@ -74,6 +74,10 @@
     <value>Ошибка при загрузке настроек интерфейса для '{0}'. Возврат к значениям по умолчанию.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Ошибка при загрузке базы данных доверия. Возврат к значениям по умолчанию.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Невозможно найти канал '{0}' в каталоге.</value>
     <comment>Automatically translated.</comment>

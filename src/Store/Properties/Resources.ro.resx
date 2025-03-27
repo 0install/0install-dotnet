@@ -119,10 +119,6 @@ Dacă doriți să ștergeți acest întreg director fără a utiliza Zero Instal
     <value>Eroare la încărcarea pachetului de chei OpenPGP de la '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Eroare la încărcarea bazei de date de încredere. Revenirea la valorile implicite.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>A eșuat deblocarea fișierelor în uz în '{0}'</value>
     <comment>Automatically translated.</comment>

@@ -74,6 +74,10 @@
     <value>'{0}' için arabirim ayarları yüklenirken sorun çıktı. Varsayılan ayarlara geri dönülüyor.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Güvenilirlik veri tabanı yüklenirken sorun çıktı. Varsayılan ayarlara geri dönülüyor.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Katalogda '{0}' akışı bulunamadı.</value>
     <comment>Manually overriden.</comment>

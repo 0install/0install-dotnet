@@ -119,10 +119,6 @@ Pokud chcete odstranit celý adresář bez Zero Install, použijte tento příka
     <value>Chyba při načítání svazku klíčů OpenPGP z adresy '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Chybné načítání databáze důvěryhodnosti. Návrat k výchozím hodnotám.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>Nepodařilo se odemknout používané soubory v adresáři ‚‚{0}‘‘</value>
     <comment>Manually overriden.</comment>

@@ -5,7 +5,7 @@
 using System.Runtime.Serialization;
 #endif
 
-namespace ZeroInstall.Store.Trust;
+namespace ZeroInstall.Model.Trust;
 
 /// <summary>
 /// A set of alphabetically sorted <see cref="Domain"/>s.

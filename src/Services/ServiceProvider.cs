@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.Model.Selection;
+using ZeroInstall.Model.Trust;
 using ZeroInstall.Services.Executors;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Fetchers;

@@ -119,10 +119,6 @@ Para eliminar el directorio completo sin usar Zero Install, ejecuta esta línea 
     <value>Error al cargar el paquete de claves OpenPGP desde '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Error al cargar la base de datos de confianza. Revertir a valores por defecto.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>No ha sido posible desbloquear los archivos en uso en «{0}»</value>
     <comment>Manually overriden.</comment>

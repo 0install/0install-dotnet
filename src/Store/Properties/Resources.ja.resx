@@ -119,10 +119,6 @@
     <value>{0}' からの OpenPGP キーバンドルの読み込みエラー。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>信頼データベースの読み込みエラー。デフォルト値に戻す。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>「{0}」で使用中のファイルのロック解除に失敗しました</value>
     <comment>Manually overriden.</comment>

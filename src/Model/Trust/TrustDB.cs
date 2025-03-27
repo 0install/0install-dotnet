@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-namespace ZeroInstall.Store.Trust;
+namespace ZeroInstall.Model.Trust;
 
 /// <summary>
 /// A database of OpenPGP signature fingerprints the users trusts to sign <see cref="Feed"/>s coming from specific domains.

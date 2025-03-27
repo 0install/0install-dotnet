@@ -119,10 +119,6 @@ Jeśli chcesz usunąć cały katalog bez użycia Zero Install, możesz użyć te
     <value>Błąd ładowania pakietu kluczy OpenPGP z '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Błąd ładowania bazy danych zaufania. Przywracanie wartości domyślnych.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>Nie udało się odblokować używanych plików w „{0}”</value>
     <comment>Manually overriden.</comment>

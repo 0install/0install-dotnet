@@ -74,6 +74,10 @@
     <value>Erro ao carregar as preferências da interface para '{0}'. Reverter para os valores predefinidos.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>Erro ao carregar a base de dados de confiança. Reverter para valores predefinidos.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Não é possível encontrar o feed '{0}' no catálogo.</value>
     <comment>Automatically translated.</comment>

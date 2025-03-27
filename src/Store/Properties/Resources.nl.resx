@@ -119,10 +119,6 @@ Als u de hele map wilt verwijderen zonder Zero Install te gebruiken, kunt u deze
     <value>Fout bij het laden van OpenPGP-sleutelbundel van '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Fout bij het laden van de vertrouwensdatabase. Terugkeren naar standaardwaarden.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>Momenteel in gebruik zijnde bestanden in '{0}' konden niet worden vrijgegeven</value>
     <comment>Manually overriden.</comment>

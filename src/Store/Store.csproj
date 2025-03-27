@@ -13,7 +13,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <Import Project="..\Resources.Designer.targets" />
-  <Import Project="..\XmlSerializer.Generator.targets" />
 
   <!-- Global usings -->
   <ItemGroup>

@@ -1,7 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-namespace ZeroInstall.Store.Trust;
+namespace ZeroInstall.Model.Trust;
 
 /// <summary>
 /// A specific domain with feeds a <see cref="Key"/> is trusted to sign.

@@ -74,6 +74,10 @@
     <value>'{0}'에 대한 인터페이스 기본 설정을 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌립니다.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="ErrorLoadingTrustDB" xml:space="preserve">
+    <value>신뢰 데이터베이스를 로드하는 동안 오류가 발생했습니다. 기본값으로 되돌리기.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>카탈로그에서 '{0}' 피드를 찾을 수 없습니다.</value>
     <comment>Automatically translated.</comment>
