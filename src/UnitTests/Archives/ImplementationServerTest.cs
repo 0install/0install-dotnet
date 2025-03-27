@@ -38,7 +38,7 @@ public class ImplementationServerTest : IDisposable
     public async Task HeadOK()
     {
         var digest = RandomDigest();
-        ImplementationStoreExtensions.Add(_implementationStore, digest, [new TestFile("fileA")]);
+        _implementationStore.Add(digest, [new TestFile("fileA")]);
 
         using var response = await _client.SendAsync(new(HttpMethod.Head, $"{digest}.zip"));
         response.StatusCode.Should().Be(HttpStatusCode.OK);
@@ -55,7 +55,7 @@ public class ImplementationServerTest : IDisposable
     public async Task GetOK()
     {
         var digest = RandomDigest();
-        ImplementationStoreExtensions.Add(_implementationStore, digest, [new TestFile("fileA")]);
+        _implementationStore.Add(digest, [new TestFile("fileA")]);
 
         using var stream = await _client.GetStreamAsync($"{digest}.zip");
         new ZipExtractor(new SilentTaskHandler()).Extract(Mock.Of<IBuilder>(), stream);
