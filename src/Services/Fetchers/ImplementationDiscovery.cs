@@ -3,7 +3,7 @@
 
 using Makaretu.Dns;
 using NanoByte.Common.Threading;
-using ZeroInstall.Archives;
+using ZeroInstall.Services.Server;
 
 namespace ZeroInstall.Services.Fetchers;
 

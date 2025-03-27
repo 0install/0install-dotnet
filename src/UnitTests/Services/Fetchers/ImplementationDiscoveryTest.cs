@@ -3,8 +3,8 @@
 
 using NanoByte.Common.Native;
 using NanoByte.Common.Streams;
-using ZeroInstall.Archives;
 using ZeroInstall.FileSystem;
+using ZeroInstall.Services.Server;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Manifests;
 

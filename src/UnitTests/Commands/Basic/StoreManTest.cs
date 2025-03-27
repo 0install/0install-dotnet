@@ -3,9 +3,9 @@
 
 using NanoByte.Common.Native;
 using NanoByte.Common.Net;
-using ZeroInstall.Archives;
 using ZeroInstall.Commands.Properties;
 using ZeroInstall.Services.Fetchers;
+using ZeroInstall.Services.Server;
 using ZeroInstall.Store.Feeds;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;

@@ -2,7 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Threading;
-using ZeroInstall.Archives;
+using ZeroInstall.Services.Server;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.ViewModel;
 

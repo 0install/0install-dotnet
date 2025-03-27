@@ -14,7 +14,7 @@ using ZeroInstall.Store.Implementations;
 using NanoByte.Common.Streams;
 #endif
 
-namespace ZeroInstall.Archives;
+namespace ZeroInstall.Services.Server;
 
 /// <summary>
 /// Simple HTTP web server that serves implementations as on-demand generated archives.

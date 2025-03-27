@@ -6,7 +6,7 @@ using ZeroInstall.FileSystem;
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
 
-namespace ZeroInstall.Archives;
+namespace ZeroInstall.Services.Server;
 
 /// <summary>
 /// Contains test methods for <see cref="ImplementationServer"/>.
