@@ -157,7 +157,19 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
     /// <returns>The loaded <see cref="AppList"/>.</returns>
     public static AppList LoadSafe(bool machineWide = false)
     {
-        string path = GetDefaultPath(machineWide);
+        string path;
+        try
+        {
+            path = GetDefaultPath(machineWide);
+        }
+        #region Error handling
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            Log.Info($"Unable to create directory for {(machineWide ? "machine-wide" : "per-use")} app-list.xml", ex);
+            return new();
+        }
+        #endregion
+
         try
         {
             return XmlStorage.LoadXml<AppList>(path);
@@ -165,12 +177,12 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
         #region Error handling
         catch (FileNotFoundException)
         {
-            return new AppList();
+            return new();
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or InvalidDataException)
         {
             Log.Warn(string.Format(Resources.ProblemLoading, path), ex);
-            return new AppList();
+            return new();
         }
         #endregion
     }
