@@ -186,11 +186,11 @@ public static class ProgramUtils
                 return ExitCode.AccessDenied;
             }
         }
-        catch (NotAdminException) when (WindowsUtils.HasUac
-                                     && args.FirstOrDefault() != AsAdminIndicatorArg
-                                     && GuiStartInfo([AsAdminIndicatorArg, ..args]) is {} startInfo)
+        catch (NotAdminException ex) when (WindowsUtils.HasUac
+                                        && args.FirstOrDefault() != AsAdminIndicatorArg
+                                        && GuiStartInfo([AsAdminIndicatorArg, ..args]) is {} startInfo)
         {
-            Log.Info("Elevating to admin");
+            Log.Info("Elevating to admin", ex);
             handler.DisableUI();
             try
             {
