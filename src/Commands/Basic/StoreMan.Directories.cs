@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using ZeroInstall.Store.Configuration;
 using ZeroInstall.Store.Implementations;
 
 namespace ZeroInstall.Commands.Basic;
@@ -94,8 +95,12 @@ partial class StoreMan
 
         public override ExitCode Execute()
         {
-            var composite = ImplementationStore as CompositeImplementationStore;
-            Handler.Output("Stores", (composite == null) ? [ImplementationStore] : composite.Stores);
+            if (Handler.IsGui) ShowConfig(ConfigTab.Storage);
+            else
+            {
+                var composite = ImplementationStore as CompositeImplementationStore;
+                Handler.Output("Stores", (composite == null) ? [ImplementationStore] : composite.Stores);
+            }
             return ExitCode.OK;
         }
     }
