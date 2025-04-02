@@ -693,7 +693,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Passer à un onglet spécifique dans l'interface graphique de configuration. Les {TAB}valides sont "updates", "storage", "catalog", "trust", "sync", "language", "language" et "advanced".</value>
+    <value>Passer à un onglet spécifique dans l'interface graphique de configuration.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">

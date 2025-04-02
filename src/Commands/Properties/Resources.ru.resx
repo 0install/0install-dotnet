@@ -693,7 +693,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Переключение на определенную вкладку в графическом интерфейсе конфигурации. Доступны следующие {TAB}: 'обновления', 'хранилище', 'каталог', 'доверие', 'синхронизация', 'язык', 'язык' и 'расширенный'.</value>
+    <value>Переключение на определенную вкладку в графическом интерфейсе конфигурации.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">

@@ -693,7 +693,7 @@ Seçim sırasında komut kullanılmaması için boş ("") bırakın.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Yapılandırma görsel ara yüzünde belirtilen sekmeyi açar. Kullanılabilecek {TAB} sekmeleri, güncellemeler için 'updates', depolama için 'storage', katalog için 'catalog', güvenilirlik için 'trust', eşitleme için 'sync' ve gelişmiş ayarlar için 'advanced' şeklindedir.</value>
+    <value>Yapılandırma görsel ara yüzünde belirtilen sekmeyi açar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">

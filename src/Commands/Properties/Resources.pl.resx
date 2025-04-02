@@ -693,7 +693,7 @@ Ustaw puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Przełączanie do określonej karty w graficznym interfejsie konfiguracji. Prawidłowe {TAB}to "updates", "storage", "catalog", "trust", "sync", "language", "language" i "advanced".</value>
+    <value>Przełączanie do określonej karty w graficznym interfejsie konfiguracji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">

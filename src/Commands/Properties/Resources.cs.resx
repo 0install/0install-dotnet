@@ -693,7 +693,7 @@ Nastavením na prázdnou hodnotu ("") příkaz při výběru ignorujete.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Přepnutí na konkrétní kartu v grafickém uživatelském rozhraní konfigurace. Platné {TAB}s jsou "updates" (aktualizace), "storage" (úložiště), "catalog" (katalog), "trust" (důvěryhodnost), "sync" (synchronizace), "language" (jazyk), "language" (jazyk) a "advanced" (pokročilé).</value>
+    <value>Přepnutí na konkrétní kartu v grafickém uživatelském rozhraní konfigurace.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">

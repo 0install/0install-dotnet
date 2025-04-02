@@ -693,7 +693,7 @@ Atur ke kosong ("") untuk mengabaikan perintah selama pemilihan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Beralih ke tab tertentu dalam GUI konfigurasi. {TAB} yang valid adalah 'pembaruan', 'penyimpanan', 'katalog', 'kepercayaan', 'sinkronisasi', 'bahasa', 'bahasa', dan 'lanjutan'.</value>
+    <value>Beralih ke tab tertentu dalam GUI konfigurasi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">

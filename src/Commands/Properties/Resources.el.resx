@@ -692,7 +692,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Μετάβαση σε συγκεκριμένη καρτέλα στο GUI διαμόρφωσης. Πιθανές {TAB}ες είναι 'updates', 'storage', 'catalog', 'trust', 'sync', 'language' και 'advanced'.</value>
+    <value>Μετάβαση σε συγκεκριμένη καρτέλα στο GUI διαμόρφωσης.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">

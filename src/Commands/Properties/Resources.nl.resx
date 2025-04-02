@@ -693,7 +693,7 @@ Stel in op leeg ("") om de opdracht tijdens de selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Schakel naar een specifiek tabblad in de configuratie-GUI. Geldige {TAB}s zijn 'updates', 'storage', 'catalog', 'trust', 'sync', 'language' en 'advanced'.</value>
+    <value>Schakel naar een specifiek tabblad in de configuratie-GUI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">

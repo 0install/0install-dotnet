@@ -12,7 +12,7 @@ namespace ZeroInstall.Commands.Basic;
 public class Configure : CliCommand
 {
     public const string Name = "config";
-    public override string Description => Resources.DescriptionConfig;
+    public override string Description => string.Format(Resources.DescriptionConfig, "default");
     public override string Usage => "[NAME [VALUE|default]]";
     protected override int AdditionalArgsMax => 2;
 
@@ -25,7 +25,7 @@ public class Configure : CliCommand
     {
         Options.Add("m|machine", () => Resources.OptionMachine, _ => _machineWide = true);
         if (handler.IsGui)
-            Options.Add("tab=", () => Resources.OptionConfigTab, (ConfigTab tab) => _tab = tab);
+            Options.Add("tab=", () => Resources.OptionConfigTab + Environment.NewLine + SupportedValues<ConfigTab>(), (ConfigTab tab) => _tab = tab);
     }
 
     /// <inheritdoc/>

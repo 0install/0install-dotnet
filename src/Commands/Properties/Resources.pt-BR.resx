@@ -693,7 +693,7 @@ Defina como vazio ("") para ignorar o comando durante a seleção.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Alterne para uma guia específica na GUI de configuração. {TAB}s válidos são 'updates', 'storage', 'catalog', 'trust', 'sync', 'language', 'language' e 'advanced'.</value>
+    <value>Alterne para uma guia específica na GUI de configuração.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">

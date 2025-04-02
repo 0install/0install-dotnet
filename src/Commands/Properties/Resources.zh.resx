@@ -693,7 +693,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>切换到配置 GUI 中的特定选项卡。有效的{TAB}标签有 "更新"、"存储"、"目录"、"信任"、"同步"、"语言"、"语言 "和 "高级"。</value>
+    <value>切换到配置 GUI 中的特定选项卡。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">

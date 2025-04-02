@@ -693,7 +693,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>設定GUIで特定のタブに切り替える。有効な{TAB}は、「アップデート」、「ストレージ」、「カタログ」、「信頼」、「同期」、「言語」、「詳細」です。</value>
+    <value>設定GUIで特定のタブに切り替える。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
