@@ -1,6 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using ZeroInstall.Store.Configuration;
+
 namespace ZeroInstall.Commands.Basic;
 
 partial class CatalogMan
@@ -14,7 +16,8 @@ partial class CatalogMan
 
         public override ExitCode Execute()
         {
-            Handler.Output(Resources.CatalogSources, CatalogManager.GetSources());
+            if (Handler.IsGui) ShowConfig(ConfigTab.Catalog);
+            else Handler.Output(Resources.CatalogSources, CatalogManager.GetSources());
             return ExitCode.OK;
         }
     }
