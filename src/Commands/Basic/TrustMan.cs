@@ -115,11 +115,7 @@ public sealed class TrustMan(ICommandHandler handler) : CliMultiCommand(handler)
             switch (AdditionalArgs)
             {
                 case []:
-                    if (Handler.IsGui)
-                    {
-                        Config.InitialTab = ConfigTab.Trust;
-                        Handler.Output(Resources.Configuration, Config);
-                    }
+                    if (Handler.IsGui) ShowConfig(ConfigTab.Trust);
                     else Handler.Output(Resources.TrustedKeys, trustDB.Keys);
                     return ExitCode.OK;
 

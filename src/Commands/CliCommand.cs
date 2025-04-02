@@ -199,6 +199,16 @@ public abstract partial class CliCommand : ScopedOperation
         );
 
     /// <summary>
+    /// Shows the current configuration.
+    /// </summary>
+    /// <param name="configTab">The initial tab to show if a GUI representation is used.</param>
+    protected void ShowConfig(ConfigTab configTab)
+    {
+        Config.InitialTab = configTab;
+        Handler.Output(Resources.Configuration, Config);
+    }
+
+    /// <summary>
     /// Downloads a set of <see cref="Implementation"/>s to the <see cref="Store"/> in parallel.
     /// </summary>
     /// <param name="implementations">The <see cref="Implementation"/>s to be downloaded.</param>

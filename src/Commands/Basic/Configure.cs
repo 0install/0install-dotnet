@@ -36,8 +36,7 @@ public class Configure : CliCommand
         switch (AdditionalArgs)
         {
             case []:
-                config.InitialTab = _tab;
-                Handler.Output(Resources.Configuration, config);
+                ShowConfig(_tab);
                 break;
 
             case [var key]:
