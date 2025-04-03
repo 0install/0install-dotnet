@@ -21,7 +21,7 @@ public class StubBuilder(IIconStore iconStore)
     /// Generates and returns a stub EXE if possible, falls back to directly pointing to the "0install" EXE otherwise.
     /// </summary>
     /// <param name="target">The application to be launched.</param>
-    /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
+    /// <param name="command">The command argument to be passed to the "0install run" command; can be <c>null</c>.</param>
     /// <param name="machineWide"><c>true</c> place the generated stub in a machine-wide location; <c>false</c> to place it in the current user profile.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
@@ -114,7 +114,7 @@ public class StubBuilder(IIconStore iconStore)
     /// </summary>
     /// <param name="path">The path to store the generated EXE file.</param>
     /// <param name="target">The application to be launched.</param>
-    /// <param name="command">The command argument to be passed to the the "0install run" command; can be <c>null</c>.</param>
+    /// <param name="command">The command argument to be passed to the "0install run" command; can be <c>null</c>.</param>
     /// <param name="gui"><c>true</c> to build a GUI stub, <c>false</c> to build a CLI stub.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>

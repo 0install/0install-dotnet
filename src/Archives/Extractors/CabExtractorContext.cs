@@ -12,7 +12,7 @@ namespace ZeroInstall.Archives.Extractors;
 /// Used to hold state while extracting a MS Cabinet (.cab).
 /// </summary>
 /// <param name="builder">The builder receiving the extracted files.</param>
-/// <param name="archiveStream">The the archive data to be extracted.</param>
+/// <param name="archiveStream">The archive data to be extracted.</param>
 /// <param name="normalizePath">Callback for normalizing the path of archive entries.</param>
 /// <param name="cancellationToken">Used to signal when the user wishes to cancel the extraction.</param>
 internal sealed class CabExtractorContext(IBuilder builder, Stream archiveStream, Func<string, string?> normalizePath, CancellationToken cancellationToken) : IUnpackStreamContext

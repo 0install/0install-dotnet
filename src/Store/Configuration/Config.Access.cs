@@ -12,7 +12,7 @@ partial class Config
     /// Retrieves the string representation of an option identified by a key.
     /// </summary>
     /// <param name="key">The key of the option to retrieve.</param>
-    /// <returns>The string representation of the the option.</returns>
+    /// <returns>The string representation of the option.</returns>
     /// <exception cref="KeyNotFoundException"><paramref name="key"/> is invalid.</exception>
     public string GetOption(string key)
         => _metaData[key].Value;
