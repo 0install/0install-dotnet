@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using NanoByte.Common.Streams;
 using SharpCompress.Compressors.LZMA;
 using ZeroInstall.Store.FileSystem;
@@ -18,3 +19,4 @@ public class TarLzmaExtractor(ITaskHandler handler) : TarExtractor(handler)
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
         => base.Extract(builder, new LzmaStream(stream.Read(13), stream), subDir);
 }
+#endif

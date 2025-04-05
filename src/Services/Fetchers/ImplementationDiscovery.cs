@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using Makaretu.Dns;
 using NanoByte.Common.Threading;
 using ZeroInstall.Services.Server;
@@ -89,3 +90,4 @@ public class ImplementationDiscovery : IImplementationDiscovery, IDisposable
         }
     }
 }
+#endif

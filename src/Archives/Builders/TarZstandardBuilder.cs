@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using ZstdSharp;
 
 namespace ZeroInstall.Archives.Builders;
@@ -25,3 +26,4 @@ public class TarZstandardBuilder(Stream stream, bool fast = false) : TarBuilder(
         }
     }
 }
+#endif

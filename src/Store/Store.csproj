@@ -7,6 +7,7 @@
     <Description>Zero Install management of implementation caches, digital signatures, etc.</Description>
     <PackageProjectUrl>https://dotnet.0install.net/namespace_zero_install_1_1_store.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
+    <Configurations>$(Configurations);Minimal</Configurations>
     <SGenTypes>ZeroInstall.Store.Trust.TrustDB;ZeroInstall.Store.Feeds.SearchResults</SGenTypes>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0'">

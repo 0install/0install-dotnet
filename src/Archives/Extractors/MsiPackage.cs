@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using WixToolset.Dtf.WindowsInstaller;
 
 namespace ZeroInstall.Archives.Extractors;
@@ -130,3 +131,4 @@ internal sealed class MsiPackage : IDisposable
     /// <inheritdoc/>
     public void Dispose() => _database.Dispose();
 }
+#endif

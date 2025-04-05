@@ -36,9 +36,11 @@ public static class ArchiveBuilder
             Archive.MimeTypeTar => new TarBuilder(stream),
             Archive.MimeTypeTarGzip => new TarGzBuilder(stream, fast),
             Archive.MimeTypeTarBzip => new TarBz2Builder(stream, fast),
+#if !MINIMAL
             Archive.MimeTypeTarLzip when fast => throw new NotSupportedException($"{mimeType} is not supported here because the compression is too slow."),
             Archive.MimeTypeTarLzip => new TarLzipBuilder(stream),
             Archive.MimeTypeTarZstandard => new TarZstandardBuilder(stream, fast),
+#endif
             _ => throw new NotSupportedException(string.Format(Resources.UnsupportedArchiveMimeType, mimeType))
         };
     }

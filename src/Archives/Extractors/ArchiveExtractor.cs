@@ -28,6 +28,7 @@ public abstract class ArchiveExtractor(ITaskHandler handler) : IArchiveExtractor
         Register(Archive.MimeTypeTar, handler => new TarExtractor(handler));
         Register(Archive.MimeTypeTarGzip, handler => new TarGzExtractor(handler));
         Register(Archive.MimeTypeTarBzip, handler => new TarBz2Extractor(handler));
+#if !MINIMAL
         Register(Archive.MimeTypeTarLzma, handler => new TarLzmaExtractor(handler));
         Register(Archive.MimeTypeTarLzip, handler => new TarLzipExtractor(handler));
         Register(Archive.MimeTypeTarXz, handler => new TarXzExtractor(handler));
@@ -36,6 +37,7 @@ public abstract class ArchiveExtractor(ITaskHandler handler) : IArchiveExtractor
         Register(Archive.MimeTypeRar, handler => new RarExtractor(handler));
         Register(Archive.MimeTypeCab, handler => new CabExtractor(handler));
         Register(Archive.MimeTypeMsi, handler => new MsiExtractor(handler));
+#endif
         Register(Archive.MimeTypeRubyGem, handler => new RubyGemExtractor(handler));
         Register(Archive.MimeTypeDmg, handler => new DmgExtractor(handler));
     }

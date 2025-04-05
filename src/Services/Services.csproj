@@ -7,6 +7,7 @@
     <Description>Zero Install services for solving dependencies, downloading implementations, executing apps, etc.</Description>
     <PackageProjectUrl>https://dotnet.0install.net/md_services.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
+    <Configurations>$(Configurations);Minimal</Configurations>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0'">
     <Nullable>enable</Nullable>
@@ -26,13 +27,13 @@
     <Reference Include="System.Net.Http" Pack="False" />
     <Reference Include="System.Web" Pack="False" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net8.0'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net8.0' And '$(Configuration)'!='Minimal'">
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.2" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net9.0'">
+  <ItemGroup Condition="'$(TargetFramework)'=='net9.0' And '$(Configuration)'!='Minimal'">
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.3" />
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(Configuration)'!='Minimal'">
     <PackageReference Include="Makaretu.Dns.Multicast" Version="0.27.0" />
     <PackageReference Include="WindowsFirewallHelper" Version="2.2.0.86" />
   </ItemGroup>

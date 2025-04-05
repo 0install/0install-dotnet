@@ -7,8 +7,12 @@ function Run-DotNet {
     if ($LASTEXITCODE -ne 0) {throw "Exit Code: $LASTEXITCODE"}
 }
 
-echo "Build binaries"
 if ($env:CI) { $ci = "/p:ContinuousIntegrationBuild=True /terminalLogger:off" }
+
+echo "Build minimal binaries"
+Run-DotNet msbuild /v:Quiet /t:Restore /t:Build /p:Configuration=Minimal /p:Version=$Version $ci
+
+echo "Build binaries"
 Run-DotNet msbuild /v:Quiet /t:Restore /t:Build /p:Configuration=Release /p:Version=$Version $ci
 
 echo "Prepare binaries for publishing"

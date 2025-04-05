@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using NanoByte.Common.Native;
 using WixToolset.Dtf.Compression.Cab;
 using WixToolset.Dtf.WindowsInstaller;
@@ -50,3 +51,4 @@ public class MsiExtractor(ITaskHandler handler)
         });
     }
 }
+#endif

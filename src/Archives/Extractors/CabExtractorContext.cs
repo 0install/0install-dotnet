@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using System.IO.Pipelines;
 using NanoByte.Common.Streams;
 using WixToolset.Dtf.Compression;
@@ -49,3 +50,4 @@ internal sealed class CabExtractorContext(IBuilder builder, Stream archiveStream
         _pipe?.Reader.Complete();
     }
 }
+#endif

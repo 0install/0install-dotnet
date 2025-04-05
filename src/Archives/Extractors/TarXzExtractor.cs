@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using NanoByte.Common.Streams;
 using SharpCompress.Compressors.Xz;
 using ZeroInstall.Store.FileSystem;
@@ -20,3 +21,4 @@ public class TarXzExtractor(ITaskHandler handler) : TarExtractor(handler)
             stream.WithSeekBuffer(bufferSize: 0) // Allow skipping past padding
         ), subDir);
 }
+#endif

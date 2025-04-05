@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using SharpCompress.Common;
 using SharpCompress.Readers.Rar;
 using ZeroInstall.Store.FileSystem;
@@ -46,3 +47,4 @@ public class RarExtractor(ITaskHandler handler) : ArchiveExtractor(handler)
         #endregion
     }
 }
+#endif

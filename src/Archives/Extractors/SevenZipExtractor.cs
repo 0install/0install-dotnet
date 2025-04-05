@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using NanoByte.Common.Streams;
 using SharpCompress.Archives.SevenZip;
 using SharpCompress.Common;
@@ -50,3 +51,4 @@ public class SevenZipExtractor(ITaskHandler handler) : ArchiveExtractor(handler)
         });
     }
 }
+#endif

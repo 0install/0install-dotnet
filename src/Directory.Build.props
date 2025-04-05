@@ -8,15 +8,19 @@
     <Nullable>annotations</Nullable>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <OutputType>Library</OutputType>
+    <NoWarn>$(NoWarn);1591;NETSDK1187;NU1901;NU1902;NU1903;NU1904</NoWarn><!-- Missing XML comments + NuGet locale casing + NuGet advisories -->
+    <Version>1.0.0-pre</Version><!-- Dummy version number, overridden by GitVersion -->
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Minimal'">
+    <DefineConstants>$(DefineConstants);MINIMAL</DefineConstants>
+    <DebugSymbols>False</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'!='Minimal'">
     <SignAssembly>True</SignAssembly>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <NoWarn>$(NoWarn);1591;NETSDK1187;NU1901;NU1902;NU1903;NU1904</NoWarn><!-- Missing XML comments + NuGet locale casing + NuGet advisories -->
-
-    <!-- Dummy version number, overridden by GitVersion -->
-    <Version>1.0.0-pre</Version>
   </PropertyGroup>
 
   <!-- NuGet metadata -->

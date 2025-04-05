@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using Makaretu.Dns;
 using NanoByte.Common.Threading;
 
@@ -50,3 +51,4 @@ internal sealed partial class ImplementationDiscoveryInstance(ushort port, IEnum
         return null;
     }
 }
+#endif

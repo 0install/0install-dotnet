@@ -7,6 +7,7 @@
     <Description>Zero Install extracting and building archives (.zip, .tar, etc.)</Description>
     <PackageProjectUrl>https://dotnet.0install.net/namespace_zero_install_1_1_archives.html</PackageProjectUrl>
     <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
+    <Configurations>$(Configurations);Minimal</Configurations>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0'">
     <Nullable>enable</Nullable>
@@ -25,6 +26,8 @@
   <ItemGroup>
     <PackageReference Include="System.IO.Pipelines" Version="9.0.3" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)'!='Minimal'">
     <PackageReference Include="ZstdSharp.Port" Version="0.8.5" />
     <PackageReference Include="SharpCompress" Version="0.39.0" />
     <PackageReference Include="WixToolset.Dtf.Compression.Cab" Version="5.0.2" />

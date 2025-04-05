@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using ZeroInstall.Store.FileSystem;
 using ZstdSharp;
 
@@ -30,3 +31,4 @@ public class TarZstandardExtractor(ITaskHandler handler) : TarExtractor(handler)
         #endregion
     }
 }
+#endif

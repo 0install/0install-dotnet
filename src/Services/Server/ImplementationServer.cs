@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher
 // Licensed under the MIT License
 
+#if !MINIMAL
 using System.Text;
 using Makaretu.Dns;
 using NanoByte.Common.Native;
@@ -172,3 +173,4 @@ public sealed class ImplementationServer : HttpServer
     private static (ManifestDigest manifestDigest, string mimeType) ParseFileName(string fileName)
         => (manifestDigest: new ManifestDigest(fileName.GetLeftPartAtFirstOccurrence('.')), mimeType: Archive.GuessMimeType(fileName));
 }
+#endif

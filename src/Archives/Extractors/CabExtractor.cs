@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using NanoByte.Common.Native;
 using WixToolset.Dtf.Compression.Cab;
 using ZeroInstall.Store.FileSystem;
@@ -39,3 +40,4 @@ public class CabExtractor(ITaskHandler handler)
         });
     }
 }
+#endif
