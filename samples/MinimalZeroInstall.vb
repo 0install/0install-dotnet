@@ -1,6 +1,7 @@
 Imports NanoByte.Common.Tasks
 Imports ZeroInstall.Model
 Imports ZeroInstall.Services
+Imports ZeroInstall.Services.Feeds
 
 Module MinimalZeroInstall
     Sub Main(ByVal args As String())
@@ -8,7 +9,7 @@ Module MinimalZeroInstall
         Dim services = New ServiceProvider(New CliTaskHandler())
         With services
             Dim selections = .Solver.Solve(requirements)
-            For Each implementation In .SelectionsManager.GetUncached(selections.Implementations)
+            For Each implementation In .SelectionsManager.GetUncachedImplementations(selections)
                 .Fetcher.Fetch(implementation)
             Next
             .Executor.Start(selections)
