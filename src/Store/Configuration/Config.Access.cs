@@ -38,6 +38,7 @@ partial class Config
     /// </summary>
     /// <param name="key">The key of the option to reset.</param>
     /// <exception cref="KeyNotFoundException"><paramref name="key"/> is invalid.</exception>
+    [RequiresUnreferencedCode("Relies on [DefaultValue], which is not trim-safe.")]
     public void ResetOption(string key)
         => SetOption(key, _metaData[key].DefaultValue);
 

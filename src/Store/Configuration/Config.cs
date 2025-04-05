@@ -10,6 +10,7 @@ namespace ZeroInstall.Store.Configuration;
 /// User settings controlling network behaviour, solving, etc..
 /// </summary>
 [Serializable]
+[UnconditionalSuppressMessage("ReflectionAnalysis", "IL2026", Justification = $"[DefaultValue] is only used by {nameof(ResetOption)}(), which is marked with [RequiresUnreferencedCode].")]
 public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, ICloneable<Config>, IEquatable<Config>
 {
     /// <summary>

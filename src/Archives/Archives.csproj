@@ -12,6 +12,9 @@
   <PropertyGroup Condition="'$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0'">
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Minimal' And ('$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0')">
+    <IsTrimmable>True</IsTrimmable>
+  </PropertyGroup>
   <Import Project="..\Resources.Designer.targets" />
 
   <!-- Global usings -->
