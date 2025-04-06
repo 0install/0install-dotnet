@@ -28,7 +28,7 @@
     <ProjectReference Include="..\Model\Model.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ini-parser-netstandard" Version="2.5.2" />
+    <PackageReference Include="ini-parser-netstandard" Version="2.5.3" />
     <PackageReference Include="BouncyCastle.OpenPgp" Version="2.0.0.1" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
