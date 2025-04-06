@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using System.Diagnostics;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Executors;
@@ -106,3 +107,4 @@ public class ExternalSolver(
         return handler.Ask(message) ? "ok" : "cancel";
     }
 }
+#endif

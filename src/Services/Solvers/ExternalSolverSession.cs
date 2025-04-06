@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using System.Diagnostics;
 using System.Text;
 using NanoByte.Common.Streams;
@@ -151,3 +152,4 @@ internal sealed class ExternalSolverSession : Dictionary<string, Func<object[], 
         _process.WaitForExit();
     }
 }
+#endif

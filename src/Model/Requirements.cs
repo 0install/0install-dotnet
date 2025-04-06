@@ -2,8 +2,11 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Values;
-using Newtonsoft.Json;
 using ZeroInstall.Model.Design;
+
+#if !MINIMAL
+using Newtonsoft.Json;
+#endif
 
 namespace ZeroInstall.Model;
 
@@ -18,7 +21,10 @@ public partial record Requirements
     /// The URI or local path (must be absolute) to the interface to solve the dependencies for.
     /// </summary>
     [Description("The URI or local path (must be absolute) to the interface to solve the dependencies for.")]
-    [XmlIgnore, JsonProperty("interface")]
+    [XmlIgnore]
+#if !MINIMAL
+    [JsonProperty("interface")]
+#endif
     public required FeedUri InterfaceUri { get; set; }
 
     /// <summary>
@@ -26,7 +32,10 @@ public partial record Requirements
     /// </summary>
     [Description("The name of the command in the implementation to execute. Will default to 'run' or 'compile' if null. Will not try to find any command if set to ''.")]
     [TypeConverter(typeof(CommandNameConverter))]
-    [XmlAttribute("command"), JsonProperty("command")]
+    [XmlAttribute("command")]
+#if !MINIMAL
+    [JsonProperty("command")]
+#endif
     public string? Command { get; set; }
 
     // Order is always alphabetical, duplicate entries are not allowed
@@ -36,7 +45,10 @@ public partial record Requirements
     /// </summary>
     [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly", Justification = "Complete set can be replaced by PropertyGrid.")]
     [Description("The preferred languages for the implementation.")]
-    [XmlIgnore, JsonIgnore]
+    [XmlIgnore]
+#if !MINIMAL
+    [JsonIgnore]
+#endif
     [SetEquality]
     public LanguageSet Languages { get; private set; } = [];
 
@@ -45,14 +57,20 @@ public partial record Requirements
     /// </summary>
     /// <remarks>Will default to <see cref="Model.Architecture.CurrentSystem"/> if left at default value. Will not try to find any command if set to <see cref="string.Empty"/>.</remarks>
     [Description("The architecture to find executables for. Find for the current system if left at default value.")]
-    [XmlIgnore, JsonIgnore]
+    [XmlIgnore]
+#if !MINIMAL
+    [JsonIgnore]
+#endif
     public Architecture Architecture { get; set; }
 
     /// <summary>
     /// Message to display when interacting with user.
     /// </summary>
     [Description("Message to display when interacting with user.")]
-    [XmlElement("message"), JsonProperty("message", DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [XmlElement("message")]
+#if !MINIMAL
+    [JsonProperty("message", DefaultValueHandling = DefaultValueHandling.Ignore)]
+#endif
     public string? Message { get; set; }
 
     #region XML/JSON serialization
@@ -60,7 +78,10 @@ public partial record Requirements
     /// <seealso cref="InterfaceUri"/>
     [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-    [XmlAttribute("interface"), JsonIgnore]
+    [XmlAttribute("interface")]
+#if !MINIMAL
+    [JsonIgnore]
+#endif
     // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
     // ReSharper disable once ConstantConditionalAccessQualifier
     public string InterfaceUriString { get => InterfaceUri?.ToStringRfc()!; set => InterfaceUri = new(value); }
@@ -68,13 +89,19 @@ public partial record Requirements
     /// <summary>Used for XML and JSON serialization.</summary>
     /// <seealso cref="Languages"/>
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-    [DefaultValue(""), JsonProperty("langs", DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [DefaultValue("")]
+#if !MINIMAL
+    [JsonProperty("langs", DefaultValueHandling = DefaultValueHandling.Ignore)]
+#endif
     public string LanguagesString { get => Languages.ToString(); set => Languages = new LanguageSet(value); }
 
     /// <summary>Used for XML and JSON serialization.</summary>
     /// <seealso cref="Architecture"/>
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    [DefaultValue(false), XmlAttribute("source"), JsonProperty("source")]
+    [DefaultValue(false), XmlAttribute("source")]
+#if !MINIMAL
+    [JsonProperty("source")]
+#endif
     public bool Source
     {
         get => Architecture is {Cpu: Cpu.Source};
@@ -84,13 +111,19 @@ public partial record Requirements
     /// <summary>Used for XML and JSON serialization.</summary>
     /// <seealso cref="Architecture"/>
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    [DefaultValue("*"), XmlAttribute("os"), JsonProperty("os", DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [DefaultValue("*"), XmlAttribute("os")]
+#if !MINIMAL
+    [JsonProperty("os", DefaultValueHandling = DefaultValueHandling.Ignore)]
+#endif
     public string OSString { get => Architecture.OS.ConvertToString(); set => Architecture = Architecture with {OS = value.ConvertFromString<OS>()}; }
 
     /// <summary>Used for XML and JSON serialization.</summary>
     /// <seealso cref="Architecture"/>
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    [DefaultValue("*"), XmlAttribute("machine"), JsonProperty("cpu", DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [DefaultValue("*"), XmlAttribute("machine")]
+#if !MINIMAL
+    [JsonProperty("cpu", DefaultValueHandling = DefaultValueHandling.Ignore)]
+#endif
     public string CpuString { get => Architecture.Cpu.ConvertToString(); set => Architecture = Architecture with {Cpu = value.ConvertFromString<Cpu>()}; }
     #endregion
 
@@ -98,7 +131,10 @@ public partial record Requirements
     /// The ranges of versions of specific sub-implementations that can be chosen.
     /// </summary>
     [Description("The ranges of versions of specific sub-implementations that can be chosen.")]
-    [XmlIgnore, JsonProperty("extra_restrictions")]
+    [XmlIgnore]
+#if !MINIMAL
+    [JsonProperty("extra_restrictions")]
+#endif
     [UnorderedEquality]
     public Dictionary<FeedUri, VersionRange> ExtraRestrictions { get; } = [];
 
@@ -106,7 +142,10 @@ public partial record Requirements
     /// The ranges of versions that can be chosen.
     /// </summary>
     [Browsable(false)]
-    [XmlIgnore, JsonIgnore]
+    [XmlIgnore]
+#if !MINIMAL
+    [JsonIgnore]
+#endif
     public VersionRange? Versions
     {
         get => ExtraRestrictions.TryGetValue(InterfaceUri, out var range) ? range : null;
@@ -135,7 +174,10 @@ public partial record Requirements
     /// </summary>
     /// <remarks>Used internally by solvers, copied from <see cref="Restriction.Distributions"/>, not set directly by user, not serialized.</remarks>
     [Browsable(false)]
-    [XmlIgnore, JsonIgnore]
+    [XmlIgnore]
+#if !MINIMAL
+    [JsonIgnore]
+#endif
     [UnorderedEquality]
     public List<string> Distributions { get; } = [];
 
