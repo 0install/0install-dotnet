@@ -1,6 +1,6 @@
 <Project>
 
-  <ItemGroup Condition="'$(OS)'=='Windows_NT' And '$(CI)'=='True'">
+  <ItemGroup Condition="'$(OS)'=='Windows_NT' And '$(CI)'=='True' And '$(Configuration)'!='Minimal'">
     <DotNetCliToolReference Include="Microsoft.XmlSerializer.Generator" Version="9.0.3" />
     <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="9.0.3" PrivateAssets="All" />
   </ItemGroup>
