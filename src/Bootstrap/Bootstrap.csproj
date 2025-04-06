@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Project properties -->
+  <PropertyGroup>
+    <AssemblyName>0install</AssemblyName>
+    <RootNamespace>ZeroInstall.Bootstrap</RootNamespace>
+    <Description>Downloads and runs Zero Install.</Description>
+    <OutputType>Exe</OutputType>
+    <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
+    <Configurations>Minimal</Configurations>
+    <!--suppress MsbuildTargetFrameworkTagInspection -->
+    <TargetFrameworks>net9.0</TargetFrameworks>
+    <ApplicationIcon>..\..\icon.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+
+    <!-- Feature flags -->
+    <DebuggerSupport>False</DebuggerSupport>
+    <EventSourceSupport>False</EventSourceSupport>
+    <MetricsSupport>False</MetricsSupport>
+
+    <!-- Single file -->
+    <PublishSingleFile>True</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>True</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <SelfContained>True</SelfContained>
+
+    <!-- Trimming -->
+    <PublishTrimmed>True</PublishTrimmed>
+    <TrimMode>full</TrimMode>
+    <TrimmerSingleWarn>False</TrimmerSingleWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <TrimmerRootAssembly Include="ZeroInstall.Model" /><!-- Prevent trimming model types for XmlSerializer compatability -->
+  </ItemGroup>
+
+  <!-- Dependencies -->
+  <ItemGroup>
+    <ProjectReference Include="..\Services\Services.csproj" />
+  </ItemGroup>
+
+</Project>
