@@ -23,3 +23,6 @@ find ../artifacts/Release/net8.0/publish -name "{*.xml,*.pdb}" -type f -delete
 
 echo "Build minimal binaries"
 $dotnet msbuild -v:Quiet -t:Restore -t:Build -p:Configuration=Minimal -p:Version=${1:-1.0.0-pre}
+
+echo "Link bootstrapper"
+$dotnet msbuild -v:Quiet -t:Publish -p:NoBuild=True -p:BuildProjectReferences=False -p:Configuration=Minimal -p:TargetFramework=net9.0 -p:RuntimeIdentifier=linux-x64 -p:Version=${1:-1.0.0-pre} Bootstrap
