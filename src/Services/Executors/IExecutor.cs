@@ -29,7 +29,7 @@ public interface IExecutor
     /// Starts building an execution environment for a <see cref="Selections"/> document.
     /// </summary>
     /// <param name="selections">The set of <see cref="Implementation"/>s be injected into the execution environment.</param>
-    /// <param name="overrideMain">An alternative executable to to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>. May not contain command-line arguments! Whitespaces do not need to be escaped.</param>
+    /// <param name="overrideMain">An alternative executable to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>. May not contain command-line arguments! Whitespaces do not need to be escaped.</param>
     /// <returns>A fluent-style builder for a process execution environment.</returns>
     /// <exception cref="ImplementationNotFoundException">One of the <see cref="Implementation"/>s is not cached yet.</exception>
     /// <exception cref="ExecutorException">The <see cref="IExecutor"/> was unable to process the <see cref="Selections"/>.</exception>

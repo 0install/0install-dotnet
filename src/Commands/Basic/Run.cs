@@ -22,7 +22,7 @@ public class Run : Download
     public override string Usage => $"{base.Usage} [ARGS]";
     protected override int AdditionalArgsMax => int.MaxValue;
 
-    /// <summary>>An alternative executable to to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>.</summary>
+    /// <summary>>An alternative executable to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>.</summary>
     private string? _overrideMain;
 
     /// <summary>Instead of executing the selected program directly, pass it as an argument to this program.</summary>

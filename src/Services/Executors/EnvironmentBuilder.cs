@@ -40,7 +40,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
     /// Must be called before any methods of the <see cref="IEnvironmentBuilder"/> interface are used. May not be called more than once.
     /// </summary>
     /// <param name="selections">The set of <see cref="Implementation"/>s be injected into the execution environment.</param>
-    /// <param name="overrideMain">An alternative executable to to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>. May not contain command-line arguments! Whitespaces do not need to be escaped.</param>
+    /// <param name="overrideMain">An alternative executable to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>. May not contain command-line arguments! Whitespaces do not need to be escaped.</param>
     /// <exception cref="ImplementationNotFoundException">One of the <see cref="Implementation"/>s is not cached yet.</exception>
     /// <exception cref="ExecutorException">The executor was unable to process the <see cref="Selections"/>.</exception>
     /// <exception cref="IOException">A problem occurred while writing a file.</exception>
@@ -167,7 +167,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
     /// Returns the main (first) implementation of the selection.
     /// Replaces the <see cref="Command"/> of the main implementation with the binary specified in <paramref name="overrideMain"/> if set.
     /// </summary>
-    /// <param name="overrideMain">An alternative executable to to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>. May not contain command-line arguments! Whitespaces do not need to be escaped.</param>
+    /// <param name="overrideMain">An alternative executable to run from the main <see cref="Implementation"/> instead of <see cref="Element.Main"/>. May not contain command-line arguments! Whitespaces do not need to be escaped.</param>
     private ImplementationSelection GetMainImplementation(string? overrideMain)
     {
         Debug.Assert(_selections != null);
