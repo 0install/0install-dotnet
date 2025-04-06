@@ -33,4 +33,5 @@
     <BuildType Solution="Minimal|*" Project="Release" />
     <Build Solution="Minimal|*" Project="false" />
   </Project>
+  <Project Path="Bootstrap/Bootstrap.csproj" />
 </Solution>
