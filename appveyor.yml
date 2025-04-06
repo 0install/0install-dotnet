@@ -34,6 +34,8 @@ for:
       # docs.0install.net
       - path: artifacts\Documentation
         name: docs
+      # Bootstrapper
+      - path: artifacts\Minimal\net9.0\win-x64\publish\0install.exe
       # apps.0install.net
       - path: 0install-dotnet-*.tar.gz
         name: bin
@@ -72,3 +74,7 @@ for:
 
     test_script:
       - src/test.sh
+
+    artifacts:
+      # Bootstrapper
+      - path: artifacts\Minimal\net9.0\linux-x64\publish\0install

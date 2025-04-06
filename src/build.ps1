@@ -17,4 +17,7 @@ Run-DotNet msbuild /v:Quiet /t:Publish /p:NoBuild=True /p:BuildProjectReferences
 echo "Build minimal binaries"
 Run-DotNet msbuild /v:Quiet /t:Restore /t:Build /p:Configuration=Minimal /p:Version=$Version
 
+echo "Link bootstrapper"
+Run-DotNet msbuild /v:Quiet /t:Publish /p:NoBuild=True /p:BuildProjectReferences=False /p:Configuration=Minimal /p:TargetFramework=net9.0 /p:RuntimeIdentifier=win-x64 /p:Version=$Version Bootstrap
+
 popd
