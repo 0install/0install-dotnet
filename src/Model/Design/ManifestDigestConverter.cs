@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using System.Collections;
 using System.Reflection;
 using NanoByte.Common.Values.Design;
@@ -49,3 +50,4 @@ internal class ManifestDigestConverter : ValueTypeConverter<ManifestDigest>
             (string?)propertyValues["Sha256New"]);
     }
 }
+#endif

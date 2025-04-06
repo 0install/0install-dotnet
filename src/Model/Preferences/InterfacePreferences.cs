@@ -31,7 +31,10 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
     /// Implementations at this stability level or higher are preferred. Lower levels are used only if there is no other choice.
     /// </summary>
     [Description("Implementations at this stability level or higher are preferred. Lower levels are used only if there is no other choice.")]
-    [XmlAttribute("stability-policy"), DefaultValue(typeof(Stability), "Unset")]
+    [XmlAttribute("stability-policy")]
+#if !MINIMAL
+    [DefaultValue(typeof(Stability), "Unset")]
+#endif
     public Stability StabilityPolicy { get; set; } = Stability.Unset;
 
     /// <summary>

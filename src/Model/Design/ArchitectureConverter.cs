@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using System.Collections;
 using System.Reflection;
 using NanoByte.Common.Values;
@@ -51,3 +52,4 @@ internal class ArchitectureConverter : ValueTypeConverter<Architecture>
             propertyValues["Cpu"]?.ToString()?.ConvertFromString<Cpu>() ?? Cpu.All);
     }
 }
+#endif

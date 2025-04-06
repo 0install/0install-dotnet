@@ -91,7 +91,10 @@ public sealed partial class PackageImplementation : Element
 
     /// <summary>Not used.</summary>
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-    [XmlAttribute("stability"), DefaultValue(typeof(Stability), "Unset")]
+    [XmlAttribute("stability")]
+#if !MINIMAL
+    [DefaultValue(typeof(Stability), "Unset")]
+#endif
     public override Stability Stability { get => Stability.Unset; set {} }
 
     /// <summary>Not used.</summary>

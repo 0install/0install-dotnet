@@ -1,7 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if !MINIMAL
 using ZeroInstall.Model.Design;
+#endif
 
 namespace ZeroInstall.Model.Capabilities;
 
@@ -19,7 +21,9 @@ namespace ZeroInstall.Model.Capabilities;
 Lists the commands the application normally registers for use by Windows' "Set Program Access and Defaults".
 Used by registry virtualization to stand in for the actual Zero Install commands at runtime.
 """)]
+#if !MINIMAL
 [TypeConverter(typeof(InstallCommandsConverter))]
+#endif
 [Serializable, XmlType("install-commands", Namespace = CapabilityList.XmlNamespace)]
 public record struct InstallCommands(
     [property: XmlAttribute("reinstall"), DefaultValue(""), Description("The path (relative to the installation directory) to the executable used to set an application as the default program without any arguments.")]

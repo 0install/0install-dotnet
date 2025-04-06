@@ -3,9 +3,12 @@
 
 using NanoByte.Common.Native;
 using NanoByte.Common.Values;
-using ZeroInstall.Model.Design;
 using static System.Runtime.InteropServices.Architecture;
 using static System.Runtime.InteropServices.RuntimeInformation;
+
+#if !MINIMAL
+using ZeroInstall.Model.Design;
+#endif
 
 namespace ZeroInstall.Model;
 
@@ -15,7 +18,9 @@ namespace ZeroInstall.Model;
 /// <param name="OS">Determines which operating systems are supported.</param>
 /// <param name="Cpu">Determines which CPU-architectures are supported.</param>
 [Description("Describes a combination of an operating system and a CPU architecture.")]
+#if !MINIMAL
 [TypeConverter(typeof(ArchitectureConverter))]
+#endif
 [Serializable]
 public record struct Architecture(
     [property: Description("Determines which operating systems are supported.")]

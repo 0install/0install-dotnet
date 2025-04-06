@@ -21,7 +21,10 @@ public sealed partial class ImplementationPreferences : XmlUnknown, ICloneable<I
     /// A user-specified override for <see cref="Element.Stability"/> specified in the feed.
     /// </summary>
     [Description("A user-specified override for the implementation stability specified in the feed.")]
-    [XmlAttribute("user-stability"), DefaultValue(typeof(Stability), "Unset")]
+    [XmlAttribute("user-stability")]
+#if !MINIMAL
+    [DefaultValue(typeof(Stability), "Unset")]
+#endif
     public Stability UserStability { get; set; } = Stability.Unset;
 
     /// <summary>

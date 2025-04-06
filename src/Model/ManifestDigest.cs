@@ -2,7 +2,10 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Xml;
+
+#if !MINIMAL
 using ZeroInstall.Model.Design;
+#endif
 
 namespace ZeroInstall.Model;
 
@@ -15,7 +18,9 @@ namespace ZeroInstall.Model;
 /// <param name="Sha256New">A SHA-256 hash of the new manifest format with a base32 encoding and no equals sign in the path.</param>
 /// <remarks>Stores digests of the manifest file using various hashing algorithms.</remarks>
 [Description("A manifest digest is a means of uniquely identifying an Implementation and verifying its contents.")]
+#if !MINIMAL
 [TypeConverter(typeof(ManifestDigestConverter))]
+#endif
 [Serializable, XmlType("manifest-digest", Namespace = Feed.XmlNamespace)]
 public record struct ManifestDigest(
     [property: XmlAttribute("sha1"), DefaultValue(""), Description("A SHA-1 hash of the old manifest format. Not supported anymore!")]

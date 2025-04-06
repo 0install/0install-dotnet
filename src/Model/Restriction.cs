@@ -24,7 +24,10 @@ public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restri
     /// Determines for which operating systems this dependency is required.
     /// </summary>
     [Description("Determines for which operating systems this dependency is required.")]
-    [XmlAttribute("os"), DefaultValue(typeof(OS), "All")]
+    [XmlAttribute("os")]
+#if !MINIMAL
+    [DefaultValue(typeof(OS), "All")]
+#endif
     public OS OS { get; set; }
 
     /// <summary>

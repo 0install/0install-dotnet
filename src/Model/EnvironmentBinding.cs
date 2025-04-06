@@ -59,7 +59,10 @@ public sealed partial class EnvironmentBinding : Binding
     /// Controls how the <see cref="Insert"/> or <see cref="Value"/> is added to the variable.
     /// </summary>
     [Description("""Controls how 'Insert' or 'Value' is added to the variable.""")]
-    [XmlAttribute("mode"), DefaultValue(typeof(EnvironmentMode), "Prepend")]
+    [XmlAttribute("mode")]
+#if !MINIMAL
+    [DefaultValue(typeof(EnvironmentMode), "Prepend")]
+#endif
     public EnvironmentMode Mode { get; set; }
 
     /// <summary>

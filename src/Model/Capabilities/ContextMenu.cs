@@ -39,7 +39,10 @@ public sealed partial class ContextMenu : VerbCapability
     /// Controls which file system object types this context menu entry is displayed for.
     /// </summary>
     [Description("Controls which file system object types this context menu entry is displayed for.")]
-    [XmlAttribute("target"), DefaultValue(typeof(ContextMenuTarget), "Files")]
+    [XmlAttribute("target")]
+#if !MINIMAL
+    [DefaultValue(typeof(ContextMenuTarget), "Files")]
+#endif
     public ContextMenuTarget Target { get; set; }
 
     /// <summary>

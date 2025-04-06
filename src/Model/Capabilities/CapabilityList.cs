@@ -27,7 +27,10 @@ public sealed partial class CapabilityList : XmlUnknown, ICloneable<CapabilityLi
     /// Determines for which operating system the <see cref="Capability"/>s are applicable.
     /// </summary>
     [Description("Determines for which operating system the capabilities are applicable.")]
-    [XmlAttribute("os"), DefaultValue(typeof(OS), "All")]
+    [XmlAttribute("os")]
+#if !MINIMAL
+    [DefaultValue(typeof(OS), "All")]
+#endif
     public OS OS { get; set; }
 
     /// <summary>

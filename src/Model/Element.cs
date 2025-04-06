@@ -127,7 +127,10 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
     /// The default stability rating for this implementation.
     /// </summary>
     [Category("Release"), Description("The default stability rating for this implementation.")]
-    [XmlAttribute("stability"), DefaultValue(typeof(Stability), "Unset")]
+    [XmlAttribute("stability")]
+#if !MINIMAL
+    [DefaultValue(typeof(Stability), "Unset")]
+#endif
     public virtual Stability Stability { get; set; } = Stability.Unset;
 
     /// <summary>

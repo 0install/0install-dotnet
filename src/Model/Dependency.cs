@@ -31,7 +31,10 @@ public partial class Dependency : Restriction, IInterfaceUriBindingContainer, IC
     /// Controls how important this dependency is (i.e. whether ignoring it is an option).
     /// </summary>
     [Description("Controls how important this dependency is (i.e. whether ignoring it is an option).")]
-    [XmlAttribute("importance"), DefaultValue(typeof(Importance), "Essential")]
+    [XmlAttribute("importance")]
+#if !MINIMAL
+    [DefaultValue(typeof(Importance), "Essential")]
+#endif
     public Importance Importance { get; set; }
 
     /// <summary>
