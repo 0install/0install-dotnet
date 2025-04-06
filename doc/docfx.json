@@ -9,7 +9,7 @@
         }
       ],
       "properties": {
-        "TargetFramework": "net8.0"
+        "TargetFramework": "net9.0"
       },
       "namespaceLayout": "nested",
       "dest": "api"
