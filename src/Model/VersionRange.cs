@@ -51,7 +51,7 @@ public sealed partial class VersionRange
     }
 
     /// <summary>
-    /// Creates a new version range set from a a string.
+    /// Creates a new version range set from a string.
     /// </summary>
     /// <param name="value">The string containing the version ranges.</param>
     /// <exception cref="FormatException"><paramref name="value"/> is not a valid version range string.</exception>

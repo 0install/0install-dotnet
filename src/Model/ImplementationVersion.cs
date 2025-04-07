@@ -59,7 +59,7 @@ public sealed partial class ImplementationVersion : IComparable<ImplementationVe
     }
 
     /// <summary>
-    /// Creates a new implementation version from a a string.
+    /// Creates a new implementation version from a string.
     /// </summary>
     /// <param name="value">The string containing the version information.</param>
     /// <exception cref="FormatException"><paramref name="value"/> is not a valid version string.</exception>

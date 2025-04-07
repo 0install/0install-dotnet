@@ -74,7 +74,7 @@ public interface IFeedCache
     /// <exception cref="IOException">A problem occurred while writing the feed file.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the cache is not permitted.</exception>
     /// <exception cref="InvalidDataException">The feed file could not be parsed.</exception>
-    /// <exception cref="InvalidOperationException"><paramref name="feedUri"/> is a a local path.</exception>
+    /// <exception cref="InvalidOperationException"><paramref name="feedUri"/> is a local path.</exception>
     void Add(FeedUri feedUri, byte[] data);
 
     /// <summary>

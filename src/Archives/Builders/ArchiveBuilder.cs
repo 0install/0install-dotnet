@@ -66,7 +66,7 @@ public static class ArchiveBuilder
     }
 
     /// <summary>
-    /// Create an an archive from a directory and writes it to a file.
+    /// Create an archive from a directory and writes it to a file.
     /// </summary>
     /// <param name="sourcePath">The path of the directory to read.</param>
     /// <param name="archivePath">The path of the archive file to create.</param>
