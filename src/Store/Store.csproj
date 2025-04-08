@@ -14,7 +14,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Minimal' And ('$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0')">
-    <IsTrimmable>True</IsTrimmable>
+    <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
   <Import Project="..\Resources.Designer.targets" />
 
