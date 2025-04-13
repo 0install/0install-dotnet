@@ -374,7 +374,7 @@ Um argumento adicional especifica uma localização de cache de destino personal
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, são listadas apenas as implementações desse feed específico.</value>
+    <value>Lista todas as implementações em cache. Se for especificado um URI de feed, apenas são listadas as implementações desse feed específico.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -583,7 +583,7 @@ Pode redistribuir cópias deste programa ao abrigo dos termos da GNU Lesser Gene
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>Falta o elemento &lt;feed-for&gt; em '{0}'; não pode ser usado como um feed para qualquer outra interface.</value>
+    <value>Elemento &lt;feed-for&gt; em falta em '{0}'; não pode ser utilizado como um feed para qualquer outra interface.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -775,7 +775,7 @@ Não pode conter argumentos de linha de comando! Os espaços em branco não prec
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
-    <value>Não descarregue ainda a aplicação propriamente dita. A aplicação será descarregada automaticamente na primeira utilização.</value>
+    <value>Não descarregue ainda a aplicação propriamente dita. Em vez disso, a aplicação será descarregada automaticamente na primeira utilização.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
@@ -832,7 +832,7 @@ No modo off-line, as interfaces não são actualizadas, mesmo que estejam desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Requer uma versão do programa principal dentro do intervalo {RANGE}.
+    <value>Exigir uma versão do programa principal dentro do {RANGE}.
 Os intervalos são separados por tubos (|).
 Cada intervalo tem a forma "START...END". O intervalo corresponde às versões em que START &lt;= VERSION &lt; END. O início ou o fim podem ser omitidos.
 Um único número de versão pode ser usado em vez de um intervalo para corresponder apenas àquela versão, ou !VERSION para corresponder a tudo, exceto aquela versão.</value>

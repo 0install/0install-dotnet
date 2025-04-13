@@ -75,8 +75,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Σφάλμα κατά τη φόρτωση δεδομένων εμπιστοσύνης. Επαναφορά στις προεπιλεγμένες τιμές.</value>
-    <comment>Manually overriden.</comment>
+    <value>Σφάλμα φόρτωσης της βάσης δεδομένων εμπιστοσύνης. Επαναφορά στις προεπιλεγμένες τιμές.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Αδυναμία εύρεσης τροφοδοσίας '{0}' στον κατάλογο.</value>
