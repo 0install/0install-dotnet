@@ -327,7 +327,7 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>Chová se podobně jako "0install download", s tím rozdílem, že program spustí i poté, co se ujistí, že je v mezipaměti.
-Vrátí stav ukončení 1, pokud krok stahování selhal. V opačném případě bude stav ukončení odpovídat stavu ukončení spouštěného programu.</value>
+Vrací stav ukončení 1, pokud krok stahování selhal. V opačném případě bude stav ukončení odpovídat stavu ukončení spouštěného programu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
@@ -357,7 +357,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>Zkopíruje implementaci do mezipaměti. Podobně jako '0install store add', ale z názvu adresáře se extrahuje digest.
+    <value>Zkopíruje implementaci do mezipaměti. Podobně jako '0install store add', ale digest se extrahuje z názvu adresáře.
 Další argumenty určují vlastní cílové umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -554,7 +554,7 @@ Značka &lt;feed-for&gt; označuje kompatibilitu feedu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
-    <value>Neplatný argument '{0}'.</value>
+    <value>Nesprávný argument '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -705,7 +705,7 @@ Nastavením na prázdnou hodnotu ("") příkaz při výběru ignorujete.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Zobrazí digest manifestu (ve výchozím nastavení povoleno, pokud není nastaven parametr --manifest).</value>
+    <value>Zobrazuje digest manifestu (ve výchozím nastavení povoleno, pokud není nastaven parametr --manifest).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
@@ -804,7 +804,7 @@ V off-line režimu se neobnovují žádná rozhraní, i když jsou zastaralá, a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Po aktualizaci restartujte grafické rozhraní "0install central".</value>
+    <value>Po aktualizaci restartujte grafické uživatelské rozhraní "0install central".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">

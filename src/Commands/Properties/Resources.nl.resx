@@ -185,7 +185,7 @@ Selecteer een hele regel door in de eerste kolom te klikken en druk vervolgens o
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Stel een selectievakje in om van een capaciteit de gewenste standaardhandler te maken.
+    <value>Stel een selectievakje in om van een functie de gewenste standaardbehandelaar te maken.
 Verwijder een selectievakje om de standaardstatus van een capaciteit te verwijderen (deze blijft beschikbaar).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -255,7 +255,7 @@ Je kunt het gebruiken door het ZeroInstall.exe bestand in de directory uit te vo
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>Opent de centrale grafische gebruikersinterface voor het starten en beheren van toepassingen.</value>
+    <value>Opent de centrale grafische gebruikersinterface voor het starten en beheren van applicaties.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
@@ -424,7 +424,7 @@ Extra argumenten specificeren aangepaste cache locaties.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Controleert op updates voor het programma en downloadt ze als ze gevonden worden.
+    <value>Controleert of er updates voor het programma zijn en downloadt ze als ze worden gevonden.
 Dit is vergelijkbaar met '0install download --refresh', behalve dat het informatie afdrukt over of er wijzigingen zijn gevonden.</value>
     <comment>Automatically translated.</comment>
   </data>

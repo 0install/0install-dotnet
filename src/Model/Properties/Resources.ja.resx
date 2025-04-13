@@ -167,7 +167,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>安全なIDであること。英数字、スペース( )、ドット(.)、アンダースコア(_)、ハイフン(-)、プラス記号(+)のみ使用可能。</value>
+    <value>安全なIDでなければならない。英数字、スペース( )、ドット(.)、アンダースコア(_)、ハイフン(-)、プラス記号(+)のみ使用可能。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">

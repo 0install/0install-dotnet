@@ -119,7 +119,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Atribut &lt;interface&gt; uri ('{0}') neodpovídá adrese URL, ze které byl kanál stažen ('{1}').</value>
+    <value>Atribut &lt;interface&gt; uri ('{0}') neodpovídá adrese URL, ze které byl zdroj stažen ('{1}').</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -155,7 +155,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Nebyl nalezen žádný souhrn manifestů pro implementaci '{0}'.</value>
+    <value>Pro implementaci '{0}' nebyl nalezen žádný souhrn manifestů.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
