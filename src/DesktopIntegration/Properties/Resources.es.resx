@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
-    <value>El nombre de acceso directo '{0}' contiene caracteres no válidos.</value>
+    <value>El nombre del acceso directo '{0}' contiene caracteres no válidos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">

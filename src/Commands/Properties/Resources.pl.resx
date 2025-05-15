@@ -118,7 +118,7 @@ Aby zaimportować te pliki na inny komputer, możesz użyć skryptu importu albo
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Czy chcesz zaktualizować istniejące integracje desktopowe, aby to odzwierciedlały?
 Jeśli wybierzesz "Tak", potencjalnie niekompatybilne integracje zostaną usunięte.
-Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych możliwości.</value>
+Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych funkcji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
@@ -219,7 +219,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Tworzy alias do uruchamiania aplikacji poprzez 0install bez konieczności wprowadzania pełnego URI.</value>
+    <value>Tworzy alias do uruchamiania aplikacji przez 0install bez konieczności wprowadzania pełnego URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -260,7 +260,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Wyświetla lub zmienia ustawienia konfiguracyjne.
-Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem wyświetla bieżącą wartość nazwanego ustawienia. Po podaniu dwóch argumentów ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "{0}".</value>
+Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem, wyświetla bieżącą wartość nazwanego ustawienia. Po podaniu dwóch argumentów ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -362,7 +362,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na innym komputerze za pomocą "0install store add".</value>
+    <value>Eksportuje zbuforowaną implementację jako archiwum (ZIP, TAR itp.). Wynik można zaimportować na inny komputer za pomocą "0install store add".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
@@ -378,7 +378,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
-    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Pokazuje skojarzenia z buforowanymi kanałami.</value>
+    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Wyświetla skojarzenia z buforowanymi kanałami.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
@@ -689,7 +689,7 @@ Można to zrobić za pomocą "{0}". Będzie to całkowicie niezależne od kopii 
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>Zamiast wykonywać domyślne polecenie, należy użyć {COMMAND}. Prawidłowe nazwy poleceń są określone w kanale programu.
-Ustaw na puste (""), aby zignorować polecenie podczas wyboru.</value>
+Ustaw puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -717,7 +717,7 @@ Ustaw na puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>Eksport nie obejmuje archiwów implementacji. Eksportuj tylko kanały.</value>
+    <value>W eksporcie nie należy uwzględniać archiwów implementacji. Eksportuj tylko kanały.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -758,7 +758,7 @@ Można użyć tej opcji wielokrotnie, aby określić wiele akceptowanych język�
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Stosuje konfigurację dla całej maszyny (dla całego komputera) zamiast tylko dla bieżącego użytkownika.</value>
+    <value>Zastosowanie konfiguracji dla całej maszyny (dla całego komputera) zamiast tylko dla bieżącego użytkownika.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
@@ -843,7 +843,7 @@ Pojedynczy numer wersji może być użyty zamiast zakresu, aby dopasować tylko 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>Dodaje {DIR} do listy pamięci podręcznych implementacji do przeszukania.
+    <value>Dodaje {DIR} do listy pamięci podręcznych wdrożeń do przeszukania.
 Nowe pliki do pobrania nie będą jednak zapisywane w tym katalogu.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -1016,7 +1016,7 @@ Klucz ten należy zachować w tajemnicy i użyć innego hasła. W ten sposób ni
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">
-    <value>Używa języka systemowego</value>
+    <value>Używanie języka systemowego</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">

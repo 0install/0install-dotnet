@@ -294,7 +294,7 @@ Le fichier doit posséder une signature digitale de confiance, comme s'il était
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Liste toutes les applications figurant actuellement dans votre liste d'applications. Si un URI est donné, seule l'application avec cet URI de flux est affichée. Si un PATTERN est donné, seules les applications contenant cette chaîne dans leur nom sont affichées (insensible à la casse).</value>
+    <value>Liste toutes les applications figurant actuellement dans votre liste d'applications. Si un URI est donné, seule l'application avec cet URI est affichée. Si un PATTERN est donné, seules les applications contenant cette chaîne dans leur nom sont affichées (insensible à la casse).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -421,7 +421,7 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Ne fait plus confiance aux flux signés avec une empreinte digitale spécifique. N'arrête de faire confiance qu'à un DOMAINE spécifique, si spécifié.</value>
+    <value>Ne fait plus confiance aux flux signés avec une empreinte digitale spécifique. N'arrête de faire confiance qu'à un DOMAINE spécifique, s'il est spécifié.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -640,7 +640,7 @@ Vous pouvez le faire en utilisant "{0}". Il sera complètement indépendant de v
     <comment>Manually overriden.</comment>
   </data>
   <data name="NotInImplDirs" xml:space="preserve">
-    <value>'{0}' ne figure pas dans la liste des caches d'implémentation personnalisée.</value>
+    <value>{0}' ne figure pas dans la liste des caches d'implémentation personnalisée.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
@@ -783,7 +783,7 @@ Peut ne pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas be
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Retourne immédiatement une fois que le programme choisi a été lancé au lieu d'attendre qu'il ait fini de s'exécuter. Sous Windows, le code de sortie est l'ID du processus du programme lancé.</value>
+    <value>Retourne immédiatement au lancement du programme choisi au lieu d'attendre qu'il ait fini de s'exécuter. Sous Windows, le code de sortie est l'ID du processus du programme lancé.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
