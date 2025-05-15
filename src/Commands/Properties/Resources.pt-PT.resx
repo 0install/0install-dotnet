@@ -290,7 +290,7 @@ O ficheiro tem de ter uma assinatura digital fiável, tal como acontece quando �
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Lista todos os URIs de feeds conhecidos localmente. Se for fornecido um termo de pesquisa, apenas são mostrados os URIs que contenham essa cadeia de caracteres (sem distinção entre maiúsculas e minúsculas).</value>
+    <value>Lista todos os URIs de feeds conhecidos localmente. Se for fornecido um termo de pesquisa, apenas são mostrados os URIs que contenham essa cadeia (sem distinção entre maiúsculas e minúsculas).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -387,7 +387,7 @@ Argumentos adicionais especificam localizações de cache personalizadas.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Remove todas as implementações da cache. Utilize este comando para limpar o sistema antes de remover o Zero Install. Eliminar manualmente os diretórios da cache pode ser difícil devido às ACLs NTFS utilizadas para proteger as implementações contra modificações.
+    <value>Remove todas as implementações da cache. Use este comando para limpar o sistema antes de remover o Zero Install. Eliminar manualmente os diretórios da cache pode ser difícil devido às ACLs NTFS utilizadas para proteger as implementações contra modificações.
 Argumentos adicionais especificam localizações de cache personalizadas.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -497,7 +497,7 @@ Isto é semelhante ao '0install download --refresh', exceto que imprime informa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>O feed para '{0}' ({1}) foi substituído por '{2}'. Pretende utilizar o novo feed?</value>
+    <value>O feed de '{0}' ({1}) foi substituído por '{2}'. Pretende utilizar o novo feed?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -632,7 +632,7 @@ Pode fazê-lo utilizando '{0}'. Isto será completamente independente da sua có
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Só pode ser atualizado com URIs de alimentação, não com documentos de seleção.</value>
+    <value>Só pode ser atualizado com URIs de feed, não com documentos de seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -820,7 +820,7 @@ No modo off-line, as interfaces não são actualizadas, mesmo que estejam desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Repor os dados de sincronização. Os {MODE}s válidos são "none" (fundir normalmente os dados do cliente e do servidor), "client" (substituir todos os dados do cliente pelos dados do servidor) e "server" (substituir todos os dados do servidor pelos dados do cliente).</value>
+    <value>Repor os dados de sincronização. As opções válidas em {MODE}são "none" (fundir normalmente os dados do cliente e do servidor), "client" (substituir todos os dados do cliente pelos dados do servidor) e "server" (substituir todos os dados do servidor pelos dados do cliente).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -1012,7 +1012,7 @@ Mantenha esta chave secreta e utilize algo diferente para a sua palavra-passe. D
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
-    <value>Utilize '{0}' em vez disso.</value>
+    <value>Utilizar '{0}' em vez disso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">
