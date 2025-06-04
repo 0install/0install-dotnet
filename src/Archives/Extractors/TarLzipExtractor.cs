@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 #if !MINIMAL
+using SharpCompress.Common;
 using SharpCompress.Compressors;
 using SharpCompress.Compressors.LZMA;
 using ZeroInstall.Store.FileSystem;
@@ -17,6 +18,18 @@ public class TarLzipExtractor(ITaskHandler handler) : TarExtractor(handler)
 {
     /// <inheritdoc/>
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
-        => base.Extract(builder, new LZipStream(stream, CompressionMode.Decompress), subDir);
+    {
+        try
+        {
+            base.Extract(builder, new LZipStream(stream, CompressionMode.Decompress), subDir);
+        }
+        #region Error handling
+        catch (ExtractionException ex)
+        {
+            // Wrap exception since only certain exception types are allowed
+            throw new IOException(Resources.ArchiveInvalid, ex);
+        }
+        #endregion
+    }
 }
 #endif
