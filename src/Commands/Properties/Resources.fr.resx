@@ -294,7 +294,7 @@ Le fichier doit posséder une signature digitale de confiance, comme s'il était
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Liste toutes les applications figurant actuellement dans votre liste d'applications. Si un URI est donné, seule l'application avec cet URI est affichée. Si un PATTERN est donné, seules les applications contenant cette chaîne dans leur nom sont affichées (insensible à la casse).</value>
+    <value>Liste toutes les applications figurant actuellement dans votre liste d'applications. Si un URI est donné, seule l'application avec cet URI de flux est affichée. Si un PATTERN est donné, seules les applications contenant cette chaîne dans leur nom sont affichées (insensible à la casse).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">

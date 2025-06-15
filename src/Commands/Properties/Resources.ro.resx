@@ -180,7 +180,7 @@ Puteți crea o copie de rezervă a acestei liste utilizând "0install sync".</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
-    <value>Începeți să introduceți text în ultimul rând pentru a crea o nouă intrare.
+    <value>Începeți introducerea textului în ultimul rând pentru a crea o nouă intrare.
 Selectați un întreg rând făcând clic în prima coloană și apoi apăsați DEL pe tastatură pentru a elimina o intrare.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -251,7 +251,7 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din directorul respectiv.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Caută în cataloagele înregistrate aplicații care se potrivesc cu interogarea specificată. Dacă nu este specificată nicio interogare, sunt listate toate aplicațiile din cataloage.</value>
+    <value>Caută în cataloagele înregistrate aplicații care corespund interogării specificate. Dacă nu este specificată nicio interogare, sunt listate toate aplicațiile din cataloage.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -457,7 +457,7 @@ Acest lucru este similar cu "0install download --refresh", cu excepția faptului
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de fluxuri care urmează să fie adăugat:</value>
+    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de fluxuri de adăugat:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
@@ -575,7 +575,7 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii GNU L
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
-    <value>Calea locală de {0}</value>
+    <value>Calea locală a {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingArguments" xml:space="preserve">
@@ -676,7 +676,7 @@ Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă d
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Necesită o versiune a programului principal mai veche decât {VERSION}. Adică, forțează utilizarea unei versiuni vechi a programului.</value>
+    <value>Necesită o versiune a programului principal anterioară {VERSION}. Adică, forțează utilizarea unei versiuni vechi a programului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -820,7 +820,7 @@ Nu poate conține argumente de linie de comandă! Spațiile albe nu trebuie să 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Resetează datele de sincronizare. Site-urile {MODE}valide sunt "none" (fuzionează datele din client și server în mod normal), "client" (înlocuiește toate datele de pe client cu datele de pe server) și "server" (înlocuiește toate datele de pe server cu datele de pe client).</value>
+    <value>Resetează datele de sincronizare. Site-urile {MODE}valide sunt "none" (fuzionează datele de la client și server în mod normal), "client" (înlocuiește toate datele de pe client cu datele de pe server) și "server" (înlocuiește toate datele de pe server cu datele de pe client).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -839,7 +839,7 @@ Un singur număr de versiune poate fi utilizat în locul unui interval pentru a 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Pentru orice bibliotecă sau subcomponentă cu adresa {0:URI} specificată, se specifică versiunea {1:RANGE} (ca pentru --version).</value>
+    <value>Pentru orice bibliotecă sau subcomponentă cu adresa {0:URI} se specifică versiunea {1:RANGE} (ca pentru --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
