@@ -96,7 +96,7 @@ Provare a specificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Sono state rilevate più registrazioni di nuove applicazioni nel registro. Scegliere la prima per impostazione predefinita.</value>
+    <value>Sono state rilevate più registrazioni di nuove applicazioni nel registro di sistema. Scegliere la prima per impostazione predefinita.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">

@@ -294,7 +294,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>현재 애플리케이션 목록에 있는 모든 애플리케이션을 나열합니다. URI를 지정하면 해당 피드 URI를 가진 애플리케이션만 표시됩니다. 패턴이 지정된 경우 이름에 해당 문자열이 포함된 애플리케이션만 표시됩니다(대소문자 구분 없음).</value>
+    <value>현재 애플리케이션 목록에 있는 모든 애플리케이션을 나열합니다. URI를 지정하면 해당 피드 URI를 가진 애플리케이션만 표시됩니다. 패턴을 지정하면 이름에 해당 문자열이 포함된 애플리케이션만 표시됩니다(대소문자 구분 없음).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -424,7 +424,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>프로그램 업데이트를 확인하고 업데이트가 있으면 다운로드합니다.
+    <value>프로그램 업데이트를 확인하고 업데이트가 발견되면 다운로드합니다.
 변경 사항이 발견되었는지 여부에 대한 정보를 인쇄한다는 점을 제외하면 '0install download --refresh'와 유사합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -689,7 +689,7 @@
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>기본 명령을 실행하는 대신 {COMMAND} 을 사용하세요. 유효한 명령 이름은 프로그램 피드에 지정되어 있습니다.
-선택 중 명령을 무시하려면 빈("")으로 설정합니다.</value>
+선택 중에 명령을 무시하려면 빈("")으로 설정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -762,7 +762,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>기본값 대신 지정된 실행 파일( {MAIN} )을 실행합니다. 경로가 '/' 또는 '\'로 시작하면 구현의 최상위 디렉터리를 기준으로 하고, 그렇지 않으면 기본 주 프로그램이 포함된 디렉터리를 기준으로 합니다.
+    <value>기본값 대신 지정된 실행 파일( {MAIN} )을 실행합니다. 경로가 '/' 또는 '\'로 시작하면 구현의 최상위 디렉터리를 기준으로 하고, 그렇지 않으면 기본 기본 프로그램이 포함된 디렉터리를 기준으로 합니다.
 명령줄 인수를 포함할 수 없습니다! 공백은 이스케이프 처리할 필요가 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -1012,7 +1012,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
-    <value>대신 '{0}'를 사용하세요.</value>
+    <value>대신 '{0}'을 사용하세요.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">

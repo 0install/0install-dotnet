@@ -96,7 +96,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>레지스트리에서 여러 개의 새 애플리케이션 등록이 감지되었습니다. 기본적으로 먼저 선택합니다.</value>
+    <value>레지스트리에서 여러 개의 새 애플리케이션 등록이 감지되었습니다. 기본적으로 첫 번째를 선택합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">

@@ -170,7 +170,7 @@ Nuova data: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Impossibile scaricare {0}. Si sta cercando invece di scaricare da feed mirror.</value>
+    <value>Impossibile scaricare {0}. Si cerca invece di scaricare da feed mirror.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
