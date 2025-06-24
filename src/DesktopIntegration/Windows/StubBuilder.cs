@@ -84,8 +84,9 @@ public class StubBuilder(IIconStore iconStore)
     {
         if (File.Exists(path))
         { // Existing stub
-            if (File.GetLastWriteTimeUtc(path) < _templateLastChanged)
-            { // Built by older version of this library, try to rebuild
+            if (File.GetLastWriteTimeUtc(path) < _templateLastChanged // Built by older version of this library, try to rebuild
+             && !File.GetAttributes(path).HasFlag(FileAttributes.ReadOnly)) // Don't try to overwrite readonly files
+            {
                 try
                 {
                     BuildRunStub(path, target, command, gui);
