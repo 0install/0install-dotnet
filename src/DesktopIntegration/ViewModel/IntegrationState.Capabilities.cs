@@ -12,6 +12,7 @@ partial class IntegrationState
 
     public readonly BindingList<FileTypeModel> FileTypes = [];
     public readonly BindingList<UrlProtocolModel> UrlProtocols = [];
+    public readonly BindingList<BrowserNativeMessagingModel> BrowserNativeMessaging = [];
     public readonly BindingList<AutoPlayModel> AutoPlay = [];
     public readonly BindingList<ContextMenuModel> ContextMenu = [];
     public readonly BindingList<DefaultProgramModel> DefaultProgram = [];
@@ -41,6 +42,13 @@ partial class IntegrationState
                 {
                     var model = new UrlProtocolModel(urlProtocol, IsCapabilityUsed<AccessPoints.UrlProtocol>(urlProtocol));
                     UrlProtocols.Add(model);
+                    _capabilityModels.Add(model);
+                    break;
+                }
+                case BrowserNativeMessaging nativeMessaging:
+                {
+                    var model = new BrowserNativeMessagingModel(nativeMessaging, IsCapabilityUsed<AccessPoints.BrowserNativeMessaging>(nativeMessaging));
+                    BrowserNativeMessaging.Add(model);
                     _capabilityModels.Add(model);
                     break;
                 }

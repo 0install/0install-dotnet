@@ -40,6 +40,7 @@ public sealed partial class CapabilityList : XmlUnknown, ICloneable<CapabilityLi
     [XmlElement(typeof(AppRegistration)),
      XmlElement(typeof(FileType)),
      XmlElement(typeof(UrlProtocol)),
+     XmlElement(typeof(BrowserNativeMessaging)),
      XmlElement(typeof(ContextMenu)),
      XmlElement(typeof(AutoPlay)),
      XmlElement(typeof(ComServer)),

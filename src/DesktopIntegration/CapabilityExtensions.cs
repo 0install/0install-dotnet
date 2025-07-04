@@ -22,6 +22,7 @@ public static class CapabilityExtensions
             DefaultProgram x => new AccessPoints.DefaultProgram {Capability = x.ID},
             FileType x => new AccessPoints.FileType {Capability = x.ID},
             UrlProtocol x => new AccessPoints.UrlProtocol {Capability = x.ID},
+            BrowserNativeMessaging x => new AccessPoints.BrowserNativeMessaging {Capability = x.ID},
             _ => throw new NotSupportedException($"Unknown capability: {capability}")
         };
 }
