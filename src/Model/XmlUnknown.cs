@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Xml;
 
 namespace ZeroInstall.Model;
@@ -36,6 +37,8 @@ public abstract class XmlUnknown : IEquatable<XmlUnknown>
             throw new InvalidDataException(string.Format(Resources.MissingXmlAttributeOnTag, attributeName, ToShortXml()));
     }
 
+    private static readonly Regex _safeIdRegex = new(@"^[a-zA-Z0-9 ._+\-]+$", RegexOptions.Compiled);
+
     /// <summary>
     /// Ensures that a value deserialized from an XML attribute is set (not <c>null</c>) and only contains alphanumeric characters, spaces ( ), dots (.), underscores (_), hyphens (-) and plus signs (+).
     /// </summary>
@@ -44,7 +47,7 @@ public abstract class XmlUnknown : IEquatable<XmlUnknown>
     /// <exception cref="InvalidDataException"><paramref name="value"/> is invalid.</exception>
     protected void EnsureAttributeSafeID(string? value, string attributeName)
     {
-        if (string.IsNullOrEmpty(value) || !value.All(x => char.IsLetterOrDigit(x) || x is ' ' or '.' or '_' or '-' or '+'))
+        if (string.IsNullOrEmpty(value) || !_safeIdRegex.IsMatch(value))
             throw new InvalidDataException($"{string.Format(Resources.InvalidXmlAttributeOnTag, attributeName, ToShortXml())} {Resources.ShouldBeSafeID} {Resources.FoundInstead} {value}");
     }
 
