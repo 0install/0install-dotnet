@@ -28,7 +28,8 @@ public sealed class CapabilityListTest
                 new DefaultProgram {ID = "default-program", Descriptions = {"My mail client"}, Icons = {testIcon}, Verbs = {testVerb}, Service = "Mail", InstallCommands = new() {ShowIcons = "helper.exe --show", HideIcons = "helper.exe --hide", Reinstall = "helper.exe --reinstall.exe"}},
                 new FileType {ID = "my_ext1", Descriptions = {"Text file"}, Icons = {testIcon}, Extensions = {new() {Value = "txt", MimeType = "text/plain"}}, Verbs = {testVerb}},
                 new FileType {ID = "my_ext2", Descriptions = {"JPG image"}, Icons = {testIcon}, Extensions = {new() {Value = "jpg", MimeType = "image/jpg"}}, Verbs = {testVerb}},
-                new UrlProtocol {ID = "my_protocol", Descriptions = {"My protocol"}, Icons = {testIcon}, Verbs = {testVerb}, KnownPrefixes = {new() {Value = "my-protocol"}}}
+                new UrlProtocol {ID = "my_protocol", Descriptions = {"My protocol"}, Icons = {testIcon}, Verbs = {testVerb}, KnownPrefixes = {new() {Value = "my-protocol"}}},
+                new BrowserNativeMessaging {Browsers = {KnownBrowsers.Chrome}, ID = "my_host", Name = "my_host", BrowserExtensions = {new() {ID = "my_extension"}}}
             }
         };
     }

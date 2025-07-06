@@ -59,6 +59,10 @@ public partial class CapabilityRegistration : AccessPoint
                     else if (UnixUtils.IsUnix) Unix.DefaultProgram.Register(target, defaultProgram, iconStore, machineWide);
                     break;
 
+                case BrowserNativeMessaging nativeMessaging:
+                    if (WindowsUtils.IsWindows) Windows.BrowserNativeMessagingHost.Register(target, nativeMessaging, iconStore, machineWide);
+                    break;
+
                 case ComServer comServer:
                     if (WindowsUtils.IsWindows) Windows.ComServer.Register(target, comServer, iconStore, machineWide);
                     break;
@@ -98,6 +102,10 @@ public partial class CapabilityRegistration : AccessPoint
                 case Model.Capabilities.DefaultProgram defaultProgram:
                     if (WindowsUtils.IsWindows && machineWide) Windows.DefaultProgram.Unregister(defaultProgram);
                     else if (UnixUtils.IsUnix) Unix.DefaultProgram.Unregister(defaultProgram, machineWide);
+                    break;
+
+                case BrowserNativeMessaging nativeMessaging:
+                    if (WindowsUtils.IsWindows) Windows.BrowserNativeMessagingHost.Unregister(nativeMessaging, machineWide);
                     break;
 
                 case ComServer comServer:
