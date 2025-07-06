@@ -31,6 +31,7 @@ public sealed partial class PackageImplementation : Element
     /// <summary>
     /// A list of distribution names (e.g. Debian, RPM) where <see cref="Package"/> applies. Applies everywhere if empty.
     /// </summary>
+    /// <seealso cref="KnownDistributions"/>
     [Browsable(false)]
     [XmlIgnore]
     [OrderedEquality]

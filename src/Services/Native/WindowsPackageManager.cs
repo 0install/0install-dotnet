@@ -23,7 +23,7 @@ public class WindowsPackageManager : PackageManagerBase
     }
 
     /// <inheritdoc/>
-    protected override string DistributionName => "Windows";
+    protected override string DistributionName => KnownDistributions.Windows;
 
     /// <inheritdoc/>
     protected override IEnumerable<ExternalImplementation> GetImplementations(string packageName)

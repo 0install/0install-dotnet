@@ -57,7 +57,7 @@ public class WindowsPackageManagerTest
 
     private void ExpectImplementation(string packageName, string commandPath, string quickTest)
     {
-        var implementations = _packageManager.Query(new() {Package = packageName, Distributions = {"Windows"}}, "Windows");
+        var implementations = _packageManager.Query(new() {Package = packageName, Distributions = {KnownDistributions.Windows}}, "Windows");
         implementations.Should().Contain(impl =>
             impl.Package == packageName
          && impl.IsInstalled

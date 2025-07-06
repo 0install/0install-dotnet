@@ -9,5 +9,5 @@ internal class DistributionNameConverter : StringConverter
 
     public override bool GetStandardValuesExclusive(ITypeDescriptorContext? context) => false;
 
-    public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext? context) => new(PackageImplementation.DistributionNames);
+    public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext? context) => new(KnownDistributions.All);
 }

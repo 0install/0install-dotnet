@@ -13,7 +13,7 @@ public class PackageImplementationTest
     /// </summary>
     internal static PackageImplementation CreateTestImplementation() => new()
     {
-        Distributions = {"RPM"},
+        Distributions = {KnownDistributions.Rpm},
         Version = new VersionRange("1..!2"),
         Architecture = new(OS.Windows, Cpu.I586),
         Languages = {"en-US"},

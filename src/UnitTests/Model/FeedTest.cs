@@ -98,7 +98,7 @@ public class FeedTest
     public static PackageImplementation CreateTestPackageImplementation() => new()
     {
         Package = "firefox",
-        Distributions = {"RPM"},
+        Distributions = {KnownDistributions.Rpm},
         Version = new("1.0"),
         Architecture = new(OS.Windows, Cpu.I586),
         Languages = {"en-US"},

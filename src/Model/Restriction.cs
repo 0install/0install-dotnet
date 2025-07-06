@@ -76,15 +76,13 @@ public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restri
     /// Specifies that the selected implementation must be from one of the given distributions (e.g. Debian, RPM).
     /// The special value <see cref="DistributionZeroInstall"/> may be used to require an implementation provided by Zero Install (i.e. one not provided by a <see cref="PackageImplementation"/>).
     /// </summary>
+    /// <seealso cref="KnownDistributions"/>
     [Browsable(false)]
     [XmlIgnore]
     [OrderedEquality]
     public List<string> Distributions { get; } = [];
 
-    /// <summary>
-    /// Specifies that the selected implementation must be from one of the space-separated distributions (e.g. Debian, RPM).
-    /// The special value '0install' may be used to require an implementation provided by Zero Install (i.e. one not provided by a <see cref="PackageImplementation"/>).
-    /// </summary>
+    /// <summary>Used for XML serialization.</summary>
     /// <seealso cref="Distributions"/>
     [DisplayName(@"Distributions"), Description("""
     Specifies that the selected implementation must be from one of the space-separated distributions (e.g. Debian, RPM).
