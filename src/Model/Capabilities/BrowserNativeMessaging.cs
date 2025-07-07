@@ -78,11 +78,19 @@ public sealed partial class BrowserNativeMessaging : DefaultCapability
     {
         base.Normalize();
 
+        EnsureAttribute(Name, "name");
+        if (Name == null || Name.StartsWith(".") || Name.EndsWith(".") || Name.Contains("..") || !_nameRegex.IsMatch(Name))
+            throw new InvalidDataException($"{string.Format(Resources.InvalidXmlAttributeOnTag, "name", ToShortXml())} Can only contain lowercase alphanumeric characters, underscores and dots. Can't start or end with a dot, and a dot can't be followed by another dot. {Resources.FoundInstead} {Name}");
+
+        if (Browsers.Count == 0)
+            throw new InvalidDataException(string.Format(Resources.MissingXmlAttributeOnTag, "browser", ToShortXml()));
         if (Browsers.Any(x => !_browserRegex.IsMatch(x)))
             throw new InvalidDataException($"{string.Format(Resources.InvalidXmlAttributeOnTag, "browser", ToShortXml())} Can only contain space-separated sequences of alphanumeric characters. {Resources.FoundInstead} {BrowsersString}");
 
-        if (Name == null || Name.StartsWith(".") || Name.EndsWith(".") || Name.Contains("..") || !_nameRegex.IsMatch(Name))
-            throw new InvalidDataException($"{string.Format(Resources.InvalidXmlAttributeOnTag, "name", ToShortXml())} Can only contain lowercase alphanumeric characters, underscores and dots. Can't start or end with a dot, and a dot can't be followed by another dot. {Resources.FoundInstead} {Name}");
+        if (BrowserExtensions.Count == 0)
+            throw new InvalidDataException(string.Format(Resources.MissingXmlTagInsideTag, "browser-extension", ToShortXml()));
+        foreach (var extension in BrowserExtensions)
+            extension.Normalize();
     }
 
     /// <summary>
