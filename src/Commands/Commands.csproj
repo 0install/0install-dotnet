@@ -42,7 +42,7 @@
   <ItemGroup>
     <PackageReference Include="NanoByte.Common.AnsiCli" Version="2.19.10" />
     <PackageReference Include="NDesk.Options.Patched" Version="0.3.2" />
-    <PackageReference Include="TaskScheduler" Version="2.12.1" />
+    <PackageReference Include="TaskScheduler" Version="2.12.2" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net472'">
     <Reference Include="System.Web" Pack="False" />
