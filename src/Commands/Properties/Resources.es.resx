@@ -680,7 +680,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Omite la descarga del catálogo para comprobar que es válido antes de añadirlo a la lista.</value>
+    <value>Omite la descarga del catálogo para verificar que es válido antes de añadirlo a la lista.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -968,7 +968,7 @@ Ejecute '0install config self_update_uri default' para activarla.</value>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>La clave criptográfica se utiliza para cifrar tus datos localmente antes de transmitirlos al servidor.
-Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. Así nadie podrá acceder a tus datos, incluso si el servidor se viera comprometido.</value>
+Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. De este modo, nadie podrá acceder a tus datos, incluso si el servidor se viera comprometido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

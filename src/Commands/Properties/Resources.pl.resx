@@ -176,7 +176,7 @@ W razie potrzeby pliki te można pobrać ponownie.</value>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
     <value>Czy chcesz usunąć wszystkie aplikacje z listy "Moje aplikacje"? Zapobiegnie to pozostaniu wpisów w menu po usunięciu Zero Install.
-Możesz utworzyć kopię zapasową tej listy za pomocą funkcji "0install sync".</value>
+Możesz utworzyć kopię zapasową tej listy za pomocą "0install sync".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
@@ -219,7 +219,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Tworzy alias do uruchamiania aplikacji poprzez 0install bez konieczności wprowadzania pełnego URI.</value>
+    <value>Tworzy alias do uruchamiania aplikacji przez 0install bez konieczności wprowadzania pełnego URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -378,7 +378,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
-    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Pokazuje skojarzenia z buforowanymi kanałami.</value>
+    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Wyświetla skojarzenia z buforowanymi kanałami.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
@@ -672,7 +672,7 @@ Można to zrobić za pomocą "{0}". Będzie to całkowicie niezależne od kopii 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Automatycznie odpowiada na pytania z domyślnymi ustawieniami, jeśli to możliwe i upraszcza wyjście konsoli (bez tabel i pasków postępu).</value>
+    <value>Automatyczne odpowiadanie na pytania z domyślnymi ustawieniami, jeśli to możliwe i uproszczenie wyjścia konsoli (bez tabel i pasków postępu).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -758,7 +758,7 @@ Można użyć tej opcji wielokrotnie, aby określić wiele akceptowanych język�
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Zastosowanie konfiguracji dla całej maszyny (dla całego komputera) zamiast tylko dla bieżącego użytkownika.</value>
+    <value>Stosuje konfigurację dla całej maszyny (dla całego komputera) zamiast tylko dla bieżącego użytkownika.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">

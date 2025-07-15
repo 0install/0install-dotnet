@@ -219,7 +219,7 @@ Můžete ji použít spuštěním souboru ZeroInstall.exe v tomto adresáři.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Vytvoření aliasu pro spuštění aplikace prostřednictvím 0install bez nutnosti vždy zadávat celý URI.</value>
+    <value>Vytvoření aliasu pro spuštění aplikace prostřednictvím 0install, aniž byste museli vždy zadávat celý URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -624,7 +624,7 @@ To lze provést pomocí adresy '{0}'. Ta bude zcela nezávislá na vaší přeno
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Nulová instalace se spouští z adresáře určeného uživatelem. Aby fungovala integrace na ploše celého počítače, musí být nasazena do adresáře přístupného všem uživatelům.</value>
+    <value>Zero Install se spouští z adresáře určeného uživatelem. Aby fungovala integrace na ploše celého počítače, musí být nasazena do adresáře přístupného všem uživatelům.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -705,7 +705,7 @@ Nastavením na prázdnou hodnotu ("") příkaz při výběru ignorujete.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Zobrazuje digest manifestu (ve výchozím nastavení povoleno, pokud není nastaven parametr --manifest).</value>
+    <value>Zobrazí digest manifestu (ve výchozím nastavení povoleno, pokud není nastaven parametr --manifest).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
