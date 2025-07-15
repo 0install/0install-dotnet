@@ -457,7 +457,7 @@ Acest lucru este similar cu "0install download --refresh", cu excepția faptului
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de fluxuri de adăugat:</value>
+    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de fluxuri care urmează să fie adăugat:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
@@ -839,7 +839,7 @@ Un singur număr de versiune poate fi utilizat în locul unui interval pentru a 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Pentru orice bibliotecă sau subcomponentă cu adresa {0:URI} se specifică versiunea {1:RANGE} (ca pentru --version).</value>
+    <value>Pentru orice bibliotecă sau subcomponentă cu adresa {0:URI} specificată, se specifică versiunea {1:RANGE} (ca pentru --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">

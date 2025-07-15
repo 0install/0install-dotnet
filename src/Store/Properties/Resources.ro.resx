@@ -178,7 +178,7 @@ Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Pictograma încărcată de pe {0} nu este validă {1}.</value>
+    <value>Pictograma încărcată de la {0} nu este validă {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
@@ -286,7 +286,7 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Fraza de acces introdusă este incorectă.</value>
+    <value>Fraza de acces introdusă nu este corectă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

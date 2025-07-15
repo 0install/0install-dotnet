@@ -145,7 +145,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>{0}' の重複ファイルを検索します。</value>
+    <value>{0}' の重複ファイルの検索。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
