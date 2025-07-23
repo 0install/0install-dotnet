@@ -12,7 +12,7 @@ namespace ZeroInstall.Model.Capabilities;
 [Description("An application's ability to act as a browser native messaging host.")]
 [Serializable, XmlRoot("native-messaging", Namespace = CapabilityList.XmlNamespace), XmlType("native-messaging", Namespace = CapabilityList.XmlNamespace)]
 [Equatable]
-public sealed partial class BrowserNativeMessaging : DefaultCapability
+public sealed partial class BrowserNativeMessaging : Capability
 {
     /// <summary>
     /// The name used to call the native messaging host from browser extensions.
@@ -105,7 +105,6 @@ public sealed partial class BrowserNativeMessaging : DefaultCapability
         UnknownAttributes = UnknownAttributes,
         UnknownElements = UnknownElements,
         ID = ID,
-        ExplicitOnly = ExplicitOnly,
         Browsers = {Browsers},
         Name = Name,
         BrowserExtensions = {BrowserExtensions.CloneElements()},
