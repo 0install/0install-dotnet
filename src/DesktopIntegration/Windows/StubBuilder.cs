@@ -23,17 +23,18 @@ public class StubBuilder(IIconStore iconStore)
     /// <param name="target">The application to be launched.</param>
     /// <param name="command">The command argument to be passed to the <c>0install run</c> command; can be <c>null</c>.</param>
     /// <param name="machineWide"><c>true</c> place the generated stub in a machine-wide location; <c>false</c> to place it in the current user profile.</param>
+    /// <param name="needsTerminal"><c>true</c> if the sub should be a command-line app, <c>false</c> if it should be a GUI app, <c>null</c> if it should be auto-detected.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
     /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
     /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-    public IReadOnlyList<string> GetRunCommandLine(FeedTarget target, string? command, bool machineWide)
+    public IReadOnlyList<string> GetRunCommandLine(FeedTarget target, string? command, bool machineWide, bool? needsTerminal = null)
     {
         string targetKey = $"{target.Uri}#{command}";
 
         var entryPoint = target.Feed.GetEntryPoint(command);
-        bool needsTerminal = entryPoint?.NeedsTerminal ?? false;
+        needsTerminal ??= entryPoint?.NeedsTerminal ?? false;
 
         string targetHash = targetKey.Hash(SHA256.Create());
         string exeName = (entryPoint == null)
@@ -47,15 +48,15 @@ public class StubBuilder(IIconStore iconStore)
         try
 #endif
         {
-            CreateOrUpdateRunStub(path, target, needsTerminal, command);
+            CreateOrUpdateRunStub(path, target, needsTerminal.Value, command);
             return [path];
         }
 #if !DEBUG
         catch (Exception ex)
         {
-            var exe = GetExe(needsTerminal);
+            var exe = GetExe(needsTerminal.Value);
             Log.Error($"Failed to generate stub EXE for {targetKey}. Falling back to using '{exe}' directly.", ex);
-            return GetArguments(target.Uri, command, needsTerminal)
+            return GetArguments(target.Uri, command, needsTerminal.Value)
                   .Prepend(Path.Combine(Locations.InstallBase, exe))
                   .ToList();
         }
