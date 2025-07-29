@@ -28,7 +28,7 @@ public class StubBuilder(IIconStore iconStore)
     /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
     /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-    public IReadOnlyList<string> GetRunCommandLine(FeedTarget target, string? command = null, bool machineWide = false)
+    public IReadOnlyList<string> GetRunCommandLine(FeedTarget target, string? command, bool machineWide)
     {
         string targetKey = $"{target.Uri}#{command}";
 
@@ -122,7 +122,7 @@ public class StubBuilder(IIconStore iconStore)
     /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
     /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-    public void BuildRunStub(string path, FeedTarget target, string? command = null, bool gui = false)
+    public void BuildRunStub(string path, FeedTarget target, string? command, bool gui)
     {
         #region Sanity checks
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));

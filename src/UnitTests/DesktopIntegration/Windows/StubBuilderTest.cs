@@ -27,7 +27,7 @@ public class StubBuilderTest : TestWithRedirect
         var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
         target.Feed.EntryPoints[0].NeedsTerminal = true;
 
-        var commandLine = _stubBuilder.GetRunCommandLine(target);
+        var commandLine = _stubBuilder.GetRunCommandLine(target, command: null, machineWide: false);
 
         commandLine.Should().HaveCount(1);
         using var stream = File.OpenRead(commandLine[0]);
@@ -41,7 +41,7 @@ public class StubBuilderTest : TestWithRedirect
     {
         var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
 
-        var commandLine = _stubBuilder.GetRunCommandLine(target);
+        var commandLine = _stubBuilder.GetRunCommandLine(target, command: null, machineWide: false);
 
         commandLine.Should().HaveCount(1);
         using var stream = File.OpenRead(commandLine[0]);
