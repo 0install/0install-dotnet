@@ -18,7 +18,7 @@ public static class BrowserNativeMessagingHost
         string stubPath;
         try
         {
-            stubPath = new StubBuilder(iconStore).GetRunCommandLine(target, capability.Command, machineWide).Single();
+            stubPath = new StubBuilder(iconStore).GetRunCommandLine(target, capability.Command, machineWide, needsTerminal: true).Single();
         }
         catch (InvalidOperationException)
         {
