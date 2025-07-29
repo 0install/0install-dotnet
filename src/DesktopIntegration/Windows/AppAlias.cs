@@ -43,7 +43,7 @@ public static class AppAlias
         PathEnv.AddDir(stubDirPath, machineWide);
 
         string stubFilePath = Path.Combine(stubDirPath, $"{aliasName}.exe");
-        new StubBuilder(iconStore).BuildRunStub(stubFilePath, target, command, gui: false);
+        new StubBuilder(iconStore).BuildRunStub(stubFilePath, target, command, needsTerminal: true);
 
         if (machineWide || WindowsUtils.IsWindows7)
         {

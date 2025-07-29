@@ -33,7 +33,7 @@ public class StubBuilder(IIconStore iconStore)
         string targetKey = $"{target.Uri}#{command}";
 
         var entryPoint = target.Feed.GetEntryPoint(command);
-        bool gui = entryPoint is not {NeedsTerminal: true};
+        bool needsTerminal = entryPoint?.NeedsTerminal ?? false;
 
         string targetHash = targetKey.Hash(SHA256.Create());
         string exeName = (entryPoint == null)
@@ -47,28 +47,28 @@ public class StubBuilder(IIconStore iconStore)
         try
 #endif
         {
-            CreateOrUpdateRunStub(path, target, gui, command);
+            CreateOrUpdateRunStub(path, target, needsTerminal, command);
             return [path];
         }
 #if !DEBUG
         catch (Exception ex)
         {
-            var exe = GetExe(gui);
+            var exe = GetExe(needsTerminal);
             Log.Error($"Failed to generate stub EXE for {targetKey}. Falling back to using '{exe}' directly.", ex);
-            return GetArguments(target.Uri, command, gui)
+            return GetArguments(target.Uri, command, needsTerminal)
                   .Prepend(Path.Combine(Locations.InstallBase, exe))
                   .ToList();
         }
 #endif
     }
 
-    private static string GetExe(bool gui)
-        => gui ? "0install-win.exe" : "0install.exe";
+    private static string GetExe(bool needsTerminal)
+        => needsTerminal ? "0install.exe" : "0install-win.exe";
 
-    private static IEnumerable<string> GetArguments(FeedUri uri, string? command, bool gui)
+    private static IEnumerable<string> GetArguments(FeedUri uri, string? command, bool needsTerminal)
     {
         yield return "run";
-        if (gui) yield return "--no-wait";
+        if (!needsTerminal) yield return "--no-wait";
         if (!string.IsNullOrEmpty(command))
         {
             yield return "--command";
@@ -80,7 +80,7 @@ public class StubBuilder(IIconStore iconStore)
     /// <summary>The point in time when the stub template was last changed.</summary>
     private static readonly DateTime _templateLastChanged = new(2023,5, 3, 12, 0, 0, DateTimeKind.Utc);
 
-    private void CreateOrUpdateRunStub(string path, FeedTarget target, bool gui, string? command)
+    private void CreateOrUpdateRunStub(string path, FeedTarget target, bool needsTerminal, string? command)
     {
         if (File.Exists(path))
         { // Existing stub
@@ -89,7 +89,7 @@ public class StubBuilder(IIconStore iconStore)
             {
                 try
                 {
-                    BuildRunStub(path, target, command, gui);
+                    BuildRunStub(path, target, command, needsTerminal);
                 }
                 catch (Exception ex)
                 {
@@ -99,7 +99,7 @@ public class StubBuilder(IIconStore iconStore)
         }
         else
         { // No existing stub, build new one
-            BuildRunStub(path, target, command, gui);
+            BuildRunStub(path, target, command, needsTerminal);
         }
     }
 
@@ -116,13 +116,13 @@ public class StubBuilder(IIconStore iconStore)
     /// <param name="path">The path to store the generated EXE file.</param>
     /// <param name="target">The application to be launched.</param>
     /// <param name="command">The command argument to be passed to the <c>0install run</c> command; can be <c>null</c>.</param>
-    /// <param name="gui"><c>true</c> to build a GUI stub, <c>false</c> to build a CLI stub.</param>
+    /// <param name="needsTerminal"><c>true</c> if the sub should be a command-line app, <c>false</c> if it should be a GUI app.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
     /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
     /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
-    public void BuildRunStub(string path, FeedTarget target, string? command, bool gui)
+    public void BuildRunStub(string path, FeedTarget target, string? command, bool needsTerminal)
     {
         #region Sanity checks
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
@@ -133,13 +133,13 @@ public class StubBuilder(IIconStore iconStore)
             syntaxTrees:
             [
                 GetCode(
-                    exe: GetExe(gui),
-                    arguments: GetArguments(target.Uri, command, gui),
+                    exe: GetExe(needsTerminal),
+                    arguments: GetArguments(target.Uri, command, needsTerminal),
                     title: target.Feed.GetBestName(CultureInfo.CurrentUICulture, command))
             ],
             _references,
             options: new(
-                gui ? OutputKind.WindowsApplication : OutputKind.ConsoleApplication,
+                needsTerminal ? OutputKind.ConsoleApplication : OutputKind.WindowsApplication,
                 optimizationLevel: OptimizationLevel.Release,
                 deterministic: true));
         var resources = GetResources(compilation, GetIconPath(target, command));
