@@ -18,9 +18,9 @@ namespace ZeroInstall.DesktopIntegration;
 /// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging
 /// </remarks>
 internal record BrowserNativeMessagingManifest(
-    [JsonProperty("name")] string Name,
-    [JsonProperty("description")] string Description,
-    [JsonProperty("path")] string Path)
+    [property: JsonProperty("name")] string Name,
+    [property: JsonProperty("description")] string Description,
+    [property: JsonProperty("path")] string Path)
 {
     [JsonProperty("type")]
     public string Type => "stdio";
