@@ -17,7 +17,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
     /// <summary>
     /// Used to hold the process launch environment while it is being built.
     /// </summary>
-    private readonly ProcessStartInfo _startInfo = new() {ErrorDialog = false, UseShellExecute = false};
+    private readonly ProcessStartInfo _startInfo = new() {UseShellExecute = false};
 
 #if NET
     private IDictionary<string, string?> EnvironmentVariables => _startInfo.Environment;
