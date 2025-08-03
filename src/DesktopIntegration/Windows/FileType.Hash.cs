@@ -21,7 +21,7 @@ partial class FileType
     }
 
     private static string HashInner(byte[] data, byte[] hashedData)
-        => Convert.ToBase64String(MathUtils.XOr(
+        => Convert.ToBase64String(BitwiseUtils.XOr(
             HashInnerPart1(data, hashedData),
             HashInnerPart2(data, hashedData)));
 
