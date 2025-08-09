@@ -18,7 +18,7 @@
     <Nullable>enable</Nullable>
     <EnableSingleFileAnalyzer>True</EnableSingleFileAnalyzer>
   </PropertyGroup>
-  <Import Project="..\Resources.Designer.targets" />
+  <Import Project="..\Resources.Designer.props" />
 
   <!-- Deploy runtime config so this library can also be used as an executable -->
   <ItemGroup>

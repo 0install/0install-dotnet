@@ -17,7 +17,7 @@
   <PropertyGroup Condition="'$(Configuration)'=='Minimal' And ('$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0')">
     <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
-  <Import Project="..\Resources.Designer.targets" />
+  <Import Project="..\Resources.Designer.props" />
 
   <!-- Global usings -->
   <ItemGroup>

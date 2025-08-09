@@ -13,8 +13,8 @@
     <Nullable>enable</Nullable>
     <EnableSingleFileAnalyzer>True</EnableSingleFileAnalyzer>
   </PropertyGroup>
-  <Import Project="..\Resources.Designer.targets" />
-  <Import Project="..\XmlSerializer.Generator.targets" />
+  <Import Project="..\Resources.Designer.props" />
+  <Import Project="..\XmlSerializer.Generator.props" />
 
   <!-- Global usings -->
   <ItemGroup>

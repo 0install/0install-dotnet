@@ -20,8 +20,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{6EE63B66-9CAC-43DF-B79A-C7A9083CE717}"
 ProjectSection(SolutionItems) = preProject
 	Directory.Build.props = Directory.Build.props
-	Resources.Designer.targets = Resources.Designer.targets
-	XmlSerializer.Generator.targets = XmlSerializer.Generator.targets
+	Resources.Designer.props = Resources.Designer.props
+	XmlSerializer.Generator.props = XmlSerializer.Generator.props
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archives", "Archives\Archives.csproj", "{C0837D88-ECC9-45EE-8D07-869DEECCCFD8}"
