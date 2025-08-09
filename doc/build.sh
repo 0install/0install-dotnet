@@ -10,5 +10,6 @@ cd `dirname $0`
 #fi
 
 echo "Build docs"
+rm -rf api/
 $dotnet tool restore
 $dotnet docfx --logLevel=warning --warningsAsErrors docfx.json

@@ -7,6 +7,7 @@ function Run-DotNet {
 }
 
 echo "Build docs"
+if (Test-Path api) { rm api -Recurse -Force }
 Run-DotNet tool restore
 Run-DotNet docfx --logLevel=warning --warningsAsErrors docfx.json
 
