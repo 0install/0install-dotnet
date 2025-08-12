@@ -277,7 +277,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     /// <summary>
     /// Prepares the feed for solver processing.
     /// Flattens inheritance structures, converts legacy elements, sets default values, etc..
-    /// Do not call it if you plan on serializing the feed again since it may loose some of its structure.
+    /// Do not call it if you plan on serializing the feed again since it may lose some of its structure.
     /// </summary>
     /// <param name="feedUri">The URI the feed was originally loaded from.</param>
     /// <exception cref="NotSupportedException">The feed requires a newer version of Zero Install.</exception>
