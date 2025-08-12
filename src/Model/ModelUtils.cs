@@ -63,15 +63,15 @@ public static class ModelUtils
     /// <param name="href">The potentially relative HREF; will remain untouched if absolute.</param>
     /// <param name="source">The file containing the reference; can be <c>null</c>.</param>
     /// <returns>An absolute HREF.</returns>
-    /// <exception cref="UriFormatException"><paramref name="href"/> is a relative URI that cannot be resolved.</exception>
-    public static Uri GetAbsoluteHref(Uri href, FeedUri? source = null)
+    /// <exception cref="UriFormatException"><paramref name="href"/> is a relative URI <paramref name="source"/> does not point to a local file.</exception>
+    public static Uri GetAbsoluteHref(Uri href, FeedUri source)
     {
         #region Sanity checks
         if (href == null) throw new ArgumentNullException(nameof(href));
         #endregion
 
         if (href.IsAbsoluteUri) return href;
-        if (source?.IsFile is null or false) throw new UriFormatException(string.Format(Resources.RelativeUriUnresolvable, href));
+        if (!source.IsFile) throw new UriFormatException(string.Format(Resources.RelativeUriUnresolvable, href));
         return new(new(source.LocalPath, UriKind.Absolute), href);
     }
 
@@ -81,7 +81,16 @@ public static class ModelUtils
     /// <param name="href">The potentially relative HREF; will remain untouched if absolute.</param>
     /// <param name="source">The file containing the reference; can be <c>null</c>.</param>
     /// <returns>An absolute HREF.</returns>
-    /// <exception cref="UriFormatException"><paramref name="href"/> is a relative URI that cannot be resolved.</exception>
+    /// <exception cref="UriFormatException"><paramref name="href"/> is a relative URI and <paramref name="source"/> is <c>null</c>.</exception>
     public static Uri GetAbsoluteHref(Uri href, string? source)
-        => GetAbsoluteHref(href, source.EmptyAsNull()?.To(x => new FeedUri(x)));
+    {
+        #region Sanity checks
+        if (href == null) throw new ArgumentNullException(nameof(href));
+        #endregion
+
+        if (href.IsAbsoluteUri) return href;
+
+        if (string.IsNullOrEmpty(source)) throw new UriFormatException(string.Format(Resources.RelativeUriUnresolvable, href));
+        return new(new(Path.GetFullPath(source), UriKind.Absolute), href);
+    }
 }

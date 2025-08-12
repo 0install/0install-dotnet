@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Native;
 using ZeroInstall.Model.Capabilities;
 
 namespace ZeroInstall.Model;
@@ -227,6 +228,58 @@ public class FeedTest
         feed.Normalize(new(tempFile));
         feedReload.Normalize(new(tempFile));
         feedReload.GetHashCode().Should().Be(feed.GetHashCode());
+    }
+
+    /// <summary>
+    /// Ensures that <see cref="Feed.Normalize"/> correctly turns relative retrieval method URIs into absolute URIs.
+    /// </summary>
+    [Fact]
+    public void NormalizeRelativeUri()
+    {
+        var feed = new Feed
+        {
+            Name = "MyApp",
+            Elements =
+            {
+                new Implementation
+                {
+                    ID = "id1",
+                    Version = new("1.0"),
+                    RetrievalMethods = {new Archive {Href = new("archive.zip", UriKind.Relative)}}
+                }
+            }
+        };
+
+        feed.Normalize(new(WindowsUtils.IsWindows ? @"C:\dir\feed.xml" : "/dir/feed.xml"));
+
+        var href = (feed.Implementations.First().RetrievalMethods.First() as Archive)?.Href;
+        href.Should().Be(new Uri(WindowsUtils.IsWindows ? @"C:\dir\archive.zip" : "/dir/archive.zip"));
+    }
+
+    /// <summary>
+    /// Ensures that <see cref="Feed.Normalize"/> leaves relative retrieval method URIs unchanged when no feed path is provided.
+    /// </summary>
+    [Fact]
+    public void NormalizeRelativeUriUnchanged()
+    {
+        var feed = new Feed
+        {
+            Name = "MyApp",
+            Elements =
+            {
+                new Implementation
+                {
+                    ID = "id1",
+                    Version = new("1.0"),
+                    RetrievalMethods = {new Archive {Href = new("archive.zip", UriKind.Relative)}}
+                }
+            }
+        };
+
+        feed.Normalize();
+
+        var href = (feed.Implementations.First().RetrievalMethods.First() as Archive)?.Href;
+        href.Should().Be(new Uri("archive.zip", UriKind.Relative));
     }
 
     [Fact]

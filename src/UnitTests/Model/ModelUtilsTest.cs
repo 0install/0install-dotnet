@@ -50,14 +50,13 @@ public class ModelUtilsTest
         result.IsAbsoluteUri.Should().BeTrue();
         result.Should().Be(absoluteHref);
 
-        ModelUtils.GetAbsoluteHref(absoluteHref)
+        ModelUtils.GetAbsoluteHref(absoluteHref, new FeedUri("https://example.com/test/"))
                   .Should().Be(absoluteHref, because: "Should ignore source if href is already absolute.");
     }
 
     [Fact]
     public void GetAbsoluteHrefException()
     {
-        Assert.Throws<UriFormatException>(() => ModelUtils.GetAbsoluteHref(new("subdir/file", UriKind.Relative)));
-        Assert.Throws<UriFormatException>(() => ModelUtils.GetAbsoluteHref(new("subdir/file", UriKind.Relative), new FeedUri("http://remote/")));
+        Assert.Throws<UriFormatException>(() => ModelUtils.GetAbsoluteHref(new("subdir/file", UriKind.Relative), new FeedUri("https://example.com/")));
     }
 }

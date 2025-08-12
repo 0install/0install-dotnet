@@ -48,7 +48,8 @@ public abstract partial class DownloadRetrievalMethod : RetrievalMethod, IRecipe
         base.Normalize(feedUri);
 
         EnsureAttribute(Href, "href");
-        Href = ModelUtils.GetAbsoluteHref(Href, feedUri);
+        if (feedUri != null)
+            Href = ModelUtils.GetAbsoluteHref(Href, feedUri);
 
         if (Size < 0) throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, "size", ToShortXml()));
     }
