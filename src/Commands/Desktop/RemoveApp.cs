@@ -35,8 +35,8 @@ public class RemoveApp(ICommandHandler handler) : AppCommand(handler)
         IntegrationManager.RemoveApp(appEntry);
 
         if (ZeroInstallInstance.IsLibraryMode
-         && !ExistingDesktopIntegration()
-         && (!ZeroInstallInstance.IsMachineWide || !ExistingDesktopIntegration(machineWide: true)))
+         && AppList.IsEmpty()
+         && (!ZeroInstallInstance.IsMachineWide || AppList.IsEmpty(machineWide: true)))
         {
             Log.Info("Last app removed, auto-removing library mode Zero Install instance");
             StartCommandBackground(Self.Name, Self.Remove.Name, "--batch");

@@ -3,6 +3,7 @@
 
 using System.Diagnostics;
 using NanoByte.Common.Native;
+using ZeroInstall.DesktopIntegration;
 
 namespace ZeroInstall.Commands.Desktop;
 
@@ -52,9 +53,9 @@ partial class Self
             if (!Handler.Ask(Resources.AskRemoveZeroInstall, defaultAnswer: true))
                 return ExitCode.UserCanceled;
 
-            if (IntegrationCommand.ExistingDesktopIntegration())
+            if (!AppList.IsEmpty())
                 new RemoveAllApps(Handler).Execute();
-            if (MachineWide && IntegrationCommand.ExistingDesktopIntegration(machineWide: true))
+            if (MachineWide && !AppList.IsEmpty(machineWide: true))
                 new RemoveAllApps(Handler) {MachineWide = true}.Execute();
 
             bool autoPurgeStore = ZeroInstallInstance.IsLibraryMode && ZeroInstallDeployment.FindOther() == null;

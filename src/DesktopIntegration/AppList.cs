@@ -188,6 +188,12 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
     }
 
     /// <summary>
+    /// Indicates whether there are currently no apps in the <see cref="AppList"/>.
+    /// </summary>
+    public static bool IsEmpty(bool machineWide = false)
+        => LoadSafe(machineWide).Entries.Count == 0;
+
+    /// <summary>
     /// Loads a list from an XML file embedded in a ZIP archive.
     /// </summary>
     /// <param name="stream">The ZIP archive to load.</param>

@@ -30,7 +30,7 @@ public class RemoveAllApps(ICommandHandler handler) : IntegrationCommand(handler
         File.Delete(AppList.GetDefaultPath(MachineWide) + SyncIntegrationManager.AppListLastSyncSuffix);
 
         if (ZeroInstallInstance.IsLibraryMode
-            && (!ZeroInstallInstance.IsMachineWide || !ExistingDesktopIntegration(machineWide: true)))
+            && (!ZeroInstallInstance.IsMachineWide || AppList.IsEmpty(machineWide: true)))
         {
             Log.Info("All apps removed, auto-removing library mode Zero Install instance");
             StartCommandBackground(Self.Name, Self.Remove.Name, "--batch");

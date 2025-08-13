@@ -138,10 +138,4 @@ public abstract class IntegrationCommand : CliCommand
             StartCommandBackground(Download.Name, "--batch", interfaceUri.ToStringRfc());
         }
     }
-
-    /// <summary>
-    /// Indicates whether any desktop integration for apps has been performed yet.
-    /// </summary>
-    public static bool ExistingDesktopIntegration(bool machineWide = false)
-        => AppList.LoadSafe(machineWide).Entries.Any(x => x.AccessPoints != null);
 }
