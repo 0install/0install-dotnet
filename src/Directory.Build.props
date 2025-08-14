@@ -23,6 +23,12 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
+  <!-- Publish configuration -->
+  <PropertyGroup>
+    <SatelliteResourceLanguages>cs;es;el;fr;id;it;ja;ko;nl;pt-BR;pt-PT;ro;ru;tr;zh;zh-Hant</SatelliteResourceLanguages>
+    <PublishDocumentationFiles>False</PublishDocumentationFiles>
+  </PropertyGroup>
+
   <!-- NuGet metadata -->
   <PropertyGroup>
     <Product>Zero Install</Product>

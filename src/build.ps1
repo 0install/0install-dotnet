@@ -13,7 +13,6 @@ Run-DotNet msbuild /v:Quiet /t:Restore /t:Build /p:Configuration=Release /p:Vers
 
 echo "Prepare binaries for publishing"
 Run-DotNet msbuild /v:Quiet /t:Publish /p:NoBuild=True /p:BuildProjectReferences=False /p:Configuration=Release /p:TargetFramework=net8.0 /p:Version=$Version Commands
-Remove-Item ..\artifacts\Release\net8.0\publish\* -Include *.xml,*.pdb
 
 echo "Build minimal binaries"
 Run-DotNet msbuild /v:Quiet /t:Restore /t:Build /p:Configuration=Minimal /p:Version=$Version
