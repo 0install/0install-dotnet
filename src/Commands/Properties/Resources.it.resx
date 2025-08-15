@@ -96,7 +96,7 @@ Puoi utilizzare lo script di importazione o il file Bootstrap eseguibile in '{1}
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Configurazione di Zero Install per tutti gli utenti (a livello di macchina) invece che solo per l'utente corrente?</value>
+    <value>Impostare Zero Install per tutti gli utenti (a livello di macchina) invece che solo per l'utente corrente?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -247,7 +247,7 @@ Rimuovere una casella di controllo per rimuovere lo stato predefinito di una fun
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>Ripristina l'elenco dei cataloghi all'origine predefinita.</value>
+    <value>Ripristina l'elenco dei cataloghi alla sorgente predefinita.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
@@ -269,7 +269,7 @@ Senza argomenti, visualizza tutte le impostazioni e i loro valori correnti. Con 
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>Si comporta in modo simile a '0install select', tranne per il fatto che scarica anche le versioni selezionate se non sono già nella cache.
-Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; restituisce uno stato pari a 1 altrimenti.</value>
+Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono ora tutte scaricate e presenti nella cache; in caso contrario restituisce uno stato pari a 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -290,7 +290,7 @@ Il file deve avere una firma digitale affidabile, come quando si preleva dalla r
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Elenca tutti gli URI di alimentazione conosciuti localmente. Se viene fornito un termine di ricerca, vengono mostrati solo gli URI che contengono tale stringa (senza distinzione tra maiuscole e minuscole).</value>
+    <value>Elenca tutti gli URI di alimentazione conosciuti localmente. Se viene fornito un termine di ricerca, vengono visualizzati solo gli URI che contengono tale stringa (senza distinzione tra maiuscole e minuscole).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -412,7 +412,7 @@ Gli argomenti aggiuntivi specificano le posizioni personalizzate della cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Si fida dei feed provenienti da un DOMINIO specifico quando vengono firmati con una specifica PUNTA DEL DITO.</value>
+    <value>Si fida dei feed provenienti da un DOMINIO specifico quando vengono firmati con una specifica STAMPA DEL DITO.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -570,7 +570,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
-    <value>Questo programma non è accompagnato da alcuna garanzia, nei limiti consentiti dalla legge.
+    <value>Questo programma non è accompagnato da ALCUNA GARANZIA, nei limiti consentiti dalla legge.
 È possibile ridistribuire copie di questo programma secondo i termini della GNU Lesser General Public License.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -619,7 +619,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install funziona in modalità portatile. Deve essere distribuito in una posizione permanente perché l'integrazione con il desktop funzioni.
+    <value>Zero Install funziona in modalità portatile. Per far funzionare l'integrazione con il desktop, deve essere distribuito in una posizione permanente.
 È possibile farlo utilizzando '{0}'. Questo sarà completamente indipendente dalla copia portatile.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -833,7 +833,7 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Richiede una versione del programma principale all'interno dell'intervallo indicato {RANGE}.
-Gli intervalli sono separati da tubi (|).
+Gli intervalli sono separati da pipe (|).
 Ogni intervallo ha la forma "START... END". L'intervallo corrisponde alle versioni in cui START &lt;= VERSION &lt; END. L'inizio o la fine possono essere omessi.
 Si può usare un singolo numero di versione al posto di un intervallo, per trovare solo quella versione, oppure !VERSION per trovare tutto tranne quella versione.</value>
     <comment>Automatically translated.</comment>
@@ -894,7 +894,7 @@ Può contenere argomenti della riga di comando. Gli spazi bianchi devono essere 
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>Risolto '{0}' in '{1}' usando un alias.</value>
+    <value>Risolto '{0}' in '{1}' utilizzando un alias.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
@@ -959,7 +959,7 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
+    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere questo problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

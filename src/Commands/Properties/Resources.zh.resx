@@ -190,7 +190,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>要从缓存中删除{0} 选中的元素吗？</value>
+    <value>您想从缓存中删除{0} 选中的元素吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
@@ -268,7 +268,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>其行为与 "0install select "类似，但如果所选版本尚未缓存，它也会下载这些版本。
+    <value>其行为与 "0install select "类似，但如果所选版本尚未缓存，它还会下载这些版本。
 如果它选择了一组合适的版本，且这些版本已全部下载并进入缓存，则返回 0 的退出状态；否则返回 1 的状态。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -754,7 +754,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>将 Zero Install 作为库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
+    <value>将零安装作为一个库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -874,7 +874,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>要从列表中删除{0} 选定的条目吗？</value>
+    <value>您想从列表中删除{0} 选定的条目吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
@@ -955,7 +955,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
-    <value>商店审计</value>
+    <value>商店审核</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">

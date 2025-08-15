@@ -175,7 +175,7 @@ Deze bestanden kunnen indien nodig opnieuw worden gedownload.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>Wil je alle applicaties verwijderen uit de lijst 'Mijn applicaties'? Dit voorkomt achtergebleven menu-items na het verwijderen van Zero Install.
+    <value>Wil je alle applicaties verwijderen uit de lijst 'Mijn applicaties'? Dit voorkomt achterblijvende menu-items na het verwijderen van Zero Install.
 Je kunt een back-up van deze lijst maken door '0install sync' te gebruiken.</value>
     <comment>Automatically translated.</comment>
   </data>

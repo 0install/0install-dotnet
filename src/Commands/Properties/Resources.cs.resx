@@ -219,7 +219,7 @@ Můžete ji použít spuštěním souboru ZeroInstall.exe v tomto adresáři.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Vytvoření aliasu pro spuštění aplikace prostřednictvím 0install, aniž byste museli vždy zadávat celý URI.</value>
+    <value>Vytvoření aliasu pro spuštění aplikace prostřednictvím 0install bez nutnosti vždy zadávat celý URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -277,7 +277,7 @@ Vrátí výstupní stav 0, pokud vybral vhodnou sadu verzí a všechny jsou nyn�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importuje kanál z místního souboru, jako by byl stažen ze sítě. To je užitečné při testování souboru feedu, abyste jej nemuseli nahrávat na vzdálený server za účelem jeho opětovného stažení.
+    <value>Importuje zdroj z místního souboru, jako by byl stažen ze sítě. To je užitečné při testování souboru feedu, abyste jej nemuseli nahrávat na vzdálený server za účelem jeho opětovného stažení.
 Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sítě.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -294,7 +294,7 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Pokud je zadán URI, zobrazí se pouze aplikace s tímto URI kanálu. Je-li zadán VZOR, zobrazí se pouze aplikace obsahující tento řetězec v názvu (nerozlišuje velká a malá písmena).</value>
+    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Je-li zadán URI, zobrazí se pouze aplikace s tímto URI kanálu. Je-li zadán VZOR, zobrazí se pouze aplikace obsahující tento řetězec v názvu (nerozlišuje velká a malá písmena).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -624,7 +624,7 @@ To lze provést pomocí adresy '{0}'. Ta bude zcela nezávislá na vaší přeno
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install se spouští z adresáře určeného uživatelem. Aby fungovala integrace na ploše celého počítače, musí být nasazena do adresáře přístupného všem uživatelům.</value>
+    <value>Nulová instalace se spouští z adresáře určeného uživatelem. Aby fungovala integrace na ploše celého počítače, musí být nasazena do adresáře přístupného všem uživatelům.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -804,7 +804,7 @@ V off-line režimu se neobnovují žádná rozhraní, i když jsou zastaralá, a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Po aktualizaci restartujte grafické uživatelské rozhraní "0install central".</value>
+    <value>Po aktualizaci restartujte grafické rozhraní "0install central".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">
@@ -922,7 +922,7 @@ Může obsahovat argumenty příkazového řádku. Bílé znaky musí být escap
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>Samočinná aktualizace je zakázána.
+    <value>Vlastní aktualizace je vypnuta.
 Chcete-li ji povolit, spusťte příkaz '0install config self_update_uri default'.</value>
     <comment>Automatically translated.</comment>
   </data>

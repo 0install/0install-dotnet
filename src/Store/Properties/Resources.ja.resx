@@ -145,7 +145,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>{0}' の重複ファイルの検索。</value>
+    <value>{0}' の重複ファイルを検索します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
@@ -262,7 +262,7 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
-    <value>署名ファイルはすでに存在しています。</value>
+    <value>署名ファイルは既に存在します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
