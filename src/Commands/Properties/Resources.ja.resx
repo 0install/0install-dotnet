@@ -84,7 +84,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>'{0}' はカスタム実装キャッシュのリストに既に含まれています。</value>
+    <value>'{0}' は、カスタム実装キャッシュのリストに既に含まれています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -219,7 +219,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>0install経由でアプリケーションを起動するためのエイリアスを作成することで、常に完全なURIを入力する必要がなくなります。</value>
+    <value>常に完全な URI を入力することなく、0install 経由でアプリケーションを起動するためのエイリアスを作成します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -286,7 +286,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>アプリケーションリストにアプリケーションを追加し、デスクトップ環境に統合します。</value>
+    <value>アプリケーションリストにアプリケーションを追加し（不足している場合）、デスクトップ環境に統合します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
@@ -302,7 +302,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>指定したTARGETディレクトリまたはプログラムのデフォルトディレクトリにZero Installを展開し、システムに統合します。</value>
+    <value>指定されたTARGETディレクトリまたはプログラムのデフォルトディレクトリにZero Installを展開し、システムに統合します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
@@ -331,7 +331,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>指定したキーワードに一致する、ミラーサーバーによってインデックス化されたフィードを検索します。デフォルトのミラー・サーバーは、品質に関係なく、既知のすべてのフィードをインデックス化することに注意してください。</value>
+    <value>指定したキーワードに一致する、ミラーサーバーによってインデックス化されたフィードを検索します。デフォルトのミラー・サーバーは、品質に関係なく、既知のすべてのフィードをインデックス化することに注意。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -591,7 +591,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
-    <value>マシン全体の操作を実行するには、管理者である必要があります。</value>
+    <value>マシン全体の操作を行うには管理者である必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
@@ -693,7 +693,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>設定GUIで特定のタブに切り替える。</value>
+    <value>設定GUIで特定のタブに切り替えます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -762,7 +762,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>デフォルトの代わりに、指定された実行ファイル{MAIN} を実行します。'/'または'˶'で始まる場合、パスは実装のトップレベルディレクトリからの相対パスとなり、そうでない場合はデフォルトのメインプログラムを含むディレクトリからの相対パスとなります。
+    <value>デフォルトの代わりに指定された実行ファイル{MAIN} を実行します。'/'または'˶'で始まる場合、パスは実装のトップレベルディレクトリからの相対パスとなり、そうでない場合はデフォルトのメインプログラムを含むディレクトリからの相対パスとなります。
 コマンドライン引数を含めることはできない！空白文字はエスケープする必要はありません。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -886,7 +886,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>この機能を有効にするには、一度ターミナルを閉じて再度開く必要があります。</value>
+    <value>この機能を有効にするには、ターミナルを閉じて開き直す必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -959,7 +959,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>ロングパスのWindowsサポートを有効にすると、この問題が解決する可能性があります。</value>
+    <value>ロングパスのWindowsサポートを有効にすると、この問題が解決する可能性がある。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

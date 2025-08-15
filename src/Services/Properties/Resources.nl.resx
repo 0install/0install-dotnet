@@ -135,7 +135,7 @@ Wilt u deze sleutel vertrouwen om feeds van "{3}" te ondertekenen?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Feeds moeten de URI specificeren waar ze vandaan komen om te kunnen worden geïmporteerd.</value>
+    <value>Feeds moeten de URI specificeren waar ze vandaan komen om geïmporteerd te kunnen worden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
