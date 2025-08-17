@@ -131,11 +131,11 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
             {
                 AddFeedToDict(reference.Source);
             }
-            catch (IOException ex)
+            catch (FileNotFoundException)
             {
+                string suggestedCommand = $"0install remove-feed {requirements.InterfaceUri.ToStringRfc()} {reference.Source.ToStringRfc()}";
                 throw new IOException(
-                    string.Format("Failed to load feed {1} manually registered for interface {0}. Try '0install remove-feed {0} {1}'.", requirements.InterfaceUri.ToStringRfc(), reference.Source.ToStringRfc()),
-                    ex);
+                    $"Could not find the feed file {reference.Source.ToStringRfc()}, which was registered as an additional feed for {requirements.InterfaceUri.ToStringRfc()}.\nTo unregister the feed you can run:\n{suggestedCommand}");
             }
         }
 
