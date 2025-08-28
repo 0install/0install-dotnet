@@ -94,42 +94,41 @@ public static class ImplementationStoreUtils
 
         string expectedDigest = manifestDigest.Best ?? throw new NotSupportedException(Resources.NoKnownDigestMethod);
         var format = ManifestFormat.FromPrefix(expectedDigest);
+        var expectedManifest = Manifest.TryLoad(Path.Combine(path, Manifest.ManifestFile), format);
 
         var builder = new ManifestBuilder(format);
         handler.RunTask(new ReadDirectory(path, builder));
-        if (Verify(builder.Manifest, expectedDigest) == null)
-        {
-            throw new DigestMismatchException(
-                expectedDigest,
-                actualDigest: builder.Manifest.CalculateDigest(),
-                expectedManifest: Manifest.TryLoad(Path.Combine(path, Manifest.ManifestFile), format),
-                actualManifest: builder.Manifest);
-        }
+        builder.Verify(expectedDigest, expectedManifest);
     }
 
     /// <summary>
-    /// Checks whether a <see cref="Manifest"/> matches the expected digest.
-    /// Returns the original manifest or one with backwards-compatibility modifications applied if it matches.
+    /// Ensures that the <see cref="Manifest"/> provided by a builder matches the expected digest.
     /// </summary>
-    /// <param name="manifest">The manifest to check.</param>
+    /// <param name="builder">The builder holding the manifest.</param>
     /// <param name="expectedDigest">The expected digest.</param>
-    /// <returns>The <see cref="Manifest"/> if it matches; <c>null</c> otherwise.</returns>
-    internal static Manifest? Verify(Manifest manifest, string expectedDigest)
+    /// <param name="expectedManifest">The <see cref="Manifest"/> from which <paramref name="expectedDigest"/> was derived. Only used for generating descriptive error messages.</param>
+    /// <returns>The manifest provided by the <paramref name="builder"/>, with backwards-compatibility modifications applied if needed.</returns>
+    /// <exception cref="DigestMismatchException">The digest of the manifest provided by <paramref name="builder"/> does not match <paramref name="expectedDigest"/>.</exception>
+    internal static Manifest Verify(this ManifestBuilder builder, string expectedDigest, Manifest? expectedManifest = null)
     {
-        if (manifest.CalculateDigest() == expectedDigest) return manifest;
+        var actualManifest = builder.Manifest;
+        string actualDigest = actualManifest.CalculateDigest();
+
+        if (actualDigest == expectedDigest)
+            return actualManifest;
 
         for (var offset = TimeSpan.FromHours(-27); offset <= TimeSpan.FromHours(27); offset += TimeSpan.FromMinutes(15))
         {
             Log.Debug($"Attempting to correct digest mismatch by shifting timestamps by {offset} and rounding.");
-            var offsetManifest = manifest.WithOffset(offset);
-            if (offsetManifest.CalculateDigest() == expectedDigest)
+            var adjustedManifest = actualManifest.WithOffset(offset);
+            if (adjustedManifest.CalculateDigest() == expectedDigest)
             {
                 Log.Info($"Expected digest {expectedDigest} but got mismatch. Fixed by shifting timestamps by {offset} and rounding.");
-                return offsetManifest;
+                return adjustedManifest;
             }
         }
 
-        return null;
+        throw new DigestMismatchException(expectedDigest, actualDigest, expectedManifest, actualManifest);
     }
 
     /// <summary>
