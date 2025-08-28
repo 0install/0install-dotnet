@@ -77,7 +77,7 @@ public static class ImplementationStoreUtils
     /// Checks whether an implementation directory matches the expected digest.
     /// Throws <see cref="DigestMismatchException"/> if it does not match.
     /// </summary>
-    /// <param name="path">The path of the directory ot check.</param>
+    /// <param name="path">The path of the directory to check.</param>
     /// <param name="manifestDigest">The expected digest.</param>
     /// <param name="handler">A callback object used when the user is to be informed about progress.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
