@@ -133,6 +133,26 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
             this.SaveXml(path);
         }
     }
+
+    /// <summary>
+    /// Loads <see cref="FeedPreferences"/> for a specific feed, applies modifications to them and saves them again.
+    /// </summary>
+    /// <param name="feedUri">The feed to modify the preferences for.</param>
+    /// <param name="update">The modifications to apply to the preferences.</param>
+    /// <exception cref="IOException">A problem occurred while reading the file.</exception>
+    /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
+    /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
+    public static void UpdateFor(FeedUri feedUri, Action<FeedPreferences> update)
+    {
+        #region Sanity checks
+        if (feedUri == null) throw new ArgumentNullException(nameof(feedUri));
+        if (update == null) throw new ArgumentNullException(nameof(update));
+        #endregion
+
+        var preferences = LoadFor(feedUri);
+        update(preferences);
+        preferences.SaveFor(feedUri);
+    }
     #endregion
 
     #region Clone
