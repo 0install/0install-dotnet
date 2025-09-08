@@ -676,6 +676,9 @@ In off-line mode, no interfaces are refreshed even if they are out-of-date, and 
   <data name="OptionOS" xml:space="preserve">
     <value>Forces the solver to target the operating system {OS}.</value>
   </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>Marks the selected version as preferred for future runs.</value>
+  </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>Create a portable installation that can be moved around (e.g., on a thumb drive).</value>
   </data>
@@ -696,6 +699,9 @@ In off-line mode, no interfaces are refreshed even if they are out-of-date, and 
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
     <value>Reset the synchronization data. Valid {MODE}s are 'none' (merge data from client and server normally), 'client' (replace all data on client with data from server) and 'server' (replace all data on server with data from client).</value>
+  </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>Releases versions previously marked as preferred.</value>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>More verbose output. Use twice for even more verbose output.</value>

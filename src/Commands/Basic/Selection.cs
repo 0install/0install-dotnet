@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
+using ZeroInstall.Model.Preferences;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Solvers;
@@ -45,6 +46,12 @@ public class Selection : CliCommand
     /// <summary>Indicates the user wants a machine-readable output.</summary>
     protected bool ShowXml;
 
+    /// <summary>Indicates the user wants to pin the selected version for future runs.</summary>
+    private bool Pin;
+
+    /// <summary>Indicates the user wants to unpin a previously pinned version.</summary>
+    private bool Unpin;
+
     /// <summary>
     /// Creates a new select command.
     /// </summary>
@@ -87,6 +94,8 @@ public class Selection : CliCommand
             Options.Add("message=", () => Resources.OptionMessage,
                 message => Requirements.Message = message);
             Options.Add("customize", () => Resources.OptionCustomize, _ => CustomizeSelections = true);
+            Options.Add("pin", () => Resources.OptionPin, _ => Pin = true);
+            Options.Add("unpin", () => Resources.OptionUnpin, _ => Unpin = true);
         }
 
         if (refreshOptions)
@@ -109,6 +118,8 @@ public class Selection : CliCommand
     public override void Parse(IReadOnlyList<string> args)
     {
         base.Parse(args);
+
+        if (Pin && Unpin) throw new OptionException(string.Format(Resources.ExclusiveOptions, "--pin", "--unpin"), "pin");
 
         SetInterfaceUri(GetCanonicalUri(AdditionalArgs[0]));
         AdditionalArgs.RemoveAt(0);
@@ -181,6 +192,9 @@ public class Selection : CliCommand
     {
         // TODO: Handle named apps
 
+        if (Pin || Unpin)
+            UnpinImplementations(Requirements.InterfaceUri);
+
         // Don't run the solver if the user provided an external selections document
         if (SelectionsDocument)
         {
@@ -203,6 +217,9 @@ public class Selection : CliCommand
                        ?? Selections.InterfaceUri.ToString().GetRightPartAtLastOccurrence('/');
 
         Handler.CancellationToken.ThrowIfCancellationRequested();
+
+        if (Pin)
+            PinImplementation(Selections.MainImplementation);
     }
 
     /// <summary>
@@ -252,5 +269,34 @@ public class Selection : CliCommand
         if (ShowXml) Handler.Output(Resources.SelectedImplementations, Selections.ToXmlString());
         else Handler.Output(Resources.SelectedImplementations, SelectionsManager.GetTree(Selections));
         return ExitCode.OK;
+    }
+
+    /// <summary>
+    /// Pins a specific implementation for future runs.
+    /// </summary>
+    private static void PinImplementation(ImplementationSelection implementation)
+        => FeedPreferences.UpdateFor(
+            implementation.FromFeed ?? implementation.InterfaceUri,
+            preferences => preferences[implementation.ID].UserStability = Stability.Preferred);
+
+    /// <summary>
+    /// Unpins all previously pinned implementations.
+    /// </summary>
+    private static void UnpinImplementations(FeedUri interfaceUri)
+    {
+        var additionalFeeds = InterfacePreferences.LoadFor(interfaceUri).Feeds.Select(x => x.Source);
+        foreach (var feedUri in additionalFeeds.Prepend(interfaceUri))
+        {
+            FeedPreferences.UpdateFor(
+                feedUri,
+                preferences =>
+                {
+                    foreach (var implementation in preferences.Implementations)
+                    {
+                        if (implementation.UserStability == Stability.Preferred)
+                            implementation.UserStability = Stability.Unset;
+                    }
+                });
+        }
     }
 }

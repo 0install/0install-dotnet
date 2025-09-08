@@ -1687,6 +1687,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Marks the selected version as preferred for future runs..
+        /// </summary>
+        public static string OptionPin {
+            get {
+                return ResourceManager.GetString("OptionPin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create a portable installation that can be moved around (e.g., on a thumb drive)..
         /// </summary>
         public static string OptionPortable {
@@ -1746,6 +1755,15 @@ namespace ZeroInstall.Commands.Properties {
         public static string OptionSyncReset {
             get {
                 return ResourceManager.GetString("OptionSyncReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Releases versions previously marked as preferred..
+        /// </summary>
+        public static string OptionUnpin {
+            get {
+                return ResourceManager.GetString("OptionUnpin", resourceCulture);
             }
         }
         

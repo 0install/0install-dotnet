@@ -795,6 +795,9 @@ Im Offline-Modus werden keine Feeds aktualisiert, selbst wenn sie veraltet sind,
     <value>Erzwingt, dass der Solver auf das Betriebssystem {OS} abzielt.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>Hält die ausgewählte Versionsnummer für zukünftige Ausführungen als bevorzugt fest.</value>
+  </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>Erstelle eine portable Installation, die überallhin mitgenommen werden kann (z. B. auf einem USB-Stick).</value>
     <comment>Manually overriden.</comment>
@@ -822,6 +825,9 @@ Im Offline-Modus werden keine Feeds aktualisiert, selbst wenn sie veraltet sind,
   <data name="OptionSyncReset" xml:space="preserve">
     <value>Setze die Synchronisationsdaten zurück. Gültige {MODE}s sind 'none' (Daten von Client und Server normal zusammenführen), 'client' (alle Daten auf dem Client durch Daten vom Server ersetzen) und 'server' (alle Daten auf dem Server durch Daten vom Client ersetzen).</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>Gibt zuvor als bevorzugt festgehaltene Versionen wieder frei.</value>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>Ausführlichere Ausgabe. Verwenden Sie zweimal, um eine noch ausführlichere Ausgabe zu erhalten.</value>
