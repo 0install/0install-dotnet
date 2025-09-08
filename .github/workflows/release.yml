@@ -8,11 +8,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Prepare
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          show-progress: false
+
+      # Documentation
       - name: Download documentation
         run: |
           curl -sSfLO https://github.com/${{github.repository}}/releases/download/${{github.ref_name}}/docs.zip
           unzip -q docs.zip -d docs
-
       - name: Publish documentation
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -21,6 +27,32 @@ jobs:
           publish_dir: docs
           cname: dotnet.0install.net
 
+      # Release
+      - name: Get tag message
+        id: tag_message
+        run: |
+          {
+            echo "message<<EOF"
+            git fetch -f origin tag ${{github.ref_name}}
+            git tag -l ${{github.ref_name}} --format="%(contents)"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Update GitHub release body
+        uses: actions/github-script@v8
+        env:
+          TAG_MESSAGE: ${{steps.tag_message.outputs.message}}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const release = context.payload.release;
+            await github.rest.repos.updateRelease({
+              owner,
+              repo,
+              release_id: release.id,
+              body: `This release mainly serves as a dependency. For end-user releases, take a look at [0install-win](https://github.com/0install/0install-win).\n\n##Changes\n\${process.env.TAG_MESSAGE}`
+            });
+
+      # Publish
       - name: Publish feed
         env:
           GH_TOKEN: ${{secrets.PERSONAL_TOKEN}}
