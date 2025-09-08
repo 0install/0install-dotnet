@@ -39,7 +39,7 @@
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NanoByte.Common.AnsiCli" Version="2.20.1" />
+    <PackageReference Include="NanoByte.Common.AnsiCli" Version="2.20.2" />
     <PackageReference Include="NDesk.Options.Patched" Version="0.3.2" />
     <PackageReference Include="TaskScheduler" Version="2.12.2" />
   </ItemGroup>
