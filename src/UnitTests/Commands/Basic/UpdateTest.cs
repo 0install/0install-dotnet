@@ -16,15 +16,19 @@ public class UpdateTest : SelectionTestBase<Update>
     [Fact] // Ensures local Selections XMLs are correctly detected and parsed.
     public void TestNormal()
     {
-        var requirements = CreateTestRequirements();
+        var solver = GetMock<ISolver>();
+
+        var requirementsOld = CreateTestRequirements();
+        requirementsOld.ExtraRestrictions.Remove(Fake.Feed1Uri);
         var selectionsOld = Fake.Selections;
+        solver.Setup(x => x.Solve(requirementsOld)).Returns(selectionsOld);
+
+        var requirementsNew = CreateTestRequirements();
         var selectionsNew = Fake.Selections;
         selectionsNew.Implementations[1].Version = new("2.0");
         selectionsNew.Implementations.Add(new() {InterfaceUri = Fake.SubFeed3Uri, ID = "id3", Version = new("0.1")});
+        solver.Setup(x => x.Solve(requirementsNew)).Returns(selectionsNew);
 
-        GetMock<ISolver>().SetupSequence(x => x.Solve(requirements))
-                          .Returns(selectionsOld)
-                          .Returns(selectionsNew);
         GetMock<IFeedCache>().Setup(x => x.GetFeed(Fake.Feed1Uri)).Returns(Fake.Feed);
 
         // Download uncached implementations

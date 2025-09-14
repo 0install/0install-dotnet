@@ -46,6 +46,7 @@ public class Update : Download
     private void OldSolve()
     {
         using (PropertyPointer.For(() => FeedManager.Refresh).SetTemp(false))
+        using (PropertyPointer.ForNullable(() => Requirements.Versions).SetTemp(null))
             _oldSelections = Solver.Solve(Requirements);
     }
 
