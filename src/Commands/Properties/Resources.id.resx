@@ -96,7 +96,7 @@ Anda dapat menggunakan skrip impor atau Bootstrap yang dapat dieksekusi di '{1}'
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Mengatur Penginstalan Nol untuk semua pengguna (seluruh mesin), bukan hanya pengguna saat ini?</value>
+    <value>Mengatur Penginstalan Nol untuk semua pengguna (di seluruh mesin), bukan hanya pengguna saat ini?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -412,11 +412,11 @@ Argumen tambahan menentukan lokasi cache khusus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Memercayai feed dari DOMAIN tertentu ketika ditandatangani dengan FINGERPRINT tertentu.</value>
+    <value>Memercayai umpan dari DOMAIN tertentu saat ditandatangani dengan FINGERPRINT tertentu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Membuat daftar kunci yang dipercaya untuk menandatangani umpan. Hanya mencantumkan domain yang dipercaya sebagai FINGERPRINT tertentu, jika ditentukan.</value>
+    <value>Membuat daftar kunci yang dipercaya untuk menandatangani umpan. Hanya mencantumkan domain yang dipercayai FINGERPRINT tertentu, jika ditentukan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -795,6 +795,10 @@ Dalam mode off-line, tidak ada antarmuka yang di-refresh meskipun sudah ketingga
     <value>Memaksa pemecah untuk menargetkan sistem operasi {OS}.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>Menandai versi yang dipilih sebagai versi yang lebih disukai untuk dijalankan di masa mendatang.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>Membuat instalasi portabel yang dapat dipindahkan (misalnya, pada thumb drive).</value>
     <comment>Automatically translated.</comment>
@@ -821,6 +825,10 @@ Dalam mode off-line, tidak ada antarmuka yang di-refresh meskipun sudah ketingga
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
     <value>Mengatur ulang data sinkronisasi. {MODE} yang valid adalah 'tidak ada' (menggabungkan data dari klien dan server secara normal), 'klien' (mengganti semua data di klien dengan data dari server) dan 'server' (mengganti semua data di server dengan data dari klien).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>Merilis versi yang sebelumnya ditandai sebagai pilihan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">

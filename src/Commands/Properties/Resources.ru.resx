@@ -175,7 +175,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>Хотите ли вы удалить все приложения из списка "Мои приложения"? Это предотвратит появление остатков в меню после удаления Zero Install.
+    <value>Вы хотите удалить все приложения из списка "Мои приложения"? Это предотвратит появление остатков в меню после удаления Zero Install.
 Вы можете создать резервную копию этого списка с помощью команды '0install sync'.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -278,11 +278,11 @@
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>Импортирует фид из локального файла, как если бы он был загружен из сети. Это удобно при тестировании файла фида, чтобы не загружать его на удаленный сервер для повторной загрузки.
-Файл должен иметь доверенную цифровую подпись, как при загрузке из сети.</value>
+Файл должен иметь доверенную цифровую подпись, как и при загрузке из сети.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>Импорт набора приложений и настольных интеграций из существующего файла app-list.xml.</value>
+    <value>Импорт набора приложений и интеграций с рабочим столом из существующего файла app-list.xml.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
@@ -624,7 +624,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install запускается из каталога, предназначенного для конкретного пользователя. Для интеграции с рабочим столом всей машины его необходимо развернуть в каталоге, доступном всем пользователям.</value>
+    <value>Zero Install запускается из каталога, предназначенного для конкретного пользователя. Для интеграции с рабочим столом всей машины ее необходимо развернуть в каталоге, доступном всем пользователям.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -737,7 +737,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">
-    <value>Добавление рекомендуемых стандартных точек доступа.</value>
+    <value>Добавление рекомендованных стандартных точек доступа.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
@@ -795,6 +795,10 @@
     <value>Заставляет решатель ориентироваться на операционную систему {OS}.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>Помечает выбранную версию как предпочтительную для последующих запусков.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>Создание портативной установки, которую можно переносить с собой (например, на флешке).</value>
     <comment>Automatically translated.</comment>
@@ -821,6 +825,10 @@
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
     <value>Сброс данных синхронизации. Допустимые значения {MODE}: "нет" (обычное объединение данных с клиента и сервера), "клиент" (замена всех данных на клиенте данными с сервера) и "сервер" (замена всех данных на сервере данными с клиента).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>Выпускает версии, ранее отмеченные как предпочтительные.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">

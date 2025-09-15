@@ -795,6 +795,10 @@ No modo off-line, nenhuma interface é atualizada, mesmo que esteja desatualizad
     <value>Força o solucionador a direcionar o sistema operacional {OS}.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>Marca a versão selecionada como preferencial para execuções futuras.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>Cria uma instalação portátil que possa ser movida (por exemplo, em um pen drive).</value>
     <comment>Manually overriden.</comment>
@@ -821,6 +825,10 @@ No modo off-line, nenhuma interface é atualizada, mesmo que esteja desatualizad
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
     <value>Redefina os dados de sincronização. Os {MODE} válidos são 'none' (mesclar dados do cliente e do servidor normalmente), 'client' (substituir todos os dados do cliente pelos dados do servidor) e 'server' (substituir todos os dados do servidor pelos dados do cliente).</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>Libera versões previamente marcadas como preferenciais.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">

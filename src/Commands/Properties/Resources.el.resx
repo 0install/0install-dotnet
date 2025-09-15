@@ -716,7 +716,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>Μην περιλαμβάνετε αρχεία εφαρμογής στην εξαγωγή. Εξάγετε μόνο τις τροφοδοσίες.</value>
+    <value>Μην συμπεριλάβετε αρχεία εφαρμογής στην εξαγωγή. Εξάγετε μόνο τις τροφοδοσίες.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -794,6 +794,10 @@
     <value>Αναγκάζει τον επιλυτή να στόχευση μια ειδική {OS}.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>Σημειώνει την επιλεγμένη έκδοση ως προτιμώμενη για μελλοντικές εκτελέσεις.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>Δημιουργία μιας φορητής εγκατάστασης που μπορεί να μετακινηθεί (π.χ. σε ένα στικάκι).</value>
     <comment>Automatically translated.</comment>
@@ -821,6 +825,10 @@
   <data name="OptionSyncReset" xml:space="preserve">
     <value>Επαναφορά των δεδομένων συγχρονισμού. Πιθανές {MODE} ες είναι «καμία» (συγχώνευση των δεδομένων από τον πελάτη και το διακομιστή κανονικά), «πελάτης» (αντικαταστήσει όλα τα δεδομένα σχετικά με τον πελάτη με τα δεδομένα από το διακομιστή) και «διακομιστής» (αντικαταστήσει όλα τα δεδομένα στο διακομιστή με δεδομένα από τον πελάτη).</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>Εκδίδει εκδόσεις που είχαν προηγουμένως επισημανθεί ως προτιμώμενες.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>Πιο αναλυτική έξοδος. Χρησιμοποιήστε δύο φορές για ακόμα πιο λεπτομερούς εξόδους.</value>
