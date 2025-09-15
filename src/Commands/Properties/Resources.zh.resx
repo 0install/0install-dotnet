@@ -268,7 +268,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>其行为与 "0install select "类似，但如果所选版本尚未缓存，它还会下载这些版本。
+    <value>其行为与 "0install select "类似，但如果所选版本尚未缓存，它也会下载这些版本。
 如果它选择了一组合适的版本，且这些版本已全部下载并进入缓存，则返回 0 的退出状态；否则返回 1 的状态。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -615,7 +615,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install 需要在系统中部署，以便进行桌面整合。</value>
+    <value>Zero Install 需要在系统中部署，以便进行桌面集成。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -754,11 +754,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>将零安装作为一个库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
+    <value>将 Zero Install 作为库部署，供其他应用程序使用，而无需集成自己的桌面。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>将配置应用于全机（整台电脑），而非仅应用于当前用户。</value>
+    <value>将配置应用于整个机器（整台电脑），而非仅应用于当前用户。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
@@ -795,6 +795,10 @@
     <value>强制解算器以操作系统{OS} 为目标。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>将所选版本标记为今后运行的首选版本。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>创建可移动的便携式安装程序（如拇指驱动器）。</value>
     <comment>Automatically translated.</comment>
@@ -823,6 +827,10 @@
     <value>重置同步数据。有效的{MODE}包括 "无"（正常合并客户端和服务器的数据）、"客户端"（用服务器的数据替换客户端的所有数据）和 "服务器"（用客户端的数据替换服务器的所有数据）。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>发布先前标记为首选的版本。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>更详细的输出。使用两次可获得更详细的输出。</value>
     <comment>Automatically translated.</comment>
@@ -835,7 +843,7 @@
     <value>要求主程序的版本在给定的{RANGE} 范围内。
 范围用管道 (|) 分隔。
 每个范围的形式为 "START...!END"。范围匹配 START &lt;= VERSION &lt; END 的版本。开始或结束可以省略。
-可以使用单个版本号代替范围，以便只匹配该版本，或者使用 !VERSION 来匹配除该版本之外的所有版本。</value>
+可以使用单个版本号代替范围，以便只匹配该版本，或使用 !VERSION 来匹配除该版本之外的所有版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
@@ -874,7 +882,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>您想从列表中删除{0} 选定的条目吗？</value>
+    <value>要从列表中删除{0} 选定的条目吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
@@ -910,7 +918,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>这个零安装实例没有部署。没有任何东西需要移除。</value>
+    <value>这个零安装实例没有部署。没有任何需要删除的内容。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">

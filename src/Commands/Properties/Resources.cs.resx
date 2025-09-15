@@ -277,7 +277,7 @@ Vrátí výstupní stav 0, pokud vybral vhodnou sadu verzí a všechny jsou nyn�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importuje zdroj z místního souboru, jako by byl stažen ze sítě. To je užitečné při testování souboru feedu, abyste jej nemuseli nahrávat na vzdálený server za účelem jeho opětovného stažení.
+    <value>Importuje kanál z místního souboru, jako by byl stažen ze sítě. To je užitečné při testování souboru feedu, abyste jej nemuseli nahrávat na vzdálený server za účelem jeho opětovného stažení.
 Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sítě.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -294,7 +294,7 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Je-li zadán URI, zobrazí se pouze aplikace s tímto URI kanálu. Je-li zadán VZOR, zobrazí se pouze aplikace obsahující tento řetězec v názvu (nerozlišuje velká a malá písmena).</value>
+    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Pokud je zadán URI, zobrazí se pouze aplikace s tímto URI kanálu. Je-li zadán VZOR, zobrazí se pouze aplikace obsahující tento řetězec v názvu (nerozlišuje velká a malá písmena).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -357,7 +357,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>Zkopíruje implementaci do mezipaměti. Podobně jako '0install store add', ale z názvu adresáře se extrahuje digest.
+    <value>Zkopíruje implementaci do mezipaměti. Podobně jako '0install store add', ale digest se extrahuje z názvu adresáře.
 Další argumenty určují vlastní cílové umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -624,7 +624,7 @@ To lze provést pomocí adresy '{0}'. Ta bude zcela nezávislá na vaší přeno
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Nulová instalace se spouští z adresáře určeného uživatelem. Aby fungovala integrace na ploše celého počítače, musí být nasazena do adresáře přístupného všem uživatelům.</value>
+    <value>Zero Install se spouští z adresáře určeného uživatelem. Aby fungovala integrace na ploše celého počítače, musí být nasazena do adresáře přístupného všem uživatelům.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -705,7 +705,7 @@ Nastavením na prázdnou hodnotu ("") příkaz při výběru ignorujete.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Zobrazí digest manifestu (ve výchozím nastavení povoleno, pokud není nastaven parametr --manifest).</value>
+    <value>Zobrazuje digest manifestu (ve výchozím nastavení povoleno, pokud není nastaven parametr --manifest).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
@@ -795,6 +795,10 @@ V off-line režimu se neobnovují žádná rozhraní, i když jsou zastaralá, a
     <value>Vynutí si, aby se řešitel zaměřil na operační systém {OS}.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>Označí vybranou verzi jako preferovanou pro budoucí spuštění.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>Vytvoří přenosnou instalaci, kterou lze přenášet (např. na flash disku).</value>
     <comment>Automatically translated.</comment>
@@ -823,6 +827,10 @@ V off-line režimu se neobnovují žádná rozhraní, i když jsou zastaralá, a
     <value>Obnovení synchronizačních dat. Platné {MODE}s jsou "none" (normálně sloučit data z klienta a serveru), "client" (nahradit všechna data na klientovi daty ze serveru) a "server" (nahradit všechna data na serveru daty z klienta).</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>Uvolňuje verze dříve označené jako preferované.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>Více slovního výstupu. Použijte dvakrát pro ještě podrobnější slovní výstup.</value>
     <comment>Automatically translated.</comment>
@@ -848,7 +856,7 @@ Do tohoto adresáře se však nebudou zapisovat nové stažené soubory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Místo přímého spuštění vybraného programu spusťte {COMMAND} PROGRAM ARGS. To je užitečné pro spouštění ladicích a trasovacích nástrojů na programu (spíše než na Zero Install!).
+    <value>Místo přímého spuštění vybraného programu spusťte {COMMAND} PROGRAM ARGS. To je užitečné pro spuštění ladicích a trasovacích nástrojů na programu (spíše než na Zero Install!).
 Všimněte si, že wrapper je spuštěn v prostředí vybraném programem; tento mechanismus tedy nelze použít pro sandboxing.
 Může obsahovat argumenty příkazového řádku. Bílé znaky musí být escapovány!</value>
     <comment>Automatically translated.</comment>
@@ -922,7 +930,7 @@ Může obsahovat argumenty příkazového řádku. Bílé znaky musí být escap
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>Vlastní aktualizace je vypnuta.
+    <value>Samočinná aktualizace je zakázána.
 Chcete-li ji povolit, spusťte příkaz '0install config self_update_uri default'.</value>
     <comment>Automatically translated.</comment>
   </data>

@@ -243,7 +243,7 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din directorul respectiv.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
-    <value>Înlătură un URI din lista de cataloage.</value>
+    <value>Îndepărtează un URI din lista de cataloage.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogReset" xml:space="preserve">
@@ -441,7 +441,7 @@ Acest lucru este similar cu "0install download --refresh", cu excepția faptului
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Eliminarea integrării desktop-ului</value>
+    <value>Eliminarea integrării în desktop</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -457,7 +457,7 @@ Acest lucru este similar cu "0install download --refresh", cu excepția faptului
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de fluxuri care urmează să fie adăugat:</value>
+    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de fluxuri de adăugat:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
@@ -779,7 +779,7 @@ Nu poate conține argumente de linie de comandă! Spațiile albe nu trebuie să 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Necesită o versiune a programului principal care să nu fie anterioară lui {VERSION}. De exemplu, dacă doriți să rulați versiunea 2.0 sau ulterioară, utilizați --not-before=2.0.</value>
+    <value>Necesită o versiune a programului principal nu mai veche de {VERSION}. De exemplu, dacă doriți să rulați versiunea 2.0 sau ulterioară, utilizați --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -793,6 +793,10 @@ Nu poate conține argumente de linie de comandă! Spațiile albe nu trebuie să 
   </data>
   <data name="OptionOS" xml:space="preserve">
     <value>Forțează rezolvatorul să vizeze sistemul de operare {OS}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>Marchează versiunea selectată ca fiind preferată pentru rulări viitoare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
@@ -821,6 +825,10 @@ Nu poate conține argumente de linie de comandă! Spațiile albe nu trebuie să 
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
     <value>Resetează datele de sincronizare. Site-urile {MODE}valide sunt "none" (fuzionează datele de la client și server în mod normal), "client" (înlocuiește toate datele de pe client cu datele de pe server) și "server" (înlocuiește toate datele de pe server cu datele de pe client).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>Eliberează versiuni marcate anterior ca fiind preferate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">

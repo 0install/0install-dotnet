@@ -795,6 +795,10 @@ Komut satırı değişkenleri bulunamaz! Boşluklardan kaçınılması gerekmez.
     <value>Çözümleyicinin belirli bir işletim sistemini {OS} hedeflemesini sağlar.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>Seçilmiş sürümü gelecekteki çalışmalar için yeğlenen olarak işaretler.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>Taşınabilir bir kurucu (örneğin, USB sürücü üzerinden kullanılabilir) oluşturun.</value>
     <comment>Manually overriden.</comment>
@@ -821,6 +825,10 @@ Komut satırı değişkenleri bulunamaz! Boşluklardan kaçınılması gerekmez.
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
     <value>Eşitleme verisini sıfırlar. Kullanılabilecek kipler {MODE} 'none' (istemci ve sunucu verileri normal şekilde eşitlenir), 'client' (istemci tarafındaki tüm veriyi sunucu verisi ile değiştirir) ve 'server' (sunucu tarafındaki tüm veriyi istemci verisi ile değiştirir) şeklindedir.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>Daha önce yeğlenen olarak işaretlenmiş sürümleri yayınlar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">

@@ -795,6 +795,10 @@ In offline modus worden geen interfaces ververst, zelfs als ze verouderd zijn, e
     <value>Dwingt de oplosser om zich te richten op het besturingssysteem {OS}.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>Markeert de geselecteerde versie als voorkeur voor toekomstige runs.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>Creëer een draagbare installatie die kan worden verplaatst (bijvoorbeeld op een USB-stick).</value>
     <comment>Automatically translated.</comment>
@@ -821,6 +825,10 @@ In offline modus worden geen interfaces ververst, zelfs als ze verouderd zijn, e
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
     <value>Reset de synchronisatiegegevens. Geldige {MODE}s zijn 'geen' (gegevens van client en server normaal samenvoegen), 'client' (alle gegevens op client vervangen door gegevens van server) en 'server' (alle gegevens op server vervangen door gegevens van client).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>Geeft versies vrij die eerder als voorkeur waren gemarkeerd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -886,7 +894,7 @@ Kan commandoregel argumenten bevatten. Whitespaces moeten geëscaped worden!</va
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Het kan zijn dat u uw terminal moet sluiten en opnieuw moet openen om dit te laten werken.</value>
+    <value>Het is mogelijk dat u uw terminal moet sluiten en opnieuw openen om dit effectief te laten worden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">

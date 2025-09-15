@@ -680,7 +680,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Omite la descarga del catálogo para comprobar que es válido antes de añadirlo a la lista.</value>
+    <value>Omite la descarga del catálogo para verificar que es válido antes de añadirlo a la lista.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -795,6 +795,10 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
     <value>Obliga al solucionador a dirigirse al sistema operativo {OS}.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>Marca la versión seleccionada como preferida para futuras ejecuciones.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>Cree una instalación portátil que pueda desplazarse (por ejemplo, en una memoria USB).</value>
     <comment>Automatically translated.</comment>
@@ -804,7 +808,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Reinicia la GUI '0install central' después de la actualización.</value>
+    <value>Reinicia la GUI '0install central' tras la actualización.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">
@@ -821,6 +825,10 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
     <value>Restablece los datos de sincronización. Las opciones válidas de {MODE}son "ninguna" (fusiona los datos del cliente y del servidor normalmente), "cliente" (sustituye todos los datos del cliente por los del servidor) y "servidor" (sustituye todos los datos del servidor por los del cliente).</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>Libera versiones previamente marcadas como preferidas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -886,7 +894,7 @@ Puede contener argumentos de línea de comandos. ¡Los espacios en blanco deben 
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Es posible que tengas que cerrar y volver a abrir el terminal para que esto se haga efectivo.</value>
+    <value>Es posible que tenga que cerrar y volver a abrir el terminal para que esto se haga efectivo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -968,7 +976,7 @@ Ejecute '0install config self_update_uri default' para activarla.</value>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>La clave criptográfica se utiliza para cifrar tus datos localmente antes de transmitirlos al servidor.
-Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. Así nadie podrá acceder a tus datos, incluso si el servidor se viera comprometido.</value>
+Mantén esta clave en secreto y utiliza algo diferente para tu contraseña. De este modo, nadie podrá acceder a tus datos, incluso si el servidor se viera comprometido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

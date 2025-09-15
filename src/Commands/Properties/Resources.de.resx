@@ -796,7 +796,8 @@ Im Offline-Modus werden keine Feeds aktualisiert, selbst wenn sie veraltet sind,
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionPin" xml:space="preserve">
-    <value>Hält die ausgewählte Versionsnummer für zukünftige Ausführungen als bevorzugt fest.</value>
+    <value>Markiert die ausgewählte Versionsnummer für zukünftige Ausführungen als bevorzugt.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>Erstelle eine portable Installation, die überallhin mitgenommen werden kann (z. B. auf einem USB-Stick).</value>
@@ -827,7 +828,8 @@ Im Offline-Modus werden keine Feeds aktualisiert, selbst wenn sie veraltet sind,
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
-    <value>Gibt zuvor als bevorzugt festgehaltene Versionen wieder frei.</value>
+    <value>Setzt zuvor als bevorzugt festgehaltene Versionen wieder zurück.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>Ausführlichere Ausgabe. Verwenden Sie zweimal, um eine noch ausführlichere Ausgabe zu erhalten.</value>

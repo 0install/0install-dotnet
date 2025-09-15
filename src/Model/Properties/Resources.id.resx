@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Kesalahan saat memuat preferensi antarmuka untuk '{0}'. Kembali ke nilai default.</value>
+    <value>Kesalahan memuat preferensi antarmuka untuk '{0}'. Kembali ke nilai default.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">

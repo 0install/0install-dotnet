@@ -84,7 +84,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>'{0}' は、カスタム実装キャッシュのリストに既に含まれています。</value>
+    <value>'{0}' はカスタム実装キャッシュのリストに既に含まれています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -286,7 +286,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>アプリケーションリストにアプリケーションを追加し（不足している場合）、デスクトップ環境に統合します。</value>
+    <value>アプリケーションリストにアプリケーションを追加し、デスクトップ環境に統合します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
@@ -331,7 +331,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>指定したキーワードに一致する、ミラーサーバーによってインデックス化されたフィードを検索します。デフォルトのミラー・サーバーは、品質に関係なく、既知のすべてのフィードをインデックス化することに注意。</value>
+    <value>指定したキーワードに一致する、ミラーサーバーによってインデックス化されたフィードを検索します。デフォルトのミラー・サーバーは、品質に関係なく、既知のすべてのフィードをインデックス化することに注意してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -672,7 +672,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>可能な限りデフォルトで自動的に質問に答え、コンソール出力を簡素化（テーブルやプログレスバーはありません）。</value>
+    <value>可能な限りデフォルトで質問に自動的に回答し、コンソール出力を簡素化（テーブルやプログレスバーなし）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -693,7 +693,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>設定GUIで特定のタブに切り替えます。</value>
+    <value>設定GUIで特定のタブに切り替える。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -701,7 +701,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>グラフィカルポリシーエディターを表示します。これにより、使用するプログラムやライブラリのバージョンをカスタマイズできます。</value>
+    <value>グラフィカル・ポリシー・エディターを表示します。これにより、使用するプログラムやライブラリのバージョンをカスタマイズできます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -762,7 +762,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>デフォルトの代わりに指定された実行ファイル{MAIN} を実行します。'/'または'˶'で始まる場合、パスは実装のトップレベルディレクトリからの相対パスとなり、そうでない場合はデフォルトのメインプログラムを含むディレクトリからの相対パスとなります。
+    <value>デフォルトの代わりに、指定された実行ファイル{MAIN} を実行します。'/'または'˶'で始まる場合、パスは実装のトップレベルディレクトリからの相対パスとなり、そうでない場合はデフォルトのメインプログラムを含むディレクトリからの相対パスとなります。
 コマンドライン引数を含めることはできない！空白文字はエスケープする必要はありません。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -795,6 +795,10 @@
     <value>ソルバーが強制的にオペレーティング・システム{OS} をターゲットにします。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionPin" xml:space="preserve">
+    <value>選択したバージョンは、今後実行する際に優先されるものとしてマークされます。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionPortable" xml:space="preserve">
     <value>移動可能なポータブルインストールを作成（サムドライブなど）。</value>
     <comment>Automatically translated.</comment>
@@ -823,6 +827,10 @@
     <value>同期データのリセット。有効な{MODE}は「none」（クライアントとサーバーのデータを通常通りマージ）、「client」（クライアントの全データをサーバーのデータに置き換える）、「server」（サーバーの全データをクライアントのデータに置き換える）です。</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="OptionUnpin" xml:space="preserve">
+    <value>以前は優先版としてマークされていたバージョンをリリースします。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>より詳細な出力。2回使用すると、さらに詳細な出力が得られます。</value>
     <comment>Automatically translated.</comment>
@@ -839,7 +847,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>指定された{0:URI} を持つライブラリまたはサブコンポーネントについて、バージョン{1:RANGE} を指定します（--version と同様）。</value>
+    <value>与えられた{0:URI} を持つライブラリまたはサブコンポーネントに対して、バージョン{1:RANGE} を指定します（--version と同様）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
@@ -886,7 +894,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>この機能を有効にするには、ターミナルを閉じて開き直す必要があります。</value>
+    <value>この機能を有効にするには、一度ターミナルを閉じて再度開く必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -922,7 +930,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>セルフアップデートは無効です。
+    <value>セルフアップデートは無効になっています。
 有効にするには '0install config self_update_uri default' を実行してください。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -959,7 +967,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>ロングパスのWindowsサポートを有効にすると、この問題が解決する可能性がある。</value>
+    <value>ロングパスのWindowsサポートを有効にすると、この問題が解決する可能性があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

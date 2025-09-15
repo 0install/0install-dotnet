@@ -161,7 +161,7 @@ Execute '0install config feed_mirror default' para o ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Pretende remover a aplicação? Uma nova cópia será automaticamente descarregada de novo quando necessário.</value>
+    <value>Pretende remover a aplicação? Quando necessário, será automaticamente descarregada uma nova cópia.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
@@ -235,7 +235,7 @@ Especificado no ficheiro de configuração '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>O valor do número é demasiado grande.</value>
+    <value>O valor numérico é demasiado grande.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
