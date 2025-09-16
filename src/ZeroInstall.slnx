@@ -1,0 +1,36 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Minimal" />
+    <BuildType Name="Release" />
+  </Configurations>
+  <Folder Name="/Shared/">
+    <File Path="Directory.Build.props" />
+    <File Path="Resources.Designer.props" />
+    <File Path="XmlSerializer.Generator.props" />
+  </Folder>
+  <Project Path="Model/Model.csproj" />
+  <Project Path="Store/Store.csproj" />
+  <Project Path="Archives/Archives.csproj" />
+  <Project Path="Services/Services.csproj" />
+  <Project Path="DesktopIntegration/DesktopIntegration.csproj">
+    <BuildType Solution="Minimal|*" Project="Release" />
+    <Build Solution="Minimal|*" Project="false" />
+  </Project>
+  <Project Path="Commands/Commands.csproj">
+    <BuildType Solution="Minimal|*" Project="Release" />
+    <Build Solution="Minimal|*" Project="false" />
+  </Project>
+  <Project Path="Publish/Publish.csproj">
+    <BuildType Solution="Minimal|*" Project="Release" />
+    <Build Solution="Minimal|*" Project="false" />
+  </Project>
+  <Project Path="Client/Client.csproj">
+    <BuildType Solution="Minimal|*" Project="Release" />
+    <Build Solution="Minimal|*" Project="false" />
+  </Project>
+  <Project Path="UnitTests/UnitTests.csproj">
+    <BuildType Solution="Minimal|*" Project="Release" />
+    <Build Solution="Minimal|*" Project="false" />
+  </Project>
+</Solution>
