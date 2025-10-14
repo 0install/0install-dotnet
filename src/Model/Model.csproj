@@ -31,7 +31,7 @@
 
   <!-- Dependencies -->
   <ItemGroup>
-    <PackageReference Include="NanoByte.Common" Version="2.20.2" />
+    <PackageReference Include="NanoByte.Common" Version="2.20.3" />
     <PackageReference Include="Generator.Equals.Runtime" Version="3.2.1" />
   </ItemGroup>
 
