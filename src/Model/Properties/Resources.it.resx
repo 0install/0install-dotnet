@@ -75,7 +75,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Errore nel caricamento del database fiduciario. Ritorno ai valori predefiniti.</value>
+    <value>Errore nel caricamento del database fiduciario. Ripristino dei valori predefiniti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">

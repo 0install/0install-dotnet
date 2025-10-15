@@ -294,7 +294,7 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Pokud je zadán URI, zobrazí se pouze aplikace s tímto URI kanálu. Je-li zadán VZOR, zobrazí se pouze aplikace obsahující tento řetězec v názvu (nerozlišuje velká a malá písmena).</value>
+    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Je-li zadán URI, zobrazí se pouze aplikace s tímto URI kanálu. Je-li zadán VZOR, zobrazí se pouze aplikace obsahující tento řetězec v názvu (nerozlišuje velká a malá písmena).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -357,7 +357,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>Zkopíruje implementaci do mezipaměti. Podobně jako '0install store add', ale digest se extrahuje z názvu adresáře.
+    <value>Zkopíruje implementaci do mezipaměti. Podobně jako '0install store add', ale z názvu adresáře se extrahuje digest.
 Další argumenty určují vlastní cílové umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -705,7 +705,7 @@ Nastavením na prázdnou hodnotu ("") příkaz při výběru ignorujete.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Zobrazuje digest manifestu (ve výchozím nastavení povoleno, pokud není nastaven parametr --manifest).</value>
+    <value>Zobrazí digest manifestu (ve výchozím nastavení povoleno, pokud není nastaven parametr --manifest).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
@@ -856,7 +856,7 @@ Do tohoto adresáře se však nebudou zapisovat nové stažené soubory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Místo přímého spuštění vybraného programu spusťte {COMMAND} PROGRAM ARGS. To je užitečné pro spuštění ladicích a trasovacích nástrojů na programu (spíše než na Zero Install!).
+    <value>Místo přímého spuštění vybraného programu spusťte {COMMAND} PROGRAM ARGS. To je užitečné pro spouštění ladicích a trasovacích nástrojů na programu (spíše než na Zero Install!).
 Všimněte si, že wrapper je spuštěn v prostředí vybraném programem; tento mechanismus tedy nelze použít pro sandboxing.
 Může obsahovat argumenty příkazového řádku. Bílé znaky musí být escapovány!</value>
     <comment>Automatically translated.</comment>

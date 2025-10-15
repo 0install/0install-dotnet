@@ -412,7 +412,7 @@ Argumen tambahan menentukan lokasi cache khusus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Memercayai umpan dari DOMAIN tertentu saat ditandatangani dengan FINGERPRINT tertentu.</value>
+    <value>Memercayai feed dari DOMAIN tertentu ketika ditandatangani dengan FINGERPRINT tertentu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -841,7 +841,7 @@ Dalam mode off-line, tidak ada antarmuka yang di-refresh meskipun sudah ketingga
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Memerlukan versi program utama dalam {RANGE} yang diberikan.
-Rentang dipisahkan dengan pipa (|).
+Rentang dipisahkan oleh pipa (|).
 Setiap rentang berbentuk "MULAI ... AKHIR". Rentang ini cocok dengan versi di mana MULAI &lt;= VERSI &lt; AKHIR. Bagian awal atau akhir dapat dihilangkan.
 Satu nomor versi dapat digunakan sebagai pengganti rentang untuk mencocokkan hanya versi tersebut, atau !VERSI untuk mencocokkan semuanya kecuali versi tersebut.</value>
     <comment>Automatically translated.</comment>

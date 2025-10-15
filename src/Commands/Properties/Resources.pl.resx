@@ -118,7 +118,7 @@ Aby zaimportować te pliki na inny komputer, możesz użyć skryptu importu albo
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Czy chcesz zaktualizować istniejące integracje desktopowe, aby to odzwierciedlały?
 Jeśli wybierzesz "Tak", potencjalnie niekompatybilne integracje zostaną usunięte.
-Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych funkcji.</value>
+Jeśli wybierzesz "Nie", Zero Install będzie nadal korzystać ze starych możliwości.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
@@ -290,7 +290,7 @@ Plik musi mieć zaufany podpis cyfrowy, tak jak w przypadku pobierania z sieci.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Wyświetla listę wszystkich znanych lokalnie identyfikatorów URI kanałów. Po podaniu wyszukiwanej frazy wyświetlane są tylko identyfikatory URI zawierające ten ciąg (wielkość liter nie ma znaczenia).</value>
+    <value>Wyświetla listę wszystkich lokalnie znanych identyfikatorów URI kanałów. Po podaniu wyszukiwanej frazy wyświetlane są tylko identyfikatory URI zawierające ten ciąg (wielkość liter nie ma znaczenia).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -400,7 +400,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
-    <value>Serwuje implementacje z pamięci podręcznej jako archiwa za pośrednictwem protokołu HTTP.</value>
+    <value>Serwuje implementacje z pamięci podręcznej jako archiwa przez HTTP.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
@@ -680,7 +680,7 @@ Można to zrobić za pomocą "{0}". Będzie to całkowicie niezależne od kopii 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Pomija pobieranie katalogu w celu sprawdzenia jego poprawności przed dodaniem go do listy.</value>
+    <value>Pomija pobieranie katalogu, aby sprawdzić jego poprawność przed dodaniem go do listy.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -689,7 +689,7 @@ Można to zrobić za pomocą "{0}". Będzie to całkowicie niezależne od kopii 
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>Zamiast wykonywać domyślne polecenie, należy użyć {COMMAND}. Prawidłowe nazwy poleceń są określone w kanale programu.
-Ustaw puste (""), aby zignorować polecenie podczas wyboru.</value>
+Ustaw na puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -705,7 +705,7 @@ Ustaw puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Wyświetla skrót manifestu (domyślnie włączony, jeśli opcja --manifest nie jest ustawiona).</value>
+    <value>Wyświetla skrót manifestu (domyślnie włączone, jeśli --manifest nie jest ustawione).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">

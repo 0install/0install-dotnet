@@ -294,7 +294,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>현재 애플리케이션 목록에 있는 모든 애플리케이션을 나열합니다. URI를 지정하면 해당 피드 URI를 가진 애플리케이션만 표시됩니다. 패턴을 지정하면 이름에 해당 문자열이 포함된 애플리케이션만 표시됩니다(대소문자 구분 없음).</value>
+    <value>현재 애플리케이션 목록에 있는 모든 애플리케이션을 나열합니다. URI를 지정하면 해당 피드 URI가 있는 애플리케이션만 표시됩니다. 패턴을 지정하면 이름에 해당 문자열이 포함된 애플리케이션만 표시됩니다(대소문자 구분 없음).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -424,7 +424,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>프로그램 업데이트를 확인하고 업데이트가 있으면 다운로드합니다.
+    <value>프로그램 업데이트를 확인하고 업데이트가 발견되면 다운로드합니다.
 변경 사항이 발견되었는지 여부에 대한 정보를 인쇄한다는 점을 제외하면 '0install download --refresh'와 유사합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -779,7 +779,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>{VERSION} 이전 버전의 기본 프로그램이 필요합니다. 예를 들어, 2.0 이상을 실행하려면 --not-before=2.0을 사용합니다.</value>
+    <value>{VERSION} 이전 버전의 기본 프로그램이 필요합니다. 예를 들어, 버전 2.0 이상을 실행하려면 --not-before=2.0을 사용합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
