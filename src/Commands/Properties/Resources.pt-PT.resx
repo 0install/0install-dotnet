@@ -84,7 +84,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>'{0}' já está na lista de caches de implementação personalizados.</value>
+    <value>'{0}' já se encontra na lista de caches de implementação personalizados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -108,7 +108,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
-    <value>Tem a certeza de que pretende remover o Zero Install deste computador?</value>
+    <value>Tem a certeza que pretende remover o Zero Install deste computador?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
@@ -497,7 +497,7 @@ Isto é semelhante ao '0install download --refresh', exceto que imprime informa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>O feed de '{0}' ({1}) foi substituído por '{2}'. Pretende utilizar o novo feed?</value>
+    <value>O feed para '{0}' ({1}) foi substituído por '{2}'. Pretende utilizar o novo feed?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -840,7 +840,7 @@ No modo off-line, as interfaces não são actualizadas, mesmo que estejam desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Requer uma versão do programa principal dentro do intervalo {RANGE}.
+    <value>Exigir uma versão do programa principal dentro do {RANGE}.
 Os intervalos são separados por tubos (|).
 Cada intervalo tem a forma "START...END". O intervalo corresponde às versões em que START &lt;= VERSION &lt; END. O início ou o fim podem ser omitidos.
 Um único número de versão pode ser usado em vez de um intervalo para corresponder apenas àquela versão, ou !VERSION para corresponder a tudo, exceto aquela versão.</value>

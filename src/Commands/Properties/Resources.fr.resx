@@ -717,7 +717,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>N'incluez pas les archives d'implémentation dans l'exportation. Exporter uniquement les flux.</value>
+    <value>N'incluez pas les archives d'implémentation dans l'exportation. N'exporter que les flux.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -783,7 +783,7 @@ Peut ne pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas be
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Retourne immédiatement une fois que le programme choisi a été lancé au lieu d'attendre qu'il ait fini de s'exécuter. Sous Windows, le code de sortie est l'ID du processus du programme lancé.</value>
+    <value>Retourne immédiatement au lancement du programme choisi au lieu d'attendre qu'il ait fini de s'exécuter. Sous Windows, le code de sortie est l'ID du processus du programme lancé.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">

@@ -185,7 +185,7 @@ Selecteer een hele regel door in de eerste kolom te klikken en druk vervolgens o
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Stel een selectievakje in om van een capaciteit de gewenste standaardhandler te maken.
+    <value>Stel een selectievakje in om van een functie de gewenste standaardbehandelaar te maken.
 Verwijder een selectievakje om de standaardstatus van een capaciteit te verwijderen (deze blijft beschikbaar).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -615,7 +615,7 @@ Je mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Le
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install moet op je systeem geïnstalleerd worden om desktopintegratie te laten werken.</value>
+    <value>Zero Install moet op je systeem geïnstalleerd zijn om desktopintegratie te laten werken.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -894,7 +894,7 @@ Kan commandoregel argumenten bevatten. Whitespaces moeten geëscaped worden!</va
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Het is mogelijk dat u uw terminal moet sluiten en opnieuw openen om dit effectief te laten worden.</value>
+    <value>Het kan zijn dat u uw terminal moet sluiten en opnieuw moet openen om dit te laten werken.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
