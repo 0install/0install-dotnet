@@ -63,33 +63,33 @@ public static class ImplementationStores
     public static IEnumerable<string> GetDirectories(bool serviceMode = false)
     {
         if (!serviceMode)
-        {
-            // Add the user cache to have a reliable fallback location for storage
-            yield return Locations.GetCacheDirPath("0install.net", machineWide: false, resource: "implementations");
-        }
+            yield return GetUserDefaultDirectory();
 
-        // Add the system cache when not in portable mode
-        if (!Locations.IsPortable)
-        {
-            string? systemCache;
-            try
-            {
-                systemCache = Locations.GetCacheDirPath("0install.net", machineWide: true, resource: "implementations");
-            }
-            catch (UnauthorizedAccessException)
-            { // Standard users cannot create machine-wide directories, only use them if they already exist
-                systemCache = null;
-            }
-            if (systemCache != null) yield return systemCache;
-        }
+        if (!Locations.IsPortable && TryGetSystemDefaultDirectory() is { } systemDir)
+            yield return systemDir;
 
-        // Add configured cache locations
-        foreach (string configFile in Locations.GetLoadConfigPaths("0install.net", true, "injector", "implementation-dirs"))
+        foreach (string dir in GetConfiguredDirectories())
+            yield return dir;
+    }
+
+    private static string GetUserDefaultDirectory()
+        => Locations.GetCacheDirPath("0install.net", machineWide: false, resource: "implementations");
+
+    private static string? TryGetSystemDefaultDirectory()
+    {
+        try
         {
-            foreach (string path in GetDirectories(configFile))
-                yield return path;
+            return Locations.GetCacheDirPath("0install.net", machineWide: true, resource: "implementations");
+        }
+        catch (UnauthorizedAccessException)
+        { // Standard users cannot create machine-wide directories, only use them if they already exist
+            return null;
         }
     }
+
+    private static IEnumerable<string> GetConfiguredDirectories()
+        => Locations.GetLoadConfigPaths("0install.net", true, "injector", "implementation-dirs")
+                    .SelectMany(GetDirectories);
 
     /// <summary>
     /// Returns a list of custom implementation directories in the current user configuration.
