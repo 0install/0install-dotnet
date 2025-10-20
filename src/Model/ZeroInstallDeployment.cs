@@ -19,7 +19,7 @@ public static class ZeroInstallDeployment
     /// Tries to find a deployment of Zero Install.
     /// </summary>
     /// <param name="machineWide"><c>true</c> to look for machine-wide deployments; <c>false</c> to look for user-specific deployments.</param>
-    /// <returns>The directory path of an deployment of Zero Install; <c>null</c> if none was found.</returns>
+    /// <returns>The directory path of a deployment of Zero Install; <c>null</c> if none was found.</returns>
     public static string? GetPath(bool machineWide)
     {
         if (WindowsUtils.IsWindows
@@ -52,7 +52,7 @@ public static class ZeroInstallDeployment
     /// Tries to find a deployment of Zero Install that is not the currently running one.
     /// </summary>
     /// <param name="needsMachineWide"><c>true</c> if a machine-wide deployment is required; <c>false</c> if a user-specific deployment will also do.</param>
-    /// <returns>The directory path of an deployment of Zero Install; <c>null</c> if none was found.</returns>
+    /// <returns>The directory path of a deployment of Zero Install; <c>null</c> if none was found.</returns>
     public static string? FindOther(bool needsMachineWide = false)
     {
         static string? Get(bool machineWide)
