@@ -2,10 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Text;
-
-#if NETFRAMEWORK
 using NanoByte.Common.Native;
-#endif
 
 namespace ZeroInstall.Store.Implementations;
 
@@ -77,7 +74,12 @@ public static class ImplementationStores
     /// </summary>
     /// <returns>A fully qualified directory path. The directory is guaranteed to already exist.</returns>
     public static string GetUserDefaultDirectory()
-        => Locations.GetCacheDirPath("0install.net", machineWide: false, resource: "implementations");
+    {
+        string cacheDir = Locations.GetCacheDirPath("0install.net", machineWide: false, resource: "implementations");
+        return WindowsUtils.IsWindows && ZeroInstallDeployment.IsLibraryMode(machineWide: false) && !Directory.Exists(cacheDir)
+            ? Path.Combine(WindowsUtils.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Programs", "0installApps")
+            : cacheDir;
+    }
 
     /// <summary>
     /// Returns the path of the default machine-wide implementation directory.
@@ -91,7 +93,10 @@ public static class ImplementationStores
     {
         try
         {
-            return Locations.GetCacheDirPath("0install.net", machineWide: true, resource: "implementations");
+            string cacheDir = Locations.GetCacheDirPath("0install.net", machineWide: true, resource: "implementations");
+            return WindowsUtils.IsWindows && ZeroInstallDeployment.IsLibraryMode(machineWide: true) && !Directory.Exists(cacheDir)
+                ? Path.Combine(WindowsUtils.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "0installApps")
+                : cacheDir;
         }
         catch (UnauthorizedAccessException)
         { // Standard users cannot create machine-wide directories, only use them if they already exist
