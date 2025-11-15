@@ -84,7 +84,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>'{0}' já se encontra na lista de caches de implementação personalizados.</value>
+    <value>'{0}' já está na lista de caches de implementação personalizados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -387,7 +387,7 @@ Argumentos adicionais especificam localizações de cache personalizadas.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Remove todas as implementações da cache. Use este comando para limpar o sistema antes de remover o Zero Install. Eliminar manualmente os diretórios da cache pode ser difícil devido às ACLs NTFS utilizadas para proteger as implementações contra modificações.
+    <value>Remove todas as implementações da cache. Utilize este comando para limpar o sistema antes de remover o Zero Install. Eliminar manualmente os diretórios da cache pode ser difícil devido às ACLs NTFS utilizadas para proteger as implementações contra modificações.
 Argumentos adicionais especificam localizações de cache personalizadas.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -583,7 +583,7 @@ Pode redistribuir cópias deste programa ao abrigo dos termos da GNU Lesser Gene
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>Falta o elemento &lt;feed-for&gt; em '{0}'; não pode ser usado como um feed para qualquer outra interface.</value>
+    <value>Elemento &lt;feed-for&gt; em falta em '{0}'; não pode ser utilizado como um feed para qualquer outra interface.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -676,7 +676,7 @@ Pode fazê-lo utilizando '{0}'. Isto será completamente independente da sua có
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Requer uma versão do programa principal anterior a {VERSION}. Ou seja, força a utilização de uma versão antiga do programa.</value>
+    <value>Requer uma versão do programa principal anterior a {VERSION}. ou seja, força a utilização de uma versão antiga do programa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -824,7 +824,7 @@ No modo off-line, as interfaces não são actualizadas, mesmo que estejam desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Repor os dados de sincronização. Os {MODE}s válidos são "none" (fundir normalmente os dados do cliente e do servidor), "client" (substituir todos os dados do cliente pelos dados do servidor) e "server" (substituir todos os dados do servidor pelos dados do cliente).</value>
+    <value>Repor os dados de sincronização. As opções válidas em {MODE}são "none" (fundir normalmente os dados do cliente e do servidor), "client" (substituir todos os dados do cliente pelos dados do servidor) e "server" (substituir todos os dados do servidor pelos dados do cliente).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
@@ -840,7 +840,7 @@ No modo off-line, as interfaces não são actualizadas, mesmo que estejam desact
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Exigir uma versão do programa principal dentro do {RANGE}.
+    <value>Requer uma versão do programa principal dentro do intervalo {RANGE}.
 Os intervalos são separados por tubos (|).
 Cada intervalo tem a forma "START...END". O intervalo corresponde às versões em que START &lt;= VERSION &lt; END. O início ou o fim podem ser omitidos.
 Um único número de versão pode ser usado em vez de um intervalo para corresponder apenas àquela versão, ou !VERSION para corresponder a tudo, exceto aquela versão.</value>
@@ -967,7 +967,7 @@ Execute '0install config self_update_uri default' para a ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>A ativação do suporte do Windows para Caminhos Longos pode resolver este problema.</value>
+    <value>A ativação do suporte do Windows para caminhos longos pode resolver este problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
@@ -1020,7 +1020,7 @@ Mantenha esta chave secreta e utilize algo diferente para a sua palavra-passe. D
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
-    <value>Utilizar '{0}' em vez disso.</value>
+    <value>Utilize '{0}' em vez disso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">

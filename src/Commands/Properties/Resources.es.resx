@@ -632,7 +632,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Sólo puede actualizarse con URI de fuentes, no con documentos de selecciones.</value>
+    <value>Sólo puede actualizarse con URIs de fuentes, no con documentos de selecciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -680,7 +680,7 @@ Puede hacerlo utilizando '{0}'. Esto será completamente independiente de su cop
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Omite la descarga del catálogo para verificar que es válido antes de añadirlo a la lista.</value>
+    <value>Omite la descarga del catálogo para comprobar que es válido antes de añadirlo a la lista.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -717,7 +717,7 @@ Póngalo vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>No incluya archivos de aplicación en la exportación. Exporte sólo fuentes.</value>
+    <value>No incluya archivos de aplicación en la exportación. Exporte sólo los feeds.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -808,7 +808,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Reinicia la GUI '0install central' después de la actualización.</value>
+    <value>Reinicia la GUI '0install central' tras la actualización.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">

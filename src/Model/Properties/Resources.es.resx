@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Error al cargar las preferencias de interfaz para '{0}'. Volver a los valores por defecto.</value>
+    <value>Error al cargar las preferencias de la interfaz para '{0}'. Volver a los valores por defecto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -119,7 +119,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>No se ha especificado ningún método de compendio conocido.</value>
+    <value>No se ha especificado ningún método de resumen conocido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">

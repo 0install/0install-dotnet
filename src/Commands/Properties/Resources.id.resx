@@ -326,7 +326,7 @@ File harus memiliki tanda tangan digital tepercaya, seperti saat mengambil dari 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>Berperilaku mirip dengan '0install download', kecuali bahwa ia juga menjalankan program setelah memastikan program tersebut ada di cache.
+    <value>Berperilaku mirip dengan '0install download', kecuali bahwa ia juga menjalankan program setelah memastikan program tersebut ada dalam cache.
 Mengembalikan status keluar 1 jika langkah pengunduhan gagal. Jika tidak, status keluar akan menjadi status keluar dari program yang sedang dijalankan.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -412,11 +412,11 @@ Argumen tambahan menentukan lokasi cache khusus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Memercayai feed dari DOMAIN tertentu ketika ditandatangani dengan FINGERPRINT tertentu.</value>
+    <value>Memercayai umpan dari DOMAIN tertentu ketika ditandatangani dengan sidik jari tertentu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Membuat daftar kunci yang dipercaya untuk menandatangani umpan. Hanya mencantumkan domain yang dipercayai FINGERPRINT tertentu, jika ditentukan.</value>
+    <value>Membuat daftar kunci yang dipercaya untuk menandatangani umpan. Hanya mencantumkan domain yang dipercaya sebagai FINGERPRINT tertentu, jika ditentukan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">

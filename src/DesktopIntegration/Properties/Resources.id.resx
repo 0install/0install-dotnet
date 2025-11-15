@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
-    <value>Nama pintasan '{0}' berisi karakter yang tidak valid.</value>
+    <value>Nama pintasan '{0}' mengandung karakter yang tidak valid.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
