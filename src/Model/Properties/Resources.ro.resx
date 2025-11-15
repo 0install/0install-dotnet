@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Nu s-a putut găsi implementarea pentru interfața '{0}' în selecție.</value>
+    <value>Nu a fost posibilă găsirea implementării pentru interfața '{0}' în selecție.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">

@@ -262,7 +262,7 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
-    <value>署名ファイルは既に存在します。</value>
+    <value>署名ファイルはすでに存在しています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">

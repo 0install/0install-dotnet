@@ -618,7 +618,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Το Zero Install εκτελείται σε φορητή λειτουργία. Πρέπει να αναπτυχθεί σε μια μόνιμη τοποθεσία για να λειτουργήσει η ενσωμάτωση στην επιφάνεια εργασίας.
+    <value>Το Zero Install εκτελείται σε φορητή λειτουργία. Πρέπει να αναπτυχθεί σε μόνιμη τοποθεσία για να λειτουργήσει η ενσωμάτωση στην επιφάνεια εργασίας.
 Μπορείτε να το κάνετε αυτό χρησιμοποιώντας το '{0}'. Αυτό θα είναι εντελώς ανεξάρτητο από το φορητό σας αντίγραφο.</value>
     <comment>Automatically translated.</comment>
   </data>

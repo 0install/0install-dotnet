@@ -185,7 +185,7 @@ Selecteer een hele regel door in de eerste kolom te klikken en druk vervolgens o
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Stel een selectievakje in om van een functie de gewenste standaardbehandelaar te maken.
+    <value>Stel een selectievakje in om van een capaciteit de gewenste standaardhandler te maken.
 Verwijder een selectievakje om de standaardstatus van een capaciteit te verwijderen (deze blijft beschikbaar).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -306,7 +306,7 @@ Het bestand moet een vertrouwde digitale handtekening hebben, net als bij het op
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Verwijdert de huidige versie van Zero Install van het systeem.</value>
+    <value>Verwijdert het huidige exemplaar van Zero Install van het systeem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">

@@ -243,8 +243,8 @@ Ditentukan dalam file konfigurasi '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Ada masalah dalam mengakses toko implementasi '{0}'.
-Jalankan '{1}' untuk menghapusnya dari daftar direktori terdaftar.</value>
+    <value>Ada masalah saat mengakses toko implementasi '{0}'.
+Jalankan '{1}' untuk menghapusnya dari daftar direktori yang terdaftar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

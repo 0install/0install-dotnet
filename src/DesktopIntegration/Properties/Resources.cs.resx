@@ -103,7 +103,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>Integrace opravy pracovní plochy</value>
+    <value>Integrace opravné plochy</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
@@ -111,7 +111,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>Uživatelské jméno a/nebo heslo, které jste zadali pro server Sync, jsou nesprávné. Zkontrolujte prosím možnosti synchronizace.</value>
+    <value>Uživatelské jméno a/nebo heslo zadané pro server Sync jsou nesprávné. Zkontrolujte prosím možnosti synchronizace.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">

@@ -190,7 +190,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>要从缓存中删除{0} 选中的元素吗？</value>
+    <value>您想从缓存中删除{0} 选中的元素吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
@@ -199,7 +199,7 @@
   </data>
   <data name="DeployedPortable" xml:space="preserve">
     <value>Zero Install 的便携版已部署到 "{0}"。
-您可以运行该目录中的 ZeroInstall.exe 文件来使用它。</value>
+运行该目录中的 ZeroInstall.exe 文件即可使用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
@@ -251,7 +251,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>搜索注册目录中与指定查询匹配的应用程序。如果没有给出查询条件，则会列出目录中的所有应用程序。</value>
+    <value>搜索已注册目录中与指定查询匹配的应用程序。如果没有给出查询条件，则会列出目录中的所有应用程序。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -268,7 +268,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>其行为与 "0install select "类似，但如果所选版本尚未缓存，它也会下载这些版本。
+    <value>其行为与 "0install select "类似，但如果所选版本尚未缓存，它还会下载这些版本。
 如果它选择了一组合适的版本，且这些版本已全部下载并进入缓存，则返回 0 的退出状态；否则返回 1 的状态。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -310,7 +310,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>从应用程序列表中删除所有应用程序，并撤销任何桌面环境整合。在删除 Zero Install 前，请使用该命令清理系统。</value>
+    <value>从应用程序列表中删除所有应用程序，并撤销任何桌面环境整合。在移除 Zero Install 前，请使用该命令清理系统。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
@@ -493,7 +493,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
-    <value>{0}"已被 "{1}"取代。请考虑更新。</value>
+    <value>{0}"已被 "{1}"取代。考虑更新。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
@@ -717,7 +717,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>导出时不包括执行存档。只导出源文件。</value>
+    <value>导出时不包含执行存档。只导出源文件。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -762,7 +762,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>运行指定的可执行文件{MAIN} ，而非默认路径。如果路径以"/"或"\"开头，则相对于执行程序的顶层目录，否则相对于包含默认主程序的目录。
+    <value>运行指定的可执行文件{MAIN} ，而不是默认路径。如果路径以"/"或"\"开头，则相对于执行程序的顶层目录，否则相对于包含默认主程序的目录。
 不得包含命令行参数！空格无需转义。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -843,7 +843,7 @@
     <value>要求主程序的版本在给定的{RANGE} 范围内。
 范围用管道 (|) 分隔。
 每个范围的形式为 "START...!END"。范围匹配 START &lt;= VERSION &lt; END 的版本。开始或结束可以省略。
-可以使用单个版本号代替范围，以便只匹配该版本，或使用 !VERSION 来匹配除该版本之外的所有版本。</value>
+可以使用单个版本号代替范围，以便只匹配该版本，或者使用 !VERSION 来匹配除该版本之外的所有版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
