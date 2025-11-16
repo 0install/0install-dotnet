@@ -188,7 +188,7 @@ public static class ProgramUtils
         }
         catch (NotAdminException ex) when (WindowsUtils.HasUac
                                         && args.FirstOrDefault() != AsAdminIndicatorArg
-                                        && GuiStartInfo([AsAdminIndicatorArg, ..args]) is {} startInfo)
+                                        && GuiStartInfo(args.Prepend(AsAdminIndicatorArg)) is {} startInfo)
         {
             Log.Info("Elevating to admin", ex);
             handler.DisableUI();
