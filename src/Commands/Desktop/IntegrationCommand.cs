@@ -73,7 +73,14 @@ public abstract class IntegrationCommand : CliCommand
         {
             Log.Info("Modifying existing integration; running automatic store audit because users can't trigger it themselves in library mode");
             Handler.Background = false; // Must be set before any other network/IO operations have triggered the UI
-            ImplementationStore.Audit(Handler);
+            try
+            {
+                ImplementationStore.Audit(Handler);
+            }
+            catch (NotAdminException)
+            {
+                Log.Info("Skipping automatic store audit because of missing admin rights");
+            }
         }
 
         EnsureAllowed(interfaceUri);
