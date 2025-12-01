@@ -129,6 +129,8 @@ public class IntegrationManager : IntegrationManagerBase
         };
 
         AppList.Entries.Add(appEntry);
+        _appListChanged = true;
+
         WriteAppDir(appEntry);
         return appEntry;
     }
@@ -152,6 +154,8 @@ public class IntegrationManager : IntegrationManagerBase
         appEntry.CapabilityLists.Add(feed.CapabilityLists.CloneElements());
 
         AppList.Entries.Add(appEntry);
+        _appListChanged = true;
+
         WriteAppDir(appEntry);
         return appEntry;
         */
@@ -167,6 +171,8 @@ public class IntegrationManager : IntegrationManagerBase
 
         var appEntry = prototype.Clone();
         AppList.Entries.Add(appEntry);
+        _appListChanged = true;
+
         WriteAppDir(appEntry);
 
         if (appEntry.AccessPoints != null)
@@ -190,6 +196,7 @@ public class IntegrationManager : IntegrationManagerBase
         }
 
         AppList.Entries.Remove(appEntry);
+        _appListChanged = true;
     }
 
     /// <inheritdoc/>
@@ -249,6 +256,10 @@ public class IntegrationManager : IntegrationManagerBase
 
         AppList.CheckForConflicts(accessPoints, appEntry);
 
+        // Check if any access points are truly new, rather than just re-applying exist ones
+        if (!accessPoints.All(appEntry.AccessPoints.Entries.Contains))
+            _appListChanged = _integrationChanged = true;
+
         var iconStore = IconStores.DesktopIntegration(Config, Handler, MachineWide);
 
         // Load splash screen into icon store if specified, used by GUI for branding
@@ -291,7 +302,10 @@ public class IntegrationManager : IntegrationManagerBase
 
         accessPoints = accessPoints.ToList();
         foreach (var accessPoint in accessPoints)
+        {
             accessPoint.Unapply(appEntry, MachineWide);
+            _appListChanged = _integrationChanged = true;
+        }
 
         // Remove the access points from the AppList
         appEntry.AccessPoints.Entries.Remove(accessPoints);
@@ -307,13 +321,20 @@ public class IntegrationManager : IntegrationManagerBase
         #endregion
 
         var toReAdd = appEntry.AccessPoints?.Entries ?? [];
-        AddAccessPointsInternal(appEntry, feed, toReAdd.ToList());
+        if (toReAdd.Count != 0)
+        {
+            AddAccessPointsInternal(appEntry, feed, toReAdd.ToList());
+            _integrationChanged = true;
+        }
 
         WriteAppDir(appEntry);
     }
     #endregion
 
     #region Finish
+    private bool _appListChanged;
+    private bool _integrationChanged;
+
     /// <inheritdoc/>
     protected override void Finish()
     {
@@ -321,11 +342,12 @@ public class IntegrationManager : IntegrationManagerBase
         // Retry to handle race conditions with read-only access to the file
         ExceptionUtils.Retry<IOException>(() => AppList.SaveXml(AppListPath));
 
-        if (WindowsUtils.IsWindows)
+        if (WindowsUtils.IsWindows && !Locations.IsPortable)
         {
-            WindowsUtils.NotifyAssocChanged(); // Notify Windows Explorer of changes
-            WindowsUtils.BroadcastMessage(ChangedWindowMessageID); // Notify Zero Install GUIs of changes
+            if (_appListChanged) WindowsUtils.BroadcastMessage(ChangedWindowMessageID);
+            if (_integrationChanged) WindowsUtils.NotifyAssocChanged();
         }
+        _appListChanged = _integrationChanged = false;
     }
     #endregion
 
