@@ -72,10 +72,22 @@ public static class ImplementationStores
             yield return dir;
     }
 
-    private static string GetUserDefaultDirectory()
+    /// <summary>
+    /// Returns the path of the default per-user implementation directory.
+    /// </summary>
+    /// <returns>A fully qualified directory path. The directory is guaranteed to already exist.</returns>
+    public static string GetUserDefaultDirectory()
         => Locations.GetCacheDirPath("0install.net", machineWide: false, resource: "implementations");
 
-    private static string? TryGetSystemDefaultDirectory()
+    /// <summary>
+    /// Returns the path of the default machine-wide implementation directory.
+    /// </summary>
+    /// <returns>
+    /// <c>null</c> if the directory could not be created due to insufficient permissions.
+    /// Otherwise:
+    /// A fully qualified directory path. The directory is guaranteed to already exist.
+    /// </returns>
+    public static string? TryGetSystemDefaultDirectory()
     {
         try
         {
