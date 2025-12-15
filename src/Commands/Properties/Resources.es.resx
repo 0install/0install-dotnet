@@ -717,7 +717,7 @@ Póngalo vacío ("") para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>No incluya archivos de aplicación en la exportación. Exporte sólo los feeds.</value>
+    <value>No incluya archivos de aplicación en la exportación. Exporte sólo fuentes.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -808,7 +808,7 @@ En modo fuera de línea, no se actualizan las interfaces aunque estén desactual
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Reinicia la GUI '0install central' tras la actualización.</value>
+    <value>Reinicia la GUI '0install central' después de la actualización.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">

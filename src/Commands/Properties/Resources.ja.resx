@@ -796,7 +796,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPin" xml:space="preserve">
-    <value>選択したバージョンは、今後の実行のために優先的にマークされます。</value>
+    <value>選択したバージョンは、今後実行する際に優先されるものとしてマークされます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
@@ -926,7 +926,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>この Zero Install インスタンスはデプロイされていません。そのため、インスタンス自体をアップデートすることはできません。</value>
+    <value>この Zero Install インスタンスはデプロイされていません。そのため、インスタンス自体を更新することはできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">

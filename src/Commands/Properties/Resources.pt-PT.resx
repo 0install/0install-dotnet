@@ -108,7 +108,7 @@ Pode utilizar o script de importação ou o executável do Bootstrap em "{1}" pa
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
-    <value>Tem a certeza que pretende remover o Zero Install deste computador?</value>
+    <value>Tem a certeza de que pretende remover o Zero Install deste computador?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
@@ -583,7 +583,7 @@ Pode redistribuir cópias deste programa ao abrigo dos termos da GNU Lesser Gene
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>Elemento &lt;feed-for&gt; em falta em '{0}'; não pode ser utilizado como um feed para qualquer outra interface.</value>
+    <value>Falta o elemento &lt;feed-for&gt; em '{0}'; não pode ser usado como um feed para qualquer outra interface.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -676,7 +676,7 @@ Pode fazê-lo utilizando '{0}'. Isto será completamente independente da sua có
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Requer uma versão do programa principal anterior a {VERSION}. ou seja, força a utilização de uma versão antiga do programa.</value>
+    <value>Requer uma versão do programa principal anterior a {VERSION}. Ou seja, força a utilização de uma versão antiga do programa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">

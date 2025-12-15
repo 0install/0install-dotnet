@@ -269,7 +269,7 @@
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>선택한 버전이 아직 캐시되지 않은 경우 다운로드한다는 점을 제외하면 '0install select'와 유사하게 작동합니다.
-적절한 버전 집합을 선택했고 현재 모두 다운로드되어 캐시에 있는 경우 종료 상태 0을 반환하고, 그렇지 않은 경우 1을 반환합니다.</value>
+적절한 버전 집합을 선택했고 현재 모두 다운로드되어 캐시에 있는 경우 종료 상태 0을 반환하고, 그렇지 않으면 상태 1을 반환합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -485,7 +485,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
-    <value>피드가 인터페이스에 등록되지 않았습니다.</value>
+    <value>피드가 인터페이스에 대해 등록되지 않았습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
@@ -566,7 +566,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>최신 버전({0})이 존재하지만 선택되지 않았습니다. 대신 {1} 을 사용합니다.</value>
+    <value>최신 버전({0})이 존재하지만 선택하지 않았습니다. 대신 {1} 을 사용합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -640,7 +640,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotInImplDirs" xml:space="preserve">
-    <value>'{0}' 사용자 정의 구현 캐시 목록에 없습니다.</value>
+    <value>'{0}' 사용자 지정 구현 캐시 목록에 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
@@ -762,7 +762,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>기본값 대신 지정된 실행 파일( {MAIN} )을 실행합니다. 경로가 '/' 또는 '\'로 시작하면 구현의 최상위 디렉터리를 기준으로 하고, 그렇지 않으면 기본 주 프로그램이 포함된 디렉터리를 기준으로 합니다.
+    <value>기본값 대신 지정된 실행 파일 {MAIN} 을 실행합니다. 경로가 '/' 또는 '\'로 시작하면 구현의 최상위 디렉터리를 기준으로 하고, 그렇지 않으면 기본 주 프로그램이 포함된 디렉터리를 기준으로 합니다.
 명령줄 인수를 포함할 수 없습니다! 공백은 이스케이프 처리할 필요가 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -967,7 +967,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>긴 경로에 대한 Windows 지원을 활성화하면 이 문제가 해결될 수 있습니다.</value>
+    <value>긴 경로에 대한 Windows 지원을 활성화하면 이 문제를 해결할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

@@ -71,7 +71,7 @@ Czy chcesz zezwolić temu kluczowi na podpisywanie kanałów z „{3}”?
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Polecenie dla '{0}' nie zostało określone.</value>
+    <value>Nie określono polecenia dla '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
