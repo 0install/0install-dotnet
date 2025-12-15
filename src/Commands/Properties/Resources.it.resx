@@ -96,7 +96,7 @@ Puoi utilizzare lo script di importazione o il file Bootstrap eseguibile in '{1}
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Configurazione di Zero Install per tutti gli utenti (a livello di macchina) invece che solo per l'utente corrente?</value>
+    <value>Impostare Zero Install per tutti gli utenti (a livello di macchina) invece che solo per l'utente corrente?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -290,7 +290,7 @@ Il file deve avere una firma digitale affidabile, come quando si preleva dalla r
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Elenca tutti gli URI di alimentazione conosciuti localmente. Se viene fornito un termine di ricerca, vengono visualizzati solo gli URI che contengono tale stringa (senza distinzione tra maiuscole e minuscole).</value>
+    <value>Elenca tutti gli URI di alimentazione conosciuti localmente. Se viene fornito un termine di ricerca, vengono mostrati solo gli URI che contengono tale stringa (senza distinzione tra maiuscole e minuscole).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -737,7 +737,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">
-    <value>Aggiunge i punti di accesso standard consigliati.</value>
+    <value>Aggiungere i punti di accesso standard consigliati.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
@@ -841,7 +841,7 @@ In modalità off-line, non vengono aggiornate le interfacce, anche se non sono a
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Richiede una versione del programma principale all'interno dell'intervallo indicato {RANGE}.
-Gli intervalli sono separati da pipe (|).
+Gli intervalli sono separati da tubi (|).
 Ogni intervallo ha la forma "START... END". L'intervallo corrisponde alle versioni in cui START &lt;= VERSION &lt; END. L'inizio o la fine possono essere omessi.
 Si può usare un singolo numero di versione al posto di un intervallo, per trovare solo quella versione, oppure !VERSION per trovare tutto tranne quella versione.</value>
     <comment>Automatically translated.</comment>
@@ -967,7 +967,7 @@ Eseguire '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere il problema.</value>
+    <value>L'abilitazione del supporto di Windows per i percorsi lunghi può risolvere questo problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

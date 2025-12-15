@@ -294,7 +294,7 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Pokud je zadán URI, zobrazí se pouze aplikace s tímto URI kanálu. Je-li zadán VZOR, zobrazí se pouze aplikace obsahující tento řetězec v názvu (nerozlišuje velká a malá písmena).</value>
+    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Je-li zadán URI, zobrazí se pouze aplikace s tímto URI kanálu. Je-li zadán VZOR, zobrazí se pouze aplikace obsahující tento řetězec v názvu (nerozlišuje velká a malá písmena).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -327,7 +327,7 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>Chová se podobně jako "0install download", s tím rozdílem, že program spustí i poté, co se ujistí, že je v mezipaměti.
-Vrací stav ukončení 1, pokud krok stahování selhal. V opačném případě bude stav ukončení odpovídat stavu ukončení spouštěného programu.</value>
+Vrátí stav ukončení 1, pokud krok stahování selhal. V opačném případě bude stav ukončení odpovídat stavu ukončení spouštěného programu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">

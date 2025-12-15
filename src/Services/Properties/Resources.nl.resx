@@ -99,7 +99,7 @@ Wilt u deze sleutel vertrouwen om feeds van "{3}" te ondertekenen?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>Geen versie gevonden van {0} geschikt voor {1}.</value>
+    <value>Geen versie van {0} gevonden die geschikt is voor {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -135,7 +135,7 @@ Wilt u deze sleutel vertrouwen om feeds van "{3}" te ondertekenen?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Feeds moeten de URI specificeren waar ze vandaan komen om geïmporteerd te kunnen worden.</value>
+    <value>Feeds moeten de URI specificeren waar ze vandaan komen om te kunnen worden geïmporteerd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
