@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Store.ViewModel
-summary: *content
+summary: Models information about configuration and cache elements for display in a UI.
 ---
-Models information about configuration and cache elements for display in a UI.

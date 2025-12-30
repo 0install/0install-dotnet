@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Services.Native
-summary: *content
+summary: Operating system specific services such as native package managers.
 ---
-Operating system specific services such as native package managers.

@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Publish.Capture
-summary: *content
+summary: Builds feeds by creating and comparing snapshots of the system before and after an application was installed.
 ---
-Builds feeds by creating and comparing snapshots of the system before and after an application was installed.

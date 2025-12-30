@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Model.Preferences
-summary: *content
+summary: Structures for user-specified preferences and overrides for interfaces, feeds and implementations.
 ---
-Structures for user-specified preferences and overrides for interfaces, feeds and implementations.

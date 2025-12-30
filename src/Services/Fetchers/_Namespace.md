@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Services.Fetchers
-summary: *content
+summary: Downloads and extracts implementations.
 ---
-Downloads and extracts implementations.

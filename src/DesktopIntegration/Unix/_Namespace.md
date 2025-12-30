@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.DesktopIntegration.Unix
-summary: *content
+summary: Desktop integration code for Unix-like systems (e.g. Linux).
 ---
-Desktop integration code for Unix-like systems (e.g. Linux).

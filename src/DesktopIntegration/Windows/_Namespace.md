@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.DesktopIntegration.Windows
-summary: *content
+summary: Windows-specific desktop integration code.
 ---
-Windows-specific desktop integration code.

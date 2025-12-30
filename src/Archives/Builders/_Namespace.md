@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Archives.Builders
-summary: *content
+summary: Building archives (.zip, .tar, etc.).
 ---
-Building archives (.zip, .tar, etc.).

@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Store.Icons
-summary: *content
+summary: Stores icon files downloaded from the web as local files.
 ---
-Stores icon files downloaded from the web as local files.

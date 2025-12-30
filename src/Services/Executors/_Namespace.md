@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Services.Executors
-summary: *content
+summary: Launches implementations and injects the selected dependencies.
 ---
-Launches implementations and injects the selected dependencies.

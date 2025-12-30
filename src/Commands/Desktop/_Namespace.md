@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Commands.Desktop
-summary: *content
+summary: CLI commands for Zero Install's [desktop integration](xref:ZeroInstall.DesktopIntegration) features.
 ---
-CLI commands for Zero Install's [desktop integration](xref:ZeroInstall.DesktopIntegration) features.

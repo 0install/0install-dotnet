@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Publish.EntryPoints.Design
-summary: *content
+summary: <xref:System.ComponentModel.TypeConverter>s used for serialization and to provide a better runtime experience when using <xref:System.Windows.Forms.PropertyGrid>s.
 ---
-<xref:System.ComponentModel.TypeConverter>s used for serialization and to provide a better runtime experience when using <xref:System.Windows.Forms.PropertyGrid>s.

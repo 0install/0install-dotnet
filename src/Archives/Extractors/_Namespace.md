@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Archives.Extractors
-summary: *content
+summary: Extracting archives (.zip, .tar, etc.).
 ---
-Extracting archives (.zip, .tar, etc.).

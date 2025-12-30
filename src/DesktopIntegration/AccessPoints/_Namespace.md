@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.DesktopIntegration.AccessPoints
-summary: *content
+summary: Structures for parsing and in-memory representation of access points applied to a system.
 ---
-Structures for parsing and in-memory representation of access points applied to a system.

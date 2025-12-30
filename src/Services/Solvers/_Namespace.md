@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Services.Solvers
-summary: *content
+summary: Solves requirements by selecting a specific combination of implementations from feeds.
 ---
-Solves requirements by selecting a specific combination of implementations from feeds.

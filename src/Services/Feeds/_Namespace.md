@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Services.Feeds
-summary: *content
+summary: Picking, downloading and verifying feeds.
 ---
-Picking, downloading and verifying feeds.

@@ -1,7 +1,6 @@
 ---
 uid: ZeroInstall.Model
-summary: *content
+summary: <xref:data-model> for the Zero Install [feed format](https://docs.0install.net/specifications/feed/).
 ---
-<xref:data-model> for the Zero Install [feed format](https://docs.0install.net/specifications/feed/).
-
-**NuGet package:** [ZeroInstall.Model](https://www.nuget.org/packages/ZeroInstall.Model/)
+> [!NOTE]
+> NuGet package: [ZeroInstall.Model](https://www.nuget.org/packages/ZeroInstall.Model/)

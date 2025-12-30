@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Store.Feeds
-summary: *content
+summary: Caches for feeds.
 ---
-Caches for feeds.

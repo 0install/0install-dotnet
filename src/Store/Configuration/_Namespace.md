@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Store.Configuration
-summary: *content
+summary: User settings controlling network behaviour, solving, etc..
 ---
-User settings controlling network behaviour, solving, etc..

@@ -1,7 +1,6 @@
 ---
 uid: ZeroInstall.Client
-summary: *content
+summary: <xref:client-library> for invoking Zero Install commands from within other applications.
 ---
-<xref:client-library> for invoking Zero Install commands from within other applications.
-
-**NuGet package:** [ZeroInstall.Client](https://www.nuget.org/packages/ZeroInstall.Client/)
+> [!NOTE]
+> NuGet package: [ZeroInstall.Client](https://www.nuget.org/packages/ZeroInstall.Client/)

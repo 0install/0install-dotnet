@@ -1,7 +1,6 @@
 ---
 uid: ZeroInstall.Archives
-summary: *content
+summary: Extracting and building archives (`.zip`, `.tar`, etc.).
 ---
-Extracting and building archives (`.zip`, `.tar`, etc.).
-
-**NuGet package:** [ZeroInstall.Archives](https://www.nuget.org/packages/ZeroInstall.Archives/)
+> [!NOTE]
+> NuGet package: [ZeroInstall.Archives](https://www.nuget.org/packages/ZeroInstall.Archives/)

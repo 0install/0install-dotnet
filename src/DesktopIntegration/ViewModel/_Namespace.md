@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.DesktopIntegration.ViewModel
-summary: *content
+summary: Classes that wrap desktop integration capabilities in a data binding-friendly manner.
 ---
-Classes that wrap desktop integration capabilities in a data binding-friendly manner.

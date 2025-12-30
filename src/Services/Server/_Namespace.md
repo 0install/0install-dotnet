@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Services.Server
-summary: *content
+summary: Provides resources to other Zero Install instances via the network.
 ---
-Provides resources to other Zero Install instances via the network.

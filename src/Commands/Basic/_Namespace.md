@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Commands.Basic
-summary: *content
+summary: CLI commands for Zero Install's core features.
 ---
-CLI commands for Zero Install's core features.

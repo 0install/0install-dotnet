@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Commands.Basic.Exporters
-summary: *content
+summary: Utilitiy classes for exporting data from Zero Install.
 ---
-Utilitiy classes for exporting data from Zero Install.

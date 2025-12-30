@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Store.FileSystem
-summary: *content
+summary: Interfaces and methods for building and reading <xref:file-system> structures.
 ---
-Interfaces and methods for building and reading <xref:file-system> structures.

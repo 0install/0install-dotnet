@@ -1,5 +1,4 @@
 ---
 uid: ZeroInstall.Model.Selection
-summary: *content
+summary: Structures for representing [Solver results](https://docs.0install.net/specifications/selections/).
 ---
-Structures for representing [Solver results](https://docs.0install.net/specifications/selections/).
