@@ -12,7 +12,8 @@
         "TargetFramework": "net8.0"
       },
       "namespaceLayout": "nested",
-      "dest": "api"
+      "dest": "api",
+      "filter": "filterConfig.yml"
     }
   ],
   "build": {
