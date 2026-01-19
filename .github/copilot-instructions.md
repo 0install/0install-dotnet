@@ -169,7 +169,7 @@ The project uses `.editorconfig` with strict conventions. **Key rules:**
 
 **Test dependencies:**
 - **xUnit** (2.9+), **xunit.runner.visualstudio**, **Xunit.SkippableFact**
-- **FluentAssertions** (7.x only - version 8.x is explicitly blocked in `renovate.json`)
+- **FluentAssertions** (7.x - do not upgrade to 8.x, see `renovate.json`)
 - **Moq** (4.x)
 - **Microsoft.Extensions.Configuration** and **DependencyInjection** (version-specific)
 
