@@ -1,4 +1,7 @@
 apiRules:
   - exclude:
-      uidRegex: ^System\.Object
+      uidRegex: ^System\.Object$
+      type: Type
+  - exclude:
+      uidRegex: ^System\.MarshalByRefObject$
       type: Type

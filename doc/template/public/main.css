@@ -1,0 +1,9 @@
+/* Make parameter lists more compact */
+dl.parameters dt {
+  margin-bottom: 2px !important;
+}
+
+/* Hide "Property Value" headers */
+h4[id^="property-value"] {
+  display: none;
+}
