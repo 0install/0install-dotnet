@@ -6,7 +6,7 @@ This is the .NET implementation of Zero Install, a decentralized cross-platform 
 
 **Key Technologies:**
 - **Language:** C# with preview language features (`LangVersion: preview`)
-- **Frameworks:** Multi-targeting .NET Framework 4.7.2, .NET 8.0, and .NET 9.0
+- **Frameworks:** Multi-targeting .NET Framework 4.7.2, .NET 8.0, and .NET 9.0 (defined in `src/Directory.Build.props`)
 - **Build System:** MSBuild with custom scripts
 - **Testing:** xUnit with FluentAssertions and Moq
 - **CI/CD:** AppVeyor for builds and releases
@@ -169,7 +169,7 @@ The project uses `.editorconfig` with strict conventions. **Key rules:**
 
 **Test dependencies:**
 - **xUnit** (2.9+), **xunit.runner.visualstudio**, **Xunit.SkippableFact**
-- **FluentAssertions** (7.x, not 8.x)
+- **FluentAssertions** (7.x only - version 8.x is explicitly blocked in `renovate.json`)
 - **Moq** (4.x)
 - **Microsoft.Extensions.Configuration** and **DependencyInjection** (version-specific)
 
