@@ -3,7 +3,7 @@ dl.parameters dt {
   margin-bottom: 2px !important;
 }
 
-/* Hide "Property Value" headers */
-h4[id^="property-value"] {
+/* Hide "Field/Property Value" headers */
+h4[id^="field-value"], h4[id^="property-value"] {
   display: none;
 }
