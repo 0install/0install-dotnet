@@ -49,7 +49,7 @@ jobs:
               owner,
               repo,
               release_id: release.id,
-              body: `This release mainly serves as a dependency. For end-user releases, take a look at [0install-win](https://github.com/0install/0install-win).\n\n##Changes\n\${process.env.TAG_MESSAGE}`
+              body: `This release mainly serves as a dependency. For end-user releases, take a look at [0install-win](https://github.com/0install/0install-win).\n\n## Changes\n\n${process.env.TAG_MESSAGE}`
             });
 
       # Publish
