@@ -33,7 +33,7 @@
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'!='Minimal'">
     <PackageReference Include="ZstdSharp.Port" Version="0.8.7" />
-    <PackageReference Include="SharpCompress" Version="0.44.3" />
+    <PackageReference Include="SharpCompress" Version="0.44.4" />
     <PackageReference Include="WixToolset.Dtf.Compression.Cab" Version="6.0.2" />
     <PackageReference Include="WixToolset.Dtf.WindowsInstaller" Version="6.0.2" />
   </ItemGroup>
