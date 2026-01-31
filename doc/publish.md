@@ -16,4 +16,4 @@ The [.SetMissing()](xref:ZeroInstall.Publish.ImplementationExtensions#ZeroInstal
 
 ## Feed editing
 
-The <xref:ZeroInstall.Publish.FeedEditing> class is a container for editing feeds with an <xref:undo-system>.
+The <xref:ZeroInstall.Publish.FeedEditing> class is a container for editing feeds with an [Undo system](xref:NanoByte.Common.Undo).
