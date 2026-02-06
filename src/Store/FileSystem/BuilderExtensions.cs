@@ -65,16 +65,15 @@ public static class BuilderExtensions
     /// <exception cref="IOException">An IO operation failed.</exception>
     public static void CopyFrom(this IBuilder builder, CopyFromStep metadata, string path, ITaskHandler handler)
     {
-        // Determine the source path (considering the Source attribute if specified)
-        string sourcePath = string.IsNullOrEmpty(metadata.Source) 
-            ? path 
-            : System.IO.Path.Combine(path, metadata.Source);
-
         // Get the store directory (parent of the implementation directory)
-        string hardlinkRoot = System.IO.Path.GetDirectoryName(path) ?? path;
+        string? hardlinkRoot = System.IO.Path.GetDirectoryName(path);
+        if (string.IsNullOrEmpty(hardlinkRoot))
+            throw new IOException($"Unable to determine store directory from implementation path: {path}");
         
+        // Note: metadata.Source is not currently handled - it would require filtering which files to copy
+        // This matches the behavior of the original ReadDirectory implementation
         handler.RunTask(new ReadDirectoryAsHardlinks(
-            sourcePath, 
+            path, 
             builder.BuildDirectory(metadata.Destination), 
             hardlinkRoot,
             Resources.CopyFiles));

@@ -79,7 +79,7 @@ public class ReadDirectoryAsHardlinks : ReadDirectoryBase
         
         // Create hardlink to the source file
         string relativePath = file.RelativeTo(Source);
-        string targetPath = file.FullName.Substring(_hardlinkRoot.Length).TrimStart(System.IO.Path.DirectorySeparatorChar, System.IO.Path.AltDirectorySeparatorChar);
+        string targetPath = GetRelativePathFromRoot(file.FullName);
         
         try
         {
@@ -91,6 +91,20 @@ public class ReadDirectoryAsHardlinks : ReadDirectoryBase
             using var stream = file.OpenRead();
             _builder.AddFile(relativePath, stream, file.LastWriteTimeUtc, executable);
         }
+    }
+
+    /// <summary>
+    /// Gets the path of a file relative to the hardlink root.
+    /// </summary>
+    private string GetRelativePathFromRoot(string fullPath)
+    {
+        // Ensure the file is actually under the hardlink root
+        if (!fullPath.StartsWith(_hardlinkRoot))
+            throw new IOException($"File {fullPath} is not under hardlink root {_hardlinkRoot}");
+
+        // Remove the hardlink root prefix and any leading separators
+        string relativePath = fullPath.Substring(_hardlinkRoot.Length);
+        return relativePath.TrimStart(System.IO.Path.DirectorySeparatorChar, System.IO.Path.AltDirectorySeparatorChar);
     }
 
     /// <summary>
