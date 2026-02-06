@@ -61,6 +61,24 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The archive contains only a single top-level directory '{0}'. You should probably set the '{1}' attribute to '{0}' to avoid an extra nesting level..
+        /// </summary>
+        internal static string ArchiveContainsSingleTopLevelDirectory {
+            get {
+                return ResourceManager.GetString("ArchiveContainsSingleTopLevelDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The command '{0}' specifies path '{1}' but this file does not exist in the archive..
+        /// </summary>
+        internal static string CommandPathNotFound {
+            get {
+                return ResourceManager.GetString("CommandPathNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Searching for executable files.
         /// </summary>
         internal static string DetectingCandidates {
