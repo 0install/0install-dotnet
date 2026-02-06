@@ -43,7 +43,7 @@ public static class ServiceCollectionExtensions
                    .AddScoped<ICatalogManager, CatalogManager>()
                    .AddScoped(_ => PackageManagers.Default())
                    .AddScoped<ISelectionsManager, SelectionsManager>()
-                   .AddScoped<ISolver, BacktrackingSolver>()
+                   .AddScoped<ISolver, SatSolver>()
                    .AddScoped<IFetcher, Fetcher>()
                    .AddScoped<IExecutor, Executor>()
                    .AddScoped<ISelectionCandidateProvider, SelectionCandidateProvider>();

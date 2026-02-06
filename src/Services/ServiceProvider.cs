@@ -39,15 +39,16 @@ public class ServiceProvider
         _selectionCandidateProvider = new(() => new(Config, FeedManager, ImplementationStore, PackageManager));
         _solver = new(() =>
         {
+            var satSolver = new SatSolver(SelectionCandidateProvider);
             var backtrackingSolver = new BacktrackingSolver(SelectionCandidateProvider);
 #if MINIMAL
-            return backtrackingSolver;
+            return satSolver;
 #else
-            if (Config.ExternalSolverUri == null) return backtrackingSolver;
+            if (Config.ExternalSolverUri == null) return new FallbackSolver(satSolver, backtrackingSolver);
             else
             {
                 var externalSolver = new ExternalSolver(backtrackingSolver, SelectionsManager, Fetcher, Executor, FeedManager, Handler, new(Config.ExternalSolverUri) {Message = "External solver"});
-                return new FallbackSolver(backtrackingSolver, externalSolver);
+                return new FallbackSolver(satSolver, externalSolver);
             }
 #endif
         });
