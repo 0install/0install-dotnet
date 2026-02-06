@@ -6,7 +6,9 @@
 using System.Diagnostics;
 using System.Runtime.Versioning;
 using NanoByte.Common.Native;
+#if !MINIMAL
 using Tmds.DBus.Protocol;
+#endif
 
 namespace ZeroInstall.Services.Native;
 
@@ -35,6 +37,7 @@ public class PackageKitPackageManager : PackageManagerBase
     {
         if (string.IsNullOrEmpty(packageName)) throw new ArgumentNullException(nameof(packageName));
 
+#if !MINIMAL
         // Try PackageKit D-Bus API first
         try
         {
@@ -45,6 +48,7 @@ public class PackageKitPackageManager : PackageManagerBase
         {
             // PackageKit D-Bus not available or not responding, fall back to native tools
         }
+#endif
 
         // Fall back to native package manager tools
         return _distributionName switch
@@ -68,6 +72,7 @@ public class PackageKitPackageManager : PackageManagerBase
         return KnownDistributions.Debian;
     }
 
+#if !MINIMAL
     private async Task<IEnumerable<ExternalImplementation>> QueryPackageKitAsync(string packageName)
     {
         var implementations = new List<ExternalImplementation>();
@@ -93,6 +98,7 @@ public class PackageKitPackageManager : PackageManagerBase
 
         return implementations;
     }
+#endif
 
     private IEnumerable<ExternalImplementation> QueryDebianPackage(string packageName)
     {
