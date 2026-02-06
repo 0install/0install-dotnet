@@ -51,7 +51,7 @@ public class PackageKitPackageManagerTest
         Skip.IfNot(File.Exists("/usr/bin/rpm"));
 
         // Check if there are any RPM packages installed
-        var process = new Process
+        using var process = new Process
         {
             StartInfo = new ProcessStartInfo
             {

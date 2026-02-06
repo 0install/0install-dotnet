@@ -6,17 +6,17 @@
 using System.Diagnostics;
 using System.Runtime.Versioning;
 using NanoByte.Common.Native;
-#if !MINIMAL
-using Tmds.DBus.Protocol;
-#endif
 
 namespace ZeroInstall.Services.Native;
 
 /// <summary>
 /// Detects native Linux packages (Debian and RPM) that are installed via PackageKit.
-/// Uses PackageKit's D-Bus API when available, falls back to native package manager tools.
 /// </summary>
-/// <remarks>This class is immutable and thread-safe.</remarks>
+/// <remarks>
+/// This class queries installed packages using native package manager tools (dpkg-query for Debian, rpm for RPM).
+/// Future enhancement: Use Tmds.DBus.Protocol to communicate with PackageKit via D-Bus for unified package management.
+/// This class is immutable and thread-safe.
+/// </remarks>
 [SupportedOSPlatform("linux")]
 public class PackageKitPackageManager : PackageManagerBase
 {
@@ -35,22 +35,16 @@ public class PackageKitPackageManager : PackageManagerBase
     /// <inheritdoc/>
     protected override IEnumerable<ExternalImplementation> GetImplementations(string packageName)
     {
-        if (string.IsNullOrEmpty(packageName)) throw new ArgumentNullException(nameof(packageName));
+        if (string.IsNullOrEmpty(packageName)) throw new ArgumentException("Package name cannot be null or empty.", nameof(packageName));
 
-#if !MINIMAL
-        // Try PackageKit D-Bus API first
-        try
-        {
-            var implementations = QueryPackageKitAsync(packageName).GetAwaiter().GetResult().ToList();
-            if (implementations.Count > 0) return implementations;
-        }
-        catch (Exception ex) when (ex is DBusException || ex is IOException || ex is TimeoutException || ex is InvalidOperationException)
-        {
-            // PackageKit D-Bus not available or not responding, fall back to native tools
-        }
-#endif
+        // TODO: Implement PackageKit D-Bus integration
+        // This would require:
+        // 1. Creating a transaction via org.freedesktop.PackageKit.CreateTransaction
+        // 2. Calling Resolve on the transaction object with the package name
+        // 3. Listening to Package signals to get package information
+        // 4. Parsing package IDs and extracting version/architecture info
 
-        // Fall back to native package manager tools
+        // For now, use native package manager tools directly
         return _distributionName switch
         {
             KnownDistributions.Debian => QueryDebianPackage(packageName),
@@ -71,34 +65,6 @@ public class PackageKitPackageManager : PackageManagerBase
         // Default to Debian as a fallback
         return KnownDistributions.Debian;
     }
-
-#if !MINIMAL
-    private async Task<IEnumerable<ExternalImplementation>> QueryPackageKitAsync(string packageName)
-    {
-        var implementations = new List<ExternalImplementation>();
-
-        try
-        {
-            using var connection = new Connection(Address.System!);
-            await connection.ConnectAsync().AsTask().WaitAsync(TimeSpan.FromSeconds(2));
-
-            // PackageKit D-Bus integration would be implemented here
-            // This requires:
-            // 1. Creating a transaction via org.freedesktop.PackageKit.CreateTransaction
-            // 2. Calling Resolve on the transaction object with the package name
-            // 3. Listening to Package signals to get package information
-            // 4. Parsing package IDs and extracting version/architecture info
-            //
-            // For now, we fall back to native package manager tools below
-        }
-        catch
-        {
-            // D-Bus communication failed or PackageKit not available
-        }
-
-        return implementations;
-    }
-#endif
 
     private IEnumerable<ExternalImplementation> QueryDebianPackage(string packageName)
     {
