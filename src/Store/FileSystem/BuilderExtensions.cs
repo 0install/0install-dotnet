@@ -64,5 +64,8 @@ public static class BuilderExtensions
     /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
     /// <exception cref="IOException">An IO operation failed.</exception>
     public static void CopyFrom(this IBuilder builder, CopyFromStep metadata, string path, ITaskHandler handler)
-        => handler.RunTask(new ReadDirectory(path, builder.BuildDirectory(metadata.Destination), Resources.CopyFiles));
+        => handler.RunTask(new ReadDirectory(
+            string.IsNullOrEmpty(metadata.Source) ? path : Path.Combine(path, metadata.Source),
+            builder.BuildDirectory(metadata.Destination),
+            name: Resources.CopyFiles));
 }
