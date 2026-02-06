@@ -8,7 +8,7 @@ namespace ZeroInstall.DesktopIntegration.MacOS;
 /// <summary>
 /// Utility class for creating and modifying macOS Desktop Entries.
 /// </summary>
-public static class FreeDesktop
+public static class DesktopEntry
 {
     public static void Create(MenuEntry menuEntry, FeedTarget target, IIconStore iconStore, bool machineWide)
     {
