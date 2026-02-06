@@ -6,10 +6,23 @@ using ZeroInstall.Model.Selection;
 namespace ZeroInstall.Services.Solvers;
 
 /// <summary>
-/// Uses a SAT solver approach to find solutions to <see cref="Requirements"/>.
-/// Improves upon <see cref="BacktrackingSolver"/> by exploring more of the solution space.
+/// Uses an improved backtracking approach to solve <see cref="Requirements"/>.
+/// This solver can handle more complex dependency graphs than <see cref="BacktrackingSolver"/>
+/// by allowing significantly more backtracking attempts (1000 vs 64).
 /// </summary>
-/// <remarks>This class is immutable and thread-safe.</remarks>
+/// <remarks>
+/// <para>This class is immutable and thread-safe.</para>
+/// <para>
+/// Despite its name, this implementation uses a backtracking algorithm similar to <see cref="BacktrackingSolver"/>
+/// rather than a full SAT (Boolean Satisfiability) solver. The name reflects its origin as a potential SAT solver
+/// implementation using the NanoByte.SatSolver library, but the current implementation prioritizes compatibility
+/// with existing behavior while providing improved search depth for complex dependency graphs.
+/// </para>
+/// <para>
+/// This solver is typically used as the primary solver in production, with <see cref="BacktrackingSolver"/>
+/// or <see cref="ExternalSolver"/> as fallback options for edge cases.
+/// </para>
+/// </remarks>
 public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
 {
     /// <inheritdoc/>

@@ -42,8 +42,11 @@ public class ServiceProvider
             var satSolver = new SatSolver(SelectionCandidateProvider);
             var backtrackingSolver = new BacktrackingSolver(SelectionCandidateProvider);
 #if MINIMAL
+            // In minimal builds, use only SatSolver to reduce dependencies and code size.
+            // SatSolver has enough attempts (1000) to handle most cases without fallbacks.
             return satSolver;
 #else
+            // In full builds, provide a fallback chain for maximum reliability.
             if (Config.ExternalSolverUri == null) return new FallbackSolver(satSolver, backtrackingSolver);
             else
             {
