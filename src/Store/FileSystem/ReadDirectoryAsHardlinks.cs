@@ -25,7 +25,7 @@ public class ReadDirectoryAsHardlinks : ReadDirectoryBase
         : base(path)
     {
         _builder = builder ?? throw new ArgumentNullException(nameof(builder));
-        _hardlinkRoot = hardlinkRoot ?? throw new ArgumentNullException(nameof(hardlinkRoot));
+        _hardlinkRoot = (hardlinkRoot ?? throw new ArgumentNullException(nameof(hardlinkRoot))).TrimEnd(System.IO.Path.DirectorySeparatorChar, System.IO.Path.AltDirectorySeparatorChar) + System.IO.Path.DirectorySeparatorChar;
         Name = name ?? string.Format(Resources.ReadDirectory, path);
 
         bool shouldReadManifest;
@@ -98,13 +98,16 @@ public class ReadDirectoryAsHardlinks : ReadDirectoryBase
     /// </summary>
     private string GetRelativePathFromRoot(string fullPath)
     {
+        // Normalize both paths to prevent path traversal attacks
+        string normalizedFullPath = System.IO.Path.GetFullPath(fullPath);
+        string normalizedRoot = System.IO.Path.GetFullPath(_hardlinkRoot.TrimEnd(System.IO.Path.DirectorySeparatorChar, System.IO.Path.AltDirectorySeparatorChar));
+        
         // Ensure the file is actually under the hardlink root
-        if (!fullPath.StartsWith(_hardlinkRoot))
+        if (!normalizedFullPath.StartsWith(normalizedRoot + System.IO.Path.DirectorySeparatorChar))
             throw new IOException($"File {fullPath} is not under hardlink root {_hardlinkRoot}");
 
-        // Remove the hardlink root prefix and any leading separators
-        string relativePath = fullPath.Substring(_hardlinkRoot.Length);
-        return relativePath.TrimStart(System.IO.Path.DirectorySeparatorChar, System.IO.Path.AltDirectorySeparatorChar);
+        // Remove the hardlink root prefix (including the trailing separator)
+        return normalizedFullPath.Substring(normalizedRoot.Length + 1);
     }
 
     /// <summary>

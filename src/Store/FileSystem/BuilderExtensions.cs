@@ -61,6 +61,11 @@ public static class BuilderExtensions
     /// <param name="metadata">The path of the source and destination file or directory.</param>
     /// <param name="path">The path of the implementation referenced by <paramref name="metadata"/>.</param>
     /// <param name="handler">A callback object used when the user needs to be informed about IO tasks.</param>
+    /// <remarks>
+    /// Note: This implementation does not currently handle <see cref="CopyFromStep.Source"/> to filter which subdirectory to copy.
+    /// This limitation exists in both the original file-copying implementation and this hardlink version.
+    /// The <see cref="CopyFromStep.Source"/> attribute is part of the 0install specification but appears to be unused in practice.
+    /// </remarks>
     /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
     /// <exception cref="IOException">An IO operation failed.</exception>
     public static void CopyFrom(this IBuilder builder, CopyFromStep metadata, string path, ITaskHandler handler)
@@ -70,8 +75,6 @@ public static class BuilderExtensions
         if (string.IsNullOrEmpty(hardlinkRoot))
             throw new IOException($"Unable to determine store directory from implementation path: {path}");
         
-        // Note: metadata.Source is not currently handled - it would require filtering which files to copy
-        // This matches the behavior of the original ReadDirectory implementation
         handler.RunTask(new ReadDirectoryAsHardlinks(
             path, 
             builder.BuildDirectory(metadata.Destination), 
