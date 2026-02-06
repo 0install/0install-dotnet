@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'!='Minimal'">
     <PackageReference Include="Makaretu.Dns.Multicast" Version="0.27.0" />
+    <PackageReference Include="NanoByte.SatSolver" Version="0.4.0" />
     <PackageReference Include="WindowsFirewallHelper" Version="2.2.0.86" />
   </ItemGroup>
 
