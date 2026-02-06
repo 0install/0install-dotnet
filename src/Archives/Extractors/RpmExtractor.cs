@@ -27,8 +27,9 @@ public class RpmExtractor(ITaskHandler handler)
 
             try
             {
-                // Use shell to pipe rpm2cpio output to cpio for extraction
-                launcher.Run("-c", $"cd '{tempDir}' && rpm2cpio '{archivePath}' | cpio -idm");
+                // Use sh to convert rpm to cpio and extract in one go
+                // This is safe because archivePath and tempDir are controlled paths from TemporaryFile/TemporaryDirectory
+                launcher.Run("-c", "cd \"$1\" && rpm2cpio \"$2\" | cpio -idm 2>/dev/null", "--", tempDir, archivePath);
 
                 if (subDir == null)
                     Handler.RunTask(new ReadDirectory(tempDir, builder) {Tag = Tag});
