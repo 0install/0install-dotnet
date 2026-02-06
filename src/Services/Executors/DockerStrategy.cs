@@ -112,6 +112,7 @@ public class DockerStrategy : IExecutionStrategy
         // Add image and command
         dockerArgs.Add(_image);
         dockerArgs.Add(mainExecutable);
+        // Note: arguments string is already escaped/quoted by ProcessStartInfo
         if (!string.IsNullOrEmpty(arguments))
             dockerArgs.AddRange(arguments.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
 
@@ -135,8 +136,9 @@ public class DockerStrategy : IExecutionStrategy
 
     private string MapHostPathToContainer(string hostPath)
     {
-        // Use a consistent prefix for all mounts
-        return $"/0install/{hostPath.Replace('\\', '/').TrimStart('/')}";
+        // Normalize and map host paths to container paths
+        string normalizedPath = hostPath.Replace('\\', '/').TrimStart('/');
+        return $"/0install/{normalizedPath}";
     }
 
     private IEnumerable<KeyValuePair<string, string>> GetAllEnvironmentVariables(IExecutionContext context)

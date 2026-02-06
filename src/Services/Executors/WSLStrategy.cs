@@ -123,6 +123,7 @@ public class WSLStrategy : IExecutionStrategy
         }
 
         wslArgs.Add(wslPath);
+        // Note: arguments string is already escaped/quoted by ProcessStartInfo
         if (!string.IsNullOrEmpty(arguments))
             wslArgs.AddRange(arguments.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
 
@@ -181,7 +182,7 @@ public class WSLStrategy : IExecutionStrategy
             if (targetPath.StartsWith("/mnt/"))
             {
                 string[] parts = targetPath.Substring(5).Split(new[] { '/' }, 2);
-                if (parts.Length >= 2)
+                if (parts.Length >= 2 && parts[0].Length == 1 && char.IsLetter(parts[0][0]))
                     return $"{char.ToUpperInvariant(parts[0][0])}:\\{parts[1].Replace('/', '\\')}";
             }
             return targetPath;

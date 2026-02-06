@@ -182,8 +182,10 @@ public class WindowsSandboxStrategy : IExecutionStrategy
 
     private string MapHostPathToSandbox(string hostPath)
     {
-        // Map to a simple path in the sandbox
-        string hash = Math.Abs(hostPath.GetHashCode()).ToString();
+        // Use a deterministic hash to avoid collisions
+        using var sha256 = System.Security.Cryptography.SHA256.Create();
+        byte[] hashBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(hostPath));
+        string hash = BitConverter.ToString(hashBytes).Replace("-", "").ToLowerInvariant()[..16];
         return $"C:\\0install\\impl_{hash}";
     }
 
