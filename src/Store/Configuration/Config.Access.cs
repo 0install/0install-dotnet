@@ -42,7 +42,7 @@ partial class Config
     [RequiresUnreferencedCode("Relies on [DefaultValue], which is not trim-safe.")]
     public void ResetOption(string key)
     {
-        SetOption(key, _metaData[key].DefaultValue);
+        _metaData[key].Value = _metaData[key].DefaultValue;
         _explicitlySetOptions.Remove(key);
     }
 

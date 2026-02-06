@@ -161,7 +161,7 @@ public class ConfigTest : TestWithRedirect
 
         // Explicitly set a value to its default using SetOption
         var config1 = new Config();
-        config1.SetOption("help_with_testing", "False"); // Explicitly set to default
+        config1.SetOption("help_with_testing", "false"); // Explicitly set to default
         config1.Save(tempFile);
 
         // The explicitly set default should be in the file
@@ -192,7 +192,7 @@ public class ConfigTest : TestWithRedirect
 
         // Explicitly set a value
         var config1 = new Config();
-        config1.SetOption("help_with_testing", "True");
+        config1.SetOption("help_with_testing", "true");
         config1.Save(tempFile);
 
         // Verify it's saved
