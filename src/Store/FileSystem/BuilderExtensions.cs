@@ -55,7 +55,7 @@ public static class BuilderExtensions
         => builder.Rename(metadata.Source, metadata.Destination);
 
     /// <summary>
-    /// Copies files or directories from another implementation.
+    /// Copies files or directories from another implementation using hardlinks when possible.
     /// </summary>
     /// <param name="builder">The builder.</param>
     /// <param name="metadata">The path of the source and destination file or directory.</param>
@@ -64,5 +64,19 @@ public static class BuilderExtensions
     /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
     /// <exception cref="IOException">An IO operation failed.</exception>
     public static void CopyFrom(this IBuilder builder, CopyFromStep metadata, string path, ITaskHandler handler)
-        => handler.RunTask(new ReadDirectory(path, builder.BuildDirectory(metadata.Destination), Resources.CopyFiles));
+    {
+        // Determine the source path (considering the Source attribute if specified)
+        string sourcePath = string.IsNullOrEmpty(metadata.Source) 
+            ? path 
+            : System.IO.Path.Combine(path, metadata.Source);
+
+        // Get the store directory (parent of the implementation directory)
+        string hardlinkRoot = System.IO.Path.GetDirectoryName(path) ?? path;
+        
+        handler.RunTask(new ReadDirectoryAsHardlinks(
+            sourcePath, 
+            builder.BuildDirectory(metadata.Destination), 
+            hardlinkRoot,
+            Resources.CopyFiles));
+    }
 }
