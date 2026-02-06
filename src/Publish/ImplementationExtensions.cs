@@ -100,5 +100,19 @@ public static class ImplementationExtensions
 
         if (string.IsNullOrEmpty(implementation.ID) && !string.IsNullOrEmpty(digest.Best))
             executor.Execute(SetValueCommand.For(() => implementation.ID, newValue: digest.Best));
+
+        DetectIssues(implementation, builder.Manifest);
+    }
+
+    private static void DetectIssues(Implementation implementation, Manifest manifest)
+    {
+        if (manifest.GetTopLevelFiles().Count == 0 && manifest.GetTopLevelDirectories() is [var singleDir])
+            Log.Warn(string.Format(Resources.ArchiveContainsSingleTopLevelDirectory, singleDir, "extract"));
+
+        foreach (var command in implementation.Commands)
+        {
+            if (!string.IsNullOrEmpty(command.Path) && !manifest.ContainsFile(command.Path))
+                Log.Warn(string.Format(Resources.CommandPathNotFound, command.Name, command.Path));
+        }
     }
 }
