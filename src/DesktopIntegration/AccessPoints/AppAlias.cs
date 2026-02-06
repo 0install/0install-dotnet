@@ -29,6 +29,7 @@ public partial class AppAlias : CommandAccessPoint
 
         var target = new FeedTarget(appEntry.InterfaceUri, feed);
         if (WindowsUtils.IsWindows) Windows.AppAlias.Create(target, Command, Name, iconStore, machineWide);
+        else if (UnixUtils.IsMacOSX) MacOS.AppAlias.Create(target, Command, Name, iconStore, machineWide);
         else if (UnixUtils.IsUnix) Unix.AppAlias.Create(target, Command, Name, iconStore, machineWide);
     }
 
@@ -42,6 +43,7 @@ public partial class AppAlias : CommandAccessPoint
         ValidateName();
 
         if (WindowsUtils.IsWindows) Windows.AppAlias.Remove(Name, machineWide);
+        else if (UnixUtils.IsMacOSX) MacOS.AppAlias.Remove(Name, machineWide);
         else if (UnixUtils.IsUnix) Unix.AppAlias.Remove(Name, machineWide);
     }
 
