@@ -101,4 +101,33 @@ public class ConfigTest : TestWithRedirect
 
         StressTest.Run(() => _ = Config.Load());
     }
+
+    /// <summary>
+    /// Ensures that user config can override machine-wide config back to default values.
+    /// </summary>
+    [Fact]
+    public void OverrideMachineWideWithDefault()
+    {
+        using var machineWideFile = new TemporaryFile("0install-test-machine-config");
+        using var userFile = new TemporaryFile("0install-test-user-config");
+
+        // Machine-wide config sets a non-default value
+        var machineWideConfig = new Config { NetworkUse = NetworkLevel.Minimal };
+        machineWideConfig.Save(machineWideFile);
+
+        // User wants to override back to default (Full)
+        var userConfig = new Config();
+        userConfig.ReadFromFile(machineWideFile); // Load machine-wide first
+        userConfig.SetOption("network_use", "full"); // Explicitly override to default
+        userConfig.Save(userFile);
+
+        // Load both configs (machine-wide first, then user)
+        var loadedConfig = new Config();
+        loadedConfig.ReadFromFile(machineWideFile);
+        loadedConfig.ReadFromFile(userFile);
+
+        // User's override should be respected
+        loadedConfig.NetworkUse.Should().Be(NetworkLevel.Full,
+            because: "User config should be able to override machine-wide config back to default value");
+    }
 }
