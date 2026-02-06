@@ -35,6 +35,7 @@ public partial class ContextMenu : DefaultAccessPoint
         var capability = appEntry.LookupCapability<Model.Capabilities.ContextMenu>(Capability);
         var target = new FeedTarget(appEntry.InterfaceUri, feed);
         if (WindowsUtils.IsWindows) Windows.ContextMenu.Apply(target, capability, iconStore, machineWide);
+        else if (UnixUtils.IsMacOSX) MacOS.ContextMenu.Apply(target, capability, iconStore, machineWide);
         else if (UnixUtils.IsUnix) Unix.ContextMenu.Apply(target, capability, iconStore, machineWide);
     }
 
@@ -47,6 +48,7 @@ public partial class ContextMenu : DefaultAccessPoint
 
         var capability = appEntry.LookupCapability<Model.Capabilities.ContextMenu>(Capability);
         if (WindowsUtils.IsWindows) Windows.ContextMenu.Remove(capability, machineWide);
+        else if (UnixUtils.IsMacOSX) MacOS.ContextMenu.Remove(capability, machineWide);
         else if (UnixUtils.IsUnix) Unix.ContextMenu.Remove(capability, machineWide);
     }
 

@@ -38,11 +38,13 @@ public partial class CapabilityRegistration : AccessPoint
             {
                 case Model.Capabilities.FileType fileType:
                     if (WindowsUtils.IsWindows) Windows.FileType.Register(target, fileType, iconStore, machineWide);
+                    else if (UnixUtils.IsMacOSX) MacOS.FileType.Register(target, fileType, iconStore, machineWide);
                     else if (UnixUtils.IsUnix) Unix.FileType.Register(target, fileType, iconStore, machineWide);
                     break;
 
                 case Model.Capabilities.UrlProtocol urlProtocol:
                     if (WindowsUtils.IsWindows) Windows.UrlProtocol.Register(target, urlProtocol, iconStore, machineWide);
+                    else if (UnixUtils.IsMacOSX) MacOS.UrlProtocol.Register(target, urlProtocol, iconStore, machineWide);
                     else if (UnixUtils.IsUnix) Unix.UrlProtocol.Register(target, urlProtocol, iconStore, machineWide);
                     break;
 
@@ -56,6 +58,7 @@ public partial class CapabilityRegistration : AccessPoint
 
                 case Model.Capabilities.DefaultProgram defaultProgram:
                     if (WindowsUtils.IsWindows && machineWide) Windows.DefaultProgram.Register(target, defaultProgram, iconStore);
+                    else if (UnixUtils.IsMacOSX) MacOS.DefaultProgram.Register(target, defaultProgram, iconStore, machineWide);
                     else if (UnixUtils.IsUnix) Unix.DefaultProgram.Register(target, defaultProgram, iconStore, machineWide);
                     break;
 
@@ -83,11 +86,13 @@ public partial class CapabilityRegistration : AccessPoint
             {
                 case Model.Capabilities.FileType fileType:
                     if (WindowsUtils.IsWindows) Windows.FileType.Unregister(fileType, machineWide);
+                    else if (UnixUtils.IsMacOSX) MacOS.FileType.Unregister(fileType, machineWide);
                     else if (UnixUtils.IsUnix) Unix.FileType.Unregister(fileType, machineWide);
                     break;
 
                 case Model.Capabilities.UrlProtocol urlProtocol:
                     if (WindowsUtils.IsWindows) Windows.UrlProtocol.Unregister(urlProtocol, machineWide);
+                    else if (UnixUtils.IsMacOSX) MacOS.UrlProtocol.Unregister(urlProtocol, machineWide);
                     else if (UnixUtils.IsUnix) Unix.UrlProtocol.Unregister(urlProtocol, machineWide);
                     break;
 
@@ -101,6 +106,7 @@ public partial class CapabilityRegistration : AccessPoint
 
                 case Model.Capabilities.DefaultProgram defaultProgram:
                     if (WindowsUtils.IsWindows && machineWide) Windows.DefaultProgram.Unregister(defaultProgram);
+                    else if (UnixUtils.IsMacOSX) MacOS.DefaultProgram.Unregister(defaultProgram, machineWide);
                     else if (UnixUtils.IsUnix) Unix.DefaultProgram.Unregister(defaultProgram, machineWide);
                     break;
 
