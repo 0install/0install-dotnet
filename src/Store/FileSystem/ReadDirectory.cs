@@ -61,33 +61,9 @@ public class ReadDirectory : ReadDirectoryBase
     /// <inheritdoc/>
     protected override void HandleFile(FileInfo file, FileInfo? hardlinkTarget = null)
     {
-        if (Manifest.RejectPath(file.RelativeTo(Source))) return;
-
-        var element = GetManifestElement(file);
-
-        if (ImplFileUtils.IsSymlink(file.FullName, out string? symlinkTarget, element))
-        {
-            _builder.AddSymlink(file.RelativeTo(Source), symlinkTarget);
-            return;
-        }
-
-        if (!FileUtils.IsRegularFile(file.FullName))
-            throw new NotSupportedException(string.Format(Resources.IllegalFileType, file.FullName));
-
-        bool executable = ImplFileUtils.IsExecutable(file.FullName, element);
-        try
-        {
-            if (hardlinkTarget != null)
-            {
-                _builder.AddHardlink(file.RelativeTo(Source), hardlinkTarget.RelativeTo(Source), executable);
-                return;
-            }
-        }
-        catch (NotSupportedException)
-        {}
-
-        using var stream = file.OpenRead();
-        _builder.AddFile(file.RelativeTo(Source), stream, file.LastWriteTimeUtc, executable);
+        string path = file.RelativeTo(Source);
+        if (!Manifest.RejectPath(path))
+            _builder.AddFile(path, file, GetManifestElement(file), hardlinkTarget?.RelativeTo(Source));
     }
 
     /// <summary>

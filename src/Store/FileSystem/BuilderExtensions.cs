@@ -1,6 +1,8 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using ZeroInstall.Store.Manifests;
+
 namespace ZeroInstall.Store.FileSystem;
 
 /// <summary>
@@ -21,6 +23,43 @@ public static class BuilderExtensions
         if (string.IsNullOrEmpty(path)) return builder;
         builder.AddDirectory(path);
         return new PrefixBuilder(builder, path);
+    }
+
+    /// <summary>
+    /// Adds a file to the implementation.
+    /// </summary>
+    /// <param name="builder">The builder.</param>
+    /// <param name="path">The path of the file to create relative to the implementation root.</param>
+    /// <param name="file">The file object used to read the contents and metadata.</param>
+    /// <param name="manifestElement">The file's equivalent manifest entry, if available.</param>
+    /// <param name="hardlinkTarget">The path of a previously handled file relative to the implementation root that is hardlinked to <paramref name="file"/>. May be <c>null</c>.</param>
+    /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
+    /// <exception cref="IOException">An IO operation failed.</exception>
+    public static void AddFile(this IForwardOnlyBuilder builder, string path, FileInfo file, ManifestElement? manifestElement = null, string? hardlinkTarget = null)
+    {
+        if (ImplFileUtils.IsSymlink(file.FullName, out string? symlinkTarget, manifestElement))
+        {
+            builder.AddSymlink(path, symlinkTarget);
+            return;
+        }
+
+        if (!FileUtils.IsRegularFile(file.FullName))
+            throw new NotSupportedException(string.Format(Resources.IllegalFileType, file.FullName));
+
+        bool executable = ImplFileUtils.IsExecutable(file.FullName, manifestElement);
+        try
+        {
+            if (hardlinkTarget != null)
+            {
+                builder.AddHardlink(path, hardlinkTarget, executable);
+                return;
+            }
+        }
+        catch (NotSupportedException)
+        {}
+
+        using var stream = file.OpenRead();
+        builder.AddFile(path, stream, file.LastWriteTimeUtc, executable);
     }
 
     /// <summary>
