@@ -211,4 +211,33 @@ public class ManifestTest
         manifest.ToString()
                 .Should().Be("D /subdir1\nF abc123 1337 1 fileA\nF abc123 1337 2 fileB\nD /subdir2\nF abc123 1337 3 fileX\nF abc123 1337 4 fileY\n");
     }
+
+    [Fact]
+    public void GetTopLevelDirectories()
+    {
+        var manifest = new Manifest(ManifestFormat.Sha256New)
+        {
+            ["dir1"] = { ["file"] = new ManifestNormalFile("hash1", 0, 0) },
+            ["dir1/subdir"] = { ["file"] = new ManifestNormalFile("hash2", 0, 0) },
+            ["dir2"] = { ["file"] = new ManifestNormalFile("hash3", 0, 0) }
+        };
+
+        manifest.GetTopLevelDirectories().Should().BeEquivalentTo("dir1", "dir2");
+    }
+
+    [Fact]
+    public void GetTopLevelFiles()
+    {
+        var manifest = new Manifest(ManifestFormat.Sha256New)
+        {
+            [""] =
+            {
+                ["file1"] = new ManifestNormalFile("hash1", 0, 0),
+                ["file2"] = new ManifestNormalFile("hash2", 0, 0)
+            },
+            ["dir1"] = { ["file3"] = new ManifestNormalFile("hash3", 0, 0) }
+        };
+
+        manifest.GetTopLevelFiles().Should().BeEquivalentTo("file1", "file2");
+    }
 }
