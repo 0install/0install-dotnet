@@ -19,14 +19,18 @@ public class ReadDirectory : ReadDirectoryBase
     /// <param name="path">The path of the directory to read.</param>
     /// <param name="builder">The builder to read to.</param>
     /// <param name="name">A name describing the task in human-readable form.</param>
-    public ReadDirectory(string path, IForwardOnlyBuilder builder, [Localizable(true)] string? name = null)
-        : base(path)
+    /// <param name="subDir">The relative path of a subdirectory within the <paramref name="path"/> to scope the read to. Use this if you still want <paramref name="path"/> to be the location to search for a <see cref="Manifest"/> file but only read a subdirectory within it.</param>
+    public ReadDirectory(string path, IForwardOnlyBuilder builder, [Localizable(true)] string? name = null, string? subDir = null)
+        : base(string.IsNullOrEmpty(subDir) ? path : Path.Combine(path, subDir.ToNativePath()))
     {
         _builder = builder ?? throw new ArgumentNullException(nameof(builder));
         Name = name ?? string.Format(Resources.ReadDirectory, path);
 
         if (ShouldReadManifest(path))
-            _manifest = Manifest.TryLoad(Path.Combine(path, Manifest.ManifestFile));
+        {
+            _manifest = Manifest.TryLoad(Path.Combine(path, Manifest.ManifestFile))
+                               ?.ScopedTo(subDir?.ToUnixPath());
+        }
     }
 
     private static bool ShouldReadManifest(string path)

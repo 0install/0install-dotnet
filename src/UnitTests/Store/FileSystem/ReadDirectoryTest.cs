@@ -80,6 +80,24 @@ public class ReadDirectoryTest : IDisposable
 
         mock.Verify(x => x.AddFile("a", It.IsAny<Stream>(), TestFile.DefaultLastWrite, false));
         mock.Verify(x => x.AddHardlink("b", "a", false));
+    }
 
+    [Fact]
+    public void SubDir()
+    {
+        new TestRoot
+        {
+            new TestFile("root-file"),
+            new TestDirectory("subdir")
+            {
+                new TestFile("sub-file") { IsExecutable = true }
+            }
+        }.Build(_tempDir);
+
+        var mock = new Mock<IForwardOnlyBuilder>();
+        new ReadDirectory(_tempDir, mock.Object, subDir: "subdir").Run();
+
+        mock.Verify(x => x.AddFile("sub-file", It.IsAny<Stream>(), TestFile.DefaultLastWrite, true));
+        mock.VerifyNoOtherCalls();
     }
 }
