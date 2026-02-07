@@ -226,6 +226,103 @@ public class DirectoryBuilderTest : IDisposable
                 .Should().Throw<IOException>();
     }
 
+    [Fact]
+    public void CopyFromTopLevel()
+    {
+        using var sourceDir = Build([
+            new TestDirectory("subdir")
+            {
+                new TestFile("file") { Contents = Data, LastWrite = 1337 }
+            },
+            new TestFile("root-file") { Contents = Data, LastWrite = 1337 }
+        ]);
+
+        var metadata = new CopyFromStep();
+        _builder.CopyFrom(metadata, sourceDir, new SilentTaskHandler());
+
+        Verify([
+            new TestDirectory("subdir")
+            {
+                new TestFile("file") { Contents = Data, LastWrite = 1337 }
+            },
+
+            new TestFile("root-file") { Contents = Data, LastWrite = 1337 }
+        ]);
+    }
+
+    [Fact]
+    public void CopyFromFile()
+    {
+        using var sourceDir = Build([
+            new TestFile("source-file") { Contents = Data, LastWrite = 1337, IsExecutable = true }
+        ]);
+
+        var metadata = new CopyFromStep { Source = "source-file", Destination = "dest-file" };
+        _builder.CopyFrom(metadata, sourceDir, new SilentTaskHandler());
+
+        Verify([new TestFile("dest-file") { Contents = Data, LastWrite = 1337, IsExecutable = true }]);
+    }
+
+    [Fact]
+    public void CopyFromFileImplicitDestination()
+    {
+        using var sourceDir = Build([
+            new TestFile("source-file") { Contents = Data, LastWrite = 1337, IsExecutable = true }
+        ]);
+
+        var metadata = new CopyFromStep { Source = "source-file" };
+        _builder.CopyFrom(metadata, sourceDir, new SilentTaskHandler());
+
+        Verify([new TestFile("source-file") { Contents = Data, LastWrite = 1337, IsExecutable = true }]);
+    }
+
+    [Fact]
+    public void CopyFromFileInSubDir()
+    {
+        using var sourceDir = Build([
+            new TestDirectory("subdir")
+            {
+                new TestFile("source-file") { Contents = Data, LastWrite = 1337, IsExecutable = true }
+            }
+        ]);
+
+        var metadata = new CopyFromStep { Source = "subdir/source-file", Destination = "dest-file" };
+        _builder.CopyFrom(metadata, sourceDir, new SilentTaskHandler());
+
+        Verify([new TestFile("dest-file") { Contents = Data, LastWrite = 1337, IsExecutable = true }]);
+    }
+
+    [Fact]
+    public void CopyFromDirectory()
+    {
+        using var sourceDir = Build([
+            new TestDirectory("source-dir")
+            {
+                new TestFile("file1") { Contents = Data, LastWrite = 1337 },
+                new TestFile("file2") { Contents = "more data", LastWrite = 2000, IsExecutable = true }
+            }
+        ]);
+
+        var metadata = new CopyFromStep {Source = "source-dir", Destination = "dest-dir"};
+        _builder.CopyFrom(metadata, sourceDir, new SilentTaskHandler());
+
+        Verify([
+            new TestDirectory("dest-dir")
+            {
+                new TestFile("file1") { Contents = Data, LastWrite = 1337 },
+                new TestFile("file2") { Contents = "more data", LastWrite = 2000, IsExecutable = true }
+            }
+        ]);
+    }
+
+    [MustUseReturnValue]
+    private static TemporaryDirectory Build(TestRoot directory)
+    {
+        var dir = new TemporaryDirectory("0install-unit-test-source");
+        directory.Build(dir);
+        return dir;
+    }
+
     private void Verify(TestRoot directory)
         => directory.Verify(_tempDir);
 }

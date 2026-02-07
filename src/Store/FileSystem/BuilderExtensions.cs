@@ -103,5 +103,27 @@ public static class BuilderExtensions
     /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
     /// <exception cref="IOException">An IO operation failed.</exception>
     public static void CopyFrom(this IBuilder builder, CopyFromStep metadata, string path, ITaskHandler handler)
-        => handler.RunTask(new ReadDirectory(path, builder.BuildDirectory(metadata.Destination), Resources.CopyFiles));
+    {
+        string? source = metadata.Source;
+        string? destination = metadata.Destination;
+
+        if (!string.IsNullOrEmpty(source)
+         && new FileInfo(Path.Combine(path, source.ToNativePath())) is {Exists: true} file)
+        {
+            var manifestElement = Manifest.TryLoad(Path.Combine(path, Manifest.ManifestFile))
+                                         ?.TryGetElement(source);
+
+            handler.RunTask(new ActionTask(
+                Resources.CopyFiles,
+                () => builder.AddFile(destination.EmptyAsNull() ?? source, file, manifestElement)));
+        }
+        else
+        {
+            handler.RunTask(new ReadDirectory(
+                path,
+                subDir: source,
+                builder: builder.BuildDirectory(destination),
+                name: Resources.CopyFiles));
+        }
+    }
 }
