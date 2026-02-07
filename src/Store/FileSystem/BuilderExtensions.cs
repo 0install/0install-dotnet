@@ -12,7 +12,7 @@ public static class BuilderExtensions
     /// Adds a subdirectory to the implementation and returns a wrapped <see cref="IBuilder"/> to elements inside this subdirectory.
     /// </summary>
     /// <param name="builder">The builder.</param>
-    /// <param name="path">The path  of the directory to create relative to the implementation root.</param>
+    /// <param name="path">The path of the directory to create relative to the implementation root.</param>
     /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
     /// <exception cref="IOException">An IO operation failed.</exception>
     /// <returns>An <see cref="IBuilder"/> wrapped around <paramref name="builder"/> that prepends <paramref name="path"/> to paths.</returns>
@@ -31,7 +31,7 @@ public static class BuilderExtensions
     /// <param name="stream">The contents of the file.</param>
     /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
     /// <exception cref="IOException">An IO operation failed.</exception>
-    public static void AddFile(this IBuilder builder, SingleFile metadata, Stream stream)
+    public static void AddFile(this IForwardOnlyBuilder builder, SingleFile metadata, Stream stream)
         => builder.AddFile(metadata.Destination, stream, 0, metadata.Executable);
 
     /// <summary>
