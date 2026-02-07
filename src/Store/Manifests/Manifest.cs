@@ -352,6 +352,22 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
         => Format.Prefix + Format.Separator + Format.DigestManifest(this);
 
     /// <summary>
+    /// Tries to get a specific manifest element (file or symlink).
+    /// </summary>
+    /// <param name="relativePath">The path of the file relative to the implementation root.</param>
+    /// <returns>The manifest element; <c>null</c> if no mach was found.</returns>
+    public ManifestElement? TryGetElement(string relativePath)
+    {
+        string dirPart = Path.GetDirectoryName(relativePath) ?? "";
+        string filePart = Path.GetFileName(relativePath);
+
+        return TryGetValue(dirPart.ToUnixPath(), out var dir)
+            && dir.TryGetValue(filePart, out var element)
+            ? element
+            : null;
+    }
+
+    /// <summary>
     /// Returns the names of all top-level directories in the manifest.
     /// </summary>
     public IReadOnlyList<string> GetTopLevelDirectories()
@@ -362,17 +378,4 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
     /// </summary>
     public IReadOnlyCollection<string> GetTopLevelFiles()
         => _directories[""].Keys;
-
-    /// <summary>
-    /// Checks whether the manifest contains a specific file or symlink.
-    /// </summary>
-    /// <param name="relativePath">The Unix path of the file relative to the implementation root.</param>
-    public bool ContainsFile(string relativePath)
-    {
-        string directory = relativePath.GetLeftPartAtLastOccurrence('/');
-        string fileName = relativePath.GetRightPartAtLastOccurrence('/');
-
-        return TryGetValue(directory, out var directoryContents)
-            && directoryContents.ContainsKey(fileName);
-    }
 }

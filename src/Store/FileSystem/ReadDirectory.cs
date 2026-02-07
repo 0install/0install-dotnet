@@ -58,17 +58,10 @@ public class ReadDirectory : ReadDirectoryBase
     protected override void HandleFile(FileInfo file, FileInfo? hardlinkTarget = null)
     {
         string path = file.RelativeTo(Source);
-        if (!Manifest.RejectPath(path))
-            _builder.AddFile(path, file, GetManifestElement(file), hardlinkTarget?.RelativeTo(Source));
-    }
+        if (Manifest.RejectPath(path)) return;
 
-    /// <summary>
-    /// Tries to get a <paramref name="file"/>'s equivalent entry in the <see cref="_manifest"/>.
-    /// </summary>
-    private ManifestElement? GetManifestElement(FileInfo file)
-        => _manifest != null
-        && _manifest.TryGetValue(file.Directory!.RelativeTo(Source).ToUnixPath(), out var dir)
-        && dir.TryGetValue(file.Name, out var element)
-            ? element
-            : null;
+        _builder.AddFile(path, file,
+            _manifest?.TryGetElement(file.RelativeTo(Source)),
+            hardlinkTarget?.RelativeTo(Source));
+    }
 }

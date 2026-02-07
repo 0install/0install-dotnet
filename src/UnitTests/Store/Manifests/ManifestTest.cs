@@ -303,6 +303,23 @@ public class ManifestTest
     }
 
     [Fact]
+    public void TryGetElement()
+    {
+        var file1 = new ManifestNormalFile("hash1", 100, 10);
+        var file2 = new ManifestNormalFile("hash2", 200, 20);
+        var manifest = new Manifest(ManifestFormat.Sha256New)
+        {
+            [""] = { ["file1"] = file1 },
+            ["dir1/sub"] = { ["file2"] = file2 }
+        };
+
+        manifest.TryGetElement("file1").Should().Be(file1);
+        manifest.TryGetElement("dir1/sub/file2").Should().Be(file2);
+        manifest.TryGetElement("non-existent").Should().BeNull();
+        manifest.TryGetElement("dir1/non-existent").Should().BeNull();
+    }
+
+    [Fact]
     public void GetTopLevelDirectories()
     {
         var manifest = new Manifest(ManifestFormat.Sha256New)

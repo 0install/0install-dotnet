@@ -111,7 +111,7 @@ public static class ImplementationExtensions
 
         foreach (var command in implementation.Commands)
         {
-            if (!string.IsNullOrEmpty(command.Path) && !manifest.ContainsFile(command.Path))
+            if (!string.IsNullOrEmpty(command.Path) && manifest.TryGetElement(command.Path) == null)
                 Log.Warn(string.Format(Resources.CommandPathNotFound, command.Name, command.Path));
         }
     }
