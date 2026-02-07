@@ -188,6 +188,25 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
     }
 
     /// <summary>
+    /// Returns a new manifest scoped to only a specific directory prefix.
+    /// </summary>
+    /// <param name="prefix">The Unix path of the directory to scope to.</param>
+    public Manifest ScopedTo(string? prefix)
+    {
+        if (string.IsNullOrEmpty(prefix)) return this;
+
+        var newManifest = new Manifest(Format);
+        foreach ((string directoryPath, var directory) in _directories)
+        {
+            if (directoryPath == prefix)
+                newManifest[""].AddRange(directory);
+            else if (directoryPath.StartsWith($"{prefix}/", out string? rest))
+                newManifest[rest].AddRange(directory);
+        }
+        return newManifest;
+    }
+
+    /// <summary>
     /// The directories and <see cref="ManifestElement"/>s comprising the manifest in line format.
     /// </summary>
     public IEnumerable<string> Lines

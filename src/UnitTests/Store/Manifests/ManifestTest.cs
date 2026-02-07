@@ -144,6 +144,96 @@ public class ManifestTest
         original.WithOffset(TimeSpan.FromHours(1)).Should().BeEquivalentTo(offset);
     }
 
+    [Fact]
+    public void ScopedTo()
+    {
+        var original = new Manifest(ManifestFormat.Sha256New)
+        {
+            [""] =
+            {
+                ["root-file"] = new ManifestNormalFile("hash1", 100, 10)
+            },
+            ["dir1"] =
+            {
+                ["file1"] = new ManifestNormalFile("hash2", 200, 20)
+            },
+            ["dir1/subdir"] =
+            {
+                ["file2"] = new ManifestNormalFile("hash3", 300, 30)
+            },
+            ["dir2"] =
+            {
+                ["file3"] = new ManifestNormalFile("hash4", 400, 40)
+            }
+        };
+
+        var expected = new Manifest(ManifestFormat.Sha256New)
+        {
+            [""] =
+            {
+                ["file1"] = new ManifestNormalFile("hash2", 200, 20)
+            },
+            ["subdir"] =
+            {
+                ["file2"] = new ManifestNormalFile("hash3", 300, 30)
+            }
+        };
+
+        original.ScopedTo("dir1").Should().BeEquivalentTo(expected);
+    }
+
+    [Fact]
+    public void ScopedToDeep()
+    {
+        var original = new Manifest(ManifestFormat.Sha256New)
+        {
+            ["a/b/c"] =
+            {
+                ["file"] = new ManifestNormalFile("hash", 100, 10)
+            }
+        };
+
+        var expected = new Manifest(ManifestFormat.Sha256New)
+        {
+            ["c"] =
+            {
+                ["file"] = new ManifestNormalFile("hash", 100, 10)
+            }
+        };
+
+        original.ScopedTo("a/b").Should().BeEquivalentTo(expected);
+    }
+
+    [Fact]
+    public void ScopedToNonExistent()
+    {
+        var original = new Manifest(ManifestFormat.Sha256New)
+        {
+            ["dir1"] =
+            {
+                ["file1"] = new ManifestNormalFile("hash2", 200, 20)
+            }
+        };
+
+        var expected = new Manifest(ManifestFormat.Sha256New);
+
+        original.ScopedTo("non-existent").Should().BeEquivalentTo(expected);
+    }
+
+    [Fact]
+    public void ScopedToRoot()
+    {
+        var original = new Manifest(ManifestFormat.Sha256New)
+        {
+            ["dir1"] =
+            {
+                ["file1"] = new ManifestNormalFile("hash2", 200, 20)
+            }
+        };
+
+        original.ScopedTo("").Should().BeEquivalentTo(original);
+    }
+
     /// <summary>
     /// Ensures that Manifest is correctly generated, serialized and deserialized.
     /// </summary>
