@@ -25,48 +25,44 @@ public class DirectoryBuilderTest : IDisposable
     [Fact]
     public void AddFile()
     {
-        _builder.AddFile("file", DataStream, 1337);
+        _builder.AddFile("file", DataStream, modifiedTime: 1337);
 
-        new TestRoot
-        {
-            new TestFile("file") {Contents = Data, LastWrite = 1337}
-        }.Verify(_tempDir);
+        Verify([
+            new TestFile("file") { Contents = Data, LastWrite = 1337 }
+        ]);
     }
 
     [Fact]
     public void OverwriteFile()
     {
-        _builder.AddFile("file", "dummy".ToStream(), 42);
-        _builder.AddFile("file", DataStream, 1337, executable: true);
+        _builder.AddFile("file", "dummy".ToStream(), modifiedTime: 42);
+        _builder.AddFile("file", DataStream, modifiedTime: 1337, executable: true);
 
-        new TestRoot
-        {
-            new TestFile("file") {Contents = Data, LastWrite = 1337, IsExecutable = true}
-        }.Verify(_tempDir);
+        Verify([
+            new TestFile("file") { Contents = Data, LastWrite = 1337, IsExecutable = true }
+        ]);
     }
 
     [Fact]
     public void MarkAsExecutable()
     {
-        _builder.AddFile("file", DataStream, 1337);
+        _builder.AddFile("file", DataStream, modifiedTime: 1337);
         _builder.MarkAsExecutable("file");
 
-        new TestRoot
-        {
-            new TestFile("file") {Contents = Data, LastWrite = 1337, IsExecutable = true}
-        }.Verify(_tempDir);
+        Verify([
+            new TestFile("file") { Contents = Data, LastWrite = 1337, IsExecutable = true }
+        ]);
     }
 
     [Fact]
     public void RenameFile()
     {
-        _builder.AddFile("file", DataStream, 1337, executable: true);
+        _builder.AddFile("file", DataStream, modifiedTime: 1337, executable: true);
         _builder.Rename("file", "file2");
 
-        new TestRoot
-        {
-            new TestFile("file2") {Contents = Data, LastWrite = 1337, IsExecutable = true}
-        }.Verify(_tempDir);
+        Verify([
+            new TestFile("file2") { Contents = Data, LastWrite = 1337, IsExecutable = true }
+        ]);
     }
 
     [Fact]
@@ -79,14 +75,13 @@ public class DirectoryBuilderTest : IDisposable
     [Fact]
     public void RemoveFile()
     {
-        _builder.AddFile("file", DataStream, 1337);
-        _builder.AddFile("file2", DataStream, 1337);
+        _builder.AddFile("file", DataStream, modifiedTime: 1337);
+        _builder.AddFile("file2", DataStream, modifiedTime: 2000);
         _builder.Remove("file");
 
-        new TestRoot
-        {
-            new TestFile("file2") {Contents = Data, LastWrite = 1337}
-        }.Verify(_tempDir);
+        Verify([
+            new TestFile("file2") { Contents = Data, LastWrite = 2000 }
+        ]);
     }
 
     [Fact]
@@ -101,75 +96,68 @@ public class DirectoryBuilderTest : IDisposable
     {
         _builder.AddDirectory("dir");
 
-        new TestRoot
-        {
-            new TestDirectory("dir")
-        }.Verify(_tempDir);
+        Verify([new TestDirectory("dir")]);
     }
 
     [Fact]
     public void AddDirectoryAndFile()
     {
         // Implicit: _builder.AddDirectory("dir");
-        _builder.AddFile(Path.Combine("dir", "file"), DataStream, 1337);
+        _builder.AddFile(Path.Combine("dir", "file"), DataStream, modifiedTime: 1337);
 
-        new TestRoot
-        {
+        Verify([
             new TestDirectory("dir")
             {
-                new TestFile("file") {Contents = Data, LastWrite = 1337}
+                new TestFile("file") { Contents = Data, LastWrite = 1337 }
             }
-        }.Verify(_tempDir);
+        ]);
     }
 
     [Fact]
     public void RenameDirectory()
     {
         _builder.AddDirectory("dir");
-        _builder.AddFile(Path.Combine("dir", "file"), DataStream, 1337);
+        _builder.AddFile(Path.Combine("dir", "file"), DataStream, modifiedTime: 1337);
         _builder.Rename("dir", "dir2");
 
-        new TestRoot
-        {
+        Verify([
             new TestDirectory("dir2")
             {
-                new TestFile("file") {Contents = Data, LastWrite = 1337}
+                new TestFile("file") { Contents = Data, LastWrite = 1337 }
             }
-        }.Verify(_tempDir);
+        ]);
     }
 
     [Fact]
     public void RemoveDirectory()
     {
         _builder.AddDirectory("dir");
-        _builder.AddFile(Path.Combine("dir", "file"), DataStream, 1337);
+        _builder.AddFile(Path.Combine("dir", "file"), DataStream, modifiedTime: 1337);
         _builder.AddDirectory("dir2");
-        _builder.AddFile(Path.Combine("dir2", "file"), DataStream, 1337);
+        _builder.AddFile(Path.Combine("dir2", "file"), DataStream, modifiedTime: 2000);
         _builder.Remove("dir");
 
-        new TestRoot
-        {
+        Verify([
             new TestDirectory("dir2")
             {
-                new TestFile("file") {Contents = Data, LastWrite = 1337}
+                new TestFile("file") { Contents = Data, LastWrite = 2000 }
             }
-        }.Verify(_tempDir);
+        ]);
     }
 
     [Fact]
     public void AddHardLink()
     {
-        _builder.AddFile(Path.Combine("dir", "file"), DataStream, 1337);
+        _builder.AddFile(Path.Combine("dir", "file"), DataStream, modifiedTime: 1337);
         _builder.AddHardlink(Path.Combine("dir", "file2"), Path.Combine("dir", "file"));
 
-        new TestRoot
-        {
+        Verify([
             new TestDirectory("dir")
             {
-                new TestFile("file") {Contents = Data, LastWrite = 1337},
-                new TestFile("file2") {Contents = Data, LastWrite = 1337}
+                new TestFile("file") { Contents = Data, LastWrite = 1337 },
+                new TestFile("file2") { Contents = Data, LastWrite = 1337 }
             }
-        }.Verify(_tempDir);
+        ]);
     }
 
     [Fact]
@@ -184,60 +172,60 @@ public class DirectoryBuilderTest : IDisposable
     {
         _builder.AddSymlink(Path.Combine("dir", "symlink"), "target");
 
-        new TestRoot
-        {
+        Verify([
             new TestDirectory("dir")
             {
                 new TestSymlink("symlink", "target")
             }
-        }.Verify(_tempDir);
+        ]);
     }
 
     [Fact]
     public void TurnIntoSymlink()
     {
-        _builder.AddFile(Path.Combine("dir", "symlink"), "target".ToStream(), 0);
+        _builder.AddFile(Path.Combine("dir", "symlink"), "target".ToStream(), modifiedTime: 0);
         _builder.TurnIntoSymlink(Path.Combine("dir", "symlink"));
 
-        new TestRoot
-        {
+        Verify([
             new TestDirectory("dir")
             {
                 new TestSymlink("symlink", "target")
             }
-        }.Verify(_tempDir);
+        ]);
     }
 
     [Fact]
     public void Complex()
     {
         _builder.AddDirectory(Path.Combine("some", "dir"));
-        _builder.AddFile(Path.Combine("some", "dir", "file"), DataStream, 1337);
+        _builder.AddFile(Path.Combine("some", "dir", "file"), DataStream, modifiedTime: 1337);
         _builder.Rename(Path.Combine("some", "dir", "file"), Path.Combine("some", "dir", "file1"));
         _builder.AddHardlink(Path.Combine("some", "dir", "file2"), Path.Combine("some", "dir", "file1"));
         _builder.Rename("some", "the");
 
-        new TestRoot
-        {
+        Verify([
             new TestDirectory("the")
             {
                 new TestDirectory("dir")
                 {
-                    new TestFile("file1") {Contents = Data, LastWrite = 1337},
-                    new TestFile("file2") {Contents = Data, LastWrite = 1337}
+                    new TestFile("file1") { Contents = Data, LastWrite = 1337 },
+                    new TestFile("file2") { Contents = Data, LastWrite = 1337 }
                 }
             }
-        }.Verify(_tempDir);
+        ]);
     }
 
     [Fact]
     public void RejectsInvalidPaths()
     {
-        _builder.Invoking(x => x.AddFile("a\nb", DataStream, 0))
+        _builder.Invoking(x => x.AddFile("a\nb", DataStream, modifiedTime: 0))
                 .Should().Throw<IOException>();
-        _builder.Invoking(x => x.AddFile(".manifest", DataStream, 0))
+        _builder.Invoking(x => x.AddFile(".manifest", DataStream, modifiedTime: 0))
                 .Should().Throw<IOException>();
-        _builder.Invoking(x => x.AddFile(".xbit", DataStream, 0))
+        _builder.Invoking(x => x.AddFile(".xbit", DataStream, modifiedTime: 0))
                 .Should().Throw<IOException>();
     }
+
+    private void Verify(TestRoot directory)
+        => directory.Verify(_tempDir);
 }
