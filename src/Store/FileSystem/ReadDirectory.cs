@@ -26,11 +26,7 @@ public class ReadDirectory : ReadDirectoryBase
         Name = name ?? string.Format(Resources.ReadDirectory, path);
 
         if (ShouldReadManifest(path))
-        {
-            _manifest = Manifest.TryLoad(
-                Path.Combine(path, Manifest.ManifestFile),
-                ManifestFormat.Sha1New); // Actual digest format does not matter because we are only interested in symlinks and executable bits
-        }
+            _manifest = Manifest.TryLoad(Path.Combine(path, Manifest.ManifestFile));
     }
 
     private static bool ShouldReadManifest(string path)
