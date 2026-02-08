@@ -95,4 +95,53 @@ public class ImplementationExtensionsTest
         var implementation = new Implementation {ID = "1", Version = new("1.0"), ManifestDigest = new(Sha1New: "invalid"), RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
         Assert.Throws<DigestMismatchException>(() => implementation.SetMissing(new SimpleCommandExecutor(), new SilentTaskHandler()));
     }
+
+    [Fact]
+    public void SetMissingMultipleDigestFormats()
+    {
+        using var stream = typeof(ImplementationExtensionsTest).GetEmbeddedStream("testArchive.zip");
+        using var microServer = new MicroServer("archive.zip", stream);
+        
+        // Request multiple digest formats using empty strings
+        var implementation = new Implementation 
+        {
+            ID = "1", 
+            Version = new("1.0"), 
+            ManifestDigest = new(Sha1New: "", Sha256: "", Sha256New: ""),
+            RetrievalMethods = {new Archive {Href = microServer.FileUri}}
+        };
+        
+        implementation.SetMissing(new SimpleCommandExecutor(), new SilentTaskHandler());
+        
+        // All requested formats should be populated
+        implementation.ManifestDigest.Sha1New.Should().NotBeNullOrEmpty();
+        implementation.ManifestDigest.Sha256.Should().NotBeNullOrEmpty();
+        implementation.ManifestDigest.Sha256New.Should().NotBeNullOrEmpty();
+        
+        // Verify the sha256new matches the expected value
+        implementation.ManifestDigest.Sha256New.Should().Be(_archiveDigest.Sha256New);
+    }
+
+    [Fact]
+    public void SetMissingPartialDigestFormats()
+    {
+        using var stream = typeof(ImplementationExtensionsTest).GetEmbeddedStream("testArchive.zip");
+        using var microServer = new MicroServer("archive.zip", stream);
+        
+        // Request only specific digest formats
+        var implementation = new Implementation 
+        {
+            ID = "1", 
+            Version = new("1.0"), 
+            ManifestDigest = new(Sha1New: "", Sha256New: ""),
+            RetrievalMethods = {new Archive {Href = microServer.FileUri}}
+        };
+        
+        implementation.SetMissing(new SimpleCommandExecutor(), new SilentTaskHandler());
+        
+        // Only requested formats should be populated
+        implementation.ManifestDigest.Sha1New.Should().NotBeNullOrEmpty();
+        implementation.ManifestDigest.Sha256.Should().BeNullOrEmpty();
+        implementation.ManifestDigest.Sha256New.Should().NotBeNullOrEmpty();
+    }
 }
