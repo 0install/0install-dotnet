@@ -18,7 +18,8 @@ public static class KnownDistributions
         Ports = "Ports",
         Rpm = "RPM",
         Slack = "Slack",
-        Windows = "Windows";
+        Windows = "Windows",
+        WinGet = "WinGet";
 
-    public static readonly string[] All = [Arch, Cygwin, Darwin, Debian, Gentoo, MacPorts, Ports, Rpm, Slack, Windows];
+    public static readonly string[] All = [Arch, Cygwin, Darwin, Debian, Gentoo, MacPorts, Ports, Rpm, Slack, Windows, WinGet];
 }
