@@ -13,11 +13,17 @@ public static class PackageManagers
     /// <summary>
     /// Creates the default <see cref="IPackageManager"/> for the current platform.
     /// </summary>
-    public static IPackageManager Default()
+    /// <param name="handler">A callback object used when the user needs to be informed about progress.</param>
+    public static IPackageManager Default(ITaskHandler? handler = null)
     {
         var packageManagers = new List<IPackageManager>();
 
-        if (WindowsUtils.IsWindows) packageManagers.Add(new WindowsPackageManager());
+        if (WindowsUtils.IsWindows)
+        {
+            packageManagers.Add(new WindowsPackageManager());
+            if (handler != null)
+                packageManagers.Add(new WinGetPackageManager(handler));
+        }
         //if (UnixUtils.IsUnix) packageManagers.Add(new PackageKitPackageManager());
 
         return new CompositePackageManager(packageManagers);

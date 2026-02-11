@@ -36,6 +36,7 @@ public class ServiceProvider
         _trustManager = new(() => new(TrustDB.LoadSafe(), Config, OpenPgp, FeedCache, Handler));
         _feedManager = new(() => new(Config, FeedCache, TrustManager, Handler));
         _catalogManager = new(() => new(Config, TrustManager, Handler));
+        _packageManager = new(() => PackageManagers.Default(Handler));
         _selectionCandidateProvider = new(() => new(Config, FeedManager, ImplementationStore, PackageManager));
         _solver = new(() =>
         {
@@ -106,7 +107,7 @@ public class ServiceProvider
     /// </summary>
     public virtual ICatalogManager CatalogManager => _catalogManager.Value;
 
-    private readonly Lazy<IPackageManager> _packageManager = new(PackageManagers.Default);
+    private readonly Lazy<IPackageManager> _packageManager;
 
     /// <summary>
     /// An external package manager that can install <see cref="PackageImplementation"/>s.
