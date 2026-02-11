@@ -21,7 +21,7 @@ public class TarLzmaExtractor(ITaskHandler handler) : TarExtractor(handler)
     {
         try
         {
-            base.Extract(builder, new LzmaStream(stream.Read(13), stream), subDir);
+            base.Extract(builder, LzmaStream.Create(properties: stream.Read(13), stream), subDir);
         }
         #region Error handling
         catch (ExtractionException ex)

@@ -23,7 +23,7 @@ public class SevenZipExtractor(ITaskHandler handler) : ArchiveExtractor(handler)
         {
             try
             {
-                var reader = SevenZipArchive.Open(seekableStream).ExtractAllEntries();
+                using var reader = SevenZipArchive.OpenArchive(seekableStream, new() {LeaveStreamOpen = true}).ExtractAllEntries();
                 while (reader.MoveToNextEntry())
                 {
                     Handler.CancellationToken.ThrowIfCancellationRequested();

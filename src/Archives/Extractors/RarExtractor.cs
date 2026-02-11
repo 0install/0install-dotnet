@@ -20,7 +20,7 @@ public class RarExtractor(ITaskHandler handler) : ArchiveExtractor(handler)
     {
         try
         {
-            using var reader = RarReader.Open(stream, new() {LeaveStreamOpen = true});
+            using var reader = RarReader.OpenReader(stream, new() {LeaveStreamOpen = true});
             while (reader.MoveToNextEntry())
             {
                 Handler.CancellationToken.ThrowIfCancellationRequested();
