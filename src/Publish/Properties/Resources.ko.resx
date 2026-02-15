@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>아카이브에는 최상위 디렉터리 '{0}' 하나만 포함됩니다. 추가 중첩 수준을 피하려면 '{1}' 속성을 '{0}' 로 설정해야 합니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>'{0}' 명령은 경로 '{1}' 를 지정하지만 이 파일은 아카이브에 존재하지 않습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>실행 파일 검색</value>
     <comment>Automatically translated.</comment>

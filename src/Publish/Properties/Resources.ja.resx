@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>アーカイブにはトップレベルのディレクトリ '{0}' がひとつだけ含まれています。余分なネストレベルを避けるために、おそらく '{1}' 属性を '{0}' に設定する必要があります。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>コマンド '{0}' はパス '{1}' を指定しますが、このファイルはアーカイブに存在しません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>実行ファイルの検索</value>
     <comment>Automatically translated.</comment>

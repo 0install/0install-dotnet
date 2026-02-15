@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>Архив содержит только один каталог верхнего уровня '{0}'. Возможно, вам следует установить атрибут '{1}' на '{0}', чтобы избежать дополнительного уровня вложенности.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>Команда '{0}' указывает путь '{1}', но этого файла в архиве не существует.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Поиск исполняемых файлов</value>
     <comment>Automatically translated.</comment>

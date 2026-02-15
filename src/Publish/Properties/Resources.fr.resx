@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>L'archive ne contient qu'un seul répertoire de premier niveau '{0}'. Vous devriez probablement définir l'attribut '{1}' en '{0}' pour éviter un niveau d'imbrication supplémentaire.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>La commande '{0}' spécifie le chemin '{1}' mais ce fichier n'existe pas dans l'archive.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Recherche de fichiers exécutables</value>
     <comment>Automatically translated.</comment>

@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>Archiv obsahuje pouze jeden adresář nejvyšší úrovně '{0}'. Pravděpodobně byste měli nastavit atribut '{1}' na '{0}', abyste se vyhnuli další vnořené úrovni.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>Příkaz '{0}' zadává cestu '{1}', ale tento soubor v archivu neexistuje.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Vyhledávání spustitelných souborů</value>
     <comment>Automatically translated.</comment>

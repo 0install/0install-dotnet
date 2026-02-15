@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>Arşiv dosyasında yalnızca '{0}' üst düzey klasörü var. Fazladan bir alt klasör düzeyi oluşturulmaması için büyük olasılıkla '{1}' özniteliğini '{0}' olarak ayarlamalısınız.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>'{0}' komutunda '{1}' yolu bulunuyor. Ancak bu dosya arşiv dosyası içinde yok.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Yürütülebilir dosyalar aranıyor</value>
     <comment>Manually overriden.</comment>

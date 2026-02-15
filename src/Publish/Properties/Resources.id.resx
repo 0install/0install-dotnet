@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>Arsip hanya berisi satu direktori tingkat atas '{0}'. Anda mungkin harus mengatur atribut '{1}' ke '{0}' untuk menghindari tingkat penelusuran tambahan.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>Perintah '{0}' menentukan jalur '{1}' tetapi file ini tidak ada dalam arsip.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Mencari file yang dapat dieksekusi</value>
     <comment>Automatically translated.</comment>
