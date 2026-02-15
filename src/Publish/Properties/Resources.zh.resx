@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>归档文件只包含一个顶级目录 '{0}'。您可能应将 "{1}"属性设置为 "{0}"，以避免额外的嵌套层。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>命令 "{0}"指定了路径 "{1}"，但存档中并不存在该文件。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>搜索可执行文件</value>
     <comment>Automatically translated.</comment>

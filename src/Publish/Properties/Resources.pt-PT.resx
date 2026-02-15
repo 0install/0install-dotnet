@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>O arquivo contém apenas um único diretório de nível superior '{0}'. Provavelmente, deve definir o atributo '{1}' para '{0}' para evitar um nível de aninhamento adicional.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>O comando '{0}' especifica o caminho '{1}' mas este ficheiro não existe no arquivo.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Pesquisa de ficheiros executáveis</value>
     <comment>Automatically translated.</comment>

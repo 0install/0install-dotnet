@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>Archiwum zawiera tylko jeden katalog najwyższego poziomu '{0}'. Prawdopodobnie należy ustawić atrybut '{1}' na '{0}', aby uniknąć dodatkowego poziomu zagnieżdżenia.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>Polecenie '{0}' określa ścieżkę '{1}', ale ten plik nie istnieje w archiwum.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Wyszukiwanie plików wykonywalnych</value>
     <comment>Automatically translated.</comment>

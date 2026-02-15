@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>Το αρχείο περιέχει μόνο έναν κατάλογο ανώτατου επιπέδου '{0}'. Πιθανώς θα πρέπει να ορίσετε το χαρακτηριστικό '{1}' σε '{0}' για να αποφύγετε ένα επιπλέον επίπεδο φωλιασμού.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>Η εντολή '{0}' προσδιορίζει τη διαδρομή '{1}' αλλά αυτό το αρχείο δεν υπάρχει στο αρχείο.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Αναζήτηση για τα εκτελέσιμα αρχεία</value>
     <comment>Manually overriden.</comment>

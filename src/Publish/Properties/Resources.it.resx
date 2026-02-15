@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>L'archivio contiene una sola directory di primo livello '{0}'. Probabilmente si dovrebbe impostare l'attributo '{1}' a '{0}' per evitare un ulteriore livello di annidamento.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>Il comando '{0}' specifica il percorso '{1}' ma questo file non esiste nell'archivio.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Ricerca di file eseguibili</value>
     <comment>Automatically translated.</comment>

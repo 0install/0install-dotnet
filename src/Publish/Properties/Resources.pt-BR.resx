@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>O arquivo compactado contém apenas uma única pasta de nível superior '{0}'. Você provavelmente deveria definir o atributo '{1}' como '{0}' para evitar um nível de aninhamento extra.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>O comando '{0}' especifica o caminho '{1}', mas este arquivo não existe no arquivo compactado.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Procurando arquivos executáveis</value>
     <comment>Manually overriden.</comment>
