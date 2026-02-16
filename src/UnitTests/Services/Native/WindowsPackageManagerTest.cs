@@ -15,44 +15,44 @@ public class WindowsPackageManagerTest
 
     public WindowsPackageManagerTest()
     {
-        Skip.IfNot(WindowsUtils.IsWindows);
-        Skip.If(ProcessArchitecture == X86);
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Requires Windows platform");
+        Assert.SkipWhen(ProcessArchitecture == X86, "Not supported on x86 architecture");
         _packageManager = new();
     }
 
-    [SkippableFact]
+    [Fact]
     public void DotNetFramework()
         => ExpectImplementation("netfx", commandPath: "", quickTest: @"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\mscorlib.dll");
 
-    [SkippableFact]
+    [Fact]
     public void DotNetFrameworkX86()
         => ExpectImplementation("netfx", commandPath: "", quickTest: @"C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll");
 
-    [SkippableFact]
+    [Fact]
     public void DotNetFrameworkClientProfile()
         => ExpectImplementation("netfx-client", commandPath: "", quickTest: @"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\mscorlib.dll");
 
-    [SkippableFact]
+    [Fact]
     public void PowerShell()
         => ExpectImplementation("powershell", commandPath: @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe", quickTest: @"System32\WindowsPowerShell\v1.0\powershell.exe");
 
-    [SkippableFact]
+    [Fact]
     public void PowerShellX86()
         => ExpectImplementation("powershell", commandPath: @"C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe", quickTest: @"SysWOW64\WindowsPowerShell\v1.0\powershell.exe");
 
-    [SkippableFact]
+    [Fact]
     public void DotNetRuntime()
         => ExpectImplementation("dotnet-runtime", commandPath: @"C:\Program Files\dotnet\dotnet.exe", quickTest: @"dotnet\shared\Microsoft.NETCore.App");
 
-    [SkippableFact]
+    [Fact]
     public void DotNetAspNetCoreRuntime()
         => ExpectImplementation("dotnet-aspnetcore-runtime", commandPath: @"C:\Program Files\dotnet\dotnet.exe", quickTest: @"dotnet\shared\Microsoft.AspNetCore.App");
 
-    [SkippableFact]
+    [Fact]
     public void DotNetWindowsDesktopRuntime()
         => ExpectImplementation("dotnet-windowsdesktop-runtime", commandPath: @"C:\Program Files\dotnet\dotnet.exe", quickTest: @"dotnet\shared\Microsoft.WindowsDesktop.App");
 
-    [SkippableFact]
+    [Fact]
     public void DotNetSdk() => ExpectImplementation("dotnet-sdk", commandPath: @"C:\Program Files\dotnet\dotnet.exe", quickTest: @"dotnet\sdk");
 
     private void ExpectImplementation(string packageName, string commandPath, string quickTest)

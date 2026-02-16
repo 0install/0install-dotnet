@@ -26,50 +26,50 @@ public class ImplementationDiscoveryTest : IDisposable
 
     public ImplementationDiscoveryTest()
     {
-        Skip.If(WindowsUtils.IsWindowsNT && !WindowsUtils.IsAdministrator, "Listening on ports needs admin rights on Windows");
+        Assert.SkipWhen(WindowsUtils.IsWindowsNT && !WindowsUtils.IsAdministrator, "Listening on ports needs admin rights on Windows");
         _tempDir = new("0install-test-store");
         _implementationStore = new(_tempDir, new SilentTaskHandler());
     }
 
     public void Dispose() => _tempDir.Dispose();
 
-    [SkippableFact]
+    [Fact]
     public void FoundServerStartedBefore()
     {
         var digest = AddImplementation();
         using var server = StartServer();
 
         using var discovery = new ImplementationDiscovery();
-        discovery.GetImplementation(digest, default)
+        discovery.GetImplementation(digest, TestContext.Current.CancellationToken)
                  .LocalPath.Should().Contain(digest.Best);
     }
 
-    [SkippableFact]
+    [Fact]
     public async Task FoundServerStartedLater()
     {
         var digest = AddImplementation();
         using var discovery = new ImplementationDiscovery();
 
         // ReSharper disable once AccessToDisposedClosure
-        var task = Task.Run(() => discovery.GetImplementation(digest, default));
+        var task = Task.Run(() => discovery.GetImplementation(digest, TestContext.Current.CancellationToken));
         using var server = StartServer();
         (await task).LocalPath.Should().Contain(digest.Best);
     }
 
-    [SkippableFact]
+    [Fact]
     public void NotFound()
     {
         using var server = StartServer();
         using var discovery = new ImplementationDiscovery();
-        discovery.TryGetImplementation(new(Sha256New: "dummy"), TimeSpan.FromSeconds(1))
+        discovery.TryGetImplementation(new(Sha256New: "dummy"), TimeSpan.FromSeconds(1), TestContext.Current.CancellationToken)
                  .Should().BeNull();
     }
 
-    [SkippableFact]
+    [Fact]
     public void NoServer()
     {
         using var discovery = new ImplementationDiscovery();
-        discovery.TryGetImplementation(new(Sha256New: "dummy"), TimeSpan.FromSeconds(1))
+        discovery.TryGetImplementation(new(Sha256New: "dummy"), TimeSpan.FromSeconds(1), TestContext.Current.CancellationToken)
                  .Should().BeNull();
     }
 

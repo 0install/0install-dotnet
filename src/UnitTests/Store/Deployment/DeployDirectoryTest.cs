@@ -81,10 +81,10 @@ public class DeployDirectoryTest : DirectoryOperationTestBase
         Directory.GetFileSystemEntries(_destinationDirectory).Length.Should().Be(1, because: "All new content should be gone after rollback.");
     }
 
-    [SkippableFact]
+    [Fact]
     public void ReadOnlyAttribute()
     {
-        Skip.IfNot(WindowsUtils.IsWindows, "Read-only file attribute is only available on Windows");
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Read-only file attribute is only available on Windows");
 
         FileUtils.Touch(_destinationFile1Path);
         new FileInfo(_destinationFile1Path).IsReadOnly = true;

@@ -12,10 +12,10 @@ public class MsiExtractorTest: ArchiveExtractorTestBase
 
     public MsiExtractorTest()
     {
-        Skip.IfNot(WindowsUtils.IsWindows, "MSI extraction relies on a Win32 API and therefore will not work on non-Windows platforms");
+        Assert.SkipUnless(WindowsUtils.IsWindows, "MSI extraction relies on a Win32 API and therefore will not work on non-Windows platforms");
     }
 
-    [SkippableFact]
+    [Fact]
     public void Extract()
     {
         Test(

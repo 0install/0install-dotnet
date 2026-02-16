@@ -18,10 +18,10 @@ public class StubBuilderTest : TestWithRedirect
 
     public StubBuilderTest()
     {
-        Skip.IfNot(WindowsUtils.IsWindows, "StubBuilder is only used on Windows");
+        Assert.SkipUnless(WindowsUtils.IsWindows, "StubBuilder is only used on Windows");
     }
 
-    [SkippableFact]
+    [Fact]
     public void TestGetRunCommandLineCli()
     {
         var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());
@@ -36,7 +36,7 @@ public class StubBuilderTest : TestWithRedirect
             .Should().Equal(0x06, 0xC3, 0xA1, 0xDC, 0x0F, 0x01, 0xCE, 0xE7, 0x78, 0xFF, 0x0C, 0x21, 0xA9, 0x19, 0xB0, 0xCA, 0x47, 0xA3, 0x55, 0x1F);
     }
 
-    [SkippableFact]
+    [Fact]
     public void TestGetRunCommandLineGui()
     {
         var target = new FeedTarget(FeedTest.Test1Uri, FeedTest.CreateTestFeed());

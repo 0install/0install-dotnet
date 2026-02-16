@@ -40,14 +40,14 @@ public class ImplementationServerTest : IDisposable
         var digest = RandomDigest();
         _implementationStore.Add(digest, [new TestFile("fileA")]);
 
-        using var response = await _client.SendAsync(new(HttpMethod.Head, $"{digest}.zip"));
+        using var response = await _client.SendAsync(new(HttpMethod.Head, $"{digest}.zip"), TestContext.Current.CancellationToken);
         response.StatusCode.Should().Be(HttpStatusCode.OK);
     }
 
     [Fact]
     public async Task HeadNotFound()
     {
-        using var response = await _client.SendAsync(new(HttpMethod.Head, "sha256new_dummy.zip"));
+        using var response = await _client.SendAsync(new(HttpMethod.Head, "sha256new_dummy.zip"), TestContext.Current.CancellationToken);
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
     }
 
@@ -57,14 +57,18 @@ public class ImplementationServerTest : IDisposable
         var digest = RandomDigest();
         _implementationStore.Add(digest, [new TestFile("fileA")]);
 
-        using var stream = await _client.GetStreamAsync($"{digest}.zip");
+        using var stream = await _client.GetStreamAsync($"{digest}.zip"
+#if NET
+            , TestContext.Current.CancellationToken
+#endif
+        );
         new ZipExtractor(new SilentTaskHandler()).Extract(Mock.Of<IBuilder>(), stream);
     }
 
     [Fact]
     public async Task GetNotFound()
     {
-        using var response = await _client.GetAsync("sha256new_dummy.zip");
+        using var response = await _client.GetAsync("sha256new_dummy.zip", TestContext.Current.CancellationToken);
         response.StatusCode.Should().Be(HttpStatusCode.NotFound);
     }
 

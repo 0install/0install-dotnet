@@ -42,10 +42,10 @@ public class DotNetExeTest : CandidateTest
 
     public DotNetExeTest()
     {
-        Skip.IfNot(WindowsUtils.IsWindows, reason: "Non-Windows systems cannot parse PE headers.");
+        Assert.SkipUnless(WindowsUtils.IsWindows, reason: "Non-Windows systems cannot parse PE headers.");
     }
 
-    [SkippableFact]
+    [Fact]
     public void CommandLine()
     {
         Deploy($"{Reference.RelativePath![..^4]}.runtimeconfig.json");
@@ -53,7 +53,7 @@ public class DotNetExeTest : CandidateTest
         TestAnalyze(Reference);
     }
 
-    [SkippableFact]
+    [Fact]
     public void AspNetCore()
     {
         Deploy($"{ReferenceAspNetCore.RelativePath![..^4]}.runtimeconfig.json");
@@ -61,7 +61,7 @@ public class DotNetExeTest : CandidateTest
         TestAnalyze(ReferenceAspNetCore);
     }
 
-    [SkippableFact]
+    [Fact]
     public void WindowsDesktop()
     {
         Deploy($"{ReferenceWindowsDesktop.RelativePath![..^4]}.runtimeconfig.json");

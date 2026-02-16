@@ -19,7 +19,7 @@ public class DetectionTest : CandidateTest
         Deploy(PosixBinaryTest.Reference32, xbit: true);
 
         var detect = new DetectCandidates(Directory.FullName);
-        detect.Run();
+        detect.Run(TestContext.Current.CancellationToken);
 
         detect.Candidates.Should().BeEquivalentTo(new Candidate[]
         {
@@ -37,7 +37,7 @@ public class DetectionTest : CandidateTest
         FileUtils.Touch(Path.Combine(Directory.FullName, "empty"));
 
         var detect = new DetectCandidates(Directory.FullName);
-        detect.Run();
+        detect.Run(TestContext.Current.CancellationToken);
 
         detect.Candidates.Should().BeEmpty();
     }

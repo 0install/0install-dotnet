@@ -140,10 +140,10 @@ public class FeedCacheTest : TestWithMocks
     /// <summary>
     /// Ensures <see cref="FeedCache"/> can handle feed URIs longer than the OSes maximum supported file path length.
     /// </summary>
-    [SkippableFact(Skip = "Slow")]
+    [Fact(Skip = "Slow")]
     public void TestTooLongFilename()
     {
-        Skip.IfNot(WindowsUtils.IsWindows, "Windows systems have a specific upper limit to file path lengths");
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Windows systems have a specific upper limit to file path lengths");
 
         var longHttpUrlBuilder = new StringBuilder(255);
         for (int i = 0; i < 255; i++)

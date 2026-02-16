@@ -97,10 +97,10 @@ public class StoreManTest
                 server.FileUri.ToString());
         }
 
-        [SkippableFact]
+        [Fact]
         public void Discover()
         {
-            Skip.If(!WindowsUtils.IsWindowsNT || !WindowsUtils.IsAdministrator, "Test is flaky non-Windows OSes, needs admin rights on Windows");
+            Assert.SkipWhen(!WindowsUtils.IsWindowsNT || !WindowsUtils.IsAdministrator, "Test is flaky non-Windows OSes, needs admin rights on Windows");
             ImplementationDiscovery.ExcludeLocalMachine = true;
 
             var digest = ManifestDigest.Empty;

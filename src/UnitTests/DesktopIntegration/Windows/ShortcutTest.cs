@@ -14,10 +14,10 @@ public class ShortcutTest
 {
     public ShortcutTest()
     {
-        Skip.IfNot(WindowsUtils.IsWindows);
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Shortcut creation is only available on Windows");
     }
 
-    [SkippableFact]
+    [Fact]
     public void TestCreate()
     {
         using var tempDir = new TemporaryDirectory("0install-unit-test");

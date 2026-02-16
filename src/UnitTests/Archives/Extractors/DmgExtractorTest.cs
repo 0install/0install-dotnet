@@ -10,12 +10,12 @@ public class DmgExtractorTest : ArchiveExtractorTestBase
 {
     public DmgExtractorTest()
     {
-        Skip.IfNot(UnixUtils.IsMacOSX, "DMG extraction relies on hdutil and therefore will not work on non-MacOS platforms");
+        Assert.SkipUnless(UnixUtils.IsMacOSX, "DMG extraction relies on hdutil and therefore will not work on non-MacOS platforms");
     }
 
     protected override string MimeType => Archive.MimeTypeDmg;
 
-    [SkippableFact]
+    [Fact]
     public void Extract()
     {
         Test(
@@ -37,7 +37,7 @@ public class DmgExtractorTest : ArchiveExtractorTestBase
             });
     }
 
-    [SkippableFact]
+    [Fact]
     public void ExtractSubDir()
     {
         Test(
@@ -52,7 +52,7 @@ public class DmgExtractorTest : ArchiveExtractorTestBase
             subDir: "subdir1");
     }
 
-    [SkippableFact]
+    [Fact]
     public void ExtractSubDirEmpty()
     {
         Test(
