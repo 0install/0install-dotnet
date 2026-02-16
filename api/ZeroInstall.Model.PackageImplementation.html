@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PackageImplementation | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PackageImplementation | Zero Install .NET API ">
+      
+      <meta name="description" content="An implementation provided by a distribution-specific package manager instead of Zero Install.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Model_PackageImplementation.md&amp;value=---%0Auid%3A%20ZeroInstall.Model.PackageImplementation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Model.PackageImplementation">
+
+
+
+  <h1 id="ZeroInstall_Model_PackageImplementation" data-uid="ZeroInstall.Model.PackageImplementation" class="text-break">
+Class PackageImplementation  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.PackageImplementation.Generator.Equals.g.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Model.html">Model</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Model.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An implementation provided by a distribution-specific package manager instead of Zero Install.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+[Equatable]
+public sealed class PackageImplementation : Element, IEquatable&lt;XmlUnknown&gt;, IEquatable&lt;FeedElement&gt;, IEquatable&lt;TargetBase&gt;, IBindingContainer, IDependencyContainer, ICloneable&lt;Element&gt;, IEquatable&lt;Element&gt;, IEquatable&lt;PackageImplementation&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="ZeroInstall.Model.XmlUnknown.html">XmlUnknown</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.FeedElement.html">FeedElement</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.TargetBase.html">TargetBase</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Element.html">Element</a></div>
+      <div><span class="xref">PackageImplementation</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.XmlUnknown.html">XmlUnknown</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.FeedElement.html">FeedElement</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.TargetBase.html">TargetBase</a>&gt;</div>
+      <div><a class="xref" href="ZeroInstall.Model.IBindingContainer.html">IBindingContainer</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.IDependencyContainer.html">IDependencyContainer</a></div>
+      <div><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.ICloneable-1.html">ICloneable</a>&lt;<a class="xref" href="ZeroInstall.Model.Element.html">Element</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.Element.html">Element</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_ReleaseDateFormat">Element.ReleaseDateFormat</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_VersionModifier">Element.VersionModifier</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_Released">Element.Released</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_ReleasedString">Element.ReleasedString</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_Stability">Element.Stability</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_RolloutPercentage">Element.RolloutPercentage</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_License">Element.License</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_Main">Element.Main</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_SelfTest">Element.SelfTest</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_DocDir">Element.DocDir</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_Dependencies">Element.Dependencies</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_Restrictions">Element.Restrictions</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_Bindings">Element.Bindings</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_Commands">Element.Commands</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_ContainsCommand_System_String_">Element.ContainsCommand(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_Item_System_String_">Element.this[string]</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_GetCommand_System_String_">Element.GetCommand(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.Element.html#ZeroInstall_Model_Element_Normalize_ZeroInstall_Model_FeedUri_">Element.Normalize(FeedUri)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.TargetBase.html#ZeroInstall_Model_TargetBase_Languages">TargetBase.Languages</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.TargetBase.html#ZeroInstall_Model_TargetBase_Architecture">TargetBase.Architecture</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.FeedElement.html#ZeroInstall_Model_FeedElement_IfZeroInstallVersion">FeedElement.IfZeroInstallVersion</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_UnknownAttributes">XmlUnknown.UnknownAttributes</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_UnknownElements">XmlUnknown.UnknownElements</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_ToShortXml">XmlUnknown.ToShortXml()</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_Equals_ZeroInstall_Model_XmlUnknown_">XmlUnknown.Equals(XmlUnknown)</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="ZeroInstall.Model.DependencyContainerExtensions.html#ZeroInstall_Model_DependencyContainerExtensions_GetEffectiveRestrictions_ZeroInstall_Model_IDependencyContainer_">DependencyContainerExtensions.GetEffectiveRestrictions(IDependencyContainer)</a>
+  </div>
+  </dd></dl>
+
+
+
+  <h2 id="ZeroInstall_Model_PackageImplementation_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Any <a class="xref" href="ZeroInstall.Model.Binding.html">Binding</a>s inside <a class="xref" href="ZeroInstall.Model.Dependency.html">Dependency</a>s for the <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a> will be ignored; it is assumed that the requiring component knows how to use the packaged version without further help.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_DistributionNames" data-uid="ZeroInstall.Model.PackageImplementation.DistributionNames">
+  DistributionNames
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/PackageImplementation.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Well-known values for <a class="xref" href="ZeroInstall.Model.PackageImplementation.html#ZeroInstall_Model_PackageImplementation_Distributions">Distributions</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string[] DistributionNames</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Model_PackageImplementation_Distributions_" data-uid="ZeroInstall.Model.PackageImplementation.Distributions*"></a>
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_Distributions" data-uid="ZeroInstall.Model.PackageImplementation.Distributions">
+  Distributions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/PackageImplementation.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A list of distribution names (e.g. Debian, RPM) where <a class="xref" href="ZeroInstall.Model.PackageImplementation.html#ZeroInstall_Model_PackageImplementation_Package">Package</a> applies. Applies everywhere if empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[OrderedEquality]
+public List&lt;string&gt; Distributions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="ZeroInstall.Model.KnownDistributions.html">KnownDistributions</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="ZeroInstall_Model_PackageImplementation_DistributionsString_" data-uid="ZeroInstall.Model.PackageImplementation.DistributionsString*"></a>
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_DistributionsString" data-uid="ZeroInstall.Model.PackageImplementation.DistributionsString">
+  DistributionsString
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/PackageImplementation.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Used for XML serialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(typeof(DistributionNameConverter))]
+[IgnoreEquality]
+public string DistributionsString { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="ZeroInstall.Model.PackageImplementation.html#ZeroInstall_Model_PackageImplementation_Distributions">Distributions</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="ZeroInstall_Model_PackageImplementation_Package_" data-uid="ZeroInstall.Model.PackageImplementation.Package*"></a>
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_Package" data-uid="ZeroInstall.Model.PackageImplementation.Package">
+  Package
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/PackageImplementation.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the package in the distribution-specific package manager.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Package { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_PackageImplementation_Version_" data-uid="ZeroInstall.Model.PackageImplementation.Version*"></a>
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_Version" data-uid="ZeroInstall.Model.PackageImplementation.Version">
+  Version
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/PackageImplementation.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The range of versions to accept for the specified <a class="xref" href="ZeroInstall.Model.PackageImplementation.html#ZeroInstall_Model_PackageImplementation_Package">Package</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VersionRange? Version { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.VersionRange.html">VersionRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Model_PackageImplementation_Clone_" data-uid="ZeroInstall.Model.PackageImplementation.Clone*"></a>
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_Clone" data-uid="ZeroInstall.Model.PackageImplementation.Clone">
+  Clone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/PackageImplementation.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a deep copy of this <a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Element Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Element.html">Element</a></dt>
+    <dd><p>The new copy of the <a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_PackageImplementation_CloneImplementation_" data-uid="ZeroInstall.Model.PackageImplementation.CloneImplementation*"></a>
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_CloneImplementation" data-uid="ZeroInstall.Model.PackageImplementation.CloneImplementation">
+  CloneImplementation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/PackageImplementation.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a deep copy of this <a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PackageImplementation CloneImplementation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a></dt>
+    <dd><p>The new copy of the <a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_PackageImplementation_EnsureAttributes_" data-uid="ZeroInstall.Model.PackageImplementation.EnsureAttributes*"></a>
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_EnsureAttributes" data-uid="ZeroInstall.Model.PackageImplementation.EnsureAttributes">
+  EnsureAttributes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/PackageImplementation.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ensures that required values deserialized from XML attributes are set (not <code>null</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void EnsureAttributes()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A required property is not set or invalid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_PackageImplementation_Equals_" data-uid="ZeroInstall.Model.PackageImplementation.Equals*"></a>
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_Equals_System_Object_" data-uid="ZeroInstall.Model.PackageImplementation.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.PackageImplementation.Generator.Equals.g.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">object</span></dt>
+    <dd><p>The object to compare with the current object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_PackageImplementation_GetHashCode_" data-uid="ZeroInstall.Model.PackageImplementation.GetHashCode*"></a>
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_GetHashCode" data-uid="ZeroInstall.Model.PackageImplementation.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.PackageImplementation.Generator.Equals.g.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_PackageImplementation_ToString_" data-uid="ZeroInstall.Model.PackageImplementation.ToString*"></a>
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_ToString" data-uid="ZeroInstall.Model.PackageImplementation.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/PackageImplementation.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the implementation in the form &quot;Package (Distributions)&quot;. Not safe for parsing!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="ZeroInstall_Model_PackageImplementation_op_Equality_" data-uid="ZeroInstall.Model.PackageImplementation.op_Equality*"></a>
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_op_Equality_ZeroInstall_Model_PackageImplementation_ZeroInstall_Model_PackageImplementation_" data-uid="ZeroInstall.Model.PackageImplementation.op_Equality(ZeroInstall.Model.PackageImplementation,ZeroInstall.Model.PackageImplementation)">
+  operator ==(PackageImplementation?, PackageImplementation?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.PackageImplementation.Generator.Equals.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the object on the left is equal to the object on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(PackageImplementation? left, PackageImplementation? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a></dt>
+    <dd><p>The left object</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a></dt>
+    <dd><p>The right object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the objects are equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_PackageImplementation_op_Inequality_" data-uid="ZeroInstall.Model.PackageImplementation.op_Inequality*"></a>
+
+  <h3 id="ZeroInstall_Model_PackageImplementation_op_Inequality_ZeroInstall_Model_PackageImplementation_ZeroInstall_Model_PackageImplementation_" data-uid="ZeroInstall.Model.PackageImplementation.op_Inequality(ZeroInstall.Model.PackageImplementation,ZeroInstall.Model.PackageImplementation)">
+  operator !=(PackageImplementation?, PackageImplementation?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.PackageImplementation.Generator.Equals.g.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the object on the left is not equal to the object on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(PackageImplementation? left, PackageImplementation? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a></dt>
+    <dd><p>The left object</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a></dt>
+    <dd><p>The right object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the objects are not equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.PackageImplementation.Generator.Equals.g.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CaptureSession | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CaptureSession | Zero Install .NET API ">
+      
+      <meta name="description" content="Manages the process of taking two s and comparing them to generate a .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Publish_Capture_CaptureSession.md&amp;value=---%0Auid%3A%20ZeroInstall.Publish.Capture.CaptureSession%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Publish.Capture.CaptureSession">
+
+
+
+  <h1 id="ZeroInstall_Publish_Capture_CaptureSession" data-uid="ZeroInstall.Publish.Capture.CaptureSession" class="text-break">
+Class CaptureSession  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/CaptureSession.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Publish.html">Publish</a>.<a class="xref" href="ZeroInstall.Publish.Capture.html">Capture</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Publish.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manages the process of taking two <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html">Snapshot</a>s and comparing them to generate a <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CaptureSession</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">CaptureSession</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Publish_Capture_CaptureSession_InstallationDir_" data-uid="ZeroInstall.Publish.Capture.CaptureSession.InstallationDir*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_CaptureSession_InstallationDir" data-uid="ZeroInstall.Publish.Capture.CaptureSession.InstallationDir">
+  InstallationDir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/CaptureSession.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The fully qualified path to the installation directory; leave <code>null</code> or empty for auto-detection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? InstallationDir { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Publish_Capture_CaptureSession_CollectFiles_" data-uid="ZeroInstall.Publish.Capture.CaptureSession.CollectFiles*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_CaptureSession_CollectFiles_System_String_System_Uri_NanoByte_Common_Tasks_ITaskHandler_" data-uid="ZeroInstall.Publish.Capture.CaptureSession.CollectFiles(System.String,System.Uri,NanoByte.Common.Tasks.ITaskHandler)">
+  CollectFiles(string, Uri, ITaskHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/CaptureSession.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a archive containing the <a class="xref" href="ZeroInstall.Publish.Capture.CaptureSession.html#ZeroInstall_Publish_Capture_CaptureSession_InstallationDir">InstallationDir</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CollectFiles(string archivePath, Uri archiveUrl, ITaskHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>archivePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the archive file to create.</p>
+</dd>
+    <dt><code>archiveUrl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
+    <dd><p>The URL where the archive will be uploaded.</p>
+</dd>
+    <dt><code>handler</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a></dt>
+    <dd><p>A callback object used when the user needs to be informed about IO tasks.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Publish_Capture_CaptureSession_CollectFiles_System_String_System_Uri_NanoByte_Common_Tasks_ITaskHandler__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Sets <a class="xref" href="ZeroInstall.Publish.FeedBuilder.html#ZeroInstall_Publish_FeedBuilder_RetrievalMethod">RetrievalMethod</a> and calls <a class="xref" href="ZeroInstall.Publish.FeedBuilder.html#ZeroInstall_Publish_FeedBuilder_GenerateDigest_NanoByte_Common_Tasks_ITaskHandler_">GenerateDigest(ITaskHandler)</a>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p><a class="xref" href="ZeroInstall.Publish.Capture.CaptureSession.html#ZeroInstall_Publish_Capture_CaptureSession_Diff_NanoByte_Common_Tasks_ITaskHandler_">Diff(ITaskHandler)</a> was not called or <a class="xref" href="ZeroInstall.Publish.FeedBuilder.html#ZeroInstall_Publish_FeedBuilder_MainCandidate">MainCandidate</a> is not set.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>There was an error reading the installation files or writing the archive.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Access to the file system was not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>The MIME type inferred from the <code class="paramref">archivePath</code> doesn't belong to a known and supported archive type.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_Capture_CaptureSession_Diff_" data-uid="ZeroInstall.Publish.Capture.CaptureSession.Diff*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_CaptureSession_Diff_NanoByte_Common_Tasks_ITaskHandler_" data-uid="ZeroInstall.Publish.Capture.CaptureSession.Diff(NanoByte.Common.Tasks.ITaskHandler)">
+  Diff(ITaskHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/CaptureSession.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Collects data from the locations indicated by the differences between the <a class="xref" href="ZeroInstall.Publish.Capture.CaptureSession.html#ZeroInstall_Publish_Capture_CaptureSession_Start_ZeroInstall_Publish_FeedBuilder_">Start(FeedBuilder)</a> state and the current system state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Diff(ITaskHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a></dt>
+    <dd><p>A callback object used when the user needs to be informed about IO tasks.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>No installation directory was detected.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>There was an error accessing the registry or file system.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Access to the registry or file system was not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_Capture_CaptureSession_Finish_" data-uid="ZeroInstall.Publish.Capture.CaptureSession.Finish*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_CaptureSession_Finish" data-uid="ZeroInstall.Publish.Capture.CaptureSession.Finish">
+  Finish()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/CaptureSession.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finishes the capture process after <a class="xref" href="ZeroInstall.Publish.Capture.CaptureSession.html#ZeroInstall_Publish_Capture_CaptureSession_Diff_NanoByte_Common_Tasks_ITaskHandler_">Diff(ITaskHandler)</a> has been called an <a class="xref" href="ZeroInstall.Publish.FeedBuilder.html#ZeroInstall_Publish_FeedBuilder_MainCandidate">MainCandidate</a> has been set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Finish()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p><a class="xref" href="ZeroInstall.Publish.Capture.CaptureSession.html#ZeroInstall_Publish_Capture_CaptureSession_Diff_NanoByte_Common_Tasks_ITaskHandler_">Diff(ITaskHandler)</a> was not called or <a class="xref" href="ZeroInstall.Publish.FeedBuilder.html#ZeroInstall_Publish_FeedBuilder_MainCandidate">MainCandidate</a> is not set.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>There was an error accessing the registry or file system.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Access to the registry or file system was not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_Capture_CaptureSession_Load_" data-uid="ZeroInstall.Publish.Capture.CaptureSession.Load*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_CaptureSession_Load_System_String_ZeroInstall_Publish_FeedBuilder_" data-uid="ZeroInstall.Publish.Capture.CaptureSession.Load(System.String,ZeroInstall.Publish.FeedBuilder)">
+  Load(string, FeedBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/CaptureSession.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads a capture session from a snapshot file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CaptureSession Load(string path, FeedBuilder feedBuilder)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file to load from.</p>
+</dd>
+    <dt><code>feedBuilder</code> <a class="xref" href="ZeroInstall.Publish.FeedBuilder.html">FeedBuilder</a></dt>
+    <dd><p>All collected data is stored into this builder. You can perform additional modifications before using <a class="xref" href="ZeroInstall.Publish.FeedBuilder.html#ZeroInstall_Publish_FeedBuilder_Build">Build()</a> to get a feed.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Publish.Capture.CaptureSession.html">CaptureSession</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while reading the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the file is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A problem occurred while deserializing the binary data.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_Capture_CaptureSession_Save_" data-uid="ZeroInstall.Publish.Capture.CaptureSession.Save*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_CaptureSession_Save_System_String_" data-uid="ZeroInstall.Publish.Capture.CaptureSession.Save(System.String)">
+  Save(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/CaptureSession.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves the capture session to a snapshot file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Save(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file to save in.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the file is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_Capture_CaptureSession_Start_" data-uid="ZeroInstall.Publish.Capture.CaptureSession.Start*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_CaptureSession_Start_ZeroInstall_Publish_FeedBuilder_" data-uid="ZeroInstall.Publish.Capture.CaptureSession.Start(ZeroInstall.Publish.FeedBuilder)">
+  Start(FeedBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/CaptureSession.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Captures the current system state as a snapshot of the system state before the target application was installed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CaptureSession Start(FeedBuilder feedBuilder)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedBuilder</code> <a class="xref" href="ZeroInstall.Publish.FeedBuilder.html">FeedBuilder</a></dt>
+    <dd><p>All collected data is stored into this builder. You can perform additional modifications before using <a class="xref" href="ZeroInstall.Publish.FeedBuilder.html#ZeroInstall_Publish_FeedBuilder_Build">Build()</a> to get a feed.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Publish.Capture.CaptureSession.html">CaptureSession</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>There was an error accessing the registry or file system.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Access to the registry or the file system was not permitted.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/CaptureSession.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

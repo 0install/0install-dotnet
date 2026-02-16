@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ManifestFormat | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ManifestFormat | Zero Install .NET API ">
+      
+      <meta name="description" content="Abstract class to encapsulate the differences between the different formats that can be used to save and load s.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Store_Manifests_ManifestFormat.md&amp;value=---%0Auid%3A%20ZeroInstall.Store.Manifests.ManifestFormat%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Store.Manifests.ManifestFormat">
+
+
+
+  <h1 id="ZeroInstall_Store_Manifests_ManifestFormat" data-uid="ZeroInstall.Store.Manifests.ManifestFormat" class="text-break">
+Class ManifestFormat  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Store.html">Store</a>.<a class="xref" href="ZeroInstall.Store.Manifests.html">Manifests</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Store.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Abstract class to encapsulate the differences between the different formats that can be used to save and load <a class="xref" href="ZeroInstall.Store.Manifests.Manifest.html">Manifest</a>s.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+public abstract class ManifestFormat</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ManifestFormat</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="ZeroInstall_Store_Manifests_ManifestFormat_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Comprises: The digest method used and the format specification used to serialize and deserialize manifests.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_All" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.All">
+  All
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>All currently supported <a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a>s listed from best (safest) to worst.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly ManifestFormat[] All</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Store_Manifests_ManifestFormat_Prefix_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.Prefix*"></a>
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_Prefix" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.Prefix">
+  Prefix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The prefix used to identify the format (e.g. &quot;sha256&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string Prefix { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Manifests_ManifestFormat_Separator_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.Separator*"></a>
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_Separator" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.Separator">
+  Separator
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The separator placed between the <a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html#ZeroInstall_Store_Manifests_ManifestFormat_Prefix">Prefix</a> and the actual digest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string Separator { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Manifests_ManifestFormat_Sha1New_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.Sha1New*"></a>
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_Sha1New" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.Sha1New">
+  Sha1New
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a> to use for <a class="xref" href="ZeroInstall.Model.ManifestDigest.html#ZeroInstall_Model_ManifestDigest_Sha1New">Sha1New</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SuppressMessage(&quot;Microsoft.Naming&quot;, &quot;CA1711:IdentifiersShouldNotHaveIncorrectSuffix&quot;)]
+public static ManifestFormat Sha1New { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Manifests_ManifestFormat_Sha256_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.Sha256*"></a>
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_Sha256" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.Sha256">
+  Sha256
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a> to use for <a class="xref" href="ZeroInstall.Model.ManifestDigest.html#ZeroInstall_Model_ManifestDigest_Sha256">Sha256</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ManifestFormat Sha256 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Manifests_ManifestFormat_Sha256New_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.Sha256New*"></a>
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_Sha256New" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.Sha256New">
+  Sha256New
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The <a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a> to use for <a class="xref" href="ZeroInstall.Model.ManifestDigest.html#ZeroInstall_Model_ManifestDigest_Sha256New">Sha256New</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SuppressMessage(&quot;Microsoft.Naming&quot;, &quot;CA1711:IdentifiersShouldNotHaveIncorrectSuffix&quot;)]
+public static ManifestFormat Sha256New { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Store_Manifests_ManifestFormat_DigestContent_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.DigestContent*"></a>
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_DigestContent_System_IO_Stream_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.DigestContent(System.IO.Stream)">
+  DigestContent(Stream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates the digest of a implementation file as used within the manifest file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DigestContent(Stream stream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The content of the implementation file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string representation of the digest.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Manifests_ManifestFormat_DigestManifest_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.DigestManifest*"></a>
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_DigestManifest_ZeroInstall_Store_Manifests_Manifest_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.DigestManifest(ZeroInstall.Store.Manifests.Manifest)">
+  DigestManifest(Manifest)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates the digest of a manifest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DigestManifest(Manifest manifest)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>manifest</code> <a class="xref" href="ZeroInstall.Store.Manifests.Manifest.html">Manifest</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string representation of the digest.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Manifests_ManifestFormat_FromPrefix_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.FromPrefix*"></a>
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_FromPrefix_System_String_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.FromPrefix(System.String)">
+  FromPrefix(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Selects the correct <a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a> based on the digest prefix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ManifestFormat FromPrefix(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The digest id to extract the prefix from or only the prefix.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p><code class="paramref">id</code> does not have a supported algorithm prefix.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Manifests_ManifestFormat_GetHashAlgorithm_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.GetHashAlgorithm*"></a>
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_GetHashAlgorithm" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.GetHashAlgorithm">
+  GetHashAlgorithm()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a new instance of the hashing algorithm used for generating digests.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SuppressMessage(&quot;Microsoft.Design&quot;, &quot;CA1024:UsePropertiesWhereAppropriate&quot;, Justification = &quot;Generates a new instance each time to allow for concurrent usage&quot;)]
+protected abstract HashAlgorithm GetHashAlgorithm()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.hashalgorithm">HashAlgorithm</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Manifests_ManifestFormat_SerializeContentDigest_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.SerializeContentDigest*"></a>
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_SerializeContentDigest_System_Byte___" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.SerializeContentDigest(System.Byte[])">
+  SerializeContentDigest(byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes a hash as digest of an implementation file as used within the manifest file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string SerializeContentDigest(byte[] hash)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hash</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Manifests_ManifestFormat_SerializeManifestDigest_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.SerializeManifestDigest*"></a>
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_SerializeManifestDigest_System_Byte___" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.SerializeManifestDigest(System.Byte[])">
+  SerializeManifestDigest(byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes a hash as a digest of a manifest file as used for the implementation directory name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string SerializeManifestDigest(byte[] hash)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hash</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Manifests_ManifestFormat_ToString_" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.ToString*"></a>
+
+  <h3 id="ZeroInstall_Store_Manifests_ManifestFormat_ToString" data-uid="ZeroInstall.Store.Manifests.ManifestFormat.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that represents the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Manifests/ManifestFormat.cs/#L15" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

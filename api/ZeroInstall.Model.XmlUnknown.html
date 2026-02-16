@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class XmlUnknown | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class XmlUnknown | Zero Install .NET API ">
+      
+      <meta name="description" content="Abstract base class for XML serializable classes that are intended to retain any unknown XML elements or attributes loaded from an XML file.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Model_XmlUnknown.md&amp;value=---%0Auid%3A%20ZeroInstall.Model.XmlUnknown%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Model.XmlUnknown">
+
+
+
+  <h1 id="ZeroInstall_Model_XmlUnknown" data-uid="ZeroInstall.Model.XmlUnknown" class="text-break">
+Class XmlUnknown  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/XmlUnknown.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Model.html">Model</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Model.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Abstract base class for XML serializable classes that are intended to retain any unknown XML elements or attributes loaded from an XML file.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class XmlUnknown : IEquatable&lt;XmlUnknown&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">XmlUnknown</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.XmlUnknown.html">XmlUnknown</a>&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a></div>
+      <div><a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPointList.html">AccessPointList</a></div>
+      <div><a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a></div>
+      <div><a class="xref" href="ZeroInstall.DesktopIntegration.AppList.html">AppList</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Capabilities.AutoPlayEvent.html">AutoPlayEvent</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Capabilities.BrowserExtension.html">BrowserExtension</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Capabilities.Capability.html">Capability</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Capabilities.CapabilityList.html">CapabilityList</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Capabilities.FileTypeExtension.html">FileTypeExtension</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Capabilities.KnownProtocolPrefix.html">KnownProtocolPrefix</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Capabilities.Verb.html">Verb</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Catalog.html">Catalog</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.FeedElement.html">FeedElement</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Preferences.ImplementationPreferences.html">ImplementationPreferences</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Preferences.InterfacePreferences.html">InterfacePreferences</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+  <h2 id="ZeroInstall_Model_XmlUnknown_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Inheriting from this class will prevent the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.serialization.xmlserializer.unknownelement">UnknownElement</a> event from being triggered.</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ZeroInstall_Model_XmlUnknown_UnknownAttributes" data-uid="ZeroInstall.Model.XmlUnknown.UnknownAttributes">
+  UnknownAttributes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/XmlUnknown.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Contains any unknown additional XML attributes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XmlAttribute[]? UnknownAttributes</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlattribute">XmlAttribute</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Model_XmlUnknown_UnknownElements" data-uid="ZeroInstall.Model.XmlUnknown.UnknownElements">
+  UnknownElements
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/XmlUnknown.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Contains any unknown additional XML elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XmlElement[]? UnknownElements</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlelement">XmlElement</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Model_XmlUnknown_EnsureAttribute_" data-uid="ZeroInstall.Model.XmlUnknown.EnsureAttribute*"></a>
+
+  <h3 id="ZeroInstall_Model_XmlUnknown_EnsureAttribute_System_Object_System_String_" data-uid="ZeroInstall.Model.XmlUnknown.EnsureAttribute(System.Object,System.String)">
+  EnsureAttribute(object?, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/XmlUnknown.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ensures that a value deserialized from an XML attribute is set (not <code>null</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void EnsureAttribute(object? value, string attributeName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">object</span></dt>
+    <dd><p>The mapped value to check.</p>
+</dd>
+    <dt><code>attributeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the XML attribute.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p><code class="paramref">value</code> is <code>null</code>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_XmlUnknown_EnsureAttributeSafeID_" data-uid="ZeroInstall.Model.XmlUnknown.EnsureAttributeSafeID*"></a>
+
+  <h3 id="ZeroInstall_Model_XmlUnknown_EnsureAttributeSafeID_System_String_System_String_" data-uid="ZeroInstall.Model.XmlUnknown.EnsureAttributeSafeID(System.String,System.String)">
+  EnsureAttributeSafeID(string?, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/XmlUnknown.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ensures that a value deserialized from an XML attribute is set (not <code>null</code>) and only contains alphanumeric characters, spaces ( ), dots (.), underscores (_), hyphens (-) and plus signs (+).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void EnsureAttributeSafeID(string? value, string attributeName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The mapped value to check.</p>
+</dd>
+    <dt><code>attributeName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the XML attribute.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p><code class="paramref">value</code> is invalid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_XmlUnknown_Equals_" data-uid="ZeroInstall.Model.XmlUnknown.Equals*"></a>
+
+  <h3 id="ZeroInstall_Model_XmlUnknown_Equals_ZeroInstall_Model_XmlUnknown_" data-uid="ZeroInstall.Model.XmlUnknown.Equals(ZeroInstall.Model.XmlUnknown)">
+  Equals(XmlUnknown?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/XmlUnknown.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(XmlUnknown? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="ZeroInstall.Model.XmlUnknown.html">XmlUnknown</a></dt>
+    <dd><p>An object to compare with this object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_XmlUnknown_GetHashCode_" data-uid="ZeroInstall.Model.XmlUnknown.GetHashCode*"></a>
+
+  <h3 id="ZeroInstall_Model_XmlUnknown_GetHashCode" data-uid="ZeroInstall.Model.XmlUnknown.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/XmlUnknown.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_XmlUnknown_ToShortXml_" data-uid="ZeroInstall.Model.XmlUnknown.ToShortXml*"></a>
+
+  <h3 id="ZeroInstall_Model_XmlUnknown_ToShortXml" data-uid="ZeroInstall.Model.XmlUnknown.ToShortXml">
+  ToShortXml()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/XmlUnknown.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a shortened XML representation (with attributes but without child elements).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToShortXml()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Model_XmlUnknown_ToShortXml_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Intended for use in error messages. Not suitable for parsing.
+Use <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">ToXmlString&lt;T&gt;(T, string)</a> instead if you need a full XML representation.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/XmlUnknown.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

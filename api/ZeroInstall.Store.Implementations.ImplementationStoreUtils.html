@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ImplementationStoreUtils | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ImplementationStoreUtils | Zero Install .NET API ">
+      
+      <meta name="description" content="Helper methods for s and paths.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Store_Implementations_ImplementationStoreUtils.md&amp;value=---%0Auid%3A%20ZeroInstall.Store.Implementations.ImplementationStoreUtils%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Store.Implementations.ImplementationStoreUtils">
+
+
+
+  <h1 id="ZeroInstall_Store_Implementations_ImplementationStoreUtils" data-uid="ZeroInstall.Store.Implementations.ImplementationStoreUtils" class="text-break">
+Class ImplementationStoreUtils  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Implementations/ImplementationStoreUtils.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Store.html">Store</a>.<a class="xref" href="ZeroInstall.Store.Implementations.html">Implementations</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Store.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Helper methods for <a class="xref" href="ZeroInstall.Store.Implementations.IImplementationStore.html">IImplementationStore</a>s and paths.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ImplementationStoreUtils</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ImplementationStoreUtils</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Store_Implementations_ImplementationStoreUtils_Audit_" data-uid="ZeroInstall.Store.Implementations.ImplementationStoreUtils.Audit*"></a>
+
+  <h3 id="ZeroInstall_Store_Implementations_ImplementationStoreUtils_Audit_ZeroInstall_Store_Implementations_IImplementationStore_NanoByte_Common_Tasks_ITaskHandler_" data-uid="ZeroInstall.Store.Implementations.ImplementationStoreUtils.Audit(ZeroInstall.Store.Implementations.IImplementationStore,NanoByte.Common.Tasks.ITaskHandler)">
+  Audit(IImplementationStore, ITaskHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Implementations/ImplementationStoreUtils.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks whether all implementations in the store still matches the expected digest.
+Asks the user whether to delete the implementation if it does not match.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Audit(this IImplementationStore store, ITaskHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <a class="xref" href="ZeroInstall.Store.Implementations.IImplementationStore.html">IImplementationStore</a></dt>
+    <dd><p>The store containing the implementation.</p>
+</dd>
+    <dt><code>handler</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a></dt>
+    <dd><p>A callback object used when the user needs to be asked questions or informed about IO tasks.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>An implementation's directory could not be processed.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to an implementation's directory is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Implementations_ImplementationStoreUtils_GetPath_" data-uid="ZeroInstall.Store.Implementations.ImplementationStoreUtils.GetPath*"></a>
+
+  <h3 id="ZeroInstall_Store_Implementations_ImplementationStoreUtils_GetPath_ZeroInstall_Store_Implementations_IImplementationStore_ZeroInstall_Model_ImplementationBase_" data-uid="ZeroInstall.Store.Implementations.ImplementationStoreUtils.GetPath(ZeroInstall.Store.Implementations.IImplementationStore,ZeroInstall.Model.ImplementationBase)">
+  GetPath(IImplementationStore, ImplementationBase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Implementations/ImplementationStoreUtils.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the local path of an implementation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetPath(this IImplementationStore store, ImplementationBase implementation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <a class="xref" href="ZeroInstall.Store.Implementations.IImplementationStore.html">IImplementationStore</a></dt>
+    <dd><p>The store containing the implementation.</p>
+</dd>
+    <dt><code>implementation</code> <a class="xref" href="ZeroInstall.Model.ImplementationBase.html">ImplementationBase</a></dt>
+    <dd><p>The implementation to be located.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A fully qualified path to the directory containing the implementation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Implementations.ImplementationNotFoundException.html">ImplementationNotFoundException</a></dt>
+    <dd><p>The <code class="paramref">implementation</code> is not cached yet.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the store is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Implementations_ImplementationStoreUtils_IsImplementation_" data-uid="ZeroInstall.Store.Implementations.ImplementationStoreUtils.IsImplementation*"></a>
+
+  <h3 id="ZeroInstall_Store_Implementations_ImplementationStoreUtils_IsImplementation_System_String_System_String__" data-uid="ZeroInstall.Store.Implementations.ImplementationStoreUtils.IsImplementation(System.String,System.String@)">
+  IsImplementation(string, out string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Implementations/ImplementationStoreUtils.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a path looks like it is inside a store implementation known by <a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsImplementation(string path, out string? implementationPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A path to a directory that may or may not be inside a store implementation.</p>
+</dd>
+    <dt><code>implementationPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The top-level of the detected store implementation directory if any; <code>null</code> otherwise.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Store_Implementations_ImplementationStoreUtils_IsImplementation_System_String_System_String___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Performs no file system access. Only looks at the path string itself.</p>
+</div>
+
+
+
+
+  <a id="ZeroInstall_Store_Implementations_ImplementationStoreUtils_NeedsAdminToRemove_" data-uid="ZeroInstall.Store.Implementations.ImplementationStoreUtils.NeedsAdminToRemove*"></a>
+
+  <h3 id="ZeroInstall_Store_Implementations_ImplementationStoreUtils_NeedsAdminToRemove_ZeroInstall_Store_Implementations_IImplementationStore_" data-uid="ZeroInstall.Store.Implementations.ImplementationStoreUtils.NeedsAdminToRemove(ZeroInstall.Store.Implementations.IImplementationStore)">
+  NeedsAdminToRemove(IImplementationStore)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Implementations/ImplementationStoreUtils.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether there are implementations in the store that would throw <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.NotAdminException.html">NotAdminException</a> on <a class="xref" href="ZeroInstall.Store.Implementations.IImplementationStore.html#ZeroInstall_Store_Implementations_IImplementationStore_Remove_ZeroInstall_Model_ManifestDigest_">Remove(ManifestDigest)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool NeedsAdminToRemove(this IImplementationStore store)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>store</code> <a class="xref" href="ZeroInstall.Store.Implementations.IImplementationStore.html">IImplementationStore</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Implementations_ImplementationStoreUtils_Verify_" data-uid="ZeroInstall.Store.Implementations.ImplementationStoreUtils.Verify*"></a>
+
+  <h3 id="ZeroInstall_Store_Implementations_ImplementationStoreUtils_Verify_System_String_ZeroInstall_Model_ManifestDigest_NanoByte_Common_Tasks_ITaskHandler_" data-uid="ZeroInstall.Store.Implementations.ImplementationStoreUtils.Verify(System.String,ZeroInstall.Model.ManifestDigest,NanoByte.Common.Tasks.ITaskHandler)">
+  Verify(string, ManifestDigest, ITaskHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Implementations/ImplementationStoreUtils.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks whether an implementation directory matches the expected digest.
+Throws <a class="xref" href="ZeroInstall.Store.Implementations.DigestMismatchException.html">DigestMismatchException</a> if it does not match.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Verify(string path, ManifestDigest manifestDigest, ITaskHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the directory to check.</p>
+</dd>
+    <dt><code>manifestDigest</code> <a class="xref" href="ZeroInstall.Model.ManifestDigest.html">ManifestDigest</a></dt>
+    <dd><p>The expected digest.</p>
+</dd>
+    <dt><code>handler</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a></dt>
+    <dd><p>A callback object used when the user is to be informed about progress.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p><code class="paramref">manifestDigest</code> does not list any supported digests.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>The directory could not be processed.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the directory is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.Store.Implementations.DigestMismatchException.html">DigestMismatchException</a></dt>
+    <dd><p>The directory does not match the expected digest</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Implementations/ImplementationStoreUtils.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

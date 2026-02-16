@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SolverRunBase | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SolverRunBase | Zero Install .NET API ">
+      
+      <meta name="description" content="Common base class for representing a single run of a solver.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Services_Solvers_SolverRunBase.md&amp;value=---%0Auid%3A%20ZeroInstall.Services.Solvers.SolverRunBase%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Services.Solvers.SolverRunBase">
+
+
+
+  <h1 id="ZeroInstall_Services_Solvers_SolverRunBase" data-uid="ZeroInstall.Services.Solvers.SolverRunBase" class="text-break">
+Class SolverRunBase  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Solvers/SolverRunBase.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Services.html">Services</a>.<a class="xref" href="ZeroInstall.Services.Solvers.html">Solvers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Services.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Common base class for representing a single run of a solver.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class SolverRunBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">SolverRunBase</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="ZeroInstall_Services_Solvers_SolverRunBase_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This is intended to be used by private classes within <a class="xref" href="ZeroInstall.Services.Solvers.ISolver.html">ISolver</a> implementations to hold state during a run of <a class="xref" href="ZeroInstall.Services.Solvers.ISolver.html#ZeroInstall_Services_Solvers_ISolver_Solve_ZeroInstall_Model_Requirements_">Solve(Requirements)</a>.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ZeroInstall_Services_Solvers_SolverRunBase__ctor_" data-uid="ZeroInstall.Services.Solvers.SolverRunBase.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Services_Solvers_SolverRunBase__ctor_ZeroInstall_Model_Requirements_ZeroInstall_Services_Solvers_ISelectionCandidateProvider_" data-uid="ZeroInstall.Services.Solvers.SolverRunBase.#ctor(ZeroInstall.Model.Requirements,ZeroInstall.Services.Solvers.ISelectionCandidateProvider)">
+  SolverRunBase(Requirements, ISelectionCandidateProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Solvers/SolverRunBase.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Common base class for representing a single run of a solver.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SolverRunBase(Requirements requirements, ISelectionCandidateProvider candidateProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>requirements</code> <a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a></dt>
+    <dd><p>The requirements to satisfy.</p>
+</dd>
+    <dt><code>candidateProvider</code> <a class="xref" href="ZeroInstall.Services.Solvers.ISelectionCandidateProvider.html">ISelectionCandidateProvider</a></dt>
+    <dd><p>Generates <a class="xref" href="ZeroInstall.Model.Selection.SelectionCandidate.html">SelectionCandidate</a>s for the solver to choose from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Services_Solvers_SolverRunBase__ctor_ZeroInstall_Model_Requirements_ZeroInstall_Services_Solvers_ISelectionCandidateProvider__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This is intended to be used by private classes within <a class="xref" href="ZeroInstall.Services.Solvers.ISolver.html">ISolver</a> implementations to hold state during a run of <a class="xref" href="ZeroInstall.Services.Solvers.ISolver.html#ZeroInstall_Services_Solvers_ISolver_Solve_ZeroInstall_Model_Requirements_">Solve(Requirements)</a>.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ZeroInstall_Services_Solvers_SolverRunBase_CandidateProvider" data-uid="ZeroInstall.Services.Solvers.SolverRunBase.CandidateProvider">
+  CandidateProvider
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Solvers/SolverRunBase.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates <a class="xref" href="ZeroInstall.Model.Selection.SelectionCandidate.html">SelectionCandidate</a>s for the solver to choose from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly ISelectionCandidateProvider CandidateProvider</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Services.Solvers.ISelectionCandidateProvider.html">ISelectionCandidateProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Services_Solvers_SolverRunBase_Selections" data-uid="ZeroInstall.Services.Solvers.SolverRunBase.Selections">
+  Selections
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Solvers/SolverRunBase.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Used to iteratively construct the selections to be returned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Selections Selections</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Services_Solvers_SolverRunBase_DemandsFor_" data-uid="ZeroInstall.Services.Solvers.SolverRunBase.DemandsFor*"></a>
+
+  <h3 id="ZeroInstall_Services_Solvers_SolverRunBase_DemandsFor_ZeroInstall_Model_Command_ZeroInstall_Model_FeedUri_" data-uid="ZeroInstall.Services.Solvers.SolverRunBase.DemandsFor(ZeroInstall.Model.Command,ZeroInstall.Model.FeedUri)">
+  DemandsFor(Command, FeedUri)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Solvers/SolverRunBase.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates <a class="xref" href="ZeroInstall.Services.Solvers.SolverDemand.html">SolverDemand</a>s for the dependencies specified by a <a class="xref" href="ZeroInstall.Model.Command.html">Command</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IEnumerable&lt;SolverDemand&gt; DemandsFor(Command command, FeedUri interfaceUri)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="ZeroInstall.Model.Command.html">Command</a></dt>
+    <dd><p>The command to scan for dependencies.</p>
+</dd>
+    <dt><code>interfaceUri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd><p>The interface URI of the feed providing the command.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ZeroInstall.Services.Solvers.SolverDemand.html">SolverDemand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_Solvers_SolverRunBase_DemandsFor_" data-uid="ZeroInstall.Services.Solvers.SolverRunBase.DemandsFor*"></a>
+
+  <h3 id="ZeroInstall_Services_Solvers_SolverRunBase_DemandsFor_ZeroInstall_Model_Selection_ImplementationSelection_ZeroInstall_Model_Requirements_" data-uid="ZeroInstall.Services.Solvers.SolverRunBase.DemandsFor(ZeroInstall.Model.Selection.ImplementationSelection,ZeroInstall.Model.Requirements)">
+  DemandsFor(ImplementationSelection, Requirements)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Solvers/SolverRunBase.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates <a class="xref" href="ZeroInstall.Services.Solvers.SolverDemand.html">SolverDemand</a>s for the dependencies specified by an <a class="xref" href="ZeroInstall.Model.Selection.ImplementationSelection.html">ImplementationSelection</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IEnumerable&lt;SolverDemand&gt; DemandsFor(ImplementationSelection selection, Requirements requirements)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>selection</code> <a class="xref" href="ZeroInstall.Model.Selection.ImplementationSelection.html">ImplementationSelection</a></dt>
+    <dd><p>The selection to scan for dependencies.</p>
+</dd>
+    <dt><code>requirements</code> <a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a></dt>
+    <dd><p>Requirements to inherit into the demands.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ZeroInstall.Services.Solvers.SolverDemand.html">SolverDemand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_Solvers_SolverRunBase_Solve_" data-uid="ZeroInstall.Services.Solvers.SolverRunBase.Solve*"></a>
+
+  <h3 id="ZeroInstall_Services_Solvers_SolverRunBase_Solve" data-uid="ZeroInstall.Services.Solvers.SolverRunBase.Solve">
+  Solve()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Solvers/SolverRunBase.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides <a class="xref" href="ZeroInstall.Services.Solvers.SolverRunBase.html#ZeroInstall_Services_Solvers_SolverRunBase_Selections">Selections</a> that satisfy the specified <a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Selections Solve()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a></dt>
+    <dd><p>The selected <a class="xref" href="ZeroInstall.Model.Selection.ImplementationSelection.html">ImplementationSelection</a>s.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Services.Solvers.SolverException.html">SolverException</a></dt>
+    <dd><p>The solver was unable to provide <a class="xref" href="ZeroInstall.Services.Solvers.SolverRunBase.html#ZeroInstall_Services_Solvers_SolverRunBase_Selections">Selections</a> that fulfill the <a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Services_Solvers_SolverRunBase_TryFulfill_" data-uid="ZeroInstall.Services.Solvers.SolverRunBase.TryFulfill*"></a>
+
+  <h3 id="ZeroInstall_Services_Solvers_SolverRunBase_TryFulfill_ZeroInstall_Services_Solvers_SolverDemand_" data-uid="ZeroInstall.Services.Solvers.SolverRunBase.TryFulfill(ZeroInstall.Services.Solvers.SolverDemand)">
+  TryFulfill(SolverDemand)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Solvers/SolverRunBase.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to fulfill the specified solver demand. Adds the result to <a class="xref" href="ZeroInstall.Services.Solvers.SolverRunBase.html#ZeroInstall_Services_Solvers_SolverRunBase_Selections">Selections</a> if successful.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract bool TryFulfill(SolverDemand demand)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>demand</code> <a class="xref" href="ZeroInstall.Services.Solvers.SolverDemand.html">SolverDemand</a></dt>
+    <dd><p>The demand to fulfill.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the demand could be met, <code>false</code> if not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Solvers/SolverRunBase.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

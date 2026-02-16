@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Services | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Services | Zero Install .NET API ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="docs/toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/blob/2.28.4/doc/services.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="services">
+<h1 id="services">Services</h1>
+
+<p>The <a class="xref" href="api/ZeroInstall.Services.html">ZeroInstall.Services</a> namespace provides services for solving dependencies, downloading implementations, executing apps, etc..</p>
+<h2 id="dependency-injection">Dependency injection</h2>
+<p>The <a class="xref" href="api/ZeroInstall.Services.ServiceProvider.html">ServiceProvider</a> class provides instances of various services. You can think of it as a hard-coded dependency injection container. We use this instead of a runtime DI system to avoid the performance impact of reflection, keeping the cold-start time short. This is important so that starting a cached program with <code>0install run</code> does not add a significant overhead when compared to launching it directly.</p>
+<p>To instantiate the service provider you need to provide the constructor with an <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a>. You should use exactly one instance of the service provider per user request to ensure consistent state during execution. Rather than instantiating the service provider class, another pattern used in the Zero Install code-base is to inherit from it.</p>
+<p>You can also use the <a class="xref" href="api/ZeroInstall.Services.ServiceCollectionExtensions.html">.AddZeroInstall()</a> extension method for <code>IServiceCollection</code> to replace the service provider with <a href="https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection">.NET's built-in DI framework</a>.</p>
+<h2 id="sample-use-case">Sample use-case</h2>
+<p>A simplified version of the <code>0install run</code> logic can be implemented using the Zero Install services as follows:</p>
+<ol>
+<li>Pass <a class="xref" href="api/ZeroInstall.Model.Requirements.html">Requirements</a> to <a class="xref" href="api/ZeroInstall.Services.Solvers.ISolver.html">ISolver.Solve()</a> and get <a class="xref" href="api/ZeroInstall.Model.Selection.Selections.html">Selections</a>.</li>
+<li>Pass <a class="xref" href="api/ZeroInstall.Model.Selection.Selections.html">Selections</a> to <a class="xref" href="api/ZeroInstall.Services.Feeds.SelectionsManagerExtensions.html#ZeroInstall_Services_Feeds_SelectionsManagerExtensions_GetUncachedImplementations_ZeroInstall_Services_Feeds_ISelectionsManager_ZeroInstall_Model_Selection_Selections_">ISelectionsManager.GetUncachedImplementations()</a> and get uncached <a class="xref" href="api/ZeroInstall.Model.Implementation.html">Implementation</a>.</li>
+<li>Pass <a class="xref" href="api/ZeroInstall.Model.Implementation.html">Implementation</a> to <a class="xref" href="api/ZeroInstall.Services.Fetchers.IFetcher.html">IFetcher.Fetch()</a>.
+v Pass <a class="xref" href="api/ZeroInstall.Model.Selection.Selections.html">Selections</a> to <a class="xref" href="api/ZeroInstall.Services.Executors.IExecutor.html#ZeroInstall_Services_Executors_IExecutor_Start_ZeroInstall_Model_Selection_Selections_">IExecutor.Start()</a>.</li>
+</ol>
+<p>Sample code for implementing this in various languages:</p>
+<ul>
+<li><a href="https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.cs">C#</a></li>
+<li><a href="https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.vb">Visual Basic .NET</a></li>
+<li><a href="https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.fs">F#</a></li>
+<li><a href="https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.py">IronPython</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/doc/services.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

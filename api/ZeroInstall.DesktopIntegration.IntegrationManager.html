@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class IntegrationManager | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class IntegrationManager | Zero Install .NET API ">
+      
+      <meta name="description" content="Manages an  and desktop integration via s.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_DesktopIntegration_IntegrationManager.md&amp;value=---%0Auid%3A%20ZeroInstall.DesktopIntegration.IntegrationManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.DesktopIntegration.IntegrationManager">
+
+
+
+  <h1 id="ZeroInstall_DesktopIntegration_IntegrationManager" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager" class="text-break">
+Class IntegrationManager  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.DesktopIntegration.html">DesktopIntegration</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.DesktopIntegration.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manages an <a class="xref" href="ZeroInstall.DesktopIntegration.AppList.html">AppList</a> and desktop integration via <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>s.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MustDisposeResource]
+public class IntegrationManager : IntegrationManagerBase, IDisposable, IIntegrationManager</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="ZeroInstall.Store.ManagerBase.html">ManagerBase</a></div>
+      <div><a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html">IntegrationManagerBase</a></div>
+      <div><span class="xref">IntegrationManager</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+      <div><a class="xref" href="ZeroInstall.DesktopIntegration.IIntegrationManager.html">IIntegrationManager</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="ZeroInstall.DesktopIntegration.CategoryIntegrationManager.html">CategoryIntegrationManager</a></div>
+      <div><a class="xref" href="ZeroInstall.DesktopIntegration.SyncIntegrationManager.html">SyncIntegrationManager</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_AppList">IntegrationManagerBase.AppList</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_AddApp_ZeroInstall_Model_FeedTarget_">IntegrationManagerBase.AddApp(FeedTarget)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_AddApp_System_String_ZeroInstall_Model_Requirements_ZeroInstall_Model_Feed_">IntegrationManagerBase.AddApp(string, Requirements, Feed)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_RemoveApp_ZeroInstall_DesktopIntegration_AppEntry_">IntegrationManagerBase.RemoveApp(AppEntry)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_UpdateApp_ZeroInstall_DesktopIntegration_AppEntry_ZeroInstall_Model_Feed_">IntegrationManagerBase.UpdateApp(AppEntry, Feed)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_UpdateApp_ZeroInstall_DesktopIntegration_AppEntry_ZeroInstall_Model_Feed_ZeroInstall_Model_Requirements_">IntegrationManagerBase.UpdateApp(AppEntry, Feed, Requirements)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_AddAccessPoints_ZeroInstall_DesktopIntegration_AppEntry_ZeroInstall_Model_Feed_System_Collections_Generic_IEnumerable_ZeroInstall_DesktopIntegration_AccessPoints_AccessPoint__">IntegrationManagerBase.AddAccessPoints(AppEntry, Feed, IEnumerable&lt;AccessPoint&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_RemoveAccessPoints_ZeroInstall_DesktopIntegration_AppEntry_System_Collections_Generic_IEnumerable_ZeroInstall_DesktopIntegration_AccessPoints_AccessPoint__">IntegrationManagerBase.RemoveAccessPoints(AppEntry, IEnumerable&lt;AccessPoint&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_Repair_System_Converter_ZeroInstall_Model_FeedUri_ZeroInstall_Model_Feed__">IntegrationManagerBase.Repair(Converter&lt;FeedUri, Feed&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Store.ManagerBase.html#ZeroInstall_Store_ManagerBase_Handler">ManagerBase.Handler</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Store.ManagerBase.html#ZeroInstall_Store_ManagerBase_MachineWide">ManagerBase.MachineWide</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Store.ManagerBase.html#ZeroInstall_Store_ManagerBase_AcquireMutex">ManagerBase.AcquireMutex()</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Store.ManagerBase.html#ZeroInstall_Store_ManagerBase_Dispose">ManagerBase.Dispose()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="ZeroInstall_DesktopIntegration_IntegrationManager_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>To prevent race-conditions there may only be one desktop integration class instance active at any given time.
+This class acquires a mutex upon calling its constructor and releases it upon calling <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a>.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ZeroInstall_DesktopIntegration_IntegrationManager__ctor_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.#ctor*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager__ctor_ZeroInstall_Store_Configuration_Config_NanoByte_Common_Tasks_ITaskHandler_System_Boolean_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.#ctor(ZeroInstall.Store.Configuration.Config,NanoByte.Common.Tasks.ITaskHandler,System.Boolean)">
+  IntegrationManager(Config, ITaskHandler, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new integration manager using the default <a class="xref" href="ZeroInstall.DesktopIntegration.AppList.html">AppList</a> (creating a new one if missing). Performs Mutex-based locking!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntegrationManager(Config config, ITaskHandler handler, bool machineWide = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>config</code> <a class="xref" href="ZeroInstall.Store.Configuration.Config.html">Config</a></dt>
+    <dd><p>User settings controlling network behaviour.</p>
+</dd>
+    <dt><code>handler</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a></dt>
+    <dd><p>A callback object used when the user is to be informed about the progress of long-running operations such as downloads.</p>
+</dd>
+    <dt><code>machineWide</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Apply operations machine-wide instead of just for the current user.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while accessing the <a class="xref" href="ZeroInstall.DesktopIntegration.AppList.html">AppList</a> file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read or write access to the <a class="xref" href="ZeroInstall.DesktopIntegration.AppList.html">AppList</a> file is not permitted or another desktop integration class is currently active.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A problem occurred while deserializing an XML file.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_AppListPath" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.AppListPath">
+  AppListPath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The storage location of the <a class="xref" href="ZeroInstall.DesktopIntegration.AppList.html">AppList</a> file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly string AppListPath</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_ChangedWindowMessageID" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.ChangedWindowMessageID">
+  ChangedWindowMessageID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The window message ID (for use with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">BroadcastMessage(int)</a>) that signals integration changes to interested observers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int ChangedWindowMessageID</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_Config" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.Config">
+  Config
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>User settings controlling network behaviour.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly Config Config</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Configuration.Config.html">Config</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_DesktopIntegration_IntegrationManager_MutexName_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.MutexName*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_MutexName" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.MutexName">
+  MutexName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the cross-process mutex used to signal that a desktop integration process class is currently active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string MutexName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_DesktopIntegration_IntegrationManager_AddAccessPointsInternal_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.AddAccessPointsInternal*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_AddAccessPointsInternal_ZeroInstall_DesktopIntegration_AppEntry_ZeroInstall_Model_Feed_System_Collections_Generic_IReadOnlyCollection_ZeroInstall_DesktopIntegration_AccessPoints_AccessPoint__" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.AddAccessPointsInternal(ZeroInstall.DesktopIntegration.AppEntry,ZeroInstall.Model.Feed,System.Collections.Generic.IReadOnlyCollection{ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint})">
+  AddAccessPointsInternal(AppEntry, Feed, IReadOnlyCollection&lt;AccessPoint&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>s for an application.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void AddAccessPointsInternal(AppEntry appEntry, Feed feed, IReadOnlyCollection&lt;AccessPoint&gt; accessPoints)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>appEntry</code> <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a></dt>
+    <dd><p>The application being integrated.</p>
+</dd>
+    <dt><code>feed</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The feed providing additional metadata, icons, etc. for the application.</p>
+</dd>
+    <dt><code>accessPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>&gt;</dt>
+    <dd><p>The access points to apply.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPointList.html#ZeroInstall_DesktopIntegration_AccessPoints_AccessPointList_Entries">Entries</a> from <code class="paramref">appEntry</code> is the same reference as <code class="paramref">accessPoints</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>An <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a> reference to a <a class="xref" href="ZeroInstall.Model.Capabilities.Capability.html">Capability</a> is invalid.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.DesktopIntegration.ConflictException.html">ConflictException</a></dt>
+    <dd><p>One or more of the <code class="paramref">accessPoints</code> would cause a conflict with the existing <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>s in <a class="xref" href="ZeroInstall.DesktopIntegration.IIntegrationManager.html#ZeroInstall_DesktopIntegration_IIntegrationManager_AppList">AppList</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.webexception">WebException</a></dt>
+    <dd><p>A problem occurred while downloading additional data (such as icons).</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing to the filesystem or registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the filesystem or registry is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_DesktopIntegration_IntegrationManager_AddAppInternal_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.AddAppInternal*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_AddAppInternal_System_String_ZeroInstall_Model_Requirements_ZeroInstall_Model_Feed_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.AddAppInternal(System.String,ZeroInstall.Model.Requirements,ZeroInstall.Model.Feed)">
+  AddAppInternal(string, Requirements, Feed)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new named <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a> and adds it to the <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_AppList">AppList</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override AppEntry AddAppInternal(string petName, Requirements requirements, Feed feed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>petName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The user-defined pet-name of the application.</p>
+</dd>
+    <dt><code>requirements</code> <a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a></dt>
+    <dd><p>The requirements describing the application to add.</p>
+</dd>
+    <dt><code>feed</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The feed providing additional metadata, capabilities, etc. for the application.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a></dt>
+    <dd><p>The newly created application entry (already added to <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_AppList">AppList</a>).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>An application with the same <code class="paramref">petName</code> is already in the list.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing to the filesystem or registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the filesystem or registry is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_DesktopIntegration_IntegrationManager_AddAppInternal_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.AddAppInternal*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_AddAppInternal_ZeroInstall_DesktopIntegration_AppEntry_System_Converter_ZeroInstall_Model_FeedUri_ZeroInstall_Model_Feed__" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.AddAppInternal(ZeroInstall.DesktopIntegration.AppEntry,System.Converter{ZeroInstall.Model.FeedUri,ZeroInstall.Model.Feed})">
+  AddAppInternal(AppEntry, Converter&lt;FeedUri, Feed&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a> based on an existing prototype (applying any <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>s) and adds it to the <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_AppList">AppList</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void AddAppInternal(AppEntry prototype, Converter&lt;FeedUri, Feed&gt; feedRetriever)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prototype</code> <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a></dt>
+    <dd><p>An existing <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a> to use as a prototype.</p>
+</dd>
+    <dt><code>feedRetriever</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.converter-2">Converter</a>&lt;<a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a>, <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>&gt;</dt>
+    <dd><p>Callback method used to retrieve additional <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>s on demand.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_DesktopIntegration_IntegrationManager_AddAppInternal_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.AddAppInternal*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_AddAppInternal_ZeroInstall_Model_FeedTarget_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.AddAppInternal(ZeroInstall.Model.FeedTarget)">
+  AddAppInternal(FeedTarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new unnamed <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a> and adds it to the <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_AppList">AppList</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override AppEntry AddAppInternal(FeedTarget target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="ZeroInstall.Model.FeedTarget.html">FeedTarget</a></dt>
+    <dd><p>The application to add.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a></dt>
+    <dd><p>The newly created application entry (already added to <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_AppList">AppList</a>).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The application is already in the list.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing to the filesystem or registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the filesystem or registry is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_DesktopIntegration_IntegrationManager_Finish_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.Finish*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_Finish" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.Finish">
+  Finish()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L339"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>To be called after integration operations have been completed to inform the desktop environment and save the <a class="xref" href="ZeroInstall.DesktopIntegration.AppList.html">AppList</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Finish()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_DesktopIntegration_IntegrationManager_GetDir_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.GetDir*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_GetDir_System_Boolean_System_String___" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.GetDir(System.Boolean,System.String[])">
+  GetDir(bool, params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a path for a directory that can be used for desktop integration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetDir(bool machineWide, params string[] resource)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>machineWide</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the directory should be machine-wide and machine-specific instead of roaming with the user profile.</p>
+</dd>
+    <dt><code>resource</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>The directory name of the resource to be stored.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A fully qualified directory path. The directory is guaranteed to already exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_DesktopIntegration_IntegrationManager_GetDir_System_Boolean_System_String____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If a new directory is created with <code class="paramref">machineWide</code> set to <code>true</code> on Windows, ACLs are set to deny write access for non-Administrator users.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while creating a directory.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Creating a directory is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_DesktopIntegration_IntegrationManager_RemoveAccessPointsInternal_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.RemoveAccessPointsInternal*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_RemoveAccessPointsInternal_ZeroInstall_DesktopIntegration_AppEntry_System_Collections_Generic_IEnumerable_ZeroInstall_DesktopIntegration_AccessPoints_AccessPoint__" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.RemoveAccessPointsInternal(ZeroInstall.DesktopIntegration.AppEntry,System.Collections.Generic.IEnumerable{ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint})">
+  RemoveAccessPointsInternal(AppEntry, IEnumerable&lt;AccessPoint&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes already applied <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>s for an application.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void RemoveAccessPointsInternal(AppEntry appEntry, IEnumerable&lt;AccessPoint&gt; accessPoints)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>appEntry</code> <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a></dt>
+    <dd><p>The <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a> containing the <code class="paramref">accessPoints</code>.</p>
+</dd>
+    <dt><code>accessPoints</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>&gt;</dt>
+    <dd><p>The access points to unapply.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>An <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a> reference to a <a class="xref" href="ZeroInstall.Model.Capabilities.Capability.html">Capability</a> is invalid.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing to the filesystem or registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the filesystem or registry is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_DesktopIntegration_IntegrationManager_RemoveAppInternal_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.RemoveAppInternal*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_RemoveAppInternal_ZeroInstall_DesktopIntegration_AppEntry_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.RemoveAppInternal(ZeroInstall.DesktopIntegration.AppEntry)">
+  RemoveAppInternal(AppEntry)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes an <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a> from the <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_AppList">AppList</a> while unapplying any remaining <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void RemoveAppInternal(AppEntry appEntry)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>appEntry</code> <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a></dt>
+    <dd><p>The application to remove.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>An <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a> reference to a <a class="xref" href="ZeroInstall.Model.Capabilities.Capability.html">Capability</a> is invalid.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing to the filesystem or registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the filesystem or registry is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_DesktopIntegration_IntegrationManager_RepairAppInternal_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.RepairAppInternal*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_RepairAppInternal_ZeroInstall_DesktopIntegration_AppEntry_ZeroInstall_Model_Feed_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.RepairAppInternal(ZeroInstall.DesktopIntegration.AppEntry,ZeroInstall.Model.Feed)">
+  RepairAppInternal(AppEntry, Feed)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L316"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reapplies all <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>s for a specific <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void RepairAppInternal(AppEntry appEntry, Feed feed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>appEntry</code> <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a></dt>
+    <dd><p>The application entry to repair.</p>
+</dd>
+    <dt><code>feed</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The feed providing additional metadata, capabilities, etc. for the application.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.DesktopIntegration.ConflictException.html">ConflictException</a></dt>
+    <dd><p><code class="paramref">appEntry</code> conflicts with the rest of the <a class="xref" href="ZeroInstall.DesktopIntegration.IntegrationManagerBase.html#ZeroInstall_DesktopIntegration_IntegrationManagerBase_AppList">AppList</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.webexception">WebException</a></dt>
+    <dd><p>A problem occurred while downloading additional data (such as icons).</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing to the filesystem or registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the filesystem or registry is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_DesktopIntegration_IntegrationManager_UpdateAppInternal_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.UpdateAppInternal*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_IntegrationManager_UpdateAppInternal_ZeroInstall_DesktopIntegration_AppEntry_ZeroInstall_Model_Feed_" data-uid="ZeroInstall.DesktopIntegration.IntegrationManager.UpdateAppInternal(ZeroInstall.DesktopIntegration.AppEntry,ZeroInstall.Model.Feed)">
+  UpdateAppInternal(AppEntry, Feed)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates an <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a> with new metadata and capabilities from a <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>. This may unapply and remove some existing <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void UpdateAppInternal(AppEntry appEntry, Feed feed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>appEntry</code> <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a></dt>
+    <dd><p>The application entry to update.</p>
+</dd>
+    <dt><code>feed</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The feed providing additional metadata, capabilities, etc. for the application.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>An <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a> reference to a <a class="xref" href="ZeroInstall.Model.Capabilities.Capability.html">Capability</a> is invalid.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/IntegrationManager.cs/#L18" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

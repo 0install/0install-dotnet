@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Requirements | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Requirements | Zero Install .NET API ">
+      
+      <meta name="description" content="A set of requirements/restrictions imposed by the user on the  selection process. Used as input for the solver.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Model_Requirements.md&amp;value=---%0Auid%3A%20ZeroInstall.Model.Requirements%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Model.Requirements">
+
+
+
+  <h1 id="ZeroInstall_Model_Requirements" data-uid="ZeroInstall.Model.Requirements" class="text-break">
+Class Requirements  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Requirements.Generator.Equals.g.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Model.html">Model</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Model.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A set of requirements/restrictions imposed by the user on the <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> selection process. Used as input for the solver.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+[Equatable]
+public record Requirements : IEquatable&lt;Requirements&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">Requirements</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ZeroInstall_Model_Requirements__ctor_" data-uid="ZeroInstall.Model.Requirements.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements__ctor" data-uid="ZeroInstall.Model.Requirements.#ctor">
+  Requirements()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an empty requirements object. Use this to fill in values incrementally, e.g. when parsing command-line arguments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Requirements()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements__ctor_" data-uid="ZeroInstall.Model.Requirements.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements__ctor_ZeroInstall_Model_FeedUri_System_String_ZeroInstall_Model_Architecture_" data-uid="ZeroInstall.Model.Requirements.#ctor(ZeroInstall.Model.FeedUri,System.String,ZeroInstall.Model.Architecture)">
+  Requirements(FeedUri, string?, Architecture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new requirements object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SetsRequiredMembers]
+public Requirements(FeedUri interfaceUri, string? command = null, Architecture architecture = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>interfaceUri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd><p>The URI or local path (must be absolute) to the interface to solve the dependencies for.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the command in the implementation to execute. Will default to <a class="xref" href="ZeroInstall.Model.Command.html#ZeroInstall_Model_Command_NameRun">NameRun</a> or <a class="xref" href="ZeroInstall.Model.Command.html#ZeroInstall_Model_Command_NameCompile">NameCompile</a> if <code>null</code>. Will not try to find any command if set to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.empty">Empty</a>.</p>
+</dd>
+    <dt><code>architecture</code> <a class="xref" href="ZeroInstall.Model.Architecture.html">Architecture</a></dt>
+    <dd><p>The architecture to find executables for. Find for the current system if left at default value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Model_Requirements_Architecture_" data-uid="ZeroInstall.Model.Requirements.Architecture*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_Architecture" data-uid="ZeroInstall.Model.Requirements.Architecture">
+  Architecture
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The architecture to find executables for. Find for the current system if left at default value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Architecture Architecture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Architecture.html">Architecture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Model_Requirements_Architecture_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Will default to <a class="xref" href="ZeroInstall.Model.Architecture.html#ZeroInstall_Model_Architecture_CurrentSystem">CurrentSystem</a> if left at default value. Will not try to find any command if set to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.empty">Empty</a>.</p>
+</div>
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements_Command_" data-uid="ZeroInstall.Model.Requirements.Command*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_Command" data-uid="ZeroInstall.Model.Requirements.Command">
+  Command
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the command in the implementation to execute. Will default to <a class="xref" href="ZeroInstall.Model.Command.html#ZeroInstall_Model_Command_NameRun">NameRun</a> or <a class="xref" href="ZeroInstall.Model.Command.html#ZeroInstall_Model_Command_NameCompile">NameCompile</a> if <code>null</code>. Will not try to find any command if set to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.empty">Empty</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(typeof(CommandNameConverter))]
+[JsonProperty(&quot;command&quot;)]
+public string? Command { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements_CpuString_" data-uid="ZeroInstall.Model.Requirements.CpuString*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_CpuString" data-uid="ZeroInstall.Model.Requirements.CpuString">
+  CpuString
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Used for XML and JSON serialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[JsonProperty(&quot;cpu&quot;, DefaultValueHandling = DefaultValueHandling.Ignore)]
+public string CpuString { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="ZeroInstall.Model.Requirements.html#ZeroInstall_Model_Requirements_Architecture">Architecture</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="ZeroInstall_Model_Requirements_Distributions_" data-uid="ZeroInstall.Model.Requirements.Distributions*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_Distributions" data-uid="ZeroInstall.Model.Requirements.Distributions">
+  Distributions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies that the selected implementations must be from one of the given distributions (e.g. Debian, RPM).
+The special value <a class="xref" href="ZeroInstall.Model.Restriction.html#ZeroInstall_Model_Restriction_DistributionZeroInstall">DistributionZeroInstall</a> may be used to require implementations provided by Zero Install (i.e. one not provided by a <a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[JsonIgnore]
+[UnorderedEquality]
+public List&lt;string&gt; Distributions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Model_Requirements_Distributions_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Used internally by solvers, copied from <a class="xref" href="ZeroInstall.Model.Restriction.html#ZeroInstall_Model_Restriction_Distributions">Distributions</a>, not set directly by user, not serialized.</p>
+</div>
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements_ExtraRestrictions_" data-uid="ZeroInstall.Model.Requirements.ExtraRestrictions*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_ExtraRestrictions" data-uid="ZeroInstall.Model.Requirements.ExtraRestrictions">
+  ExtraRestrictions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ranges of versions of specific sub-implementations that can be chosen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;extra_restrictions&quot;)]
+[UnorderedEquality]
+public Dictionary&lt;FeedUri, VersionRange&gt; ExtraRestrictions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a>, <a class="xref" href="ZeroInstall.Model.VersionRange.html">VersionRange</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements_InterfaceUri_" data-uid="ZeroInstall.Model.Requirements.InterfaceUri*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_InterfaceUri" data-uid="ZeroInstall.Model.Requirements.InterfaceUri">
+  InterfaceUri
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The URI or local path (must be absolute) to the interface to solve the dependencies for.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;interface&quot;)]
+public required FeedUri InterfaceUri { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements_Languages_" data-uid="ZeroInstall.Model.Requirements.Languages*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_Languages" data-uid="ZeroInstall.Model.Requirements.Languages">
+  Languages
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The preferred languages for the implementation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SuppressMessage(&quot;Microsoft.Usage&quot;, &quot;CA2227:CollectionPropertiesShouldBeReadOnly&quot;, Justification = &quot;Complete set can be replaced by PropertyGrid.&quot;)]
+[JsonIgnore]
+[SetEquality]
+public LanguageSet Languages { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Collections.LanguageSet.html">LanguageSet</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements_Message_" data-uid="ZeroInstall.Model.Requirements.Message*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_Message" data-uid="ZeroInstall.Model.Requirements.Message">
+  Message
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Message to display when interacting with user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;message&quot;, DefaultValueHandling = DefaultValueHandling.Ignore)]
+public string? Message { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements_OSString_" data-uid="ZeroInstall.Model.Requirements.OSString*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_OSString" data-uid="ZeroInstall.Model.Requirements.OSString">
+  OSString
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Used for XML and JSON serialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[JsonProperty(&quot;os&quot;, DefaultValueHandling = DefaultValueHandling.Ignore)]
+public string OSString { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="ZeroInstall.Model.Requirements.html#ZeroInstall_Model_Requirements_Architecture">Architecture</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="ZeroInstall_Model_Requirements_Source_" data-uid="ZeroInstall.Model.Requirements.Source*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_Source" data-uid="ZeroInstall.Model.Requirements.Source">
+  Source
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Used for XML and JSON serialization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[JsonProperty(&quot;source&quot;)]
+public bool Source { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="ZeroInstall.Model.Requirements.html#ZeroInstall_Model_Requirements_Architecture">Architecture</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="ZeroInstall_Model_Requirements_Versions_" data-uid="ZeroInstall.Model.Requirements.Versions*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_Versions" data-uid="ZeroInstall.Model.Requirements.Versions">
+  Versions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ranges of versions that can be chosen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[JsonIgnore]
+public VersionRange? Versions { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.VersionRange.html">VersionRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Model_Requirements_AddRestriction_" data-uid="ZeroInstall.Model.Requirements.AddRestriction*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_AddRestriction_ZeroInstall_Model_FeedUri_ZeroInstall_Model_VersionRange_" data-uid="ZeroInstall.Model.Requirements.AddRestriction(ZeroInstall.Model.FeedUri,ZeroInstall.Model.VersionRange)">
+  AddRestriction(FeedUri, VersionRange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds version restriction for a specific feeds. Merges with any existing restrictions for that feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddRestriction(FeedUri feedUri, VersionRange versions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedUri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd><p>The feed URI to apply the restriction for.</p>
+</dd>
+    <dt><code>versions</code> <a class="xref" href="ZeroInstall.Model.VersionRange.html">VersionRange</a></dt>
+    <dd><p>The version range set to restrict to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements_Equals_" data-uid="ZeroInstall.Model.Requirements.Equals*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_Equals_ZeroInstall_Model_Requirements_" data-uid="ZeroInstall.Model.Requirements.Equals(ZeroInstall.Model.Requirements)">
+  Equals(Requirements?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Requirements.Generator.Equals.g.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool Equals(Requirements? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a></dt>
+    <dd><p>An object to compare with this object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements_ForCurrentSystem_" data-uid="ZeroInstall.Model.Requirements.ForCurrentSystem*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_ForCurrentSystem" data-uid="ZeroInstall.Model.Requirements.ForCurrentSystem">
+  ForCurrentSystem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Substitutes blank values with default values appropriate for the current system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Requirements ForCurrentSystem()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements_GetHashCode_" data-uid="ZeroInstall.Model.Requirements.GetHashCode*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_GetHashCode" data-uid="ZeroInstall.Model.Requirements.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Requirements.Generator.Equals.g.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements_ToCommandLineArgs_" data-uid="ZeroInstall.Model.Requirements.ToCommandLineArgs*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_ToCommandLineArgs" data-uid="ZeroInstall.Model.Requirements.ToCommandLineArgs">
+  ToCommandLineArgs()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transforms the requirements into a command-line arguments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; ToCommandLineArgs()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Requirements_ToString_" data-uid="ZeroInstall.Model.Requirements.ToString*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_ToString" data-uid="ZeroInstall.Model.Requirements.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the requirements in the form &quot;InterfaceUri (Command)&quot;. Not safe for parsing!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="ZeroInstall_Model_Requirements_op_Implicit_" data-uid="ZeroInstall.Model.Requirements.op_Implicit*"></a>
+
+  <h3 id="ZeroInstall_Model_Requirements_op_Implicit_ZeroInstall_Model_FeedUri__ZeroInstall_Model_Requirements" data-uid="ZeroInstall.Model.Requirements.op_Implicit(ZeroInstall.Model.FeedUri)~ZeroInstall.Model.Requirements">
+  implicit operator Requirements(FeedUri)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Requirements.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Convenience cast for creating simple <a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a> from a <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Requirements(FeedUri uri)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>uri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Requirements.Generator.Equals.g.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TrustDB | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TrustDB | Zero Install .NET API ">
+      
+      <meta name="description" content="A database of OpenPGP signature fingerprints the users trusts to sign s coming from specific domains.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Model_Trust_TrustDB.md&amp;value=---%0Auid%3A%20ZeroInstall.Model.Trust.TrustDB%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Model.Trust.TrustDB">
+
+
+
+  <h1 id="ZeroInstall_Model_Trust_TrustDB" data-uid="ZeroInstall.Model.Trust.TrustDB" class="text-break">
+Class TrustDB  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Trust.TrustDB.Generator.Equals.g.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Model.html">Model</a>.<a class="xref" href="ZeroInstall.Model.Trust.html">Trust</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Model.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A database of OpenPGP signature fingerprints the users trusts to sign <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>s coming from specific domains.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[XmlNamespace(&quot;xsi&quot;, &quot;http://www.w3.org/2001/XMLSchema-instance&quot;)]
+[Equatable]
+public sealed class TrustDB : ICloneable&lt;TrustDB&gt;, IEquatable&lt;TrustDB&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">TrustDB</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.ICloneable-1.html">ICloneable</a>&lt;<a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_XmlNamespace" data-uid="ZeroInstall.Model.Trust.TrustDB.XmlNamespace">
+  XmlNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The XML namespace used for storing trust-related data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string XmlNamespace = &quot;http://zero-install.sourceforge.net/2007/injector/trust&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_XsdLocation" data-uid="ZeroInstall.Model.Trust.TrustDB.XsdLocation">
+  XsdLocation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The URI to retrieve an XSD containing the XML Schema information for this class in serialized form.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string XsdLocation = &quot;https://docs.0install.net/specifications/trust.xsd&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_XsiSchemaLocation" data-uid="ZeroInstall.Model.Trust.TrustDB.XsiSchemaLocation">
+  XsiSchemaLocation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides XML Editors with location hints for XSD files.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string XsiSchemaLocation</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_Keys_" data-uid="ZeroInstall.Model.Trust.TrustDB.Keys*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_Keys" data-uid="ZeroInstall.Model.Trust.TrustDB.Keys">
+  Keys
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A list of known <a class="xref" href="ZeroInstall.Model.Trust.Key.html">Key</a>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[UnorderedEquality]
+public List&lt;Key&gt; Keys { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ZeroInstall.Model.Trust.Key.html">Key</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_Clone_" data-uid="ZeroInstall.Model.Trust.TrustDB.Clone*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_Clone" data-uid="ZeroInstall.Model.Trust.TrustDB.Clone">
+  Clone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a deep copy of this <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TrustDB Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a></dt>
+    <dd><p>The new copy of the <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_Equals_" data-uid="ZeroInstall.Model.Trust.TrustDB.Equals*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_Equals_System_Object_" data-uid="ZeroInstall.Model.Trust.TrustDB.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Trust.TrustDB.Generator.Equals.g.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">object</span></dt>
+    <dd><p>The object to compare with the current object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_GetHashCode_" data-uid="ZeroInstall.Model.Trust.TrustDB.GetHashCode*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_GetHashCode" data-uid="ZeroInstall.Model.Trust.TrustDB.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Trust.TrustDB.Generator.Equals.g.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_IsTrusted_" data-uid="ZeroInstall.Model.Trust.TrustDB.IsTrusted*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_IsTrusted_System_String_ZeroInstall_Model_Trust_Domain_" data-uid="ZeroInstall.Model.Trust.TrustDB.IsTrusted(System.String,ZeroInstall.Model.Trust.Domain)">
+  IsTrusted(string, Domain)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks whether a key is trusted for a specific domain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsTrusted(string fingerprint, Domain domain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fingerprint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The fingerprint of the key to check.</p>
+</dd>
+    <dt><code>domain</code> <a class="xref" href="ZeroInstall.Model.Trust.Domain.html">Domain</a></dt>
+    <dd><p>The domain the key should be valid for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_Load_" data-uid="ZeroInstall.Model.Trust.TrustDB.Load*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_Load" data-uid="ZeroInstall.Model.Trust.TrustDB.Load">
+  Load()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads the <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a> from the default locations, merging multiple files if found.
+Returns an empty <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a> if no files were found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TrustDB Load()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while reading the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the file is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A problem occurred while deserializing an XML file.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_Load_" data-uid="ZeroInstall.Model.Trust.TrustDB.Load*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_Load_System_String_" data-uid="ZeroInstall.Model.Trust.TrustDB.Load(System.String)">
+  Load(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads the <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a> from a file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TrustDB Load(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file to load from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while reading the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the file is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A problem occurred while deserializing an XML file.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_LoadMachineWide_" data-uid="ZeroInstall.Model.Trust.TrustDB.LoadMachineWide*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_LoadMachineWide" data-uid="ZeroInstall.Model.Trust.TrustDB.LoadMachineWide">
+  LoadMachineWide()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads the <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a> from the machine-wide location.
+Returns an empty <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a> if the file does not exist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TrustDB LoadMachineWide()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while reading the file or creating a directory.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the file or creating a directory is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A problem occurred while deserializing an XML file.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_LoadSafe_" data-uid="ZeroInstall.Model.Trust.TrustDB.LoadSafe*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_LoadSafe" data-uid="ZeroInstall.Model.Trust.TrustDB.LoadSafe">
+  LoadSafe()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to load the <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a> from the default locations, merging multiple files if found.
+Returns an empty <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a> on errors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TrustDB LoadSafe()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_Save_" data-uid="ZeroInstall.Model.Trust.TrustDB.Save*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_Save_System_String_" data-uid="ZeroInstall.Model.Trust.TrustDB.Save(System.String)">
+  Save(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves this <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a> to a file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Save(string? path = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file to save to. Defaults to the location the file was loaded from or the user profile.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the file is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_TrustKey_" data-uid="ZeroInstall.Model.Trust.TrustDB.TrustKey*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_TrustKey_System_String_ZeroInstall_Model_Trust_Domain_" data-uid="ZeroInstall.Model.Trust.TrustDB.TrustKey(System.String,ZeroInstall.Model.Trust.Domain)">
+  TrustKey(string, Domain)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Trusts feeds from a specific domain when signed with a specific key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TrustDB TrustKey(string fingerprint, Domain domain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fingerprint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The fingerprint of the key to trust.</p>
+</dd>
+    <dt><code>domain</code> <a class="xref" href="ZeroInstall.Model.Trust.Domain.html">Domain</a></dt>
+    <dd><p>The domain the key should be trusted for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a></dt>
+    <dd><p>The same <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a>, for fluent-style use.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_UntrustKey_" data-uid="ZeroInstall.Model.Trust.TrustDB.UntrustKey*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_UntrustKey_System_String_" data-uid="ZeroInstall.Model.Trust.TrustDB.UntrustKey(System.String)">
+  UntrustKey(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stops trusting feeds signed with a specific key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UntrustKey(string fingerprint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fingerprint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The fingerprint of the key to remove.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the key was removed, <code>false</code> if the key was not found in the database.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_UntrustKey_" data-uid="ZeroInstall.Model.Trust.TrustDB.UntrustKey*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_UntrustKey_System_String_ZeroInstall_Model_Trust_Domain_" data-uid="ZeroInstall.Model.Trust.TrustDB.UntrustKey(System.String,ZeroInstall.Model.Trust.Domain)">
+  UntrustKey(string, Domain)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Trust/TrustDB.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stops trusting feeds from a specific domain when signed with a specific key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UntrustKey(string fingerprint, Domain domain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fingerprint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The fingerprint of the key to remove.</p>
+</dd>
+    <dt><code>domain</code> <a class="xref" href="ZeroInstall.Model.Trust.Domain.html">Domain</a></dt>
+    <dd><p>The domain the key should be removed for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the key was removed, <code>false</code> if the key was not found in the database.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_op_Equality_" data-uid="ZeroInstall.Model.Trust.TrustDB.op_Equality*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_op_Equality_ZeroInstall_Model_Trust_TrustDB_ZeroInstall_Model_Trust_TrustDB_" data-uid="ZeroInstall.Model.Trust.TrustDB.op_Equality(ZeroInstall.Model.Trust.TrustDB,ZeroInstall.Model.Trust.TrustDB)">
+  operator ==(TrustDB?, TrustDB?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Trust.TrustDB.Generator.Equals.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the object on the left is equal to the object on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(TrustDB? left, TrustDB? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a></dt>
+    <dd><p>The left object</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a></dt>
+    <dd><p>The right object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the objects are equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Trust_TrustDB_op_Inequality_" data-uid="ZeroInstall.Model.Trust.TrustDB.op_Inequality*"></a>
+
+  <h3 id="ZeroInstall_Model_Trust_TrustDB_op_Inequality_ZeroInstall_Model_Trust_TrustDB_ZeroInstall_Model_Trust_TrustDB_" data-uid="ZeroInstall.Model.Trust.TrustDB.op_Inequality(ZeroInstall.Model.Trust.TrustDB,ZeroInstall.Model.Trust.TrustDB)">
+  operator !=(TrustDB?, TrustDB?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Trust.TrustDB.Generator.Equals.g.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the object on the left is not equal to the object on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(TrustDB? left, TrustDB? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a></dt>
+    <dd><p>The left object</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.Trust.TrustDB.html">TrustDB</a></dt>
+    <dd><p>The right object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the objects are not equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Trust.TrustDB.Generator.Equals.g.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Enum ExitCode | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Enum ExitCode | Zero Install .NET API ">
+      
+      <meta name="description" content="An exit code is returned to the original caller after the application terminates, to indicate success or the reason for failure.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Commands_ExitCode.md&amp;value=---%0Auid%3A%20ZeroInstall.Commands.ExitCode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Commands.ExitCode">
+
+
+
+
+  <h1 id="ZeroInstall_Commands_ExitCode" data-uid="ZeroInstall.Commands.ExitCode" class="text-break">
+Enum ExitCode  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ExitCode.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Commands.html">Commands</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>0install.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An exit code is returned to the original caller after the application terminates, to indicate success or the reason for failure.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum ExitCode</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h2 id="fields">Fields
+</h2>
+  <dl class="parameters">
+    <dt id="ZeroInstall_Commands_ExitCode_AccessDenied"><code>AccessDenied = 11</code></dt>
+  
+  <dd><p>You have insufficient access rights. This can potentially be fixed by running the command as an Administrator/root. It may also indicate misconfigured file permissions.</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_Conflict"><code>Conflict = 15</code></dt>
+  
+  <dd><p>A desktop integration operation could not be completed due to conflicting <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>s.</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_DigestMismatch"><code>DigestMismatch = 26</code></dt>
+  
+  <dd><p>The <a class="xref" href="ZeroInstall.Model.ManifestDigest.html">ManifestDigest</a> of an implementation does not match the expected value. This could be caused by a damaged download or an incorrect feed.</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_ExecutorError"><code>ExecutorError = 21</code></dt>
+  
+  <dd><p>The <a class="xref" href="ZeroInstall.Services.Executors.IExecutor.html">IExecutor</a> was unable to launch the desired application. This usually indicates a problem with the feed.</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_IOError"><code>IOError = 12</code></dt>
+  
+  <dd><p>There was an IO problem. This encompasses issues such as missing files or insufficient disk space.</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_InvalidArguments"><code>InvalidArguments = 99</code></dt>
+  
+  <dd><p>The command-line arguments passed to the application were invalid.</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_InvalidData"><code>InvalidData = 25</code></dt>
+  
+  <dd><p>A data file could not be parsed. This encompasses issues such as damaged configuration files or malformed XML documents (e.g. feeds).</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_InvalidSignature"><code>InvalidSignature = 27</code></dt>
+  
+  <dd><p>There was a problem with the digital signature of a feed. The signature may be missing, damaged or not trusted for the source the feed came from.</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_NoChanges"><code>NoChanges = 1</code></dt>
+  
+  <dd><p>The operation resulted in no changes. This may be due to a problem with the input or simply indicate that the system is already in the desired state.</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_NotSupported"><code>NotSupported = 50</code></dt>
+  
+  <dd><p>The operation could not be completed because a feature that is not (yet) supported was requested. Upgrading to a newer version may resolve this issue.</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_OK"><code>OK = 0</code></dt>
+  
+  <dd><p>The operation completed without any problems.</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_SolverError"><code>SolverError = 20</code></dt>
+  
+  <dd><p>The <a class="xref" href="ZeroInstall.Services.Solvers.ISolver.html">ISolver</a> was unable to provide <a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a> that fulfill the <a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a>. This can be caused by a problem with the feed, an impossible request (e.g., non-existing version) or your local configuration.</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_UserCanceled"><code>UserCanceled = 100</code></dt>
+  
+  <dd><p>The user canceled the task.</p>
+</dd>
+    <dt id="ZeroInstall_Commands_ExitCode_WebError"><code>WebError = 10</code></dt>
+  
+  <dd><p>There was a network problem. This may be intermittent and resolve itself e.g. when a Wi-Fi connection is restored.</p>
+</dd>
+  </dl>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ExitCode.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

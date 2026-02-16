@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Client library | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Client library | Zero Install .NET API ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="docs/toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/blob/2.28.4/doc/client.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="client-library">
+<h1 id="client-library">Client library</h1>
+
+<p>The <a class="xref" href="api/ZeroInstall.Client.html">ZeroInstall.Client</a> namespace allows you to invoke Zero Install commands from within other applications.</p>
+<p>Use <a class="xref" href="api/ZeroInstall.Client.ZeroInstallClient.html#ZeroInstall_Client_ZeroInstallClient_Detect">Detect</a> to automatically discover the locations of the <code>0install</code> and/or <code>0install-win</code> executables. This gives you an instance of <a class="xref" href="api/ZeroInstall.Client.IZeroInstallClient.html">IZeroInstallClient</a>, which enables easy programmatic access to a subset of the <a class="xref" href="cli.html">Command-line interface</a>.</p>
+<h2 id="samples">Samples</h2>
+<p>Detect <code>0install</code> location and the feed URI used to launch the app:</p>
+<pre><code class="lang-csharp">var zeroInstall = ZeroInstallClient.Detect;
+var feedUri = ZeroInstallEnvironment.FeedUri ?? new FeedUri(&quot;https://example.com/your-feed.xml&quot;);
+</code></pre>
+<p>Download updates if available:</p>
+<pre><code class="lang-csharp">if (await zeroInstall.UpdateAsync(feedUri))
+    NotifyUpdateAvailable();
+</code></pre>
+<p>Restart the app to run the latest version:</p>
+<pre><code class="lang-csharp">zeroInstall.Run(feedUri);
+Environment.Exit(0);
+</code></pre>
+<p>Toggle the app's auto start <a href="https://docs.0install.net/details/desktop-integration/">desktop integration</a>:</p>
+<pre><code class="lang-csharp">bool isAutoStartEnabled = (await zeroInstall.GetIntegrationAsync(feedUri)).Contains(&quot;auto-start&quot;);
+if (isAutoStartEnabled)
+    await zeroInstall.IntegrateAsync(feedUri, remove: new[] {&quot;auto-start&quot;});
+else
+    await zeroInstall.IntegrateAsync(feedUri, add: new[] {&quot;auto-start&quot;});
+</code></pre>
+<h2 id="error-handling">Error handling</h2>
+<p>The client library maps <code>0install</code>'s exit codes to exceptions. Your code should be ready to catch:</p>
+<ul>
+<li><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a>: <code>0install</code> could not be launched or there was a problem accessing the filesystem.</li>
+<li><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.webexception">WebException</a>: There was a problem downloading a file.</li>
+<li><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a>: The user canceled the operation.</li>
+<li><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.ExitCodeException.html">ExitCodeException</a>: Any other kind of error.</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/doc/client.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

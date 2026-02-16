@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ImplementationVersion | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ImplementationVersion | Zero Install .NET API ">
+      
+      <meta name="description" content="Represents a version number consisting of dot-separated decimals and optional modifier strings.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Model_ImplementationVersion.md&amp;value=---%0Auid%3A%20ZeroInstall.Model.ImplementationVersion%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Model.ImplementationVersion">
+
+
+
+  <h1 id="ZeroInstall_Model_ImplementationVersion" data-uid="ZeroInstall.Model.ImplementationVersion" class="text-break">
+Class ImplementationVersion  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.ImplementationVersion.Generator.Equals.g.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Model.html">Model</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Model.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a version number consisting of dot-separated decimals and optional modifier strings.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[TypeConverter(typeof(StringConstructorConverter&lt;ImplementationVersion&gt;))]
+[Serializable]
+[Equatable]
+public sealed class ImplementationVersion : IComparable&lt;ImplementationVersion&gt;, IEquatable&lt;ImplementationVersion&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ImplementationVersion</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+  <h2 id="ZeroInstall_Model_ImplementationVersion_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This class is immutable and thread-safe.</p>
+<p>
+  This is the syntax for valid version strings:
+  <pre><code class="lang-csharp">Version := DottedList ("-" Modifier? DottedList?)*
+  DottedList := (Integer ("." Integer)*)
+  Modifier := "pre" | "rc" | "post"</code></pre>
+  If the string <a class="xref" href="ZeroInstall.Model.ModelUtils.html#ZeroInstall_Model_ModelUtils_ContainsTemplateVariables_System_String_">ContainsTemplateVariables(string)</a> the entire string is stored verbatim and not parsed.
+
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion__ctor_" data-uid="ZeroInstall.Model.ImplementationVersion.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion__ctor_System_String_" data-uid="ZeroInstall.Model.ImplementationVersion.#ctor(System.String)">
+  ImplementationVersion(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new implementation version from a string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImplementationVersion(string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The string containing the version information.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.formatexception">FormatException</a></dt>
+    <dd><p><code class="paramref">value</code> is not a valid version string.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion__ctor_" data-uid="ZeroInstall.Model.ImplementationVersion.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion__ctor_System_Version_" data-uid="ZeroInstall.Model.ImplementationVersion.#ctor(System.Version)">
+  ImplementationVersion(Version)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new implementation version from a .NET <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.version">Version</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImplementationVersion(Version version)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>version</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.version">Version</a></dt>
+    <dd><p>The .NET <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.version">Version</a> to convert.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion__ctor_" data-uid="ZeroInstall.Model.ImplementationVersion.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion__ctor_ZeroInstall_Model_VersionDottedList_ZeroInstall_Model_VersionPart___" data-uid="ZeroInstall.Model.ImplementationVersion.#ctor(ZeroInstall.Model.VersionDottedList,ZeroInstall.Model.VersionPart[])">
+  ImplementationVersion(VersionDottedList, params VersionPart[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new implementation version.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImplementationVersion(VersionDottedList firstPart, params VersionPart[] additionalParts)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>firstPart</code> <a class="xref" href="ZeroInstall.Model.VersionDottedList.html">VersionDottedList</a></dt>
+    <dd><p>The first part of the version number.</p>
+</dd>
+    <dt><code>additionalParts</code> <a class="xref" href="ZeroInstall.Model.VersionPart.html">VersionPart</a>[]</dt>
+    <dd><p>All additional parts of the version number.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_AdditionalParts_" data-uid="ZeroInstall.Model.ImplementationVersion.AdditionalParts*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_AdditionalParts" data-uid="ZeroInstall.Model.ImplementationVersion.AdditionalParts">
+  AdditionalParts
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>All additional parts of the version number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[OrderedEquality]
+public IReadOnlyList&lt;VersionPart&gt; AdditionalParts { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="ZeroInstall.Model.VersionPart.html">VersionPart</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_ContainsTemplateVariables_" data-uid="ZeroInstall.Model.ImplementationVersion.ContainsTemplateVariables*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_ContainsTemplateVariables" data-uid="ZeroInstall.Model.ImplementationVersion.ContainsTemplateVariables">
+  ContainsTemplateVariables
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether this version number contains a template variable (a substring enclosed in curly brackets, e.g {var}) .</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[IgnoreEquality]
+public bool ContainsTemplateVariables { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Model_ImplementationVersion_ContainsTemplateVariables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This must be <code>false</code> in regular feeds; <code>true</code> is only valid for templates.</p>
+</div>
+
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_FirstPart_" data-uid="ZeroInstall.Model.ImplementationVersion.FirstPart*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_FirstPart" data-uid="ZeroInstall.Model.ImplementationVersion.FirstPart">
+  FirstPart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The first part of the version number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VersionDottedList FirstPart { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.VersionDottedList.html">VersionDottedList</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_CompareTo_" data-uid="ZeroInstall.Model.ImplementationVersion.CompareTo*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_CompareTo_ZeroInstall_Model_ImplementationVersion_" data-uid="ZeroInstall.Model.ImplementationVersion.CompareTo(ZeroInstall.Model.ImplementationVersion)">
+  CompareTo(ImplementationVersion?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes, follows, or occurs in the same position in the sort order as the other object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(ImplementationVersion? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd><p>An object to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A value that indicates the relative order of the objects being compared. The return value has these meanings:</p>
+ <table><thead><tr><th class="term"> Value</th><th class="description"> Meaning</th></tr></thead><tbody><tr><td class="term"> Less than zero</td><td class="description"> This instance precedes <code class="paramref">other</code> in the sort order.</td></tr><tr><td class="term"> Zero</td><td class="description"> This instance occurs in the same position in the sort order as <code class="paramref">other</code>.</td></tr><tr><td class="term"> Greater than zero</td><td class="description"> This instance follows <code class="paramref">other</code> in the sort order.</td></tr></tbody></table>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_Equals_" data-uid="ZeroInstall.Model.ImplementationVersion.Equals*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_Equals_System_Object_" data-uid="ZeroInstall.Model.ImplementationVersion.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.ImplementationVersion.Generator.Equals.g.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">object</span></dt>
+    <dd><p>The object to compare with the current object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_GetHashCode_" data-uid="ZeroInstall.Model.ImplementationVersion.GetHashCode*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_GetHashCode" data-uid="ZeroInstall.Model.ImplementationVersion.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.ImplementationVersion.Generator.Equals.g.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_ToString_" data-uid="ZeroInstall.Model.ImplementationVersion.ToString*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_ToString" data-uid="ZeroInstall.Model.ImplementationVersion.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a string representation of the version. Safe for parsing!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_TryCreate_" data-uid="ZeroInstall.Model.ImplementationVersion.TryCreate*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_TryCreate_System_String_ZeroInstall_Model_ImplementationVersion__" data-uid="ZeroInstall.Model.ImplementationVersion.TryCreate(System.String,ZeroInstall.Model.ImplementationVersion@)">
+  TryCreate(string, out ImplementationVersion?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a> using the specified string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryCreate(string value, out ImplementationVersion? result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The string to parse.</p>
+</dd>
+    <dt><code>result</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd><p>Returns the created <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a> if successfully; <code>null</code> otherwise.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a> was successfully created; <code>false</code> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_op_Equality_" data-uid="ZeroInstall.Model.ImplementationVersion.op_Equality*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_op_Equality_ZeroInstall_Model_ImplementationVersion_ZeroInstall_Model_ImplementationVersion_" data-uid="ZeroInstall.Model.ImplementationVersion.op_Equality(ZeroInstall.Model.ImplementationVersion,ZeroInstall.Model.ImplementationVersion)">
+  operator ==(ImplementationVersion?, ImplementationVersion?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.ImplementationVersion.Generator.Equals.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the object on the left is equal to the object on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(ImplementationVersion? left, ImplementationVersion? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd><p>The left object</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd><p>The right object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the objects are equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_op_GreaterThan_" data-uid="ZeroInstall.Model.ImplementationVersion.op_GreaterThan*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_op_GreaterThan_ZeroInstall_Model_ImplementationVersion_ZeroInstall_Model_ImplementationVersion_" data-uid="ZeroInstall.Model.ImplementationVersion.op_GreaterThan(ZeroInstall.Model.ImplementationVersion,ZeroInstall.Model.ImplementationVersion)">
+  operator &gt;(ImplementationVersion?, ImplementationVersion?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(ImplementationVersion? left, ImplementationVersion? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_op_GreaterThanOrEqual_" data-uid="ZeroInstall.Model.ImplementationVersion.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_op_GreaterThanOrEqual_ZeroInstall_Model_ImplementationVersion_ZeroInstall_Model_ImplementationVersion_" data-uid="ZeroInstall.Model.ImplementationVersion.op_GreaterThanOrEqual(ZeroInstall.Model.ImplementationVersion,ZeroInstall.Model.ImplementationVersion)">
+  operator &gt;=(ImplementationVersion?, ImplementationVersion?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(ImplementationVersion? left, ImplementationVersion? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_op_Inequality_" data-uid="ZeroInstall.Model.ImplementationVersion.op_Inequality*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_op_Inequality_ZeroInstall_Model_ImplementationVersion_ZeroInstall_Model_ImplementationVersion_" data-uid="ZeroInstall.Model.ImplementationVersion.op_Inequality(ZeroInstall.Model.ImplementationVersion,ZeroInstall.Model.ImplementationVersion)">
+  operator !=(ImplementationVersion?, ImplementationVersion?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.ImplementationVersion.Generator.Equals.g.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the object on the left is not equal to the object on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(ImplementationVersion? left, ImplementationVersion? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd><p>The left object</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd><p>The right object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the objects are not equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_op_LessThan_" data-uid="ZeroInstall.Model.ImplementationVersion.op_LessThan*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_op_LessThan_ZeroInstall_Model_ImplementationVersion_ZeroInstall_Model_ImplementationVersion_" data-uid="ZeroInstall.Model.ImplementationVersion.op_LessThan(ZeroInstall.Model.ImplementationVersion,ZeroInstall.Model.ImplementationVersion)">
+  operator &lt;(ImplementationVersion?, ImplementationVersion?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(ImplementationVersion? left, ImplementationVersion? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_ImplementationVersion_op_LessThanOrEqual_" data-uid="ZeroInstall.Model.ImplementationVersion.op_LessThanOrEqual*"></a>
+
+  <h3 id="ZeroInstall_Model_ImplementationVersion_op_LessThanOrEqual_ZeroInstall_Model_ImplementationVersion_ZeroInstall_Model_ImplementationVersion_" data-uid="ZeroInstall.Model.ImplementationVersion.op_LessThanOrEqual(ZeroInstall.Model.ImplementationVersion,ZeroInstall.Model.ImplementationVersion)">
+  operator &lt;=(ImplementationVersion?, ImplementationVersion?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/ImplementationVersion.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(ImplementationVersion? left, ImplementationVersion? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.ImplementationVersion.Generator.Equals.g.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

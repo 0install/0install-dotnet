@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CliCommand | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CliCommand | Zero Install .NET API ">
+      
+      <meta name="description" content="Represents a command invoked via command-line arguments.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Commands_CliCommand.md&amp;value=---%0Auid%3A%20ZeroInstall.Commands.CliCommand%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Commands.CliCommand">
+
+
+
+  <h1 id="ZeroInstall_Commands_CliCommand" data-uid="ZeroInstall.Commands.CliCommand" class="text-break">
+Class CliCommand  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.Factory.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Commands.html">Commands</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>0install.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a command invoked via command-line arguments.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class CliCommand : ScopedOperation</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="ZeroInstall.Services.ServiceProvider.html">ServiceProvider</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.ScopedOperation.html">ScopedOperation</a></div>
+      <div><span class="xref">CliCommand</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.AddRemoveFeedCommand.html">AddRemoveFeedCommand</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.Configure.html">Configure</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.DefaultCommand.html">DefaultCommand</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.Digest.html">Digest</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.ExportHelp.html">ExportHelp</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.Fetch.html">Fetch</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.Import.html">Import</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.List.html">List</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.ListFeeds.html">ListFeeds</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.Search.html">Search</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.Selection.html">Selection</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.StoreMan.StoreSubCommand.html">StoreMan.StoreSubCommand</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Basic.TrustMan.TrustSubCommand.html">TrustMan.TrustSubCommand</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.CliMultiCommand.html">CliMultiCommand</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Desktop.Central.html">Central</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Desktop.IntegrationCommand.html">IntegrationCommand</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Desktop.ListApps.html">ListApps</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Desktop.Self.SelfSubCommand.html">Self.SelfSubCommand</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_GetCanonicalUri_System_String_">ScopedOperation.GetCanonicalUri(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_EnsureAllowed_ZeroInstall_Model_FeedUri_">ScopedOperation.EnsureAllowed(FeedUri)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_FindByShortName_System_String_">ScopedOperation.FindByShortName(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_BackgroundSelfUpdate">ScopedOperation.BackgroundSelfUpdate()</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_MinimumNetworkUseForBackgroundSelfUpdate">ScopedOperation.MinimumNetworkUseForBackgroundSelfUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_StartCommandBackground_System_String_System_String___">ScopedOperation.StartCommandBackground(string, params string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Config">ServiceProvider.Config</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_ImplementationStore">ServiceProvider.ImplementationStore</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_OpenPgp">ServiceProvider.OpenPgp</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_FeedCache">ServiceProvider.FeedCache</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_TrustManager">ServiceProvider.TrustManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_FeedManager">ServiceProvider.FeedManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_CatalogManager">ServiceProvider.CatalogManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_PackageManager">ServiceProvider.PackageManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_SelectionCandidateProvider">ServiceProvider.SelectionCandidateProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Solver">ServiceProvider.Solver</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Fetcher">ServiceProvider.Fetcher</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Executor">ServiceProvider.Executor</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_SelectionsManager">ServiceProvider.SelectionsManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_TrySolveOffline_ZeroInstall_Model_Requirements_">ServiceProvider.TrySolveOffline(Requirements)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="ZeroInstall_Commands_CliCommand_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Specific sub-classes of this class are used to handle a commands like &quot;0install COMMAND [OPTIONS]&quot;.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ZeroInstall_Commands_CliCommand__ctor_" data-uid="ZeroInstall.Commands.CliCommand.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand__ctor_ZeroInstall_Commands_ICommandHandler_" data-uid="ZeroInstall.Commands.CliCommand.#ctor(ZeroInstall.Commands.ICommandHandler)">
+  CliCommand(ICommandHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected CliCommand(ICommandHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="ZeroInstall.Commands.ICommandHandler.html">ICommandHandler</a></dt>
+    <dd><p>A callback object used when the user needs to be asked questions or informed about download and IO tasks.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ZeroInstall_Commands_CliCommand_AdditionalArgs" data-uid="ZeroInstall.Commands.CliCommand.AdditionalArgs">
+  AdditionalArgs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Feeds to add, terms to search for, etc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SuppressMessage(&quot;Microsoft.Design&quot;, &quot;CA1002:DoNotExposeGenericLists&quot;, Justification = &quot;Using a List&lt;T&gt; for performance reasons&quot;)]
+protected readonly List&lt;string&gt; AdditionalArgs</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Commands_CliCommand_Options" data-uid="ZeroInstall.Commands.CliCommand.Options">
+  Options
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The command-line argument parser used to evaluate user input.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly OptionSet Options</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">OptionSet</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Commands_CliCommand_AdditionalArgsMax_" data-uid="ZeroInstall.Commands.CliCommand.AdditionalArgsMax*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_AdditionalArgsMax" data-uid="ZeroInstall.Commands.CliCommand.AdditionalArgsMax">
+  AdditionalArgsMax
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum number of <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_AdditionalArgs">AdditionalArgs</a> allowed. Checked in <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_Parse_System_Collections_Generic_IReadOnlyList_System_String__">Parse(IReadOnlyList&lt;string&gt;)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual int AdditionalArgsMax { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_AdditionalArgsMin_" data-uid="ZeroInstall.Commands.CliCommand.AdditionalArgsMin*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_AdditionalArgsMin" data-uid="ZeroInstall.Commands.CliCommand.AdditionalArgsMin">
+  AdditionalArgsMin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum number of <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_AdditionalArgs">AdditionalArgs</a> allowed. Checked in <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_Parse_System_Collections_Generic_IReadOnlyList_System_String__">Parse(IReadOnlyList&lt;string&gt;)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual int AdditionalArgsMin { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_Description_" data-uid="ZeroInstall.Commands.CliCommand.Description*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_Description" data-uid="ZeroInstall.Commands.CliCommand.Description">
+  Description
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A short description of what this command does.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string Description { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_FullName_" data-uid="ZeroInstall.Commands.CliCommand.FullName*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_FullName" data-uid="ZeroInstall.Commands.CliCommand.FullName">
+  FullName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The full name of this command (including sub-commands) as used in command-line arguments in lower-case.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FullName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_Handler_" data-uid="ZeroInstall.Commands.CliCommand.Handler*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_Handler" data-uid="ZeroInstall.Commands.CliCommand.Handler">
+  Handler
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A callback object used when the user needs to be asked questions or informed about download and IO tasks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICommandHandler Handler { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Commands.ICommandHandler.html">ICommandHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_HelpText_" data-uid="ZeroInstall.Commands.CliCommand.HelpText*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_HelpText" data-uid="ZeroInstall.Commands.CliCommand.HelpText">
+  HelpText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The help text describing the available command-line options and their effects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string HelpText { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_Usage_" data-uid="ZeroInstall.Commands.CliCommand.Usage*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_Usage" data-uid="ZeroInstall.Commands.CliCommand.Usage">
+  Usage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The additional arguments to be displayed after the command name in the help text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string Usage { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Commands_CliCommand_AddDiscoverOptions_" data-uid="ZeroInstall.Commands.CliCommand.AddDiscoverOptions*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_AddDiscoverOptions" data-uid="ZeroInstall.Commands.CliCommand.AddDiscoverOptions">
+  AddDiscoverOptions()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds command-line options related to <a class="xref" href="ZeroInstall.Services.Fetchers.ImplementationDiscovery.html">ImplementationDiscovery</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void AddDiscoverOptions()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_AsParallel_" data-uid="ZeroInstall.Commands.CliCommand.AsParallel*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_AsParallel__1_System_Collections_Generic_IEnumerable___0__" data-uid="ZeroInstall.Commands.CliCommand.AsParallel``1(System.Collections.Generic.IEnumerable{``0})">
+  AsParallel&lt;T&gt;(IEnumerable&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prepares the <code class="paramref">elements</code> for parallel processing while respecting <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_MaxParallelDownloads">MaxParallelDownloads</a> and <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html#NanoByte_Common_Tasks_ITaskHandler_CancellationToken">CancellationToken</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ParallelQuery&lt;T&gt; AsParallel&lt;T&gt;(IEnumerable&lt;T&gt; elements)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>elements</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.parallelquery-1">ParallelQuery</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_Create_" data-uid="ZeroInstall.Commands.CliCommand.Create*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_Create_System_String_ZeroInstall_Commands_ICommandHandler_" data-uid="ZeroInstall.Commands.CliCommand.Create(System.String,ZeroInstall.Commands.ICommandHandler)">
+  Create(string?, ICommandHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.Factory.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="ZeroInstall.Commands.CliCommand.html">CliCommand</a> based on a name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CliCommand Create(string? commandName, ICommandHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The command name to look for; case-insensitive; can be <code>null</code>.</p>
+</dd>
+    <dt><code>handler</code> <a class="xref" href="ZeroInstall.Commands.ICommandHandler.html">ICommandHandler</a></dt>
+    <dd><p>A callback object used when the user needs to be asked questions or informed about download and IO tasks.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Commands.CliCommand.html">CliCommand</a></dt>
+    <dd><p>The requested <a class="xref" href="ZeroInstall.Commands.CliCommand.html">CliCommand</a> or <a class="xref" href="ZeroInstall.Commands.Basic.DefaultCommand.html">DefaultCommand</a> if <code class="paramref">commandName</code> was <code>null</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><span class="xref">OptionException</span></dt>
+    <dd><p><code class="paramref">commandName</code> is an unknown command.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>There was a problem accessing a configuration file or one of the stores.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Access to a configuration file or one of the stores was not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A configuration file is damaged.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_CreateAndParse_" data-uid="ZeroInstall.Commands.CliCommand.CreateAndParse*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_CreateAndParse_System_Collections_Generic_IReadOnlyList_System_String__ZeroInstall_Commands_ICommandHandler_" data-uid="ZeroInstall.Commands.CliCommand.CreateAndParse(System.Collections.Generic.IReadOnlyList{System.String},ZeroInstall.Commands.ICommandHandler)">
+  CreateAndParse(IReadOnlyList&lt;string&gt;, ICommandHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.Factory.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parses command-line arguments, automatically creating an appropriate <a class="xref" href="ZeroInstall.Commands.CliCommand.html">CliCommand</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CliCommand CreateAndParse(IReadOnlyList&lt;string&gt; args, ICommandHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The command-line arguments to be parsed.</p>
+</dd>
+    <dt><code>handler</code> <a class="xref" href="ZeroInstall.Commands.ICommandHandler.html">ICommandHandler</a></dt>
+    <dd><p>A callback object used when the user needs to be asked questions or informed about download and IO tasks.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Commands.CliCommand.html">CliCommand</a></dt>
+    <dd><p>The newly created <a class="xref" href="ZeroInstall.Commands.CliCommand.html">CliCommand</a> after <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_Parse_System_Collections_Generic_IReadOnlyList_System_String__">Parse(IReadOnlyList&lt;string&gt;)</a> has been called.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user asked to see help information, version information, etc..</p>
+</dd>
+    <dt><span class="xref">OptionException</span></dt>
+    <dd><p><code class="paramref">args</code> contains unknown options or specified an unknown command.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while creating a directory.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Creating a directory is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A configuration file is damaged.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.formatexception">FormatException</a></dt>
+    <dd><p>An URI, local path, version number, etc. is invalid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_Execute_" data-uid="ZeroInstall.Commands.CliCommand.Execute*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_Execute" data-uid="ZeroInstall.Commands.CliCommand.Execute">
+  Execute()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes the commands specified by the command-line arguments. Must call <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_Parse_System_Collections_Generic_IReadOnlyList_System_String__">Parse(IReadOnlyList&lt;string&gt;)</a> first!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract ExitCode Execute()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Commands.ExitCode.html">ExitCode</a></dt>
+    <dd><p>The exit status code to end the process with.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Commands_CliCommand_Execute_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>When inheriting this method is usually replaced.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><span class="xref">OptionException</span></dt>
+    <dd><p>The number of arguments passed in on the command-line is incorrect.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.webexception">WebException</a></dt>
+    <dd><p>A file could not be downloaded from the internet.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>A file format, protocol, etc. is unknown or not supported.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A downloaded file could not be written to the disk or extracted or an external application or file required by the solver could not be accessed.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>An operation failed due to insufficient rights.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A problem occurred while deserializing an XML file.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.Store.Trust.SignatureException.html">SignatureException</a></dt>
+    <dd><p>The signature data could not be handled for some reason.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.formatexception">FormatException</a></dt>
+    <dd><p>An URI, local path, version number, etc. is invalid.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.Store.Implementations.DigestMismatchException.html">DigestMismatchException</a></dt>
+    <dd><p>An <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>'s <a class="xref" href="ZeroInstall.Model.Archive.html">Archive</a>s don't match the associated <a class="xref" href="ZeroInstall.Model.ManifestDigest.html">ManifestDigest</a>.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.Services.Solvers.SolverException.html">SolverException</a></dt>
+    <dd><p>The <a class="xref" href="ZeroInstall.Services.Solvers.ISolver.html">ISolver</a> was unable to provide <a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a> that fulfill the <a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a>.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.Store.Implementations.ImplementationNotFoundException.html">ImplementationNotFoundException</a></dt>
+    <dd><p>One of the <a class="xref" href="ZeroInstall.Model.ImplementationBase.html">ImplementationBase</a>s is not cached yet.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.Services.Executors.ExecutorException.html">ExecutorException</a></dt>
+    <dd><p>The <a class="xref" href="ZeroInstall.Services.Executors.IExecutor.html">IExecutor</a> was unable to process the <a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_FetchAll_" data-uid="ZeroInstall.Commands.CliCommand.FetchAll*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_FetchAll_System_Collections_Generic_IEnumerable_ZeroInstall_Model_Implementation__" data-uid="ZeroInstall.Commands.CliCommand.FetchAll(System.Collections.Generic.IEnumerable{ZeroInstall.Model.Implementation})">
+  FetchAll(IEnumerable&lt;Implementation&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Downloads a set of <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s to the <a class="xref" href="ZeroInstall.Store.html">ZeroInstall.Store</a> in parallel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void FetchAll(IEnumerable&lt;Implementation&gt; implementations)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>implementations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>&gt;</dt>
+    <dd><p>The <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s to be downloaded.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>A download or IO task was canceled from another thread.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.webexception">WebException</a></dt>
+    <dd><p>A file could not be downloaded from the internet.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>A file format, protocol, etc. is unknown or not supported.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A downloaded file could not be written to the disk or extracted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to <a class="xref" href="ZeroInstall.Store.Implementations.IImplementationStore.html">IImplementationStore</a> is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.Store.Implementations.DigestMismatchException.html">DigestMismatchException</a></dt>
+    <dd><p>An <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>'s <a class="xref" href="ZeroInstall.Model.Archive.html">Archive</a>s don't match the associated <a class="xref" href="ZeroInstall.Model.ManifestDigest.html">ManifestDigest</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_GetCommandName_" data-uid="ZeroInstall.Commands.CliCommand.GetCommandName*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_GetCommandName_System_Collections_Generic_IReadOnlyList_System_String___" data-uid="ZeroInstall.Commands.CliCommand.GetCommandName(System.Collections.Generic.IReadOnlyList{System.String}@)">
+  GetCommandName(ref IReadOnlyList&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.Factory.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the command name specified in the command-line arguments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? GetCommandName(ref IReadOnlyList&lt;string&gt; args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The command-line arguments to search for a command name. The collection is replaced with a copy with the command removed from it.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the command that was found or <code>null</code> if none was specified.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_Parse_" data-uid="ZeroInstall.Commands.CliCommand.Parse*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_Parse_System_Collections_Generic_IReadOnlyList_System_String__" data-uid="ZeroInstall.Commands.CliCommand.Parse(System.Collections.Generic.IReadOnlyList{System.String})">
+  Parse(IReadOnlyList&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parses command-line arguments and stores the result in the command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Parse(IReadOnlyList&lt;string&gt; args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The command-line arguments to be parsed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user asked to see help information, version information, etc..</p>
+</dd>
+    <dt><span class="xref">OptionException</span></dt>
+    <dd><p><code class="paramref">args</code> contains unknown options.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>An IO operation failed.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>More privileges are required.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uriformatexception">UriFormatException</a></dt>
+    <dd><p>The URI or local path specified is invalid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_ShowConfig_" data-uid="ZeroInstall.Commands.CliCommand.ShowConfig*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_ShowConfig_ZeroInstall_Store_Configuration_ConfigTab_" data-uid="ZeroInstall.Commands.CliCommand.ShowConfig(ZeroInstall.Store.Configuration.ConfigTab)">
+  ShowConfig(ConfigTab)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shows the current configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ShowConfig(ConfigTab configTab)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configTab</code> <a class="xref" href="ZeroInstall.Store.Configuration.ConfigTab.html">ConfigTab</a></dt>
+    <dd><p>The initial tab to show if a GUI representation is used.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_SupportedValues_" data-uid="ZeroInstall.Commands.CliCommand.SupportedValues*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_SupportedValues__1" data-uid="ZeroInstall.Commands.CliCommand.SupportedValues``1">
+  SupportedValues&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a localized instruction string describing multiple selectable enum values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static string SupportedValues&lt;T&gt;() where T : struct, Enum</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The enum type to list values for.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_CliCommand_SupportedValues_" data-uid="ZeroInstall.Commands.CliCommand.SupportedValues*"></a>
+
+  <h3 id="ZeroInstall_Commands_CliCommand_SupportedValues__1_System_Collections_Generic_IEnumerable___0__" data-uid="ZeroInstall.Commands.CliCommand.SupportedValues``1(System.Collections.Generic.IEnumerable{``0})">
+  SupportedValues&lt;T&gt;(IEnumerable&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.cs/#L185"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a localized instruction string describing multiple selectable values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static string SupportedValues&lt;T&gt;(IEnumerable&lt;T&gt; values) where T : notnull</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd><p>The values to list.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/CliCommand.Factory.cs/#L9" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

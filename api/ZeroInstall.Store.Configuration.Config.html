@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Config | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Config | Zero Install .NET API ">
+      
+      <meta name="description" content="User settings controlling network behaviour, solving, etc..">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Store_Configuration_Config.md&amp;value=---%0Auid%3A%20ZeroInstall.Store.Configuration.Config%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Store.Configuration.Config">
+
+
+
+  <h1 id="ZeroInstall_Store_Configuration_Config" data-uid="ZeroInstall.Store.Configuration.Config" class="text-break">
+Class Config  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Store.html">Store</a>.<a class="xref" href="ZeroInstall.Store.Configuration.html">Configuration</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Store.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>User settings controlling network behaviour, solving, etc..</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+[UnconditionalSuppressMessage(&quot;ReflectionAnalysis&quot;, &quot;IL2026&quot;, Justification = &quot;[DefaultValue] is only used by ResetOption(), which is marked with [RequiresUnreferencedCode].&quot;)]
+public sealed class Config : IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt;, IEnumerable, ICloneable&lt;Config&gt;, IEquatable&lt;Config&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">Config</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+      <div><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.ICloneable-1.html">ICloneable</a>&lt;<a class="xref" href="ZeroInstall.Store.Configuration.Config.html">Config</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Store.Configuration.Config.html">Config</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ZeroInstall_Store_Configuration_Config__ctor_" data-uid="ZeroInstall.Store.Configuration.Config.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config__ctor" data-uid="ZeroInstall.Store.Configuration.Config.#ctor">
+  Config()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new configuration with default values set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SuppressMessage(&quot;Microsoft.Maintainability&quot;, &quot;CA1502:AvoidExcessiveComplexity&quot;, Justification = &quot;Key-value dispatcher&quot;)]
+public Config()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_DefaultExternalSolverUri" data-uid="ZeroInstall.Store.Configuration.Config.DefaultExternalSolverUri">
+  DefaultExternalSolverUri
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default value for <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_ExternalSolverUri">ExternalSolverUri</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string DefaultExternalSolverUri = &quot;https://apps.0install.net/0install/0install-ocaml.xml&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_DefaultFeedMirror" data-uid="ZeroInstall.Store.Configuration.Config.DefaultFeedMirror">
+  DefaultFeedMirror
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default value for <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_FeedMirror">FeedMirror</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string DefaultFeedMirror = &quot;https://roscidus.com/0mirror&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_DefaultKeyInfoServer" data-uid="ZeroInstall.Store.Configuration.Config.DefaultKeyInfoServer">
+  DefaultKeyInfoServer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default value for <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_KeyInfoServer">KeyInfoServer</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string DefaultKeyInfoServer = &quot;https://keylookup.0install.net/&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_DefaultMaxParallelDownloads" data-uid="ZeroInstall.Store.Configuration.Config.DefaultMaxParallelDownloads">
+  DefaultMaxParallelDownloads
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default value for <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_MaxParallelDownloads">MaxParallelDownloads</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultMaxParallelDownloads = 4</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_DefaultSelfUpdateUri" data-uid="ZeroInstall.Store.Configuration.Config.DefaultSelfUpdateUri">
+  DefaultSelfUpdateUri
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default value for <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SelfUpdateUri">SelfUpdateUri</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string DefaultSelfUpdateUri = &quot;https://apps.0install.net/0install/0install-dotnet.xml&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_DefaultSyncServer" data-uid="ZeroInstall.Store.Configuration.Config.DefaultSyncServer">
+  DefaultSyncServer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The default value for <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SyncServer">SyncServer</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string DefaultSyncServer = &quot;https://0install.de/sync/&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_AutoApproveKeys_" data-uid="ZeroInstall.Store.Configuration.Config.AutoApproveKeys*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_AutoApproveKeys" data-uid="ZeroInstall.Store.Configuration.Config.AutoApproveKeys">
+  AutoApproveKeys
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Automatically approve keys known by the <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_KeyInfoServer">KeyInfoServer</a> and seen the first time a feed is fetched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AutoApproveKeys { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_EffectiveNetworkUse_" data-uid="ZeroInstall.Store.Configuration.Config.EffectiveNetworkUse*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_EffectiveNetworkUse" data-uid="ZeroInstall.Store.Configuration.Config.EffectiveNetworkUse">
+  EffectiveNetworkUse
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Same as <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_NetworkUse">NetworkUse</a>, except when there the internet connection is metered (capped at <a class="xref" href="ZeroInstall.Store.Configuration.NetworkLevel.html#ZeroInstall_Store_Configuration_NetworkLevel_Minimal">Minimal</a>) or unavailable (capped at <a class="xref" href="ZeroInstall.Store.Configuration.NetworkLevel.html#ZeroInstall_Store_Configuration_NetworkLevel_Offline">Offline</a>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public NetworkLevel EffectiveNetworkUse { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Configuration.NetworkLevel.html">NetworkLevel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_ExternalSolverUri_" data-uid="ZeroInstall.Store.Configuration.Config.ExternalSolverUri*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_ExternalSolverUri" data-uid="ZeroInstall.Store.Configuration.Config.ExternalSolverUri">
+  ExternalSolverUri
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The feed URI used to get the external solver. Set to empty to deactivate use of external solver.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FeedUri? ExternalSolverUri { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_FeedMirror_" data-uid="ZeroInstall.Store.Configuration.Config.FeedMirror*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_FeedMirror" data-uid="ZeroInstall.Store.Configuration.Config.FeedMirror">
+  FeedMirror
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The mirror server used to provide feeds when the original server is unavailable. Set to empty to deactivate use of feed mirror.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FeedUri? FeedMirror { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_Freshness_" data-uid="ZeroInstall.Store.Configuration.Config.Freshness*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_Freshness" data-uid="ZeroInstall.Store.Configuration.Config.Freshness">
+  Freshness
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum age a cached <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a> may have until it is considered stale (needs to be updated).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Freshness { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_HelpWithTesting_" data-uid="ZeroInstall.Store.Configuration.Config.HelpWithTesting*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_HelpWithTesting" data-uid="ZeroInstall.Store.Configuration.Config.HelpWithTesting">
+  HelpWithTesting
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Always prefer the newest versions, even if they have not been marked as <a class="xref" href="ZeroInstall.Model.Stability.html#ZeroInstall_Model_Stability_Stable">Stable</a> yet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HelpWithTesting { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_InitialTab_" data-uid="ZeroInstall.Store.Configuration.Config.InitialTab*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_InitialTab" data-uid="ZeroInstall.Store.Configuration.Config.InitialTab">
+  InitialTab
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The initial tab to show in GUI representations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public ConfigTab InitialTab { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Configuration.ConfigTab.html">ConfigTab</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_IsSyncConfigured_" data-uid="ZeroInstall.Store.Configuration.Config.IsSyncConfigured*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_IsSyncConfigured" data-uid="ZeroInstall.Store.Configuration.Config.IsSyncConfigured">
+  IsSyncConfigured
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the sync-related configuration is complete.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[MemberNotNullWhen(true, &quot;SyncServer&quot;)]
+public bool IsSyncConfigured { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_KeyInfoServer_" data-uid="ZeroInstall.Store.Configuration.Config.KeyInfoServer*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_KeyInfoServer" data-uid="ZeroInstall.Store.Configuration.Config.KeyInfoServer">
+  KeyInfoServer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The key information server used to get information about who signed a feed. Set to empty to deactivate use of key information server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FeedUri? KeyInfoServer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_KioskMode_" data-uid="ZeroInstall.Store.Configuration.Config.KioskMode*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_KioskMode" data-uid="ZeroInstall.Store.Configuration.Config.KioskMode">
+  KioskMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restrict usage to feeds specified in the catalog.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool KioskMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_MaxParallelDownloads_" data-uid="ZeroInstall.Store.Configuration.Config.MaxParallelDownloads*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_MaxParallelDownloads" data-uid="ZeroInstall.Store.Configuration.Config.MaxParallelDownloads">
+  MaxParallelDownloads
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximum number of <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s to download in parallel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Range(1, 128)]
+public int MaxParallelDownloads { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_NetworkUse_" data-uid="ZeroInstall.Store.Configuration.Config.NetworkUse*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_NetworkUse" data-uid="ZeroInstall.Store.Configuration.Config.NetworkUse">
+  NetworkUse
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Controls how liberally network access is attempted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkLevel NetworkUse { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Configuration.NetworkLevel.html">NetworkLevel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_SelfUpdateUri_" data-uid="ZeroInstall.Store.Configuration.Config.SelfUpdateUri*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_SelfUpdateUri" data-uid="ZeroInstall.Store.Configuration.Config.SelfUpdateUri">
+  SelfUpdateUri
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The feed URI used to search for updates for Zero Install itself. Set to empty to deactivate self-update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FeedUri? SelfUpdateUri { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_SyncCryptoKey_" data-uid="ZeroInstall.Store.Configuration.Config.SyncCryptoKey*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_SyncCryptoKey" data-uid="ZeroInstall.Store.Configuration.Config.SyncCryptoKey">
+  SyncCryptoKey
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The local key used to encrypt data before sending it to the <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SyncServer">SyncServer</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SyncCryptoKey { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_SyncServer_" data-uid="ZeroInstall.Store.Configuration.Config.SyncServer*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_SyncServer" data-uid="ZeroInstall.Store.Configuration.Config.SyncServer">
+  SyncServer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sync server used to synchronize your app list between multiple computers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FeedUri? SyncServer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SyncServerUsername">SyncServerUsername</a></div>
+    <div><a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SyncServerPassword">SyncServerPassword</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_SyncServerCredentials_" data-uid="ZeroInstall.Store.Configuration.Config.SyncServerCredentials*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_SyncServerCredentials" data-uid="ZeroInstall.Store.Configuration.Config.SyncServerCredentials">
+  SyncServerCredentials
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The credentials specified in <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SyncServerUsername">SyncServerUsername</a> and <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SyncServerPassword">SyncServerPassword</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public NetworkCredential? SyncServerCredentials { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.networkcredential">NetworkCredential</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_SyncServerKerberos_" data-uid="ZeroInstall.Store.Configuration.Config.SyncServerKerberos*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_SyncServerKerberos" data-uid="ZeroInstall.Store.Configuration.Config.SyncServerKerberos">
+  SyncServerKerberos
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Always prefer the newest versions, even if they have not been marked as <a class="xref" href="ZeroInstall.Model.Stability.html#ZeroInstall_Model_Stability_Stable">Stable</a> yet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SyncServerKerberos { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_SyncServerPassword_" data-uid="ZeroInstall.Store.Configuration.Config.SyncServerPassword*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_SyncServerPassword" data-uid="ZeroInstall.Store.Configuration.Config.SyncServerPassword">
+  SyncServerPassword
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The password to authenticate with against the <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SyncServer">SyncServer</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SyncServerPassword { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SyncServer">SyncServer</a></div>
+    <div><a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SyncServerUsername">SyncServerUsername</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_SyncServerUsername_" data-uid="ZeroInstall.Store.Configuration.Config.SyncServerUsername*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_SyncServerUsername" data-uid="ZeroInstall.Store.Configuration.Config.SyncServerUsername">
+  SyncServerUsername
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The username to authenticate with against the <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SyncServer">SyncServer</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SyncServerUsername { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SyncServer">SyncServer</a></div>
+    <div><a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_SyncServerPassword">SyncServerPassword</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_Clone_" data-uid="ZeroInstall.Store.Configuration.Config.Clone*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_Clone" data-uid="ZeroInstall.Store.Configuration.Config.Clone">
+  Clone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Access.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a deep copy of this <a class="xref" href="ZeroInstall.Store.Configuration.Config.html">Config</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Config Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Configuration.Config.html">Config</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_Equals_" data-uid="ZeroInstall.Store.Configuration.Config.Equals*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_Equals_System_Object_" data-uid="ZeroInstall.Store.Configuration.Config.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Access.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">object</span></dt>
+    <dd><p>The object to compare with the current object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_Equals_" data-uid="ZeroInstall.Store.Configuration.Config.Equals*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_Equals_ZeroInstall_Store_Configuration_Config_" data-uid="ZeroInstall.Store.Configuration.Config.Equals(ZeroInstall.Store.Configuration.Config)">
+  Equals(Config?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Access.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Config? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="ZeroInstall.Store.Configuration.Config.html">Config</a></dt>
+    <dd><p>An object to compare with this object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_GetEnumerator_" data-uid="ZeroInstall.Store.Configuration.Config.GetEnumerator*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_GetEnumerator" data-uid="ZeroInstall.Store.Configuration.Config.GetEnumerator">
+  GetEnumerator()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Access.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns an enumerator that iterates through the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;KeyValuePair&lt;string, string&gt;&gt; GetEnumerator()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</dt>
+    <dd><p>An enumerator that can be used to iterate through the collection.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_GetHashCode_" data-uid="ZeroInstall.Store.Configuration.Config.GetHashCode*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_GetHashCode" data-uid="ZeroInstall.Store.Configuration.Config.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Access.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_GetOption_" data-uid="ZeroInstall.Store.Configuration.Config.GetOption*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_GetOption_System_String_" data-uid="ZeroInstall.Store.Configuration.Config.GetOption(System.String)">
+  GetOption(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Access.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the string representation of an option identified by a key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetOption(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key of the option to retrieve.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The string representation of the option.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p><code class="paramref">key</code> is invalid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_IsOptionLocked_" data-uid="ZeroInstall.Store.Configuration.Config.IsOptionLocked*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_IsOptionLocked_System_String_" data-uid="ZeroInstall.Store.Configuration.Config.IsOptionLocked(System.String)">
+  IsOptionLocked(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether an option is locked by a group policy (in the Windows registry).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsOptionLocked(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key of the option to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_Load_" data-uid="ZeroInstall.Store.Configuration.Config.Load*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_Load" data-uid="ZeroInstall.Store.Configuration.Config.Load">
+  Load()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Aggregates options from all applicable config files and registry locations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Config Load()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Configuration.Config.html">Config</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while reading the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the file is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A problem occurred while deserializing the config data.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_LoadSafe_" data-uid="ZeroInstall.Store.Configuration.Config.LoadSafe*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_LoadSafe" data-uid="ZeroInstall.Store.Configuration.Config.LoadSafe">
+  LoadSafe()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to aggregates options from all applicable config files and registry locations. Automatically falls back to default values on errors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Config LoadSafe()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Configuration.Config.html">Config</a></dt>
+    <dd><p>The loaded <a class="xref" href="ZeroInstall.Store.Configuration.Config.html">Config</a> or default <a class="xref" href="ZeroInstall.Store.Configuration.Config.html">Config</a> if there was a problem.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_ReadFrom_" data-uid="ZeroInstall.Store.Configuration.Config.ReadFrom*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_ReadFrom_IniParser_Model_IniData_System_String_" data-uid="ZeroInstall.Store.Configuration.Config.ReadFrom(IniParser.Model.IniData,System.String)">
+  ReadFrom(IniData, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads options from a config file stream and merges them into the config instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReadFrom(IniData iniData, string path = &quot;embedded&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>iniData</code> <span class="xref">IniData</span></dt>
+    <dd><p>The parsed file.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the file <code class="paramref">iniData</code> was read from. Used for logging.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>The file contains invalid config values.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_ReadFromFile_" data-uid="ZeroInstall.Store.Configuration.Config.ReadFromFile*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_ReadFromFile_System_String_" data-uid="ZeroInstall.Store.Configuration.Config.ReadFromFile(System.String)">
+  ReadFromFile(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads options from a config file and merges them into the config instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReadFromFile(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the file to read.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while reading the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the file is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>The file contains invalid config values.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_ReadFromFiles_" data-uid="ZeroInstall.Store.Configuration.Config.ReadFromFiles*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_ReadFromFiles" data-uid="ZeroInstall.Store.Configuration.Config.ReadFromFiles">
+  ReadFromFiles()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads options from config files in default locations and merges them into the config instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReadFromFiles()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while reading the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the file is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>The file contains invalid config values.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_ReadFromFilesMachineWideOnly_" data-uid="ZeroInstall.Store.Configuration.Config.ReadFromFilesMachineWideOnly*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_ReadFromFilesMachineWideOnly" data-uid="ZeroInstall.Store.Configuration.Config.ReadFromFilesMachineWideOnly">
+  ReadFromFilesMachineWideOnly()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads options from config files in machine-wide locations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReadFromFilesMachineWideOnly()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while reading the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the file is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>The file contains invalid config values.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_ReadFromGroupPolicy_" data-uid="ZeroInstall.Store.Configuration.Config.ReadFromGroupPolicy*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_ReadFromGroupPolicy" data-uid="ZeroInstall.Store.Configuration.Config.ReadFromGroupPolicy">
+  ReadFromGroupPolicy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads options from group policies (in the Windows registry) and merges them into the config instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReadFromGroupPolicy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the registry key is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>The registry key contains invalid config values.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_ResetOption_" data-uid="ZeroInstall.Store.Configuration.Config.ResetOption*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_ResetOption_System_String_" data-uid="ZeroInstall.Store.Configuration.Config.ResetOption(System.String)">
+  ResetOption(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Access.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets an option identified by a key to its default value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[RequiresUnreferencedCode(&quot;Relies on [DefaultValue], which is not trim-safe.&quot;)]
+public void ResetOption(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key of the option to reset.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p><code class="paramref">key</code> is invalid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_Save_" data-uid="ZeroInstall.Store.Configuration.Config.Save*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_Save_System_Boolean_" data-uid="ZeroInstall.Store.Configuration.Config.Save(System.Boolean)">
+  Save(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves the options to a config file in a default location.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Save(bool machineWide = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>machineWide</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> to save in a machine-wide location; <code>false</code> to save in the user profile.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Store_Configuration_Config_Save_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs an atomic write operation when possible.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the file is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_Save_" data-uid="ZeroInstall.Store.Configuration.Config.Save*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_Save_System_String_" data-uid="ZeroInstall.Store.Configuration.Config.Save(System.String)">
+  Save(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves the options to a config file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Save(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Store_Configuration_Config_Save_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method performs an atomic write operation when possible.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the file is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_SetOption_" data-uid="ZeroInstall.Store.Configuration.Config.SetOption*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_SetOption_System_String_System_String_" data-uid="ZeroInstall.Store.Configuration.Config.SetOption(System.String,System.String)">
+  SetOption(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Access.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets an option identified by a key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetOption(string key, string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key of the option to set.</p>
+</dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string representation of the option.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p><code class="paramref">key</code> is invalid.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.formatexception">FormatException</a></dt>
+    <dd><p><code class="paramref">value</code> is invalid.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>This option is controlled by a group policy and can therefore not be modified.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Store_Configuration_Config_ToIniData_" data-uid="ZeroInstall.Store.Configuration.Config.ToIniData*"></a>
+
+  <h3 id="ZeroInstall_Store_Configuration_Config_ToIniData" data-uid="ZeroInstall.Store.Configuration.Config.ToIniData">
+  ToIniData()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L265"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the options into an in-memory representation of an INI file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IniData ToIniData()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IniData</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Store/Configuration/Config.Storage.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

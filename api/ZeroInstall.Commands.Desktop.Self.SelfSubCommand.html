@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Self.SelfSubCommand | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Self.SelfSubCommand | Zero Install .NET API ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Commands_Desktop_Self_SelfSubCommand.md&amp;value=---%0Auid%3A%20ZeroInstall.Commands.Desktop.Self.SelfSubCommand%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Commands.Desktop.Self.SelfSubCommand">
+
+
+
+  <h1 id="ZeroInstall_Commands_Desktop_Self_SelfSubCommand" data-uid="ZeroInstall.Commands.Desktop.Self.SelfSubCommand" class="text-break">
+Class Self.SelfSubCommand  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/Desktop/Self.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Commands.html">Commands</a>.<a class="xref" href="ZeroInstall.Commands.Desktop.html">Desktop</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>0install.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Self.SelfSubCommand : CliCommand, ICliSubCommand</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="ZeroInstall.Services.ServiceProvider.html">ServiceProvider</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.ScopedOperation.html">ScopedOperation</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.CliCommand.html">CliCommand</a></div>
+      <div><span class="xref">Self.SelfSubCommand</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="ZeroInstall.Commands.ICliSubCommand.html">ICliSubCommand</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="ZeroInstall.Commands.Desktop.Self.Deploy.html">Self.Deploy</a></div>
+      <div><a class="xref" href="ZeroInstall.Commands.Desktop.Self.RemoveSubCommandBase.html">Self.RemoveSubCommandBase</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_FullName">CliCommand.FullName</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_Description">CliCommand.Description</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_Usage">CliCommand.Usage</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_AdditionalArgsMin">CliCommand.AdditionalArgsMin</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_AdditionalArgsMax">CliCommand.AdditionalArgsMax</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_HelpText">CliCommand.HelpText</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_Options">CliCommand.Options</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_Handler">CliCommand.Handler</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_AdditionalArgs">CliCommand.AdditionalArgs</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_AddDiscoverOptions">CliCommand.AddDiscoverOptions()</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_Parse_System_Collections_Generic_IReadOnlyList_System_String__">CliCommand.Parse(IReadOnlyList&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_Execute">CliCommand.Execute()</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_SupportedValues__1_System_Collections_Generic_IEnumerable___0__">CliCommand.SupportedValues&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_SupportedValues__1">CliCommand.SupportedValues&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_ShowConfig_ZeroInstall_Store_Configuration_ConfigTab_">CliCommand.ShowConfig(ConfigTab)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_FetchAll_System_Collections_Generic_IEnumerable_ZeroInstall_Model_Implementation__">CliCommand.FetchAll(IEnumerable&lt;Implementation&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_AsParallel__1_System_Collections_Generic_IEnumerable___0__">CliCommand.AsParallel&lt;T&gt;(IEnumerable&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_Create_System_String_ZeroInstall_Commands_ICommandHandler_">CliCommand.Create(string, ICommandHandler)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_CreateAndParse_System_Collections_Generic_IReadOnlyList_System_String__ZeroInstall_Commands_ICommandHandler_">CliCommand.CreateAndParse(IReadOnlyList&lt;string&gt;, ICommandHandler)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.CliCommand.html#ZeroInstall_Commands_CliCommand_GetCommandName_System_Collections_Generic_IReadOnlyList_System_String___">CliCommand.GetCommandName(ref IReadOnlyList&lt;string&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_GetCanonicalUri_System_String_">ScopedOperation.GetCanonicalUri(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_EnsureAllowed_ZeroInstall_Model_FeedUri_">ScopedOperation.EnsureAllowed(FeedUri)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_FindByShortName_System_String_">ScopedOperation.FindByShortName(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_BackgroundSelfUpdate">ScopedOperation.BackgroundSelfUpdate()</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_MinimumNetworkUseForBackgroundSelfUpdate">ScopedOperation.MinimumNetworkUseForBackgroundSelfUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_StartCommandBackground_System_String_System_String___">ScopedOperation.StartCommandBackground(string, params string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Config">ServiceProvider.Config</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_ImplementationStore">ServiceProvider.ImplementationStore</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_OpenPgp">ServiceProvider.OpenPgp</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_FeedCache">ServiceProvider.FeedCache</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_TrustManager">ServiceProvider.TrustManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_FeedManager">ServiceProvider.FeedManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_CatalogManager">ServiceProvider.CatalogManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_PackageManager">ServiceProvider.PackageManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_SelectionCandidateProvider">ServiceProvider.SelectionCandidateProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Solver">ServiceProvider.Solver</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Fetcher">ServiceProvider.Fetcher</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Executor">ServiceProvider.Executor</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_SelectionsManager">ServiceProvider.SelectionsManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_TrySolveOffline_ZeroInstall_Model_Requirements_">ServiceProvider.TrySolveOffline(Requirements)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ZeroInstall_Commands_Desktop_Self_SelfSubCommand__ctor_" data-uid="ZeroInstall.Commands.Desktop.Self.SelfSubCommand.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Commands_Desktop_Self_SelfSubCommand__ctor_ZeroInstall_Commands_ICommandHandler_" data-uid="ZeroInstall.Commands.Desktop.Self.SelfSubCommand.#ctor(ZeroInstall.Commands.ICommandHandler)">
+  SelfSubCommand(ICommandHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/Desktop/Self.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SelfSubCommand(ICommandHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="ZeroInstall.Commands.ICommandHandler.html">ICommandHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Commands_Desktop_Self_SelfSubCommand_ParentName_" data-uid="ZeroInstall.Commands.Desktop.Self.SelfSubCommand.ParentName*"></a>
+
+  <h3 id="ZeroInstall_Commands_Desktop_Self_SelfSubCommand_ParentName" data-uid="ZeroInstall.Commands.Desktop.Self.SelfSubCommand.ParentName">
+  ParentName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/Desktop/Self.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the <a class="xref" href="ZeroInstall.Commands.CliMultiCommand.html">CliMultiCommand</a> this command is a sub-command of.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ParentName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/Desktop/Self.cs/#L28" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FeedPreferences | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FeedPreferences | Zero Install .NET API ">
+      
+      <meta name="description" content="Stores user-specific preferences for a .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Model_Preferences_FeedPreferences.md&amp;value=---%0Auid%3A%20ZeroInstall.Model.Preferences.FeedPreferences%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Model.Preferences.FeedPreferences">
+
+
+
+  <h1 id="ZeroInstall_Model_Preferences_FeedPreferences" data-uid="ZeroInstall.Model.Preferences.FeedPreferences" class="text-break">
+Class FeedPreferences  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Preferences.FeedPreferences.Generator.Equals.g.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Model.html">Model</a>.<a class="xref" href="ZeroInstall.Model.Preferences.html">Preferences</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Model.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Stores user-specific preferences for a <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Equatable]
+public sealed class FeedPreferences : XmlUnknown, IEquatable&lt;XmlUnknown&gt;, ICloneable&lt;FeedPreferences&gt;, IEquatable&lt;FeedPreferences&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="ZeroInstall.Model.XmlUnknown.html">XmlUnknown</a></div>
+      <div><span class="xref">FeedPreferences</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.XmlUnknown.html">XmlUnknown</a>&gt;</div>
+      <div><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.ICloneable-1.html">ICloneable</a>&lt;<a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_UnknownAttributes">XmlUnknown.UnknownAttributes</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_UnknownElements">XmlUnknown.UnknownElements</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_ToShortXml">XmlUnknown.ToShortXml()</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_Equals_ZeroInstall_Model_XmlUnknown_">XmlUnknown.Equals(XmlUnknown)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_Implementations_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.Implementations*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_Implementations" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.Implementations">
+  Implementations
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Preferences/FeedPreferences.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A list of implementation-specific user-overrides.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[OrderedEquality]
+public List&lt;ImplementationPreferences&gt; Implementations { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ZeroInstall.Model.Preferences.ImplementationPreferences.html">ImplementationPreferences</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_Item_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.Item*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_Item_System_String_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.Item(System.String)">
+  this[string]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Preferences/FeedPreferences.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves an existing entry from <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html#ZeroInstall_Model_Preferences_FeedPreferences_Implementations">Implementations</a> by ID or creates a new one if no appropriate one exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImplementationPreferences this[string id] { get; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The <a class="xref" href="ZeroInstall.Model.Preferences.ImplementationPreferences.html#ZeroInstall_Model_Preferences_ImplementationPreferences_ID">ID</a> to search for.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Preferences.ImplementationPreferences.html">ImplementationPreferences</a></dt>
+    <dd><p>The found or newly created <a class="xref" href="ZeroInstall.Model.Preferences.ImplementationPreferences.html">ImplementationPreferences</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_LastChecked_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.LastChecked*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_LastChecked" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.LastChecked">
+  LastChecked
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Preferences/FeedPreferences.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The point in time this feed was last checked for updates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnixTime LastChecked { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.UnixTime.html">UnixTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_Clone_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.Clone*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_Clone" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.Clone">
+  Clone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Preferences/FeedPreferences.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a deep copy of this <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FeedPreferences Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a></dt>
+    <dd><p>The new copy of the <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_Equals_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.Equals*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_Equals_System_Object_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Preferences.FeedPreferences.Generator.Equals.g.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">object</span></dt>
+    <dd><p>The object to compare with the current object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_GetHashCode_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.GetHashCode*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_GetHashCode" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Preferences.FeedPreferences.Generator.Equals.g.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_LoadFor_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.LoadFor*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_LoadFor_ZeroInstall_Model_FeedUri_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.LoadFor(ZeroInstall.Model.FeedUri)">
+  LoadFor(FeedUri)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Preferences/FeedPreferences.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a> for a specific feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FeedPreferences LoadFor(FeedUri feedUri)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedUri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd><p>The feed to load the preferences for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a></dt>
+    <dd><p>The loaded <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while reading the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the file is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A problem occurred while deserializing an XML file.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_LoadForSafe_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.LoadForSafe*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_LoadForSafe_ZeroInstall_Model_FeedUri_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.LoadForSafe(ZeroInstall.Model.FeedUri)">
+  LoadForSafe(FeedUri)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Preferences/FeedPreferences.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to load <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a> for a specific feed. Automatically falls back to defaults on errors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FeedPreferences LoadForSafe(FeedUri feedUri)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedUri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd><p>The feed to load the preferences for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a></dt>
+    <dd><p>The loaded <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a> or default value if there was a problem.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_Normalize_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.Normalize*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_Normalize" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.Normalize">
+  Normalize()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Preferences/FeedPreferences.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes superfluous entries from <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html#ZeroInstall_Model_Preferences_FeedPreferences_Implementations">Implementations</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Normalize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_SaveFor_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.SaveFor*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_SaveFor_ZeroInstall_Model_FeedUri_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.SaveFor(ZeroInstall.Model.FeedUri)">
+  SaveFor(FeedUri)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Preferences/FeedPreferences.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves these <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a> for a specific feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SaveFor(FeedUri feedUri)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedUri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd><p>The feed to save the preferences for.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the file is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_ToString_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.ToString*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_ToString" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Preferences/FeedPreferences.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the preferences in the form &quot;FeedPreferences: LastChecked&quot;. Not safe for parsing!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_UpdateFor_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.UpdateFor*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_UpdateFor_ZeroInstall_Model_FeedUri_System_Action_ZeroInstall_Model_Preferences_FeedPreferences__" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.UpdateFor(ZeroInstall.Model.FeedUri,System.Action{ZeroInstall.Model.Preferences.FeedPreferences})">
+  UpdateFor(FeedUri, Action&lt;FeedPreferences&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Preferences/FeedPreferences.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a> for a specific feed, applies modifications to them and saves them again.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UpdateFor(FeedUri feedUri, Action&lt;FeedPreferences&gt; update)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedUri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd><p>The feed to modify the preferences for.</p>
+</dd>
+    <dt><code>update</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a>&gt;</dt>
+    <dd><p>The modifications to apply to the preferences.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while reading the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the file is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A problem occurred while deserializing an XML file.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_op_Equality_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.op_Equality*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_op_Equality_ZeroInstall_Model_Preferences_FeedPreferences_ZeroInstall_Model_Preferences_FeedPreferences_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.op_Equality(ZeroInstall.Model.Preferences.FeedPreferences,ZeroInstall.Model.Preferences.FeedPreferences)">
+  operator ==(FeedPreferences?, FeedPreferences?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Preferences.FeedPreferences.Generator.Equals.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the object on the left is equal to the object on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(FeedPreferences? left, FeedPreferences? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a></dt>
+    <dd><p>The left object</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a></dt>
+    <dd><p>The right object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the objects are equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Preferences_FeedPreferences_op_Inequality_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.op_Inequality*"></a>
+
+  <h3 id="ZeroInstall_Model_Preferences_FeedPreferences_op_Inequality_ZeroInstall_Model_Preferences_FeedPreferences_ZeroInstall_Model_Preferences_FeedPreferences_" data-uid="ZeroInstall.Model.Preferences.FeedPreferences.op_Inequality(ZeroInstall.Model.Preferences.FeedPreferences,ZeroInstall.Model.Preferences.FeedPreferences)">
+  operator !=(FeedPreferences?, FeedPreferences?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Preferences.FeedPreferences.Generator.Equals.g.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the object on the left is not equal to the object on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(FeedPreferences? left, FeedPreferences? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a></dt>
+    <dd><p>The left object</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a></dt>
+    <dd><p>The right object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the objects are not equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Preferences.FeedPreferences.Generator.Equals.g.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

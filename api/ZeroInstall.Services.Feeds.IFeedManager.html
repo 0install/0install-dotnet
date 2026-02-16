@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IFeedManager | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IFeedManager | Zero Install .NET API ">
+      
+      <meta name="description" content="Provides access to remote and local s. Handles downloading and signature verification.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Services_Feeds_IFeedManager.md&amp;value=---%0Auid%3A%20ZeroInstall.Services.Feeds.IFeedManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Services.Feeds.IFeedManager">
+
+
+
+  <h1 id="ZeroInstall_Services_Feeds_IFeedManager" data-uid="ZeroInstall.Services.Feeds.IFeedManager" class="text-break">
+Interface IFeedManager  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Feeds/IFeedManager.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Services.html">Services</a>.<a class="xref" href="ZeroInstall.Services.Feeds.html">Feeds</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Services.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides access to remote and local <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>s. Handles downloading and signature verification.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IFeedManager</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="ZeroInstall.Services.Feeds.FeedManagerExtensions.html#ZeroInstall_Services_Feeds_FeedManagerExtensions_GetFresh_ZeroInstall_Services_Feeds_IFeedManager_ZeroInstall_Model_FeedUri_">FeedManagerExtensions.GetFresh(IFeedManager, FeedUri)</a>
+  </div>
+  <div>
+      <a class="xref" href="ZeroInstall.Services.Feeds.FeedManagerExtensions.html#ZeroInstall_Services_Feeds_FeedManagerExtensions_ImportFeed_ZeroInstall_Services_Feeds_IFeedManager_System_String_">FeedManagerExtensions.ImportFeed(IFeedManager, string)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Services_Feeds_IFeedManager_Item_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.Item*"></a>
+
+  <h3 id="ZeroInstall_Services_Feeds_IFeedManager_Item_ZeroInstall_Model_FeedUri_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.Item(ZeroInstall.Model.FeedUri)">
+  this[FeedUri]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Feeds/IFeedManager.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a specific <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>. Automatically handles downloading, calling <a class="xref" href="ZeroInstall.Model.Feed.html#ZeroInstall_Model_Feed_Normalize_ZeroInstall_Model_FeedUri_">Normalize(FeedUri?)</a> and caching. Updates the <a class="xref" href="ZeroInstall.Services.Feeds.IFeedManager.html#ZeroInstall_Services_Feeds_IFeedManager_Stale">Stale</a> indicator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Feed this[FeedUri feedUri] { get; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedUri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd><p>The URI of the feed.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The normalized <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>. Do not modify! The same instance may be returned to future callers.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Services_Feeds_IFeedManager_Item_ZeroInstall_Model_FeedUri__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>s are always served from the <a class="xref" href="ZeroInstall.Store.Feeds.IFeedCache.html">IFeedCache</a> if possible, unless <a class="xref" href="ZeroInstall.Services.Feeds.IFeedManager.html#ZeroInstall_Services_Feeds_IFeedManager_Refresh">Refresh</a> is set to <code>true</code>.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uriformatexception">UriFormatException</a></dt>
+    <dd><p><a class="xref" href="ZeroInstall.Model.Feed.html#ZeroInstall_Model_Feed_Uri">Uri</a> is missing or does not match <code class="paramref">feedUri</code>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.webexception">WebException</a></dt>
+    <dd><p>A problem occurred while fetching the feed file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while reading the feed file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Access to the cache is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.Store.Trust.SignatureException.html">SignatureException</a></dt>
+    <dd><p>The signature data of a remote feed file could not be verified.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A required property on the feed is not set or invalid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Services_Feeds_IFeedManager_Refresh_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.Refresh*"></a>
+
+  <h3 id="ZeroInstall_Services_Feeds_IFeedManager_Refresh" data-uid="ZeroInstall.Services.Feeds.IFeedManager.Refresh">
+  Refresh
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Feeds/IFeedManager.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set to <code>true</code> to re-download <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>s even if they are already in the <a class="xref" href="ZeroInstall.Store.Feeds.IFeedCache.html">IFeedCache</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool Refresh { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_Feeds_IFeedManager_ShouldRefresh_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.ShouldRefresh*"></a>
+
+  <h3 id="ZeroInstall_Services_Feeds_IFeedManager_ShouldRefresh" data-uid="ZeroInstall.Services.Feeds.IFeedManager.ShouldRefresh">
+  ShouldRefresh
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Feeds/IFeedManager.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether <a class="xref" href="ZeroInstall.Services.Feeds.IFeedManager.html#ZeroInstall_Services_Feeds_IFeedManager_Stale">Stale</a> is <code>true</code> and <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_EffectiveNetworkUse">EffectiveNetworkUse</a> is <a class="xref" href="ZeroInstall.Store.Configuration.NetworkLevel.html#ZeroInstall_Store_Configuration_NetworkLevel_Full">Full</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ShouldRefresh { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_Feeds_IFeedManager_Stale_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.Stale*"></a>
+
+  <h3 id="ZeroInstall_Services_Feeds_IFeedManager_Stale" data-uid="ZeroInstall.Services.Feeds.IFeedManager.Stale">
+  Stale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Feeds/IFeedManager.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Is set to <code>true</code> if any <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a> returned by <a class="xref" href="ZeroInstall.Services.Feeds.IFeedManager.html#ZeroInstall_Services_Feeds_IFeedManager_Item_ZeroInstall_Model_FeedUri_">this[FeedUri]</a> is getting stale and should be updated by setting <a class="xref" href="ZeroInstall.Services.Feeds.IFeedManager.html#ZeroInstall_Services_Feeds_IFeedManager_Refresh">Refresh</a> to <code>true</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool Stale { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Services_Feeds_IFeedManager_Stale_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_Freshness">Freshness</a> controls the time span after which a feed is considered stale.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Services_Feeds_IFeedManager_Clear_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.Clear*"></a>
+
+  <h3 id="ZeroInstall_Services_Feeds_IFeedManager_Clear" data-uid="ZeroInstall.Services.Feeds.IFeedManager.Clear">
+  Clear()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Feeds/IFeedManager.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears any in-memory caches.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Clear()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_Feeds_IFeedManager_GetPreferences_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.GetPreferences*"></a>
+
+  <h3 id="ZeroInstall_Services_Feeds_IFeedManager_GetPreferences_ZeroInstall_Model_FeedUri_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.GetPreferences(ZeroInstall.Model.FeedUri)">
+  GetPreferences(FeedUri)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Feeds/IFeedManager.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns <a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a> for a specific feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">FeedPreferences GetPreferences(FeedUri feedUri)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedUri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd><p>The URI of the feed.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Preferences.FeedPreferences.html">FeedPreferences</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_Feeds_IFeedManager_ImportFeed_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.ImportFeed*"></a>
+
+  <h3 id="ZeroInstall_Services_Feeds_IFeedManager_ImportFeed_System_IO_Stream_ZeroInstall_Services_Feeds_OpenPgpKeyCallback_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.ImportFeed(System.IO.Stream,ZeroInstall.Services.Feeds.OpenPgpKeyCallback)">
+  ImportFeed(Stream, OpenPgpKeyCallback?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Feeds/IFeedManager.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Imports a remote <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a> into the <a class="xref" href="ZeroInstall.Store.Feeds.IFeedCache.html">IFeedCache</a> after verifying its signature.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ImportFeed(Stream stream, OpenPgpKeyCallback? keyCallback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The content of the feed file.</p>
+</dd>
+    <dt><code>keyCallback</code> <a class="xref" href="ZeroInstall.Services.Feeds.OpenPgpKeyCallback.html">OpenPgpKeyCallback</a></dt>
+    <dd><p>Callback for reading a specific OpenPGP public key file.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while reading the feed file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Access to the feed file or the cache is not permitted.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A problem occurred while deserializing an XML file.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.Store.Trust.SignatureException.html">SignatureException</a></dt>
+    <dd><p>The signature data of the feed file could not be handled or no signatures were trusted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Services_Feeds_IFeedManager_IsStale_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.IsStale*"></a>
+
+  <h3 id="ZeroInstall_Services_Feeds_IFeedManager_IsStale_ZeroInstall_Model_FeedUri_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.IsStale(ZeroInstall.Model.FeedUri)">
+  IsStale(FeedUri)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Feeds/IFeedManager.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether there is a stale cached copy of a particular feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsStale(FeedUri feedUri)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedUri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd><p>The URI of the feed.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if there is a stale copy in the cache or no copy at all; <code>false</code> if there is a fresh copy in the cache.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_Feeds_IFeedManager_RateLimit_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.RateLimit*"></a>
+
+  <h3 id="ZeroInstall_Services_Feeds_IFeedManager_RateLimit_ZeroInstall_Model_FeedUri_" data-uid="ZeroInstall.Services.Feeds.IFeedManager.RateLimit(ZeroInstall.Model.FeedUri)">
+  RateLimit(FeedUri)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Feeds/IFeedManager.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ensures that operations regarding a specific feed do not happen to often in a row.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool RateLimit(FeedUri feedUri)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedUri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd><p>The URI of the feed.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the operation should be skipped due to rate limiting; <code>false</code> if the operation may proceed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/Feeds/IFeedManager.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

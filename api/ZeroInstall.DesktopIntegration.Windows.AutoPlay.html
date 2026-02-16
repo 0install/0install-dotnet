@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AutoPlay | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AutoPlay | Zero Install .NET API ">
+      
+      <meta name="description" content="Contains control logic for applying  and  on Windows systems.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_DesktopIntegration_Windows_AutoPlay.md&amp;value=---%0Auid%3A%20ZeroInstall.DesktopIntegration.Windows.AutoPlay%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay">
+
+
+
+  <h1 id="ZeroInstall_DesktopIntegration_Windows_AutoPlay" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay" class="text-break">
+Class AutoPlay  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/Windows/AutoPlay.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.DesktopIntegration.html">DesktopIntegration</a>.<a class="xref" href="ZeroInstall.DesktopIntegration.Windows.html">Windows</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.DesktopIntegration.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Contains control logic for applying <a class="xref" href="ZeroInstall.Model.Capabilities.AutoPlay.html">AutoPlay</a> and <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AutoPlay.html">AutoPlay</a> on Windows systems.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class AutoPlay</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">AutoPlay</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_Windows_AutoPlay_RegKeyAssocs" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay.RegKeyAssocs">
+  RegKeyAssocs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/Windows/AutoPlay.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The HKCU/HKLM registry key for storing AutoPlay handler associations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string RegKeyAssocs = &quot;SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers\\EventHandlers&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_Windows_AutoPlay_RegKeyChosenAssocs" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay.RegKeyChosenAssocs">
+  RegKeyChosenAssocs
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/Windows/AutoPlay.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The HKCU registry key for storing user-selected AutoPlay handlers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string RegKeyChosenAssocs = &quot;SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers\\UserChosenExecuteHandlers&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_Windows_AutoPlay_RegKeyHandlers" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay.RegKeyHandlers">
+  RegKeyHandlers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/Windows/AutoPlay.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The HKCU/HKLM registry key for storing AutoPlay handlers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string RegKeyHandlers = &quot;SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers\\Handlers&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_Windows_AutoPlay_RegValueDescription" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay.RegValueDescription">
+  RegValueDescription
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/Windows/AutoPlay.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The registry value name for storing the description of the AutoPlay action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string RegValueDescription = &quot;Action&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_Windows_AutoPlay_RegValueIcon" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay.RegValueIcon">
+  RegValueIcon
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/Windows/AutoPlay.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The registry value name for storing the icon for the AutoPlay action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string RegValueIcon = &quot;DefaultIcon&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_Windows_AutoPlay_RegValueProgID" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay.RegValueProgID">
+  RegValueProgID
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/Windows/AutoPlay.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The registry value name for storing the programmatic identifier to invoke.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string RegValueProgID = &quot;InvokeProgID&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_Windows_AutoPlay_RegValueProvider" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay.RegValueProvider">
+  RegValueProvider
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/Windows/AutoPlay.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The registry value name for storing the name of the application providing the AutoPlay action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string RegValueProvider = &quot;Provider&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_Windows_AutoPlay_RegValueVerb" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay.RegValueVerb">
+  RegValueVerb
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/Windows/AutoPlay.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The registry value name for storing the name of the verb to invoke.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string RegValueVerb = &quot;InvokeVerb&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_DesktopIntegration_Windows_AutoPlay_Register_" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay.Register*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_Windows_AutoPlay_Register_ZeroInstall_Model_FeedTarget_ZeroInstall_Model_Capabilities_AutoPlay_ZeroInstall_Store_Icons_IIconStore_System_Boolean_System_Boolean_" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay.Register(ZeroInstall.Model.FeedTarget,ZeroInstall.Model.Capabilities.AutoPlay,ZeroInstall.Store.Icons.IIconStore,System.Boolean,System.Boolean)">
+  Register(FeedTarget, AutoPlay, IIconStore, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/Windows/AutoPlay.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an AutoPlay handler registration to the current system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Register(FeedTarget target, AutoPlay autoPlay, IIconStore iconStore, bool machineWide, bool accessPoint = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="ZeroInstall.Model.FeedTarget.html">FeedTarget</a></dt>
+    <dd><p>The application being integrated.</p>
+</dd>
+    <dt><code>autoPlay</code> <a class="xref" href="ZeroInstall.Model.Capabilities.AutoPlay.html">AutoPlay</a></dt>
+    <dd><p>The AutoPlay handler information to be applied.</p>
+</dd>
+    <dt><code>iconStore</code> <a class="xref" href="ZeroInstall.Store.Icons.IIconStore.html">IIconStore</a></dt>
+    <dd><p>Stores icon files downloaded from the web as local files.</p>
+</dd>
+    <dt><code>machineWide</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Register the handler machine-wide instead of just for the current user.</p>
+</dd>
+    <dt><code>accessPoint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicates that the handler should become the default handler for all <a class="xref" href="ZeroInstall.Model.Capabilities.AutoPlay.html#ZeroInstall_Model_Capabilities_AutoPlay_Events">Events</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing to the filesystem or registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.webexception">WebException</a></dt>
+    <dd><p>A problem occurred while downloading additional data (such as icons).</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the filesystem or registry is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_DesktopIntegration_Windows_AutoPlay_Unregister_" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay.Unregister*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_Windows_AutoPlay_Unregister_ZeroInstall_Model_Capabilities_AutoPlay_System_Boolean_System_Boolean_" data-uid="ZeroInstall.DesktopIntegration.Windows.AutoPlay.Unregister(ZeroInstall.Model.Capabilities.AutoPlay,System.Boolean,System.Boolean)">
+  Unregister(AutoPlay, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/Windows/AutoPlay.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes an AutoPlay handler registration from the current system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Unregister(AutoPlay autoPlay, bool machineWide, bool accessPoint = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>autoPlay</code> <a class="xref" href="ZeroInstall.Model.Capabilities.AutoPlay.html">AutoPlay</a></dt>
+    <dd><p>The AutoPlay handler information to be removed.</p>
+</dd>
+    <dt><code>machineWide</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Remove the handler machine-wide instead of just for the current user.</p>
+</dd>
+    <dt><code>accessPoint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Indicates that the handler should was the default handler for all <a class="xref" href="ZeroInstall.Model.Capabilities.AutoPlay.html#ZeroInstall_Model_Capabilities_AutoPlay_Events">Events</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing to the filesystem or registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the filesystem or registry is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/Windows/AutoPlay.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

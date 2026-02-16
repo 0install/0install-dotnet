@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ServiceProvider | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ServiceProvider | Zero Install .NET API ">
+      
+      <meta name="description" content="Instantiates requested services transparently on first use. Handles dependency injection internally. Use exactly one instance of the service provider per user request to ensure consistent state during execution.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Services_ServiceProvider.md&amp;value=---%0Auid%3A%20ZeroInstall.Services.ServiceProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Services.ServiceProvider">
+
+
+
+  <h1 id="ZeroInstall_Services_ServiceProvider" data-uid="ZeroInstall.Services.ServiceProvider" class="text-break">
+Class ServiceProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Services.html">Services</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Services.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Instantiates requested services transparently on first use. Handles dependency injection internally.
+Use exactly one instance of the service provider per user request to ensure consistent state during execution.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ServiceProvider</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ServiceProvider</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="ZeroInstall.Commands.ScopedOperation.html">ScopedOperation</a></div>
+    </dd>
+  </dl>
+
+
+
+
+
+  <h2 id="ZeroInstall_Services_ServiceProvider_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This class is thread-safe.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ZeroInstall_Services_ServiceProvider__ctor_" data-uid="ZeroInstall.Services.ServiceProvider.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider__ctor_NanoByte_Common_Tasks_ITaskHandler_" data-uid="ZeroInstall.Services.ServiceProvider.#ctor(NanoByte.Common.Tasks.ITaskHandler)">
+  ServiceProvider(ITaskHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new service provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ServiceProvider(ITaskHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a></dt>
+    <dd><p>A callback object used when the user needs to be asked questions or informed about download and IO tasks.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>There was a problem accessing a configuration file or one of the implementation stores.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Access to a configuration file or one of the implementation stores was not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_CatalogManager_" data-uid="ZeroInstall.Services.ServiceProvider.CatalogManager*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_CatalogManager" data-uid="ZeroInstall.Services.ServiceProvider.CatalogManager">
+  CatalogManager
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides access to remote and local <a class="xref" href="ZeroInstall.Model.Catalog.html">Catalog</a>s. Handles downloading, signature verification and caching.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ICatalogManager CatalogManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Services.Feeds.ICatalogManager.html">ICatalogManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_Config_" data-uid="ZeroInstall.Services.ServiceProvider.Config*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_Config" data-uid="ZeroInstall.Services.ServiceProvider.Config">
+  Config
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>User settings controlling network behaviour, solving, etc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Config Config { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Configuration.Config.html">Config</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_Executor_" data-uid="ZeroInstall.Services.ServiceProvider.Executor*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_Executor" data-uid="ZeroInstall.Services.ServiceProvider.Executor">
+  Executor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes a <a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a> document as a program using dependency injection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IExecutor Executor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Services.Executors.IExecutor.html">IExecutor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_FeedCache_" data-uid="ZeroInstall.Services.ServiceProvider.FeedCache*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_FeedCache" data-uid="ZeroInstall.Services.ServiceProvider.FeedCache">
+  FeedCache
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides access to a cache of <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>s that were downloaded via HTTP(S).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IFeedCache FeedCache { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Feeds.IFeedCache.html">IFeedCache</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_FeedManager_" data-uid="ZeroInstall.Services.ServiceProvider.FeedManager*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_FeedManager" data-uid="ZeroInstall.Services.ServiceProvider.FeedManager">
+  FeedManager
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Allows configuration of the source used to request <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IFeedManager FeedManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Services.Feeds.IFeedManager.html">IFeedManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_Fetcher_" data-uid="ZeroInstall.Services.ServiceProvider.Fetcher*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_Fetcher" data-uid="ZeroInstall.Services.ServiceProvider.Fetcher">
+  Fetcher
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Used to download missing <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IFetcher Fetcher { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Services.Fetchers.IFetcher.html">IFetcher</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_Handler_" data-uid="ZeroInstall.Services.ServiceProvider.Handler*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_Handler" data-uid="ZeroInstall.Services.ServiceProvider.Handler">
+  Handler
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A callback object used when the user needs to be asked questions or informed about download and IO tasks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITaskHandler Handler { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_ImplementationStore_" data-uid="ZeroInstall.Services.ServiceProvider.ImplementationStore*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_ImplementationStore" data-uid="ZeroInstall.Services.ServiceProvider.ImplementationStore">
+  ImplementationStore
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Describes an object that allows the storage and retrieval of <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> directories.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IImplementationStore ImplementationStore { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Implementations.IImplementationStore.html">IImplementationStore</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_OpenPgp_" data-uid="ZeroInstall.Services.ServiceProvider.OpenPgp*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_OpenPgp" data-uid="ZeroInstall.Services.ServiceProvider.OpenPgp">
+  OpenPgp
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides access to an encryption/signature system compatible with the OpenPGP standard.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IOpenPgp OpenPgp { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Trust.IOpenPgp.html">IOpenPgp</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_PackageManager_" data-uid="ZeroInstall.Services.ServiceProvider.PackageManager*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_PackageManager" data-uid="ZeroInstall.Services.ServiceProvider.PackageManager">
+  PackageManager
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An external package manager that can install <a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IPackageManager PackageManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Services.Native.IPackageManager.html">IPackageManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_SelectionCandidateProvider_" data-uid="ZeroInstall.Services.ServiceProvider.SelectionCandidateProvider*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_SelectionCandidateProvider" data-uid="ZeroInstall.Services.ServiceProvider.SelectionCandidateProvider">
+  SelectionCandidateProvider
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates <a class="xref" href="ZeroInstall.Model.Selection.SelectionCandidate.html">SelectionCandidate</a>s for the <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Solver">Solver</a> to choose among.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISelectionCandidateProvider SelectionCandidateProvider { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Services.Solvers.ISelectionCandidateProvider.html">ISelectionCandidateProvider</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_SelectionsManager_" data-uid="ZeroInstall.Services.ServiceProvider.SelectionsManager*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_SelectionsManager" data-uid="ZeroInstall.Services.ServiceProvider.SelectionsManager">
+  SelectionsManager
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides methods for filtering <a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISelectionsManager SelectionsManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Services.Feeds.ISelectionsManager.html">ISelectionsManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_Solver_" data-uid="ZeroInstall.Services.ServiceProvider.Solver*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_Solver" data-uid="ZeroInstall.Services.ServiceProvider.Solver">
+  Solver
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Chooses a set of <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s to satisfy the requirements of a program and its user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ISolver Solver { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Services.Solvers.ISolver.html">ISolver</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_TrustManager_" data-uid="ZeroInstall.Services.ServiceProvider.TrustManager*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_TrustManager" data-uid="ZeroInstall.Services.ServiceProvider.TrustManager">
+  TrustManager
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Methods for verifying signatures and user trust.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual ITrustManager TrustManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Services.Feeds.ITrustManager.html">ITrustManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Services_ServiceProvider_TrySolveOffline_" data-uid="ZeroInstall.Services.ServiceProvider.TrySolveOffline*"></a>
+
+  <h3 id="ZeroInstall_Services_ServiceProvider_TrySolveOffline_ZeroInstall_Model_Requirements_" data-uid="ZeroInstall.Services.ServiceProvider.TrySolveOffline(ZeroInstall.Model.Requirements)">
+  TrySolveOffline(Requirements)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to provide <a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a> that satisfy a set of <a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a> without downloading any files.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Selections? TrySolveOffline(Requirements requirements)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>requirements</code> <a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a></dt>
+    <dd><p>The requirements to satisfy.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a></dt>
+    <dd><p>The selected <a class="xref" href="ZeroInstall.Model.Selection.ImplementationSelection.html">ImplementationSelection</a>s or <code>null</code> if no solution was found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">requirements</code> is incomplete.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Services/ServiceProvider.cs/#L23" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

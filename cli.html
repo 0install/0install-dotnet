@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Command-line interface | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Command-line interface | Zero Install .NET API ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="docs/toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/blob/2.28.4/doc/cli.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="command-line-interface">
+<h1 id="command-line-interface">Command-line interface</h1>
+
+<p>The <a class="xref" href="api/ZeroInstall.Commands.html">ZeroInstall.Commands</a> namespace provides a command-line interface for Zero Install. This both implements an actual command-line executable and provides a library for building other clients.</p>
+<h2 id="processing-arguments">Processing arguments</h2>
+<p><a class="xref" href="api/ZeroInstall.Commands.ProgramUtils.html#ZeroInstall_Commands_ProgramUtils_Init">ProgramUtils.Init()</a> should be called by all clients right after startup to initialize process-wide state.</p>
+<p>Afterwards <a class="xref" href="api/ZeroInstall.Commands.ProgramUtils.html#ZeroInstall_Commands_ProgramUtils_Run_System_String_System_String___ZeroInstall_Commands_ICommandHandler_">ProgramUtils.Run()</a> can be called with the command-line arguments to be parsed along with an <a class="xref" href="api/ZeroInstall.Commands.ICommandHandler.html">ICommandHandler</a>. <code>ICommandHandler</code> extends the <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a> interface with various UI interactions that commands can use to display intermediate results, ask for user input, etc..</p>
+<p><code>ProgramUtils.Run()</code> parses the provided command-line arguments and selects the appropriate <a class="xref" href="api/ZeroInstall.Commands.CliCommand.html">CliCommand</a> to handle them.</p>
+<h2 id="inheritance-hierarchy">Inheritance hierarchy</h2>
+<p>Each <a href="https://docs.0install.net/details/cli/">command</a> (e.g., <code>0install run</code>) is represented by a class derived from <a class="xref" href="api/ZeroInstall.Commands.CliCommand.html">CliCommand</a> (e.g., <a class="xref" href="api/ZeroInstall.Commands.Basic.Run.html">Run</a>).</p>
+<p><code>CliCommand</code> derives from <a class="xref" href="api/ZeroInstall.Commands.ScopedOperation.html">ScopedOperation</a>. This provides a more basic starting point, for any operation that requires scoped <a class="xref" href="services.html#dependency-injection">dependency resolution</a>. It provides this by itself deriving from <a class="xref" href="api/ZeroInstall.Services.ServiceProvider.html">ServiceProvider</a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/doc/cli.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

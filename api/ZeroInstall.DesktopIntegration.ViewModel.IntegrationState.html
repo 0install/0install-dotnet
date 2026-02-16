@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class IntegrationState | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class IntegrationState | Zero Install .NET API ">
+      
+      <meta name="description" content="A View-Model for modifying desktop integration. Provides data-binding lists and applies modifications in bulk.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_DesktopIntegration_ViewModel_IntegrationState.md&amp;value=---%0Auid%3A%20ZeroInstall.DesktopIntegration.ViewModel.IntegrationState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState">
+
+
+
+  <h1 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState" class="text-break">
+Class IntegrationState  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.DesktopIntegration.html">DesktopIntegration</a>.<a class="xref" href="ZeroInstall.DesktopIntegration.ViewModel.html">ViewModel</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.DesktopIntegration.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A View-Model for modifying desktop integration. Provides data-binding lists and applies modifications in bulk.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class IntegrationState</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">IntegrationState</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState__ctor_" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.#ctor*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState__ctor_ZeroInstall_DesktopIntegration_IIntegrationManager_ZeroInstall_DesktopIntegration_AppEntry_ZeroInstall_Model_Feed_" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.#ctor(ZeroInstall.DesktopIntegration.IIntegrationManager,ZeroInstall.DesktopIntegration.AppEntry,ZeroInstall.Model.Feed)">
+  IntegrationState(IIntegrationManager, AppEntry, Feed)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new integration state View-Model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntegrationState(IIntegrationManager integrationManager, AppEntry appEntry, Feed feed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>integrationManager</code> <a class="xref" href="ZeroInstall.DesktopIntegration.IIntegrationManager.html">IIntegrationManager</a></dt>
+    <dd><p>The integration manager used to apply selected integration options.</p>
+</dd>
+    <dt><code>appEntry</code> <a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a></dt>
+    <dd><p>The application being integrated.</p>
+</dd>
+    <dt><code>feed</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The feed providing additional metadata, icons, etc. for the application.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_Aliases" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.Aliases">
+  Aliases
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.AccessPoints.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly BindingList&lt;AppAlias&gt; Aliases</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.bindinglist-1">BindingList</a>&lt;<a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AppAlias.html">AppAlias</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_AutoPlay" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.AutoPlay">
+  AutoPlay
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.Capabilities.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly BindingList&lt;AutoPlayModel&gt; AutoPlay</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.bindinglist-1">BindingList</a>&lt;<a class="xref" href="ZeroInstall.DesktopIntegration.ViewModel.AutoPlayModel.html">AutoPlayModel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_AutoStarts" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.AutoStarts">
+  AutoStarts
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.AccessPoints.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly BindingList&lt;AutoStart&gt; AutoStarts</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.bindinglist-1">BindingList</a>&lt;<a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AutoStart.html">AutoStart</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_ContextMenu" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.ContextMenu">
+  ContextMenu
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.Capabilities.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly BindingList&lt;ContextMenuModel&gt; ContextMenu</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.bindinglist-1">BindingList</a>&lt;<a class="xref" href="ZeroInstall.DesktopIntegration.ViewModel.ContextMenuModel.html">ContextMenuModel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_DefaultProgram" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.DefaultProgram">
+  DefaultProgram
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.Capabilities.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly BindingList&lt;DefaultProgramModel&gt; DefaultProgram</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.bindinglist-1">BindingList</a>&lt;<a class="xref" href="ZeroInstall.DesktopIntegration.ViewModel.DefaultProgramModel.html">DefaultProgramModel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_DesktopIcons" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.DesktopIcons">
+  DesktopIcons
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.AccessPoints.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly BindingList&lt;DesktopIcon&gt; DesktopIcons</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.bindinglist-1">BindingList</a>&lt;<a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.DesktopIcon.html">DesktopIcon</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_FileTypes" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.FileTypes">
+  FileTypes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.Capabilities.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly BindingList&lt;FileTypeModel&gt; FileTypes</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.bindinglist-1">BindingList</a>&lt;<a class="xref" href="ZeroInstall.DesktopIntegration.ViewModel.FileTypeModel.html">FileTypeModel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_MenuEntries" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.MenuEntries">
+  MenuEntries
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.AccessPoints.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly BindingList&lt;MenuEntry&gt; MenuEntries</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.bindinglist-1">BindingList</a>&lt;<a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.MenuEntry.html">MenuEntry</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_SendTo" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.SendTo">
+  SendTo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.AccessPoints.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly BindingList&lt;SendTo&gt; SendTo</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.bindinglist-1">BindingList</a>&lt;<a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.SendTo.html">SendTo</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_UrlProtocols" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.UrlProtocols">
+  UrlProtocols
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.Capabilities.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly BindingList&lt;UrlProtocolModel&gt; UrlProtocols</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.bindinglist-1">BindingList</a>&lt;<a class="xref" href="ZeroInstall.DesktopIntegration.ViewModel.UrlProtocolModel.html">UrlProtocolModel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_AppEntry_" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.AppEntry*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_AppEntry" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.AppEntry">
+  AppEntry
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The application being integrated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AppEntry AppEntry { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.DesktopIntegration.AppEntry.html">AppEntry</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_CapabilityRegistration_" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.CapabilityRegistration*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_CapabilityRegistration" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.CapabilityRegistration">
+  CapabilityRegistration
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.Capabilities.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Controls whether <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.CapabilityRegistration.html">CapabilityRegistration</a> is used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CapabilityRegistration { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_Feed_" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.Feed*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_Feed" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.Feed">
+  Feed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The feed providing additional metadata, icons, etc. for the application.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Feed Feed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_ApplyChanges_" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.ApplyChanges*"></a>
+
+  <h3 id="ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_ApplyChanges" data-uid="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.ApplyChanges">
+  ApplyChanges()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies any changes made to the View-Model to the underlying system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ApplyChanges()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.DesktopIntegration.ConflictException.html">ConflictException</a></dt>
+    <dd><p>One or more of the new <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>s would cause a conflict with the existing <a class="xref" href="ZeroInstall.DesktopIntegration.AccessPoints.AccessPoint.html">AccessPoint</a>s in <a class="xref" href="ZeroInstall.DesktopIntegration.IIntegrationManager.html#ZeroInstall_DesktopIntegration_IIntegrationManager_AppList">AppList</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.webexception">WebException</a></dt>
+    <dd><p>A problem occurred while downloading additional data (such as icons).</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>A problem occurred while writing to the filesystem or registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Write access to the filesystem or registry is not permitted.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/DesktopIntegration/ViewModel/IntegrationState.cs/#L9" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

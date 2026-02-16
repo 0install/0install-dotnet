@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ScopedOperation | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ScopedOperation | Zero Install .NET API ">
+      
+      <meta name="description" content="Common base class for Zero Install operations that require scoped dependency resolution.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Commands_ScopedOperation.md&amp;value=---%0Auid%3A%20ZeroInstall.Commands.ScopedOperation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Commands.ScopedOperation">
+
+
+
+  <h1 id="ZeroInstall_Commands_ScopedOperation" data-uid="ZeroInstall.Commands.ScopedOperation" class="text-break">
+Class ScopedOperation  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ScopedOperation.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Commands.html">Commands</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>0install.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Common base class for Zero Install operations that require scoped dependency resolution.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class ScopedOperation : ServiceProvider</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="ZeroInstall.Services.ServiceProvider.html">ServiceProvider</a></div>
+      <div><span class="xref">ScopedOperation</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="ZeroInstall.Commands.CliCommand.html">CliCommand</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Handler">ServiceProvider.Handler</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Config">ServiceProvider.Config</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_ImplementationStore">ServiceProvider.ImplementationStore</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_OpenPgp">ServiceProvider.OpenPgp</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_FeedCache">ServiceProvider.FeedCache</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_TrustManager">ServiceProvider.TrustManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_FeedManager">ServiceProvider.FeedManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_CatalogManager">ServiceProvider.CatalogManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_PackageManager">ServiceProvider.PackageManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_SelectionCandidateProvider">ServiceProvider.SelectionCandidateProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Solver">ServiceProvider.Solver</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Fetcher">ServiceProvider.Fetcher</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_Executor">ServiceProvider.Executor</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_SelectionsManager">ServiceProvider.SelectionsManager</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Services.ServiceProvider.html#ZeroInstall_Services_ServiceProvider_TrySolveOffline_ZeroInstall_Model_Requirements_">ServiceProvider.TrySolveOffline(Requirements)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ZeroInstall_Commands_ScopedOperation__ctor_" data-uid="ZeroInstall.Commands.ScopedOperation.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Commands_ScopedOperation__ctor_NanoByte_Common_Tasks_ITaskHandler_" data-uid="ZeroInstall.Commands.ScopedOperation.#ctor(NanoByte.Common.Tasks.ITaskHandler)">
+  ScopedOperation(ITaskHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ScopedOperation.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Common base class for Zero Install operations that require scoped dependency resolution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ScopedOperation(ITaskHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>handler</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a></dt>
+    <dd><p>A callback object used when the user needs to be asked questions or informed about download and IO tasks.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Commands_ScopedOperation_MinimumNetworkUseForBackgroundSelfUpdate_" data-uid="ZeroInstall.Commands.ScopedOperation.MinimumNetworkUseForBackgroundSelfUpdate*"></a>
+
+  <h3 id="ZeroInstall_Commands_ScopedOperation_MinimumNetworkUseForBackgroundSelfUpdate" data-uid="ZeroInstall.Commands.ScopedOperation.MinimumNetworkUseForBackgroundSelfUpdate">
+  MinimumNetworkUseForBackgroundSelfUpdate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ScopedOperation.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum <a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_EffectiveNetworkUse">EffectiveNetworkUse</a> at which <a class="xref" href="ZeroInstall.Commands.ScopedOperation.html#ZeroInstall_Commands_ScopedOperation_BackgroundSelfUpdate">BackgroundSelfUpdate()</a> will consider an update check.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual NetworkLevel MinimumNetworkUseForBackgroundSelfUpdate { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Store.Configuration.NetworkLevel.html">NetworkLevel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Commands_ScopedOperation_BackgroundSelfUpdate_" data-uid="ZeroInstall.Commands.ScopedOperation.BackgroundSelfUpdate*"></a>
+
+  <h3 id="ZeroInstall_Commands_ScopedOperation_BackgroundSelfUpdate" data-uid="ZeroInstall.Commands.ScopedOperation.BackgroundSelfUpdate">
+  BackgroundSelfUpdate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ScopedOperation.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Automatically updates Zero Install itself in a background process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool BackgroundSelfUpdate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if a background check was started; <code>false</code> if an update check was not due.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_ScopedOperation_EnsureAllowed_" data-uid="ZeroInstall.Commands.ScopedOperation.EnsureAllowed*"></a>
+
+  <h3 id="ZeroInstall_Commands_ScopedOperation_EnsureAllowed_ZeroInstall_Model_FeedUri_" data-uid="ZeroInstall.Commands.ScopedOperation.EnsureAllowed(ZeroInstall.Model.FeedUri)">
+  EnsureAllowed(FeedUri)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ScopedOperation.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ensures that the current config does not prohibit the use of the specified feed URI.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void EnsureAllowed(FeedUri uri)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>uri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.webexception">WebException</a></dt>
+    <dd><p><a class="xref" href="ZeroInstall.Store.Configuration.Config.html#ZeroInstall_Store_Configuration_Config_KioskMode">KioskMode</a> is <code>true</code> and the <code class="paramref">uri</code> is not the <a class="xref" href="ZeroInstall.Model.Catalog.html">Catalog</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Commands_ScopedOperation_FindByShortName_" data-uid="ZeroInstall.Commands.ScopedOperation.FindByShortName*"></a>
+
+  <h3 id="ZeroInstall_Commands_ScopedOperation_FindByShortName_System_String_" data-uid="ZeroInstall.Commands.ScopedOperation.FindByShortName(System.String)">
+  FindByShortName(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ScopedOperation.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uses <a class="xref" href="ZeroInstall.Model.Catalog.html#ZeroInstall_Model_Catalog_FindByShortName_System_String_">FindByShortName(string?)</a> to find a <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a> matching a specific short name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Feed? FindByShortName(string shortName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shortName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The short name to look for. Must match either <a class="xref" href="ZeroInstall.Model.Feed.html#ZeroInstall_Model_Feed_Name">Name</a> or <a class="xref" href="ZeroInstall.Model.EntryPoint.html#ZeroInstall_Model_EntryPoint_BinaryName">BinaryName</a> of <a class="xref" href="ZeroInstall.Model.Command.html#ZeroInstall_Model_Command_NameRun">NameRun</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The first matching <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>; <code>null</code> if no match was found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Commands_ScopedOperation_FindByShortName_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Handles caching based on <a class="xref" href="ZeroInstall.Services.Feeds.FeedManager.html#ZeroInstall_Services_Feeds_FeedManager_Refresh">Refresh</a> flag.</p>
+</div>
+
+
+
+
+  <a id="ZeroInstall_Commands_ScopedOperation_GetCanonicalUri_" data-uid="ZeroInstall.Commands.ScopedOperation.GetCanonicalUri*"></a>
+
+  <h3 id="ZeroInstall_Commands_ScopedOperation_GetCanonicalUri_System_String_" data-uid="ZeroInstall.Commands.ScopedOperation.GetCanonicalUri(System.String)">
+  GetCanonicalUri(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ScopedOperation.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts an interface or feed URI to its canonical representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SuppressMessage(&quot;Microsoft.Design&quot;, &quot;CA1054:UriParametersShouldNotBeStrings&quot;, MessageId = &quot;0#&quot;, Justification = &quot;This method handles a number of non-standard URI types which cannot be represented by the regular Uri class.&quot;)]
+public FeedUri GetCanonicalUri(string uri)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>uri</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uriformatexception">UriFormatException</a></dt>
+    <dd><p><code class="paramref">uri</code> is an invalid interface URI.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Commands_ScopedOperation_StartCommandBackground_" data-uid="ZeroInstall.Commands.ScopedOperation.StartCommandBackground*"></a>
+
+  <h3 id="ZeroInstall_Commands_ScopedOperation_StartCommandBackground_System_String_System_String___" data-uid="ZeroInstall.Commands.ScopedOperation.StartCommandBackground(System.String,System.String[])">
+  StartCommandBackground(string, params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ScopedOperation.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts executing a command in a background process. Returns immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static void StartCommandBackground(string command, params string[] args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the command to execute.</p>
+</dd>
+    <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Additional arguments to pass to the command.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ScopedOperation.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace ZeroInstall.Model | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace ZeroInstall.Model | Zero Install .NET API ">
+      
+      <meta name="description" content="for the Zero Install feed format.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/_Namespace.md/#L2">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Model">
+
+  <h1 id="ZeroInstall_Model" data-uid="ZeroInstall.Model" class="text-break">Namespace ZeroInstall.Model</h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="../model.html">Data model</a> for the Zero Install <a href="https://docs.0install.net/specifications/feed/">feed format</a>.</p>
+</div>
+  <div class="markdown level0 conceptual">
+<div class="NOTE">
+<h5>Note</h5>
+<p>NuGet package: <a href="https://www.nuget.org/packages/ZeroInstall.Model/">ZeroInstall.Model</a></p>
+</div>
+</div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="namespaces">
+Namespaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Capabilities.html">ZeroInstall.Model.Capabilities</a></dt>
+      <dd><p>Extends the feed format with structures for describing <a href="https://docs.0install.net/specifications/capabilities/">application capabilities</a>. This forms the basis for <a class="xref" href="ZeroInstall.DesktopIntegration.html">desktop integration</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Design.html">ZeroInstall.Model.Design</a></dt>
+      <dd><p><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.typeconverter">TypeConverter</a>s used for serialization and to provide a better runtime experience when using PropertyGrids.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Preferences.html">ZeroInstall.Model.Preferences</a></dt>
+      <dd><p>Structures for user-specified preferences and overrides for interfaces, feeds and implementations.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Selection.html">ZeroInstall.Model.Selection</a></dt>
+      <dd><p>Structures for representing <a href="https://docs.0install.net/specifications/selections/">Solver results</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Trust.html">ZeroInstall.Model.Trust</a></dt>
+      <dd></dd>
+    </dl>
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ArchitectureExtensions.html">ArchitectureExtensions</a></dt>
+      <dd><p>Contains extension methods for <a class="xref" href="ZeroInstall.Model.Architecture.html">Architecture</a>, <a class="xref" href="ZeroInstall.Model.OS.html">OS</a> and <a class="xref" href="ZeroInstall.Model.Cpu.html">Cpu</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Archive.html">Archive</a></dt>
+      <dd><p>Retrieves an implementation by downloading and extracting an archive.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Arg.html">Arg</a></dt>
+      <dd><p>A single command-line arguments to be passed to an executable.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ArgBase.html">ArgBase</a></dt>
+      <dd><p>Common base class for <a class="xref" href="ZeroInstall.Model.Arg.html">Arg</a> and <a class="xref" href="ZeroInstall.Model.ForEachArgs.html">ForEachArgs</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Binding.html">Binding</a></dt>
+      <dd><p>Bindings specify how the chosen implementation is made known to the running program.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Catalog.html">Catalog</a></dt>
+      <dd><p>Contains a list of <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>s, reduced to only contain information relevant for overview lists.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Category.html">Category</a></dt>
+      <dd><p>An application category (e.g. Game or Office). Used for organizing application menus.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Command.html">Command</a></dt>
+      <dd><p>A command says how to run an <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> as a program.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Constraint.html">Constraint</a></dt>
+      <dd><p>Restricts the set of versions from which the injector may choose an <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.CopyFromStep.html">CopyFromStep</a></dt>
+      <dd><p>Copies files or directories from another implementation specified elsewhere in the same feed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Dependency.html">Dependency</a></dt>
+      <dd><p>A reference to an interface that is required as dependency.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.DependencyContainerExtensions.html">DependencyContainerExtensions</a></dt>
+      <dd><p>Provides extension methods for <a class="xref" href="ZeroInstall.Model.IDependencyContainer.html">IDependencyContainer</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.DownloadRetrievalMethod.html">DownloadRetrievalMethod</a></dt>
+      <dd><p>Represents a retrieval method that downloads data from the net.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Element.html">Element</a></dt>
+      <dd><p>Abstract base class for <a class="xref" href="ZeroInstall.Model.ImplementationBase.html">ImplementationBase</a> and <a class="xref" href="ZeroInstall.Model.Group.html">Group</a>.
+Contains those parameters that can be transferred from a <a class="xref" href="ZeroInstall.Model.Group.html">Group</a> to an <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ElementCollectionExtensions.html">ElementCollectionExtensions</a></dt>
+      <dd><p>Provides extension methods for <a class="xref" href="ZeroInstall.Model.Element.html">Element</a> collections.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.EntryPoint.html">EntryPoint</a></dt>
+      <dd><p>Associates a <a class="xref" href="ZeroInstall.Model.EntryPoint.html#ZeroInstall_Model_EntryPoint_Command">Command</a> with a user-friendly name and description.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.EnvironmentBinding.html">EnvironmentBinding</a></dt>
+      <dd><p>Make a chosen <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> available by setting environment variables.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ExecutableInBinding.html">ExecutableInBinding</a></dt>
+      <dd><p>Make a chosen <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> available as an executable at runtime.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ExecutableInPath.html">ExecutableInPath</a></dt>
+      <dd><p>Make a chosen <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> available as an executable in the search PATH.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ExecutableInVar.html">ExecutableInVar</a></dt>
+      <dd><p>Make a chosen <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> available as an executable path in an environment variable.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+      <dd><p>A feed contains all the information required to download and execute an application.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.FeedElement.html">FeedElement</a></dt>
+      <dd><p>Abstract base class for XML serializable classes that are part of the Zero Install feed model.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.FeedReference.html">FeedReference</a></dt>
+      <dd><p>A linked feed that contains more implementations of this interface. Is treated by the solver as if it were part of the main feed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+      <dd><p>Represents a feed or interface URI or local path. Unlike <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a> this class only accepts HTTP(S) URLs and absolute local paths.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ForEachArgs.html">ForEachArgs</a></dt>
+      <dd><p>Expands an environment variable to multiple arguments.
+The variable specified in <a class="xref" href="ZeroInstall.Model.ForEachArgs.html#ZeroInstall_Model_ForEachArgs_ItemFrom">ItemFrom</a> is split using <a class="xref" href="ZeroInstall.Model.ForEachArgs.html#ZeroInstall_Model_ForEachArgs_Separator">Separator</a> and the <a class="xref" href="ZeroInstall.Model.ForEachArgs.html#ZeroInstall_Model_ForEachArgs_Arguments">Arguments</a> are added once for each item.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.GenericBinding.html">GenericBinding</a></dt>
+      <dd><p>Zero Install will not know how to run a program using generic bindings itself, but it will include them in any selections documents it creates, which can then be executed by your custom code.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Group.html">Group</a></dt>
+      <dd><p>All attributes of a group are inherited by any child <a class="xref" href="ZeroInstall.Model.Group.html">Group</a>s and <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s as defaults, but can be overridden there.
+All <a class="xref" href="ZeroInstall.Model.Dependency.html">Dependency</a>s and <a class="xref" href="ZeroInstall.Model.Binding.html">Binding</a>s are inherited (sub-groups may add more <a class="xref" href="ZeroInstall.Model.Dependency.html">Dependency</a>s and <a class="xref" href="ZeroInstall.Model.Binding.html">Binding</a>s to the list, but cannot remove any).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Icon.html">Icon</a></dt>
+      <dd><p>An icon representing the application. Used in the Catalog GUI as well as for desktop icons, menu entries, etc..</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.IconExtensions.html">IconExtensions</a></dt>
+      <dd><p>Provides extensions methods related to <a class="xref" href="ZeroInstall.Model.Icon.html">Icon</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a></dt>
+      <dd><p>An implementation is a specific version of an application that can be downloaded and executed (e.g. Firefox 3.6 for Windows).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ImplementationBase.html">ImplementationBase</a></dt>
+      <dd><p>Information for identifying an implementation of a <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>.
+Common base for <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> and <a class="xref" href="ZeroInstall.Model.Selection.ImplementationSelection.html">ImplementationSelection</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+      <dd><p>Represents a version number consisting of dot-separated decimals and optional modifier strings.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.InterfaceReference.html">InterfaceReference</a></dt>
+      <dd><p>A reference to an interface URI, e.g. for specifying which interface this feed implements or by which interface it is replaced.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.KnownDistributions.html">KnownDistributions</a></dt>
+      <dd><p>Well-known OS distributions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ManifestDigestPartialEqualityComparer.html">ManifestDigestPartialEqualityComparer</a></dt>
+      <dd><p>Uses <a class="xref" href="ZeroInstall.Model.ManifestDigest.html#ZeroInstall_Model_ManifestDigest_PartialEquals_ZeroInstall_Model_ManifestDigest_">PartialEquals(ManifestDigest)</a> to compare <a class="xref" href="ZeroInstall.Model.ManifestDigest.html">ManifestDigest</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ManifestDigestPartialEqualityComparer-1.html">ManifestDigestPartialEqualityComparer&lt;T&gt;</a></dt>
+      <dd><p>Uses <a class="xref" href="ZeroInstall.Model.ManifestDigest.html#ZeroInstall_Model_ManifestDigest_PartialEquals_ZeroInstall_Model_ManifestDigest_">PartialEquals(ManifestDigest)</a> to compare <a class="xref" href="ZeroInstall.Model.ImplementationBase.html">ImplementationBase</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ModelUtils.html">ModelUtils</a></dt>
+      <dd><p>Provides utility methods for interface and feed URIs.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.OverlayBinding.html">OverlayBinding</a></dt>
+      <dd><p>Make a chosen <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> available by overlaying it onto another part of the file-system.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.PackageImplementation.html">PackageImplementation</a></dt>
+      <dd><p>An implementation provided by a distribution-specific package manager instead of Zero Install.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Recipe.html">Recipe</a></dt>
+      <dd><p>Retrieves an implementation by applying a list of <a class="xref" href="ZeroInstall.Model.IRecipeStep.html">IRecipeStep</a>s, such as downloading and combining multiple archives.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.RemoveStep.html">RemoveStep</a></dt>
+      <dd><p>Removes or moves a file or directory. It is an error if the path is outside the implementation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.RenameStep.html">RenameStep</a></dt>
+      <dd><p>Renames or moves a file or directory. It is an error if the source or destination are outside the implementation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Requirements.html">Requirements</a></dt>
+      <dd><p>A set of requirements/restrictions imposed by the user on the <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> selection process. Used as input for the solver.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Restriction.html">Restriction</a></dt>
+      <dd><p>Restricts the versions of an <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> that are allowed without creating a dependency on the implementation if its was not already chosen.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.RetrievalMethod.html">RetrievalMethod</a></dt>
+      <dd><p>A retrieval method is a way of getting a copy of an <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Runner.html">Runner</a></dt>
+      <dd><p>A special kind of dependency: the program that is used to run this one. For example, a Python program might specify Python as its runner.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.SingleFile.html">SingleFile</a></dt>
+      <dd><p>Retrieves an implementation by downloading a single file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.TargetBase.html">TargetBase</a></dt>
+      <dd><p>Abstract base class for <a class="xref" href="ZeroInstall.Model.Element.html">Element</a> and <a class="xref" href="ZeroInstall.Model.FeedReference.html">FeedReference</a>.
+Contains language and architecture parameters.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.VersionRange.html">VersionRange</a></dt>
+      <dd><p>Represents a (possibly disjoint) set of ranges of <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.VersionRangePart.html">VersionRangePart</a></dt>
+      <dd><p>Represents an individual non-disjoint part of a <a class="xref" href="ZeroInstall.Model.VersionRange.html">VersionRange</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.VersionRangePartExact.html">VersionRangePartExact</a></dt>
+      <dd><p>An exact version number like <code>2.0</code> as a part of a <a class="xref" href="ZeroInstall.Model.VersionRange.html">VersionRange</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.VersionRangePartExclude.html">VersionRangePartExclude</a></dt>
+      <dd><p>An exclusion like <code>!2.0</code> as a part of a <a class="xref" href="ZeroInstall.Model.VersionRange.html">VersionRange</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.VersionRangePartRange.html">VersionRangePartRange</a></dt>
+      <dd><p>A version range like <code>1.0..!2.0</code> as a part of a <a class="xref" href="ZeroInstall.Model.VersionRange.html">VersionRange</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.WorkingDir.html">WorkingDir</a></dt>
+      <dd><p>Switches the working directory of a process on startup to a location within an implementation.
+Useful for supporting legacy Windows applications which do not properly locate their installation directory.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.XmlUnknown.html">XmlUnknown</a></dt>
+      <dd><p>Abstract base class for XML serializable classes that are intended to retain any unknown XML elements or attributes loaded from an XML file.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ZeroInstallDeployment.html">ZeroInstallDeployment</a></dt>
+      <dd><p>Registers and discovers Zero Install deployments on this system.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ZeroInstallEnvironment.html">ZeroInstallEnvironment</a></dt>
+      <dd><p>Provides access to Zero Install-related environment variables.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Architecture.html">Architecture</a></dt>
+      <dd><p>Describes a combination of an operating system and a CPU architecture.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.FeedTarget.html">FeedTarget</a></dt>
+      <dd><p>Associates a <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a> with the <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a> data acquired from there.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ManifestDigest.html">ManifestDigest</a></dt>
+      <dd><p>A manifest digest is a means of uniquely identifying an <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> and verifying its contents.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.VersionDottedList.html">VersionDottedList</a></dt>
+      <dd><p>Represents a dotted-list part of a <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.VersionPart.html">VersionPart</a></dt>
+      <dd><p>Represents a part of a <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a> containing nothing, a <a class="xref" href="ZeroInstall.Model.VersionModifier.html">VersionModifier</a>, a <a class="xref" href="ZeroInstall.Model.VersionPart.html#ZeroInstall_Model_VersionPart_DottedList">DottedList</a> or both.</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.IArgBaseContainer.html">IArgBaseContainer</a></dt>
+      <dd><p>An object that contains <a class="xref" href="ZeroInstall.Model.ArgBase.html">ArgBase</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.IBindingContainer.html">IBindingContainer</a></dt>
+      <dd><p>An object that contains <a class="xref" href="ZeroInstall.Model.Binding.html">Binding</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.IDependencyContainer.html">IDependencyContainer</a></dt>
+      <dd><p>An object that contains <a class="xref" href="ZeroInstall.Model.Dependency.html">Dependency</a>s and <a class="xref" href="ZeroInstall.Model.Restriction.html">Restriction</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.IDescriptionContainer.html">IDescriptionContainer</a></dt>
+      <dd><p>An object that has localizable descriptions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.IElementContainer.html">IElementContainer</a></dt>
+      <dd><p>An object that contains <a class="xref" href="ZeroInstall.Model.Group.html">Group</a>s and <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s. Supports a composite pattern.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.IIconContainer.html">IIconContainer</a></dt>
+      <dd><p>An object that contains <a class="xref" href="ZeroInstall.Model.IIconContainer.html#ZeroInstall_Model_IIconContainer_Icons">Icons</a>s.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.IInterfaceUri.html">IInterfaceUri</a></dt>
+      <dd><p>An object that contains an interface URI.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.IInterfaceUriBindingContainer.html">IInterfaceUriBindingContainer</a></dt>
+      <dd><p>An object that contains an interface URI string.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.IRecipeStep.html">IRecipeStep</a></dt>
+      <dd><p>A retrieval step is a part of a <a class="xref" href="ZeroInstall.Model.Recipe.html">Recipe</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.ISummaryContainer.html">ISummaryContainer</a></dt>
+      <dd><p>An object that has localizable summaries and descriptions.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Cpu.html">Cpu</a></dt>
+      <dd><p>Describes a CPU architecture.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.EnvironmentMode.html">EnvironmentMode</a></dt>
+      <dd><p>Controls how <a class="xref" href="ZeroInstall.Model.EnvironmentBinding.html#ZeroInstall_Model_EnvironmentBinding_Insert">Insert</a> or <a class="xref" href="ZeroInstall.Model.EnvironmentBinding.html#ZeroInstall_Model_EnvironmentBinding_Value">Value</a> is added to a variable.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Importance.html">Importance</a></dt>
+      <dd><p>Describes how important a dependency is (i.e. whether ignoring it is an option).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.OS.html">OS</a></dt>
+      <dd><p>Describes an operating system family.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.Stability.html">Stability</a></dt>
+      <dd><p>A stability rating for an <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="ZeroInstall.Model.VersionModifier.html">VersionModifier</a></dt>
+      <dd></dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/_Namespace.md/#L2" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

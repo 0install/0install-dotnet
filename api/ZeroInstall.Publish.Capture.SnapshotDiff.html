@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SnapshotDiff | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SnapshotDiff | Zero Install .NET API ">
+      
+      <meta name="description" content="Represents the differences between two s. Extracts information about applications installed.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Publish_Capture_SnapshotDiff.md&amp;value=---%0Auid%3A%20ZeroInstall.Publish.Capture.SnapshotDiff%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Publish.Capture.SnapshotDiff">
+
+
+
+  <h1 id="ZeroInstall_Publish_Capture_SnapshotDiff" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff" class="text-break">
+Class SnapshotDiff  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/SnapshotDiff.UrlProtocol.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Publish.html">Publish</a>.<a class="xref" href="ZeroInstall.Publish.Capture.html">Capture</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Publish.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents the differences between two <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html">Snapshot</a>s. Extracts information about applications installed.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SnapshotDiff : Snapshot</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html">Snapshot</a></div>
+      <div><span class="xref">SnapshotDiff</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_ServiceAssocs">Snapshot.ServiceAssocs</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_AutoPlayHandlersUser">Snapshot.AutoPlayHandlersUser</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_AutoPlayHandlersMachine">Snapshot.AutoPlayHandlersMachine</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_AutoPlayAssocsUser">Snapshot.AutoPlayAssocsUser</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_AutoPlayAssocsMachine">Snapshot.AutoPlayAssocsMachine</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_FileAssocs">Snapshot.FileAssocs</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_ProtocolAssocs">Snapshot.ProtocolAssocs</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_ProgIDs">Snapshot.ProgIDs</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_ClassIDs">Snapshot.ClassIDs</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_RegisteredApplications">Snapshot.RegisteredApplications</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_ContextMenuFiles">Snapshot.ContextMenuFiles</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_ContextMenuExecutableFiles">Snapshot.ContextMenuExecutableFiles</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_ContextMenuDirectories">Snapshot.ContextMenuDirectories</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_ContextMenuAll">Snapshot.ContextMenuAll</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_ProgramsDirs">Snapshot.ProgramsDirs</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html#ZeroInstall_Publish_Capture_Snapshot_Take">Snapshot.Take()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ZeroInstall_Publish_Capture_SnapshotDiff__ctor_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_SnapshotDiff__ctor_ZeroInstall_Publish_Capture_Snapshot_ZeroInstall_Publish_Capture_Snapshot_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.#ctor(ZeroInstall.Publish.Capture.Snapshot,ZeroInstall.Publish.Capture.Snapshot)">
+  SnapshotDiff(Snapshot, Snapshot)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/SnapshotDiff.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines which elements have been added to the system between two snapshots.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SnapshotDiff(Snapshot before, Snapshot after)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>before</code> <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html">Snapshot</a></dt>
+    <dd><p>The first snapshot taken.</p>
+</dd>
+    <dt><code>after</code> <a class="xref" href="ZeroInstall.Publish.Capture.Snapshot.html">Snapshot</a></dt>
+    <dd><p>The second snapshot taken.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Publish_Capture_SnapshotDiff__ctor_ZeroInstall_Publish_Capture_Snapshot_ZeroInstall_Publish_Capture_Snapshot__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Assumes that all internal arrays are sorted alphabetically.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Publish_Capture_SnapshotDiff_CollectAutoPlays_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.CollectAutoPlays*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_SnapshotDiff_CollectAutoPlays_ZeroInstall_Publish_Capture_CommandMapper_ZeroInstall_Model_Capabilities_CapabilityList_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.CollectAutoPlays(ZeroInstall.Publish.Capture.CommandMapper,ZeroInstall.Model.Capabilities.CapabilityList)">
+  CollectAutoPlays(CommandMapper, CapabilityList)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/SnapshotDiff.AutoPlay.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Collects data about AutoPlay handlers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CollectAutoPlays(CommandMapper commandMapper, CapabilityList capabilities)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandMapper</code> <a class="xref" href="ZeroInstall.Publish.Capture.CommandMapper.html">CommandMapper</a></dt>
+    <dd><p>Provides best-match command-line to <a class="xref" href="ZeroInstall.Model.Command.html">Command</a> mapping.</p>
+</dd>
+    <dt><code>capabilities</code> <a class="xref" href="ZeroInstall.Model.Capabilities.CapabilityList.html">CapabilityList</a></dt>
+    <dd><p>The capability list to add the collected data to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>There was an error accessing the registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the registry was not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_Capture_SnapshotDiff_CollectContextMenus_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.CollectContextMenus*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_SnapshotDiff_CollectContextMenus_ZeroInstall_Publish_Capture_CommandMapper_ZeroInstall_Model_Capabilities_CapabilityList_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.CollectContextMenus(ZeroInstall.Publish.Capture.CommandMapper,ZeroInstall.Model.Capabilities.CapabilityList)">
+  CollectContextMenus(CommandMapper, CapabilityList)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/SnapshotDiff.ContextMenu.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Collects data about context menu entries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CollectContextMenus(CommandMapper commandMapper, CapabilityList capabilities)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandMapper</code> <a class="xref" href="ZeroInstall.Publish.Capture.CommandMapper.html">CommandMapper</a></dt>
+    <dd><p>Provides best-match command-line to <a class="xref" href="ZeroInstall.Model.Command.html">Command</a> mapping.</p>
+</dd>
+    <dt><code>capabilities</code> <a class="xref" href="ZeroInstall.Model.Capabilities.CapabilityList.html">CapabilityList</a></dt>
+    <dd><p>The capability list to add the collected data to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>There was an error accessing the registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the registry was not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_Capture_SnapshotDiff_CollectDefaultPrograms_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.CollectDefaultPrograms*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_SnapshotDiff_CollectDefaultPrograms_ZeroInstall_Publish_Capture_CommandMapper_ZeroInstall_Model_Capabilities_CapabilityList_System_String__" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.CollectDefaultPrograms(ZeroInstall.Publish.Capture.CommandMapper,ZeroInstall.Model.Capabilities.CapabilityList,System.String@)">
+  CollectDefaultPrograms(CommandMapper, CapabilityList, ref string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/SnapshotDiff.DefaultProgram.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Collects data about default programs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CollectDefaultPrograms(CommandMapper commandMapper, CapabilityList capabilities, ref string? appName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandMapper</code> <a class="xref" href="ZeroInstall.Publish.Capture.CommandMapper.html">CommandMapper</a></dt>
+    <dd><p>Provides best-match command-line to <a class="xref" href="ZeroInstall.Model.Command.html">Command</a> mapping.</p>
+</dd>
+    <dt><code>capabilities</code> <a class="xref" href="ZeroInstall.Model.Capabilities.CapabilityList.html">CapabilityList</a></dt>
+    <dd><p>The capability list to add the collected data to.</p>
+</dd>
+    <dt><code>appName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Is set to the name of the application as displayed to the user; unchanged if the name was not found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>There was an error accessing the registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the registry was not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_Capture_SnapshotDiff_CollectFileTypes_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.CollectFileTypes*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_SnapshotDiff_CollectFileTypes_ZeroInstall_Publish_Capture_CommandMapper_ZeroInstall_Model_Capabilities_CapabilityList_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.CollectFileTypes(ZeroInstall.Publish.Capture.CommandMapper,ZeroInstall.Model.Capabilities.CapabilityList)">
+  CollectFileTypes(CommandMapper, CapabilityList)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/SnapshotDiff.FileType.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Collects data about file types and also URL protocol handlers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CollectFileTypes(CommandMapper commandMapper, CapabilityList capabilities)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandMapper</code> <a class="xref" href="ZeroInstall.Publish.Capture.CommandMapper.html">CommandMapper</a></dt>
+    <dd><p>Provides best-match command-line to <a class="xref" href="ZeroInstall.Model.Command.html">Command</a> mapping.</p>
+</dd>
+    <dt><code>capabilities</code> <a class="xref" href="ZeroInstall.Model.Capabilities.CapabilityList.html">CapabilityList</a></dt>
+    <dd><p>The capability list to add the collected data to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>There was an error accessing the registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the registry was not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_Capture_SnapshotDiff_CollectProtocolAssocs_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.CollectProtocolAssocs*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_SnapshotDiff_CollectProtocolAssocs_ZeroInstall_Publish_Capture_CommandMapper_ZeroInstall_Model_Capabilities_CapabilityList_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.CollectProtocolAssocs(ZeroInstall.Publish.Capture.CommandMapper,ZeroInstall.Model.Capabilities.CapabilityList)">
+  CollectProtocolAssocs(CommandMapper, CapabilityList)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/SnapshotDiff.UrlProtocol.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Collects data about well-known URL protocol handlers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CollectProtocolAssocs(CommandMapper commandMapper, CapabilityList capabilities)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandMapper</code> <a class="xref" href="ZeroInstall.Publish.Capture.CommandMapper.html">CommandMapper</a></dt>
+    <dd><p>Provides best-match command-line to <a class="xref" href="ZeroInstall.Model.Command.html">Command</a> mapping.</p>
+</dd>
+    <dt><code>capabilities</code> <a class="xref" href="ZeroInstall.Model.Capabilities.CapabilityList.html">CapabilityList</a></dt>
+    <dd><p>The capability list to add the collected data to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>There was an error accessing the registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the registry was not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_Capture_SnapshotDiff_GetAppRegistration_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.GetAppRegistration*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_SnapshotDiff_GetAppRegistration_ZeroInstall_Publish_Capture_CommandMapper_ZeroInstall_Model_Capabilities_CapabilityList_System_String__System_String__" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.GetAppRegistration(ZeroInstall.Publish.Capture.CommandMapper,ZeroInstall.Model.Capabilities.CapabilityList,System.String@,System.String@)">
+  GetAppRegistration(CommandMapper, CapabilityList, ref string?, ref string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/SnapshotDiff.AppRegistration.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves data about registered applications.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AppRegistration? GetAppRegistration(CommandMapper commandMapper, CapabilityList capabilities, ref string? appName, ref string? appDescription)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>commandMapper</code> <a class="xref" href="ZeroInstall.Publish.Capture.CommandMapper.html">CommandMapper</a></dt>
+    <dd><p>Provides best-match command-line to <a class="xref" href="ZeroInstall.Model.Command.html">Command</a> mapping.</p>
+</dd>
+    <dt><code>capabilities</code> <a class="xref" href="ZeroInstall.Model.Capabilities.CapabilityList.html">CapabilityList</a></dt>
+    <dd><p>The capability list to add the collected data to.</p>
+</dd>
+    <dt><code>appName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Is set to the name of the application as displayed to the user; unchanged if the name was not found.</p>
+</dd>
+    <dt><code>appDescription</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Is set to a user-friendly description of the application; unchanged if the name was not found.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Capabilities.AppRegistration.html">AppRegistration</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>There was an error accessing the registry.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Read access to the registry was not permitted.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_Capture_SnapshotDiff_GetInstallationDir_" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.GetInstallationDir*"></a>
+
+  <h3 id="ZeroInstall_Publish_Capture_SnapshotDiff_GetInstallationDir" data-uid="ZeroInstall.Publish.Capture.SnapshotDiff.GetInstallationDir">
+  GetInstallationDir()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/SnapshotDiff.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Locates the directory into which the new application was installed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetInstallationDir()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>No installation directory was detected.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Publish/Capture/SnapshotDiff.UrlProtocol.cs/#L10" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

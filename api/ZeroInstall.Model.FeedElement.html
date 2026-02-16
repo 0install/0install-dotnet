@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FeedElement | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FeedElement | Zero Install .NET API ">
+      
+      <meta name="description" content="Abstract base class for XML serializable classes that are part of the Zero Install feed model.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Model_FeedElement.md&amp;value=---%0Auid%3A%20ZeroInstall.Model.FeedElement%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Model.FeedElement">
+
+
+
+  <h1 id="ZeroInstall_Model_FeedElement" data-uid="ZeroInstall.Model.FeedElement" class="text-break">
+Class FeedElement  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.FeedElement.Generator.Equals.g.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Model.html">Model</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Model.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Abstract base class for XML serializable classes that are part of the Zero Install feed model.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Equatable]
+public abstract class FeedElement : XmlUnknown, IEquatable&lt;XmlUnknown&gt;, IEquatable&lt;FeedElement&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="ZeroInstall.Model.XmlUnknown.html">XmlUnknown</a></div>
+      <div><span class="xref">FeedElement</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.XmlUnknown.html">XmlUnknown</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.FeedElement.html">FeedElement</a>&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="ZeroInstall.Model.ArgBase.html">ArgBase</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Binding.html">Binding</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Category.html">Category</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Command.html">Command</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Constraint.html">Constraint</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.CopyFromStep.html">CopyFromStep</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.EntryPoint.html">EntryPoint</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Icon.html">Icon</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.InterfaceReference.html">InterfaceReference</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.RemoveStep.html">RemoveStep</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.RenameStep.html">RenameStep</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.Restriction.html">Restriction</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.RetrievalMethod.html">RetrievalMethod</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.TargetBase.html">TargetBase</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.WorkingDir.html">WorkingDir</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_UnknownAttributes">XmlUnknown.UnknownAttributes</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_UnknownElements">XmlUnknown.UnknownElements</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_EnsureAttribute_System_Object_System_String_">XmlUnknown.EnsureAttribute(object, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_EnsureAttributeSafeID_System_String_System_String_">XmlUnknown.EnsureAttributeSafeID(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_ToShortXml">XmlUnknown.ToShortXml()</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_Equals_ZeroInstall_Model_XmlUnknown_">XmlUnknown.Equals(XmlUnknown)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="ZeroInstall_Model_FeedElement_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Does not include <a class="xref" href="ZeroInstall.Model.Capabilities.html">ZeroInstall.Model.Capabilities</a>.</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Model_FeedElement_IfZeroInstallVersion_" data-uid="ZeroInstall.Model.FeedElement.IfZeroInstallVersion*"></a>
+
+  <h3 id="ZeroInstall_Model_FeedElement_IfZeroInstallVersion" data-uid="ZeroInstall.Model.FeedElement.IfZeroInstallVersion">
+  IfZeroInstallVersion
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/FeedElement.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Only process this element if the current Zero Install version matches the range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public VersionRange? IfZeroInstallVersion { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.VersionRange.html">VersionRange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Model_FeedElement_Equals_" data-uid="ZeroInstall.Model.FeedElement.Equals*"></a>
+
+  <h3 id="ZeroInstall_Model_FeedElement_Equals_System_Object_" data-uid="ZeroInstall.Model.FeedElement.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.FeedElement.Generator.Equals.g.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">object</span></dt>
+    <dd><p>The object to compare with the current object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_FeedElement_Equals_" data-uid="ZeroInstall.Model.FeedElement.Equals*"></a>
+
+  <h3 id="ZeroInstall_Model_FeedElement_Equals_ZeroInstall_Model_FeedElement_" data-uid="ZeroInstall.Model.FeedElement.Equals(ZeroInstall.Model.FeedElement)">
+  Equals(FeedElement?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.FeedElement.Generator.Equals.g.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool Equals(FeedElement? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="ZeroInstall.Model.FeedElement.html">FeedElement</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_FeedElement_FilterMismatch_" data-uid="ZeroInstall.Model.FeedElement.FilterMismatch*"></a>
+
+  <h3 id="ZeroInstall_Model_FeedElement_FilterMismatch_ZeroInstall_Model_IRecipeStep_" data-uid="ZeroInstall.Model.FeedElement.FilterMismatch(ZeroInstall.Model.IRecipeStep)">
+  FilterMismatch(IRecipeStep)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/FeedElement.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks whether an element passes the specified <a class="xref" href="ZeroInstall.Model.FeedElement.html#ZeroInstall_Model_FeedElement_IfZeroInstallVersion">IfZeroInstallVersion</a> restriction, if any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static bool FilterMismatch(IRecipeStep step)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>step</code> <a class="xref" href="ZeroInstall.Model.IRecipeStep.html">IRecipeStep</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_FeedElement_FilterMismatch_" data-uid="ZeroInstall.Model.FeedElement.FilterMismatch*"></a>
+
+  <h3 id="ZeroInstall_Model_FeedElement_FilterMismatch__1___0_" data-uid="ZeroInstall.Model.FeedElement.FilterMismatch``1(``0)">
+  FilterMismatch&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/FeedElement.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks whether an element passes the specified <a class="xref" href="ZeroInstall.Model.FeedElement.html#ZeroInstall_Model_FeedElement_IfZeroInstallVersion">IfZeroInstallVersion</a> restriction, if any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static bool FilterMismatch&lt;T&gt;(T element) where T : FeedElement?</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_FeedElement_GetHashCode_" data-uid="ZeroInstall.Model.FeedElement.GetHashCode*"></a>
+
+  <h3 id="ZeroInstall_Model_FeedElement_GetHashCode" data-uid="ZeroInstall.Model.FeedElement.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.FeedElement.Generator.Equals.g.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="ZeroInstall_Model_FeedElement_op_Equality_" data-uid="ZeroInstall.Model.FeedElement.op_Equality*"></a>
+
+  <h3 id="ZeroInstall_Model_FeedElement_op_Equality_ZeroInstall_Model_FeedElement_ZeroInstall_Model_FeedElement_" data-uid="ZeroInstall.Model.FeedElement.op_Equality(ZeroInstall.Model.FeedElement,ZeroInstall.Model.FeedElement)">
+  operator ==(FeedElement?, FeedElement?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.FeedElement.Generator.Equals.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the object on the left is equal to the object on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(FeedElement? left, FeedElement? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.FeedElement.html">FeedElement</a></dt>
+    <dd><p>The left object</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.FeedElement.html">FeedElement</a></dt>
+    <dd><p>The right object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the objects are equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_FeedElement_op_Inequality_" data-uid="ZeroInstall.Model.FeedElement.op_Inequality*"></a>
+
+  <h3 id="ZeroInstall_Model_FeedElement_op_Inequality_ZeroInstall_Model_FeedElement_ZeroInstall_Model_FeedElement_" data-uid="ZeroInstall.Model.FeedElement.op_Inequality(ZeroInstall.Model.FeedElement,ZeroInstall.Model.FeedElement)">
+  operator !=(FeedElement?, FeedElement?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.FeedElement.Generator.Equals.g.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the object on the left is not equal to the object on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(FeedElement? left, FeedElement? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.FeedElement.html">FeedElement</a></dt>
+    <dd><p>The left object</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.FeedElement.html">FeedElement</a></dt>
+    <dd><p>The right object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the objects are not equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.FeedElement.Generator.Equals.g.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

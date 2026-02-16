@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface ICommandHandler | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface ICommandHandler | Zero Install .NET API ">
+      
+      <meta name="description" content="Callback methods to allow users to interact with s.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Commands_ICommandHandler.md&amp;value=---%0Auid%3A%20ZeroInstall.Commands.ICommandHandler%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Commands.ICommandHandler">
+
+
+
+  <h1 id="ZeroInstall_Commands_ICommandHandler" data-uid="ZeroInstall.Commands.ICommandHandler" class="text-break">
+Interface ICommandHandler  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ICommandHandler.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Commands.html">Commands</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>0install.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Callback methods to allow users to interact with <a class="xref" href="ZeroInstall.Commands.CliCommand.html">CliCommand</a>s.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ICommandHandler : ITaskHandler, IDisposable</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html#NanoByte_Common_Tasks_ITaskHandler_RunTask_NanoByte_Common_Tasks_ITask_">ITaskHandler.RunTask(ITask)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">ITaskHandler.Ask(string, bool?, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">ITaskHandler.Output(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">ITaskHandler.Output&lt;T&gt;(string, IEnumerable&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">ITaskHandler.Output&lt;T&gt;(string, NamedCollection&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">ITaskHandler.Error(Exception)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html#NanoByte_Common_Tasks_ITaskHandler_CancellationToken">ITaskHandler.CancellationToken</a>
+    </div>
+    <div>
+      <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html#NanoByte_Common_Tasks_ITaskHandler_Verbosity">ITaskHandler.Verbosity</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="ZeroInstall_Commands_ICommandHandler_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The methods may be called from a background thread. Implementations apply appropriate thread-synchronization to update UI elements.</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Commands_ICommandHandler_Background_" data-uid="ZeroInstall.Commands.ICommandHandler.Background*"></a>
+
+  <h3 id="ZeroInstall_Commands_ICommandHandler_Background" data-uid="ZeroInstall.Commands.ICommandHandler.Background">
+  Background
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ICommandHandler.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hides the GUI and uses something like a tray icon instead. Has no effect when <a class="xref" href="ZeroInstall.Commands.ICommandHandler.html#ZeroInstall_Commands_ICommandHandler_IsGui">IsGui</a> is <code>false</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool Background { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_ICommandHandler_FeedUri_" data-uid="ZeroInstall.Commands.ICommandHandler.FeedUri*"></a>
+
+  <h3 id="ZeroInstall_Commands_ICommandHandler_FeedUri" data-uid="ZeroInstall.Commands.ICommandHandler.FeedUri">
+  FeedUri
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ICommandHandler.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The URI of the Zero Install feed the current operation relates to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">FeedUri? FeedUri { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Commands_ICommandHandler_FeedUri_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This can be used to apply application-specific visual branding.</p>
+</div>
+
+
+
+
+  <a id="ZeroInstall_Commands_ICommandHandler_IsGui_" data-uid="ZeroInstall.Commands.ICommandHandler.IsGui*"></a>
+
+  <h3 id="ZeroInstall_Commands_ICommandHandler_IsGui" data-uid="ZeroInstall.Commands.ICommandHandler.IsGui">
+  IsGui
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ICommandHandler.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether this handler is a GUI.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsGui { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Commands_ICommandHandler_CloseUI_" data-uid="ZeroInstall.Commands.ICommandHandler.CloseUI*"></a>
+
+  <h3 id="ZeroInstall_Commands_ICommandHandler_CloseUI" data-uid="ZeroInstall.Commands.ICommandHandler.CloseUI">
+  CloseUI()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ICommandHandler.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Closes any persistent UI elements that were created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void CloseUI()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_ICommandHandler_CustomizeSelections_" data-uid="ZeroInstall.Commands.ICommandHandler.CustomizeSelections*"></a>
+
+  <h3 id="ZeroInstall_Commands_ICommandHandler_CustomizeSelections_System_Func_ZeroInstall_Model_Selection_Selections__" data-uid="ZeroInstall.Commands.ICommandHandler.CustomizeSelections(System.Func{ZeroInstall.Model.Selection.Selections})">
+  CustomizeSelections(Func&lt;Selections&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ICommandHandler.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Allows the user to customize the interface preferences and rerun the solver if desired.
+Returns once the user is finished.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void CustomizeSelections(Func&lt;Selections&gt; solveCallback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>solveCallback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a>&gt;</dt>
+    <dd><p>Called after interface preferences have been changed and the solver needs to be rerun.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_ICommandHandler_DisableUI_" data-uid="ZeroInstall.Commands.ICommandHandler.DisableUI*"></a>
+
+  <h3 id="ZeroInstall_Commands_ICommandHandler_DisableUI" data-uid="ZeroInstall.Commands.ICommandHandler.DisableUI">
+  DisableUI()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ICommandHandler.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disables any persistent UI elements that were created but still leaves them visible.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisableUI()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Commands_ICommandHandler_ShowIntegrateApp_" data-uid="ZeroInstall.Commands.ICommandHandler.ShowIntegrateApp*"></a>
+
+  <h3 id="ZeroInstall_Commands_ICommandHandler_ShowIntegrateApp_ZeroInstall_DesktopIntegration_ViewModel_IntegrationState_" data-uid="ZeroInstall.Commands.ICommandHandler.ShowIntegrateApp(ZeroInstall.DesktopIntegration.ViewModel.IntegrationState)">
+  ShowIntegrateApp(IntegrationState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ICommandHandler.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Displays application integration options to the user.
+Returns once the user is finished.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ShowIntegrateApp(IntegrationState state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>state</code> <a class="xref" href="ZeroInstall.DesktopIntegration.ViewModel.IntegrationState.html">IntegrationState</a></dt>
+    <dd><p>A View-Model for modifying the current desktop integration state.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Commands_ICommandHandler_ShowIntegrateApp_ZeroInstall_DesktopIntegration_ViewModel_IntegrationState__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The caller is responsible for applying changes.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user does not want any changes to be applied.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Commands_ICommandHandler_ShowSelections_" data-uid="ZeroInstall.Commands.ICommandHandler.ShowSelections*"></a>
+
+  <h3 id="ZeroInstall_Commands_ICommandHandler_ShowSelections_ZeroInstall_Model_Selection_Selections_ZeroInstall_Services_Feeds_IFeedManager_" data-uid="ZeroInstall.Commands.ICommandHandler.ShowSelections(ZeroInstall.Model.Selection.Selections,ZeroInstall.Services.Feeds.IFeedManager)">
+  ShowSelections(Selections, IFeedManager)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ICommandHandler.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shows the <a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a> made by the solver to the user.
+Returns immediately. May be ignored by some implementations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ShowSelections(Selections selections, IFeedManager feedManager)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>selections</code> <a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a></dt>
+    <dd><p>The <a class="xref" href="ZeroInstall.Model.Selection.Selections.html">Selections</a> as provided by the solver.</p>
+</dd>
+    <dt><code>feedManager</code> <a class="xref" href="ZeroInstall.Services.Feeds.IFeedManager.html">IFeedManager</a></dt>
+    <dd><p>The feed manager used to retrieve feeds for additional information about implementations.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Commands/ICommandHandler.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Feed | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Feed | Zero Install .NET API ">
+      
+      <meta name="description" content="A feed contains all the information required to download and execute an application.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.28.4/apiSpec/new?filename=ZeroInstall_Model_Feed.md&amp;value=---%0Auid%3A%20ZeroInstall.Model.Feed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Model.Feed">
+
+
+
+  <h1 id="ZeroInstall_Model_Feed" data-uid="ZeroInstall.Model.Feed" class="text-break">
+Class Feed  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Feed.Generator.Equals.g.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Model.html">Model</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Model.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A feed contains all the information required to download and execute an application.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+[XmlNamespace(&quot;xsi&quot;, &quot;http://www.w3.org/2001/XMLSchema-instance&quot;)]
+[Equatable]
+public class Feed : XmlUnknown, IEquatable&lt;XmlUnknown&gt;, IElementContainer, ISummaryContainer, IDescriptionContainer, IIconContainer, ICloneable&lt;Feed&gt;, IEquatable&lt;Feed&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="ZeroInstall.Model.XmlUnknown.html">XmlUnknown</a></div>
+      <div><span class="xref">Feed</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.XmlUnknown.html">XmlUnknown</a>&gt;</div>
+      <div><a class="xref" href="ZeroInstall.Model.IElementContainer.html">IElementContainer</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.ISummaryContainer.html">ISummaryContainer</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.IDescriptionContainer.html">IDescriptionContainer</a></div>
+      <div><a class="xref" href="ZeroInstall.Model.IIconContainer.html">IIconContainer</a></div>
+      <div><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.ICloneable-1.html">ICloneable</a>&lt;<a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_UnknownAttributes">XmlUnknown.UnknownAttributes</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_UnknownElements">XmlUnknown.UnknownElements</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_EnsureAttribute_System_Object_System_String_">XmlUnknown.EnsureAttribute(object, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_EnsureAttributeSafeID_System_String_System_String_">XmlUnknown.EnsureAttributeSafeID(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_ToShortXml">XmlUnknown.ToShortXml()</a>
+    </div>
+    <div>
+      <a class="xref" href="ZeroInstall.Model.XmlUnknown.html#ZeroInstall_Model_XmlUnknown_Equals_ZeroInstall_Model_XmlUnknown_">XmlUnknown.Equals(XmlUnknown)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="ZeroInstall_Model_Feed_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>See also: <a href="https://docs.0install.net/specifications/feed/">https://docs.0install.net/specifications/feed/</a></p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="ZeroInstall_Model_Feed_SchemaLocation" data-uid="ZeroInstall.Model.Feed.SchemaLocation">
+  SchemaLocation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides XML Editors with location hints for XSD files.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? SchemaLocation</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Model_Feed_XmlNamespace" data-uid="ZeroInstall.Model.Feed.XmlNamespace">
+  XmlNamespace
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The XML namespace used for storing feed/interface-related data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string XmlNamespace = &quot;http://zero-install.sourceforge.net/2004/injector/interface&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Model_Feed_XsdLocation" data-uid="ZeroInstall.Model.Feed.XsdLocation">
+  XsdLocation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The URI to retrieve an XSD containing the XML Schema information for this class in serialized form.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string XsdLocation = &quot;https://docs.0install.net/specifications/feed.xsd&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="ZeroInstall_Model_Feed_XsiSchemaLocation" data-uid="ZeroInstall.Model.Feed.XsiSchemaLocation">
+  XsiSchemaLocation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides XML Editors with location hints for XSD files.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string XsiSchemaLocation = &quot;http://zero-install.sourceforge.net/2004/injector/interface https://docs.0install.net/specifications/feed.xsd http://0install.de/schema/desktop-integration/capabilities https://docs.0install.net/specifications/capabilities.xsd&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Model_Feed_CapabilityLists_" data-uid="ZeroInstall.Model.Feed.CapabilityLists*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_CapabilityLists" data-uid="ZeroInstall.Model.Feed.CapabilityLists">
+  CapabilityLists
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A set of <a class="xref" href="ZeroInstall.Model.Capabilities.Capability.html">Capability</a> lists for different architectures.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[OrderedEquality]
+public List&lt;CapabilityList&gt; CapabilityLists { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ZeroInstall.Model.Capabilities.CapabilityList.html">CapabilityList</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_CatalogUri_" data-uid="ZeroInstall.Model.Feed.CatalogUri*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_CatalogUri" data-uid="ZeroInstall.Model.Feed.CatalogUri">
+  CatalogUri
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The URI of the <a class="xref" href="ZeroInstall.Model.Catalog.html">Catalog</a> this feed was stored within. Used as an implementation detail; not part of the regular feed format!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[IgnoreEquality]
+public FeedUri? CatalogUri { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Categories_" data-uid="ZeroInstall.Model.Feed.Categories*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Categories" data-uid="ZeroInstall.Model.Feed.Categories">
+  Categories
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A list of well-known categories the applications fits into. May influence the placement in the application menu.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[OrderedEquality]
+public List&lt;Category&gt; Categories { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ZeroInstall.Model.Category.html">Category</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Descriptions_" data-uid="ZeroInstall.Model.Feed.Descriptions*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Descriptions" data-uid="ZeroInstall.Model.Feed.Descriptions">
+  Descriptions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Full descriptions for different languages, which can be several paragraphs long.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[OrderedEquality]
+public LocalizableStringCollection Descriptions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Collections.LocalizableStringCollection.html">LocalizableStringCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Elements_" data-uid="ZeroInstall.Model.Feed.Elements*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Elements" data-uid="ZeroInstall.Model.Feed.Elements">
+  Elements
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A list of <a class="xref" href="ZeroInstall.Model.Group.html">Group</a>s and <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s contained within this interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[OrderedEquality]
+public List&lt;Element&gt; Elements { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ZeroInstall.Model.Element.html">Element</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_EntryPoints_" data-uid="ZeroInstall.Model.Feed.EntryPoints*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_EntryPoints" data-uid="ZeroInstall.Model.Feed.EntryPoints">
+  EntryPoints
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L199"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A list of <a class="xref" href="ZeroInstall.Model.EntryPoint.html">EntryPoint</a>s for starting this interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[OrderedEquality]
+public List&lt;EntryPoint&gt; EntryPoints { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ZeroInstall.Model.EntryPoint.html">EntryPoint</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_FeedFor_" data-uid="ZeroInstall.Model.Feed.FeedFor*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_FeedFor" data-uid="ZeroInstall.Model.Feed.FeedFor">
+  FeedFor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The implementations in this feed are implementations of the given interface. This is used when adding a third-party feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[OrderedEquality]
+public List&lt;InterfaceReference&gt; FeedFor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ZeroInstall.Model.InterfaceReference.html">InterfaceReference</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Feeds_" data-uid="ZeroInstall.Model.Feed.Feeds*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Feeds" data-uid="ZeroInstall.Model.Feed.Feeds">
+  Feeds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Zero ore more additional feeds containing implementations of this interface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[OrderedEquality]
+public List&lt;FeedReference&gt; Feeds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ZeroInstall.Model.FeedReference.html">FeedReference</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Homepage_" data-uid="ZeroInstall.Model.Feed.Homepage*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Homepage" data-uid="ZeroInstall.Model.Feed.Homepage">
+  Homepage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The URL of a web-page describing feed or program in more detail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public Uri? Homepage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Icons_" data-uid="ZeroInstall.Model.Feed.Icons*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Icons" data-uid="ZeroInstall.Model.Feed.Icons">
+  Icons
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Icons representing the application. Used in the Catalog GUI as well as for desktop icons, menu entries, etc..</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[OrderedEquality]
+public List&lt;Icon&gt; Icons { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ZeroInstall.Model.Icon.html">Icon</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Implementations_" data-uid="ZeroInstall.Model.Feed.Implementations*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Implementations" data-uid="ZeroInstall.Model.Feed.Implementations">
+  Implementations
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A flat list of all <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s contained in this feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[IgnoreEquality]
+public IEnumerable&lt;Implementation&gt; Implementations { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Model_Feed_Implementations_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If this is used before <a class="xref" href="ZeroInstall.Model.Feed.html#ZeroInstall_Model_Feed_Normalize_ZeroInstall_Model_FeedUri_">Normalize(FeedUri?)</a> has been called, incomplete <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s may be returned, because the <a class="xref" href="ZeroInstall.Model.Group.html">Group</a> inheritance structure has not been resolved.</p>
+</div>
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Item_" data-uid="ZeroInstall.Model.Feed.Item*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Item_System_String_" data-uid="ZeroInstall.Model.Feed.Item(System.String)">
+  this[string]
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L234"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> with a specific ID string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Implementation this[string id] { get; }</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The <a class="xref" href="ZeroInstall.Model.ImplementationBase.html#ZeroInstall_Model_ImplementationBase_ID">ID</a> to look for.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a></dt>
+    <dd><p>The identified <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Model_Feed_Item_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If this is used before <a class="xref" href="ZeroInstall.Model.Feed.html#ZeroInstall_Model_Feed_Normalize_ZeroInstall_Model_FeedUri_">Normalize(FeedUri?)</a> has been called, incomplete <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s may be returned, because the <a class="xref" href="ZeroInstall.Model.Group.html">Group</a> inheritance structure has not been resolved.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception">KeyNotFoundException</a></dt>
+    <dd><p>No <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> matching <code class="paramref">id</code> was found in <a class="xref" href="ZeroInstall.Model.Feed.html#ZeroInstall_Model_Feed_Elements">Elements</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_Feed_MinInjectorVersion_" data-uid="ZeroInstall.Model.Feed.MinInjectorVersion*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_MinInjectorVersion" data-uid="ZeroInstall.Model.Feed.MinInjectorVersion">
+  MinInjectorVersion
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This attribute gives the oldest version of the injector that can read this file. Older versions will tell the user to upgrade if they are asked to read the file. Versions prior to 0.20 do not perform this check, however. If the attribute is not present, the file can be read by all versions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public ImplementationVersion? MinInjectorVersion { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Name_" data-uid="ZeroInstall.Model.Feed.Name*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Name" data-uid="ZeroInstall.Model.Feed.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A short name to identify the feed or program (e.g. &quot;Foo&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public required string Name { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_NeedsTerminal_" data-uid="ZeroInstall.Model.Feed.NeedsTerminal*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_NeedsTerminal" data-uid="ZeroInstall.Model.Feed.NeedsTerminal">
+  NeedsTerminal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If <code>true</code>, indicates that the program requires a terminal in order to run. Graphical launchers should therefore run this program in a suitable terminal emulator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public bool NeedsTerminal { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Publisher_" data-uid="ZeroInstall.Model.Feed.Publisher*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Publisher" data-uid="ZeroInstall.Model.Feed.Publisher">
+  Publisher
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The publisher (company or organization) of the program.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Publisher { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_ReplacedBy_" data-uid="ZeroInstall.Model.Feed.ReplacedBy*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_ReplacedBy" data-uid="ZeroInstall.Model.Feed.ReplacedBy">
+  ReplacedBy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This interface <a class="xref" href="ZeroInstall.Model.Feed.html#ZeroInstall_Model_Feed_Uri">Uri</a> of the feed has been replaced by the given interface. Any references to the old URI should be updated to use the new one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public InterfaceReference? ReplacedBy { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.InterfaceReference.html">InterfaceReference</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="ZeroInstall.Model.ImplementationBase.html#ZeroInstall_Model_ImplementationBase_ManifestDigest">ManifestDigest</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="ZeroInstall_Model_Feed_SplashScreens_" data-uid="ZeroInstall.Model.Feed.SplashScreens*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_SplashScreens" data-uid="ZeroInstall.Model.Feed.SplashScreens">
+  SplashScreens
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Splash screens Zero Install can display during downloads, etc. for better branding.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[OrderedEquality]
+public List&lt;Icon&gt; SplashScreens { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="ZeroInstall.Model.Icon.html">Icon</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Summaries_" data-uid="ZeroInstall.Model.Feed.Summaries*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Summaries" data-uid="ZeroInstall.Model.Feed.Summaries">
+  Summaries
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Short one-line descriptions for different languages; the first word should not be upper-case unless it is a proper noun (e.g. &quot;cures all ills&quot;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+[OrderedEquality]
+public LocalizableStringCollection Summaries { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Collections.LocalizableStringCollection.html">LocalizableStringCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Uri_" data-uid="ZeroInstall.Model.Feed.Uri*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Uri" data-uid="ZeroInstall.Model.Feed.Uri">
+  Uri
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This attribute is only needed for remote feeds (fetched via HTTP). The value must exactly match the expected URL, to prevent an attacker replacing one correctly-signed feed with another (e.g., returning a feed for the shred program when the user asked for the backup program).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public FeedUri? Uri { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Model_Feed_Clone_" data-uid="ZeroInstall.Model.Feed.Clone*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Clone" data-uid="ZeroInstall.Model.Feed.Clone">
+  Clone()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L396"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a deep copy of this <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Feed Clone()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The new copy of the <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Equals_" data-uid="ZeroInstall.Model.Feed.Equals*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Equals_System_Object_" data-uid="ZeroInstall.Model.Feed.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Feed.Generator.Equals.g.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified object is equal to the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">object</span></dt>
+    <dd><p>The object to compare with the current object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object  is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Equals_" data-uid="ZeroInstall.Model.Feed.Equals*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Equals_ZeroInstall_Model_Feed_" data-uid="ZeroInstall.Model.Feed.Equals(ZeroInstall.Model.Feed)">
+  Equals(Feed?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Feed.Generator.Equals.g.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool Equals(Feed? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_GetBestIcon_" data-uid="ZeroInstall.Model.Feed.GetBestIcon*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_GetBestIcon_System_String_System_String_" data-uid="ZeroInstall.Model.Feed.GetBestIcon(System.String,System.String)">
+  GetBestIcon(string, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L272"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the best matching icon for a specific <a class="xref" href="ZeroInstall.Model.Command.html">Command</a>/<a class="xref" href="ZeroInstall.Model.EntryPoint.html">EntryPoint</a>. Will fall back to <a class="xref" href="ZeroInstall.Model.Feed.html#ZeroInstall_Model_Feed_Icons">Icons</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Icon? GetBestIcon(string mimeType, string? command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mimeType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The <a class="xref" href="ZeroInstall.Model.Icon.html#ZeroInstall_Model_Icon_MimeType">MimeType</a> to try to find. Will only return exact matches.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the command the icon should represent; <code>null</code> is equivalent to <a class="xref" href="ZeroInstall.Model.Command.html#ZeroInstall_Model_Command_NameRun">NameRun</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Icon.html">Icon</a></dt>
+    <dd><p>The best matching icon that was found or <code>null</code> if no matching icon was found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_GetBestName_" data-uid="ZeroInstall.Model.Feed.GetBestName*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_GetBestName_System_Globalization_CultureInfo_System_String_" data-uid="ZeroInstall.Model.Feed.GetBestName(System.Globalization.CultureInfo,System.String)">
+  GetBestName(CultureInfo, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the best matching name for a specific <a class="xref" href="ZeroInstall.Model.Command.html">Command</a>/<a class="xref" href="ZeroInstall.Model.EntryPoint.html">EntryPoint</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetBestName(CultureInfo language, string? command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>language</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo">CultureInfo</a></dt>
+    <dd><p>The language to look for; use <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo.invariantculture">InvariantCulture</a> for none.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the command the name should represent; <code>null</code> is equivalent to <a class="xref" href="ZeroInstall.Model.Command.html#ZeroInstall_Model_Command_NameRun">NameRun</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The best matching name that was found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_GetBestSummary_" data-uid="ZeroInstall.Model.Feed.GetBestSummary*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_GetBestSummary_System_Globalization_CultureInfo_System_String_" data-uid="ZeroInstall.Model.Feed.GetBestSummary(System.Globalization.CultureInfo,System.String)">
+  GetBestSummary(CultureInfo, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the best matching summary for a specific <a class="xref" href="ZeroInstall.Model.Command.html">Command</a>/<a class="xref" href="ZeroInstall.Model.EntryPoint.html">EntryPoint</a>. Will fall back to <a class="xref" href="ZeroInstall.Model.Feed.html#ZeroInstall_Model_Feed_Summaries">Summaries</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetBestSummary(CultureInfo language, string? command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>language</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo">CultureInfo</a></dt>
+    <dd><p>The language to look for; use <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo.invariantculture">InvariantCulture</a> for none.</p>
+</dd>
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the command the summary should represent; <code>null</code> is equivalent to <a class="xref" href="ZeroInstall.Model.Command.html#ZeroInstall_Model_Command_NameRun">NameRun</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The best matching summary that was found; <code>null</code> if no matching summary was found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_GetEntryPoint_" data-uid="ZeroInstall.Model.Feed.GetEntryPoint*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_GetEntryPoint_System_String_" data-uid="ZeroInstall.Model.Feed.GetEntryPoint(System.String)">
+  GetEntryPoint(string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the first <a class="xref" href="ZeroInstall.Model.EntryPoint.html">EntryPoint</a> referencing a specific <a class="xref" href="ZeroInstall.Model.Command.html">Command</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EntryPoint? GetEntryPoint(string? command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The command name to search for; <code>null</code> is equivalent to <a class="xref" href="ZeroInstall.Model.Command.html#ZeroInstall_Model_Command_NameRun">NameRun</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.EntryPoint.html">EntryPoint</a></dt>
+    <dd><p>The identified <a class="xref" href="ZeroInstall.Model.EntryPoint.html">EntryPoint</a>; <code>null</code> no matching one was found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_GetHashCode_" data-uid="ZeroInstall.Model.Feed.GetHashCode*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_GetHashCode" data-uid="ZeroInstall.Model.Feed.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Feed.Generator.Equals.g.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serves as the default hash function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A hash code for the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_Normalize_" data-uid="ZeroInstall.Model.Feed.Normalize*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Normalize_ZeroInstall_Model_FeedUri_" data-uid="ZeroInstall.Model.Feed.Normalize(ZeroInstall.Model.FeedUri)">
+  Normalize(FeedUri?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Prepares the feed for solver processing.
+Flattens inheritance structures, converts legacy elements, sets default values, etc..
+Do not call it if you plan on serializing the feed again since it may lose some of its structure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Normalize(FeedUri? feedUri = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedUri</code> <a class="xref" href="ZeroInstall.Model.FeedUri.html">FeedUri</a></dt>
+    <dd><p>The URI the feed was originally loaded from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>The feed requires a newer version of Zero Install.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A required property is not set or invalid.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_Feed_RemoveImplementation_" data-uid="ZeroInstall.Model.Feed.RemoveImplementation*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_RemoveImplementation_System_String_" data-uid="ZeroInstall.Model.Feed.RemoveImplementation(System.String)">
+  RemoveImplementation(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes an <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> identified by its ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveImplementation(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><code>true</code> if the implementation was removed; <code>false</code> if the implementation could not be found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_ResolveInternalReferences_" data-uid="ZeroInstall.Model.Feed.ResolveInternalReferences*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_ResolveInternalReferences" data-uid="ZeroInstall.Model.Feed.ResolveInternalReferences">
+  ResolveInternalReferences()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L352"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resolves references between elements within the <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResolveInternalReferences()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Model_Feed_ResolveInternalReferences_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method should be called instead of <a class="xref" href="ZeroInstall.Model.Feed.html#ZeroInstall_Model_Feed_Normalize_ZeroInstall_Model_FeedUri_">Normalize(FeedUri?)</a> if you plan on serializing the feed again since it preservers the structure.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>A reference could not be resolved.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Model_Feed_Strip_" data-uid="ZeroInstall.Model.Feed.Strip*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_Strip" data-uid="ZeroInstall.Model.Feed.Strip">
+  Strip()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L377"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Strips the feed down to the application metadata removing specific <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Strip()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_ToString_" data-uid="ZeroInstall.Model.Feed.ToString*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_ToString" data-uid="ZeroInstall.Model.Feed.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/Feed.cs/#L423"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the feed/interface in the form &quot;Name (Uri)&quot;. Not safe for parsing!</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="ZeroInstall_Model_Feed_op_Equality_" data-uid="ZeroInstall.Model.Feed.op_Equality*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_op_Equality_ZeroInstall_Model_Feed_ZeroInstall_Model_Feed_" data-uid="ZeroInstall.Model.Feed.op_Equality(ZeroInstall.Model.Feed,ZeroInstall.Model.Feed)">
+  operator ==(Feed?, Feed?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Feed.Generator.Equals.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the object on the left is equal to the object on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Feed? left, Feed? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The left object</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The right object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the objects are equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Model_Feed_op_Inequality_" data-uid="ZeroInstall.Model.Feed.op_Inequality*"></a>
+
+  <h3 id="ZeroInstall_Model_Feed_op_Inequality_ZeroInstall_Model_Feed_ZeroInstall_Model_Feed_" data-uid="ZeroInstall.Model.Feed.op_Inequality(ZeroInstall.Model.Feed,ZeroInstall.Model.Feed)">
+  operator !=(Feed?, Feed?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Feed.Generator.Equals.g.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the object on the left is not equal to the object on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Feed? left, Feed? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The left object</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The right object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the objects are not equal; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.28.4/src/Model/obj/Release/net8.0/Generator.Equals/Generator.Equals.EqualsGenerator/global__ZeroInstall.Model.Feed.Generator.Equals.g.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
