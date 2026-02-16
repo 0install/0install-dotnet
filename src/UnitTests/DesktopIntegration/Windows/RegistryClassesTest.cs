@@ -13,10 +13,10 @@ public class RegistryClassesTest : TestWithRedirect
 {
     public RegistryClassesTest()
     {
-        Skip.IfNot(WindowsUtils.IsWindows, "Registry access is only available on Windows");
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Registry access is only available on Windows");
     }
 
-    [SkippableFact]
+    [Fact]
     public void CommandLineEscaping()
     {
         GetLaunchCommandLine(new() {Name = Verb.NameOpen, Arguments = {"--opt", "some val", "${item}", "--opt=${item}"}})
@@ -25,21 +25,21 @@ public class RegistryClassesTest : TestWithRedirect
                """);
     }
 
-    [SkippableFact]
+    [Fact]
     public void CommandLinePrecedence()
     {
         GetLaunchCommandLine(new() {Name = Verb.NameOpen, Arguments = {"a", "b"}, ArgumentsLiteral = "x"})
            .Should().EndWith("a b");
     }
 
-    [SkippableFact]
+    [Fact]
     public void CommandLineLiteral()
     {
         GetLaunchCommandLine(new() {Name = Verb.NameOpen, ArgumentsLiteral = "x"})
            .Should().EndWith("x");
     }
 
-    [SkippableFact]
+    [Fact]
     public void CommandLineDefaultValue()
     {
         GetLaunchCommandLine(new() {Name = Verb.NameOpen})

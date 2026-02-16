@@ -40,19 +40,19 @@ public class WindowsExeTest : CandidateTest
 
     public WindowsExeTest()
     {
-        Skip.IfNot(WindowsUtils.IsWindows, reason: "Non-Windows systems cannot parse PE headers.");
+        Assert.SkipUnless(WindowsUtils.IsWindows, reason: "Non-Windows systems cannot parse PE headers.");
     }
 
-    [SkippableFact]
+    [Fact]
     public void X86() => TestAnalyze(Reference32);
 
-    [SkippableFact]
+    [Fact]
     public void X64() => TestAnalyze(Reference64);
 
-    [SkippableFact]
+    [Fact]
     public void X86Terminal() => TestAnalyze(ReferenceTerminal);
 
-    [SkippableFact]
+    [Fact]
     public void NotExe()
         => new WindowsExe().Analyze(baseDirectory: Directory, file: Deploy(PosixScriptTest.Reference, xbit: false))
                            .Should().BeFalse();

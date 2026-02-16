@@ -177,10 +177,10 @@ public class EnvironmentBuilderTest : TestWithRedirect
     /// <summary>
     /// Ensures <see cref="EnvironmentBuilder.ToStartInfo"/> handles complex <see cref="Selections"/>.
     /// </summary>
-    [SkippableFact]
+    [Fact]
     public void TestWrapper()
     {
-        Skip.IfNot(WindowsUtils.IsWindows, "Wrapper command-line parsing relies on a Win32 API and therefore will not work on non-Windows platforms");
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Wrapper command-line parsing relies on a Win32 API and therefore will not work on non-Windows platforms");
 
         var selections = SelectionsTest.CreateTestSelections();
         AddDummyImplementation(selections);

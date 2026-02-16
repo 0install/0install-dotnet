@@ -32,7 +32,7 @@ public abstract class ArchiveExtractorTestBase
         builder.Manifest.Should().BeEquivalentTo(expected);
     }
 
-    [SkippableFact]
+    [Fact]
     public void ExtractInvalidData()
     {
         try
@@ -43,7 +43,7 @@ public abstract class ArchiveExtractorTestBase
         }
         catch (NotSupportedException)
         {
-            Skip.If(true, "Archive type not supported on this platform");
+            Assert.SkipWhen(true, "Archive type not supported on this platform");
         }
     }
 }

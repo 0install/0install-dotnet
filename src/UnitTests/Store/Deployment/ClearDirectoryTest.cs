@@ -46,10 +46,10 @@ public class ClearDirectoryTest : DirectoryOperationTestBase
         File.Exists(File2Path).Should().BeTrue(because: "Original file should be back after rollback.");
     }
 
-    [SkippableFact]
+    [Fact]
     public void ReadOnlyAttribute()
     {
-        Skip.IfNot(WindowsUtils.IsWindows, "Read-only file attribute is only available on Windows");
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Read-only file attribute is only available on Windows");
 
         new FileInfo(File1Path).IsReadOnly = true;
 

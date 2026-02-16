@@ -14,10 +14,10 @@ public class CabExtractorTest : ArchiveExtractorTestBase
 
     public CabExtractorTest()
     {
-        Skip.IfNot(WindowsUtils.IsWindows, "CAB extraction relies on a Win32 API and therefore will not work on non-Windows platforms");
+        Assert.SkipUnless(WindowsUtils.IsWindows, "CAB extraction relies on a Win32 API and therefore will not work on non-Windows platforms");
     }
 
-    [SkippableFact]
+    [Fact]
     public void Extract()
     {
         Test(
@@ -35,7 +35,7 @@ public class CabExtractorTest : ArchiveExtractorTestBase
             });
     }
 
-    [SkippableFact]
+    [Fact]
     public void ExtractSubDir()
     {
         Test(

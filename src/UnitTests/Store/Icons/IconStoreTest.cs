@@ -54,10 +54,10 @@ public class IconStoreTest : IDisposable
               .Should().Throw<WebException>();
     }
 
-    [SkippableTheory, InlineData(Icon.MimeTypePng), InlineData(Icon.MimeTypeIco)]
+    [Theory, InlineData(Icon.MimeTypePng), InlineData(Icon.MimeTypeIco)]
     public void RejectDamagedDownload(string mimeType)
     {
-        Skip.IfNot(WindowsUtils.IsWindows, "Icon validation currently uses GDI+ which is only available on Windows");
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Icon validation currently uses GDI+ which is only available on Windows");
 
         using var server = new MicroServer("file", _dummyBytes.ToStream());
         var icon = new Icon {Href = server.FileUri, MimeType = mimeType};
@@ -81,10 +81,10 @@ public class IconStoreTest : IDisposable
         shouldRefresh.Should().BeFalse();
     }
 
-    [SkippableFact]
+    [Fact]
     public void SuggestRefreshWhenStale()
     {
-        Skip.IfNot(NetUtils.GetInternetConnectivity() == Connectivity.Normal);
+        Assert.SkipUnless(NetUtils.GetInternetConnectivity() == Connectivity.Normal, "Requires normal internet connectivity");
 
         Inject(_dummyPngIcon, _pngBytes, _oldTimestamp);
         _store.Get(_dummyPngIcon, out bool shouldRefresh);
@@ -100,10 +100,10 @@ public class IconStoreTest : IDisposable
         shouldRefresh.Should().BeFalse();
     }
 
-    [SkippableFact]
+    [Fact]
     public void RefreshWhenStale()
     {
-        Skip.IfNot(NetUtils.GetInternetConnectivity() == Connectivity.Normal);
+        Assert.SkipUnless(NetUtils.GetInternetConnectivity() == Connectivity.Normal, "Requires normal internet connectivity");
 
         using var server = new MicroServer("icon.png", _pngBytes.ToStream());
         var icon = new Icon {Href = server.FileUri, MimeType = Icon.MimeTypePng};
@@ -137,10 +137,10 @@ public class IconStoreTest : IDisposable
             .Should().BeEquivalentTo(bytes);
     }
 
-    [SkippableTheory, InlineData(Icon.MimeTypePng), InlineData(Icon.MimeTypeIco)]
+    [Theory, InlineData(Icon.MimeTypePng), InlineData(Icon.MimeTypeIco)]
     public void RejectDamagedImport(string mimeType)
     {
-        Skip.IfNot(WindowsUtils.IsWindows, "Icon validation currently uses GDI+ which is only available on Windows");
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Icon validation currently uses GDI+ which is only available on Windows");
 
         var icon = new Icon {Href = new("https://example.com/file"), MimeType = mimeType};
         _store.Invoking(x => x.Import(icon, _dummyBytes.ToStream()))
