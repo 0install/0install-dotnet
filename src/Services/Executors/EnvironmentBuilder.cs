@@ -12,8 +12,22 @@ namespace ZeroInstall.Services.Executors;
 /// <summary>
 /// Fluent-style builder for a process execution environment for a <see cref="Selections"/> document.
 /// </summary>
-public partial class EnvironmentBuilder(IImplementationStore implementationStore) : IEnvironmentBuilder
+public partial class EnvironmentBuilder : IEnvironmentBuilder
 {
+    private readonly IImplementationStore _implementationStore;
+    private readonly IExecutionStrategy _executionStrategy;
+
+    /// <summary>
+    /// Creates a new environment builder.
+    /// </summary>
+    /// <param name="implementationStore">The implementation store to use.</param>
+    /// <param name="executionStrategy">The execution strategy to use. If null, uses native process execution.</param>
+    public EnvironmentBuilder(IImplementationStore implementationStore, IExecutionStrategy? executionStrategy = null)
+    {
+        _implementationStore = implementationStore;
+        _executionStrategy = executionStrategy ?? new NativeProcessStrategy();
+    }
+
     /// <summary>
     /// Used to hold the process launch environment while it is being built.
     /// </summary>
@@ -227,7 +241,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
         {
             string path = command.Path.ToNativePath();
             if (!implementation.ID.StartsWith(ExternalImplementation.PackagePrefix))
-                path = Path.Combine(implementationStore.GetPath(implementation), path);
+                path = Path.Combine(_implementationStore.GetPath(implementation), path);
             commandLine.Add(path);
         }
         commandLine.Add(command.Arguments);
