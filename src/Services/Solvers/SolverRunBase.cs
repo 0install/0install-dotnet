@@ -34,7 +34,15 @@ public abstract class SolverRunBase(Requirements requirements, ISelectionCandida
     /// </summary>
     /// <returns>The selected <see cref="ImplementationSelection"/>s.</returns>
     /// <exception cref="SolverException">The solver was unable to provide <see cref="Selections"/> that fulfill the <see cref="Requirements"/>.</exception>
-    public Selections Solve()
+    public Selections Solve() => Solve(diagnostics: null);
+
+    /// <summary>
+    /// Provides <see cref="Selections"/> that satisfy the specified <see cref="Requirements"/>.
+    /// </summary>
+    /// <param name="diagnostics">Optional diagnostics to include in exception messages if solving fails.</param>
+    /// <returns>The selected <see cref="ImplementationSelection"/>s.</returns>
+    /// <exception cref="SolverException">The solver was unable to provide <see cref="Selections"/> that fulfill the <see cref="Requirements"/>.</exception>
+    protected Selections Solve(SolverDiagnostics? diagnostics)
     {
         try
         {
@@ -44,9 +52,14 @@ public abstract class SolverRunBase(Requirements requirements, ISelectionCandida
                 CandidateProvider.FailedFeeds.Values.FirstOrDefault()?.Rethrow();
 
                 bool failedBecauseOfArchitecture = TryFulfill(Demand(_requirements with { Architecture = new() }));
-                throw new SolverException(failedBecauseOfArchitecture
+                string message = failedBecauseOfArchitecture
                     ? string.Format(Resources.FailedToSolveForArchitecture, _requirements.InterfaceUri, _requirements.Architecture)
-                    : string.Format(Resources.FailedToSolve, _requirements.InterfaceUri));
+                    : string.Format(Resources.FailedToSolve, _requirements.InterfaceUri);
+
+                if (diagnostics?.Rejections.Count > 0)
+                    message += Environment.NewLine + Environment.NewLine + "Diagnostics:" + Environment.NewLine + diagnostics;
+
+                throw new SolverException(message);
             }
         }
         finally
