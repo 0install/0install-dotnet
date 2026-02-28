@@ -27,6 +27,9 @@ public static partial class FileType
     /// <summary>The registry subkey containing "open with" ProgID references.</summary>
     public const string RegSubKeyOpenWith = "OpenWithProgIDs";
 
+    /// <summary>The registry subkey containing "open with" application references.</summary>
+    public const string RegSubKeyOpenWithList = "OpenWithList";
+
     /// <summary>The registry subkey below HKEY_CLASSES_ROOT that contains MIME type to extension mapping.</summary>
     private const string RegSubKeyMimeType = @"MIME\Database\Content Type";
 
