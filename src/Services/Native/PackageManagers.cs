@@ -18,7 +18,9 @@ public static class PackageManagers
         var packageManagers = new List<IPackageManager>();
 
         if (WindowsUtils.IsWindows) packageManagers.Add(new WindowsPackageManager());
-        //if (UnixUtils.IsUnix) packageManagers.Add(new PackageKitPackageManager());
+#if NET8_0_OR_GREATER
+        if (UnixUtils.IsUnix && OperatingSystem.IsLinux()) packageManagers.Add(new PackageKitPackageManager());
+#endif
 
         return new CompositePackageManager(packageManagers);
     }
