@@ -24,7 +24,7 @@ public class TarLzmaExtractor(ITaskHandler handler) : TarExtractor(handler)
             base.Extract(builder, LzmaStream.Create(properties: stream.Read(13), stream), subDir);
         }
         #region Error handling
-        catch (ExtractionException ex)
+        catch (Exception ex) when (ex is SharpCompressException or InvalidOperationException or IndexOutOfRangeException)
         {
             // Wrap exception since only certain exception types are allowed
             throw new IOException(Resources.ArchiveInvalid, ex);

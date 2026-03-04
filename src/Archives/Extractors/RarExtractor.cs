@@ -39,7 +39,7 @@ public class RarExtractor(ITaskHandler handler) : ArchiveExtractor(handler)
             }
         }
         #region Error handling
-        catch (ExtractionException ex)
+        catch (Exception ex) when (ex is SharpCompressException or InvalidOperationException or IndexOutOfRangeException)
         {
             // Wrap exception since only certain exception types are allowed
             throw new IOException(Resources.ArchiveInvalid, ex);

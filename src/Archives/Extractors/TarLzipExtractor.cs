@@ -24,7 +24,7 @@ public class TarLzipExtractor(ITaskHandler handler) : TarExtractor(handler)
             base.Extract(builder, new LZipStream(stream, CompressionMode.Decompress), subDir);
         }
         #region Error handling
-        catch (ExtractionException ex)
+        catch (Exception ex) when (ex is SharpCompressException or InvalidOperationException or IndexOutOfRangeException)
         {
             // Wrap exception since only certain exception types are allowed
             throw new IOException(Resources.ArchiveInvalid, ex);
