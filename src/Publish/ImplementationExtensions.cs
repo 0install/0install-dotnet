@@ -106,7 +106,7 @@ public static class ImplementationExtensions
 
     private static void DetectIssues(Implementation implementation, Manifest manifest)
     {
-        if (manifest.GetTopLevelFiles().Count == 0 && manifest.GetTopLevelDirectories() is [var singleDir])
+        if (manifest.GetTopLevelFiles().Count == 0 && manifest.GetTopLevelDirectories() is [var singleDir] && !singleDir.EndsWith(".app"))
             Log.Warn(string.Format(Resources.ArchiveContainsSingleTopLevelDirectory, singleDir, "extract"));
 
         foreach (var command in implementation.Commands)
