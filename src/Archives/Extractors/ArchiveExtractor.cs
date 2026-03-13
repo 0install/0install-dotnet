@@ -39,6 +39,8 @@ public abstract class ArchiveExtractor(ITaskHandler handler) : IArchiveExtractor
         Register(Archive.MimeTypeMsi, handler => new MsiExtractor(handler));
 #endif
         Register(Archive.MimeTypeRubyGem, handler => new RubyGemExtractor(handler));
+        Register(Archive.MimeTypeDeb, handler => new DebExtractor(handler));
+        Register(Archive.MimeTypeRpm, handler => new RpmExtractor(handler));
         Register(Archive.MimeTypeDmg, handler => new DmgExtractor(handler));
     }
 
