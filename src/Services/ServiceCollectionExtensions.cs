@@ -41,7 +41,7 @@ public static class ServiceCollectionExtensions
                    .AddScoped<ITrustManager, TrustManager>()
                    .AddScoped<IFeedManager, FeedManager>()
                    .AddScoped<ICatalogManager, CatalogManager>()
-                   .AddScoped(_ => PackageManagers.Default())
+                   .AddScoped(provider => PackageManagers.Default(provider.GetRequiredService<ITaskHandler>()))
                    .AddScoped<ISelectionsManager, SelectionsManager>()
                    .AddScoped<ISolver, BacktrackingSolver>()
                    .AddScoped<IFetcher, Fetcher>()
