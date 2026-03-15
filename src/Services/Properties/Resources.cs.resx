@@ -155,7 +155,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Pro implementaci '{0}' nebyl nalezen žádný souhrn manifestů.</value>
+    <value>Nebyl nalezen žádný souhrn manifestů pro implementaci '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">

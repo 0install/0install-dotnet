@@ -282,7 +282,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>Импорт набора приложений и настольных интеграций из существующего файла app-list.xml.</value>
+    <value>Импорт набора приложений и интеграций с рабочим столом из существующего файла app-list.xml.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
@@ -737,7 +737,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">
-    <value>Добавление рекомендованных стандартных точек доступа.</value>
+    <value>Добавление рекомендуемых стандартных точек доступа.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">

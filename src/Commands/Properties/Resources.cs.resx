@@ -294,7 +294,7 @@ Soubor musí mít důvěryhodný digitální podpis jako při stahování ze sí
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Je-li zadán URI, zobrazí se pouze aplikace s tímto URI kanálu. Je-li zadán VZOR, zobrazí se pouze aplikace obsahující tento řetězec v názvu (nerozlišuje velká a malá písmena).</value>
+    <value>Zobrazí seznam všech aplikací, které jsou aktuálně v seznamu aplikací. Pokud je zadán URI, zobrazí se pouze aplikace s tímto URI kanálu. Je-li zadán VZOR, zobrazí se pouze aplikace obsahující tento řetězec v názvu (nerozlišuje velká a malá písmena).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -357,7 +357,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>Zkopíruje implementaci do mezipaměti. Podobně jako '0install store add', ale z názvu adresáře se extrahuje digest.
+    <value>Zkopíruje implementaci do mezipaměti. Podobně jako '0install store add', ale digest se extrahuje z názvu adresáře.
 Další argumenty určují vlastní cílové umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -808,7 +808,7 @@ V off-line režimu se neobnovují žádná rozhraní, i když jsou zastaralá, a
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Po aktualizaci restartujte grafické rozhraní "0install central".</value>
+    <value>Po aktualizaci restartujte grafické uživatelské rozhraní "0install central".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">

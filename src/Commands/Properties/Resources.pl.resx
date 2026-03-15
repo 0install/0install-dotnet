@@ -260,7 +260,7 @@ Można z niej korzystać, uruchamiając plik ZeroInstall.exe znajdujący się w 
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Wyświetla lub zmienia ustawienia konfiguracyjne.
-Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem wyświetla bieżącą wartość nazwanego ustawienia. Po podaniu dwóch argumentów ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "{0}".</value>
+Bez argumentów wyświetla wszystkie ustawienia i ich bieżące wartości. Z jednym argumentem, wyświetla bieżącą wartość nazwanego ustawienia. Po podaniu dwóch argumentów ustawia ustawienie na podaną wartość lub przywraca wartość domyślną, jeśli podano wartość "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -378,7 +378,7 @@ Dodatkowe argumenty określają niestandardową docelową lokalizację pamięci 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
-    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Pokazuje skojarzenia z buforowanymi kanałami.</value>
+    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Wyświetla skojarzenia z buforowanymi kanałami.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
@@ -400,7 +400,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
-    <value>Serwuje implementacje z pamięci podręcznej jako archiwa przez HTTP.</value>
+    <value>Serwuje implementacje z pamięci podręcznej jako archiwa za pośrednictwem protokołu HTTP.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
@@ -689,7 +689,7 @@ Można to zrobić za pomocą "{0}". Będzie to całkowicie niezależne od kopii 
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>Zamiast wykonywać domyślne polecenie, należy użyć {COMMAND}. Prawidłowe nazwy poleceń są określone w kanale programu.
-Ustaw na puste (""), aby zignorować polecenie podczas wyboru.</value>
+Ustaw puste (""), aby zignorować polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -758,7 +758,7 @@ Można użyć tej opcji wielokrotnie, aby określić wiele akceptowanych język�
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Stosuje konfigurację dla całej maszyny (dla całego komputera) zamiast tylko dla bieżącego użytkownika.</value>
+    <value>Zastosowanie konfiguracji dla całej maszyny (dla całego komputera) zamiast tylko dla bieżącego użytkownika.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
