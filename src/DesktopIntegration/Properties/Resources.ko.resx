@@ -83,7 +83,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
-    <value>애플리케이션 목록에서 '{0}' 애플리케이션을 찾을 수 없습니다.</value>
+    <value>애플리케이션 목록에서 애플리케이션 '{0}' 을 찾을 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
@@ -125,7 +125,7 @@
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>현재 동기화 서버에 저장된 데이터가 손상되었습니다.
-문제 해결 마법사('동기화' 버튼을 마우스 오른쪽 버튼으로 클릭하여 실행)를 실행하거나 '0install sync --reset=서버'를 실행하여 서버에 저장된 데이터를 교체할 수 있습니다.</value>
+문제 해결 마법사('동기화' 버튼을 마우스 오른쪽 버튼으로 클릭하여 마법사로 이동)를 실행하거나 '0install sync --reset=서버'를 실행하여 서버에 저장된 데이터를 교체할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">

@@ -396,7 +396,7 @@ Argumentele suplimentare specifică locații cache personalizate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
-    <value>Îndepărtează un director din lista de cache-uri de implementare personalizate.</value>
+    <value>Înlătură un director din lista de cache-uri de implementare personalizate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
@@ -676,7 +676,7 @@ Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă d
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Necesită o versiune a programului principal anterioară {VERSION}. Adică, forțează utilizarea unei versiuni vechi a programului.</value>
+    <value>Necesită o versiune a programului principal mai veche decât {VERSION}. Adică, forțează utilizarea unei versiuni vechi a programului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -847,7 +847,7 @@ Un singur număr de versiune poate fi utilizat în locul unui interval pentru a 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Pentru orice bibliotecă sau subcomponentă cu adresa {0:URI} se specifică versiunea {1:RANGE} (ca pentru --version).</value>
+    <value>Pentru orice bibliotecă sau subcomponentă cu adresa {0:URI} specificată, se specifică versiunea {1:RANGE} (ca pentru --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">

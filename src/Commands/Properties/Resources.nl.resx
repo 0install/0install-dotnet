@@ -424,7 +424,7 @@ Extra argumenten specificeren aangepaste cache locaties.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Controleert of er updates voor het programma zijn en downloadt ze als ze worden gevonden.
+    <value>Controleert op updates voor het programma en downloadt ze als ze gevonden worden.
 Dit is vergelijkbaar met '0install download --refresh', behalve dat het informatie afdrukt over of er wijzigingen zijn gevonden.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -832,7 +832,7 @@ In offline modus worden geen interfaces ververst, zelfs als ze verouderd zijn, e
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Meer uitgebreide uitvoer. Twee keer gebruiken voor nog uitgebreidere uitvoer.</value>
+    <value>Meer uitgebreide uitvoer. Gebruik twee keer voor nog uitgebreidere uitvoer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">

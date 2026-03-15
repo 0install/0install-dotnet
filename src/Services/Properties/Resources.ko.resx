@@ -123,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>&lt;인터페이스&gt; URI 속성이 누락되었습니다. '{0}'여야 합니다.</value>
+    <value>&lt;인터페이스&gt; URL 속성이 누락되었습니다. '{0}'여야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">

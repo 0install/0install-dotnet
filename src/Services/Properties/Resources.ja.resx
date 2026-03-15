@@ -206,7 +206,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>作業ディレクトリに無効なパスが含まれています（潜在的なセキュリティリスク）。</value>
+    <value>作業ディレクトリには無効なパスが含まれています（潜在的なセキュリティリスク）。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
