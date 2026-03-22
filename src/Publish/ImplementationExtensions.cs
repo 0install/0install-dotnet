@@ -89,9 +89,43 @@ public static class ImplementationExtensions
 
     private static void SetDigest(this Implementation implementation, Action<IBuilder> build, ICommandExecutor executor)
     {
-        var builder = new ManifestBuilder(ManifestFormat.Sha256New);
-        build(builder);
-        var digest = new ManifestDigest(builder.Manifest.CalculateDigest());
+        ManifestDigest digest;
+        
+        // Check if specific formats are requested via empty strings
+        bool hasSpecificRequests = implementation.ManifestDigest.Sha1New == "" 
+                                 || implementation.ManifestDigest.Sha256 == "" 
+                                 || implementation.ManifestDigest.Sha256New == "";
+        
+        if (hasSpecificRequests)
+        {
+            // Calculate all requested formats
+            var result = implementation.ManifestDigest;
+            
+            foreach (var format in ManifestFormat.All)
+            {
+                if (RetrievalMethodExtensions.ShouldCalculateFormat(format, implementation.ManifestDigest))
+                {
+                    var builder = new ManifestBuilder(format);
+                    build(builder);
+                    string digestValue = builder.Manifest.CalculateDigest();
+                    
+                    // Parse and extract the hash value from the digest string
+                    var tempDigest = new ManifestDigest(digestValue);
+                    
+                    // Merge the calculated digest into the result
+                    result = RetrievalMethodExtensions.MergeDigest(result, format, tempDigest);
+                }
+            }
+            
+            digest = result;
+        }
+        else
+        {
+            // Default behavior: calculate only sha256new
+            var builder = new ManifestBuilder(ManifestFormat.Sha256New);
+            build(builder);
+            digest = new ManifestDigest(builder.Manifest.CalculateDigest());
+        }
 
         if (IsDigestMissing(implementation))
             executor.Execute(SetValueCommand.For(() => implementation.ManifestDigest, newValue: digest));
