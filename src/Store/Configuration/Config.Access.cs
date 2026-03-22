@@ -31,6 +31,7 @@ partial class Config
             throw new UnauthorizedAccessException(Resources.OptionLockedByPolicy);
 
         _metaData[key].Value = value;
+        _explicitlySetOptions.Add(key);
     }
 
     /// <summary>
@@ -40,7 +41,10 @@ partial class Config
     /// <exception cref="KeyNotFoundException"><paramref name="key"/> is invalid.</exception>
     [RequiresUnreferencedCode("Relies on [DefaultValue], which is not trim-safe.")]
     public void ResetOption(string key)
-        => SetOption(key, _metaData[key].DefaultValue);
+    {
+        _metaData[key].Value = _metaData[key].DefaultValue;
+        _explicitlySetOptions.Remove(key);
+    }
 
     /// <summary>
     /// Creates a deep copy of this <see cref="Config"/> instance.

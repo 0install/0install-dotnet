@@ -80,6 +80,13 @@ partial class Config
     private IniData? _lastIniFromFile;
 
     /// <summary>
+    /// Tracks which options have been explicitly set in the config file.
+    /// This allows overriding machine-wide config options back to their default values.
+    /// </summary>
+    [NonSerialized]
+    private readonly HashSet<string> _explicitlySetOptions = [];
+
+    /// <summary>
     /// Reads options from a config file and merges them into the config instance.
     /// </summary>
     /// <param name="path">The path of the file to read.</param>
@@ -142,6 +149,7 @@ partial class Config
                     property.Value = property.NeedsEncoding
                         ? global[effectiveKey].Base64Utf8Decode()
                         : global[effectiveKey];
+                    _explicitlySetOptions.Add(key);
                 }
                 #region Error handling
                 catch (FormatException ex)
@@ -276,7 +284,9 @@ partial class Config
                 ? key + Base64Suffix
                 : key;
 
-            if (property.IsDefaultValue)
+            // Save the property if it's not default OR if it was explicitly set in the config file
+            // This allows overriding machine-wide config options back to their default values
+            if (property.IsDefaultValue && !_explicitlySetOptions.Contains(key))
                 global.RemoveKey(effectiveKey);
             else
             {
