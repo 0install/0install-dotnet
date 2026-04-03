@@ -27,6 +27,9 @@ public class BacktrackingSolver(ISelectionCandidateProvider candidateProvider) :
     private class SolverRun(Requirements requirements, ISelectionCandidateProvider candidateProvider) : SolverRunBase(requirements, candidateProvider)
     {
         private int _backtrackCounter;
+        private readonly SolverDiagnostics _diagnostics = new();
+
+        public new Selections Solve() => Solve(_diagnostics);
 
         protected override bool TryFulfill(SolverDemand demand)
         {
@@ -45,13 +48,31 @@ public class BacktrackingSolver(ISelectionCandidateProvider candidateProvider) :
                 return true;
             }
 
+            // Track unsuitable candidates for diagnostics
+            foreach (var candidate in demand.Candidates.Where(c => !c.IsSuitable))
+                _diagnostics.AddRejection(demand.Requirements.InterfaceUri, candidate, candidate.Notes ?? "Unsuitable");
+
+            // Track incompatible candidates for diagnostics
+            foreach (var candidate in demand.Candidates.Where(c => c.IsSuitable && !candidates.Contains(c)))
+                _diagnostics.AddRejection(demand.Requirements.InterfaceUri, candidate, "Conflicts with existing selections");
+
             foreach (var selection in candidates.ToSelections(demand))
             {
                 Selections.Implementations.Add(selection);
                 if (TryFulfillAll(DemandsFor(selection, demand.Requirements))) return true;
-                else Selections.Implementations.RemoveLast();
+                else
+                {
+                    _diagnostics.AddRejection(demand.Requirements.InterfaceUri, 
+                        candidates.First(c => c.Implementation.ID == selection.ID), 
+                        "Dependencies could not be satisfied");
+                    Selections.Implementations.RemoveLast();
+                }
             }
+            
             if (demand.Importance == Importance.Recommended) return true; // Don't fail on unfulfillable non-essential dependencies, as long as they don't conflict with existing selections
+
+            if (candidates.Any() == false)
+                _diagnostics.AddNoCandidates(demand.Requirements.InterfaceUri, "No compatible candidates available");
 
             if (_backtrackCounter++ >= MaxBacktrackingSteps) throw new SolverException("Too much backtracking; dependency graph too complex.");
             return false;
