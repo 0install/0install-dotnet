@@ -49,6 +49,7 @@ public partial class SearchResult
     /// </summary>
     [Browsable(false)]
     [XmlElement("category")]
+    [OrderedEquality]
     public List<Category> Categories { get; } = [];
 
     /// <summary>Used for DataGrid rendering.</summary>
