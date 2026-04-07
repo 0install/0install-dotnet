@@ -29,7 +29,8 @@
       "matchPackagePatterns": ["^WixToolset"],
       "groupName": "Wix Toolset",
       "automerge": true,
-      "automergeType": "branch"
+      "automergeType": "branch",
+      "allowedVersions": "<7"
     },
     {
       "matchPackagePatterns": ["docfx", "SourceLink"],
