@@ -26,7 +26,7 @@ public enum Importance
 [Serializable, XmlRoot("requires", Namespace = Feed.XmlNamespace), XmlType("dependency", Namespace = Feed.XmlNamespace)]
 [Equatable]
 [FastClonerClonable]
-public partial class Dependency : Restriction, IInterfaceUriBindingContainer
+public partial class Dependency : Restriction, IInterfaceUriBindingContainer, ICloneable<Dependency>
 {
     /// <summary>
     /// Controls how important this dependency is (i.e. whether ignoring it is an option).
@@ -96,5 +96,7 @@ public partial class Dependency : Restriction, IInterfaceUriBindingContainer
     /// </summary>
     /// <returns>The new copy of the <see cref="Dependency"/>.</returns>
     public override Restriction Clone() => this.FastDeepClone();
+
+    Dependency ICloneable<Dependency>.Clone() => this.FastDeepClone();
     #endregion
 }

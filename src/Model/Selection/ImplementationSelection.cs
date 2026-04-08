@@ -12,7 +12,7 @@ namespace ZeroInstall.Model.Selection;
 [SuppressMessage("Microsoft.Design", "CA1036:OverrideMethodsOnComparableTypes", Justification = "IComparable is only used for deterministic ordering")]
 [Equatable]
 [FastClonerClonable]
-public sealed partial class ImplementationSelection : ImplementationBase, IInterfaceUriBindingContainer, IComparable<ImplementationSelection>
+public sealed partial class ImplementationSelection : ImplementationBase, IInterfaceUriBindingContainer, ICloneable<ImplementationSelection>, IComparable<ImplementationSelection>
 {
     /// <summary>
     /// The URI or local path of the interface this implementation is for.
@@ -98,6 +98,8 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
     /// </summary>
     /// <returns>The new copy of the <see cref="ImplementationSelection"/>.</returns>
     public override Element Clone() => this.FastDeepClone();
+
+    ImplementationSelection ICloneable<ImplementationSelection>.Clone() => this.FastDeepClone();
     #endregion
 
     #region Comparison
