@@ -393,27 +393,8 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
     /// Creates a deep copy of this <see cref="Feed"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Feed"/>.</returns>
-    public Feed Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        MinInjectorVersion = MinInjectorVersion,
-        Uri = Uri,
-        Name = Name,
-        Publisher = Publisher,
-        Homepage = Homepage,
-        NeedsTerminal = NeedsTerminal,
-        Feeds = {Feeds.CloneElements()},
-        FeedFor = {FeedFor.CloneElements()},
-        Summaries = {Summaries.CloneElements()},
-        Descriptions = {Descriptions.CloneElements()},
-        Categories = {Categories.CloneElements()},
-        Icons = {Icons.CloneElements()},
-        SplashScreens = {SplashScreens.CloneElements()},
-        Elements = {Elements.CloneElements()},
-        EntryPoints = {EntryPoints.CloneElements()},
-        CapabilityLists = {CapabilityLists.CloneElements()},
-    };
+    public Feed Clone() => (Feed)FastCloner.FastCloner.DeepClone(this)!;
+
     #endregion
 
     #region Conversion

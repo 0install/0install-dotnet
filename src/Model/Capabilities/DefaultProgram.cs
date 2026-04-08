@@ -98,17 +98,7 @@ public sealed partial class DefaultProgram : VerbCapability
 
     #region Clone
     /// <inheritdoc/>
-    public override Capability Clone() => new DefaultProgram
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        ExplicitOnly = ExplicitOnly,
-        Service = Service,
-        InstallCommands = InstallCommands,
-        Descriptions = {Descriptions.CloneElements()},
-        Icons = {Icons.CloneElements()},
-        Verbs = {Verbs.CloneElements()}
-    };
+    public override Capability Clone() => (DefaultProgram)FastCloner.FastCloner.DeepClone(this)!;
+
     #endregion
 }

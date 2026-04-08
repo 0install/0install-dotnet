@@ -14,6 +14,7 @@ All Dependencies and Bindings are inherited (sub-groups may add more Dependencie
 """)]
 [Serializable, XmlRoot("group", Namespace = Feed.XmlNamespace), XmlType("group", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class Group : Element, IElementContainer
 {
     /// <summary>
@@ -57,15 +58,7 @@ public sealed partial class Group : Element, IElementContainer
     /// Creates a deep copy of this <see cref="Group"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Group"/>.</returns>
-    public Group CloneGroup()
-    {
-        var group = new Group();
-        CloneFromTo(this, group);
-        foreach (var element in Elements)
-            group.Elements.Add(element.Clone());
-
-        return group;
-    }
+    public Group CloneGroup() => this.FastDeepClone();
 
     /// <inheritdoc/>
     public override Element Clone() => CloneGroup();

@@ -11,6 +11,7 @@ namespace ZeroInstall.Model;
 [Description("A reference to an interface URI, e.g. for specifying which interface this feed implements or by which interface it is replaced.")]
 [Serializable, XmlRoot("feed-for", Namespace = Feed.XmlNamespace), XmlType("feed-for", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class InterfaceReference : FeedElement, ICloneable<InterfaceReference>
 {
     /// <summary>
@@ -50,6 +51,6 @@ public sealed partial class InterfaceReference : FeedElement, ICloneable<Interfa
     /// Creates a deep copy of this <see cref="InterfaceReference"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="InterfaceReference"/>.</returns>
-    public InterfaceReference Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Target = Target};
+    public InterfaceReference Clone() => this.FastDeepClone();
     #endregion
 }

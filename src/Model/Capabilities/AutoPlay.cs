@@ -59,18 +59,7 @@ public sealed partial class AutoPlay : IconCapability
 
     #region Clone
     /// <inheritdoc/>
-    public override Capability Clone() => new AutoPlay
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        ExplicitOnly = ExplicitOnly,
-        Provider = Provider,
-        // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-        Verb = Verb?.Clone()!,
-        Icons = {Icons.CloneElements()},
-        Descriptions = {Descriptions.CloneElements()},
-        Events = {Events.CloneElements()}
-    };
+    public override Capability Clone() => (AutoPlay)FastCloner.FastCloner.DeepClone(this)!;
+
     #endregion
 }

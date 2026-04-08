@@ -10,6 +10,7 @@ namespace ZeroInstall.Model;
 /// </summary>
 [TypeConverter(typeof(ArgBaseConverter))]
 [XmlType("arg-base", Namespace = Feed.XmlNamespace)]
+[FastClonerClonable]
 public abstract class ArgBase : FeedElement, ICloneable<ArgBase>
 {
     /// <summary>

@@ -42,23 +42,4 @@ public abstract partial class TargetBase : FeedElement
     [XmlAttribute("arch"), DefaultValue("*-*")]
     public string ArchitectureString { get => Architecture.ToString(); set => Architecture = new(value); }
     #endregion
-
-    #region Clone
-    /// <summary>
-    /// Copies all known values from one instance to another. Helper method for instance cloning.
-    /// </summary>
-    protected static void CloneFromTo(TargetBase from, TargetBase to)
-    {
-        #region Sanity checks
-        if (from == null) throw new ArgumentNullException(nameof(from));
-        if (to == null) throw new ArgumentNullException(nameof(to));
-        #endregion
-
-        to.UnknownElements = from.UnknownElements;
-        to.UnknownAttributes = from.UnknownAttributes;
-        to.Languages.Clear();
-        to.Languages = new(from.Languages);
-        to.Architecture = from.Architecture;
-    }
-    #endregion
 }

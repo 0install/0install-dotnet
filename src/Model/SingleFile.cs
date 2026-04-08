@@ -9,6 +9,7 @@ namespace ZeroInstall.Model;
 [Description("Retrieves an implementation by downloading a single file.")]
 [Serializable, XmlRoot("file", Namespace = Feed.XmlNamespace), XmlType("file", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class SingleFile : DownloadRetrievalMethod
 {
     /// <summary>
@@ -47,6 +48,6 @@ public sealed partial class SingleFile : DownloadRetrievalMethod
     /// Creates a deep copy of this <see cref="SingleFile"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="SingleFile"/>.</returns>
-    public override RetrievalMethod Clone() => new SingleFile {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Href = Href, Size = Size, Destination = Destination, Executable = Executable};
+    public override RetrievalMethod Clone() => this.FastDeepClone();
     #endregion
 }

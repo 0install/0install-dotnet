@@ -10,6 +10,7 @@ namespace ZeroInstall.Model.Capabilities;
 [Description("Names a well-known protocol prefix. Used for protocols that are shared across many applications (e.g. HTTP, FTP) but not for application-specific protocols.")]
 [Serializable, XmlRoot("known-prefix", Namespace = CapabilityList.XmlNamespace), XmlType("known-prefix", Namespace = CapabilityList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class KnownProtocolPrefix : XmlUnknown, ICloneable<KnownProtocolPrefix>
 {
     /// <summary>
@@ -41,6 +42,6 @@ public partial class KnownProtocolPrefix : XmlUnknown, ICloneable<KnownProtocolP
     /// Creates a deep copy of this <see cref="KnownProtocolPrefix"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="KnownProtocolPrefix"/>.</returns>
-    public KnownProtocolPrefix Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Value = Value};
+    public KnownProtocolPrefix Clone() => this.FastDeepClone();
     #endregion
 }

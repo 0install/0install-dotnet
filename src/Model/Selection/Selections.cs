@@ -11,6 +11,7 @@ namespace ZeroInstall.Model.Selection;
 /// </remarks>
 [Serializable, XmlRoot("selections", Namespace = Feed.XmlNamespace), XmlType("selections", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<Selections>
 {
     /// <summary>
@@ -140,15 +141,8 @@ public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<S
     /// Creates a deep copy of this <see cref="Selections"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Selections"/>.</returns>
-    public Selections Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        InterfaceUri = InterfaceUri,
-        Name = Name,
-        Command = Command,
-        Implementations = {Implementations.CloneElements()}
-    };
+    public Selections Clone() => this.FastDeepClone();
+
     #endregion
 
     #region Conversion

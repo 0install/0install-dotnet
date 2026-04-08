@@ -10,6 +10,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class AppAlias : CommandAccessPoint
 {
     public const string TagName = "alias", AltName = "aliases";
@@ -49,6 +50,6 @@ public partial class AppAlias : CommandAccessPoint
 
     #region Clone
     /// <inheritdoc/>
-    public override AccessPoint Clone() => new AppAlias {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
+    public override AccessPoint Clone() => this.FastDeepClone();
     #endregion
 }

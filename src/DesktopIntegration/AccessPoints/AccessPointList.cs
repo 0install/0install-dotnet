@@ -8,6 +8,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 [Serializable, XmlRoot("access-points", Namespace = AppList.XmlNamespace), XmlType("access-points", Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class AccessPointList : XmlUnknown, ICloneable<AccessPointList>
 {
     /// <summary>
@@ -23,12 +24,8 @@ public sealed partial class AccessPointList : XmlUnknown, ICloneable<AccessPoint
     /// Creates a deep copy of this <see cref="AccessPointList"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="AccessPointList"/>.</returns>
-    public AccessPointList Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        Entries = {Entries.CloneElements()}
-    };
+    public AccessPointList Clone() => this.FastDeepClone();
+
     #endregion
 
     #region Conversion

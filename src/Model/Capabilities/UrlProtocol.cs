@@ -42,16 +42,7 @@ public sealed partial class UrlProtocol : VerbCapability
 
     #region Clone
     /// <inheritdoc/>
-    public override Capability Clone() => new UrlProtocol
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        ExplicitOnly = ExplicitOnly,
-        Icons = {Icons.CloneElements()},
-        Descriptions = {Descriptions.CloneElements()},
-        Verbs = {Verbs.CloneElements()},
-        KnownPrefixes = {KnownPrefixes.CloneElements()}
-    };
+    public override Capability Clone() => (UrlProtocol)FastCloner.FastCloner.DeepClone(this)!;
+
     #endregion
 }

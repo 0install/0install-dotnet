@@ -9,6 +9,7 @@ namespace ZeroInstall.Model;
 [Description("Restricts the set of versions from which the injector may choose an implementation.")]
 [Serializable, XmlRoot("constraint", Namespace = Feed.XmlNamespace), XmlType("constraint", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class Constraint : FeedElement, ICloneable<Constraint>
 {
     /// <summary>
@@ -49,6 +50,6 @@ public partial class Constraint : FeedElement, ICloneable<Constraint>
     /// Creates a copy of this <see cref="Constraint"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Constraint"/>.</returns>
-    public Constraint Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, NotBefore = NotBefore, Before = Before};
+    public Constraint Clone() => this.FastDeepClone();
     #endregion
 }

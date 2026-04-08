@@ -21,7 +21,11 @@ public class DomainSet : SortedSet<Domain>
         : base(new DomainComparer())
     {}
 
-    public Domain this[int index] => this.Skip(index).First();
+    public DomainSet(int capacity)
+        : base(new DomainComparer())
+    {}
+
+    public Domain this[int index]=> this.Skip(index).First();
 
 #if !NET
     protected DomainSet(SerializationInfo info, StreamingContext context)

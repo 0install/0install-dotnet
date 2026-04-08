@@ -7,6 +7,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// An access point represents changes to the desktop environment's UI which the user explicitly requested.
 /// </summary>
 [XmlType("access-point", Namespace = AppList.XmlNamespace)]
+[FastClonerClonable]
 public abstract class AccessPoint : XmlUnknown, ICloneable<AccessPoint>
 {
     /// <summary>

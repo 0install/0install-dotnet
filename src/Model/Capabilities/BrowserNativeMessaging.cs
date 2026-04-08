@@ -100,14 +100,6 @@ public sealed partial class BrowserNativeMessaging : Capability
         => $"{Name} => {Command}";
 
     /// <inheritdoc/>
-    public override Capability Clone() => new BrowserNativeMessaging
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        Browsers = {Browsers},
-        Name = Name,
-        BrowserExtensions = {BrowserExtensions.CloneElements()},
-        Command = Command
-    };
+    public override Capability Clone() => (BrowserNativeMessaging)FastCloner.FastCloner.DeepClone(this)!;
+
 }

@@ -8,6 +8,7 @@ namespace ZeroInstall.Model.Preferences;
 /// </summary>
 [XmlRoot("feed-preferences", Namespace = Feed.XmlNamespace), XmlType("feed-preferences", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPreferences>
 {
     /// <summary>
@@ -160,13 +161,8 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
     /// Creates a deep copy of this <see cref="FeedPreferences"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="FeedPreferences"/>.</returns>
-    public FeedPreferences Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        LastChecked = LastChecked,
-        Implementations = {Implementations.CloneElements()}
-    };
+    public FeedPreferences Clone() => this.FastDeepClone();
+
     #endregion
 
     #region Conversion

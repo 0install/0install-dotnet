@@ -11,6 +11,7 @@ namespace ZeroInstall.Model;
 [Description("Restricts the versions of an Implementation that are allowed without creating a dependency on the implementation if its was not already chosen.")]
 [Serializable, XmlRoot("restricts", Namespace = Feed.XmlNamespace), XmlType("restriction", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restriction>
 {
     /// <summary>
@@ -148,13 +149,7 @@ public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restri
     /// Creates a deep copy of this <see cref="Restriction"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Restriction"/>.</returns>
-    public virtual Restriction Clone() => new()
-    {
-        InterfaceUri = InterfaceUri,
-        OS = OS,
-        Versions = Versions,
-        Constraints = {Constraints.CloneElements()},
-        Distributions = {Distributions}
-    };
+    public virtual Restriction Clone() => this.FastDeepClone();
+
     #endregion
 }

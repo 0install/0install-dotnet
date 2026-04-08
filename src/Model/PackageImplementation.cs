@@ -12,6 +12,7 @@ namespace ZeroInstall.Model;
 [Description("An implementation provided by a distribution-specific package manager instead of Zero Install.")]
 [Serializable, XmlRoot("package-implementation", Namespace = Feed.XmlNamespace), XmlType("package-implementation", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class PackageImplementation : Element
 {
     /// <summary>
@@ -116,17 +117,7 @@ public sealed partial class PackageImplementation : Element
     /// Creates a deep copy of this <see cref="PackageImplementation"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="PackageImplementation"/>.</returns>
-    public PackageImplementation CloneImplementation()
-    {
-        var implementation = new PackageImplementation
-        {
-            Package = Package,
-            Version = Version,
-            Distributions = {Distributions}
-        };
-        CloneFromTo(this, implementation);
-        return implementation;
-    }
+    public PackageImplementation CloneImplementation() => this.FastDeepClone();
 
     /// <summary>
     /// Creates a deep copy of this <see cref="PackageImplementation"/> instance.

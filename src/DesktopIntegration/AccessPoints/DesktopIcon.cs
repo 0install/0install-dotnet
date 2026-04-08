@@ -10,6 +10,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class DesktopIcon : IconAccessPoint
 {
     public const string TagName = "desktop-icon", AltName = "desktop";
@@ -49,6 +50,6 @@ public partial class DesktopIcon : IconAccessPoint
 
     #region Clone
     /// <inheritdoc/>
-    public override AccessPoint Clone() => new DesktopIcon {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
+    public override AccessPoint Clone() => this.FastDeepClone();
     #endregion
 }

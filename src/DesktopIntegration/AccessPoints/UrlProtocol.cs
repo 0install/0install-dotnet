@@ -11,6 +11,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// <seealso cref="Model.Capabilities.UrlProtocol"/>
 [XmlType("url-protocol", Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class UrlProtocol : DefaultAccessPoint
 {
     /// <inheritdoc/>
@@ -59,6 +60,6 @@ public partial class UrlProtocol : DefaultAccessPoint
 
     #region Clone
     /// <inheritdoc/>
-    public override AccessPoint Clone() => new UrlProtocol {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Capability = Capability};
+    public override AccessPoint Clone() => this.FastDeepClone();
     #endregion
 }

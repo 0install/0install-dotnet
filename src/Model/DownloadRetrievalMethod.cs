@@ -10,6 +10,7 @@ namespace ZeroInstall.Model;
 /// </summary>
 [XmlType("download-retrieval-method", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public abstract partial class DownloadRetrievalMethod : RetrievalMethod, IRecipeStep
 {
     /// <summary>

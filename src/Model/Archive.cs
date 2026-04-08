@@ -11,6 +11,7 @@ namespace ZeroInstall.Model;
 [Description("Retrieves an implementation by downloading and extracting an archive.")]
 [Serializable, XmlRoot("archive", Namespace = Feed.XmlNamespace), XmlType("archive", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class Archive : DownloadRetrievalMethod
 {
     #region Constants
@@ -153,6 +154,6 @@ public sealed partial class Archive : DownloadRetrievalMethod
     /// Creates a deep copy of this <see cref="Archive"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Archive"/>.</returns>
-    public override RetrievalMethod Clone() => new Archive {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Href = Href, Size = Size, MimeType = MimeType, StartOffset = StartOffset, Extract = Extract, Destination = Destination};
+    public override RetrievalMethod Clone() => this.FastDeepClone();
     #endregion
 }

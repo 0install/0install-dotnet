@@ -8,6 +8,7 @@ namespace ZeroInstall.Model.Preferences;
 /// </summary>
 [XmlRoot("interface-preferences", Namespace = Feed.XmlNamespace), XmlType("interface-preferences", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<InterfacePreferences>
 {
     /// <summary>
@@ -116,14 +117,8 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
     /// Creates a deep copy of this <see cref="InterfacePreferences"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="InterfacePreferences"/>.</returns>
-    public InterfacePreferences Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        Uri = Uri,
-        StabilityPolicy = StabilityPolicy,
-        Feeds = {Feeds.CloneElements()}
-    };
+    public InterfacePreferences Clone() => this.FastDeepClone();
+
     #endregion
 
     #region Conversion

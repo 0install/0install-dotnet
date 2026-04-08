@@ -42,16 +42,7 @@ public sealed partial class FileType : VerbCapability
 
     #region Clone
     /// <inheritdoc/>
-    public override Capability Clone() => new FileType
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        ExplicitOnly = ExplicitOnly,
-        Descriptions = {Descriptions.CloneElements()},
-        Icons = {Icons.CloneElements()},
-        Verbs = {Verbs.CloneElements()},
-        Extensions = {Extensions.CloneElements()}
-    };
+    public override Capability Clone() => (FileType)FastCloner.FastCloner.DeepClone(this)!;
+
     #endregion
 }

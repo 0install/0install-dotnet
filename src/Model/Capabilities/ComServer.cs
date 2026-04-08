@@ -24,6 +24,6 @@ public sealed partial class ComServer : Capability
 
     #region Clone
     /// <inheritdoc/>
-    public override Capability Clone() => new ComServer {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID};
+    public override Capability Clone() => (ComServer)FastCloner.FastCloner.DeepClone(this)!;
     #endregion
 }

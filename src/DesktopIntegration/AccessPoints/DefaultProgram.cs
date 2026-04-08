@@ -11,6 +11,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// <seealso cref="Model.Capabilities.DefaultProgram"/>
 [XmlType("default-program", Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class DefaultProgram : DefaultAccessPoint
 {
     /// <inheritdoc/>
@@ -59,6 +60,6 @@ public partial class DefaultProgram : DefaultAccessPoint
 
     #region Clone
     /// <inheritdoc/>
-    public override AccessPoint Clone() => new DefaultProgram {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Capability = Capability};
+    public override AccessPoint Clone() => this.FastDeepClone();
     #endregion
 }

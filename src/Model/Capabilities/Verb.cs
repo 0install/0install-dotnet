@@ -129,17 +129,6 @@ public sealed partial class Verb : XmlUnknown, IDescriptionContainer, ICloneable
     /// Creates a deep copy of this <see cref="Verb"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Verb"/>.</returns>
-    public Verb Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        Name = Name,
-        Command = Command,
-        ArgumentsLiteral = ArgumentsLiteral,
-        SingleElementOnly = SingleElementOnly,
-        Extended = Extended,
-        Descriptions = {Descriptions.CloneElements()},
-        Arguments = {Arguments.CloneElements()}
-    };
+    public Verb Clone() => (Verb)FastCloner.FastCloner.DeepClone(this)!;
     #endregion
 }

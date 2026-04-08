@@ -9,6 +9,7 @@ namespace ZeroInstall.Model;
 [Description("Removes or moves a file or directory. It is an error if the path is outside the implementation.")]
 [Serializable, XmlRoot("remove", Namespace = Feed.XmlNamespace), XmlType("remove", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class RemoveStep : FeedElement, IRecipeStep
 {
     /// <summary>
@@ -37,6 +38,6 @@ public sealed partial class RemoveStep : FeedElement, IRecipeStep
     /// Creates a deep copy of this <see cref="RemoveStep"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="RemoveStep"/>.</returns>
-    public IRecipeStep Clone() => new RemoveStep {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Path = Path};
+    public IRecipeStep Clone() => this.FastDeepClone();
     #endregion
 }

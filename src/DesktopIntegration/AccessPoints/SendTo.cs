@@ -10,6 +10,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class SendTo : IconAccessPoint
 {
     public const string TagName = "send-to";
@@ -45,6 +46,6 @@ public partial class SendTo : IconAccessPoint
 
     #region Clone
     /// <inheritdoc/>
-    public override AccessPoint Clone() => new SendTo {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
+    public override AccessPoint Clone() => this.FastDeepClone();
     #endregion
 }

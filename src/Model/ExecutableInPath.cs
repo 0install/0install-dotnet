@@ -9,6 +9,7 @@ namespace ZeroInstall.Model;
 [Description("Make a chosen implementation available as an executable in the search PATH.")]
 [Serializable, XmlRoot("executable-in-path", Namespace = Feed.XmlNamespace), XmlType("executable-in-path", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class ExecutableInPath : ExecutableInBinding
 {
     /// <summary>
@@ -36,6 +37,6 @@ public sealed partial class ExecutableInPath : ExecutableInBinding
     /// Creates a deep copy of this <see cref="ExecutableInPath"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="ExecutableInPath"/>.</returns>
-    public override Binding Clone() => new ExecutableInPath {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Name = Name, Command = Command};
+    public override Binding Clone() => this.FastDeepClone();
     #endregion
 }

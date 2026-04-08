@@ -9,6 +9,7 @@ namespace ZeroInstall.Model;
 [Description("Copies files or directories from another implementation specified elsewhere in the same feed.")]
 [Serializable, XmlRoot("copy-from", Namespace = Feed.XmlNamespace), XmlType("copy-from", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class CopyFromStep : FeedElement, IRecipeStep
 {
     /// <summary>
@@ -56,6 +57,6 @@ public sealed partial class CopyFromStep : FeedElement, IRecipeStep
     /// </summary>
     /// <returns>The new copy of the <see cref="CopyFromStep"/>.</returns>
     // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-    public IRecipeStep Clone() => new CopyFromStep {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, ID = ID, Implementation = Implementation?.CloneImplementation(), Source = Source, Destination = Destination};
+    public IRecipeStep Clone() => this.FastDeepClone();
     #endregion
 }

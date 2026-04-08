@@ -14,6 +14,7 @@ Useful for supporting legacy Windows applications which do not properly locate t
 """)]
 [Serializable, XmlRoot("working-dir", Namespace = Feed.XmlNamespace), XmlType("working-dir", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class WorkingDir : FeedElement, ICloneable<WorkingDir>
 {
     /// <summary>
@@ -35,6 +36,6 @@ public sealed partial class WorkingDir : FeedElement, ICloneable<WorkingDir>
     /// Creates a deep copy of this <see cref="WorkingDir"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="WorkingDir"/>.</returns>
-    public WorkingDir Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Source = Source};
+    public WorkingDir Clone() => this.FastDeepClone();
     #endregion
 }

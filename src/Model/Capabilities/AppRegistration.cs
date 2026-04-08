@@ -49,6 +49,6 @@ public sealed partial class AppRegistration : Capability
 
     #region Clone
     /// <inheritdoc/>
-    public override Capability Clone() => new AppRegistration {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, CapabilityRegPath = CapabilityRegPath};
+    public override Capability Clone() => (AppRegistration)FastCloner.FastCloner.DeepClone(this)!;
     #endregion
 }

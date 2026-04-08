@@ -11,7 +11,8 @@ namespace ZeroInstall.Model.Selection;
 [XmlType("selection", Namespace = Feed.XmlNamespace)]
 [SuppressMessage("Microsoft.Design", "CA1036:OverrideMethodsOnComparableTypes", Justification = "IComparable is only used for deterministic ordering")]
 [Equatable]
-public sealed partial class ImplementationSelection : ImplementationBase, IInterfaceUriBindingContainer, ICloneable<ImplementationSelection>, IComparable<ImplementationSelection>
+[FastClonerClonable]
+public sealed partial class ImplementationSelection : ImplementationBase, IInterfaceUriBindingContainer, IComparable<ImplementationSelection>
 {
     /// <summary>
     /// The URI or local path of the interface this implementation is for.
@@ -93,28 +94,10 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
 
     #region Clone
     /// <summary>
-    /// Creates a deep copy of this <see cref="ImplementationSelection"/>
-    /// </summary>
-    /// <returns>The cloned <see cref="ImplementationSelection"/>.</returns>
-    ImplementationSelection ICloneable<ImplementationSelection>.Clone()
-    {
-        var implementation = new ImplementationSelection
-        {
-            InterfaceUri = InterfaceUri,
-            FromFeed = FromFeed,
-            ID = ID,
-            Version = Version,
-            QuickTestFile = QuickTestFile
-        };
-        CloneFromTo(this, implementation);
-        return implementation;
-    }
-
-    /// <summary>
     /// Creates a deep copy of this <see cref="ImplementationSelection"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="ImplementationSelection"/>.</returns>
-    public override Element Clone() => ((ICloneable<ImplementationSelection>)this).Clone();
+    public override Element Clone() => this.FastDeepClone();
     #endregion
 
     #region Comparison

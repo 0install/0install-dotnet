@@ -11,6 +11,7 @@ namespace ZeroInstall.Model.Capabilities;
 [Description("A specific file extension used to identify a file type.")]
 [Serializable, XmlRoot("extension", Namespace = CapabilityList.XmlNamespace), XmlType("extension", Namespace = CapabilityList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtension>
 {
     #region Constants
@@ -72,6 +73,6 @@ public partial class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtensio
     /// Creates a deep copy of this <see cref="FileTypeExtension"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="FileTypeExtension"/>.</returns>
-    public FileTypeExtension Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Value = Value, MimeType = MimeType, PerceivedType = PerceivedType};
+    public FileTypeExtension Clone() => this.FastDeepClone();
     #endregion
 }

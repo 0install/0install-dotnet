@@ -14,6 +14,7 @@ namespace ZeroInstall.Model;
 [Description("An icon representing the application. Used in the Catalog GUI as well as for desktop icons, menu entries, etc..")]
 [Serializable, XmlRoot("icon", Namespace = Feed.XmlNamespace), XmlType("icon", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class Icon : FeedElement, ICloneable<Icon>
 {
     #region Constants
@@ -89,7 +90,7 @@ public partial class Icon : FeedElement, ICloneable<Icon>
     /// Creates a deep copy of this <see cref="Icon"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Icon"/>.</returns>
-    public Icon Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Href = Href, MimeType = MimeType};
+    public Icon Clone() => this.FastDeepClone();
     #endregion
 }
 

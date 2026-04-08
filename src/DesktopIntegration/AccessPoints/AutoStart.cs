@@ -10,6 +10,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class AutoStart : CommandAccessPoint
 {
     public const string TagName = "auto-start";
@@ -45,6 +46,6 @@ public partial class AutoStart : CommandAccessPoint
 
     #region Clone
     /// <inheritdoc/>
-    public override AccessPoint Clone() => new AutoStart {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
+    public override AccessPoint Clone() => this.FastDeepClone();
     #endregion
 }

@@ -11,6 +11,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// <seealso cref="Model.Capabilities.ContextMenu"/>
 [XmlType("context-menu", Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class ContextMenu : DefaultAccessPoint
 {
     /// <inheritdoc/>
@@ -61,6 +62,6 @@ public partial class ContextMenu : DefaultAccessPoint
 
     #region Clone
     /// <inheritdoc/>
-    public override AccessPoint Clone() => new ContextMenu {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Capability = Capability};
+    public override AccessPoint Clone() => this.FastDeepClone();
     #endregion
 }

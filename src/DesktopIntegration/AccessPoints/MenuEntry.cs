@@ -10,6 +10,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class MenuEntry : IconAccessPoint
 {
     public const string TagName = "menu-entry", AltName = "menu";
@@ -56,6 +57,6 @@ public partial class MenuEntry : IconAccessPoint
 
     #region Clone
     /// <inheritdoc/>
-    public override AccessPoint Clone() => new MenuEntry {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command, Category = Category};
+    public override AccessPoint Clone() => this.FastDeepClone();
     #endregion
 }

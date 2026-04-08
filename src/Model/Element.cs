@@ -51,6 +51,7 @@ public enum Stability
 /// </summary>
 [XmlType("element", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public abstract partial class Element : TargetBase, IBindingContainer, IDependencyContainer, ICloneable<Element>
 {
     #region Constants
@@ -92,7 +93,7 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
     /// <summary>
     /// Used to store the unparsed release date string (instead of <see cref="Released"/>) if it <see cref="ModelUtils.ContainsTemplateVariables"/>.
     /// </summary>
-    protected string? ReleasedVerbatim;
+    internal string? ReleasedVerbatim;
 
     /// <summary>
     /// The string form of <see cref="Released"/>. Only use this if the string <see cref="ModelUtils.ContainsTemplateVariables"/>.
@@ -341,31 +342,5 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
     /// <returns>The new copy of the <see cref="Element"/>.</returns>
     public abstract Element Clone();
 
-    /// <summary>
-    /// Copies all known values from one instance to another. Helper method for instance cloning.
-    /// </summary>
-    protected static void CloneFromTo(Element from, Element to)
-    {
-        #region Sanity checks
-        if (from == null) throw new ArgumentNullException(nameof(from));
-        if (to == null) throw new ArgumentNullException(nameof(to));
-        #endregion
-
-        TargetBase.CloneFromTo(from, to);
-        to.Version = from.Version;
-        to.VersionModifier = from.VersionModifier;
-        to.Released = from.Released;
-        to.ReleasedVerbatim = from.ReleasedVerbatim;
-        to.Stability = from.Stability;
-        to.RolloutPercentage = from.RolloutPercentage;
-        to.License = from.License;
-        to.Main = from.Main;
-        to.SelfTest = from.SelfTest;
-        to.DocDir = from.DocDir;
-        to.Commands.Add(from.Commands.CloneElements());
-        to.Dependencies.Add(from.Dependencies.CloneElements());
-        to.Restrictions.Add(from.Restrictions.CloneElements());
-        to.Bindings.Add(from.Bindings.CloneElements());
-    }
     #endregion
 }

@@ -13,6 +13,7 @@ The variable specified in ItemFrom is split using Separator and the arguments ar
 """)]
 [Serializable, XmlRoot("for-each", Namespace = Feed.XmlNamespace), XmlType("for-each", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class ForEachArgs : ArgBase
 {
     /// <summary>
@@ -55,12 +56,8 @@ public partial class ForEachArgs : ArgBase
     /// Creates a deep copy of this <see cref="ForEachArgs"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="ForEachArgs"/>.</returns>
-    private ForEachArgs CloneForEachArgs() => new()
-    {
-        ItemFrom = ItemFrom,
-        Separator = Separator,
-        Arguments = {Arguments.CloneElements()}
-    };
+    private ForEachArgs CloneForEachArgs() => this.FastDeepClone();
+
 
     /// <summary>
     /// Creates a deep copy of this <see cref="ForEachArgs"/> instance.

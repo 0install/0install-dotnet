@@ -11,6 +11,7 @@ namespace ZeroInstall.Model;
 /// or in <see cref="Element"/>, where they tell a component how to find itself.
 /// </remarks>
 [XmlType("binding-base", Namespace = Feed.XmlNamespace)]
+[FastClonerClonable]
 public abstract class Binding : FeedElement, ICloneable<Binding>
 {
     /// <summary>

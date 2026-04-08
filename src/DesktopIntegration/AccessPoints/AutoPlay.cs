@@ -11,6 +11,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// <seealso cref="Model.Capabilities.AutoPlay"/>
 [XmlType("auto-play", Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class AutoPlay : DefaultAccessPoint
 {
     /// <inheritdoc/>
@@ -57,6 +58,6 @@ public partial class AutoPlay : DefaultAccessPoint
 
     #region Clone
     /// <inheritdoc/>
-    public override AccessPoint Clone() => new AutoPlay {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Capability = Capability};
+    public override AccessPoint Clone() => this.FastDeepClone();
     #endregion
 }

@@ -34,5 +34,5 @@ public partial class BrowserExtension : XmlUnknown, ICloneable<BrowserExtension>
     /// <summary>
     /// Creates a deep copy of this <see cref="BrowserExtension"/> instance.
     /// </summary>
-    public BrowserExtension Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID};
+    public BrowserExtension Clone() => (BrowserExtension)FastCloner.FastCloner.DeepClone(this)!;
 }

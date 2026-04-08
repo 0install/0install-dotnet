@@ -33,7 +33,7 @@ public abstract partial class ImplementationBase : Element
     public override required ImplementationVersion Version { get; set; }
 #pragma warning restore 8765
 
-    private ManifestDigest _manifestDigest;
+    internal ManifestDigest _manifestDigest;
 
     /// <summary>
     /// A manifest digest is a means of uniquely identifying an <see cref="Implementation"/> and verifying its contents.
@@ -90,17 +90,6 @@ public abstract partial class ImplementationBase : Element
     }
     #endregion
 
-    #region Clone
-    /// <summary>
-    /// Copies all known values from one instance to another. Helper method for instance cloning.
-    /// </summary>
-    protected static void CloneFromTo(ImplementationBase from, ImplementationBase to)
-    {
-        Element.CloneFromTo(from ?? throw new ArgumentNullException(nameof(from)), to ?? throw new ArgumentNullException(nameof(to)));
-        to.LocalPath = from.LocalPath;
-        to.ManifestDigest = from.ManifestDigest;
-    }
-    #endregion
 
     #region Conversion
     /// <summary>

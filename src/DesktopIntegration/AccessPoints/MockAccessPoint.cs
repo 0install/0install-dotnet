@@ -8,6 +8,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 [XmlType("mock", Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class MockAccessPoint : DefaultAccessPoint
 {
     [SetsRequiredMembers]
@@ -80,14 +81,6 @@ public partial class MockAccessPoint : DefaultAccessPoint
 
     #region Clone
     /// <inheritdoc/>
-    public override AccessPoint Clone() => new MockAccessPoint
-    {
-        ID = ID,
-        Capability = Capability,
-        ApplyFlagPath = ApplyFlagPath,
-        UnapplyFlagPath = UnapplyFlagPath,
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements
-    };
+    public override AccessPoint Clone() => this.FastDeepClone();
     #endregion
 }

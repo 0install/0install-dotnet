@@ -67,17 +67,7 @@ public sealed partial class ContextMenu : VerbCapability
 
     #region Clone
     /// <inheritdoc/>
-    public override Capability Clone() => new ContextMenu
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        ExplicitOnly = ExplicitOnly,
-        Target = Target,
-        Descriptions = {Descriptions.CloneElements()},
-        Icons = {Icons.CloneElements()},
-        Verbs = {Verbs.CloneElements()},
-        Extensions = {Extensions.CloneElements()}
-    };
+    public override Capability Clone() => (ContextMenu)FastCloner.FastCloner.DeepClone(this)!;
+
     #endregion
 }

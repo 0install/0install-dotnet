@@ -11,6 +11,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// <seealso cref="Model.Capabilities.FileType"/>
 [XmlType("file-type", Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class FileType : DefaultAccessPoint
 {
     /// <inheritdoc/>
@@ -57,6 +58,6 @@ public partial class FileType : DefaultAccessPoint
 
     #region Clone
     /// <inheritdoc/>
-    public override AccessPoint Clone() => new FileType {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Capability = Capability};
+    public override AccessPoint Clone() => this.FastDeepClone();
     #endregion
 }

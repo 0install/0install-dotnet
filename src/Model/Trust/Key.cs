@@ -36,10 +36,7 @@ public sealed partial class Key : ICloneable<Key>
     /// Creates a deep copy of this <see cref="Key"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Key"/>.</returns>
-    public Key Clone() => new()
-    {
-        Fingerprint = Fingerprint,
-        Domains = {Domains}
-    };
+    public Key Clone() => (Key)FastCloner.FastCloner.DeepClone(this)!;
+
     #endregion
 }

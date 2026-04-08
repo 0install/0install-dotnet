@@ -9,6 +9,7 @@ namespace ZeroInstall.Model.Trust;
 [XmlRoot("trusted-keys", Namespace = XmlNamespace), XmlType("trusted-keys", Namespace = XmlNamespace)]
 [XmlNamespace("xsi", XmlStorage.XsiNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class TrustDB : ICloneable<TrustDB>
 {
     #region Constants
@@ -216,9 +217,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// Creates a deep copy of this <see cref="TrustDB"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="TrustDB"/>.</returns>
-    public TrustDB Clone() => new()
-    {
-        Keys = {Keys.CloneElements()}
-    };
+    public TrustDB Clone() => this.FastDeepClone();
+
     #endregion
 }

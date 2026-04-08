@@ -9,7 +9,8 @@ namespace ZeroInstall.Model;
 [Description("A single command-line arguments to be passed to an executable.")]
 [Serializable, XmlRoot("arg", Namespace = Feed.XmlNamespace), XmlType("arg", Namespace = Feed.XmlNamespace)]
 [Equatable]
-public partial class Arg : ArgBase, ICloneable<Arg>
+[FastClonerClonable]
+public partial class Arg : ArgBase
 {
     /// <summary>
     /// A single command-line arguments to be passed to an executable.
@@ -45,12 +46,6 @@ public partial class Arg : ArgBase, ICloneable<Arg>
     /// Creates a deep copy of this <see cref="Arg"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Arg"/>.</returns>
-    Arg ICloneable<Arg>.Clone() => new() {Value = Value};
-
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Arg"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Arg"/>.</returns>
-    public override ArgBase Clone() => ((ICloneable<Arg>)this).Clone();
+    public override ArgBase Clone() => this.FastDeepClone();
     #endregion
 }

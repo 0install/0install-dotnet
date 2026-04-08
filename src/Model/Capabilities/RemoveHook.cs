@@ -43,13 +43,6 @@ public sealed partial class RemoveHook : Capability
 
     #region Clone
     /// <inheritdoc/>
-    public override Capability Clone() => new RemoveHook
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        Command = Command,
-        Arguments = {Arguments.CloneElements()}
-    };
+    public override Capability Clone() => (RemoveHook)FastCloner.FastCloner.DeepClone(this)!;
     #endregion
 }

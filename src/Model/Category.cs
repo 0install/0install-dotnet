@@ -11,6 +11,7 @@ namespace ZeroInstall.Model;
 [Description("An application category (e.g. Game or Office). Used for organizing application menus.")]
 [Serializable, XmlRoot("category", Namespace = Feed.XmlNamespace), XmlType("category", Namespace = Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class Category : FeedElement, ICloneable<Category>
 {
     #region Constants
@@ -52,6 +53,6 @@ public sealed partial class Category : FeedElement, ICloneable<Category>
     /// Creates a plain copy of this category.
     /// </summary>
     /// <returns>The cloned category.</returns>
-    public Category Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, TypeNamespace = TypeNamespace};
+    public Category Clone() => this.FastDeepClone();
     #endregion
 }

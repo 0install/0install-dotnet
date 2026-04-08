@@ -14,6 +14,7 @@ namespace ZeroInstall.DesktopIntegration;
 //[XmlNamespace("caps", CapabilityList.XmlNamespace)]
 //[XmlNamespace("feed", Feed.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
 {
     #region Constants
@@ -258,11 +259,7 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
     /// Creates a deep copy of this <see cref="AppList"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="AppList"/>.</returns>
-    public AppList Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        Entries = {Entries.CloneElements()}
-    };
+    public AppList Clone() => this.FastDeepClone();
+
     #endregion
 }

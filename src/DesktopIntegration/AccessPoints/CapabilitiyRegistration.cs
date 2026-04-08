@@ -11,6 +11,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// <seealso cref="ZeroInstall.Model.Capabilities"/>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public partial class CapabilityRegistration : AccessPoint
 {
     public const string TagName = "capability-registration", AltName = "capabilities";
@@ -132,6 +133,6 @@ public partial class CapabilityRegistration : AccessPoint
 
     #region Clone
     /// <inheritdoc/>
-    public override AccessPoint Clone() => new CapabilityRegistration {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements};
+    public override AccessPoint Clone() => this.FastDeepClone();
     #endregion
 }

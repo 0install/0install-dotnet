@@ -25,7 +25,8 @@ public enum Importance
 [Description("A reference to an interface that is required as dependency.")]
 [Serializable, XmlRoot("requires", Namespace = Feed.XmlNamespace), XmlType("dependency", Namespace = Feed.XmlNamespace)]
 [Equatable]
-public partial class Dependency : Restriction, IInterfaceUriBindingContainer, ICloneable<Dependency>
+[FastClonerClonable]
+public partial class Dependency : Restriction, IInterfaceUriBindingContainer
 {
     /// <summary>
     /// Controls how important this dependency is (i.e. whether ignoring it is an option).
@@ -94,22 +95,6 @@ public partial class Dependency : Restriction, IInterfaceUriBindingContainer, IC
     /// Creates a deep copy of this <see cref="Dependency"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="Dependency"/>.</returns>
-    Dependency ICloneable<Dependency>.Clone() => new()
-    {
-        InterfaceUri = InterfaceUri,
-        OS = OS,
-        Versions = Versions,
-        Importance = Importance,
-        Use = Use,
-        Constraints = {Constraints.CloneElements()},
-        Distributions = {Distributions},
-        Bindings = {Bindings.CloneElements()}
-    };
-
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Dependency"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Dependency"/>.</returns>
-    public override Restriction Clone() => ((ICloneable<Dependency>)this).Clone();
+    public override Restriction Clone() => this.FastDeepClone();
     #endregion
 }

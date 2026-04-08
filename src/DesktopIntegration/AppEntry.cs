@@ -11,6 +11,7 @@ namespace ZeroInstall.DesktopIntegration;
 /// </summary>
 [XmlType("app", Namespace = AppList.XmlNamespace)]
 [Equatable]
+[FastClonerClonable]
 public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, ICloneable<AppEntry>
 {
     /// <summary>
@@ -124,15 +125,7 @@ public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, IClonea
     /// Creates a deep copy of this <see cref="AppEntry"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="AppEntry"/>.</returns>
-    public AppEntry Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        Name = Name,
-        InterfaceUri = InterfaceUri,
-        Requirements = Requirements == null ? null : Requirements with {},
-        AccessPoints = AccessPoints?.Clone(),
-        CapabilityLists = {CapabilityLists.CloneElements()}
-    };
+    public AppEntry Clone() => this.FastDeepClone();
+
     #endregion
 }
