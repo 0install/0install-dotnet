@@ -38,7 +38,7 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
       - name: Update GitHub release body
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         env:
           TAG_MESSAGE: ${{steps.tag_message.outputs.message}}
         with:
