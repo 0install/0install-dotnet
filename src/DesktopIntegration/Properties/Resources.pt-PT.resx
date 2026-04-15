@@ -137,7 +137,7 @@ Pode substituir os dados armazenados no servidor executando o assistente de reso
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Não é possível substituir o executável de stub obsoleto '{0}'.</value>
+    <value>Não é possível substituir o executável stub obsoleto '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

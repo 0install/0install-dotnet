@@ -243,7 +243,7 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din directorul respectiv.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
-    <value>Îndepărtează un URI din lista de cataloage.</value>
+    <value>Înlătură un URI din lista de cataloage.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogReset" xml:space="preserve">
@@ -251,7 +251,7 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din directorul respectiv.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Caută în cataloagele înregistrate aplicații care se potrivesc cu interogarea specificată. Dacă nu este specificată nicio interogare, sunt listate toate aplicațiile din cataloage.</value>
+    <value>Caută în cataloagele înregistrate aplicații care corespund interogării specificate. Dacă nu este specificată nicio interogare, sunt listate toate aplicațiile din cataloage.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -278,7 +278,7 @@ Returnează un status de ieșire de 0 dacă a selectat un set adecvat de versiun
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>Importă un feed dintr-un fișier local, ca și cum ar fi fost descărcat din rețea. Acest lucru este util atunci când se testează un fișier de alimentare, pentru a evita încărcarea acestuia pe un server de la distanță pentru a-l descărca din nou.
-Fișierul trebuie să aibă o semnătură digitală de încredere, ca atunci când este preluat din rețea.</value>
+Fișierul trebuie să aibă o semnătură digitală de încredere, la fel ca în cazul preluării din rețea.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
@@ -362,7 +362,7 @@ Un argument suplimentar specifică o locație cache țintă personalizată.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Exportă o implementare în cache sub formă de arhivă (ZIP, TAR etc.). Rezultatul poate fi importat pe o altă mașină utilizând "0install store add".</value>
+    <value>Exportează o implementare în cache sub formă de arhivă (ZIP, TAR etc.). Rezultatul poate fi importat pe o altă mașină utilizând "0install store add".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
@@ -396,7 +396,7 @@ Argumentele suplimentare specifică locații cache personalizate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
-    <value>Înlătură un director din lista de cache-uri de implementare personalizate.</value>
+    <value>Îndepărtează un director din lista de cache-uri de implementare personalizate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
@@ -457,7 +457,7 @@ Acest lucru este similar cu "0install download --refresh", cu excepția faptului
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de fluxuri care urmează să fie adăugat:</value>
+    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de fluxuri de adăugat:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
@@ -632,7 +632,7 @@ Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă d
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Se poate actualiza numai cu URI-uri de alimentare, nu și cu documente de selectare.</value>
+    <value>Se poate actualiza numai cu URI-uri de alimentare, nu și cu documente de selecție.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -779,7 +779,7 @@ Nu poate conține argumente de linie de comandă! Spațiile albe nu trebuie să 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Necesită o versiune a programului principal nu mai veche de {VERSION}. De exemplu, dacă doriți să rulați versiunea 2.0 sau ulterioară, utilizați --not-before=2.0.</value>
+    <value>Necesită o versiune a programului principal care să nu fie anterioară lui {VERSION}. De exemplu, dacă doriți să rulați versiunea 2.0 sau ulterioară, utilizați --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
@@ -824,7 +824,7 @@ Nu poate conține argumente de linie de comandă! Spațiile albe nu trebuie să 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Resetează datele de sincronizare. Site-urile {MODE}valide sunt "none" (fuzionează datele de la client și server în mod normal), "client" (înlocuiește toate datele de pe client cu datele de pe server) și "server" (înlocuiește toate datele de pe server cu datele de pe client).</value>
+    <value>Resetează datele de sincronizare. Site-urile {MODE}valide sunt "none" (fuzionează datele din client și server în mod normal), "client" (înlocuiește toate datele de pe client cu datele de pe server) și "server" (înlocuiește toate datele de pe server cu datele de pe client).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
@@ -847,7 +847,7 @@ Un singur număr de versiune poate fi utilizat în locul unui interval pentru a 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Pentru orice bibliotecă sau subcomponentă cu adresa {0:URI} specificată, se specifică versiunea {1:RANGE} (ca pentru --version).</value>
+    <value>Pentru orice bibliotecă sau subcomponentă cu adresa {0:URI} se specifică versiunea {1:RANGE} (ca pentru --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
