@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Błąd ładowania preferencji kanału dla '{0}'. Przywrócenie wartości domyślnych.</value>
+    <value>Błąd ładowania preferencji kanału dla "{0}". Przywrócenie wartości domyślnych.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Koniec zakresu wersji musi być wyłączny. Użyj "..!{0}", a nie ".{0}".</value>
+    <value>Koniec zakresu wersji musi być wyłączny. Należy użyć "..!{0}", a nie ".{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

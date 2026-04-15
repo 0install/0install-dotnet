@@ -239,7 +239,7 @@ Zadává se v konfiguračním souboru '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Tato možnost je řízena zásadami skupiny, a proto ji nelze upravovat.</value>
+    <value>Tato možnost je řízena zásadami skupiny, a proto ji nelze změnit.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

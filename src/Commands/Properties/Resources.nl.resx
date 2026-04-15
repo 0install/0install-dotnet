@@ -688,7 +688,7 @@ Je kunt dit doen met behulp van '{0}'. Dit zal volledig onafhankelijk zijn van j
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Gebruik in plaats van het standaardcommando {COMMAND}. Geldige opdrachtnamen worden gespecificeerd in de invoer van het programma.
+    <value>Gebruik in plaats van het standaardcommando {COMMAND}. Geldige opdrachtnamen worden gespecificeerd in de feed van het programma.
 Stel in op leeg ("") om de opdracht tijdens de selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>

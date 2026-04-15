@@ -84,7 +84,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>'{0}' はカスタム実装キャッシュのリストに既に含まれています。</value>
+    <value>'{0}' は、カスタム実装キャッシュのリストに既に含まれています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -92,7 +92,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppList" xml:space="preserve">
-    <value>アプリケーション一覧</value>
+    <value>アプリケーションリスト</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
@@ -219,7 +219,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>0install経由でアプリケーションを起動するためのエイリアスを作成することで、常に完全なURIを入力する必要がなくなります。</value>
+    <value>常に完全な URI を入力することなく、0install 経由でアプリケーションを起動するためのエイリアスを作成します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -331,7 +331,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>指定したキーワードに一致する、ミラーサーバーによってインデックス化されたフィードを検索します。デフォルトのミラー・サーバーは、品質に関係なく、既知のすべてのフィードをインデックス化することに注意してください。</value>
+    <value>指定したキーワードに一致する、ミラーサーバーによってインデックス化されたフィードを検索します。デフォルトのミラー・サーバーは、品質に関係なく、既知のすべてのフィードをインデックス化することに注意。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -489,7 +489,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
-    <value>このフィードは、以下のインターフェースに正常に登録されました：</value>
+    <value>このフィードは、以下のインターフェースで正常に登録されました：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
@@ -693,7 +693,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>設定GUIで特定のタブに切り替えます。</value>
+    <value>設定GUIで特定のタブに切り替える。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -762,7 +762,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>デフォルトの代わりに、指定された実行ファイル{MAIN} を実行します。'/'または'˶'で始まる場合、パスは実装のトップレベルディレクトリからの相対パスとなり、そうでない場合はデフォルトのメインプログラムを含むディレクトリからの相対パスとなります。
+    <value>デフォルトの代わりに指定された実行ファイル{MAIN} を実行します。'/'または'˶'で始まる場合、パスは実装のトップレベルディレクトリからの相対パスとなり、そうでない場合はデフォルトのメインプログラムを含むディレクトリからの相対パスとなります。
 コマンドライン引数を含めることはできない！空白文字はエスケープする必要はありません。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -788,7 +788,7 @@
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>オフラインモードで実行し、デフォルト設定を上書きします。
-オフラインモードでは、インターフェイスが古くてもリフレッシュされず、インジェクターがすでに知っていても（例えば以前のリフレッシュから）プログラムの新しいバージョンはダウンロードされません。</value>
+オフラインモードでは、インターフェイスが古くてもリフレッシュされず、インジェクターが既に知っていても（例えば以前のリフレッシュから）プログラムの新しいバージョンはダウンロードされません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -796,7 +796,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPin" xml:space="preserve">
-    <value>選択したバージョンは、今後実行する際に優先されるものとしてマークされます。</value>
+    <value>選択したバージョンは、今後の実行のために優先的にマークされます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">

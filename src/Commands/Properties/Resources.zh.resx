@@ -268,7 +268,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>其行为与 "0install select "类似，但如果所选版本尚未缓存，它还会下载这些版本。
+    <value>其行为与 "0install select "类似，但如果所选版本尚未缓存，它也会下载这些版本。
 如果它选择了一组合适的版本，且这些版本已全部下载并进入缓存，则返回 0 的退出状态；否则返回 1 的状态。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -493,7 +493,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
-    <value>{0}"已被 "{1}"取代。请考虑更新。</value>
+    <value>{0}"已被 "{1}"取代。考虑更新。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
@@ -591,7 +591,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
-    <value>必须是管理员才能执行全机操作。</value>
+    <value>您必须是管理员才能执行全机操作。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
@@ -717,7 +717,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>导出时不包括执行存档。只导出源文件。</value>
+    <value>导出时不包含执行存档。只导出源文件。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -758,11 +758,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>将配置应用于全机（整台电脑），而非仅应用于当前用户。</value>
+    <value>将配置应用于整个机器（整台电脑），而非仅应用于当前用户。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>运行指定的可执行文件{MAIN} ，而非默认路径。如果路径以"/"或"\"开头，则相对于执行程序的顶层目录，否则相对于包含默认主程序的目录。
+    <value>运行指定的可执行文件{MAIN} ，而不是默认路径。如果路径以"/"或"\"开头，则相对于执行程序的顶层目录，否则相对于包含默认主程序的目录。
 不得包含命令行参数！空格无需转义。</value>
     <comment>Automatically translated.</comment>
   </data>
