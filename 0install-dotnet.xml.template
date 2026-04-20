@@ -12,7 +12,7 @@
       <runner interface="https://apps.0install.net/dotnet/runtime.xml" version="8.0..!8.1"/>
     </command>
 
-    <implementation version="{version}" local-path="artifacts/Release/net8.0/publish">
+    <implementation version="{version}" local-path="artifacts/Release/net10.0/publish">
       <manifest-digest/>
       <archive href="0install-dotnet-{version}.tar.gz"/>
     </implementation>
