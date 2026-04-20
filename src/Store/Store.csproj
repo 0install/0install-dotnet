@@ -10,11 +10,11 @@
     <Configurations>$(Configurations);Minimal</Configurations>
     <SGenTypes>ZeroInstall.Store.Trust.TrustDB;ZeroInstall.Store.Feeds.SearchResults</SGenTypes>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0' Or '$(TargetFramework)'=='net10.0'">
     <Nullable>enable</Nullable>
     <EnableSingleFileAnalyzer>True</EnableSingleFileAnalyzer>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)'=='Minimal' And ('$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0')">
+  <PropertyGroup Condition="'$(Configuration)'=='Minimal' And ('$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0' Or '$(TargetFramework)'=='net10.0')">
     <IsAotCompatible>True</IsAotCompatible>
   </PropertyGroup>
   <Import Project="..\Resources.Designer.props" />
