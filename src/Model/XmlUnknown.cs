@@ -5,6 +5,10 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml;
 
+#if NET
+using System.Runtime.CompilerServices;
+#endif
+
 namespace ZeroInstall.Model;
 
 /// <summary>
@@ -58,12 +62,19 @@ public abstract class XmlUnknown : IEquatable<XmlUnknown>
     /// Intended for use in error messages. Not suitable for parsing.
     /// Use <see cref="XmlStorage.ToXmlString{T}"/> instead if you need a full XML representation.
     /// </remarks>
+    [UnconditionalSuppressMessage("AOT", "IL3050", Justification = "Uses fallback when dynamic code generation is not available")]
     public string ToShortXml()
-        => this.ToXmlString()
-               .Split('\n')[1]
-               .Replace($" xmlns=\"{GetType().GetCustomAttribute<XmlRootAttribute>()?.Namespace}\"", "")
-               .Replace(" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"", "")
-               .Replace(" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"", "");
+    {
+#if NET
+        if (!RuntimeFeature.IsDynamicCodeSupported) return ToString() ?? GetType().Name;
+#endif
+
+        return this.ToXmlString()
+                   .Split('\n')[1]
+                   .Replace($" xmlns=\"{GetType().GetCustomAttribute<XmlRootAttribute>()?.Namespace}\"", "")
+                   .Replace(" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"", "")
+                   .Replace(" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"", "");
+    }
 
     #region Comparers
     private class XmlAttributeComparer : IEqualityComparer<XmlAttribute>

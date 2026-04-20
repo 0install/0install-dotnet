@@ -131,6 +131,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public static TrustDB Load(string path)
     {
         #region Sanity checks
@@ -150,6 +151,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public static TrustDB Load()
     {
         var paths = Locations.GetLoadConfigPaths(AppName, true, _resource).ToList();
@@ -171,6 +173,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// Tries to load the <see cref="TrustDB"/> from the default locations, merging multiple files if found.
     /// Returns an empty <see cref="TrustDB"/> on errors.
     /// </summary>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public static TrustDB LoadSafe()
     {
         try
@@ -191,6 +194,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// <exception cref="IOException">A problem occurred while reading the file or creating a directory.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file or creating a directory is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public static TrustDB LoadMachineWide()
     {
         string path = Locations.GetSaveSystemConfigPath(AppName, true, _resource);
@@ -203,6 +207,7 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// <param name="path">The file to save to. Defaults to the location the file was loaded from or the user profile.</param>
     /// <exception cref="IOException">A problem occurred while writing the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public void Save(string? path = null)
     {
         path ??= FilePath;

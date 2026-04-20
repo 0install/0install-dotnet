@@ -66,6 +66,7 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public static FeedPreferences LoadFor(FeedUri feedUri)
     {
         #region Sanity checks
@@ -85,6 +86,7 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
     /// </summary>
     /// <param name="feedUri">The feed to load the preferences for.</param>
     /// <returns>The loaded <see cref="FeedPreferences"/> or default value if there was a problem.</returns>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public static FeedPreferences LoadForSafe(FeedUri feedUri)
     {
         #region Sanity checks
@@ -117,6 +119,7 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
     /// <param name="feedUri">The feed to save the preferences for.</param>
     /// <exception cref="IOException">A problem occurred while writing the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public void SaveFor(FeedUri feedUri)
     {
         #region Sanity checks
@@ -142,6 +145,7 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public static void UpdateFor(FeedUri feedUri, Action<FeedPreferences> update)
     {
         #region Sanity checks

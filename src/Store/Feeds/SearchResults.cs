@@ -25,6 +25,7 @@ public class SearchResults
     /// <param name="keywords">The keywords to search for.</param>
     /// <exception cref="WebException">Failed to get query result.</exception>
     /// <exception cref="InvalidDataException">Failed to parse query result.</exception>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public static List<SearchResult> Query(Config config, string? keywords)
     {
         #region Sanity checks

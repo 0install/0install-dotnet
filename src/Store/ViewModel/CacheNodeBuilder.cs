@@ -9,6 +9,7 @@ namespace ZeroInstall.Store.ViewModel;
 /// <summary>
 /// Builds <see cref="CacheNode"/>s for <see cref="Feed"/>s and <see cref="Implementation"/>s.
 /// </summary>
+[RequiresDynamicCode("XML serialization requires runtime code generation.")]
 public sealed class CacheNodeBuilder
 {
     private readonly ITaskHandler _handler;

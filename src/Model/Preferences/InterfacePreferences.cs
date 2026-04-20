@@ -54,6 +54,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
     /// <exception cref="InvalidDataException">A problem occurred while deserializing an XML file.</exception>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public static InterfacePreferences LoadFor(FeedUri interfaceUri)
     {
         #region Sanity checks
@@ -73,6 +74,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
     /// </summary>
     /// <param name="interfaceUri">The interface to load the preferences for.</param>
     /// <returns>The loaded <see cref="InterfacePreferences"/> or default value if there was a problem.</returns>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public static InterfacePreferences LoadForSafe(FeedUri interfaceUri)
     {
         #region Sanity checks
@@ -98,6 +100,7 @@ public sealed partial class InterfacePreferences : XmlUnknown, ICloneable<Interf
     /// <param name="interfaceUri">The interface to save the preferences for.</param>
     /// <exception cref="IOException">A problem occurred while writing the file.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public void SaveFor(FeedUri interfaceUri)
     {
         #region Sanity checks

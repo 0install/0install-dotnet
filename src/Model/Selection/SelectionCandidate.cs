@@ -3,6 +3,10 @@
 
 using ZeroInstall.Model.Preferences;
 
+#if NET
+using System.Runtime.CompilerServices;
+#endif
+
 namespace ZeroInstall.Model.Selection;
 
 /// <summary>
@@ -43,6 +47,7 @@ public sealed class SelectionCandidate : IEquatable<SelectionCandidate>
     /// The feed-specified stability rating for this implementation.
     /// </summary>
     [Description("The feed-specified stability rating for this implementation.")]
+    [UnconditionalSuppressMessage("AOT", "IL3050", Justification = "Skips part of logic when dynamic code generation is not available")]
     public Stability Stability
     {
         get
@@ -52,7 +57,11 @@ public sealed class SelectionCandidate : IEquatable<SelectionCandidate>
                 if (_implementationPreferences.RolloutPercentage == 0)
                 {
                     _implementationPreferences.RolloutPercentage = new Random().Next(1, 100);
-                    FeedPreferences.SaveFor(FeedUri);
+
+                    #if NET
+                    if (RuntimeFeature.IsDynamicCodeSupported)
+                    #endif
+                        FeedPreferences.SaveFor(FeedUri);
                 }
 
                 if (Implementation.RolloutPercentage >= _implementationPreferences.RolloutPercentage)

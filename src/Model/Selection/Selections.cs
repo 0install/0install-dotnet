@@ -1,6 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+#if NET
+using System.Runtime.CompilerServices;
+#endif
+
 namespace ZeroInstall.Model.Selection;
 
 /// <summary>
@@ -155,6 +159,14 @@ public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<S
     /// <summary>
     /// Returns the selections as XML. Not safe for parsing!
     /// </summary>
-    public override string ToString() => this.ToXmlString();
+    [UnconditionalSuppressMessage("AOT", "IL3050", Justification = "Uses fallback when dynamic code generation is not available")]
+    public override string ToString()
+    {
+#if NET
+        if (!RuntimeFeature.IsDynamicCodeSupported) return nameof(Selections);
+#endif
+
+        return this.ToXmlString();
+    }
     #endregion
 }

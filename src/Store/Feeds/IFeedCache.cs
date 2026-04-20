@@ -45,6 +45,7 @@ public interface IFeedCache
     /// <returns>The un-normalized <see cref="Feed"/>; <c>null</c> if the feed was not found in the cache or could not be parsed.</returns>
     /// <exception cref="IOException">A problem occurred while reading the feed file.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the cache is not permitted.</exception>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     Feed? GetFeed(FeedUri feedUri);
 
     /// <summary>

@@ -43,6 +43,7 @@ public sealed class FeedCache(string path, IOpenPgp openPgp) : IFeedCache
     }
 
     /// <inheritdoc/>
+    [RequiresDynamicCode("XML serialization requires runtime code generation.")]
     public Feed? GetFeed(FeedUri feedUri)
     {
         #region Sanity checks
