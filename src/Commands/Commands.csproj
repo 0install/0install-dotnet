@@ -13,7 +13,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <RollForward>LatestMajor</RollForward>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0' Or '$(TargetFramework)'=='net10.0'">
     <Nullable>enable</Nullable>
     <EnableSingleFileAnalyzer>True</EnableSingleFileAnalyzer>
   </PropertyGroup>
@@ -25,6 +25,7 @@
     <None Include="net48.targets" PackagePath="build\net48\ZeroInstall.Commands.targets" Pack="True" />
     <None Include="net8.0.targets" PackagePath="build\net8.0\ZeroInstall.Commands.targets" Pack="True" />
     <None Include="net9.0.targets" PackagePath="build\net9.0\ZeroInstall.Commands.targets" Pack="True" />
+    <None Include="net10.0.targets" PackagePath="build\net10.0\ZeroInstall.Commands.targets" Pack="True" />
   </ItemGroup>
 
   <!-- Global usings -->

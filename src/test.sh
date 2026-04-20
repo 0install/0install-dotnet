@@ -6,8 +6,8 @@ cd `dirname $0`
 #if command -v dotnet > /dev/null 2> /dev/null; then
 #    dotnet="dotnet"
 #else
-    dotnet="../0install.sh run --version 9.0.200..!9.1 https://apps.0install.net/dotnet/sdk.xml"
+    dotnet="../0install.sh run --version 10.0..!10.1 https://apps.0install.net/dotnet/sdk.xml"
 #fi
 
 echo "Unit tests"
-$dotnet test --verbosity quiet --no-build --configuration Release --framework net9.0 UnitTests/UnitTests.csproj
+$dotnet test --verbosity quiet --no-build --configuration Release --framework net10.0 UnitTests/UnitTests.csproj
