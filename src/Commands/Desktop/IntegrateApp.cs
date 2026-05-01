@@ -33,7 +33,7 @@ public class IntegrateApp : AppCommand
 
         string? NormalizeCategory(string category)
         {
-            category = category.ToLower() switch
+            category = category.ToLowerInvariant() switch
             {
                 CapabilityRegistration.AltName => CapabilityRegistration.TagName,
                 DefaultAccessPoint.AltName => DefaultAccessPoint.TagName,

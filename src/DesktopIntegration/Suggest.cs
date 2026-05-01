@@ -99,7 +99,7 @@ public static class Suggest
             where entryPoint.NeedsTerminal
             select new AppAlias
             {
-                Name = entryPoint.BinaryName ?? (entryPoint.Command == Command.NameRun ? feed.Name.Replace(' ', '-').ToLower() : entryPoint.Command).SafeFileName(),
+                Name = entryPoint.BinaryName ?? (entryPoint.Command == Command.NameRun ? feed.Name.Replace(' ', '-').ToLowerInvariant() : entryPoint.Command).SafeFileName(),
                 Command = entryPoint.Command
             }, x => x.Name ?? "");
     }

@@ -146,7 +146,7 @@ partial class SnapshotDiff
         {
             // Check if the file type already has the extension and add it if not
             if (!fileType.Extensions.Any(element => StringUtils.EqualsIgnoreCase(element.Value, extension)))
-                fileType.Extensions.Add(new() {Value = extension.ToLower()});
+                fileType.Extensions.Add(new() {Value = extension.ToLowerInvariant()});
         }
     }
     #endregion
