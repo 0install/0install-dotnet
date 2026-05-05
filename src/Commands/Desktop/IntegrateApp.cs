@@ -57,7 +57,12 @@ public class IntegrateApp : AppCommand
     {
         if (RemoveOnly)
         {
-            IntegrationManager.RemoveAccessPointCategories(IntegrationManager.AppList[InterfaceUri], _removeCategories.ToArray());
+            if (IntegrationManager.AppList.GetEntry(InterfaceUri) is not {} appEntry)
+            {
+                Log.Warn(string.Format(Resources.AliasNotFound, InterfaceUri));
+                return ExitCode.NoChanges;
+            }
+            IntegrationManager.RemoveAccessPointCategories(appEntry, _removeCategories.ToArray());
             return ExitCode.OK;
         }
         else
