@@ -25,7 +25,7 @@ v Pass <xref:ZeroInstall.Model.Selection.Selections> to [IExecutor.Start()](xref
 
 Sample code for implementing this in various languages:
 
-- [C#](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.cs)
-- [Visual Basic .NET](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.vb)
-- [F#](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.fs)
-- [IronPython](https://github.com/0install/dotnet-backend/blob/master/samples/MinimalZeroInstall.py)
+- [C#](https://github.com/0install/0install-dotnet/blob/master/samples/MinimalZeroInstall.cs)
+- [Visual Basic .NET](https://github.com/0install/0install-dotnet/blob/master/samples/MinimalZeroInstall.vb)
+- [F#](https://github.com/0install/0install-dotnet/blob/master/samples/MinimalZeroInstall.fs)
+- [IronPython](https://github.com/0install/0install-dotnet/blob/master/samples/MinimalZeroInstall.py)
