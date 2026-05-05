@@ -25,4 +25,4 @@ However, if you intend to edit a feed and save it as XML again, you should not c
 
 ## Nullability
 
-Required fields in the data model are marked as [non-nullable](https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references). However, in a <xref:ZeroInstall.Model.Feed> instance deserialized from XML these fields may be `null` anyway. Calling `.Normalize()` throws an <xref:System.IO.InvalidDataException > if any required/non-nullable fields are unset. Therefore, only a normalized <xref:ZeroInstall.Model.Feed> should be treated as "null-safe".
+Required fields in the data model are marked as [non-nullable](https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references). However, in a <xref:ZeroInstall.Model.Feed> instance deserialized from XML these fields may be `null` anyway. Calling `.Normalize()` throws an <xref:System.IO.InvalidDataException> if any required/non-nullable fields are unset. Therefore, only a normalized <xref:ZeroInstall.Model.Feed> should be treated as "null-safe".
