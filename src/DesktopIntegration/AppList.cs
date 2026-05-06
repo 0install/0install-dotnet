@@ -148,7 +148,7 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
     /// </summary>
     /// <param name="machineWide">Store the <see cref="AppList"/> machine-wide instead of just for the current user.</param>
     public static string GetDefaultPath(bool machineWide = false)
-        => Path.Combine(IntegrationManager.GetDir(machineWide), "app-list.xml");
+        => Paths.Combine(IntegrationManager.GetDir(machineWide), "app-list.xml");
 
     /// <summary>
     /// Tries to load the <see cref="AppList"/> from its default location. Automatically falls back to an empty list on errors.

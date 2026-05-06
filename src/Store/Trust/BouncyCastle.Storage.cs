@@ -7,7 +7,7 @@ namespace ZeroInstall.Store.Trust;
 
 partial class BouncyCastle
 {
-    private readonly string _publicBundlePath = Path.Combine(homeDir, "pubring.gpg");
+    private readonly string _publicBundlePath = Paths.Combine(homeDir, "pubring.gpg");
 
     private PgpPublicKeyRingBundle? _publicBundle;
 
@@ -54,7 +54,7 @@ partial class BouncyCastle
         }
     }
 
-    private readonly string _secretBundlePath = Path.Combine(homeDir, "secring.gpg");
+    private readonly string _secretBundlePath = Paths.Combine(homeDir, "secring.gpg");
 
     private PgpSecretKeyRingBundle? _secretBundle;
 

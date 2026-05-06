@@ -42,9 +42,20 @@ public static class ModelUtils
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
-        if (Path.IsPathRooted(path)) return path;
+        try
+        {
+            if (Paths.IsAbsolute(path)) return path;
+        }
+        #region Error handling
+        catch (IOException ex)
+        {
+            // Wrap exception since only certain exception types are allowed
+            throw new UriFormatException(ex.Message, ex);
+        }
+        #endregion
+
         if (source?.IsFile is null or false) throw new UriFormatException(string.Format(Resources.RelativePathUnresolvable, path));
-        return Path.Combine(Path.GetDirectoryName(source.LocalPath) ?? "", path.ToNativePath());
+        return Paths.Combine(Paths.Parent(source.LocalPath), path.ToNativePath());
     }
 
     /// <summary>
@@ -91,6 +102,6 @@ public static class ModelUtils
         if (href.IsAbsoluteUri) return href;
 
         if (string.IsNullOrEmpty(source)) throw new UriFormatException(string.Format(Resources.RelativeUriUnresolvable, href));
-        return new(new(Path.GetFullPath(source), UriKind.Absolute), href);
+        return new(new(Paths.Absolute(source), UriKind.Absolute), href);
     }
 }

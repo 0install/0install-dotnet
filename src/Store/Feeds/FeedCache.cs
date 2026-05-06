@@ -27,7 +27,7 @@ public sealed class FeedCache(string path, IOpenPgp openPgp) : IFeedCache
 
         return feedUri.IsFile
             ? File.Exists(feedUri.LocalPath)
-            : FileUtils.ExistsCaseSensitive(System.IO.Path.Combine(Path, feedUri.Escape()));
+            : FileUtils.ExistsCaseSensitive(Paths.Combine(Path, feedUri.Escape()));
     }
 
     /// <inheritdoc/>
@@ -38,7 +38,7 @@ public sealed class FeedCache(string path, IOpenPgp openPgp) : IFeedCache
         // ReSharper disable once AssignNullToNotNullAttribute
         return Directory.GetFiles(Path)
                         .TrySelect(
-                             x => FeedUri.Unescape(System.IO.Path.GetFileName(x)),
+                             x => FeedUri.Unescape(Paths.FileName(x)),
                              (UriFormatException _) => {});
     }
 
@@ -81,7 +81,7 @@ public sealed class FeedCache(string path, IOpenPgp openPgp) : IFeedCache
 
         if (feedUri.IsFile) return feedUri.LocalPath;
 
-        string path = System.IO.Path.Combine(Path, feedUri.Escape());
+        string path = Paths.Combine(Path, feedUri.Escape());
         return FileUtils.ExistsCaseSensitive(path) ? path : null;
     }
 
@@ -97,14 +97,14 @@ public sealed class FeedCache(string path, IOpenPgp openPgp) : IFeedCache
 
         try
         {
-            string path = System.IO.Path.Combine(Path, feedUri.Escape());
+            string path = Paths.Combine(Path, feedUri.Escape());
             Log.Debug($"Adding feed {feedUri.ToStringRfc()} to disk cache: {path}");
             WriteToFile(data, path);
         }
         catch (PathTooLongException)
         {
             Log.Info("File path in feed cache too long. Using hash of feed URI to shorten path.");
-            WriteToFile(data, System.IO.Path.Combine(Path, feedUri.AbsoluteUri.Hash(SHA256.Create())));
+            WriteToFile(data, Paths.Combine(Path, feedUri.AbsoluteUri.Hash(SHA256.Create())));
         }
     }
 

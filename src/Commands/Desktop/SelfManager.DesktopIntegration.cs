@@ -32,17 +32,17 @@ partial class SelfManager
                 UninstallEntry.Register(
                     id: UninstallID,
                     name: "Zero Install",
-                    uninstallCommand: [Path.Combine(TargetDir, "0install-win.exe"), Self.Name, Self.Remove.Name],
+                    uninstallCommand: [Paths.Combine(TargetDir, "0install-win.exe"), Self.Name, Self.Remove.Name],
                     publisher: "0install.net",
                     homepage: new("https://0install.net/"),
-                    iconPath: Path.Combine(TargetDir, "ZeroInstall.exe"),
+                    iconPath: Paths.Combine(TargetDir, "ZeroInstall.exe"),
                     version: AppInfo.Current.Version,
                     size: size,
                     machineWide: MachineWide);
 
                 Shortcut.Create(
                     path: Shortcut.GetStartMenuPath("", "Zero Install", MachineWide),
-                    targetPath: Path.Combine(TargetDir, "ZeroInstall.exe"),
+                    targetPath: Paths.Combine(TargetDir, "ZeroInstall.exe"),
                     appId: "ZeroInstall");
 
                 // Removed support for OneGet

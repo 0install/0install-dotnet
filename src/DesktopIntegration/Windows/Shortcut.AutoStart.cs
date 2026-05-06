@@ -43,7 +43,7 @@ public static partial class Shortcut
     }
 
     private static string GetStartupPath(string? name, bool machineWide)
-        => Path.Combine(
+        => Paths.Combine(
             WindowsUtils.GetFolderPath(machineWide ? Environment.SpecialFolder.CommonStartup : Environment.SpecialFolder.Startup),
             $"{name}.lnk");
 }

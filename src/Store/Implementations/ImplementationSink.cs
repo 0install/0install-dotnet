@@ -38,18 +38,8 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
-        try
-        {
-            Path = System.IO.Path.GetFullPath(path);
-            if (!Directory.Exists(Path)) Directory.CreateDirectory(Path);
-        }
-        #region Error handling
-        catch (Exception ex) when (ex is ArgumentException or NotSupportedException)
-        {
-            // Wrap exception since only certain exception types are allowed
-            throw new IOException(ex.Message, ex);
-        }
-        #endregion
+        Path = Paths.Absolute(path);
+        if (!Directory.Exists(Path)) Directory.CreateDirectory(Path);
 
         UseWriteProtection = useWriteProtection;
 
@@ -74,7 +64,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
     /// <param name="manifestDigest">The digest the implementation to look for.</param>
     /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store.</returns>
     public string? GetPath(ManifestDigest manifestDigest)
-        => manifestDigest.AvailableDigests.Select(digest => System.IO.Path.Combine(Path, digest)).FirstOrDefault(Directory.Exists);
+        => manifestDigest.AvailableDigests.Select(digest => Paths.Combine(Path, digest)).FirstOrDefault(Directory.Exists);
 
     /// <inheritdoc/>
     public void Add(ManifestDigest manifestDigest, Action<IBuilder> build)
@@ -83,7 +73,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         if (build == null) throw new ArgumentNullException(nameof(build));
         #endregion
 
-        if (manifestDigest.AvailableDigests.Any(digest => Directory.Exists(System.IO.Path.Combine(Path, digest)))) throw new ImplementationAlreadyInStoreException(manifestDigest);
+        if (manifestDigest.AvailableDigests.Any(digest => Directory.Exists(Paths.Combine(Path, digest)))) throw new ImplementationAlreadyInStoreException(manifestDigest);
         string expectedDigest = manifestDigest.Best ?? throw new NotSupportedException(Resources.NoKnownDigestMethod);
         Log.Debug($"Attempting to store implementation {expectedDigest} in {this}");
         var format = ManifestFormat.FromPrefix(manifestDigest.Best);
@@ -96,11 +86,11 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         build(new DirectoryBuilder(tempDir, builder));
         builder
            .Verify(expectedDigest)
-           .Save(System.IO.Path.Combine(tempDir, Manifest.ManifestFile));
+           .Save(Paths.Combine(tempDir, Manifest.ManifestFile));
 
         // Move directory to final destination
         string source = tempDir;
-        string target = System.IO.Path.Combine(Path, expectedDigest);
+        string target = Paths.Combine(Path, expectedDigest);
         if (Directory.Exists(target)) throw new ImplementationAlreadyInStoreException(manifestDigest);
         ExceptionUtils.Retry<IOException>(() =>
         {
@@ -145,14 +135,14 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
     /// </summary>
     private void DeployDeleteInfoFile()
     {
-        string deleteInfoDirPath = System.IO.Path.Combine(Path, $"_{Resources.DeleteInfoFileName}");
+        string deleteInfoDirPath = Paths.Combine(Path, $"_{Resources.DeleteInfoFileName}");
         if (Directory.Exists(deleteInfoDirPath)) return;
 
         string escapedPath = Path.EscapeArgument();
         try
         {
             Directory.CreateDirectory(deleteInfoDirPath);
-            File.WriteAllText(System.IO.Path.Combine(deleteInfoDirPath, $"{Resources.DeleteInfoFileName}.txt"),
+            File.WriteAllText(Paths.Combine(deleteInfoDirPath, $"{Resources.DeleteInfoFileName}.txt"),
                 string.Format(Resources.DeleteInfoFileContent,
                     "0install store remove IMPLEMENTATION-ID",
                     $"0install store purge {escapedPath}",

@@ -34,7 +34,7 @@ public class Exporter
         _selections = selections;
         _architecture = architecture;
         _destination = destination;
-        _contentDir = Path.Combine(_destination, "content");
+        _contentDir = Paths.Combine(_destination, "content");
         Directory.CreateDirectory(_contentDir);
     }
 
@@ -58,7 +58,7 @@ public class Exporter
 
         foreach (var feedUri in feedUris)
         {
-            string filePath = Path.Combine(_contentDir, feedUri.Escape());
+            string filePath = Paths.Combine(_contentDir, feedUri.Escape());
             if (!filePath.EndsWith(".xml")) filePath += ".xml";
 
             if (feedCache.GetPath(feedUri) is {} path)
@@ -93,7 +93,7 @@ public class Exporter
         foreach (var digest in _selections.Implementations.Select(x => x.ManifestDigest).Where(x => x.Best != null).Distinct())
         {
             if (implementationStore.GetPath(digest) is {} sourcePath)
-                ArchiveBuilder.RunForDirectory(sourcePath, Path.Combine(_contentDir, $"{digest.Best}.tgz"), Archive.MimeTypeTarGzip, handler);
+                ArchiveBuilder.RunForDirectory(sourcePath, Paths.Combine(_contentDir, $"{digest.Best}.tgz"), Archive.MimeTypeTarGzip, handler);
             else
                 Log.Warn($"Implementation {digest} missing from cache");
         }
@@ -119,7 +119,7 @@ public class Exporter
         {
             File.Copy(
                 iconStore.GetFresh(icon),
-                Path.Combine(_contentDir, IconStore.GetFileName(icon)),
+                Paths.Combine(_contentDir, IconStore.GetFileName(icon)),
                 overwrite: true);
         }
     }
@@ -132,7 +132,7 @@ public class Exporter
     public void DeployImportScript()
     {
         string fileName = (_architecture.OS == OS.Windows) ? "import.cmd" : "import.sh";
-        string target = Path.Combine(_destination, fileName);
+        string target = Paths.Combine(_destination, fileName);
 
         typeof(Exporter).CopyEmbeddedToFile(fileName, target);
         if (UnixUtils.IsUnix)

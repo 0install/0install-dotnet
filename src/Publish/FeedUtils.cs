@@ -25,7 +25,7 @@ public static class FeedUtils
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
-        if (!File.Exists(Path.Combine(path, $"{name}.xsl")))
+        if (!File.Exists(Paths.Combine(path, $"{name}.xsl")))
         {
             DeployEmbeddedFile($"{name}.xsl", path);
             DeployEmbeddedFile($"{name}.css", path);
@@ -39,7 +39,7 @@ public static class FeedUtils
     }
 
     private static void DeployEmbeddedFile(string fileName, string targetDir)
-        => typeof(FeedUtils).CopyEmbeddedToFile(fileName, Path.Combine(targetDir, fileName));
+        => typeof(FeedUtils).CopyEmbeddedToFile(fileName, Paths.Combine(targetDir, fileName));
 
     /// <summary>
     /// Adds a Base64 signature to a feed or catalog stream.

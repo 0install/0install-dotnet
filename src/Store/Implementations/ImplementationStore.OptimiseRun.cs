@@ -18,7 +18,7 @@ partial class ImplementationStore
 
         private sealed record StoreFile(string ImplementationPath, string RelativePath)
         {
-            public static implicit operator string(StoreFile file) => System.IO.Path.Combine(file.ImplementationPath, file.RelativePath);
+            public static implicit operator string(StoreFile file) => Paths.Combine(file.ImplementationPath, file.RelativePath);
         }
 
         private readonly Dictionary<DedupKey, StoreFile> _fileHashes = [];
@@ -35,8 +35,8 @@ partial class ImplementationStore
         public void Work(ManifestDigest manifestDigest)
         {
             if (manifestDigest.Best is not {} digestString) return;
-            string implementationPath = System.IO.Path.Combine(StorePath, digestString);
-            var manifest = Manifest.Load(System.IO.Path.Combine(implementationPath, Manifest.ManifestFile), ManifestFormat.FromPrefix(digestString));
+            string implementationPath = Paths.Combine(StorePath, digestString);
+            var manifest = Manifest.Load(Paths.Combine(implementationPath, Manifest.ManifestFile), ManifestFormat.FromPrefix(digestString));
 
             foreach ((string directoryPath, var directory) in manifest)
             {
@@ -46,7 +46,7 @@ partial class ImplementationStore
                     if (element is ManifestFile(var digest, var modifiedTime, var size) {Size: > 0})
                     {
                         var key = new DedupKey(size, modifiedTime, manifest.Format, digest);
-                        var file = new StoreFile(implementationPath, System.IO.Path.Combine(currentDirectory, elementName));
+                        var file = new StoreFile(implementationPath, Paths.Combine(currentDirectory, elementName));
 
                         if (_fileHashes.TryGetValue(key, out var existingFile))
                         {

@@ -40,7 +40,7 @@ public class DmgExtractor(ITaskHandler handler)
                     }
                     else
                     {
-                        string extractDir = Path.Combine(tempDir, subDir);
+                        string extractDir = Paths.Combine(tempDir, subDir);
                         if (Directory.Exists(extractDir))
                             Handler.RunTask(new ReadDirectory(extractDir, builder) {Tag = Tag});
                     }

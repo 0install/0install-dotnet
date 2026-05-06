@@ -115,7 +115,7 @@ public partial class EnvironmentBuilder
             // Static value
             {Value: not null} => binding.Value,
             // Path inside the implementation
-            _ => Path.Combine(implementationStore.GetPath(implementation), binding.Insert.ToNativePath() ?? "")
+            _ => Paths.Combine(implementationStore.GetPath(implementation), binding.Insert.ToNativePath() ?? "")
         };
 
         // Set the default value if the variable is not already set on the system
@@ -189,7 +189,7 @@ public partial class EnvironmentBuilder
 
         // Add executable directory to PATH variable
         EnvironmentVariables[WindowsUtils.IsWindows ? "Path" : "PATH"] =
-            Path.GetDirectoryName(exePath) + Path.PathSeparator +
+            Paths.Parent(exePath) + Path.PathSeparator +
             EnvironmentVariables[WindowsUtils.IsWindows ? "Path" : "PATH"];
 
         // Tell the executable what command-line to run
@@ -207,7 +207,7 @@ public partial class EnvironmentBuilder
     private static string DeployRunEnvExecutable(string name)
     {
         string templatePath = GetRunEnvTemplate();
-        string path = Path.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables", name), name);
+        string path = Paths.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables", name), name);
         if (WindowsUtils.IsWindows) path += ".exe";
 
         Log.Info($"Deploying run-environment executable to: {path}");
@@ -239,7 +239,7 @@ public partial class EnvironmentBuilder
     /// <returns>The path to the deployed executable file.</returns>
     private static string GetRunEnvTemplate()
     {
-        string path = Path.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables"), WindowsUtils.IsWindows
+        string path = Paths.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables"), WindowsUtils.IsWindows
             ? "runenv.exe.template"
             : "runenv.sh.template");
 
@@ -293,11 +293,11 @@ public partial class EnvironmentBuilder
         Log.Debug($"Applying {binding} for {implementation}");
 
         string source = binding.Source.ToNativePath() ?? "";
-        if (Path.IsPathRooted(source) || source.Contains($"..{Path.DirectorySeparatorChar}")) throw new ExecutorException(Resources.WorkingDirInvalidPath);
+        if (Paths.IsAbsolute(source) || source.Contains($"..{Path.DirectorySeparatorChar}")) throw new ExecutorException(Resources.WorkingDirInvalidPath);
 
         // Only allow working directory to be changed once
         if (!string.IsNullOrEmpty(_startInfo.WorkingDirectory)) throw new ExecutorException(Resources.WorkingDirAlreadyChanged);
 
-        _startInfo.WorkingDirectory = Path.Combine(implementationStore.GetPath(implementation), source);
+        _startInfo.WorkingDirectory = Paths.Combine(implementationStore.GetPath(implementation), source);
     }
 }

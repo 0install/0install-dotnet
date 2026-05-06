@@ -35,7 +35,7 @@ public static class RetrievalMethodExtensions
 
             case SingleFile file when string.IsNullOrEmpty(file.Destination):
                 executor.Execute(SetValueCommand.For(() => file.Destination,
-                    Path.GetFileName(localPath ?? file.Href.GetLocalFileName())));
+                    Paths.FileName(localPath ?? file.Href.GetLocalFileName())));
                 break;
         }
     }

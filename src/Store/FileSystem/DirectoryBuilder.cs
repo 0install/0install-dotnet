@@ -38,7 +38,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     public void AddFile(string path, Stream stream, UnixTime modifiedTime, bool executable = false)
     {
         string fullPath = GetFullPath(path);
-        Directory.CreateDirectory(System.IO.Path.GetDirectoryName(fullPath)!);
+        Directory.CreateDirectory(Paths.Parent(fullPath));
 
         // Delete any preexisting file to reset permissions, etc.
         if (File.Exists(fullPath)) File.Delete(fullPath);
@@ -59,7 +59,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     public void AddHardlink(string path, string target, bool executable = false)
     {
         string sourceAbsolute = GetFullPath(path);
-        Directory.CreateDirectory(System.IO.Path.GetDirectoryName(sourceAbsolute)!);
+        Directory.CreateDirectory(Paths.Parent(sourceAbsolute));
         string targetAbsolute = GetFullPath(target, AllowedHardlinkRoot);
 
         FileUtils.CreateHardlink(sourceAbsolute, targetAbsolute);
@@ -72,7 +72,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     public void AddSymlink(string path, string target)
     {
         string sourceAbsolute = GetFullPath(path);
-        Directory.CreateDirectory(System.IO.Path.GetDirectoryName(sourceAbsolute)!);
+        Directory.CreateDirectory(Paths.Parent(sourceAbsolute));
 
         // Delete any preexisting file to reset permissions, etc.
         if (File.Exists(sourceAbsolute)) File.Delete(sourceAbsolute);
@@ -87,7 +87,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     {
         string fullSourcePath = GetFullPath(path);
         string fullTargetPath = GetFullPath(target);
-        Directory.CreateDirectory(System.IO.Path.GetDirectoryName(fullTargetPath)!);
+        Directory.CreateDirectory(Paths.Parent(fullTargetPath));
 
         if (File.Exists(fullSourcePath))
             File.Move(fullSourcePath, fullTargetPath);
@@ -145,18 +145,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     {
         if (Manifest.RejectPath(relativePath)) throw new IOException(string.Format(Resources.InvalidPath, relativePath));
 
-        string fullPath;
-        try
-        {
-            fullPath = System.IO.Path.GetFullPath(System.IO.Path.Combine(Path, relativePath));
-        }
-        #region Error handling
-        catch (ArgumentException ex)
-        {
-            // Wrap exception since only certain exception types are allowed
-            throw new IOException(ex.Message, ex);
-        }
-        #endregion
+        string fullPath = Paths.Absolute(Paths.Combine(Path, relativePath));
 
         if (!fullPath.StartsWith(allowedRoot + System.IO.Path.DirectorySeparatorChar))
             throw new IOException(string.Format(Resources.InvalidPath, relativePath));

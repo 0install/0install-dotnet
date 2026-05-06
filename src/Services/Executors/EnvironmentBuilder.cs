@@ -183,7 +183,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
             // Relative to implementation root
             ? mainPath.TrimStart(Path.DirectorySeparatorChar)
             // Relative to original command
-            : Path.Combine(Path.GetDirectoryName(command.Path) ?? "", mainPath);
+            : Paths.Combine(Path.GetDirectoryName(command.Path) ?? "", mainPath);
         command.Arguments.Clear();
 
         return mainImplementation;
@@ -227,7 +227,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
         {
             string path = command.Path.ToNativePath();
             if (!implementation.ID.StartsWith(ExternalImplementation.PackagePrefix))
-                path = Path.Combine(implementationStore.GetPath(implementation), path);
+                path = Paths.Combine(implementationStore.GetPath(implementation), path);
             commandLine.Add(path);
         }
         commandLine.Add(command.Arguments);

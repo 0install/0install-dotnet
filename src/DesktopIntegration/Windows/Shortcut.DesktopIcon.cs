@@ -48,7 +48,7 @@ public static partial class Shortcut
     /// <param name="machineWide"><c>true</c> to use the machine-wide desktop; <c>false</c> for the per-user variant.</param>
     /// <exception cref="IOException"><paramref name="name"/> contains invalid characters.</exception>
     private static string GetDesktopPath(string? name, bool machineWide)
-        => Path.Combine(
+        => Paths.Combine(
             WindowsUtils.GetFolderPath(machineWide ? Environment.SpecialFolder.CommonDesktopDirectory : Environment.SpecialFolder.DesktopDirectory),
             $"{name}.lnk");
 }

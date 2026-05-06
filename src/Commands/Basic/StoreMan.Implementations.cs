@@ -31,7 +31,7 @@ partial class StoreMan
         }
 
         private void FromDirectory(IBuilder builder)
-            => Handler.RunTask(new ReadDirectory(Path.GetFullPath(AdditionalArgs[1]), builder));
+            => Handler.RunTask(new ReadDirectory(Paths.Absolute(AdditionalArgs[1]), builder));
 
         private void FromArchives(IBuilder builder)
         {
@@ -76,8 +76,8 @@ partial class StoreMan
             }
             else
             {
-                string path = Path.GetFullPath(AdditionalArgs[0]).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-                var manifestDigest = new ManifestDigest(Path.GetFileName(path));
+                string path = Paths.Absolute(AdditionalArgs[0]).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+                var manifestDigest = new ManifestDigest(Paths.FileName(path));
                 return AddToStore(manifestDigest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
             }
         }

@@ -44,7 +44,7 @@ public class ManifestBuilder(ManifestFormat format) : MarshalNoTimeout, IBuilder
             return;
         }
         if (manifestDir.Remove(appleDoublePrefix + file))
-            Log.Debug($"Ignoring AppleDouble file '{Path.Combine(dir, appleDoublePrefix + "path")}' in manifest");
+            Log.Debug($"Ignoring AppleDouble file '{Paths.Combine(dir, appleDoublePrefix + "path")}' in manifest");
 
         manifestDir[file] = executable
             ? new ManifestExecutableFile(digest, modifiedTime, stream.Length)

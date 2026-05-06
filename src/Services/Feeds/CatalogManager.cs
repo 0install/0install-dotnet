@@ -25,7 +25,7 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
     private const string AppName = "0install.net";
     private static readonly string[] _resource = ["catalog-sources"];
 
-    private static string _cacheFilePath => Path.Combine(Locations.GetCacheDirPath(AppName, machineWide: false), "catalog.xml");
+    private static string _cacheFilePath => Paths.Combine(Locations.GetCacheDirPath(AppName, machineWide: false), "catalog.xml");
 
     /// <summary>
     /// Saves a merged <see cref="Catalog"/> to the cache file for later retrieval by <see cref="TryGetCached"/>.

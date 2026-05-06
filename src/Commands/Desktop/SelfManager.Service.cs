@@ -12,9 +12,9 @@ partial class SelfManager
 {
 #if NETFRAMEWORK
     private const string ServiceName = "0store-service";
-    private static readonly string _installUtilExe = Path.Combine(WindowsUtils.GetNetFxDirectory(WindowsUtils.NetFx40), "InstallUtil.exe");
+    private static readonly string _installUtilExe = Paths.Combine(WindowsUtils.GetNetFxDirectory(WindowsUtils.NetFx40), "InstallUtil.exe");
 
-    private string ServiceExe => Path.Combine(TargetDir, $"{ServiceName}.exe");
+    private string ServiceExe => Paths.Combine(TargetDir, $"{ServiceName}.exe");
 
     private static ServiceController? GetServiceController()
         => ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == ServiceName);
@@ -120,8 +120,8 @@ partial class SelfManager
     {
         try
         {
-            File.Delete(Path.Combine(TargetDir, "0store-service.InstallLog"));
-            File.Delete(Path.Combine(TargetDir, "InstallUtil.InstallLog"));
+            File.Delete(Paths.Combine(TargetDir, "0store-service.InstallLog"));
+            File.Delete(Paths.Combine(TargetDir, "InstallUtil.InstallLog"));
         }
         #region Error handling
         catch (IOException ex)

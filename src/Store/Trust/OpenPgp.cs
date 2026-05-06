@@ -37,6 +37,6 @@ public static class OpenPgp
     public static string SigningHomeDir
         => GetEnvironmentVariable("GNUPGHOME")
         ?? (WindowsUtils.IsWindows
-               ? Path.Combine(WindowsUtils.GetFolderPath(SpecialFolder.ApplicationData), "gnupg")
-               : Path.Combine(Locations.HomeDir, ".gnupg"));
+               ? Paths.Combine(WindowsUtils.GetFolderPath(SpecialFolder.ApplicationData), "gnupg")
+               : Paths.Combine(Locations.HomeDir, ".gnupg"));
 }

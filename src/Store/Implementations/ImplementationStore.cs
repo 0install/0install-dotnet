@@ -26,21 +26,12 @@ public partial class ImplementationStore(string path, ITaskHandler handler, bool
         if (!Directory.Exists(Path)) return [];
 
         var digests = new List<ManifestDigest>();
-        try
+        foreach (string subDir in Directory.GetDirectories(Path))
         {
-            foreach (string subDir in Directory.GetDirectories(Path))
-            {
-                var digest = new ManifestDigest();
-                digest.TryParse(System.IO.Path.GetFileName(subDir));
-                if (digest.AvailableDigests.Any()) digests.Add(digest);
-            }
+            var digest = new ManifestDigest();
+            digest.TryParse(Paths.FileName(subDir));
+            if (digest.AvailableDigests.Any()) digests.Add(digest);
         }
-        #region Error handling
-        catch (ArgumentException ex)
-        {
-            Log.Warn($"Directory '{Path}' contains sub-directories with invalid characters", ex);
-        }
-        #endregion
         return digests;
     }
 
@@ -84,10 +75,10 @@ public partial class ImplementationStore(string path, ITaskHandler handler, bool
         try
         {
             handler.RunTask(new ActionTask(
-                string.Format(Resources.DeletingImplementation, System.IO.Path.GetFileName(path)),
+                string.Format(Resources.DeletingImplementation, Paths.FileName(path)),
                 () =>
                 {
-                    string tempDir = System.IO.Path.Combine(Path, $"0install-remove-{System.IO.Path.GetRandomFileName()}");
+                    string tempDir = Paths.Combine(Path, $"0install-remove-{System.IO.Path.GetRandomFileName()}");
                     DisableWriteProtection(path);
                     Directory.Move(path, tempDir);
                     Directory.Delete(tempDir, recursive: true);

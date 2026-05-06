@@ -14,7 +14,7 @@ partial class Self
         protected abstract string TargetDir { get; }
 
         // Auto-detect portable targets by looking for flag file
-        protected bool Portable => File.Exists(Path.Combine(TargetDir, Locations.PortableFlagName));
+        protected bool Portable => File.Exists(Paths.Combine(TargetDir, Locations.PortableFlagName));
 
         // Auto-detect machine-wide targets by comparing path with registry entry
         protected bool MachineWide => !Portable && TargetDir == ZeroInstallDeployment.GetPath(machineWide: true);
@@ -88,8 +88,8 @@ partial class Self
             using (var manager = new SelfManager(tempDir, Handler, machineWide: false, portable: true))
                 manager.Deploy();
 
-            string path = Path.Combine(tempDir, "0install-win.exe");
-            if (!File.Exists(path)) path =  Path.Combine(tempDir, "0install.exe");
+            string path = Paths.Combine(tempDir, "0install-win.exe");
+            if (!File.Exists(path)) path =  Paths.Combine(tempDir, "0install.exe");
 
             var args = new List<string> {Self.Name, RemoveHelper.Name, Locations.InstallBase};
             if (Handler.Verbosity == Verbosity.Batch) args.Add("--batch");

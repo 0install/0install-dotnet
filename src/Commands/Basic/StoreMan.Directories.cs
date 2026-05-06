@@ -23,7 +23,7 @@ partial class StoreMan
             Options.Add("m|machine", () => Resources.OptionMachine, _ => MachineWide = true);
         }
 
-        protected string GetPath() => Locations.IsPortable ? AdditionalArgs[0] : Path.GetFullPath(AdditionalArgs[0]);
+        protected string GetPath() => Locations.IsPortable ? AdditionalArgs[0] : Paths.Absolute(AdditionalArgs[0]);
 
         protected IEnumerable<string> GetImplementationDirs()
             => MachineWide

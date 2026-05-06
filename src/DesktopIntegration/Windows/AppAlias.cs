@@ -42,7 +42,7 @@ public static class AppAlias
         string stubDirPath = GetStubDir(machineWide);
         PathEnv.AddDir(stubDirPath, machineWide);
 
-        string stubFilePath = Path.Combine(stubDirPath, $"{aliasName}.exe");
+        string stubFilePath = Paths.Combine(stubDirPath, $"{aliasName}.exe");
         new StubBuilder(iconStore).BuildRunStub(stubFilePath, target, command, needsTerminal: true);
 
         if (machineWide || WindowsUtils.IsWindows7)
@@ -74,7 +74,7 @@ public static class AppAlias
 
         RemoveFromAppPaths($"{aliasName}.exe", machineWide);
 
-        string stubFilePath = Path.Combine(GetStubDir(machineWide), $"{aliasName}.exe");
+        string stubFilePath = Paths.Combine(GetStubDir(machineWide), $"{aliasName}.exe");
         if (File.Exists(stubFilePath)) File.Delete(stubFilePath);
     }
 

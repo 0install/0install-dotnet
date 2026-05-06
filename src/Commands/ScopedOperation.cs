@@ -29,14 +29,14 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
         {
             if (uri.StartsWith("file://")) return new(uri);
             if (uri.StartsWith("file:/")) throw new UriFormatException(Resources.FilePrefixAbsoluteUsage);
-            if (uri.StartsWith("file:", out string? path)) return new(Path.GetFullPath(path));
+            if (uri.StartsWith("file:", out string? path)) return new(Paths.Absolute(path));
             if (uri.StartsWith("http:") || uri.StartsWith("https:")) return new(uri);
 
             if (TryResolveAlias(uri) is {} resolvedAlias) return resolvedAlias;
 
-            if (Path.IsPathRooted(uri)) return new(uri);
+            if (Paths.IsAbsolute(uri)) return new(uri);
 
-            path = Path.GetFullPath(WindowsUtils.IsWindows ? Environment.ExpandEnvironmentVariables(uri) : uri);
+            path = Paths.Absolute(WindowsUtils.IsWindows ? Environment.ExpandEnvironmentVariables(uri) : uri);
             if (File.Exists(path)) return new(path);
 
             if (TryResolveCatalog(uri) is {} resolvedCatalog) return resolvedCatalog;

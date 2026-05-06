@@ -85,7 +85,7 @@ public partial class SelfManager : ManagerBase
                 using var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler);
                 deployDir.Stage();
                 clearDir.Stage();
-                if (Portable) FileUtils.Touch(Path.Combine(TargetDir, Locations.PortableFlagName));
+                if (Portable) FileUtils.Touch(Paths.Combine(TargetDir, Locations.PortableFlagName));
                 deployDir.Commit();
                 clearDir.Commit();
             }
@@ -141,7 +141,7 @@ public partial class SelfManager : ManagerBase
             {
                 clearDir.Stage();
                 DeleteServiceLogFiles();
-                if (Portable) File.Delete(Path.Combine(TargetDir, Locations.PortableFlagName));
+                if (Portable) File.Delete(Paths.Combine(TargetDir, Locations.PortableFlagName));
                 clearDir.Commit();
             }
 

@@ -356,7 +356,7 @@ public static class ProgramUtils
         {
             Log.Info($"Redirecting to Zero Install instance at: {installLocation}");
             handler.DisableUI();
-            return (ExitCode)ProcessUtils.Assembly(Path.Combine(installLocation, exeName), args).Run();
+            return (ExitCode)ProcessUtils.Assembly(Paths.Combine(installLocation, exeName), args).Run();
         }
         else return null;
     }

@@ -16,7 +16,7 @@ partial class SelfManager
     /// <returns>The loaded <see cref="Manifest"/>.</returns>
     private Manifest LoadManifest(string dirPath)
     {
-        string manifestPath = Path.Combine(dirPath, Manifest.ManifestFile);
+        string manifestPath = Paths.Combine(dirPath, Manifest.ManifestFile);
         if (File.Exists(manifestPath))
             return Manifest.Load(manifestPath, ManifestFormat.Sha256New);
         else if (Directory.Exists(dirPath) && Directory.GetFileSystemEntries(dirPath).Length != 0)

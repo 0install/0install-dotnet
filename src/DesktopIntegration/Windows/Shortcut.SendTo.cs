@@ -40,7 +40,7 @@ public static partial class Shortcut
     }
 
     private static string GetSendToPath(string? name)
-        => Path.Combine(
+        => Paths.Combine(
             WindowsUtils.GetFolderPath(Environment.SpecialFolder.SendTo),
             $"{name}.lnk");
 }

@@ -17,7 +17,7 @@ internal class ZeroInstallLauncher : ProcessLauncher
     public ZeroInstallLauncher(string commandLine)
         : base(ProcessUtils.FromCommandLine(commandLine))
     {
-        string? installBase = Path.GetDirectoryName(FileName);
+        string installBase = Paths.Parent(FileName);
         _mutexName = ZeroInstallEnvironment.MutexName(installBase);
         _updateMutexName = ZeroInstallEnvironment.UpdateMutexName(installBase);
         _legacyMutexName = ZeroInstallEnvironment.LegacyMutexName(installBase);

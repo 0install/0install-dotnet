@@ -46,7 +46,7 @@ public static class ImplementationStoreUtils
         #endregion
 
         var builder = new StringBuilder();
-        foreach (string part in Path.GetFullPath(path).Split(Path.DirectorySeparatorChar))
+        foreach (string part in Paths.Absolute(path).Split(Path.DirectorySeparatorChar))
         {
             builder.Append(part);
             if (ManifestFormat.All.Any(format => part.StartsWith(format.Prefix + format.Separator)))
@@ -94,7 +94,7 @@ public static class ImplementationStoreUtils
 
         string expectedDigest = manifestDigest.Best ?? throw new NotSupportedException(Resources.NoKnownDigestMethod);
         var format = ManifestFormat.FromPrefix(expectedDigest);
-        var expectedManifest = Manifest.TryLoad(Path.Combine(path, Manifest.ManifestFile), format);
+        var expectedManifest = Manifest.TryLoad(Paths.Combine(path, Manifest.ManifestFile), format);
 
         var builder = new ManifestBuilder(format);
         handler.RunTask(new ReadDirectory(path, builder));

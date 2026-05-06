@@ -36,8 +36,8 @@ partial class SelfManager
                     firewall.Rules.Remove(rule.Name); // Overwrite existing rule if present
                     firewall.Rules.Add(rule);
                 }
-                AddMDnsRule(FirewallDiscovery, Path.Combine(TargetDir, "0install.exe"));
-                AddMDnsRule(FirewallDiscoveryGui, Path.Combine(TargetDir, "0install-win.exe"));
+                AddMDnsRule(FirewallDiscovery, Paths.Combine(TargetDir, "0install.exe"));
+                AddMDnsRule(FirewallDiscoveryGui, Paths.Combine(TargetDir, "0install-win.exe"));
             }
             #region Error handling
             catch (Exception ex)

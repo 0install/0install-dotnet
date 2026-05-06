@@ -110,7 +110,7 @@ public sealed class IconStore(string path, Config config, ITaskHandler handler) 
     }
 
     private string GetPath(Icon icon)
-        => Path.Combine(path, GetFileName(icon));
+        => Paths.Combine(path, GetFileName(icon));
 
     /// <summary>
     /// Gets a file name suitable for storing an <see cref="Icon"/> on the disk.

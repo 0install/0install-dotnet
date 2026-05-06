@@ -101,7 +101,7 @@ public static class OpenPgpUtils
         #endregion
 
         File.WriteAllText(
-            path: Path.Combine(path, $"{keyID.FormatKeyID()}.gpg"),
+            path: Paths.Combine(path, $"{keyID.FormatKeyID()}.gpg"),
             contents: openPgp.ExportKey(keyID),
             encoding: Encoding.ASCII);
     }

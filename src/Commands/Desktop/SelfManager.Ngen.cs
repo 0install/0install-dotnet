@@ -10,7 +10,7 @@ namespace ZeroInstall.Commands.Desktop;
 partial class SelfManager
 {
 #if NETFRAMEWORK
-    private static readonly string _ngenExe = Path.Combine(WindowsUtils.GetNetFxDirectory(WindowsUtils.NetFx40), "ngen.exe");
+    private static readonly string _ngenExe = Paths.Combine(WindowsUtils.GetNetFxDirectory(WindowsUtils.NetFx40), "ngen.exe");
 
     private static readonly string[] _ngenAssemblies =
     [
@@ -35,7 +35,7 @@ partial class SelfManager
         if (!File.Exists(_ngenExe)) return;
 
         Handler.RunTask(ForEachTask.Create(Resources.RunNgen, _ngenAssemblies,
-            assembly => RunHidden(_ngenExe, "install", Path.Combine(TargetDir, assembly), "/queue")));
+            assembly => RunHidden(_ngenExe, "install", Paths.Combine(TargetDir, assembly), "/queue")));
 #endif
     }
 
@@ -49,7 +49,7 @@ partial class SelfManager
         if (!File.Exists(_ngenExe)) return;
 
         foreach (string assembly in _ngenAssemblies)
-            RunHidden(_ngenExe, "uninstall", Path.Combine(TargetDir, assembly));
+            RunHidden(_ngenExe, "uninstall", Paths.Combine(TargetDir, assembly));
 #endif
     }
 }

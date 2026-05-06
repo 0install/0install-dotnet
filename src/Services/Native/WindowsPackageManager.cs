@@ -81,8 +81,8 @@ public class WindowsPackageManager : PackageManagerBase
 
     private IEnumerable<ExternalImplementation> FindJava(int version, string typeShort, string typeLong, string mainExe, string secondaryCommand, string secondaryExe)
         => from javaHome in GetRegisteredPaths($@"JavaSoft\{typeLong}\1.{version}", "JavaHome")
-           let mainPath = Path.Combine(javaHome.path, $@"bin\{mainExe}.exe")
-           let secondaryPath = Path.Combine(javaHome.path, $@"bin\{secondaryExe}.exe")
+           let mainPath = Paths.Combine(javaHome.path, $@"bin\{mainExe}.exe")
+           let secondaryPath = Paths.Combine(javaHome.path, $@"bin\{secondaryExe}.exe")
            where File.Exists(mainPath) && File.Exists(secondaryPath)
            select new ExternalImplementation(DistributionName, $"openjdk-{version}-{typeShort}",
                new ImplementationVersion(FileVersionInfo.GetVersionInfo(mainPath).ProductVersion!.GetLeftPartAtLastOccurrence(".")), // Trim patch level
@@ -121,7 +121,7 @@ public class WindowsPackageManager : PackageManagerBase
             // .NET executables do not need a runner on Windows
             Commands = {new() {Name = Command.NameRun, Path = ""}},
             IsInstalled = true,
-            QuickTestFile = Path.Combine(WindowsUtils.GetNetFxDirectory(clrVersion).Replace("Framework64", cpu == Cpu.I486 ? "Framework" : "Framework64"), "mscorlib.dll")
+            QuickTestFile = Paths.Combine(WindowsUtils.GetNetFxDirectory(clrVersion).Replace("Framework64", cpu == Cpu.I486 ? "Framework" : "Framework64"), "mscorlib.dll")
         };
 
         // Check for system native architecture (may be 32-bit or 64-bit)
@@ -142,29 +142,29 @@ public class WindowsPackageManager : PackageManagerBase
 
     private IEnumerable<ExternalImplementation> FindDotNet(string packageName, SpecialFolder folder, Cpu cpu)
     {
-        string rootPath = Path.Combine(WindowsUtils.GetFolderPath(folder), "dotnet");
+        string rootPath = Paths.Combine(WindowsUtils.GetFolderPath(folder), "dotnet");
 
         string? packageDir = packageName switch
         {
-            "dotnet-runtime" => Path.Combine("shared", "Microsoft.NETCore.App"),
-            "dotnet-aspnetcore-runtime" => Path.Combine("shared", "Microsoft.AspNetCore.App"),
-            "dotnet-windowsdesktop-runtime" => Path.Combine("shared", "Microsoft.WindowsDesktop.App"),
+            "dotnet-runtime" => Paths.Combine("shared", "Microsoft.NETCore.App"),
+            "dotnet-aspnetcore-runtime" => Paths.Combine("shared", "Microsoft.AspNetCore.App"),
+            "dotnet-windowsdesktop-runtime" => Paths.Combine("shared", "Microsoft.WindowsDesktop.App"),
             "dotnet-sdk" => "sdk",
             _ => null
         };
         if (packageDir == null) yield break;
 
-        string componentPath = Path.Combine(rootPath, packageDir);
+        string componentPath = Paths.Combine(rootPath, packageDir);
         if (!Directory.Exists(componentPath)) yield break;
         foreach (string path in Directory.GetDirectories(componentPath))
         {
-            if (ImplementationVersion.TryCreate(Path.GetFileName(path), out var version))
+            if (ImplementationVersion.TryCreate(Paths.FileName(path), out var version))
             {
                 yield return new(DistributionName, packageName, version, cpu)
                 {
-                    Commands = {new() {Name = Command.NameRun, Path = Path.Combine(rootPath, "dotnet.exe")}},
+                    Commands = {new() {Name = Command.NameRun, Path = Paths.Combine(rootPath, "dotnet.exe")}},
                     IsInstalled = true,
-                    QuickTestFile = Path.Combine(path, ".version")
+                    QuickTestFile = Paths.Combine(path, ".version")
                 };
             }
         }
@@ -185,8 +185,8 @@ public class WindowsPackageManager : PackageManagerBase
                 new ImplementationVersion(version),
                 wow6432 ? Cpu.I486 : Architecture.CurrentSystem.Cpu)
             {
-                Commands = {new() {Name = Command.NameRun, Path = Path.Combine(path, "powershell.exe")}},
-                QuickTestFile = Path.Combine(path, "powershell.exe"),
+                Commands = {new() {Name = Command.NameRun, Path = Paths.Combine(path, "powershell.exe")}},
+                QuickTestFile = Paths.Combine(path, "powershell.exe"),
                 IsInstalled = true
             };
         }
@@ -213,19 +213,19 @@ public class WindowsPackageManager : PackageManagerBase
             {
                 Commands =
                 {
-                    new() {Name = Command.NameRun, Path = Path.Combine(path, @"cmd\git.exe")},
-                    new() {Name = Command.NameRunGui, Path = Path.Combine(path, @"cmd\git-gui.exe")},
-                    new() {Name = "gitk", Path = Path.Combine(path, @"cmd\gitk.exe")},
-                    new() {Name = "start-ssh-agent", Path = Path.Combine(path, @"cmd\start-ssh-agent.exe")},
-                    new() {Name = "git-bash", Path = Path.Combine(path, @"git-bash.exe")},
-                    new() {Name = "git-cmd", Path = Path.Combine(path, @"git-cmd.exe")},
-                    new() {Name = "bash", Path = Path.Combine(path, @"usr\bin\bash.exe")},
-                    new() {Name = "sh", Path = Path.Combine(path, @"usr\bin\sh.exe")},
-                    new() {Name = "ssh", Path = Path.Combine(path, @"usr\bin\ssh.exe")},
-                    new() {Name = "scp", Path = Path.Combine(path, @"usr\bin\scp.exe")},
-                    new() {Name = "gpg", Path = Path.Combine(path, @"usr\bin\gpg.exe")},
-                    new() {Name = "gpgv", Path = Path.Combine(path, @"usr\bin\gpgv.exe")},
-                    new() {Name = "gpgsplit", Path = Path.Combine(path, @"usr\bin\gpgsplit.exe")}
+                    new() {Name = Command.NameRun, Path = Paths.Combine(path, @"cmd\git.exe")},
+                    new() {Name = Command.NameRunGui, Path = Paths.Combine(path, @"cmd\git-gui.exe")},
+                    new() {Name = "gitk", Path = Paths.Combine(path, @"cmd\gitk.exe")},
+                    new() {Name = "start-ssh-agent", Path = Paths.Combine(path, @"cmd\start-ssh-agent.exe")},
+                    new() {Name = "git-bash", Path = Paths.Combine(path, @"git-bash.exe")},
+                    new() {Name = "git-cmd", Path = Paths.Combine(path, @"git-cmd.exe")},
+                    new() {Name = "bash", Path = Paths.Combine(path, @"usr\bin\bash.exe")},
+                    new() {Name = "sh", Path = Paths.Combine(path, @"usr\bin\sh.exe")},
+                    new() {Name = "ssh", Path = Paths.Combine(path, @"usr\bin\ssh.exe")},
+                    new() {Name = "scp", Path = Paths.Combine(path, @"usr\bin\scp.exe")},
+                    new() {Name = "gpg", Path = Paths.Combine(path, @"usr\bin\gpg.exe")},
+                    new() {Name = "gpgv", Path = Paths.Combine(path, @"usr\bin\gpgv.exe")},
+                    new() {Name = "gpgsplit", Path = Paths.Combine(path, @"usr\bin\gpgsplit.exe")}
                 },
                 IsInstalled = true
             };

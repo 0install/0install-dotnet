@@ -145,7 +145,7 @@ public class FeedManager : IFeedManager
     }
 
     private static string GetLastCheckAttemptPath(FeedUri feedUri)
-        => Path.Combine(
+        => Paths.Combine(
             Locations.GetCacheDirPath("0install.net", false, "injector", "last-check-attempt"),
             feedUri.PrettyEscape());
 

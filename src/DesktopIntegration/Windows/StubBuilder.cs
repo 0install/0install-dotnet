@@ -40,7 +40,7 @@ public class StubBuilder(IIconStore iconStore)
         string exeName = (entryPoint == null)
             ? FeedUri.Escape(target.Feed.Name)
             : entryPoint.BinaryName ?? entryPoint.Command;
-        string path = Path.Combine(
+        string path = Paths.Combine(
             IntegrationManager.GetDir(machineWide, "stubs", targetHash),
             $"{exeName}.exe");
 
@@ -57,7 +57,7 @@ public class StubBuilder(IIconStore iconStore)
             var exe = GetExe(needsTerminal.Value);
             Log.Error($"Failed to generate stub EXE for {targetKey}. Falling back to using '{exe}' directly.", ex);
             return GetArguments(target.Uri, command, needsTerminal.Value)
-                  .Prepend(Path.Combine(Locations.InstallBase, exe))
+                  .Prepend(Paths.Combine(Locations.InstallBase, exe))
                   .ToList();
         }
 #endif
@@ -108,7 +108,7 @@ public class StubBuilder(IIconStore iconStore)
 
     private static readonly IEnumerable<PortableExecutableReference> _references =
         new[] {"mscorlib.dll", "System.dll", "System.Core.dll"}
-           .Select(x => MetadataReference.CreateFromFile(Path.Combine(_netFxDirectory, x)))
+           .Select(x => MetadataReference.CreateFromFile(Paths.Combine(_netFxDirectory, x)))
            .ToList();
 
     /// <summary>

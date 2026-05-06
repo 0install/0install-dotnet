@@ -51,7 +51,7 @@ partial class SelfManager
 
     private void TaskSchedulerAddTask(string name, string description, DaysOfTheWeek daysOfWeek, params string[] arguments)
     {
-        string path = Path.Combine(TargetDir, "0install-win.exe");
+        string path = Paths.Combine(TargetDir, "0install-win.exe");
         if (!File.Exists(path)) return;
         try
         {

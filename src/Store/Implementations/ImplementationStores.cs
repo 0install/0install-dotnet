@@ -173,14 +173,14 @@ public static class ImplementationStores
             string result = path;
             try
             {
-                if (!Path.IsPathRooted(path))
+                if (!Paths.IsAbsolute(path))
                 { // Allow relative paths only for portable installations
-                    if (Locations.IsPortable) result = Path.Combine(Locations.PortableBase, path);
+                    if (Locations.IsPortable) result = Paths.Combine(Locations.PortableBase, path);
                     else throw new IOException(string.Format(Resources.NonRootedPathInConfig, path, configPath));
                 }
             }
             #region Error handling
-            catch (ArgumentException ex)
+            catch (IOException ex)
             {
                 // Wrap exception to add context information
                 throw new IOException(ProblemAccessingStoreMessage(path), ex);

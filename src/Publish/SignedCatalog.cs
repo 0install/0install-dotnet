@@ -85,7 +85,7 @@ public class SignedCatalog
             FeedUtils.SignFeed(stream, SecretKey, passphrase, _openPgp);
             stream.CopyToFile(path);
         }
-        string directory = Path.GetDirectoryName(path)!;
+        string directory = Paths.Parent(path);
         _openPgp.DeployPublicKey(SecretKey, directory);
         FeedUtils.DeployStylesheet(directory, "catalog");
     }

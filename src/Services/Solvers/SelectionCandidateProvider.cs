@@ -148,7 +148,7 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
     private static IEnumerable<string> GetSitePackagePaths(FeedUri interfaceUri)
         => Locations.GetLoadDataPaths("0install.net", isFile: false, resource: ["site-packages", ..interfaceUri.EscapeComponent()])
                     .SelectMany(Directory.GetDirectories)
-                    .Select(dir => Path.Combine(dir, "0install", "feed.xml"))
+                    .Select(dir => Paths.Combine(dir, "0install", "feed.xml"))
                     .Where(File.Exists);
 
     private IEnumerable<SelectionCandidate> GetCandidates(FeedUri feedUri, Feed feed, Requirements requirements)

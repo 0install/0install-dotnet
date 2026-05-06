@@ -29,7 +29,7 @@ public static partial class Shortcut
         var entryPoint = target.Feed.GetEntryPoint(command);
         bool needsTerminal = entryPoint is {NeedsTerminal: true};
 
-        string targetPath = Path.Combine(Locations.InstallBase, needsTerminal ? "0install.exe" : "0install-win.exe");
+        string targetPath = Paths.Combine(Locations.InstallBase, needsTerminal ? "0install.exe" : "0install-win.exe");
 
         string arguments = "run ";
         if (!needsTerminal) arguments += "--no-wait ";
@@ -55,7 +55,7 @@ public static partial class Shortcut
                ?.ManifestDigest.Best;
         if (referenceDigest == null) return null;
 
-        return Path.Combine(ImplementationStores.GetDirectories().Last(), referenceDigest, $"{entryPoint.BinaryName}.exe");
+        return Paths.Combine(ImplementationStores.GetDirectories().Last(), referenceDigest, $"{entryPoint.BinaryName}.exe");
     }
 
     /// <summary>
@@ -71,7 +71,8 @@ public static partial class Shortcut
     {
         Log.Debug($"Creating Windows shortcut file at '{path}' pointing to: {targetPath} {arguments ?? ""}");
 
-        if (Path.GetDirectoryName(path) is { } dirPath && !Directory.Exists(dirPath))
+        string dirPath = Paths.Parent(path);
+        if (!Directory.Exists(dirPath))
         {
             Log.Info($"Creating missing directory '{dirPath} for shortcut");
             Directory.CreateDirectory(dirPath);

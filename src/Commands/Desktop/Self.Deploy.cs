@@ -86,24 +86,24 @@ partial class Self
             {
                 string programFiles = _machineWide
                     ? WindowsUtils.GetFolderPath(Environment.SpecialFolder.ProgramFiles)
-                    : Path.Combine(WindowsUtils.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Programs");
-                return Path.Combine(programFiles, "Zero Install");
+                    : Paths.Combine(WindowsUtils.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Programs");
+                return Paths.Combine(programFiles, "Zero Install");
             }
             else if (UnixUtils.IsMacOSX)
             {
-                string applications = _machineWide ? "/Applications" : Path.Combine(Locations.HomeDir, "Applications");
-                return Path.Combine(applications, "Zero Install");
+                string applications = _machineWide ? "/Applications" : Paths.Combine(Locations.HomeDir, "Applications");
+                return Paths.Combine(applications, "Zero Install");
             }
             else if (UnixUtils.IsUnix)
-                return _machineWide ? "/usr/share/zero-install" : Path.Combine(Locations.HomeDir, ".zero-install");
+                return _machineWide ? "/usr/share/zero-install" : Paths.Combine(Locations.HomeDir, ".zero-install");
             else throw new PlatformNotSupportedException();
         }
 
         private string GetCustomTargetDir()
         {
-            string targetDir = Path.GetFullPath(AdditionalArgs[0]);
+            string targetDir = Paths.Absolute(AdditionalArgs[0]);
 
-            if (File.Exists(Path.Combine(targetDir, Locations.PortableFlagName)))
+            if (File.Exists(Paths.Combine(targetDir, Locations.PortableFlagName)))
             {
                 Log.Info($"Detected that '{targetDir}' is an existing portable instance of Zero Install.");
                 _portable = true;
@@ -142,7 +142,7 @@ partial class Self
         {
             if (!WindowsUtils.IsWindows) return;
 
-            var startInfo = new ProcessStartInfo(Path.Combine(targetDir, "ZeroInstall.exe"));
+            var startInfo = new ProcessStartInfo(Paths.Combine(targetDir, "ZeroInstall.exe"));
             if (!File.Exists(startInfo.FileName)) return;
 
             if (_machineWide && WindowsUtils.HasUac)

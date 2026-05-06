@@ -22,7 +22,7 @@ public class PrefixBuilder(IBuilder underlyingBuilder, string prefix) : MarshalN
 
     /// <inheritdoc/>
     public void AddHardlink(string path, string target, bool executable = false)
-        => underlyingBuilder.AddHardlink(GetPath(path), Path.Combine(prefix, target), executable);
+        => underlyingBuilder.AddHardlink(GetPath(path), Paths.Combine(prefix, target), executable);
 
     /// <inheritdoc/>
     public void AddSymlink(string path, string target)
@@ -30,7 +30,7 @@ public class PrefixBuilder(IBuilder underlyingBuilder, string prefix) : MarshalN
 
     /// <inheritdoc/>
     public void Rename(string path, string target)
-        => underlyingBuilder.Rename(GetPath(path), Path.Combine(prefix, target));
+        => underlyingBuilder.Rename(GetPath(path), Paths.Combine(prefix, target));
 
     /// <inheritdoc/>
     public void Remove(string path)
@@ -48,18 +48,5 @@ public class PrefixBuilder(IBuilder underlyingBuilder, string prefix) : MarshalN
     /// Prepends the prefix to a <paramref name="path"/>.
     /// </summary>
     /// <exception cref="IOException">The prefix or the <paramref name="path"/> contain invalid characters.</exception>
-    private string GetPath(string path)
-    {
-        try
-        {
-            return Path.Combine(prefix, path);
-        }
-        #region Error handling
-        catch (ArgumentException ex)
-        {
-            // Wrap exception since only certain exception types are allowed
-            throw new IOException(ex.Message, ex);
-        }
-        #endregion
-    }
+    private string GetPath(string path) => Paths.Combine(prefix, path);
 }

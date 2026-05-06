@@ -42,7 +42,7 @@ public class ZeroInstallClient(IProcessLauncher launcher, IProcessLauncher? guiL
 
     private static string? GetFromRegistry(string executableName, bool machineWide)
         => ZeroInstallDeployment.GetPath(machineWide) is {} dirPath
-            ? Path.Combine(dirPath, $"{executableName}.exe").EscapeArgument()
+            ? Paths.Combine(dirPath, $"{executableName}.exe").EscapeArgument()
             : null;
 
     /// <inheritdoc/>

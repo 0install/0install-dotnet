@@ -28,7 +28,7 @@ public class ImplementationNode : CacheNode
 
     private static long GetSize(string path, ManifestDigest digest)
         => Manifest.TryLoad(
-               System.IO.Path.Combine(path, Manifest.ManifestFile),
+               Paths.Combine(path, Manifest.ManifestFile),
                ManifestFormat.FromPrefix(digest.AvailableDigests.First()))?.TotalSize
         ?? 0;
 

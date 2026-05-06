@@ -27,10 +27,10 @@ public static class ZeroInstallDeployment
         {
             try
             {
-                if (File.Exists(Path.Combine(path, "0install.exe"))) return path;
+                if (File.Exists(Paths.Combine(path, "0install.exe"))) return path;
             }
             #region Error handling
-            catch (ArgumentException ex)
+            catch (IOException ex)
             {
                 Log.Warn($"Invalid Zero Install path found in registry: {path}", ex);
             }

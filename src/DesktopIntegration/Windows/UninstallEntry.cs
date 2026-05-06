@@ -27,7 +27,7 @@ public static class UninstallEntry
     {
         string[] GetCommand(string verb)
         {
-            string[] command = [Path.Combine(Locations.InstallBase, "0install-win.exe"), verb, target.Uri.ToStringRfc()];
+            string[] command = [Paths.Combine(Locations.InstallBase, "0install-win.exe"), verb, target.Uri.ToStringRfc()];
             return machineWide ? [..command, "--machine"] : command;
         }
 

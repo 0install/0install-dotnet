@@ -50,20 +50,20 @@ public class ClearDirectory(string path, Manifest manifest, ITaskHandler handler
 
     private IEnumerable<string> GetFilesToDelete()
     {
-        string manifestPath = System.IO.Path.Combine(Path, Manifest.ManifestFile);
+        string manifestPath = Paths.Combine(Path, Manifest.ManifestFile);
         if (File.Exists(manifestPath))
             yield return manifestPath;
 
         foreach ((string directoryPath, var directory) in Manifest)
         {
-            string fullDirectoryPath = System.IO.Path.Combine(Path, directoryPath.ToNativePath());
+            string fullDirectoryPath = Paths.Combine(Path, directoryPath.ToNativePath());
 
             if (Directory.Exists(fullDirectoryPath))
                 _pendingDirectoryDeletes.Push(fullDirectoryPath);
 
             foreach (string elementName in directory.Keys)
             {
-                string path = System.IO.Path.Combine(fullDirectoryPath, elementName);
+                string path = Paths.Combine(fullDirectoryPath, elementName);
                 if (File.Exists(path)) yield return path;
             }
         }

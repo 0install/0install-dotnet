@@ -78,7 +78,7 @@ public static class FeedManagerExtensions
         using var stream = File.OpenRead(path);
         feedManager.ImportFeed(stream, keyCallback: id =>
         {
-            string keyPath = Path.Combine(Path.GetDirectoryName(path) ?? "", id + ".gpg");
+            string keyPath = Paths.Combine(Paths.Parent(path), id + ".gpg");
             if (!File.Exists(keyPath)) return null;
 
             Log.Info($"Loading OpenPGP key {id} from {keyPath}");

@@ -66,7 +66,7 @@ public static class DefaultProgram
             // Set callbacks for Windows SPAD
             using (var installInfoKey = appKey.CreateSubKeyChecked(RegSubKeyInstallInfo))
             {
-                string exePath = Path.Combine(Locations.InstallBase, "0install-win.exe");
+                string exePath = Paths.Combine(Locations.InstallBase, "0install-win.exe");
                 installInfoKey.SetValue(RegValueReinstallCommand, new[] {exePath, "integrate", "--machine", "--batch", "--add", "defaults", target.Uri.ToStringRfc()}.JoinEscapeArguments());
                 installInfoKey.SetValue(RegValueShowIconsCommand, new[] {exePath, "integrate", "--machine", "--batch", "--add", MenuEntry.TagName, "--add", DesktopIcon.TagName, target.Uri.ToStringRfc()}.JoinEscapeArguments());
                 installInfoKey.SetValue(RegValueHideIconsCommand, new[] {exePath, "integrate", "--machine", "--batch", "--remove", MenuEntry.TagName, "--remove", DesktopIcon.TagName, target.Uri.ToStringRfc()}.JoinEscapeArguments());

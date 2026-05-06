@@ -29,7 +29,7 @@ public static class ZeroInstallInstance
     private static ImplementationVersion? GetZeroInstallForWindowsVersion()
     {
 #if NETFRAMEWORK
-        string path = Path.Combine(Locations.InstallBase, "0install-win.exe");
+        string path = Paths.Combine(Locations.InstallBase, "0install-win.exe");
         if (!File.Exists(path)) return null;
 
         try

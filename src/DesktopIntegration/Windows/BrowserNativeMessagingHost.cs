@@ -68,7 +68,7 @@ public static class BrowserNativeMessagingHost
     }
 
     private static string GetManifestPath(string browser, string hostName, bool machineWide)
-        => Path.Combine(
+        => Paths.Combine(
             IntegrationManager.GetDir(machineWide, "browser-native-messaging", browser),
             $"{hostName}.json");
 

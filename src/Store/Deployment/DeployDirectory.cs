@@ -39,7 +39,7 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
         if (FileUtils.DetermineTimeAccuracy(DestinationPath) > 0)
             throw new IOException(Resources.InsufficientFSTimeAccuracy);
 
-        string manifestPath = System.IO.Path.Combine(DestinationPath, Manifest.ManifestFile);
+        string manifestPath = Paths.Combine(DestinationPath, Manifest.ManifestFile);
         string tempManifestPath = Randomize(manifestPath);
         _pendingFileRenames.Push((tempManifestPath, manifestPath));
         Manifest.Save(tempManifestPath);
@@ -62,8 +62,8 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
         foreach ((string directoryPath, var directory) in Manifest)
         {
             string dirPath = directoryPath.ToNativePath();
-            string sourceDir = System.IO.Path.Combine(Path, dirPath);
-            string destinationDir = System.IO.Path.Combine(DestinationPath, dirPath);
+            string sourceDir = Paths.Combine(Path, dirPath);
+            string destinationDir = Paths.Combine(DestinationPath, dirPath);
             if (!Directory.Exists(destinationDir))
             {
                 Directory.CreateDirectory(destinationDir);
@@ -72,8 +72,8 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
 
             foreach ((string path, var element) in directory)
             {
-                string sourcePath = System.IO.Path.Combine(sourceDir, path);
-                string destinationPath = System.IO.Path.Combine(destinationDir, path);
+                string sourcePath = Paths.Combine(sourceDir, path);
+                string destinationPath = Paths.Combine(destinationDir, path);
 
                 string tempPath = Randomize(destinationPath);
                 _pendingFileRenames.Push((tempPath, destinationPath));

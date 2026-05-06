@@ -50,17 +50,7 @@ public sealed class Export : Download
     {
         base.Parse(args);
 
-        try
-        {
-            _outputPath = Path.GetFullPath(AdditionalArgs[0]);
-        }
-        #region Error handling
-        catch (Exception ex) when (ex is ArgumentException or NotSupportedException)
-        {
-            // Wrap exception since only certain exception types are allowed
-            throw new UriFormatException(ex.Message);
-        }
-        #endregion
+        _outputPath = Paths.Absolute(AdditionalArgs[0]);
     }
 
     /// <inheritdoc/>
