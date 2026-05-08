@@ -15,7 +15,7 @@ namespace ZeroInstall.Model;
 /// Abstract base class for XML serializable classes that are intended to retain any unknown XML elements or attributes loaded from an XML file.
 /// </summary>
 /// <remarks>Inheriting from this class will prevent the <see cref="XmlSerializer.UnknownElement"/> event from being triggered.</remarks>
-public abstract class XmlUnknown : IEquatable<XmlUnknown>
+public abstract class XmlUnknown
 {
     /// <summary>
     /// Contains any unknown additional XML attributes.
@@ -108,8 +108,9 @@ public abstract class XmlUnknown : IEquatable<XmlUnknown>
     #endregion
 
     #region Equatable
-    public bool Equals(XmlUnknown? other)
-        => other != null
+    /// <inheritdoc/>
+    public override bool Equals(object? obj)
+        => obj is XmlUnknown other
         && (UnknownAttributes ?? []).UnsequencedEquals(other.UnknownAttributes ?? [], comparer: XmlAttributeComparer.Instance)
         && (UnknownElements ?? []).SequencedEquals(other.UnknownElements ?? [], comparer: XmlElementComparer.Instance);
 
