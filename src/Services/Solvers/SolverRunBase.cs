@@ -139,7 +139,7 @@ public abstract class SolverRunBase(Requirements requirements, ISelectionCandida
     /// </summary>
     /// <param name="interfaceUri">The URI or local path (must be absolute) to the interface to solve the dependencies for.</param>
     /// <param name="command">The name of the command in the implementation to execute. Will default to <see cref="Command.NameRun"/> or <see cref="Command.NameCompile"/> if <c>null</c>. Will not try to find any command if set to <see cref="string.Empty"/>.</param>
-    private Requirements Require(FeedUri interfaceUri, string? command)
+    protected Requirements Require(FeedUri interfaceUri, string? command)
     {
         var requirements = new Requirements(interfaceUri, command ?? Command.NameRun, _requirements.Architecture)
         {
