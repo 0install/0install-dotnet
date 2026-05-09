@@ -21,7 +21,7 @@ public static class ArchitectureExtensions
     public static bool RunsOn(this OS os, OS target)
         => os switch
         {
-            OS.Unknown or OS.Unknown => false,
+            OS.Unknown => false,
 
             // Exact match
             _ when os == target => true,
@@ -44,7 +44,7 @@ public static class ArchitectureExtensions
     public static bool RunsOn(this Cpu cpu, Cpu target)
         => cpu switch
         {
-            Cpu.Unknown or Cpu.Unknown => false,
+            Cpu.Unknown => false,
 
             // Exact match
             _ when cpu == target => true,
