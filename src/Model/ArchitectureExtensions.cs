@@ -57,6 +57,7 @@ public static class ArchitectureExtensions
             >= Cpu.I386 and <= Cpu.X64 when target >= cpu && target <= Cpu.X64 => true,
             >= Cpu.Ppc and <= Cpu.Ppc64 when target >= cpu && target <= Cpu.Ppc64 => true,
             >= Cpu.ArmV6L and <= Cpu.AArch64 when target >= cpu && target <= Cpu.AArch64 => true,
+            Cpu.Arm64EC when target == Cpu.AArch64 => true,
 
             _ => false
         };
@@ -68,7 +69,7 @@ public static class ArchitectureExtensions
         => cpu switch
         {
             >= Cpu.I386 and <= Cpu.I686 => CpuGroup.X86,
-            Cpu.X64 => CpuGroup.X64,
+            Cpu.X64 or Cpu.Arm64EC => CpuGroup.X64,
             Cpu.ArmV6L or Cpu.ArmV7L => CpuGroup.Arm32,
             Cpu.AArch64 => CpuGroup.Arm64,
             _ => null

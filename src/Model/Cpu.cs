@@ -55,6 +55,10 @@ public enum Cpu
     [XmlEnum("aarch64")]
     AArch64,
 
+    /// <summary>Supports ARM64 CPUs but uses x64-compatible calling convention (Windows-specific).</summary>
+    [XmlEnum("arm64ec")]
+    Arm64EC,
+
     /// <summary>This is a source release and therefore architecture-independent.</summary>
     [XmlEnum("src")]
     Source = 99,

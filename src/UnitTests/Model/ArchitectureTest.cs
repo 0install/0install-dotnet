@@ -83,6 +83,10 @@ public class ArchitectureTest
         Cpu.X64.RunsOn(Cpu.I686).Should().BeFalse();
         Cpu.Ppc.RunsOn(Cpu.Ppc64).Should().BeTrue();
         Cpu.Ppc64.RunsOn(Cpu.Ppc).Should().BeFalse();
+
+        // ARM64 with x64-compatible calling convention
+        Cpu.Arm64EC.RunsOn(Cpu.AArch64).Should().BeTrue();
+        Cpu.Arm64EC.RunsOn(Cpu.X64).Should().BeFalse();
     }
 
     [Fact]
@@ -93,5 +97,10 @@ public class ArchitectureTest
 
         // No mixing x86 and x64 within a process
         Cpu.X64.GetGroup().Should().NotBe(Cpu.I686.GetGroup());
+
+        // ARM64 with x64-compatible calling convention
+        Cpu.Arm64EC.GetGroup().Should().Be(Cpu.X64.GetGroup());
+
+        Cpu.AArch64.GetGroup().Should().NotBe(Cpu.X64.GetGroup());
     }
 }
