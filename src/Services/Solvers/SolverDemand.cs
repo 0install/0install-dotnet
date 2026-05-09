@@ -31,8 +31,8 @@ public sealed record SolverDemand(Requirements Requirements, ISelectionCandidate
         || Conflicts(implementation.GetEffectiveRestrictions(), selections);
 
     private static bool Conflicts(Cpu cpu, ICollection<ImplementationSelection> implementations)
-        => cpu.Is32Bit() && implementations.Any(x => x.Architecture.Cpu.Is64Bit())
-        || cpu.Is64Bit() && implementations.Any(x => x.Architecture.Cpu.Is32Bit());
+        => cpu.GetGroup() is {} group
+        && implementations.Any(x => x.Architecture.Cpu.GetGroup() is {} otherGroup && group != otherGroup);
 
     private static bool Conflicts(Implementation implementation, IEnumerable<Restriction> restrictions)
     {

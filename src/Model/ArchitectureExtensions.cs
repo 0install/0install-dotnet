@@ -62,14 +62,15 @@ public static class ArchitectureExtensions
         };
 
     /// <summary>
-    /// Indicates whether the CPU architecture is 32-bit.
+    /// Gets the group of CPU architectures that this CPU architecture can be combined with, within a single process.
     /// </summary>
-    public static bool Is32Bit(this Cpu cpu)
-        => cpu is ((>= Cpu.I386 and <= Cpu.I686) or Cpu.Ppc or Cpu.ArmV6L or Cpu.ArmV7L);
-
-    /// <summary>
-    /// Indicates whether the CPU architecture is 64-bit.
-    /// </summary>
-    public static bool Is64Bit(this Cpu cpu)
-        => cpu is (Cpu.X64 or Cpu.Ppc64 or Cpu.AArch64);
+    public static CpuGroup? GetGroup(this Cpu cpu)
+        => cpu switch
+        {
+            >= Cpu.I386 and <= Cpu.I686 => CpuGroup.X86,
+            Cpu.X64 => CpuGroup.X64,
+            Cpu.ArmV6L or Cpu.ArmV7L => CpuGroup.Arm32,
+            Cpu.AArch64 => CpuGroup.Arm64,
+            _ => null
+        };
 }

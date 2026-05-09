@@ -84,4 +84,14 @@ public class ArchitectureTest
         Cpu.Ppc.RunsOn(Cpu.Ppc64).Should().BeTrue();
         Cpu.Ppc64.RunsOn(Cpu.Ppc).Should().BeFalse();
     }
+
+    [Fact]
+    public void GetGroup()
+    {
+        // x86-series backwards-compatibility
+        Cpu.I386.GetGroup().Should().Be(Cpu.I686.GetGroup());
+
+        // No mixing x86 and x64 within a process
+        Cpu.X64.GetGroup().Should().NotBe(Cpu.I686.GetGroup());
+    }
 }
