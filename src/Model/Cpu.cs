@@ -15,15 +15,15 @@ public enum Cpu
     [XmlEnum("*")]
     All,
 
-    /// <summary>Supports CPUs with the i386 architecture or newer (up to i686).</summary>
+    /// <summary>Supports CPUs with the i386 architecture or newer.</summary>
     [XmlEnum("i386")]
     I386,
 
-    /// <summary>Supports CPUs with the i486 architecture or newer (up to i686).</summary>
+    /// <summary>Supports CPUs with the i486 architecture or newer.</summary>
     [XmlEnum("i486")]
     I486,
 
-    /// <summary>Supports CPUs with the i586 architecture or newer (up to i686).</summary>
+    /// <summary>Supports CPUs with the i586 architecture or newer.</summary>
     [XmlEnum("i586")]
     I586,
 
@@ -31,11 +31,11 @@ public enum Cpu
     [XmlEnum("i686")]
     I686,
 
-    /// <summary>Requires a x86-64 capable CPU.</summary>
+    /// <summary>Requires an x86-64 capable CPU.</summary>
     [XmlEnum("x86_64")]
     X64,
 
-    /// <summary>Supports CPUs with the PowerPC-architecture (used in older Macs).</summary>
+    /// <summary>Supports CPUs with the PowerPC-architecture.</summary>
     [XmlEnum("ppc")]
     Ppc,
 
