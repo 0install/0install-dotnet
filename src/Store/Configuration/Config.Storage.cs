@@ -80,6 +80,12 @@ partial class Config
     private IniData? _lastIniFromFile;
 
     /// <summary>
+    /// Keys that have been explicitly set via <see cref="SetOption"/> and should be written to the config file even if they equal the compiled default.
+    /// </summary>
+    [NonSerialized]
+    private readonly HashSet<string> _explicitKeys = [];
+
+    /// <summary>
     /// Reads options from a config file and merges them into the config instance.
     /// </summary>
     /// <param name="path">The path of the file to read.</param>
@@ -276,7 +282,7 @@ partial class Config
                 ? key + Base64Suffix
                 : key;
 
-            if (property.IsDefaultValue)
+            if (property.IsDefaultValue && !_explicitKeys.Contains(key))
                 global.RemoveKey(effectiveKey);
             else
             {

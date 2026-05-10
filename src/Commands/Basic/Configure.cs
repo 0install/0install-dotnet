@@ -85,7 +85,7 @@ public class Configure : CliCommand
     {
         try
         {
-            if (value == "default") config.ResetOption(key);
+            if (value == "default") config.UnsetOption(key);
             else config.SetOption(key, value);
         }
         #region Error handling

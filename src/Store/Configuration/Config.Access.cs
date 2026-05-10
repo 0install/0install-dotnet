@@ -31,16 +31,20 @@ partial class Config
             throw new UnauthorizedAccessException(Resources.OptionLockedByPolicy);
 
         _metaData[key].Value = value;
+        _explicitKeys.Add(key);
     }
 
     /// <summary>
-    /// Resets an option identified by a key to its default value.
+    /// Removes an option from the per-user config, inheriting its value from system-wide settings or built-in defaults.
     /// </summary>
-    /// <param name="key">The key of the option to reset.</param>
+    /// <param name="key">The key of the option to unset.</param>
     /// <exception cref="KeyNotFoundException"><paramref name="key"/> is invalid.</exception>
-    [RequiresUnreferencedCode("Relies on [DefaultValue], which is not trim-safe.")]
-    public void ResetOption(string key)
-        => SetOption(key, _metaData[key].DefaultValue);
+    public void UnsetOption(string key)
+    {
+        if (!_metaData.ContainsKey(key)) throw new KeyNotFoundException();
+        _explicitKeys.Remove(key);
+        _metaData[key].Value = _metaData[key].DefaultValue;
+    }
 
     /// <summary>
     /// Creates a deep copy of this <see cref="Config"/> instance.
@@ -50,6 +54,7 @@ partial class Config
         var newConfig = new Config();
         foreach ((string key, var property) in _metaData)
             newConfig._metaData[key].Value = property.Value;
+        newConfig._explicitKeys.UnionWith(_explicitKeys);
         return newConfig;
     }
 
