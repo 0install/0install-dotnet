@@ -42,7 +42,10 @@ public abstract class SolverRunBase(Requirements requirements, ISelectionCandida
             else
             {
                 CandidateProvider.FailedFeeds.Values.FirstOrDefault()?.Rethrow();
-                throw new SolverException(string.Format(Resources.FailedToSolve, _requirements.InterfaceUri));
+
+                string message = string.Format(Resources.FailedToSolve, _requirements.InterfaceUri);
+                if (GetFailureDetails() is {} details) message += Environment.NewLine + details;
+                throw new SolverException(message);
             }
         }
         finally
@@ -57,6 +60,11 @@ public abstract class SolverRunBase(Requirements requirements, ISelectionCandida
     /// <param name="demand">The demand to fulfill.</param>
     /// <returns><c>true</c> if the demand could be met, <c>false</c> if not.</returns>
     protected abstract bool TryFulfill(SolverDemand demand);
+
+    /// <summary>
+    /// Returns a human-readable explanation of why <see cref="TryFulfill"/> failed, or <c>null</c> if no diagnostics are available.
+    /// </summary>
+    protected virtual string? GetFailureDetails() => null;
 
     /// <summary>
     /// Generates <see cref="SolverDemand"/>s for the dependencies specified by an <see cref="ImplementationSelection"/>.

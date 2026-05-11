@@ -59,6 +59,13 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
             return false;
         }
 
+    /// <inheritdoc/>
+        protected override string GetFailureDetails()
+            => SolverDiagnostics.Build(
+                _rootRequirements,
+                _roles.ToDictionary(x => x.Key, x => x.Value.Candidates),
+                CandidateProvider.FailedFeeds);
+
         private void BuildProblem(SolverDemand rootDemand)
         {
             var rootRole = VisitRole(rootDemand.Requirements);
