@@ -90,6 +90,28 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
     }
 
     /// <summary>
+    /// Checks whether an <see cref="AppEntry"/> with a specific pet-name exists.
+    /// </summary>
+    /// <param name="petName">The <see cref="AppEntry.PetName"/> to look for.</param>
+    /// <returns><c>true</c> if a matching entry was found; <c>false</c> otherwise.</returns>
+    public bool ContainsEntry(string petName)
+        => GetEntry(petName) != null;
+
+    /// <summary>
+    /// Gets an <see cref="AppEntry"/> by its pet-name. Safe for missing elements.
+    /// </summary>
+    /// <param name="petName">The <see cref="AppEntry.PetName"/> to look for.</param>
+    /// <returns>The first matching <see cref="AppEntry"/>; <c>null</c> if no match was found.</returns>
+    public AppEntry? GetEntry(string petName)
+    {
+        #region Sanity checks
+        if (string.IsNullOrEmpty(petName)) throw new ArgumentNullException(nameof(petName));
+        #endregion
+
+        return Entries.FirstOrDefault(entry => entry.PetName == petName);
+    }
+
+    /// <summary>
     /// Returns all <see cref="AppEntry"/>s that match a specific search query.
     /// </summary>
     /// <param name="query">The search query. Must be contained within <see cref="AppEntry.Name"/>.</param>
@@ -140,7 +162,7 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
     /// <param name="aliasName">The name of the alias to search for.</param>
     /// <returns>The target feed of the alias; <c>null</c> if none was found.</returns>
     public FeedUri? ResolveAlias(string aliasName)
-        => FindAppAlias(aliasName ?? throw new ArgumentNullException(nameof(aliasName)))?.appEntry.InterfaceUri;
+        => FindAppAlias(aliasName ?? throw new ArgumentNullException(nameof(aliasName)))?.appEntry.EffectiveRequirements.InterfaceUri;
 
     #region Storage
     /// <summary>

@@ -44,6 +44,40 @@ public sealed class IntegrationManagerTest : TestWithRedirect
     }
 
     [Fact]
+    public void AddAppByName()
+    {
+        var capabilityList = CapabilityListTest.CreateTestCapabilityList();
+        var feed = new Feed {Name = "Test", CapabilityLists = {capabilityList}};
+        var requirements = new Requirements {InterfaceUri = FeedTest.Test1Uri, Command = "main"};
+
+        var entry = _integrationManager.AddApp("hello", requirements, feed);
+
+        entry.PetName.Should().Be("hello");
+        entry.InterfaceUri.Should().Be(PetName.ToUri("hello"));
+        entry.Requirements.Should().Be(requirements);
+        entry.EffectiveRequirements.InterfaceUri.Should().Be(FeedTest.Test1Uri);
+        entry.Name.Should().Be("Test");
+
+        _integrationManager.Invoking(x => x.AddApp("hello", requirements, feed))
+                           .Should().Throw<InvalidOperationException>(because: "Pet-names must be unique.");
+
+        // Two pet-names against the same feed are allowed.
+        _integrationManager.Invoking(x => x.AddApp("hello2", requirements, feed)).Should().NotThrow();
+    }
+
+    [Fact]
+    public void AddAppByNameRejectsInvalid()
+    {
+        var feed = new Feed {Name = "Test"};
+        var requirements = new Requirements {InterfaceUri = FeedTest.Test1Uri};
+
+        _integrationManager.Invoking(x => x.AddApp("bad/name", requirements, feed))
+                           .Should().Throw<ArgumentException>();
+        _integrationManager.Invoking(x => x.AddApp("", requirements, feed))
+                           .Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
     public void RemoveApp()
     {
         var target = new FeedTarget(FeedTest.Test1Uri, new Feed {Name = "Test"});

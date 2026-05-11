@@ -144,21 +144,30 @@ public class IntegrationManager : IntegrationManagerBase
         if (feed == null) throw new ArgumentNullException(nameof(feed));
         #endregion
 
-        throw new NotImplementedException();
-        /*
+        PetName.Validate(petName, nameof(petName));
+
         // Prevent double entries
-        if (AppList.ContainsEntry(petName)) throw new InvalidOperationException(string.Format(Resources.AppAlreadyInList, feed.Name));
+        if (AppList.ContainsEntry(petName)) throw new InvalidOperationException(string.Format(Resources.AppAlreadyInList, petName));
+
+        // Prevent collisions with an existing alias on another app
+        if (AppList.FindAppAlias(petName) is not null)
+            throw new InvalidOperationException(string.Format(Resources.AppAlreadyInList, petName));
 
         // Get basic metadata and copy of capabilities from feed
-        var appEntry = new AppEntry {InterfaceUri = petName, Requirements = requirements, Name = feed.Name, Timestamp = DateTime.UtcNow};
-        appEntry.CapabilityLists.Add(feed.CapabilityLists.CloneElements());
+        var appEntry = new AppEntry
+        {
+            InterfaceUri = PetName.ToUri(petName),
+            Requirements = requirements,
+            Name = feed.Name,
+            Timestamp = DateTime.UtcNow,
+            CapabilityLists = {feed.CapabilityLists.CloneElements()}
+        };
 
         AppList.Entries.Add(appEntry);
         _appListChanged = true;
 
         WriteAppDir(appEntry);
         return appEntry;
-        */
     }
 
     /// <inheritdoc/>
@@ -176,7 +185,7 @@ public class IntegrationManager : IntegrationManagerBase
         WriteAppDir(appEntry);
 
         if (appEntry.AccessPoints != null)
-            AddAccessPointsInternal(appEntry, feedRetriever(appEntry.InterfaceUri), appEntry.AccessPoints.Clone().Entries);
+            AddAccessPointsInternal(appEntry, feedRetriever(appEntry.EffectiveRequirements.InterfaceUri), appEntry.AccessPoints.Clone().Entries);
     }
 
     /// <inheritdoc/>
