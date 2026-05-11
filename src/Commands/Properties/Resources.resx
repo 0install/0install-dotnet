@@ -534,7 +534,7 @@ You may redistribute copies of this program under the terms of the GNU Lesser Ge
     <value>Please use the GUI version of Zero Install for this feature.</value>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} may only be specified together with an alias name.</value>
+    <value>{0} may only be specified together with an app name.</value>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
     <value>The graphical policy editor is not available in command-line mode.</value>
@@ -759,6 +759,9 @@ May contain command-line arguments. Whitespaces must be escaped!</value>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
     <value>Resolved '{0}' to '{1}' using an alias.</value>
+  </data>
+  <data name="ResolvedUsingAppName" xml:space="preserve">
+    <value>Resolved '{0}' to '{1}' using an app name.</value>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
     <value>Resolved '{0}' to '{1}' using a catalog.</value>

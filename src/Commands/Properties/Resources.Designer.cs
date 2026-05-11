@@ -1268,7 +1268,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} may only be specified together with an alias name..
+        ///   Looks up a localized string similar to {0} may only be specified together with an app name..
         /// </summary>
         public static string NoAddCommandWithoutAlias {
             get {
@@ -1926,6 +1926,15 @@ namespace ZeroInstall.Commands.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Resolved &apos;{0}&apos; to &apos;{1}&apos; using an app name..
+        /// </summary>
+        public static string ResolvedUsingAppName {
+            get {
+                return ResourceManager.GetString("ResolvedUsingAppName", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Resolved &apos;{0}&apos; to &apos;{1}&apos; using a catalog..
         /// </summary>

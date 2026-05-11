@@ -67,6 +67,12 @@ public abstract class IntegrationCommand : CliCommand
         if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
         #endregion
 
+        if (interfaceUri.IsPetName)
+        {
+            return integrationManager.AppList.GetEntry(interfaceUri)
+                ?? throw new InvalidOperationException($"Unable to find application '{interfaceUri}' in the application list.");
+        }
+
         var existingEntry = integrationManager.AppList.GetEntry(interfaceUri);
 
         if (existingEntry != null && ZeroInstallInstance.IsLibraryMode && Handler.IsGui)

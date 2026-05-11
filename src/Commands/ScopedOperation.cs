@@ -32,7 +32,12 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
             if (uri.StartsWith("file:", out string? path)) return new(Paths.Absolute(path));
             if (uri.StartsWith("http:") || uri.StartsWith("https:")) return new(uri);
 
+            if (uri.StartsWith($"{FeedUri.PetNameScheme}:", out string? petName))
+                return DesktopIntegration.PetName.ToUri(petName);
+
             if (TryResolveAlias(uri) is {} resolvedAlias) return resolvedAlias;
+
+            if (TryResolvePetName(uri) is {} resolvedPetName) return resolvedPetName;
 
             if (Paths.IsAbsolute(uri)) return new(uri);
 
@@ -70,6 +75,15 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
             }
             return null;
         }
+    }
+
+    private static FeedUri? TryResolvePetName(string uri)
+    {
+        if (!DesktopIntegration.PetName.IsValid(uri)) return null;
+        if (AppList.LoadSafe().GetEntry(uri) is not {} entry) return null;
+
+        Log.Info(string.Format(Resources.ResolvedUsingAppName, uri, entry.EffectiveRequirements.InterfaceUri));
+        return entry.InterfaceUri;
     }
 
     private FeedUri? TryResolveCatalog(string shortName)

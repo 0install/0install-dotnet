@@ -124,6 +124,15 @@ namespace ZeroInstall.DesktopIntegration.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; is not a valid pet-name..
+        /// </summary>
+        internal static string InvalidPetName {
+            get {
+                return ResourceManager.GetString("InvalidPetName", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to You can only perform one desktop integration operation at a time..
         /// </summary>
         internal static string IntegrationMutex {
