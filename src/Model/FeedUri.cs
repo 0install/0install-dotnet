@@ -55,6 +55,23 @@ public sealed partial class FeedUri : Uri
     /// <seealso cref="FromDistributionPrefix"/>
     public bool IsFromDistribution { get; }
 
+    /// <summary>
+    /// The scheme used to identify applications by their user-defined name instead of their feed URI.
+    /// </summary>
+    /// <seealso cref="IsPetName"/>
+    public const string PetNameScheme = "petname";
+
+    /// <summary>
+    /// Indicates that this URI references an application by its user-defined name rather than its feed URI.
+    /// </summary>
+    /// <seealso cref="PetNameScheme"/>
+    public bool IsPetName => Scheme == PetNameScheme;
+
+    /// <summary>
+    /// The user-defined application name if <see cref="IsPetName"/> is <c>true</c>; <c>null</c> otherwise.
+    /// </summary>
+    public string? PetName => IsPetName ? AbsoluteUri[(PetNameScheme.Length + 1)..] : null;
+
     private static string TrimPrefix(string value)
     {
         if (value.StartsWith(FakePrefix, out string? trimmed)) return trimmed;
@@ -99,7 +116,7 @@ public sealed partial class FeedUri : Uri
     {
         if (string.IsNullOrEmpty(value)) throw new UriFormatException();
 
-        if (Scheme is not ("http" or "https" or "file"))
+        if (Scheme is not ("http" or "https" or "file" or PetNameScheme))
             throw new UriFormatException(string.Format(Resources.InvalidFeedUri, this));
 
         IsFake = value.StartsWith(FakePrefix);

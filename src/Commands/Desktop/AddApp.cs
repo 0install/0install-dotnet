@@ -14,7 +14,7 @@ public class AddApp : AppCommand
     public const string Name = "add";
     public const string AltName = "add-app";
     public override string Description => Resources.DescriptionAddApp;
-    public override string Usage => "[OPTIONS] [ALIAS] INTERFACE";
+    public override string Usage => "[OPTIONS] [NAME] INTERFACE";
     protected override int AdditionalArgsMax => 2;
 
     private string? _command;
@@ -43,15 +43,25 @@ public class AddApp : AppCommand
     {
         try
         {
-            var appEntry = GetAppEntry(IntegrationManager, ref InterfaceUri);
+            AppEntry appEntry;
+            if (AdditionalArgs is [var name, _])
+            {
+                PetName.Validate(name, nameof(name));
 
-            if (AdditionalArgs is [var alias, _])
-                CreateAlias(appEntry, alias, _command);
-            else if (_command != null)
-                throw new OptionException(string.Format(Resources.NoAddCommandWithoutAlias, "--command"), "command");
+                var feed = FeedManager[InterfaceUri];
+                var requirements = new Requirements {InterfaceUri = InterfaceUri, Command = _command};
+                appEntry = IntegrationManager.AddApp(name, requirements, feed);
+                CreateAlias(appEntry, name, _command);
+            }
+            else
+            {
+                if (_command != null)
+                    throw new OptionException(string.Format(Resources.NoAddCommandWithoutAlias, "--command"), "command");
+                appEntry = GetAppEntry(IntegrationManager, ref InterfaceUri);
+            }
 
             var catalog = CatalogManager.TryGetCached() ?? new();
-            if (WindowsUtils.IsWindows && !catalog.ContainsFeed(appEntry.InterfaceUri))
+            if (WindowsUtils.IsWindows && !catalog.ContainsFeed(appEntry.EffectiveRequirements.InterfaceUri))
                 WindowsUtils.BroadcastMessage(AddedNonCatalogAppWindowMessageID); // Notify Zero Install GUIs of changes
 
             return ExitCode.OK;

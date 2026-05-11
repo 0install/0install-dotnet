@@ -43,6 +43,12 @@ public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, IClonea
     [Browsable(false), XmlIgnore, IgnoreEquality]
     public Requirements EffectiveRequirements => Requirements ?? InterfaceUri;
 
+    /// <summary>
+    /// An optional user-defined name of this application.
+    /// </summary>
+    [Browsable(false), XmlIgnore, IgnoreEquality]
+    public string? PetName => InterfaceUri.PetName;
+
     #region XML serialization
     /// <summary>Used for XML serialization.</summary>
     /// <seealso cref="InterfaceUri"/>
