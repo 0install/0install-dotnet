@@ -159,6 +159,53 @@ public sealed class AppListTest
     }
 
     [Fact]
+    public void GetEntryByPetName()
+    {
+        var petNameEntry = new AppEntry
+        {
+            InterfaceUri = PetName.ToUri("hello"),
+            Requirements = new() {InterfaceUri = FeedTest.Test1Uri},
+            Name = "Test"
+        };
+        var appList = new AppList {Entries = {petNameEntry}};
+
+        appList.GetEntry("hello").Should().Be(petNameEntry);
+        appList.GetEntry("missing").Should().BeNull();
+        appList.ContainsEntry("hello").Should().BeTrue();
+        appList.ContainsEntry("missing").Should().BeFalse();
+        petNameEntry.PetName.Should().Be("hello");
+    }
+
+    [Fact]
+    public void SaveLoadPetNameEntry()
+    {
+        var appList = new AppList
+        {
+            Entries =
+            {
+                new()
+                {
+                    InterfaceUri = PetName.ToUri("hello"),
+                    Requirements = new() {InterfaceUri = FeedTest.Test1Uri, Command = "main"},
+                    Name = "Test",
+                    AutoUpdate = true
+                }
+            }
+        };
+
+        AppList loaded;
+        using (var tempFile = new TemporaryFile("0install-test-applist"))
+        {
+            appList.SaveXml(tempFile);
+            loaded = XmlStorage.LoadXml<AppList>(tempFile);
+        }
+
+        loaded.Should().Be(appList);
+        loaded.Entries[0].PetName.Should().Be("hello");
+        loaded.Entries[0].EffectiveRequirements.InterfaceUri.Should().Be(FeedTest.Test1Uri);
+    }
+
+    [Fact]
     public void ResolveAppAlias()
     {
         FeedUri uri = new("http://example.com/test1.xml");

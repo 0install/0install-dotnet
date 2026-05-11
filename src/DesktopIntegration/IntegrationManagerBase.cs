@@ -172,7 +172,7 @@ public abstract class IntegrationManagerBase(ITaskHandler handler, bool machineW
         try
         {
             Handler.RunTask(ForEachTask.Create(Resources.RepairingIntegration,
-                AppList.Entries, app => RepairAppInternal(app, feedRetriever(app.InterfaceUri))));
+                AppList.Entries, app => RepairAppInternal(app, feedRetriever(app.EffectiveRequirements.InterfaceUri))));
         }
         catch (KeyNotFoundException ex)
         {
