@@ -32,7 +32,12 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
             if (uri.StartsWith("file:", out string? path)) return new(Paths.Absolute(path));
             if (uri.StartsWith("http:") || uri.StartsWith("https:")) return new(uri);
 
-            if (TryResolveAlias(uri) is {} resolvedAlias) return resolvedAlias;
+            if (uri.StartsWith($"{FeedUri.PetNameScheme}:", out string? petName))
+                return DesktopIntegration.PetName.ToUri(petName);
+
+            var appList = AppList.LoadSafe();
+            if (TryResolvePetName(appList, uri) is {} resolvedPetName) return resolvedPetName;
+            if (TryResolveAlias(appList, uri) is {} resolvedAlias) return resolvedAlias;
 
             if (Paths.IsAbsolute(uri)) return new(uri);
 
@@ -51,10 +56,8 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
         #endregion
     }
 
-    private static FeedUri? TryResolveAlias(string uri)
+    private static FeedUri? TryResolveAlias(AppList appList, string uri)
     {
-        var appList = AppList.LoadSafe();
-
         const string aliasPrefix = "alias:";
         if (uri.StartsWith(aliasPrefix, out string? aliasName))
         {
@@ -71,6 +74,25 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
             return null;
         }
     }
+
+    private static FeedUri? TryResolvePetName(AppList appList, string uri)
+    {
+        if (!DesktopIntegration.PetName.IsValid(uri)) return null;
+        if (appList.GetEntry(uri) is not {} entry) return null;
+
+        Log.Info(string.Format(Resources.ResolvedUsingAppName, uri, entry.InterfaceUri.ToStringRfc()));
+        return entry.InterfaceUri;
+    }
+
+    /// <summary>
+    /// Gets the <see cref="AppEntry"/> for a named app from the per-user or machine-wide <see cref="AppList"/>.
+    /// </summary>
+    /// <param name="uri">A <see cref="FeedUri"/> with <see cref="FeedUri.IsPetName"/> set.</param>
+    /// <exception cref="UriFormatException">No app with the specified pet-name was found.</exception>
+    protected static AppEntry GetNamedApp(FeedUri uri)
+        => AppList.LoadSafe().GetEntry(uri)
+        ?? AppList.LoadSafe(machineWide: true).GetEntry(uri)
+        ?? throw new UriFormatException(string.Format(Resources.AppNameNotFound, uri.PetName));
 
     private FeedUri? TryResolveCatalog(string shortName)
     {

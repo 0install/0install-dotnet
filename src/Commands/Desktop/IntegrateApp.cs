@@ -70,7 +70,7 @@ public class IntegrateApp : AppCommand
             CheckInstallBase();
 
             var appEntry = GetAppEntry(IntegrationManager, ref InterfaceUri);
-            var feed = FeedManager[InterfaceUri];
+            var feed = FeedManager[appEntry.EffectiveRequirements.InterfaceUri];
 
             if (NoSpecifiedIntegrations)
             {
@@ -130,7 +130,7 @@ public class IntegrateApp : AppCommand
         #endregion
 
         var appEntry = base.GetAppEntry(integrationManager, ref interfaceUri);
-        var feed = FeedManager.GetFresh(interfaceUri);
+        var feed = FeedManager.GetFresh(appEntry.EffectiveRequirements.InterfaceUri);
 
         // Detect feed changes that may make an AppEntry update necessary
         if (!appEntry.CapabilityLists.UnsequencedEquals(feed.CapabilityLists))

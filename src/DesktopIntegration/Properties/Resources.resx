@@ -138,6 +138,9 @@
   <data name="AppNotInList" xml:space="preserve">
     <value>Unable to find application '{0}' in the application list.</value>
   </data>
+  <data name="InvalidPetName" xml:space="preserve">
+    <value>'{0}' is not a valid pet-name.</value>
+  </data>
   <data name="IntegrationMutex" xml:space="preserve">
     <value>You can only perform one desktop integration operation at a time.</value>
   </data>

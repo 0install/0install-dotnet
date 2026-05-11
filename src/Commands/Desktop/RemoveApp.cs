@@ -30,11 +30,12 @@ public class RemoveApp(ICommandHandler handler) : AppCommand(handler)
             CheckInstallBase();
 
         foreach (var hook in appEntry.CapabilityLists.CompatibleCapabilities().OfType<RemoveHook>())
-            RunRemoveHook(hook);
+            RunRemoveHook(appEntry, hook);
 
         IntegrationManager.RemoveApp(appEntry);
 
-        PinUtils.Unpin(InterfaceUri);
+        // Named apps store version restrictions in their requirements and may share their feed with other apps
+        if (appEntry.PetName == null) PinUtils.Unpin(InterfaceUri);
 
         if (ZeroInstallInstance.IsLibraryMode
          && AppList.IsEmpty()
@@ -50,7 +51,7 @@ public class RemoveApp(ICommandHandler handler) : AppCommand(handler)
     /// <summary>
     /// Runs a remove <paramref name="hook"/> if the app is already cached.
     /// </summary>
-    private void RunRemoveHook(RemoveHook hook)
+    private void RunRemoveHook(AppEntry appEntry, RemoveHook hook)
     {
         if (Handler.Verbosity == Verbosity.Batch)
         {
@@ -59,7 +60,7 @@ public class RemoveApp(ICommandHandler handler) : AppCommand(handler)
         }
 
         Log.Debug($"Solving remove hook {hook.ID} for {InterfaceUri}");
-        if (TrySolveOffline(new(InterfaceUri, hook.Command)) is {} selections)
+        if (TrySolveOffline(new(appEntry.EffectiveRequirements.InterfaceUri, hook.Command)) is {} selections)
         {
             Executor.Inject(selections)
                     .AddArguments(hook.Arguments.Select(x => x.Value).ToArray())

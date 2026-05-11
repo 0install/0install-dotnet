@@ -16,6 +16,7 @@ public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, IClonea
     /// <summary>
     /// The URI or local path of the interface defining the application or the pet-name if <see cref="Requirements"/> is set.
     /// </summary>
+    /// <remarks>Pet-names are stored as URIs with the <see cref="FeedUri.PetNameScheme"/>, which older versions of Zero Install are unable to parse.</remarks>
     [DisplayName("URI"), Description("The URI or local path of the interface defining the application or the pet-name if Requirements is set.")]
     [XmlIgnore]
     public required FeedUri InterfaceUri { get; set; }
@@ -42,6 +43,12 @@ public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, IClonea
     /// </summary>
     [Browsable(false), XmlIgnore, IgnoreEquality]
     public Requirements EffectiveRequirements => Requirements ?? InterfaceUri;
+
+    /// <summary>
+    /// An optional user-defined name of this application.
+    /// </summary>
+    [Browsable(false), XmlIgnore, IgnoreEquality]
+    public string? PetName => InterfaceUri.PetName;
 
     #region XML serialization
     /// <summary>Used for XML serialization.</summary>

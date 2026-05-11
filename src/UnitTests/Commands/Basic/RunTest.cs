@@ -132,6 +132,33 @@ public class RunTest : SelectionTestBase<Run>
     }
 
     [Fact]
+    public void GetCanonicalUriNamedApp()
+    {
+        new AppList
+        {
+            Entries =
+            {
+                new()
+                {
+                    InterfaceUri = PetName.ToUri("test"),
+                    Requirements = new(Fake.Feed1Uri),
+                    Name = "Test"
+                },
+                new()
+                {
+                    InterfaceUri = Fake.Feed2Uri,
+                    Name = "Test2",
+                    AccessPoints = new() {Entries = {new AppAlias {Name = "test"}}}
+                }
+            }
+        }.SaveXml(AppList.GetDefaultPath());
+
+        Sut.GetCanonicalUri("test").Should().Be(PetName.ToUri("test"), because: "pet-names take precedence over aliases");
+        Sut.GetCanonicalUri("petname:test").Should().Be(PetName.ToUri("test"));
+        Sut.GetCanonicalUri("alias:test").Should().Be(Fake.Feed2Uri);
+    }
+
+    [Fact]
     public void GetCanonicalUriCatalogCached()
     {
         CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(new Catalog {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}});

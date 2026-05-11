@@ -67,6 +67,15 @@ public abstract class IntegrationCommand : CliCommand
         if (interfaceUri == null) throw new ArgumentNullException(nameof(interfaceUri));
         #endregion
 
+        if (interfaceUri.IsPetName)
+        {
+            var namedEntry = integrationManager.AppList.GetEntry(interfaceUri)
+                          ?? throw new UriFormatException(string.Format(Resources.AppNameNotFound, interfaceUri.PetName));
+            EnsureAllowed(namedEntry.EffectiveRequirements.InterfaceUri);
+            Handler.FeedUri = namedEntry.EffectiveRequirements.InterfaceUri;
+            return namedEntry;
+        }
+
         var existingEntry = integrationManager.AppList.GetEntry(interfaceUri);
 
         if (existingEntry != null && ZeroInstallInstance.IsLibraryMode && Handler.IsGui)
@@ -93,7 +102,12 @@ public abstract class IntegrationCommand : CliCommand
                 : existingEntry;
     }
 
-    private FeedTarget GetTarget(ref FeedUri interfaceUri, out bool replaced)
+    /// <summary>
+    /// Gets the feed for an interface URI. Offers to switch to a replacement feed if <see cref="Feed.ReplacedBy"/> is set.
+    /// </summary>
+    /// <param name="interfaceUri">The interface URI to get the feed for. Will be updated if <see cref="Feed.ReplacedBy"/> is set and accepted by the user.</param>
+    /// <param name="replaced">Indicates whether <paramref name="interfaceUri"/> was replaced.</param>
+    protected FeedTarget GetTarget(ref FeedUri interfaceUri, out bool replaced)
     {
         var feed = FeedManager[interfaceUri];
 
@@ -137,7 +151,7 @@ public abstract class IntegrationCommand : CliCommand
     /// <summary>
     /// Pre-download application in a background process for later use.
     /// </summary>
-    private void BackgroundDownload(FeedUri interfaceUri)
+    protected void BackgroundDownload(FeedUri interfaceUri)
     {
         if (!NoDownload && Config.EffectiveNetworkUse == NetworkLevel.Full)
         {

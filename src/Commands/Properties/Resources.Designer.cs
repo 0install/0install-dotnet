@@ -140,7 +140,16 @@ namespace ZeroInstall.Commands.Properties {
                 return ResourceManager.GetString("AppList", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to No existing app named &apos;{0}&apos; was found..
+        /// </summary>
+        public static string AppNameNotFound {
+            get {
+                return ResourceManager.GetString("AppNameNotFound", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Setup Zero Install for all users (machine-wide) instead of just the current user?.
         /// </summary>
@@ -1259,6 +1268,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; is a named app. Please specify the interface URI of the app you wish to add instead..
+        /// </summary>
+        public static string NamedAppAsTarget {
+            get {
+                return ResourceManager.GetString("NamedAppAsTarget", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Please use the GUI version of Zero Install for this feature..
         /// </summary>
         public static string NeedsGui {
@@ -1268,7 +1286,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} may only be specified together with an alias name..
+        ///   Looks up a localized string similar to {0} may only be specified together with an app name..
         /// </summary>
         public static string NoAddCommandWithoutAlias {
             get {
@@ -1926,6 +1944,15 @@ namespace ZeroInstall.Commands.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Resolved &apos;{0}&apos; to &apos;{1}&apos; using an app name..
+        /// </summary>
+        public static string ResolvedUsingAppName {
+            get {
+                return ResourceManager.GetString("ResolvedUsingAppName", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Resolved &apos;{0}&apos; to &apos;{1}&apos; using a catalog..
         /// </summary>

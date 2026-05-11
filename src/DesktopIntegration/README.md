@@ -8,4 +8,7 @@ The `IntegrationManager` class applies and removes access points for apps in the
 
 Platform-specific implementations live in the `ZeroInstall.DesktopIntegration.Windows`, `.Unix` and `.MacOS` namespaces.
 
+Apps can also be added under a user-defined name (pet-name) with custom `Requirements` (e.g., a specific command or version range). This allows adding the same feed multiple times with different requirements. Such entries are stored with a `petname:` URI as their interface URI.
+Zero Install versions released before named apps were introduced are unable to load app lists containing such entries. This also applies to app lists received via sync.
+
 `SyncIntegrationManager` additionally synchronizes the app list and its access points with a [sync server](https://docs.0install.net/details/sync/).

@@ -32,15 +32,26 @@ public class ImportApps : IntegrationCommand
         foreach (var importEntry in importList.Entries)
         {
             var interfaceUri = importEntry.InterfaceUri;
-            var appEntry = GetAppEntry(integrationManager, ref interfaceUri);
+            var appEntry = interfaceUri.IsPetName
+                ? GetOrAddNamedApp(integrationManager, importEntry)
+                : GetAppEntry(integrationManager, ref interfaceUri);
 
             if (importEntry.AccessPoints != null)
             {
-                var feed = FeedManager[interfaceUri];
+                var feed = FeedManager[appEntry.EffectiveRequirements.InterfaceUri];
                 integrationManager.AddAccessPoints(appEntry, feed, importEntry.AccessPoints.Entries);
             }
         }
 
         return ExitCode.OK;
+    }
+
+    private AppEntry GetOrAddNamedApp(IIntegrationManager integrationManager, AppEntry importEntry)
+    {
+        if (integrationManager.AppList.GetEntry(importEntry.InterfaceUri) is {} existingEntry) return existingEntry;
+
+        var requirements = importEntry.EffectiveRequirements;
+        EnsureAllowed(requirements.InterfaceUri);
+        return integrationManager.AddApp(importEntry.PetName!, requirements, FeedManager[requirements.InterfaceUri]);
     }
 }
