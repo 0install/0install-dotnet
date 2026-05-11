@@ -143,8 +143,9 @@ public class Snapshot
                 if (string.IsNullOrEmpty(assocValue)) continue;
                 fileAssocsList.Add((keyName, assocValue));
 
-                // Get additional ProgIDs
+                // Get additional ProgIDs from OpenWithProgIDs and applications from OpenWithList
                 fileAssocsList.Add(RegUtils.GetValueNames(assocKey, FileType.RegSubKeyOpenWith).Select(progID => (keyName, progID)));
+                fileAssocsList.Add(RegUtils.GetSubKeyNames(assocKey, FileType.RegSubKeyOpenWithList).Select(appName => (keyName, $"Applications\\{appName}")));
             }
             else progIDsList.Add(keyName);
         }
