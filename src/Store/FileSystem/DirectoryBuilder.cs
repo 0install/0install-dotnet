@@ -69,6 +69,35 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     }
 
     /// <inheritdoc/>
+    public bool TryAddExternalHardlink(string path, FileInfo target, bool executable = false)
+    {
+        if (!target.FullName.StartsWith(AllowedHardlinkRoot + System.IO.Path.DirectorySeparatorChar))
+            return false;
+
+        string sourceAbsolute = GetFullPath(path);
+        Directory.CreateDirectory(Paths.Parent(sourceAbsolute));
+
+        try
+        {
+            FileUtils.CreateHardlink(sourceAbsolute, target.FullName);
+        }
+        catch (NotSupportedException)
+        {
+            return false;
+        }
+
+        if (executable) ImplFileUtils.SetExecutable(target.FullName);
+
+        if (innerBuilder != null)
+        {
+            using var stream = target.OpenRead();
+            innerBuilder.AddFile(path, stream, target.LastWriteTimeUtc, executable);
+        }
+
+        return true;
+    }
+
+    /// <inheritdoc/>
     public void AddSymlink(string path, string target)
     {
         string sourceAbsolute = GetFullPath(path);

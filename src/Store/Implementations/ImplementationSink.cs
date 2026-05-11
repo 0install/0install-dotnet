@@ -83,7 +83,7 @@ public class ImplementationSink : MarshalNoTimeout, IImplementationSink
         Log.Debug($"Temp directory for extracting: {tempDir.Path}");
 
         var builder = new ManifestBuilder(format);
-        build(new DirectoryBuilder(tempDir, builder));
+        build(new DirectoryBuilder(tempDir, builder) { AllowedHardlinkRoot = Path });
         builder
            .Verify(expectedDigest)
            .Save(Paths.Combine(tempDir, Manifest.ManifestFile));

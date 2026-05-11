@@ -25,6 +25,10 @@ public class PrefixBuilder(IBuilder underlyingBuilder, string prefix) : MarshalN
         => underlyingBuilder.AddHardlink(GetPath(path), Paths.Combine(prefix, target), executable);
 
     /// <inheritdoc/>
+    public bool TryAddExternalHardlink(string path, FileInfo target, bool executable = false)
+        => underlyingBuilder.TryAddExternalHardlink(GetPath(path), target, executable);
+
+    /// <inheritdoc/>
     public void AddSymlink(string path, string target)
         => underlyingBuilder.AddSymlink(GetPath(path), target);
 

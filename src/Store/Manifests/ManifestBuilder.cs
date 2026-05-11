@@ -63,6 +63,10 @@ public class ManifestBuilder(ManifestFormat format) : MarshalNoTimeout, IBuilder
     }
 
     /// <inheritdoc/>
+    public bool TryAddExternalHardlink(string path, FileInfo target, bool executable = false)
+        => false;
+
+    /// <inheritdoc/>
     public void AddSymlink(string path, string target)
     {
         (string dir, string file) = Split(path);

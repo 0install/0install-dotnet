@@ -58,6 +58,9 @@ public static class BuilderExtensions
         catch (NotSupportedException)
         {}
 
+        if (builder is IBuilder fullBuilder && fullBuilder.TryAddExternalHardlink(path, file, executable))
+            return;
+
         using var stream = file.OpenRead();
         builder.AddFile(path, stream, file.LastWriteTimeUtc, executable);
     }

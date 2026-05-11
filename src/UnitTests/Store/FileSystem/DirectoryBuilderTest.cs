@@ -315,6 +315,66 @@ public class DirectoryBuilderTest : IDisposable
         ]);
     }
 
+    [Fact]
+    public void TryAddExternalHardlink_WithinAllowedRoot()
+    {
+        string sourceFile = Path.Combine(_tempDir, "source-file");
+        File.WriteAllText(sourceFile, Data);
+
+        _builder.TryAddExternalHardlink("dest-file", new FileInfo(sourceFile))
+                .Should().BeTrue();
+        FileUtils.AreHardlinked(sourceFile, Path.Combine(_tempDir, "dest-file"))
+                 .Should().BeTrue();
+    }
+
+    [Fact]
+    public void TryAddExternalHardlink_OutsideAllowedRoot()
+    {
+        using var outsideDir = new TemporaryDirectory("0install-unit-test-outside");
+        string sourceFile = Path.Combine(outsideDir, "file");
+        File.WriteAllText(sourceFile, Data);
+
+        _builder.TryAddExternalHardlink("dest-file", new FileInfo(sourceFile))
+                .Should().BeFalse();
+    }
+
+    [Fact]
+    public void CopyFromFile_UsesHardlink()
+    {
+        using var root = new TemporaryDirectory("0install-unit-test-root");
+        string sourceDir = Directory.CreateDirectory(Path.Combine(root, "source")).FullName;
+        string destDir = Directory.CreateDirectory(Path.Combine(root, "dest")).FullName;
+        new TestRoot {
+            new TestFile("file") { Contents = Data, LastWrite = 1337 }
+        }.Build(sourceDir);
+
+        var builder = new DirectoryBuilder(destDir, new ManifestBuilder(ManifestFormat.Sha1New)) { AllowedHardlinkRoot = root };
+        builder.CopyFrom(new CopyFromStep { Source = "file" }, sourceDir, new SilentTaskHandler());
+
+        FileUtils.AreHardlinked(
+            Path.Combine(sourceDir, "file"),
+            Path.Combine(destDir, "file")).Should().BeTrue();
+    }
+
+    [Fact]
+    public void CopyFromDirectory_UsesHardlinks()
+    {
+        using var root = new TemporaryDirectory("0install-unit-test-root");
+        string sourceDir = Directory.CreateDirectory(Path.Combine(root, "source")).FullName;
+        string destDir = Directory.CreateDirectory(Path.Combine(root, "dest")).FullName;
+        new TestRoot
+        {
+            new TestFile("file1") { Contents = Data, LastWrite = 1337 },
+            new TestFile("file2") { Contents = "more data", LastWrite = 2000 }
+        }.Build(sourceDir);
+
+        var builder = new DirectoryBuilder(destDir, new ManifestBuilder(ManifestFormat.Sha1New)) { AllowedHardlinkRoot = root };
+        builder.CopyFrom(new CopyFromStep(), sourceDir, new SilentTaskHandler());
+
+        FileUtils.AreHardlinked(Path.Combine(sourceDir, "file1"), Path.Combine(destDir, "file1")).Should().BeTrue();
+        FileUtils.AreHardlinked(Path.Combine(sourceDir, "file2"), Path.Combine(destDir, "file2")).Should().BeTrue();
+    }
+
     [MustUseReturnValue]
     private static TemporaryDirectory Build(TestRoot directory)
     {
