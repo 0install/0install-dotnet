@@ -61,8 +61,8 @@ internal sealed class SolverDiagnostics
         foreach (var (uri, range) in _rootRequirements.ExtraRestrictions)
         {
             if (!_components.TryGetValue(uri, out var component)) continue;
-            component.Notes.Add($"User requested version {range}");
-            string failReason = $"Incompatible with restriction: version {range}";
+            component.Notes.Add(string.Format(Resources.DiagUserRequestedVersion, range));
+            string failReason = string.Format(Resources.DiagIncompatibleWithRestriction, $"version {range}");
             component.FilterGood(c => range.Match(c.Version) ? null : failReason);
         }
     }
@@ -73,7 +73,7 @@ internal sealed class SolverDiagnostics
         if (!_components.TryGetValue(_rootRequirements.InterfaceUri, out var component)) return;
 
         string command = _rootRequirements.Command;
-        component.FilterGood(c => c.Implementation.ContainsCommand(command) ? null : $"No {command} command");
+        component.FilterGood(c => c.Implementation.ContainsCommand(command) ? null : string.Format(Resources.DiagNoCommand, command));
     }
 
     /// <summary>
@@ -167,7 +167,7 @@ internal sealed class SolverDiagnostics
             if (depComponent.Selected is not {} depSelected) continue;
             if (FormatRestriction(constraint) is not {} formatted) continue;
             if (RestrictionFails(depSelected, constraint))
-                return $"Requires {constraint.InterfaceUri} {formatted}";
+                return $"{Resources.DiagRequires} {constraint.InterfaceUri} {formatted}";
         }
         return null;
     }
@@ -180,8 +180,8 @@ internal sealed class SolverDiagnostics
         foreach (var binding in dependency.Bindings.OfType<ExecutableInBinding>())
         {
             string command = binding.Command ?? Command.NameRun;
-            depComponent.Notes.Add($"{requiringComponent.InterfaceUri} {requiringImpl.Version} requires '{command}' command");
-            depComponent.FilterGood(c => c.Implementation.ContainsCommand(command) ? null : $"No {command} command");
+            depComponent.Notes.Add($"{requiringComponent.InterfaceUri} {requiringImpl.Version} {Resources.DiagRequires} command='{command}'");
+            depComponent.FilterGood(c => c.Implementation.ContainsCommand(command) ? null : string.Format(Resources.DiagNoCommand, command));
         }
     }
 
@@ -197,15 +197,15 @@ internal sealed class SolverDiagnostics
         ApplyRestrictionToTarget(requiringComponent, requiringImpl, runnerComponent, runner);
 
         string command = runner.Command ?? Command.NameRun;
-        runnerComponent.Notes.Add($"{requiringComponent.InterfaceUri} {requiringImpl.Version} requires '{command}' command");
-        runnerComponent.FilterGood(c => c.Implementation.ContainsCommand(command) ? null : $"No {command} command");
+        runnerComponent.Notes.Add($"{requiringComponent.InterfaceUri} {requiringImpl.Version} {Resources.DiagRequires} command='{command}'");
+        runnerComponent.FilterGood(c => c.Implementation.ContainsCommand(command) ? null : string.Format(Resources.DiagNoCommand, command));
     }
 
     private static void ApplyRestrictionToTarget(Component requiringComponent, SelectionCandidate requiringImpl, Component target, Restriction restriction)
     {
         if (FormatRestriction(restriction) is not {} formatted) return;
-        target.Notes.Add($"{requiringComponent.InterfaceUri} {requiringImpl.Version} requires {formatted}");
-        target.FilterGood(c => RestrictionFails(c, restriction) ? $"Incompatible with restriction: {formatted}" : null);
+        target.Notes.Add($"{requiringComponent.InterfaceUri} {requiringImpl.Version} {Resources.DiagRequires} {formatted}");
+        target.FilterGood(c => RestrictionFails(c, restriction) ? string.Format(Resources.DiagIncompatibleWithRestriction, formatted) : null);
     }
 
     private static bool RestrictionFails(SelectionCandidate candidate, Restriction restriction)
@@ -253,7 +253,7 @@ internal sealed class SolverDiagnostics
                 var otherGroup = c.Implementation.Architecture.Cpu.GetGroup();
                 return otherGroup is null || otherGroup == anchorGroup
                     ? null
-                    : $"Can't use {c.Implementation.Architecture.Cpu} with selection of {anchor.InterfaceUri} ({anchor.Selected!.Implementation.Architecture.Cpu})";
+                    : string.Format(Resources.DiagCpuMismatch, c.Implementation.Architecture.Cpu, anchor.InterfaceUri, anchor.Selected!.Implementation.Architecture.Cpu);
             });
             if (component.Selected != null && !component.Good.Contains(component.Selected))
                 component.Selected = component.Good.FirstOrDefault();
@@ -272,7 +272,7 @@ internal sealed class SolverDiagnostics
     private string Format()
     {
         var builder = new StringBuilder();
-        builder.AppendLine("Can't find all required implementations:");
+        builder.AppendLine(Resources.DiagCantFindImplementations);
         foreach (var component in _components.Values.OrderBy(c => c.InterfaceUri.ToString(), StringComparer.Ordinal))
             component.AppendTo(builder);
         return builder.ToString().TrimEnd();
@@ -284,7 +284,7 @@ internal sealed class SolverDiagnostics
         public SelectionCandidate? Selected { get; set; }
         public List<SelectionCandidate> Good { get; set; } = candidates.Where(c => c.IsSuitable).ToList();
         public List<(SelectionCandidate Candidate, string Reason)> Bad { get; } = candidates.Where(c => !c.IsSuitable)
-                                                                                            .Select(c => (c, c.Notes ?? "Unsuitable"))
+                                                                                            .Select(c => (c, c.Notes ?? Resources.DiagUnsuitable))
                                                                                             .ToList();
         public List<string> Notes { get; } = [];
 
@@ -301,7 +301,7 @@ internal sealed class SolverDiagnostics
 
         public void AppendTo(StringBuilder builder)
         {
-            string outcome = Selected is {} sel ? $"{sel.Version} ({sel.Implementation.ID})" : "(problem)";
+            string outcome = Selected is {} sel ? $"{sel.Version} ({sel.Implementation.ID})" : Resources.DiagProblem;
             builder.Append("- ")
                    .Append(InterfaceUri)
                    .Append(" -> ")
@@ -314,14 +314,14 @@ internal sealed class SolverDiagnostics
 
             if (candidates.Count == 0)
             {
-                builder.AppendLine("    No known implementations at all");
+                builder.Append("    ").AppendLine(Resources.DiagNoKnownImplementations);
                 return;
             }
 
             if (Bad.Count == 0) return;
 
             bool allUnusable = Good.Count == 0 && Bad.All(b => !b.Candidate.IsSuitable);
-            builder.AppendLine(allUnusable ? "    No usable implementations:" : "    Rejected candidates:");
+            builder.Append("    ").AppendLine(allUnusable ? Resources.DiagNoUsableImplementations : Resources.DiagRejectedCandidates);
             foreach ((var candidate, string reason) in Bad.OrderByDescending(x => x.Candidate.Version))
             {
                 builder.Append("      ")

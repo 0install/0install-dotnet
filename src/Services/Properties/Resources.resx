@@ -130,6 +130,39 @@ Do you want to trust this key to sign feeds from '{3}'?
   <data name="CommandNotSpecified" xml:space="preserve">
     <value>Command for '{0}' not specified.</value>
   </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>Can't find all required implementations:</value>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>Can't use {0} with selection of {1} ({2})</value>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>Incompatible with restriction: {0}</value>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>No '{0}' command</value>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>No known implementations at all</value>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>No usable implementations:</value>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(problem)</value>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>Rejected candidates:</value>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>requires</value>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>Unsuitable</value>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>User requested version {0}</value>
+  </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>Searching in local network</value>
   </data>

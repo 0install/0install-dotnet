@@ -92,6 +92,105 @@ namespace ZeroInstall.Services.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can&apos;t find all required implementations:.
+        /// </summary>
+        internal static string DiagCantFindImplementations {
+            get {
+                return ResourceManager.GetString("DiagCantFindImplementations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can&apos;t use {0} with selection of {1} ({2}).
+        /// </summary>
+        internal static string DiagCpuMismatch {
+            get {
+                return ResourceManager.GetString("DiagCpuMismatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incompatible with restriction: {0}.
+        /// </summary>
+        internal static string DiagIncompatibleWithRestriction {
+            get {
+                return ResourceManager.GetString("DiagIncompatibleWithRestriction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No &apos;{0}&apos; command.
+        /// </summary>
+        internal static string DiagNoCommand {
+            get {
+                return ResourceManager.GetString("DiagNoCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No known implementations at all.
+        /// </summary>
+        internal static string DiagNoKnownImplementations {
+            get {
+                return ResourceManager.GetString("DiagNoKnownImplementations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No usable implementations:.
+        /// </summary>
+        internal static string DiagNoUsableImplementations {
+            get {
+                return ResourceManager.GetString("DiagNoUsableImplementations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (problem).
+        /// </summary>
+        internal static string DiagProblem {
+            get {
+                return ResourceManager.GetString("DiagProblem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rejected candidates:.
+        /// </summary>
+        internal static string DiagRejectedCandidates {
+            get {
+                return ResourceManager.GetString("DiagRejectedCandidates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to requires.
+        /// </summary>
+        internal static string DiagRequires {
+            get {
+                return ResourceManager.GetString("DiagRequires", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unsuitable.
+        /// </summary>
+        internal static string DiagUnsuitable {
+            get {
+                return ResourceManager.GetString("DiagUnsuitable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User requested version {0}.
+        /// </summary>
+        internal static string DiagUserRequestedVersion {
+            get {
+                return ResourceManager.GetString("DiagUserRequestedVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Searching in local network.
         /// </summary>
         internal static string DiscoveringImplementation {
