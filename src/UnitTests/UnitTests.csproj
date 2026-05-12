@@ -41,8 +41,8 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net9.0'">
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.15" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.15" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.16" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.16" />
   </ItemGroup>
 
   <!-- Global usings -->
