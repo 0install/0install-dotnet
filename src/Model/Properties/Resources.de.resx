@@ -75,7 +75,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Fehler beim Laden der Trust Datenbank. Zurücksetzen auf Standardwerte.</value>
+    <value>Fehler beim Laden der Trust-Datenbank. Zurücksetzen auf Standardwerte.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -83,11 +83,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>War stattdessen:</value>
+    <value>Stattdessen gefunden:</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Es konnte keine Implementierung für die Interface '{0}' in den Selections gefunden werden.</value>
+    <value>Es konnte keine Implementierung für das Interface '{0}' in den Selections gefunden werden.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -127,7 +127,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Die relative URI '{0}' konnte nicht aufgelöst werden. Nur Feeds, die als lokale Dateien gespeichert wurden, dürfen relative Pfade verwenden.</value>
+    <value>Die relative URI '{0}' konnte nicht aufgelöst werden. Nur Feeds, die als lokale Dateien gespeichert wurden, dürfen relative URIs verwenden.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
@@ -155,7 +155,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Nicht ausführbare Quellcode Implementierung</value>
+    <value>Nicht ausführbare Quellcode-Implementierung</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Das Ende des Versionsbereichs muss exklusiv sein. Verwenden Sie '..!{0} ', nicht '..{0}'.</value>
+    <value>Das Ende des Versionsbereichs muss exklusiv sein. Verwenden Sie '..!{0}', nicht '..{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

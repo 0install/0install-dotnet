@@ -71,7 +71,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
-    <value>Um alias nomeado '{0}' para '{1}' foi removido.</value>
+    <value>O alias nomeado '{0}' para '{1}' foi removido.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
@@ -207,11 +207,11 @@ Você pode usá-la executando o arquivo ZeroInstall.exe na pasta.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>A pasta de destino especificada ({0}) está localizada fora da pasta inicial.</value>
+    <value>A pasta de destino especificada ({0}) está localizada fora da sua pasta inicial.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeprecatedOption" xml:space="preserve">
-    <value>Opção obsoleta. Por favor, use '{0}' .</value>
+    <value>Opção obsoleta. Por favor, use '{0}' em vez disso.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -302,7 +302,7 @@ O arquivo deve ter uma assinatura digital confiável, como ao buscar na rede.</v
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Implementa o Zero Insall na pasta de DESTINO especificada ou a pasta padrão para programas e integra-o no sistema.</value>
+    <value>Implementa o Zero Install na pasta de DESTINO especificada ou na pasta padrão para programas e integra-o ao sistema.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
@@ -314,7 +314,7 @@ O arquivo deve ter uma assinatura digital confiável, como ao buscar na rede.</v
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>Remove todos os aplicativos da lista de aplicativos e desfaz qualquer integração do ambiente da área de trabalho.</value>
+    <value>Remove um aplicativo da lista de aplicativos e desfaz qualquer integração do ambiente da área de trabalho.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
@@ -425,7 +425,7 @@ Argumentos adicionais especificam locais de cache personalizados.</value>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Verifica se há atualizações para o programa e as baixa, se encontradas.
-Isso é semelhante a '0install download --refresh', exceto que imprime informações se alguma alteração foi encontrada.</value>
+Isso é semelhante a '0install download --refresh', exceto que exibe informações sobre se alguma alteração foi encontrada.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -441,11 +441,11 @@ Isso é semelhante a '0install download --refresh', exceto que imprime informaç
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Excluindo integração de desktop</value>
+    <value>Removendo integração de desktop</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>Pesquisa na rede local</value>
+    <value>Pesquisando na rede local</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Done" xml:space="preserve">
@@ -558,7 +558,7 @@ Uma tag &lt;feed-for&gt; indica a compatibilidade do feed.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>{0}' não é um URI de feed válido ou caminho de arquivo.</value>
+    <value>'{0}' não é um URI de feed válido ou caminho de arquivo.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="KioskModeNotInCatalog" xml:space="preserve">
@@ -620,7 +620,7 @@ Você pode redistribuir cópias deste programa sob os termos da GNU Lesser Gener
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install está sendo executado no modo portátil. Ele precisa ser implantado em um local permanente para que a integração da área de trabalho funcione.
-Puedes hacerlo utilizando '{0}'. Esto será completamente independiente de su copia portátil.</value>
+Você pode fazer isso usando '{0}'. Isso será completamente independente de sua cópia portátil.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
@@ -763,7 +763,7 @@ Você pode usar essa opção várias vezes para especificar vários idiomas acei
   </data>
   <data name="OptionMain" xml:space="preserve">
     <value>Executa o executável especificado {MAIN} em vez do padrão. Se começar com '/' ou '\', então o caminho é relativo à pasta de nível superior da implementação, caso contrário, é relativo à pasta que contém o programa principal padrão.
-Não pode conter argumentos de linha de comando! Os espaços em branco não podem ter escape.</value>
+Não pode conter argumentos de linha de comando! Os espaços em branco não precisam ter escape.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
@@ -858,11 +858,11 @@ No entanto, novos downloads não serão gravados nesta pasta.</value>
   <data name="OptionWrapper" xml:space="preserve">
     <value>Em vez de executar o programa escolhido diretamente, execute {COMMAND} PROGRAM ARGS. Isso é útil para executar depuradores e ferramentas de rastreamento no programa (em vez de no Zero Install!).
 Observe que o wrapper é executado no ambiente selecionado pelo programa; portanto, esse mecanismo não pode ser usado para sandboxing.
-Pode conter argumentos de linha de comando. Os espaços em branco devem ser ignorados!</value>
+Pode conter argumentos de linha de comando. Os espaços em branco devem ter escape!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Salva a saída no console como um XML legível para o sistema.</value>
+    <value>Grava a saída no console como XML legível por máquina.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
@@ -935,7 +935,7 @@ Execute '0install config self_update_uri default' para ativar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Implementações de serviço na porta {0}</value>
+    <value>Servindo implementações na porta {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -943,7 +943,7 @@ Execute '0install config self_update_uri default' para ativar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>Redefinir política de estabilidade para {0} para corresponder?</value>
+    <value>Redefinir política de estabilidade para {0} para o padrão?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
@@ -963,7 +963,7 @@ Execute '0install config self_update_uri default' para ativar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
-    <value>Auditoria da loja</value>
+    <value>Auditoria do armazenamento</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
@@ -984,7 +984,7 @@ Mantenha essa chave em segredo e use algo diferente para sua senha. Dessa forma,
     <comment>Manually overriden.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
-    <value>{0}confiável para domínios</value>
+    <value>{0} confiável para domínios</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">

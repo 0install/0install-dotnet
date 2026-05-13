@@ -75,7 +75,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
-    <value>Anwendung von Änderungen</value>
+    <value>Änderungen werden angewendet</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
@@ -111,7 +111,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>Der Benutzername und/oder das Passwort, das Sie für den Sync-Server eingegeben haben, sind falsch. Bitte überprüfen Sie Ihre Synchronisation-Einstellungen.</value>
+    <value>Der Benutzername und/oder das Passwort, das Sie für den Sync-Server eingegeben haben, sind falsch. Bitte überprüfen Sie Ihre Synchronisationseinstellungen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">

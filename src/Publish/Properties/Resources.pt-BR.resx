@@ -76,7 +76,7 @@
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>O ponto de entrada do aplicativo não foi localizado.
-Tente especificar manualmente.</value>
+Tente especificá-lo manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
@@ -96,11 +96,11 @@ Tente especificar manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Vários novos programas padrão foram detectados no registro. Lidar com todos eles, mas o último pode ter precedência em alguns casos.</value>
+    <value>Vários novos programas padrão foram detectados no registro. Todos serão tratados, mas o último pode ter precedência em alguns casos.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Várias pastas de instalação foram detectadas. Escolhendo o primeiro por padrão.</value>
+    <value>Várias pastas de instalação foram detectadas. Escolhendo a primeira por padrão.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
@@ -109,7 +109,7 @@ Tente especificar manualmente.</value>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Nenhuma pasta de instalação foi detectada.
-Tente especificar manualmente.</value>
+Tente especificá-la manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">

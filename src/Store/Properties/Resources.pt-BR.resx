@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>Verificação de arquivos danificados</value>
+    <value>Verificando arquivos danificados</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
@@ -194,7 +194,7 @@ Se você estiver usando uma unidade formatada em FAT, converta-a para NTFS.</val
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>O arquio contém um caminho inválido (potencialmente um risco de segurança): {0}</value>
+    <value>O arquivo contém um caminho inválido (potencialmente um risco de segurança): {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -243,7 +243,7 @@ Especificado no arquivo de configuração '{1}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Ocorreu um problema ao acessar a memória de implementação "{0}".
+    <value>Ocorreu um problema ao acessar o armazenamento de implementação "{0}".
 Execute '{1}' para removê-lo da lista de diretórios registrados.</value>
     <comment>Manually overriden.</comment>
   </data>

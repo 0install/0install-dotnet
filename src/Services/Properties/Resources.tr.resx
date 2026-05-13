@@ -75,7 +75,7 @@ Bu anahtar '{3}' adresinden gelen akışları imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>Yerel ağda arama</value>
+    <value>Yerel ağda aranıyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
@@ -103,11 +103,11 @@ Bu anahtar '{3}' adresinden gelen akışları imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>'{0}' akışı ön belleğe alınamadı ve Zero Install şu anda çevrim dışı kipte.</value>
+    <value>'{0}' akışı ön belleğe alınmamış ve Zero Install şu anda çevrim dışı kipte.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' akış ön belleğine yerleştirilemedi.</value>
+    <value>'{0}' akış ön belleğinde bulunamadı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -115,7 +115,7 @@ Bu anahtar '{3}' adresinden gelen akışları imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' yerel bir dosya. Oysa bir HTTP(S) akışı olmalı.</value>
+    <value>'{0}' yerel bir dosya. Oysa bir HTTP(S) URL'si olmalı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -190,7 +190,7 @@ Yeni zaman: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' {1} paket yöneticisi tarafından bilinmeyen bir kimlik içeriyor.</value>
+    <value>'{0}' {1} paket yöneticisinde bilinen bir kimlik değil.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">

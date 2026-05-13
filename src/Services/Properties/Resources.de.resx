@@ -75,7 +75,7 @@ Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>Suche im lokalen Netwerk</value>
+    <value>Suche im lokalen Netzwerk</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
@@ -103,7 +103,7 @@ Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Der Feed '{0}' wird nicht im Cache gespeichert, und Zero Install befindet sich derzeit im Offline-Modus.</value>
+    <value>Der Feed '{0}' ist nicht im Cache gespeichert, und Zero Install befindet sich derzeit im Offline-Modus.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
@@ -135,7 +135,7 @@ Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Feeds müssen der URI, von dem sie stammen, angeben, um importiert werden zu können.</value>
+    <value>Feeds müssen die URI angeben, von der sie stammen, um importiert werden zu können.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
@@ -170,7 +170,7 @@ Neuer Zeitpunkt: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Der Download von {0} ist fehlgeschlagen. Probiere stattdessen Download von Feed-Mirror.</value>
+    <value>Der Download von {0} ist fehlgeschlagen. Es wird stattdessen versucht, den Feed vom Feed-Mirror herunterzuladen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -198,7 +198,7 @@ Neuer Zeitpunkt: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
-    <value>Der Download wurde noch nicht abgeschlossen</value>
+    <value>Warten auf Abschluss des Downloads</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">

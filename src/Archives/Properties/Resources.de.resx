@@ -79,7 +79,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
-    <value>Der Archiv MIME-Typ '{0}' wird nicht unterstützt.</value>
+    <value>Der Archiv-MIME-Typ '{0}' wird nicht unterstützt.</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

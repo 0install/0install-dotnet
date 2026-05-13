@@ -137,7 +137,7 @@ Sunucudaki veriyi değiştirmek için sorun giderme yardımcısını ("Sync" dü
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Yürütülebilir eski '{0}' taslağı değiştirilemedi.</value>
+    <value>Eski yürütülebilir '{0}' taslağı değiştirilemedi.</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

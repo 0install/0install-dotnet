@@ -260,7 +260,7 @@ Sie können sie verwenden, indem Sie die ZeroInstall.exe Datei in dem Verzeichni
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Konfigurationseinstellungen anzeigen oder ändern.
-Ohne Argumente werden alle Einstellungen und ihre aktuellen Werte angezeigt. Mit einem Argument wird der aktuellen Wert der benannten Einstellung angezeigt. Mit zwei Argumenten wird die Einstellung auf den angegebenen Wert gesetzt. Wird sie auf den Standardwert zurückgesetzt, wenn der Wert "{0}" angegeben wird.</value>
+Ohne Argumente werden alle Einstellungen und ihre aktuellen Werte angezeigt. Mit einem Argument wird der aktuelle Wert der benannten Einstellung angezeigt. Mit zwei Argumenten wird die Einstellung auf den angegebenen Wert gesetzt oder auf den Standardwert zurückgesetzt, wenn der Wert "{0}" angegeben wird.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -277,7 +277,7 @@ Gibt einen Exit-Status von 0 zurück, wenn eine geeignete Gruppe von Versionen a
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importiert einen Feed aus einer lokalen Datei, so als ob er aus dem Netz heruntergeladen worden wäre. Dies ist nützlich beim Testen einer Feed-Datei, um zu vermeiden, dass sie auf einen entfernten Server hochgeladen muss, nur um sie wieder herunterzuladen.
+    <value>Importiert einen Feed aus einer lokalen Datei, so als ob er aus dem Netz heruntergeladen worden wäre. Dies ist nützlich beim Testen einer Feed-Datei, um zu vermeiden, dass sie auf einen entfernten Server hochgeladen werden muss, nur um sie wieder herunterzuladen.
 Die Datei muss eine vertrauenswürdige digitale Signatur haben, genauso wie beim Abrufen aus dem Internet.</value>
     <comment>Manually overriden.</comment>
   </data>
@@ -310,7 +310,7 @@ Die Datei muss eine vertrauenswürdige digitale Signatur haben, genauso wie beim
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>Entfernt alle Anwendungen aus der Anwendungsliste und macht dazugehörige Integrationen in der Desktopumgebung rückgängig. Verwenden Sie diesen Befehl, um das System zu aufzuräumen, bevor Sie Zero Install entfernen.</value>
+    <value>Entfernt alle Anwendungen aus der Anwendungsliste und macht dazugehörige Integrationen in der Desktopumgebung rückgängig. Verwenden Sie diesen Befehl, um das System aufzuräumen, bevor Sie Zero Install entfernen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
@@ -331,7 +331,7 @@ Gibt einen Exit-Status von 1 zurück, wenn der Download-Schritt fehlgeschlagen i
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Sucht nach Feeds, die vom Mirror-Server indiziert werden und den angegebenen Schlüsselwörtern entsprechen. Beachten Sie, dass der Standard Mirror-Server alle bekannten Feeds indiziert, unabhängig von deren Qualität; Sie müssen selber entscheiden, ob Sie den Programmen vertrauen, bevor Sie sie ausführen.</value>
+    <value>Sucht nach Feeds, die vom Mirror-Server indiziert werden und den angegebenen Schlüsselwörtern entsprechen. Beachten Sie, dass der Standard-Mirror-Server alle bekannten Feeds indiziert, unabhängig von deren Qualität; Sie müssen selber entscheiden, ob Sie den Programmen vertrauen, bevor Sie sie ausführen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -445,7 +445,7 @@ Dies ist vergleichbar mit '0install download --refresh', außer dass es Informat
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>Suche im lokalen Netwerk</value>
+    <value>Suche im lokalen Netzwerk</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Done" xml:space="preserve">
@@ -481,7 +481,7 @@ Dies ist vergleichbar mit '0install download --refresh', außer dass es Informat
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
-    <value>Feed Verwaltung</value>
+    <value>Feed-Verwaltung</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
@@ -558,7 +558,7 @@ Ein &lt;feed-for&gt; Tag zeigt die Kompatibilität des Feeds an.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' ist keine gültige Feed URI oder Pfad.</value>
+    <value>'{0}' ist weder eine gültige Feed-URI noch ein gültiger Dateipfad.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="KioskModeNotInCatalog" xml:space="preserve">
@@ -762,7 +762,7 @@ Sie können diese Option mehrfach verwenden, um mehrere mögliche Sprachen anzug
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Führt die angegebene ausführbare Datei {MAIN} anstelle des Standardprogramms aus. Wenn der Pfad mit '/' oder '\' beginnt, ist er relativ zum obersten Verzeichnis der Implementierung, ansonsten relativ zum Verzeichnis, das das Standardprogramms enthält.
+    <value>Führt die angegebene ausführbare Datei {MAIN} anstelle des Standardprogramms aus. Wenn der Pfad mit '/' oder '\' beginnt, ist er relativ zum obersten Verzeichnis der Implementierung, ansonsten relativ zum Verzeichnis, das das Standardprogramm enthält.
 Darf keine Befehlszeilenargumente enthalten! Leerzeichen müssen nicht escaped werden.</value>
     <comment>Manually overriden.</comment>
   </data>
@@ -783,7 +783,7 @@ Darf keine Befehlszeilenargumente enthalten! Leerzeichen müssen nicht escaped w
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Der Befehlt wird sofort beendet, sobald das Programm gestartet wurde, anstelle auf dessen Beendigung zu warten. Unter Windows ist der Exit-Code die Prozess ID des gestarteten Programms.</value>
+    <value>Der Befehl wird sofort beendet, sobald das Programm gestartet wurde, anstatt auf dessen Beendigung zu warten. Unter Windows ist der Exit-Code die Prozess-ID des gestarteten Programms.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -840,7 +840,7 @@ Im Offline-Modus werden keine Feeds aktualisiert, selbst wenn sie veraltet sind,
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Benötige eine Version des Hauptprogramms innerhalb des angegebenen {RANGE}.
+    <value>Erfordert eine Version des Hauptprogramms innerhalb des angegebenen {RANGE}.
 Ranges werden durch Pipes (|) getrennt.
 Jede Range ist in der Form "START..!ENDE". Die Ranges akzeptieren Versionen bei denen gilt: START &lt;= VERSION &lt; ENDE. Der Start oder das Ende können weggelassen werden.
 Eine einzelne Versionsnummer kann anstelle eines Ranges angegeben werden um nur diese Version zu akzeptieren, oder !VERSION um alles außer der Version zu akzeptieren.</value>

@@ -75,8 +75,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
-    <value>Uygulamaların giriş noktaları bulunamıyor.
-Giriş noktalarını el ile belirtmeyi deneyin.</value>
+    <value>Uygulamanın giriş noktası bulunamadı.
+Giriş noktasını el ile belirtmeyi deneyin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
@@ -96,15 +96,15 @@ Giriş noktalarını el ile belirtmeyi deneyin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Kayıt defterinde çoklu varsayılan uygulama kaydı algılandı. Aynı anda tümü kullanılamaz, ancak genellikle sonuncu kayıtlar önceliklidir.</value>
+    <value>Kayıt defterinde çoklu varsayılan uygulama kaydı algılandı. Tümü işleniyor, ancak bazı durumlarda sonuncu kayıt öncelikli olabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Çoklu kurulum klasörü algılandı. İlk olarak varsayılanı seçin.</value>
+    <value>Çoklu kurulum klasörü algılandı. Varsayılan olarak ilki seçildi.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Kayıt defterinde çoklu yeni uygulama kayıtları algılandı. İlk olarak varsayılanı seçin.</value>
+    <value>Kayıt defterinde çoklu yeni uygulama kayıtları algılandı. Varsayılan olarak ilki seçildi.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
