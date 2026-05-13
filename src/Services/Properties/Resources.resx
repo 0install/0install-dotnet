@@ -194,13 +194,13 @@ Do you want to trust this key to sign feeds from '{3}'?
     <value>The feed '{0}' was not signed with any trusted keys.</value>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' is a local file. It should be a HTTP(S) URL.</value>
+    <value>'{0}' is a local file. It should be an HTTP(S) URL.</value>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
     <value>The &lt;interface&gt; uri attribute ('{0}') does not match the URL the feed was downloaded from ('{1}').</value>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>The &lt;interface&gt; uri attribute missing. Should be '{0}'.</value>
+    <value>The &lt;interface&gt; uri attribute is missing. Should be '{0}'.</value>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
     <value>Problem fetching '{0}'.</value>
@@ -227,7 +227,7 @@ Do you want to trust this key to sign feeds from '{3}'?
     <value>No manifest digest for implementation '{0}' found.</value>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>No retrieval method found for implementation '{0}' found.</value>
+    <value>No retrieval method for implementation '{0}' found.</value>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>The downloaded feed is older than the version already in the cache. We will keep using the newer version.

@@ -203,7 +203,7 @@ If you select 'No' Zero Install will continue to use the old capabilities.</valu
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
     <value>Do you wish to remove all application files from the Zero Install cache?
-These files can downloaded again if needed.</value>
+These files can be downloaded again if needed.</value>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
     <value>Do you wish to remove all applications from the 'My applications' list? This prevents leftover menu entries after removing Zero Install.
@@ -249,7 +249,7 @@ You can use it by running the ZeroInstall.exe file in the directory.</value>
     <value>Register an additional source of implementations (versions) of a program.</value>
   </data>
   <data name="DescriptionCatalogAdd" xml:space="preserve">
-    <value>Adds an URI to the list of catalogs.</value>
+    <value>Adds a URI to the list of catalogs.</value>
   </data>
   <data name="DescriptionCatalogList" xml:space="preserve">
     <value>Lists all registered catalogs.</value>
@@ -258,7 +258,7 @@ You can use it by running the ZeroInstall.exe file in the directory.</value>
     <value>Refreshes (downloads) all registered catalogs.</value>
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
-    <value>Removes an URI from the list of catalogs.</value>
+    <value>Removes a URI from the list of catalogs.</value>
   </data>
   <data name="DescriptionCatalogReset" xml:space="preserve">
     <value>Resets the list of catalogs to the default source.</value>
@@ -291,13 +291,13 @@ The file must have a trusted digital signature, as when fetching from the networ
     <value>Imports a set of applications and desktop integrations from an existing app-list.xml file.</value>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>Adds an application to the application list (if missing) and integrate it into the desktop environment.</value>
+    <value>Adds an application to the application list (if missing) and integrates it into the desktop environment.</value>
   </data>
   <data name="DescriptionList" xml:space="preserve">
     <value>Lists all locally known feed URIs. If a search term is given, only URIs containing that string are shown (case insensitive).</value>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Lists all applications currently in your application list. If an URI is given, only the application with that feed URI is shown. If a PATTERN is given, only applications containing that string in their name are shown (case insensitive).</value>
+    <value>Lists all applications currently in your application list. If a URI is given, only the application with that feed URI is shown. If a PATTERN is given, only applications containing that string in their name are shown (case insensitive).</value>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
     <value>Lists all extra feeds added to URI using '0install add-feed'.</value>
@@ -346,7 +346,7 @@ Additional arguments specify custom cache locations.</value>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
     <value>Copies an implementation into the cache. Similar to '0install store add', but the digest is extracted from the directory name.
-An additional arguments specifies a custom target cache location.</value>
+An additional argument specifies a custom target cache location.</value>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
     <value>Exports a cached implementation as an archive (ZIP, TAR, etc.). The result can be imported on another machine using '0install store add'.</value>
@@ -381,7 +381,7 @@ Additional arguments specify custom cache locations.</value>
     <value>Removes a directory from the list of custom implementation caches.</value>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>Makes sure an implementation has not been damaged (i.e. it manifest digest has not changed).</value>
+    <value>Makes sure an implementation has not been damaged (i.e. its manifest digest has not changed).</value>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
     <value>Synchronizes the application list with the server.</value>
@@ -396,7 +396,7 @@ Additional arguments specify custom cache locations.</value>
     <value>List keys trusted for signing feeds. Only list domains for which a specific FINGERPRINT is trusted, if specified.</value>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Checks for updates to the program and download them if found.
+    <value>Checks for updates to the program and downloads them if found.
 This is similar to '0install download --refresh', except that it prints information about whether any changes were found.</value>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -586,7 +586,7 @@ You can do this using '{0}'. This will be completely independent from your porta
     <value>Automatically answer questions with defaults when possible and simplify console output (no tables or progress bars).</value>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Require a version of the main program earlier than {VERSION}. i.e., force the use of an old version the program.</value>
+    <value>Require a version of the main program earlier than {VERSION}. i.e., force the use of an old version of the program.</value>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
     <value>Skip downloading the catalog to verify it is valid before adding it to the list.</value>

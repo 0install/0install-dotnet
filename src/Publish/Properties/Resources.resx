@@ -146,7 +146,7 @@ Try specifying it manually.</value>
     <value>No 32-bit %ProgramFiles% directory found.</value>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Multiple new default programs were detected in the registry. Handling them all, but the last one may take precedence in  some cases.</value>
+    <value>Multiple new default programs were detected in the registry. Handling them all, but the last one may take precedence in some cases.</value>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Multiple installation directories were detected. Choosing first by default.</value>
