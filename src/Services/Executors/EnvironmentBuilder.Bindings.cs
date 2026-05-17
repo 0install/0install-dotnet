@@ -293,7 +293,7 @@ public partial class EnvironmentBuilder
         Log.Debug($"Applying {binding} for {implementation}");
 
         string source = binding.Source.ToNativePath() ?? "";
-        if (Paths.IsAbsolute(source) || source.Contains($"..{Path.DirectorySeparatorChar}")) throw new ExecutorException(Resources.WorkingDirInvalidPath);
+        if (FileUtils.IsBreakoutPath(source)) throw new ExecutorException(Resources.WorkingDirInvalidPath);
 
         // Only allow working directory to be changed once
         if (!string.IsNullOrEmpty(_startInfo.WorkingDirectory)) throw new ExecutorException(Resources.WorkingDirAlreadyChanged);
