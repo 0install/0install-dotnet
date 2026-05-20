@@ -33,11 +33,11 @@ partial class SnapshotDiff
     }
 
     /// <summary>
-    /// Retrieves data about a AutoPlay handler type from a snapshot diff.
+    /// Retrieves data about an AutoPlay handler type from a snapshot diff.
     /// </summary>
     /// <param name="handler">The internal name of the AutoPlay handler.</param>
     /// <param name="hive">The registry hive to search in (usually HKCU or HKLM).</param>
-    /// <param name="autoPlayAssocs">A list of associations of an AutoPlay events with an AutoPlay handlers</param>
+    /// <param name="autoPlayAssocs">A list of associations of AutoPlay events with an AutoPlay handlers</param>
     /// <param name="commandMapper">Provides best-match command-line to <see cref="Command"/> mapping.</param>
     /// <exception cref="IOException">There was an error accessing the registry.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to the registry was not permitted.</exception>

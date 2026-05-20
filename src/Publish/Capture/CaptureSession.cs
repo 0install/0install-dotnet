@@ -97,7 +97,7 @@ public class CaptureSession
     }
 
     /// <summary>
-    /// Creates a archive containing the <see cref="InstallationDir"/>.
+    /// Creates an archive containing the <see cref="InstallationDir"/>.
     /// </summary>
     /// <remarks>Sets <see cref="FeedBuilder.RetrievalMethod"/> and calls <see cref="FeedBuilder.GenerateDigest"/>.</remarks>
     /// <param name="archivePath">The path of the archive file to create.</param>

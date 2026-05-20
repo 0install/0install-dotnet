@@ -266,7 +266,7 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
 
     #region Normalize
     /// <summary>
-    /// Flattens inheritance structures, Converts legacy elements, sets default values, etc..
+    /// Flattens inheritance structures, converts legacy elements, sets default values, etc..
     /// </summary>
     /// <param name="feedUri">The feed the data was originally loaded from.</param>
     /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>

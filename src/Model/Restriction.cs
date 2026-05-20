@@ -118,7 +118,7 @@ public partial class Restriction : FeedElement, IInterfaceUri, ICloneable<Restri
     protected virtual string XmlTagName => "restricts";
 
     /// <summary>
-    /// Flattens inheritance structures, Converts legacy elements, sets default values, etc..
+    /// Flattens inheritance structures, converts legacy elements, sets default values, etc..
     /// </summary>
     /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
     public virtual void Normalize()
