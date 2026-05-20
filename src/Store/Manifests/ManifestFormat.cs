@@ -72,7 +72,7 @@ public abstract class ManifestFormat
     public override string ToString() => Prefix;
 
     /// <summary>
-    /// Generates the digest of a implementation file as used within the manifest file.
+    /// Generates the digest of an implementation file as used within the manifest file.
     /// </summary>
     /// <param name="stream">The content of the implementation file.</param>
     /// <returns>A string representation of the digest.</returns>
@@ -111,7 +111,7 @@ public abstract class ManifestFormat
 
     #region Inner classes
     /// <summary>
-    /// A specific <see cref="ManifestFormat"/>s using the new manifest format and <see cref="SHA1"/> digests.
+    /// A specific <see cref="ManifestFormat"/> using the new manifest format and <see cref="SHA1"/> digests.
     /// </summary>
     [Serializable]
     private class Sha1NewFormat : ManifestFormat
@@ -122,7 +122,7 @@ public abstract class ManifestFormat
     }
 
     /// <summary>
-    /// A specific <see cref="ManifestFormat"/>s using the new manifest format and <see cref="SHA256"/> digests.
+    /// A specific <see cref="ManifestFormat"/> using the new manifest format and <see cref="SHA256"/> digests.
     /// </summary>
     [Serializable]
     private class Sha256Format : ManifestFormat
@@ -133,7 +133,7 @@ public abstract class ManifestFormat
     }
 
     /// <summary>
-    /// A specific <see cref="ManifestFormat"/>s using the new manifest format and <see cref="SHA256"/> digests.
+    /// A specific <see cref="ManifestFormat"/> using the new manifest format and <see cref="SHA256"/> digests.
     /// </summary>
     [Serializable]
     private class Sha256NewFormat : ManifestFormat

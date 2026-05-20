@@ -125,7 +125,7 @@ public class TrustManager(TrustDB trustDB, Config config, IOpenPgp openPgp, IFee
     }
 
     /// <summary>
-    /// Retrieves information about a OpenPGP key from the <see cref="Config.KeyInfoServer"/>.
+    /// Retrieves information about an OpenPGP key from the <see cref="Config.KeyInfoServer"/>.
     /// </summary>
     /// <param name="fingerprint">The fingerprint of the key to check.</param>
     /// <returns>Indication whether server considers the key is trustworthy, plus human-readable information about the key if available.</returns>
