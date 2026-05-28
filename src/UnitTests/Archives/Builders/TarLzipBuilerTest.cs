@@ -13,5 +13,5 @@ public class TarLzipBuilderTest : TarBuilderTest
 {
     protected override IArchiveBuilder NewBuilder(Stream stream) => new TarLzipBuilder(stream);
 
-    protected override Stream GetArchiveStream() => new LZipStream(base.GetArchiveStream(), CompressionMode.Decompress);
+    protected override Stream GetArchiveStream() => LZipStream.Create(base.GetArchiveStream(), CompressionMode.Decompress);
 }
