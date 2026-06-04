@@ -142,9 +142,9 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
     public virtual int RolloutPercentage { get; set; }
 
     /// <summary>
-    /// License terms (typically a Trove category, as used on freshmeat.net).
+    /// License terms (typically an SPDX license identifier or expression, e.g. 'MIT', 'Apache-2.0' or 'GPL-3.0-or-later').
     /// </summary>
-    [Category("Release"), Description("License terms (typically a Trove category, as used on freshmeat.net).")]
+    [Category("Release"), Description("License terms (typically an SPDX license identifier or expression, e.g. 'MIT', 'Apache-2.0' or 'GPL-3.0-or-later').")]
     [TypeConverter(typeof(LicenseNameConverter))]
     [XmlAttribute("license"), DefaultValue("")]
     public string? License { get; set; }
