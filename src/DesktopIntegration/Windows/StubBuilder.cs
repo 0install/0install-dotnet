@@ -104,12 +104,16 @@ public class StubBuilder(IIconStore iconStore)
         }
     }
 
-    private static readonly string _netFxDirectory = WindowsUtils.GetNetFxDirectory(WindowsUtils.NetFx40);
-
-    private static readonly IEnumerable<PortableExecutableReference> _references =
-        new[] {"mscorlib.dll", "System.dll", "System.Core.dll"}
-           .Select(x => MetadataReference.CreateFromFile(Paths.Combine(_netFxDirectory, x)))
-           .ToList();
+    // Loaded lazily (rather than in a static field initializer) so that a missing reference assembly
+    // surfaces as a regular exception inside BuildRunStub - caught by the fallback in GetRunCommandLine -
+    // instead of a TypeInitializationException thrown when the StubBuilder is constructed.
+    private static readonly Lazy<IReadOnlyList<PortableExecutableReference>> _references = new(() =>
+    {
+        string netFxDirectory = WindowsUtils.GetNetFxDirectory(WindowsUtils.NetFx40);
+        return new[] {"mscorlib.dll", "System.dll", "System.Core.dll"}
+              .Select(x => MetadataReference.CreateFromFile(Paths.Combine(netFxDirectory, x)))
+              .ToList();
+    });
 
     /// <summary>
     /// Builds a stub EXE that executes the <c>0install run</c> command at a specific path.
@@ -138,7 +142,7 @@ public class StubBuilder(IIconStore iconStore)
                     arguments: GetArguments(target.Uri, command, needsTerminal),
                     title: target.Feed.GetBestName(CultureInfo.CurrentUICulture, command))
             ],
-            _references,
+            _references.Value,
             options: new(
                 needsTerminal ? OutputKind.ConsoleApplication : OutputKind.WindowsApplication,
                 optimizationLevel: OptimizationLevel.Release,
