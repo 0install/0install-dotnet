@@ -104,9 +104,8 @@ public class StubBuilder(IIconStore iconStore)
         }
     }
 
-    // Loaded lazily (rather than in a static field initializer) so that a missing reference assembly
-    // surfaces as a regular exception inside BuildRunStub - caught by the fallback in GetRunCommandLine -
-    // instead of a TypeInitializationException thrown when the StubBuilder is constructed.
+    // Loaded lazily so a missing reference assembly surfaces inside BuildRunStub (where GetRunCommandLine
+    // can fall back) instead of as a TypeInitializationException when the StubBuilder is constructed.
     private static readonly Lazy<IReadOnlyList<PortableExecutableReference>> _references = new(() =>
     {
         string netFxDirectory = WindowsUtils.GetNetFxDirectory(WindowsUtils.NetFx40);

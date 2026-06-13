@@ -43,7 +43,18 @@ public static class AppAlias
         PathEnv.AddDir(stubDirPath, machineWide);
 
         string stubFilePath = Paths.Combine(stubDirPath, $"{aliasName}.exe");
-        new StubBuilder(iconStore).BuildRunStub(stubFilePath, target, command, needsTerminal: true);
+        try
+        {
+            new StubBuilder(iconStore).BuildRunStub(stubFilePath, target, command, needsTerminal: true);
+        }
+#if !DEBUG
+        catch (Exception ex)
+        {
+            // Without a stub EXE the alias cannot work; skip it rather than aborting the entire integration.
+            Log.Error($"Failed to generate stub EXE for alias '{aliasName}'.", ex);
+            return;
+        }
+#endif
 
         if (machineWide || WindowsUtils.IsWindows7)
         {
