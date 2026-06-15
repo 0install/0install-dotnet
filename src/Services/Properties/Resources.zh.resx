@@ -67,23 +67,67 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>由此产生的命令行是空的。</value>
+    <value>生成的命令行为空。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>未指定 "{0}"命令。</value>
+    <value>未指定“{0} ”命令。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>无法找到所有必需的实现：</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>无法在选择“{1} ”（{2} ）时使用{0} </value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>不兼容以下限制：{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>不支持“{0} ”命令</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>目前尚无已知的实现方案</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>尚无可用实现：</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(问题)</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>被拒绝的候选人：</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>需要</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>不适用</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>用户请求的版本{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>本地网络搜索</value>
+    <value>在局域网中搜索</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt; 绑定必须包含 "value "或 "insert "属性。</value>
+    <value>&lt;environment&gt; 绑定必须包含 'value' 或 'insert' 属性之一。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>加载目录出错</value>
+    <value>加载目录时出错</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
@@ -95,11 +139,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>未找到合适的{0} 及其依赖版本。</value>
+    <value>无法找到{0} 及其依赖项的合适版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>未能找到适合{1} 的{0} 版本。</value>
+    <value>无法找到适用于{1} 的{0} 版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -107,23 +151,23 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' 无法在饲料缓存中找到。</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}' 无法在 feed 缓存中找到。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
     <value>来源'{0}'未使用任何可信密钥签名。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>{0} 是本地文件。应该是 HTTP(S) URL。</value>
+    <value>“{0} ”是一个本地文件。它应为 HTTP(S) URL。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>&lt;interface&gt; uri 属性（'{0}'）与下载源的 URL（'{1}'）不匹配。</value>
+    <value>&lt;interface&gt; 的 uri 属性（'{0}'）与下载源的 URL（'{1}'）不匹配。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>缺少 &lt;interface&gt; uri 属性。应为 "{0}"。</value>
+    <value>缺少 &lt;interface&gt; 的 uri 属性。应为 '{0}'。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -131,12 +175,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>{0} 绑定名称中的非法字符。</value>
+    <value>{0} 绑定名称中包含非法字符。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>馈送必须指定其来源的 URI 才能导入。</value>
-    <comment>Automatically translated.</comment>
+    <value>feed 必须指定其来源的 URI 才能导入。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
     <value>{0} 绑定中缺少名称。</value>
@@ -155,11 +199,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>未找到实施 "{0}"的清单摘要。</value>
+    <value>未找到实现 '{0}' 的清单摘要。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>未找到执行 "{0}"的检索方法。</value>
+    <value>未找到实现“{0} ”的检索方法。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -170,7 +214,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>下载{0} 失败。尝试从 feed 镜像中获取。</value>
+    <value>下载{0} 失败。正在尝试从镜像源获取。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -190,7 +234,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>{0} 不是{1} 软件包管理器中的已知 ID。</value>
+    <value>“{0} ”在{1} 包管理器中不是已知的ID。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -202,11 +246,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>工作目录已被前一条命令更改。</value>
+    <value>工作目录已被之前的命令更改过。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>工作目录包含无效路径（潜在安全风险）。</value>
+    <value>工作目录中包含一个无效路径（可能存在安全风险）。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

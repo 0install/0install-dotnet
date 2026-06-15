@@ -59,11 +59,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>Το αρχείο περιέχει μόνο έναν κατάλογο ανώτατου επιπέδου '{0}'. Πιθανώς θα πρέπει να ορίσετε το χαρακτηριστικό '{1}' σε '{0}' για να αποφύγετε ένα επιπλέον επίπεδο φωλιασμού.</value>
+    <value>Το αρχείο περιέχει μόνο έναν κατάλογο ανώτατου επιπέδου «{0} ». Θα πρέπει πιθανώς να ορίσετε το χαρακτηριστικό «{1} » σε «{0} » για να αποφύγετε ένα επιπλέον επίπεδο ένθεσης.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
-    <value>Η εντολή '{0}' προσδιορίζει τη διαδρομή '{1}' αλλά αυτό το αρχείο δεν υπάρχει στο αρχείο.</value>
+    <value>Η εντολή «{0} » καθορίζει τη διαδρομή «{1} », αλλά αυτό το αρχείο δεν υπάρχει στο αρχείο.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DetectingCandidates" xml:space="preserve">
@@ -80,7 +80,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Λήψη '{0}' με τη χρήση του Zero Install</value>
+    <value>Λήψη του «{0} » χρησιμοποιώντας το Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -96,8 +96,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Πολλαπλά νέα προεπιλεγμένα προγράμματα εντοπίστηκαν στο μητρώο. Χειρισμός όλων αυτων, αλλά ο τελευταίος μπορεί να λάβει προτεραιότητα σε ορισμένες περιπτώσεις.</value>
-    <comment>Manually overriden.</comment>
+    <value>Εντοπίστηκαν πολλά νέα προεπιλεγμένα προγράμματα στο μητρώο. Τα χειρίζομαι όλα, αλλά το τελευταίο μπορεί να έχει προτεραιότητα σε ορισμένες περιπτώσεις.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Πολλαπλή κατάλογοι εγκατάστασης εντοπίστηκαν. Επιλέγοντας πρώτο από προεπιλογή.</value>

@@ -60,23 +60,23 @@
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
     <value>Jalur akses yang ada saat ini saling bertentangan satu sama lain:</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
     <value>Jalur akses berikut untuk aplikasi {0} saling bertentangan satu sama lain:</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
     <value>Jalur akses yang ada saat ini {0} bertentangan dengan jalur akses yang baru {1}.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
     <value>Aplikasi '{0}' sudah ada dalam daftar aplikasi.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
     <value>Menerapkan perubahan</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
     <value>Menerapkan integrasi desktop untuk {0}</value>
@@ -84,7 +84,7 @@
   </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Tidak dapat menemukan aplikasi '{0}' dalam daftar aplikasi.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
     <value>Anda hanya dapat melakukan satu operasi integrasi desktop dalam satu waktu.</value>
@@ -96,7 +96,7 @@
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
     <value>Gunakan '0install central' atau '0install config' untuk mengatur Sinkronisasi.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
     <value>Ada masalah saat memuat '{0}'.</value>
@@ -104,40 +104,40 @@
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
     <value>Memperbaiki integrasi desktop</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
     <value>Nama pintasan '{0}' berisi karakter yang tidak valid.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
     <value>Nama pengguna dan/atau kata sandi yang Anda masukkan untuk server Sinkronisasi salah. Periksa opsi sinkronisasi Anda.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
     <value>Kunci kripto yang Anda masukkan untuk Sinkronisasi salah. Periksa Opsi Sinkronisasi Anda.
 Anda dapat mengubah kunci kripto yang digunakan di server dengan menjalankan wizard pemecahan masalah (klik kanan pada Tombol "Sinkronisasi" untuk sampai ke sana) atau dengan mengeksekusi '0install sync - reset = server'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
     <value>Mengunduh data sinkronisasi</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Data yang saat ini disimpan di server Sync rusak.
 Anda dapat mengganti data yang tersimpan di server dengan menjalankan wizard pemecahan masalah (klik kanan pada tombol "Sinkronisasi" untuk menuju ke sana) atau dengan menjalankan '0install sync --reset = server'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
     <value>Mengunggah data sinkronisasi</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
     <value>Tidak dapat menemukan {0} dengan ID '{1}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
     <value>Tidak dapat mengganti stub eksekusi yang sudah basi '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

@@ -60,68 +60,68 @@
   </resheader>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Het archief bevat slechts één map op het hoogste niveau '{0}'. Je moet waarschijnlijk het '{1}' attribuut instellen op '{0}' om een extra niveau te vermijden.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>De opdracht '{0}' specificeert pad '{1}' maar dit bestand bestaat niet in het archief.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Zoeken naar uitvoerbare bestanden</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Er is een manifest digest berekend voor een lege map. Controleer of je de juiste "{0}" waarde hebt ingesteld voor het archief.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>Het invoerpunt van de toepassing is niet gevonden.
 Probeer het handmatig op te geven.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
     <value>Downloaden '{0}' met Zero Install</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>Het bestand '{0}' kon niet worden gevonden.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
     <value>Gedetecteerd '{0}' als installatiedirectory.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
     <value>Geen 32-bits %ProgramFiles% map gevonden.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
     <value>Er zijn meerdere nieuwe standaardprogramma's gedetecteerd in het register. Behandelt ze allemaal, maar de laatste kan in sommige gevallen voorrang krijgen.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Er zijn meerdere installatiedirectory's gedetecteerd. Kiest standaard de eerste.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Er zijn meerdere nieuwe applicatieregistraties gedetecteerd in het register. Kiest standaard de eerste.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Er is geen installatiedirectory gedetecteerd.
 Probeer deze handmatig op te geven.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Deze methode is momenteel alleen beschikbaar op Windows.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
     <value>De geheime sleutel bevindt zich niet in de sleutelbos van de gebruiker.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
     <value>Bestandsgrootte nog niet bepaald.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

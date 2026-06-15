@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>Controllo dei file danneggiati</value>
+    <value>Verifica della presenza di file danneggiati</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
@@ -116,7 +116,7 @@ Se desideri eliminare l'intera directory senza utilizzare Zero Install, esegui q
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Errore nel caricamento del pacchetto di chiavi OpenPGP da '{0}'</value>
+    <value>Errore durante il caricamento del pacchetto di chiavi OpenPGP da '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -125,7 +125,7 @@ Se desideri eliminare l'intera directory senza utilizzare Zero Install, esegui q
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>L'uso del feed mirror, necessario per la ricerca, è disabilitato.
-Eseguire '0install config feed_mirror default' per abilitarlo.</value>
+Esegui '0install config feed_mirror default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -145,31 +145,31 @@ Eseguire '0install config feed_mirror default' per abilitarlo.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Trovare i file duplicati in '{0}'</value>
+    <value>Ricerca di file duplicati in "{0}"</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>Il file '{0}' non è né un collegamento simbolico né un file normale.</value>
+    <value>Il file "{0}" non è né un collegamento simbolico né un file normale.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>L'implementazione '{0}' è già presente nel negozio.</value>
-    <comment>Automatically translated.</comment>
+    <value>L'implementazione '{0}' è già presente nell'archivio.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>L'implementazione '{0}' è danneggiata.</value>
+    <value>L'implementazione "{0}" è danneggiata.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Volete rimuovere l'implementazione? Una nuova copia verrà scaricata automaticamente quando sarà necessario.</value>
+    <value>Vuoi rimuovere l'implementazione? Una nuova copia verrà scaricata automaticamente quando necessario.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>L'implementazione è stata rimossa. Una nuova copia verrà scaricata automaticamente quando sarà necessario.</value>
+    <value>L'implementazione è stata rimossa. Una nuova copia verrà scaricata automaticamente quando necessario.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>Non è stato possibile trovare l'implementazione '{0}'.</value>
+    <value>Impossibile individuare l'implementazione '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -182,7 +182,7 @@ Se utilizzi un'unità formattata come FAT, convertila in NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Impossibile scaricare l'icona da {0} perché sono supportati solo gli URL HTTP e HTTPS.</value>
+    <value>Impossibile scaricare l'icona da {0} poiché sono supportati solo URL HTTP e HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -190,11 +190,11 @@ Se utilizzi un'unità formattata come FAT, convertila in NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Numero non valido di parti in linea.</value>
+    <value>Numero di parti in linea non valido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>L'archivio contiene un percorso non valido (potenzialmente un rischio per la sicurezza): {0}</value>
+    <value>L'archivio contiene un percorso non valido (potenziale rischio per la sicurezza): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -210,7 +210,7 @@ Se utilizzi un'unità formattata come FAT, convertila in NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>Il nome del file o della directory non deve contenere un carattere newline.</value>
+    <value>Il nome del file o della directory non deve contenere un carattere di nuova riga.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -218,11 +218,11 @@ Se utilizzi un'unità formattata come FAT, convertila in NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Non è stato specificato alcun metodo di digest noto.</value>
+    <value>Non è stato specificato alcun metodo di digest.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Il percorso '{0}' non è un percorso assoluto. I percorsi relativi sono ammessi solo in modalità portatile.
+    <value>Il percorso '{0}' non è un percorso assoluto. I percorsi relativi sono consentiti solo in modalità portatile.
 Specificato nel file di configurazione '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>

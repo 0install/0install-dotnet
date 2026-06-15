@@ -74,6 +74,50 @@ Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
     <value>Command für '{0}' nicht angegeben.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>Konnte nicht alle erforderlichen Implementierungen finden:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>{0} kann nicht mit der Auswahl von {1} ({2}) verwendet werden.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>Unvereinbar mit der Einschränkung: {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>Kein '{0}' Befehl</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>Überhaupt keine Implementierungen bekannt</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>Keine geeigneten Implementierungen:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(Problem)</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>Abgelehnte Kandidaten:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>benötigt</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>Nicht geeignet</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>Benutzer hat Version {0}angefordert</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>Suche im lokalen Netzwerk</value>
     <comment>Manually overriden.</comment>

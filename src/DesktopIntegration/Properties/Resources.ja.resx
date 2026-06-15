@@ -60,23 +60,23 @@
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
     <value>以下の既存アクセスポイントは互いに競合しています：</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
     <value>アプリケーション{0} の以下のアクセスポイントは、互いに競合しています：</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
     <value>既存のアクセスポイント{0} は、新しいアクセスポイント{1} と競合しています。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
     <value>アプリケーション「{0} 」はすでにアプリケーションリストにあります。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
     <value>変更の適用</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
     <value>{0}のデスクトップへの統合を適用中</value>
@@ -84,7 +84,7 @@
   </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>アプリケーションリストでアプリケーション「{0} 」が見つかりません。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
     <value>デスクトップへの統合は一度に1件しか実行できません。</value>
@@ -96,7 +96,7 @@
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
     <value>Sync を設定するには、'0install central' または '0install config' を使用してください。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
     <value>「{0}」の読み込み中に問題が発生しました。</value>
@@ -104,40 +104,40 @@
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
     <value>デスクトップ統合の修復</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
     <value>ショートカット名 '{0}' には無効な文字が含まれています。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
     <value>同期サーバーに入力したユーザー名またはパスワードが正しくありません。同期オプションを確認してください。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
     <value>同期に入力した暗号キーが間違っています。同期オプションを確認してください。
 トラブルシューティングウィザード（"Sync "ボタンを右クリック）を実行するか、'0install sync --reset=server'を実行することで、サーバーで使用する暗号キーを変更できます。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
     <value>同期データのダウンロード</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>現在 Sync サーバーに保存されているデータが破損しています。
 トラブルシューティングウィザード（"Sync "ボタンを右クリック）を実行するか、'0install sync --reset=server'を実行することで、サーバーに保存されているデータを置き換えることができます。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
     <value>同期データのアップロード</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
     <value>ID '{1}' を持つ{0} が見つかりません。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
     <value>古くなったスタブ実行ファイル '{0}' を置き換えることができません。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

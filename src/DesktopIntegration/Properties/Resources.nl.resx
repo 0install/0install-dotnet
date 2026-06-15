@@ -60,23 +60,23 @@
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
     <value>De volgende bestaande toegangspunten zijn in conflict met elkaar:</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
     <value>De volgende toegangspunten voor de toepassing {0} zijn in strijd met elkaar:</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
     <value>Het bestaande toegangspunt {0} is in conflict met het nieuwe toegangspunt {1}.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
     <value>De toepassing '{0}' staat al in de lijst met toepassingen.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
     <value>Wijzigingen toepassen</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
     <value>Desktop-integratie voor {0} wordt toegepast</value>
@@ -84,7 +84,7 @@
   </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Kan toepassing '{0}' niet vinden in de lijst met toepassingen.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
     <value>U kunt per keer slechts één bewerking voor desktop-integratie uitvoeren.</value>
@@ -96,7 +96,7 @@
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
     <value>Gebruik '0install central' of '0install config' om Sync in te stellen.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
     <value>Er is een probleem opgetreden bij het laden van "{0}".</value>
@@ -104,40 +104,40 @@
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
     <value>Bureaubladintegratie herstellen</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
     <value>De snelkoppelingsnaam '{0}' bevat ongeldige tekens.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
     <value>De gebruikersnaam en/of het wachtwoord dat u hebt opgegeven voor de Sync-server zijn onjuist. Controleer uw synchronisatieopties.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
     <value>De cryptosleutel die u hebt ingevoerd voor Synchronisatie is onjuist. Controleer uw synchronisatieopties.
 U kunt de cryptosleutel die op de server wordt gebruikt wijzigen door de wizard voor probleemoplossing uit te voeren (klik met de rechtermuisknop op de knop "Sync" om daar te komen) of door '0install sync --reset=server' uit te voeren.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
     <value>Synchronisatiegegevens downloaden</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>De gegevens die momenteel zijn opgeslagen op de Sync-server zijn beschadigd.
 Je kunt de gegevens die op de server zijn opgeslagen vervangen door de wizard voor probleemoplossing uit te voeren (klik met de rechtermuisknop op de knop "Sync" om daar te komen) of door '0install sync --reset=server' uit te voeren.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
     <value>Synchronisatiegegevens uploaden</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
     <value>Kan {0} met de ID '{1}' niet vinden.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
     <value>Kan oud uitvoerbaar bestand '{0}' niet vervangen.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

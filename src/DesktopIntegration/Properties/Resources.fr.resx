@@ -60,11 +60,11 @@
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
     <value>Les points d'accès existants suivants sont en conflit les uns avec les autres :</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
     <value>Les points d'accès suivants pour l'application {0} sont en conflit les uns avec les autres :</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
     <value>Le point d'accès {0} est en conflit avec le nouveau point d'accès {1}.</value>
@@ -121,7 +121,7 @@ Vous pouvez modifier la clé de chiffrement utilisée sur le serveur en exécuta
   </data>
   <data name="SyncDownloading" xml:space="preserve">
     <value>Téléchargement des données de synchronisation</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Les données actuellement sauvegardées sur le serveur de synchronisation son endommagées.
@@ -130,7 +130,7 @@ Vous pouvez remplacer les données sauvegardées sur le serveur en exécutant l'
   </data>
   <data name="SyncUploading" xml:space="preserve">
     <value>Téléchargement de données de synchronisation</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
     <value>Impossible de trouver {0} avec l'ID '{1}'.</value>

@@ -60,68 +60,68 @@
   </resheader>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Arsip hanya berisi satu direktori tingkat atas '{0}'. Anda mungkin harus mengatur atribut '{1}' ke '{0}' untuk menghindari tingkat penelusuran tambahan.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>Perintah '{0}' menentukan jalur '{1}' tetapi file ini tidak ada dalam arsip.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Mencari file yang dapat dieksekusi</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Intisari manifes dihitung untuk direktori kosong. Pastikan Anda telah menetapkan nilai "{0}" yang benar untuk arsip.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>Titik masuk aplikasi tidak ditemukan.
 Coba tentukan secara manual.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
     <value>Mengunduh '{0}' menggunakan Zero Install</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>File '{0}' tidak dapat ditemukan.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
     <value>Mendeteksi '{0}' sebagai direktori instalasi.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
     <value>Tidak ditemukan direktori %ProgramFiles% 32-bit.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
     <value>Beberapa program default baru terdeteksi dalam registri. Menangani semuanya, tetapi yang terakhir mungkin lebih diutamakan dalam beberapa kasus.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Beberapa direktori instalasi terdeteksi. Memilih yang pertama secara default.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Beberapa pendaftaran aplikasi baru terdeteksi dalam registri. Memilih yang pertama secara default.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Tidak ada direktori penginstalan yang terdeteksi.
 Coba tentukan secara manual.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Metode ini saat ini hanya tersedia di Windows.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
     <value>Kunci rahasia tidak ada di dalam kunci pengguna.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
     <value>Ukuran file belum ditentukan.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

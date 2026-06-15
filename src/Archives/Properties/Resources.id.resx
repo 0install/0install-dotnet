@@ -64,7 +64,7 @@
   </data>
   <data name="BuildingArchive" xml:space="preserve">
     <value>Membangun arsip '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
     <value>Mengekstrak arsip</value>
@@ -72,14 +72,14 @@
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
     <value>Mengekstrak jenis arsip ini hanya didukung di macOS.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>Mengekstrak jenis arsip ini hanya didukung pada Windows.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
     <value>Jenis MIME arsip '{0}' tidak didukung.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

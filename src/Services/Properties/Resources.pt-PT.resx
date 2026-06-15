@@ -68,23 +68,67 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
     <value>A linha de comandos resultante está vazia.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
     <value>Comando para '{0}' não especificado.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>Não é possível encontrar todas as implementações necessárias:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>Não é possível utilizar {0} com a seleção de {1} ({2})</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>Incompatível com restrições: {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>Sem comando «{0} »</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>Não há implementações conhecidas</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>Sem implementações utilizáveis:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(problema)</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>Candidatos rejeitados:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>Requer</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>Inadequado</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>Versão solicitada pelo utilizador {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>Pesquisa na rede local</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>as ligações &lt;environment&gt; devem conter um atributo 'value' ou 'insert'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
     <value>Erro ao carregar o catálogo</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
     <value>Erro ao guardar a base de dados de confiança</value>
@@ -92,15 +136,15 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Execução de um solucionador externo</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
     <value>Falha ao encontrar versões adequadas de {0} e suas dependências.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
     <value>Não foi possível encontrar uma versão de {0} adequada para {1}.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>O feed "{0}" não está armazenado em cache e o Zero Install está atualmente no modo offline.</value>
@@ -108,7 +152,7 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' não pôde ser localizado na cache de feeds.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
     <value>O feed "{0}"não foi assinado com nenhuma chave de confiança.</value>
@@ -116,15 +160,15 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
     <value>'{0}' é um ficheiro local. Deveria ser um URL HTTP(S).</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
     <value>O atributo &lt;interface&gt; uri ('{0}') não corresponde ao URL de onde o feed foi descarregado ('{1}').</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
     <value>Falta o atributo &lt;interface&gt; uri. Deveria ser '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
     <value>Não foi possível transferir "{0}".</value>
@@ -132,19 +176,19 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
     <value>Carácter ilegal no nome da ligação {0}.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
     <value>Os feeds têm de especificar o URI de onde foram originados para poderem ser importados.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
     <value>Nome em falta na ligação {0}.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
     <value>Não foi especificada qualquer interface.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
     <value>Não foi possível transferir {0} porque o Zero Install está no modo offline.</value>
@@ -152,15 +196,15 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
     <value>O servidor de informações sobre chaves não conseguiu fornecer quaisquer informações adicionais sobre esta chave.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
     <value>Não foi encontrado nenhum resumo do manifesto para a implementação '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Nenhum método de recuperação encontrado para a implementação '{0}' encontrado.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>O feed transferido é mais antigo do que a versão armazenada em cache. Continuaremos a utilizar a versão mais recente.
@@ -171,11 +215,11 @@ Carimbo temporal novo: {2}</value>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
     <value>Falha ao descarregar {0}. A tentar obter a partir do feed mirror.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Não é possível armazenar em cache o catálogo de aplicações descarregadas.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
     <value>Não foi possível analisar o feed transferido de {0}.</value>
@@ -191,7 +235,7 @@ Carimbo temporal novo: {2}</value>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
     <value>'{0}' não é um ID conhecido no gestor de pacotes {1}.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
     <value>O feed está assinado com chaves que não são fiáveis!</value>
@@ -203,10 +247,10 @@ Carimbo temporal novo: {2}</value>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
     <value>O diretório de trabalho já foi alterado por um comando anterior.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
     <value>O diretório de trabalho contém um caminho inválido (potencialmente um risco de segurança).</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

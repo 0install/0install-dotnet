@@ -100,11 +100,11 @@ Zero Install kullanmadan bu klasörün tümünü silmek isterseniz şu komut sat
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>Gerçek değer: {0}</value>
+    <value>Güncel değer: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Gerçek öge listesi: {0}</value>
+    <value>Güncel öge listesi: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
@@ -190,7 +190,7 @@ FAT biçimindeki bir sürücü kullanıyorsanız lütfen bunu NTFS biçimine dö
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Satırdaki bölüm sayısı geçersiz.</value>
+    <value>Satırdaki parça sayısı geçersiz.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">

@@ -63,15 +63,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
-    <value>Kan commando '{0}' niet vinden.</value>
+    <value>Kan het commando '{0}' niet vinden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Fout bij het laden van feed-voorkeuren voor '{0}'. Terugzetten naar standaardwaarden.</value>
+    <value>Fout bij het laden van feedvoorkeuren voor '{0}'. Terug naar standaardwaarden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Fout bij het laden van interfacevoorkeuren voor '{0}'. Terugzetten naar standaardwaarden.</value>
+    <value>Fout bij het laden van interface-instellingen voor '{0}'. Terug naar standaardwaarden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -79,11 +79,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Kan feed '{0}' niet vinden in catalogus.</value>
+    <value>Kan feed '{0}' niet vinden in de catalogus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Gevonden in plaats van:</value>
+    <value>In plaats daarvan gevonden:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
@@ -91,31 +91,31 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>{0}' is geen geldige 'http(s):' URI en ook geen geldig lokaal pad.</value>
+    <value>'{0}' is geen geldige 'http(s):'-URI en is ook geen geldig lokaal pad.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Ongeldig '{0}' attribuut op {1}.</value>
+    <value>Ongeldig '{0}'-attribuut op {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Ontbrekend '{0}' attribuut op {1}.</value>
+    <value>Het attribuut '{0}' ontbreekt op {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Ontbrekende tag {0} binnen {1}.</value>
+    <value>Ontbrekende ` {0} `-tag in ` {1}`.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>De punt-gescheiden lijst mag alleen decimale getallen bevatten.</value>
+    <value>De door punten gescheiden lijst mag alleen decimale getallen bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Het versienummer mag alleen puntgescheiden decimalen en modificatiereeksen bevatten.</value>
+    <value>Het versienummer mag alleen door punten gescheiden decimale getallen en modificatiestrings bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Het versienummer moet beginnen met een lijst van door punten gescheiden decimalen.</value>
+    <value>Het versienummer moet beginnen met een reeks door punten gescheiden decimale getallen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -123,27 +123,27 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Het relatieve pad '{0}' kon niet worden opgelost. Alleen feeds die zijn opgeslagen als lokale bestanden kunnen relatieve paden bevatten.</value>
+    <value>Het relatieve pad '{0}' kon niet worden gevonden. Alleen feeds die als lokale bestanden zijn opgeslagen, mogen relatieve paden bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>De relatieve URI '{0}' kon niet worden opgelost. Alleen feeds die zijn opgeslagen als lokale bestanden mogen relatieve URI's bevatten.</value>
+    <value>De relatieve URI '{0}' kon niet worden opgelost. Alleen feeds die als lokale bestanden zijn opgeslagen, mogen relatieve URI's bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>het kenmerk 'uitrolpercentage' op {0} mag alleen worden ingesteld als 'stabiliteit' is ingesteld op 'testen' of niet is ingesteld.</value>
-    <comment>Automatically translated.</comment>
+    <value>'rollout-percentage' attribuut op {0} mag alleen worden ingesteld als 'stability' is ingesteld op 'testing' of niet is ingesteld.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Buggy implementatie</value>
+    <value>Buggy-implementatie</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Biedt geen commando '{0}'.</value>
+    <value>Biedt het commando '{0}' niet aan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Incompatibel besturingssysteem of CPU</value>
+    <value>Onverenigbaar besturingssysteem of CPU</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
@@ -155,7 +155,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Niet uitvoerbare bronimplementatie</value>
+    <value>Niet-uitvoerbare bronimplementatie</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
@@ -167,7 +167,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Moet een veilige ID zijn. Mag alleen alfanumerieke tekens, spaties ( ), punten (.), underscores (_), koppeltekens (-) en plustekens (+) bevatten.</value>
+    <value>Moet een veilige ID zijn. Mag alleen alfanumerieke tekens, spaties ( ), punten (.), onderstrepingstekens (_), koppeltekens (-) en plustekens (+) bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Einde van versiebereik moet exclusief zijn. Gebruik '.!{0}', niet '.{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Einde van versiebereik moet exclusief zijn. Gebruik '..!{0}', niet '..{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

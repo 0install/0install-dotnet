@@ -67,23 +67,67 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>コマンドラインは空です。</value>
+    <value>結果として表示されるコマンドラインは空です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>{0}' のコマンドは指定されていません。</value>
+    <value>「{0} 」のコマンドが指定されていません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>必要な実装がすべて見つかりません：</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>「{1} 」を選択した場合（{2} ）、{0} は使用できません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>以下の制限事項と互換性がありません：{0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>「{0} 」コマンドはありません</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>現在、実装例は一切確認されていない</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>実用可能な実装例はありません：</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(問題)</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>不採用となった候補者：</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>必要条件</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>不適切</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>ユーザーが指定したバージョン{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>ローカルネットワーク内の検索</value>
+    <value>ローカルネットワーク内を検索</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt;バインディングには、'value'または'insert'属性が必要です。</value>
+    <value>&lt;environment&gt; バインディングには、'value' 属性または 'insert' 属性のいずれかを含める必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>カタログ読み込みエラー</value>
+    <value>カタログの読み込みに失敗しました</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
@@ -95,11 +139,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>{0} とその依存関係の適切なバージョンを見つけることができませんでした。</value>
+    <value>{0} およびその依存関係の適切なバージョンが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>{1} に適した{0} のバージョンが見つかりませんでした。</value>
+    <value>{1} に対応した{0} のバージョンが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -107,7 +151,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' がフィードキャッシュに見つかりませんでした。</value>
+    <value>フィードキャッシュ内で「{0} 」が見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -115,15 +159,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' はローカルファイルです。HTTP(S)URLでなければならない。</value>
+    <value>「{0} 」はローカルファイルです。HTTP(S) URLである必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>&lt;interface&gt; の uri 属性 ('{0}') は、フィードがダウンロードされた URL ('{1}') と一致しません。</value>
+    <value>&lt;interface&gt;要素のuri属性（'{0}'）が、フィードがダウンロードされたURL（'{1}'）と一致しません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>&lt;interface&gt; uri属性がありません。{0}' であるべきです。</value>
+    <value>&lt;interface&gt; 要素の uri 属性が欠落しています。'{0}' とする必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -131,19 +175,19 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>{0} バインディング名に不正な文字が含まれています。</value>
+    <value>{0} のバインディング名に不正な文字が含まれています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>フィードをインポートするには、URIを指定する必要があります。</value>
+    <value>フィードをインポート可能にするには、そのフィードの由来となるURIを指定する必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>{0} 。</value>
-    <comment>Automatically translated.</comment>
+    <value>{0} バインディングに名前がありません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>インターフェースは指定されていない。</value>
+    <value>インターフェースは指定されていません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -151,15 +195,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>鍵情報サーバーは、この鍵に関する追加情報を提供できませんでした。</value>
+    <value>キー情報サーバーは、このキーに関する追加情報を提供できませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>実装 '{0}' のマニフェスト・ダイジェストが見つかりません。</value>
+    <value>実装「{0} 」のマニフェストダイジェストが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>実装 '{0}' の検索方法は見つかりませんでした。</value>
+    <value>実装 '{0}' に対する取得メソッドが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -174,7 +218,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>ダウンロードしたアプリケーションカタログをキャッシュできない。</value>
+    <value>ダウンロードしたアプリケーションカタログをキャッシュできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
@@ -190,7 +234,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' は{1} パッケージマネージャの既知の ID ではありません。</value>
+    <value>「{0} 」は、{1} パッケージマネージャーでは認識されていないIDです。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -202,11 +246,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>作業ディレクトリは以前のコマンドで既に変更されています。</value>
+    <value>作業ディレクトリは、前のコマンドによってすでに変更されています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>作業ディレクトリには無効なパスが含まれています（潜在的なセキュリティリスク）。</value>
+    <value>作業ディレクトリに無効なパスが含まれています（セキュリティ上のリスクとなる可能性があります）。</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

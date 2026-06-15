@@ -59,63 +59,63 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>Ciąg musi mieć postać "{0}".</value>
+    <value>Ciąg znaków musi mieć postać „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
-    <value>Nie można znaleźć polecenia '{0}'.</value>
+    <value>Nie można znaleźć polecenia „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Błąd ładowania preferencji kanału dla "{0}". Przywrócenie wartości domyślnych.</value>
+    <value>Wystąpił błąd podczas ładowania preferencji kanału dla „{0} ”. Przywracanie wartości domyślnych.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Błąd ładowania preferencji interfejsu dla "{0}". Przywrócenie wartości domyślnych.</value>
+    <value>Wystąpił błąd podczas ładowania preferencji interfejsu dla „{0} ”. Przywracanie wartości domyślnych.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Błąd ładowania bazy danych zaufania. Przywracanie wartości domyślnych.</value>
+    <value>Wystąpił błąd podczas ładowania bazy danych zaufania. Przywracanie wartości domyślnych.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Nie można znaleźć kanału '{0}' w katalogu.</value>
+    <value>Nie można znaleźć kanału „{0} ” w katalogu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Znalezione zamiast:</value>
+    <value>Znaleziono zamiast tego:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Nie można znaleźć implementacji interfejsu '{0}' w wyborze.</value>
+    <value>Nie można znaleźć implementacji dla interfejsu „{0} ” w wyborze.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>"{0}" nie jest prawidłowym identyfikatorem URI "http(s):" i nie jest również prawidłową ścieżką lokalną.</value>
+    <value>„{0} ” nie jest prawidłowym adresem URI typu „http(s):” ani prawidłową ścieżką lokalną.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Nieprawidłowy atrybut '{0}' na {1}.</value>
+    <value>Nieprawidłowy atrybut „{0} ” na stronie {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Brakujący atrybut '{0}' na {1}.</value>
+    <value>Brakuje atrybutu „{0} ” na stronie {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Brakujący tag {0} wewnątrz {1}.</value>
+    <value>Brakuje tagu ` {0} ` wewnątrz ` {1}`.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>Lista rozdzielana kropkami może zawierać tylko liczby dziesiętne.</value>
+    <value>Lista rozdzielona kropkami może zawierać wyłącznie liczby dziesiętne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Numer wersji może zawierać tylko oddzielone kropkami znaki dziesiętne i ciągi modyfikatorów.</value>
+    <value>Numer wersji może zawierać wyłącznie ułamki dziesiętne oddzielone kropkami oraz ciągi modyfikujące.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Numer wersji musi zaczynać się od listy miejsc dziesiętnych oddzielonych kropkami.</value>
+    <value>Numer wersji musi zaczynać się od listy liczb dziesiętnych oddzielonych kropkami.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -123,27 +123,27 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Nie można rozwiązać ścieżki względnej '{0}'. Tylko kanały zapisane jako pliki lokalne mogą zawierać ścieżki względne.</value>
+    <value>Nie można rozpoznać ścieżki względnej „{0} ”. Tylko kanały zapisane jako pliki lokalne mogą zawierać ścieżki względne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Nie można rozwiązać względnego identyfikatora URI "{0}". Tylko kanały zapisane jako pliki lokalne mogą zawierać względne URI.</value>
+    <value>Nie można rozpoznać względnego adresu URI „{0} ”. Tylko kanały zapisane jako pliki lokalne mogą zawierać względne adresy URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>atrybut "rollout-percentage" na {0} może być ustawiony tylko wtedy, gdy "stability" jest "testing" lub nie jest ustawiony.</value>
+    <value>Atrybut „rollout-percentage” w {0} może być ustawiony tylko wtedy, gdy „stability” ma wartość „testing” lub nie jest ustawione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Błędna implementacja</value>
+    <value>Wdrożenie zawiera błędy</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Nie udostępnia polecenia '{0}'.</value>
+    <value>Nie udostępnia polecenia „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Niekompatybilny system operacyjny lub procesor</value>
+    <value>Niezgodny system operacyjny lub procesor</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
@@ -151,31 +151,31 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementacja nie w pamięci podręcznej (obecnie w trybie off-line)</value>
+    <value>Wdrożenie nie w pamięci podręcznej (obecnie w trybie offline)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Implementacja niewykonywalnego źródła</value>
+    <value>Implementacja źródłowa bez możliwości uruchamiania</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Wersja wdrożenia zbyt stara lub zbyt nowa</value>
+    <value>Wersja implementacji jest zbyt stara lub zbyt nowa</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Powinien być prawidłowym typem MIME.</value>
+    <value>Powinien to być prawidłowy typ MIME.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Powinien być bezpiecznym identyfikatorem. Może zawierać tylko znaki alfanumeryczne, spacje ( ), kropki (.), podkreślenia (_), myślniki (-) i znaki plus (+).</value>
+    <value>Powinien to być bezpieczny identyfikator. Może zawierać wyłącznie znaki alfanumeryczne, spacje ( ), kropki (.), podkreślenia (_), łączniki (-) i znaki plus (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>Krok receptury '{0}' w implementacji '{1}' ma nieprawidłowe odniesienie do implementacji.</value>
+    <value>Krok przepisu „{0} ” w implementacji „{1} ” ma nieprawidłowe odniesienie do implementacji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>Rozszerzenie pliku '{0}' nie odpowiada znanemu typowi archiwum.</value>
+    <value>Rozszerzenie pliku „{0} ” nie odpowiada żadnemu znanemu typowi archiwum.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Koniec zakresu wersji musi być wyłączny. Należy użyć "..!{0}", a nie ".{0}".</value>
-    <comment>Automatically translated.</comment>
+    <value>Koniec zakresu wersji musi być wyłączny. Należy użyć "..!{0}", a nie "..{0}".</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

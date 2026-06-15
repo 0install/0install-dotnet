@@ -64,7 +64,7 @@
   </data>
   <data name="BuildingArchive" xml:space="preserve">
     <value>Costruire l'archivio '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
     <value>Estrazione dell'archivio in corso</value>
@@ -72,14 +72,14 @@
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
     <value>L'estrazione di questo tipo di archivio è supportata solo su macOS.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>L'estrazione di questo tipo di archivio è supportata solo su Windows.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
     <value>Il tipo MIME di archivio '{0}' non è supportato.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

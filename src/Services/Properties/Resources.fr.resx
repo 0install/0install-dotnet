@@ -67,23 +67,67 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>La ligne de commande résultante est vide.</value>
+    <value>La ligne de commande qui s'affiche est vide.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
     <value>Commande pour '{0}' non précisés.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>Impossible de trouver toutes les implémentations requises :</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>Impossible d'utiliser {0} avec la sélection d'{1} ({2})</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>Incompatible avec la restriction : {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>Pas de commande «{0} »</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>Aucune implémentation connue à ce jour</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>Aucune implémentation utilisable :</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(problème)</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>Candidats rejetés :</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>nécessite</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>Ne convient pas</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>Version demandée par l'utilisateur {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>Recherche dans le réseau local</value>
+    <value>Recherche sur le réseau local</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>les liaisons &lt;environment&gt; doivent contenir un attribut "value" ou "insert".</value>
+    <value>Les liaisons &lt;environment&gt; doivent contenir soit un attribut « value », soit un attribut « insert ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>Erreur de chargement du catalogue</value>
+    <value>Erreur lors du chargement du catalogue</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
@@ -95,11 +139,11 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>N'a pas réussi à trouver les versions appropriées de {0} et de ses dépendances.</value>
+    <value>Impossible de trouver des versions compatibles d'{0} et de ses dépendances.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>N'a pas réussi à trouver une version de {0} adaptée à {1}.</value>
+    <value>Impossible de trouver une version d'{0}. adaptée à {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -107,7 +151,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' n'a pas pu être localisé dans le cache de flux.</value>
+    <value>«{0} » est introuvable dans le cache du flux.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -115,15 +159,15 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>{0}' est un fichier local. Il devrait s'agir d'une URL HTTP(S).</value>
+    <value>«{0} » est un fichier local. Il doit s'agir d'une URL HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>L'attribut &lt;interface&gt; uri ('{0}') ne correspond pas à l'URL à partir de laquelle le flux a été téléchargé ('{1}').</value>
+    <value>L'attribut URI &lt;interface&gt; («{0} ») ne correspond pas à l'URL à partir de laquelle le flux a été téléchargé («{1} »).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>L'attribut uri &lt;interface&gt; est manquant. Il devrait être '{0}'.</value>
+    <value>L'attribut uri de &lt;interface&gt; est manquant. Il devrait être «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -131,15 +175,15 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Caractère illégal dans le nom de la liaison {0}.</value>
+    <value>Caractère non autorisé dans le nom de liaison d'{0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Les flux doivent spécifier l'URI d'où ils proviennent pour pouvoir être importés.</value>
+    <value>Les flux doivent indiquer l'URI d'origine pour pouvoir être importés.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Nom manquant dans la reliure {0}.</value>
+    <value>Nom manquant dans la liaison d'{0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -151,15 +195,15 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Le serveur d'informations sur les clés n'a pas été en mesure de fournir des informations supplémentaires sur cette clé.</value>
+    <value>Le serveur d'informations sur les clés n'a pas été en mesure de fournir d'informations supplémentaires concernant cette clé.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Aucun résumé de manifeste pour l'implémentation '{0}' n'a été trouvé.</value>
-    <comment>Automatically translated.</comment>
+    <value>Aucune empreinte de manifeste pour l'implémentation '{0}' n'a été trouvée.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Aucune méthode de recherche n'a été trouvée pour l'implémentation '{0}'.</value>
+    <value>Aucune méthode de récupération n'a été trouvée pour l'implémentation «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -170,11 +214,11 @@ Nouvelle date : {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Le téléchargement de {0} a échoué. Essayer de télécharger à partir d'un miroir de flux à la place.</value>
+    <value>Échec du téléchargement de {0}. Tentative de téléchargement à partir d'un miroir de flux à la place.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Impossible de mettre en cache le catalogue des applications téléchargées.</value>
+    <value>Impossible de mettre en cache le catalogue d'applications téléchargées.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
@@ -190,7 +234,7 @@ Nouvelle date : {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' n'est pas un identifiant connu dans le gestionnaire de paquets {1}.</value>
+    <value>«{0} » n'est pas un identifiant reconnu dans le gestionnaire de paquets {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -206,7 +250,7 @@ Nouvelle date : {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Le répertoire de travail contient un chemin d'accès non valide (potentiellement un risque pour la sécurité).</value>
+    <value>Le répertoire de travail contient un chemin d'accès non valide (ce qui peut constituer un risque pour la sécurité).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

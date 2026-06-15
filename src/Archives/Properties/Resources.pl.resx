@@ -64,7 +64,7 @@
   </data>
   <data name="BuildingArchive" xml:space="preserve">
     <value>Budowanie archiwum '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
     <value>Rozpakowywanie archiwum</value>
@@ -72,14 +72,14 @@
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
     <value>Wyodrębnianie tego typu archiwum jest obsługiwane tylko w systemie macOS.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>Wyodrębnianie tego typu archiwum jest obsługiwane tylko w systemie Windows.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
     <value>Typ MIME archiwum '{0}' nie jest obsługiwany.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

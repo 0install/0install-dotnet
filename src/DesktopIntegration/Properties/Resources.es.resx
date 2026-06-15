@@ -71,11 +71,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>La aplicación '{0}' ya está en la lista de aplicaciones.</value>
+    <value>La aplicación «{0} » ya se encuentra en la lista de aplicaciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
-    <value>Aplicación de cambios</value>
+    <value>Aplicar cambios</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
-    <value>No se encuentra la aplicación '{0}' en la lista de aplicaciones.</value>
+    <value>No se ha encontrado la aplicación «{0} » en la lista de aplicaciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
@@ -95,7 +95,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
-    <value>Utilice '0install central' o '0install config' para configurar Sync.</value>
+    <value>Utiliza «0install central» o «0install config» para configurar Sync.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
@@ -103,20 +103,20 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>Integración del escritorio de reparación</value>
-    <comment>Automatically translated.</comment>
+    <value>Reparando integración en el escritorio</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
-    <value>El nombre de acceso directo '{0}' contiene caracteres no válidos.</value>
+    <value>El nombre del acceso directo «{0} » contiene caracteres no válidos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>El nombre de usuario y/o la contraseña que ha introducido para el servidor de sincronización son incorrectos. Compruebe las opciones de sincronización.</value>
+    <value>El nombre de usuario y/o la contraseña que has introducido para el servidor de sincronización son incorrectos. Comprueba tus opciones de sincronización.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>La clave criptográfica que ha introducido para la sincronización es incorrecta. Por favor, compruebe sus Opciones de Sincronización.
-Puede cambiar la clave criptográfica utilizada en el servidor ejecutando el asistente de solución de problemas (haga clic con el botón derecho del ratón en el botón "Sincronizar" para acceder a él) o ejecutando '0install sync --reset=server'.</value>
+    <value>La clave de cifrado que has introducido para la sincronización es incorrecta. Comprueba tus opciones de sincronización.
+Puedes cambiar la clave de cifrado utilizada en el servidor ejecutando el asistente de resolución de problemas (haz clic con el botón derecho del ratón en el botón «Sincronizar» para acceder a él) o ejecutando «0install sync --reset=server».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -125,7 +125,7 @@ Puede cambiar la clave criptográfica utilizada en el servidor ejecutando el asi
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Los datos almacenados actualmente en el servidor Sync están dañados.
-Puede reemplazar los datos almacenados en el servidor ejecutando el asistente de solución de problemas (haga clic con el botón derecho del ratón en el botón "Sync" para acceder a él) o ejecutando '0install sync --reset=server'.</value>
+Puedes reemplazar los datos almacenados en el servidor ejecutando el asistente de resolución de problemas (haz clic con el botón derecho del ratón en el botón «Sync» para acceder a él) o ejecutando «0install sync --reset=server».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
@@ -133,11 +133,11 @@ Puede reemplazar los datos almacenados en el servidor ejecutando el asistente de
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
-    <value>No se puede encontrar {0} con el ID '{1}'.</value>
+    <value>No se ha podido encontrar {0} con el ID «{1} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Incapaz de reemplazar el viejo stub ejecutable '{0}'.</value>
+    <value>No se puede sustituir el ejecutable obsoleto «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

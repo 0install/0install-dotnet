@@ -59,51 +59,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>Строка должна иметь вид "{0}".</value>
+    <value>Строка должна иметь вид «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
-    <value>Невозможно найти команду '{0}'.</value>
+    <value>Не удалось найти команду «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Ошибка при загрузке предпочтений фида для '{0}'. Возврат к значениям по умолчанию.</value>
+    <value>Ошибка при загрузке настроек канала «{0} ». Восстановление значений по умолчанию.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Ошибка при загрузке настроек интерфейса для '{0}'. Возврат к значениям по умолчанию.</value>
+    <value>Ошибка при загрузке настроек интерфейса для «{0} ». Восстановление значений по умолчанию.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Ошибка при загрузке базы данных доверия. Возврат к значениям по умолчанию.</value>
+    <value>Ошибка при загрузке базы данных доверия. Восстановление значений по умолчанию.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Невозможно найти канал '{0}' в каталоге.</value>
-    <comment>Automatically translated.</comment>
+    <value>Невозможно найти фид '{0}' в каталоге.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Найдено вместо:</value>
+    <value>Вместо этого найдено:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Невозможно найти реализацию для интерфейса '{0}' в подборке.</value>
+    <value>Не удалось найти реализацию для интерфейса «{0} » в списке.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' не является действительным URI 'http(s):' и не является действительным локальным путем.</value>
+    <value>«{0} » не является допустимым URI в формате «http(s):» и не является допустимым локальным путем.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Неверный атрибут '{0}' на {1}.</value>
+    <value>Недопустимый атрибут «{0} » на {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Отсутствует атрибут '{0}' на {1}.</value>
+    <value>Отсутствует атрибут «{0} » на странице {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Отсутствует тег {0} внутри {1}.</value>
+    <value>Отсутствует тег ` {0} ` внутри тега ` {1}`.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -111,35 +111,35 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Номер версии может содержать только десятичные числа, разделенные точками, и строки модификаторов.</value>
+    <value>Номер версии может содержать только десятичные числа, разделенные точками, и строки-модификаторы.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Номер версии должен начинаться со списка десятичных цифр, разделенных точками.</value>
+    <value>Номер версии должен начинаться со списка десятичных чисел, разделенных точками.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Не было указано ни одного известного метода дайджеста.</value>
-    <comment>Automatically translated.</comment>
+    <value>Не был указан ни один известный метод хэширования.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Не удалось определить относительный путь '{0}'. Относительные пути могут содержаться только в материалах, сохраненных как локальные файлы.</value>
-    <comment>Automatically translated.</comment>
+    <value>Не удалось определить относительный путь '{0}'. Относительные пути могут содержаться только в фидах, сохранённых как локальные файлы.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Не удалось разрешить относительный URI '{0}'. Относительные URI могут содержаться только в лентах, сохраненных как локальные файлы.</value>
+    <value>Не удалось разрешить относительный URI «{0} ». Только каналы, сохраненные в виде локальных файлов, могут содержать относительные URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>атрибут 'rollout-percentage' на {0} может быть установлен только в том случае, если параметр 'stability' находится в состоянии 'testing' или не установлен.</value>
+    <value>Атрибут «rollout-percentage» на {0} может быть установлен только в том случае, если «stability» имеет значение «testing» или не установлено.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Непродуманная реализация</value>
-    <comment>Automatically translated.</comment>
+    <value>Ошибочная реализация</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Не предоставляет команду '{0}'.</value>
+    <value>Не поддерживает команду «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Реализация не в кэше (в настоящее время находится в автономном режиме)</value>
+    <value>Реализация не в кэше (в настоящее время в автономном режиме)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
@@ -159,23 +159,23 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Слишком старая или слишком новая версия реализации</value>
+    <value>Версия реализации слишком старая или слишком новая</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Должен иметь допустимый тип MIME.</value>
+    <value>Должен быть действительным типом MIME.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Должен быть безопасным идентификатором. Может содержать только буквенно-цифровые символы, пробелы ( ), точки (.), знаки подчеркивания (_), дефисы (-) и знаки плюс (+).</value>
+    <value>Идентификатор должен быть безопасным. Может содержать только буквенно-цифровые символы, пробелы ( ), точки (.), подчеркивания (_), дефисы (-) и знаки плюс (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>Шаг рецепта '{0}' в реализации '{1}' имеет недопустимую ссылку на реализацию.</value>
+    <value>Шаг рецепта «{0} » в реализации «{1} » имеет неверную ссылку на реализацию.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>Расширение файла '{0}' не соответствует известному типу архива.</value>
+    <value>Расширение файла «{0} » не соответствует известному типу архива.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Конец диапазона версий должен быть эксклюзивным. Используйте '...{0}', а не '...{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Конец диапазона версий должен быть исключающим. Используйте '..!{0}', а не '..{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

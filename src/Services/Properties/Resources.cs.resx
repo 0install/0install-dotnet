@@ -71,7 +71,51 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Příkaz pro '{0}' není zadán.</value>
+    <value>Příkaz pro „{0} “ nebyl zadán.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>Nelze najít všechny požadované implementace:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>Nelze použít {0} s výběrem {1} ({2})</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>Nekompatibilní s omezením: {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>Žádný příkaz „{0} “</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>Nejsou známy žádné implementace</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>Žádné použitelné implementace:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(problém)</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>Odmítnutí kandidáti:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>vyžaduje</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>Nevhodné</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>Verze požadovaná uživatelem {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -79,11 +123,11 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>vazby &lt;prostředí&gt; musí obsahovat atribut 'value' nebo 'insert'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Vazby &lt;environment&gt; musí obsahovat atribut 'value' nebo 'insert'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>Chybné načítání katalogu</value>
+    <value>Chyba při načítání katalogu</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
@@ -91,12 +135,12 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Spuštění externího řešitele</value>
+    <value>Spouštění externího řešiče</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>Nepodařilo se najít vhodné verze stránek {0} a jejich závislostí.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nepodařilo se najít vhodné verze {0} a jeho závislostí.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
     <value>Nepodařilo se najít verzi {0} vhodnou pro {1}.</value>
@@ -107,7 +151,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' se nepodařilo najít ve vyrovnávací paměti kanálu.</value>
+    <value>Soubor „{0} “ nebyl nalezen v mezipaměti kanálu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -115,15 +159,15 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' je místní soubor. Měla by to být adresa URL HTTP(S).</value>
+    <value>„{0} “ je lokální soubor. Měla by to být adresa URL typu HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Atribut &lt;interface&gt; uri ('{0}') neodpovídá adrese URL, ze které byl kanál stažen ('{1}').</value>
+    <value>Atribut URI &lt;interface&gt; („{0} “) neodpovídá URL, ze které byl kanál stažen („{1} “).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Chybí atribut &lt;interface&gt; uri. Mělo by být '{0}'.</value>
+    <value>Chybí atribut URI &lt;interface&gt;. Měl by být '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -131,15 +175,15 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Nepovolený znak v názvu vazby {0}.</value>
+    <value>Nesprávný znak v názvu vazby {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Aby bylo možné importovat soubory, musí být uveden URI, ze kterého pocházejí.</value>
+    <value>Aby bylo možné kanály importovat, musí uvádět URI, ze kterého pocházejí.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Chybějící název ve vazbě na {0}.</value>
+    <value>Chybějící název v vazbě {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -151,15 +195,15 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Informační server o klíči nebyl schopen poskytnout žádné další informace o tomto klíči.</value>
+    <value>Server klíčových informací nebyl schopen poskytnout žádné další informace o tomto klíči.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Pro implementaci '{0}' nebyl nalezen žádný souhrn manifestů.</value>
-    <comment>Automatically translated.</comment>
+    <value>Pro implementaci '{0}' nebyl nalezen žádný digest manifestu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Pro implementaci '{0}' nebyla nalezena žádná metoda načítání.</value>
+    <value>Nebylo nalezeno žádné způsob načtení pro implementaci „{0} “.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -170,11 +214,11 @@ Nová časová značka: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Nepodařilo se stáhnout {0}. Místo toho se pokouší získat ze zrcadla feedu.</value>
+    <value>Stahování souboru {0} se nezdařilo. Pokoušíme se jej stáhnout z alternativního zdroje.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Nelze uložit do mezipaměti katalog stažených aplikací.</value>
+    <value>Nelze uložit do mezipaměti stažený katalog aplikací.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
@@ -190,7 +234,7 @@ Nová časová značka: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' není ve správci balíčků {1} známé ID.</value>
+    <value>„{0} “ není známé ID v správci balíčků {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -202,7 +246,7 @@ Nová časová značka: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>Pracovní adresář byl již změněn předchozím příkazem.</value>
+    <value>Pracovní adresář již byl změněn předchozím příkazem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">

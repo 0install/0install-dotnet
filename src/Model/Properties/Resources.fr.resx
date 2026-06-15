@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>La chaîne doit être de la forme "{0}".</value>
+    <value>La chaîne doit être sous la forme «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
@@ -67,15 +67,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Erreur de chargement des préférences de flux pour '{0}'. Retour aux valeurs par défaut.</value>
+    <value>Erreur lors du chargement des préférences de flux pour «{0} ». Retour aux valeurs par défaut.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Erreur de chargement des préférences d'interface pour '{0}'. Rétablissement des valeurs par défaut.</value>
+    <value>Erreur lors du chargement des préférences de l'interface pour «{0} ». Retour aux valeurs par défaut.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Erreur de chargement de la base de données de confiance. Retour aux valeurs par défaut.</value>
+    <value>Erreur lors du chargement de la base de données de confiance. Retour aux valeurs par défaut.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -87,23 +87,23 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Impossible de trouver l'implémentation de l'interface '{0}' dans la sélection.</value>
+    <value>Impossible de trouver l'implémentation de l'interface «{0} » dans la sélection.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' n'est pas un URI 'http(s):' valide et n'est pas non plus un chemin local valide.</value>
+    <value>«{0} » n'est pas une URI « http(s): » valide et n'est pas non plus un chemin d'accès local valide.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Attribut '{0}' non valide sur {1}.</value>
+    <value>Attribut «{0} » non valide sur {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Attribut '{0}' manquant sur {1}.</value>
+    <value>L'attribut «{0} » est manquant sur {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Il manque la balise {0} à l'intérieur de {1}.</value>
+    <value>Balise d'{0} manquante à l'intérieur de {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -119,63 +119,63 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Aucune méthode de condensation connue n'a été spécifiée.</value>
+    <value>Aucune méthode de hachage n'a été spécifiée.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Le chemin relatif '{0}' n'a pas pu être résolu. Seuls les flux enregistrés en tant que fichiers locaux peuvent contenir des chemins relatifs.</value>
+    <value>Le chemin relatif «{0} » n'a pas pu être résolu. Seuls les flux enregistrés sous forme de fichiers locaux peuvent contenir des chemins relatifs.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>L'URI relatif '{0}' n'a pas pu être résolu. Seuls les flux enregistrés en tant que fichiers locaux peuvent contenir des URI relatifs.</value>
+    <value>L'URI relative «{0} » n'a pas pu être résolue. Seuls les flux enregistrés sous forme de fichiers locaux peuvent contenir des URI relatives.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>l'attribut "rollout-percentage" sur {0} ne peut être défini que lorsque "stability" est "testing" ou non défini.</value>
+    <value>L'attribut « rollout-percentage » de {0} ne peut être défini que lorsque « stability » est « testing » ou n'est pas défini.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Mise en œuvre boguée</value>
-    <comment>Automatically translated.</comment>
+    <value>Implémentation boguée</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Ne fournit pas la commande '{0}'.</value>
+    <value>Ne prend pas en charge la commande «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Système d'exploitation ou unité centrale incompatibles</value>
+    <value>Système d'exploitation ou processeur incompatible</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>Mise en œuvre non sécurisée</value>
-    <comment>Automatically translated.</comment>
+    <value>Implémentation non sécurisée</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>La mise en œuvre n'est pas dans le cache (actuellement en mode hors ligne)</value>
-    <comment>Automatically translated.</comment>
+    <value>L'implémentation n'est pas dans le cache (actuellement en mode hors ligne)</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Mise en œuvre de la source non exécutable</value>
-    <comment>Automatically translated.</comment>
+    <value>Implémentation source non exécutable</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Version de mise en œuvre trop ancienne ou trop récente</value>
-    <comment>Automatically translated.</comment>
+    <value>Version d'implémentation trop ancienne ou trop récente</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
     <value>Doit être un type MIME valide.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Il doit s'agir d'un identifiant sûr. Il ne peut contenir que des caractères alphanumériques, des espaces ( ), des points (.), des traits de soulignement (_), des traits d'union (-) et des signes plus (+).</value>
+    <value>L'identifiant doit être sécurisé. Il ne peut contenir que des caractères alphanumériques, des espaces ( ), des points (.), des traits de soulignement (_), des tirets (-) et des signes plus (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>L'étape de la recette '{0}' dans l'implémentation '{1}' a une référence d'implémentation invalide.</value>
+    <value>L'étape de recette «{0} » dans l'implémentation «{1} » comporte une référence d'implémentation non valide.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>L'extension de fichier '{0}' ne correspond pas à un type d'archive connu.</value>
+    <value>L'extension de fichier «{0} » ne correspond à aucun type d'archive connu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>La fin de la gamme de versions doit être exclusive. Utilisez '.. !{0}', et non '..{0}'.</value>
+    <value>La fin de la plage de versions doit être exclusive. Utilisez « ..!{0} », et non « ..{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -67,20 +67,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Acest director este un cache de implementare. Fișierele de aici sunt făcute numai pentru citire utilizând permisiunile sistemului de fișiere. Acest lucru le împiedică să fie șterse în mod normal.
+    <value>Acest director este un cache de implementare. Fișierele de aici sunt setate ca fiind numai pentru citire folosind permisiunile sistemului de fișiere. Acest lucru împiedică ștergerea lor în mod normal.
 
-Dacă doriți să ștergeți o singură implementare, puteți utiliza această linie de comandă:
-{0}
-
-Dacă doriți să ștergeți acest întreg director, puteți utiliza această linie de comandă:
-{1}
-
-Dacă doriți să ștergeți acest întreg director fără a utiliza Zero Install, puteți utiliza această linie de comandă:
+Dacă doriți să ștergeți o singură implementare, puteți utiliza această linie de comandă:{0}
+Dacă doriți să ștergeți întregul director, puteți utiliza această linie de comandă:{1}
+Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, puteți utiliza această linie de comandă:
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileName" xml:space="preserve">
-    <value>Cum să ștergeți</value>
+    <value>Cum se șterge</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
@@ -96,7 +92,7 @@ Dacă doriți să ștergeți acest întreg director fără a utiliza Zero Instal
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>Hash-ul manifest al unei implementări nu corespunde valorii așteptate.</value>
+    <value>Hash-ul manifestului unei implementări nu corespunde cu valoarea așteptată.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
@@ -104,15 +100,15 @@ Dacă doriți să ștergeți acest întreg director fără a utiliza Zero Instal
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Manifest real: {0}</value>
+    <value>Manifestul actual: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
-    <value>Valoare așteptată: {0}</value>
+    <value>Valoarea așteptată: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Manifest așteptat: {0}</value>
+    <value>Manifestul preconizat: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
@@ -120,16 +116,16 @@ Dacă doriți să ștergeți acest întreg director fără a utiliza Zero Instal
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>A eșuat deblocarea fișierelor în uz în '{0}'</value>
+    <value>Nu s-a reușit deblocarea fișierelor utilizate în „{0} ”</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Utilizarea feed mirror, care este necesară pentru căutare, este dezactivată.
-Rulați "0install config feed_mirror default" pentru a o activa.</value>
+    <value>Utilizarea feed mirror, necesară pentru căutare, este dezactivată.
+Rulați '0install config feed_mirror default' pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Nu se poate găsi fișierul sau directorul '{0}'.</value>
+    <value>Nu se poate găsi fișierul sau directorul „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
@@ -141,60 +137,60 @@ Rulați "0install config feed_mirror default" pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUseInform" xml:space="preserve">
-    <value>Următoarele aplicații trebuie să fie închise:</value>
+    <value>Următoarele aplicații trebuie închise:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Găsirea fișierelor duplicate în '{0}'</value>
+    <value>Găsirea fișierelor duplicate în „{0} ”</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>Fișierul '{0}' nu este nici o legătură simbolică, nici un fișier obișnuit.</value>
+    <value>Fișierul „{0} ” nu este nici o legătură simbolică, nici un fișier obișnuit.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>Implementarea '{0}' este deja în magazin.</value>
-    <comment>Automatically translated.</comment>
+    <value>Implementarea '{0}' se află deja în cache.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>Implementarea '{0}' este deteriorată.</value>
+    <value>Implementarea „{0} ” este deteriorată.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Doriți să eliminați implementarea? O nouă copie va fi descărcată automat din nou atunci când este necesar.</value>
+    <value>Doriți să eliminați implementarea? O nouă copie va fi descărcată automat din nou atunci când va fi necesar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Implementarea a fost eliminată. O nouă copie va fi descărcată automat din nou atunci când este necesar.</value>
+    <value>Implementarea a fost eliminată. O nouă copie va fi descărcată automat din nou atunci când va fi necesar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>Implementarea '{0}' nu a putut fi localizată.</value>
+    <value>Nu s-a putut localiza implementarea „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Sistemul de fișiere de bază nu stochează timpii de modificare a fișierelor cu suficientă precizie.
-Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.</value>
+    <value>Sistemul de fișiere subiacent nu stochează datele de modificare a fișierelor cu suficientă precizie.
+Dacă utilizați o unitate formatată FAT, vă rugăm să o convertiți în NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Pictograma încărcată de la {0} nu este validă {1}.</value>
+    <value>Pictograma încărcată de pe {0} nu este o adresă {1} validă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Nu se pot descărca pictograme de pe {0} deoarece sunt acceptate numai URL-urile HTTP și HTTPS.</value>
+    <value>Nu se poate descărca pictograma de pe {0} deoarece sunt acceptate doar adresele URL HTTP și HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>Fișierul manifest conține linii invalide.</value>
+    <value>Fișierul manifest conține linii nevalide.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Număr nevalid de piese în linie.</value>
+    <value>Număr invalid de piese în linie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>Arhiva conține o cale invalidă (potențial un risc de securitate): {0}</value>
+    <value>Arhiva conține o cale nevalidă (posibil un risc de securitate): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -202,12 +198,12 @@ Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Doar administratorii pot optimiza un magazin partajat.</value>
-    <comment>Automatically translated.</comment>
+    <value>Doar administratorii pot optimiza un cache partajat.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Numai administratorii pot elimina elemente dintr-un magazin partajat.</value>
-    <comment>Automatically translated.</comment>
+    <value>Numai administratorii pot elimina elemente dintr-un cache partajat.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>Numele fișierului sau al directorului nu trebuie să conțină un caracter de linie nouă.</value>
@@ -218,12 +214,12 @@ Dacă utilizați o unitate formată FAT, vă rugăm să o convertiți în NTFS.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nu a fost specificată nicio metodă de digest cunoscută.</value>
+    <value>Nu a fost specificată nicio metodă de rezumat cunoscută.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Calea '{0}' nu este o cale absolută. Căile relative sunt permise numai în modul portabil.
-Specificată în fișierul de configurare '{1}'.</value>
+    <value>Calea „{0} ” nu este o cale absolută. Căile relative sunt permise doar în modul portabil.
+Specificată în fișierul de configurare „{1} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
@@ -231,11 +227,11 @@ Specificată în fișierul de configurare '{1}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install nu se poate elimina din memoria cache a unei implementări.</value>
+    <value>Zero Install nu se poate dezinstala singur dintr-un cache de implementare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>Valoarea numărului este prea mare.</value>
+    <value>Valoarea numerică este prea mare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
@@ -243,30 +239,30 @@ Specificată în fișierul de configurare '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>A existat o problemă la accesarea depozitului de implementare '{0}'.
-Rulați '{1}' pentru a-l elimina din lista de directoare înregistrate.</value>
+    <value>A apărut o problemă la accesarea magazinului de implementare „{0} ”.
+Rulați „{1} ” pentru a-l elimina din lista de directoare înregistrate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
-    <value>A existat o problemă la încărcarea unui fișier de configurare.
-Puteți șterge fișierul '{0}' pentru a rezolva problema.</value>
+    <value>A apărut o problemă la încărcarea unui fișier de configurare.
+Puteți șterge fișierul „{0} ” pentru a remedia problema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>A existat o problemă la încărcarea valorii de configurare '{0}'.
-Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se piardă și alte setări.</value>
+    <value>A apărut o problemă la încărcarea valorii de configurare „{0} ”.
+Puteți șterge fișierul „{1} ” pentru a remedia problema. Este posibil ca și alte setări să se piardă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">
-    <value>Director de citire '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <value>Se citește directorul '{0}'</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
     <value>Fișierul de semnătură există deja.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>Nu se poate stabili o conexiune cu StoreService.</value>
+    <value>Nu se poate stabili conexiunea cu StoreService.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -278,7 +274,7 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>Nu se poate activa protecția la scriere pentru '{0}'.</value>
+    <value>Nu se poate activa protecția la scriere pentru „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
@@ -286,19 +282,19 @@ Puteți șterge fișierul '{1}' pentru a rezolva problema. Este posibil să se p
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Fraza de acces introdusă este incorectă.</value>
+    <value>Parola introdusă este incorectă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
-    <value>Ultima linie a fișierului nu este sfârșitul blocului de semnături.</value>
+    <value>Ultima linie a fișierului nu reprezintă sfârșitul blocului de semnătură.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">
-    <value>Semnătura XML nu începe pe un rând nou.</value>
+    <value>Semnătura XML nu începe pe o linie nouă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>Semnătura nu este valabilă pentru baza 64:</value>
+    <value>Semnătura nu este validă în format base 64:</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
