@@ -59,19 +59,63 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
-    <value>Канал: {0}
+    <value>Фид: {0}
 - Действительная подпись от {1}
 - {2}
-Хотите ли вы доверять этому ключу подписывать каналы с '{3}'?
+Хотите ли вы доверять этому ключу подписывать фиды с '{3}'?
 </value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>Получаемая командная строка пуста.</value>
+    <value>Результирующая командная строка пуста.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Команда для '{0}' не указана.</value>
+    <value>Команда «{0} » не указана.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>Не удается найти все необходимые реализации:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>Невозможно использовать {0} при выборе {1} ({2})</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>Несовместимо с ограничением: {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>Нет команды «{0} »</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>Известных реализаций нет</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>Нет рабочих реализаций:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(проблема)</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>Отклоненные кандидаты:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>требуется</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>Не подходит</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>Версия, запрошенная пользователем {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -79,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>связка &lt;environment&gt; должна содержать атрибут 'value' или 'insert'.</value>
+    <value>Связки &lt;environment&gt; должны содержать либо атрибут «value», либо атрибут «insert».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -103,27 +147,27 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Канал '{0}' не сохраняется в кэше, и Zero Install в настоящее время работает в офлайн-режиме.</value>
+    <value>Фид '{0}' не кэширован, и Zero Install в настоящее время работает в офлайн-режиме.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' не удалось найти в фид-кэше.</value>
+    <value>Не удалось найти файл «{0} » в кэше каналов.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>Канал '{0}' не был подписан надежными ключами.</value>
+    <value>Фид '{0}' не был подписан надёжными ключами.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' - это локальный файл. Это должен быть HTTP(S) URL.</value>
+    <value>«{0} » — это локальный файл. Это должен быть URL-адрес HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Атрибут uri &lt;interface&gt; ('{0}') не соответствует URL-адресу, с которого был загружен фид ('{1}').</value>
+    <value>Атрибут URI &lt;interface&gt; («{0} ») не совпадает с URL-адресом, с которого был загружен канал («{1} »).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Отсутствует uri-атрибут &lt;interface&gt;. Должен быть '{0}'.</value>
+    <value>Отсутствует атрибут URI &lt;interface&gt;. Должно быть '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -131,19 +175,19 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Неправильный символ в имени привязки {0}.</value>
+    <value>Недопустимый символ в имени привязки {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Для импорта файлов необходимо указать URI, с которого они были получены.</value>
-    <comment>Automatically translated.</comment>
+    <value>Фиды должны указывать URI, с которого они были получены, чтобы их можно было импортировать.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Отсутствие имени в привязке {0}.</value>
+    <value>Отсутствует имя в привязке {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>Интерфейс не указан.</value>
+    <value>Интерфейс не был указан.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -151,34 +195,34 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Сервер информации о ключах не смог предоставить никакой дополнительной информации об этом ключе.</value>
+    <value>Сервер ключевой информации не смог предоставить никакой дополнительной информации об этом ключе.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Дайджест манифеста для реализации '{0}' не найден.</value>
+    <value>Не найден дайджест манифеста для реализации «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Метод поиска для реализации '{0}' не найден.</value>
+    <value>Не найден способ извлечения для реализации «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Загруженный канал старее версии, уже находящейся в кэше. Мы будем использовать более новую версию.
-URI канала: {0}
+    <value>Загруженный фид старее версии, уже находящейся в кэше. Мы будем использовать более новую версию.
+URI фида: {0}
 Время обновления старого файла: {1}
 Время обновления нового файла: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Не удалось загрузить {0}. Вместо этого пытаемся получить с зеркала.</value>
+    <value>Не удалось загрузить {0}. Попытка загрузки с зеркального сервера.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Невозможность кэширования каталога загруженных приложений.</value>
+    <value>Не удается кэшировать каталог загруженных приложений.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>Не удалось прочитать канал, загруженный с {0}.</value>
+    <value>Не удалось разобрать фид, загруженный с {0}.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
@@ -190,11 +234,11 @@ URI канала: {0}
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' не является известным идентификатором в менеджере пакетов {1}.</value>
+    <value>«{0} » — это неизвестный идентификатор в диспетчере пакетов {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Канал подписан ненадежными ключами!</value>
+    <value>Фид подписан ненадёжными ключами!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">
@@ -202,11 +246,11 @@ URI канала: {0}
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>Рабочая директория уже была изменена предыдущей командой.</value>
+    <value>Рабочий каталог уже был изменен предыдущей командой.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>В рабочем каталоге указан неверный путь (потенциально опасно для безопасности).</value>
+    <value>Рабочий каталог содержит недопустимый путь (потенциальная угроза безопасности).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

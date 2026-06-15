@@ -74,20 +74,64 @@
     <value>Εντολή για '{0}' δεν έχει καθοριστεί.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>Δεν μπορώ να βρω όλες τις απαιτούμενες υλοποιήσεις:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>Δεν είναι δυνατή η χρήση του {0} με την επιλογή του {1} ({2})</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>Μη συμβατό με τον περιορισμό: {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>Δεν υπάρχει εντολή «{0} »</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>Δεν υπάρχουν καθόλου γνωστές εφαρμογές</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>Δεν υπάρχουν χρησιμοποιήσιμες υλοποιήσεις:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(πρόβλημα)</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>Απορριφθέντες υποψήφιοι:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>απαιτεί</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>Ακατάλληλο</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>Ζητούμενη από τον χρήστη έκδοση {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>Αναζήτηση στο τοπικό δίκτυο</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;περιβάλλον&gt; συνδέσεις πρέπει να περιέχουν είτε μια «αξία» ή ένα «ένθετο» χαρακτηριστικό.</value>
+    <value>Οι συνδέσεις &lt;environment&gt; πρέπει να περιέχουν είτε ένα χαρακτηριστικό 'value' είτε ένα χαρακτηριστικό 'insert'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>Σφάλμα φόρτωσης καταλόγου</value>
+    <value>Σφάλμα κατά τη φόρτωση του καταλόγου</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Αποθήκευση σφάλματος στη βάση δεδομένων εμπιστοσύνης</value>
+    <value>Σφάλμα κατά την αποθήκευση της βάσης δεδομένων εμπιστοσύνης</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -95,11 +139,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>Απέτυχε να βρει τις κατάλληλες εκδόσεις του {0} και των εξαρτήσεών του.</value>
+    <value>Δεν βρέθηκαν κατάλληλες εκδόσεις του {0} και των εξαρτήσεών του.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>Απέτυχε να βρει μια έκδοση του {0} κατάλληλη για το {1}.</value>
+    <value>Δεν βρέθηκε έκδοση του {0} κατάλληλη για το {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -115,19 +159,19 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' είναι ένα τοπικό αρχείο. Θα πρέπει να είναι ένα HTTP (S) URL.</value>
-    <comment>Manually overriden.</comment>
+    <value>Το «{0} » είναι ένα τοπικό αρχείο. Θα πρέπει να είναι μια διεύθυνση URL HTTP(S).</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
     <value>Το &lt;interface&gt; uri χαρακτηριστικό ('{0}') δεν ταιριάζει με τη διεύθυνση URL της τροφοδοσίας έχετε κατεβάσει από ('{1}').</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Οι &lt;interface&gt; uri ιδιότητες ειναι ελείπεις. Πρέπει να είναι '{0}'.</value>
-    <comment>Manually overriden.</comment>
+    <value>Λείπει το χαρακτηριστικό uri της &lt;interface&gt;. Θα πρέπει να είναι '{0}'.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Πρόβλημα με τη λήψη του '{0}'.</value>
+    <value>Πρόβλημα κατά τη λήψη του αρχείου «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
@@ -155,12 +199,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Δεν συντρέχει πρόδηλη αφομοιώση για την εφαρμογή '{0}' που βρέθηκε.</value>
+    <value>Δεν βρέθηκε κατακερματισμός manifest για την υλοποίηση '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Καμία μέθοδος ανάκτησης για την εφαρμογή '{0}' δεν βρέθηκε.</value>
-    <comment>Manually overriden.</comment>
+    <value>Δεν βρέθηκε μέθοδος ανάκτησης για την υλοποίηση «{0} ».</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>Η ληφθείσα τροφοδοσία είναι παλαιότερη από την έκδοση που υπάρχει ήδη στην προσωρινή μνήμη. Θα συνεχίσουμε να χρησιμοποιούμε τη νεότερη έκδοση.
@@ -170,7 +214,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Απέτυχε η λήψη του {0}. Προσπαθείτε να λάβετε από τον καθρέφτη τροφοδοσίας.</value>
+    <value>Αποτυχία λήψης του {0}. Προσπαθώ να το λάβω από τον καθρέφτη τροφοδοσίας.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -178,7 +222,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>Δεν είναι δυνατή η ανάλυση της τροφοδοσίας που έχει ληφθεί από το {0}.</value>
+    <value>Δεν είναι δυνατή η ανάλυση της ροής που κατεβάστηκε από το {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

@@ -59,51 +59,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>A cadeia de caracteres deve ter o formato "{0}".</value>
+    <value>A string deve ter o formato «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
-    <value>Não foi possível encontrar o comando '{0}'.</value>
+    <value>Não foi possível encontrar o comando «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Erro ao carregar as preferências de alimentação para '{0}'. Reverter para os valores predefinidos.</value>
-    <comment>Automatically translated.</comment>
+    <value>Erro ao carregar as preferências de fluxo para '{0}'. Reverter para os valores predefinidos.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Erro ao carregar as preferências da interface para '{0}'. Reverter para os valores predefinidos.</value>
+    <value>Erro ao carregar as preferências da interface para «{0} ». A repor os valores predefinidos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Erro ao carregar a base de dados de confiança. Reverter para valores predefinidos.</value>
+    <value>Erro ao carregar a base de dados de confiança. A reverter para os valores predefinidos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Não é possível encontrar o feed '{0}' no catálogo.</value>
+    <value>Não foi possível encontrar o feed «{0} » no catálogo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Encontrado em vez de:</value>
+    <value>Encontrado em vez disso:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Não foi possível encontrar a implementação da interface '{0}' na seleção.</value>
+    <value>Não foi possível encontrar a implementação para a interface «{0} » na seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' não é um URI 'http(s):' válido e também não é um caminho local válido.</value>
+    <value>«{0} » não é um URI «http(s):» válido e também não é um caminho local válido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Atributo '{0}' inválido em {1}.</value>
+    <value>Atributo «{0} » inválido em {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Falta o atributo '{0}' em {1}.</value>
+    <value>Falta o atributo «{0} » em {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Falta a etiqueta {0} dentro de {1}.</value>
+    <value>Falta uma tag {0} dentro de {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -111,27 +111,27 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>O número da versão só pode conter casas decimais separadas por pontos e cadeias de modificadores.</value>
+    <value>O número da versão só pode conter decimais separados por pontos e cadeias de caracteres modificadoras.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>O número da versão deve começar com uma lista de casas decimais separadas por pontos.</value>
+    <value>O número da versão deve começar com uma lista de decimais separados por pontos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Não foi especificado nenhum método de digestão conhecido.</value>
+    <value>Não foi especificado nenhum método de resumo conhecido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>O caminho relativo '{0}' não pôde ser resolvido. Apenas os feeds guardados como ficheiros locais podem conter caminhos relativos.</value>
+    <value>Não foi possível resolver o caminho relativo «{0} ». Apenas os feeds guardados como ficheiros locais podem conter caminhos relativos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>O URI relativo '{0}' não pôde ser resolvido. Apenas os feeds guardados como ficheiros locais podem conter URIs relativos.</value>
+    <value>Não foi possível resolver o URI relativo «{0} ». Apenas os feeds guardados como ficheiros locais podem conter URIs relativos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>o atributo 'rollout-percentage' em {0} só pode ser definido quando 'stability' é 'testing' ou não está definido.</value>
+    <value>O atributo «rollout-percentage» em {0} só pode ser definido quando «stability» estiver definido como «testing» ou não estiver definido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -139,11 +139,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Não fornece o comando '{0}'.</value>
+    <value>Não disponibiliza o comando «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Sistema operativo ou CPU incompatíveis</value>
+    <value>Sistema operativo ou CPU incompatível</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
@@ -151,11 +151,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementação não em cache (atualmente em modo off-line)</value>
+    <value>Implementação não em cache (atualmente em modo offline)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Implementação de fonte não executável</value>
+    <value>Implementação de código-fonte não executável</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
@@ -167,15 +167,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Deve ser um ID seguro. Só pode conter caracteres alfanuméricos, espaços ( ), pontos (.), sublinhados (_), hífenes (-) e sinais de mais (+).</value>
+    <value>Deve ser um ID seguro. Só pode conter caracteres alfanuméricos, espaços ( ), pontos (.), sublinhados (_), hífens (-) e sinais de mais (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>O passo da receita '{0}' na implementação '{1}' tem uma referência de implementação inválida.</value>
+    <value>O passo da receita «{0} » na implementação «{1} » tem uma referência de implementação inválida.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>A extensão de ficheiro '{0}' não corresponde a um tipo de arquivo conhecido.</value>
+    <value>A extensão de ficheiro «{0} » não corresponde a nenhum tipo de arquivo conhecido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>O fim do intervalo de versões deve ser exclusivo. Utilize '..!{0}' e não '...{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>O fim do intervalo de versões deve ser exclusivo. Utilize '..!{0}' e não '..{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

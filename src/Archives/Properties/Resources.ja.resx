@@ -64,7 +64,7 @@
   </data>
   <data name="BuildingArchive" xml:space="preserve">
     <value>アーカイブの構築 '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractingArchive" xml:space="preserve">
     <value>アーカイブファイルを展開中</value>
@@ -72,14 +72,14 @@
   </data>
   <data name="ExtractionOnlyOnMacOS" xml:space="preserve">
     <value>このアーカイブタイプの解凍はmacOSでのみサポートされています。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
     <value>このアーカイブタイプの解凍はWindowsでのみサポートされています。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">
     <value>アーカイブの MIME タイプ '{0}' はサポートされていません。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

@@ -60,68 +60,68 @@
   </resheader>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Archiv obsahuje pouze jeden adresář nejvyšší úrovně '{0}'. Pravděpodobně byste měli nastavit atribut '{1}' na '{0}', abyste se vyhnuli další vnořené úrovni.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>Příkaz '{0}' zadává cestu '{1}', ale tento soubor v archivu neexistuje.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Vyhledávání spustitelných souborů</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Pro prázdný adresář byl vypočten digest manifestu. Zkontrolujte, zda jste pro archiv nastavili správnou hodnotu "{0}".</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>Vstupní bod aplikace nebyl nalezen.
 Zkuste jej zadat ručně.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
     <value>Stahování '{0}' pomocí aplikace Zero Install</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>Soubor '{0}' se nepodařilo najít.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
     <value>Jako instalační adresář byl zjištěn adresář '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
     <value>Nebyl nalezen žádný 32bitový adresář %ProgramFiles%.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
     <value>V registru bylo zjištěno několik nových výchozích programů. Obsluhuje je všechny, ale poslední z nich může mít v některých případech přednost.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Bylo zjištěno více instalačních adresářů. Výběr prvního ve výchozím nastavení.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>V registru bylo zjištěno více registrací nových aplikací. Výběr první ve výchozím nastavení.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Nebyl zjištěn žádný instalační adresář.
 Zkuste jej zadat ručně.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Tato metoda je v současné době k dispozici pouze v systému Windows.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
     <value>Tajný klíč se nenachází na svazku klíčů uživatele.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
     <value>Velikost souborů zatím není určena.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

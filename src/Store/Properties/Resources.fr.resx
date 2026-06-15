@@ -116,7 +116,7 @@ Pour supprimer l'intégralité du répertoire sans passer par Zero Install, veui
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Erreur de chargement du paquet de clés OpenPGP à partir de '{0}'</value>
+    <value>Erreur lors du chargement du faisceau de clés OpenPGP à partir de «{0} »</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -124,8 +124,8 @@ Pour supprimer l'intégralité du répertoire sans passer par Zero Install, veui
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>L'utilisation du miroir de flux, qui est nécessaire pour la recherche, est désactivée.
-Exécutez '0install config feed_mirror default' pour l'activer.</value>
+    <value>L'utilisation du miroir de flux, nécessaire à la recherche, est désactivée.
+Exécutez « 0install config feed_mirror default » pour l'activer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -145,19 +145,19 @@ Exécutez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Recherche de fichiers en double dans '{0}'</value>
+    <value>Recherche de fichiers en double dans «{0} »</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>Le fichier '{0}' n'est ni un lien symbolique ni un fichier normal.</value>
+    <value>Le fichier «{0} » n'est ni un lien symbolique ni un fichier ordinaire.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>L'application "{0}" est déjà disponible dans le magasin.</value>
-    <comment>Automatically translated.</comment>
+    <value>L'implémentation '{0}' est déjà dans le cache.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>L'implémentation '{0}' est endommagée.</value>
+    <value>L'implémentation «{0} » est endommagée.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
@@ -169,7 +169,7 @@ Exécutez '0install config feed_mirror default' pour l'activer.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>L'implémentation '{0}' n'a pas pu être trouvée.</value>
+    <value>L'implémentation «{0} » est introuvable.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -182,7 +182,7 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Impossible de télécharger des icônes à partir de {0} car seules les URL HTTP et HTTPS sont prises en charge.</value>
+    <value>Impossible de télécharger l'icône depuis {0} car seules les URL HTTP et HTTPS sont prises en charge.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -194,7 +194,7 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>L'archive contient un chemin d'accès non valide (potentiellement un risque pour la sécurité) : {0}</value>
+    <value>L'archive contient un chemin d'accès invalide (risque potentiel pour la sécurité) : {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -202,15 +202,15 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Seuls les administrateurs peuvent optimiser un magasin partagé.</value>
-    <comment>Automatically translated.</comment>
+    <value>Seuls les administrateurs peuvent optimiser un cache partagé.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Seuls les administrateurs peuvent supprimer des éléments d'un magasin partagé.</value>
-    <comment>Automatically translated.</comment>
+    <value>Seuls les administrateurs peuvent supprimer des éléments d'un cache partagé.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>Le nom du fichier ou du répertoire ne doit pas contenir de caractère de retour à la ligne.</value>
+    <value>Le nom du fichier ou du répertoire ne doit pas contenir de caractère de saut de ligne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -218,24 +218,24 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Aucune méthode de condensation connue n'a été spécifiée.</value>
+    <value>Aucune méthode de hachage n'a été spécifiée.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Le chemin '{0}' n'est pas un chemin absolu. Les chemins relatifs ne sont autorisés qu'en mode portable.
-Spécifié dans le fichier de configuration '{1}'.</value>
+    <value>Le chemin «{0} » n'est pas un chemin absolu. Les chemins relatifs ne sont autorisés qu'en mode portable.
+Spécifié dans le fichier de configuration «{1} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Pas de version sélectionnée</value>
+    <value>Aucune version sélectionnée</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install ne peut pas se retirer d'un cache d'implémentation.</value>
+    <value>Zero Install ne peut pas se désinstaller lui-même d'un cache d'implémentation.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>La valeur du nombre est trop importante.</value>
+    <value>La valeur numérique est trop grande.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
@@ -243,7 +243,7 @@ Spécifié dans le fichier de configuration '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Problème d'accès à la bibliothèque d'implémentation '{0}'.
+    <value>Problème d'accès au cache d'implémentation '{0}'.
 Exécutez '{1}' pour le supprimer de la liste des répertoires enregistrés.</value>
     <comment>Manually overriden.</comment>
   </data>

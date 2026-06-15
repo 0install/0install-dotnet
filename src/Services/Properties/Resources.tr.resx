@@ -74,6 +74,50 @@ Bu anahtar '{3}' adresinden gelen akışları imzalasın mı?
     <value>'{0}' için komut belirtilmemiş.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>Gerekli tüm uyarlamalar bulunamadı:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>{0}, {1} ({2}) seçeneği ile kullanılamaz</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>Şu kısıtlama ile uyumsuz: {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>'{0}' komutu yok</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>Bilinen herhangi bir uyarlama yok</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>Kullanılabilecek bir uyarlama yok:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(sorun)</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>Reddedilen adaylar:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>gerek duyar</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>Uygun değil</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>Kullanıcının istediği sürüm {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>Yerel ağda aranıyor</value>
     <comment>Manually overriden.</comment>
@@ -115,7 +159,7 @@ Bu anahtar '{3}' adresinden gelen akışları imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' yerel bir dosya. Oysa bir HTTP(S) URL'si olmalı.</value>
+    <value>'{0}' yerel bir dosya. Oysa bir HTTP(S) adresi olmalı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -159,7 +203,7 @@ Bu anahtar '{3}' adresinden gelen akışları imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>'{0}' uyarlaması için alma yöntemi bulunamadı.</value>
+    <value>'{0}' uyarlaması için bir alma yöntemi bulunamadı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -190,7 +234,7 @@ Yeni zaman: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' {1} paket yöneticisinde bilinen bir kimlik değil.</value>
+    <value>'{0}', {1} paket yöneticisinde bilinen bir kimlik değil.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">

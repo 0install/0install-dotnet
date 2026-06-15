@@ -71,7 +71,51 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Comando para '{0}' no especificado.</value>
+    <value>No se ha especificado el comando «{0} ».</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>No se encuentran todas las implementaciones necesarias:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>No se puede utilizar {0} con la selección de {1} ({2})</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>Incompatible con la restricción: {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>No hay comando «{0} »</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>No se conoce ninguna implementación.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>No hay implementaciones utilizables:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(problema)</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>Candidatos rechazados:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>Requisitos</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>No apto</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>Versión solicitada por el usuario {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -79,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>los enlaces &lt;environment&gt; deben contener un atributo &lt;value&gt; o &lt;insert&gt;.</value>
+    <value>Los enlaces &lt;environment&gt; deben contener un atributo «value» o «insert».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -91,7 +135,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Ejecución de un solucionador externo</value>
+    <value>Ejecución del solucionador externo</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
@@ -107,23 +151,23 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>'{0}' no pudo ser localizado en la caché de alimentación.</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}' no pudo ser localizado en la caché de feed.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
     <value>El feed «{0}» no se ha firmado con ninguna clave de confianza.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}' es un archivo local. Debería ser una URL HTTP(S).</value>
+    <value>«{0} » es un archivo local. Debería ser una URL HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>El atributo uri de &lt;interfaz&gt; ('{0}') no coincide con la URL desde la que se descargó el feed ('{1}').</value>
+    <value>El atributo URI de &lt;interface&gt; («{0} ») no coincide con la URL desde la que se descargó el feed («{1} »).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Falta el atributo uri &lt;interface&gt;. Debería ser '{0}'.</value>
+    <value>Falta el atributo uri de &lt;interface&gt;. Debería ser «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -131,19 +175,19 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Carácter ilegal en el nombre de enlace {0}.</value>
+    <value>Carácter no válido en el nombre de enlace de {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Los feeds deben especificar el URI del que proceden para poder ser importados.</value>
+    <value>Los feeds deben especificar el URI del que proceden para que se puedan importar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Falta el nombre en {0} binding.</value>
+    <value>Falta un nombre en el enlace « {0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>No se ha especificado ninguna interfaz.</value>
+    <value>No se especificó ninguna interfaz.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -151,15 +195,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>El servidor de información de claves no ha podido proporcionar información adicional sobre esta clave.</value>
+    <value>El servidor de información de claves no ha podido proporcionar ninguna información adicional sobre esta clave.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>No manifest digest for implementation '{0}' found.</value>
-    <comment>Automatically translated.</comment>
+    <value>No se ha encontrado ningún manifest digest para la implementación '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>No se ha encontrado ningún método de recuperación para la aplicación '{0}'.</value>
+    <value>No se ha encontrado ningún método de recuperación para la implementación «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -170,11 +214,11 @@ Nueva fecha: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>No se ha podido descargar {0}. Tratando de obtener de espejo de alimentación en su lugar.</value>
-    <comment>Automatically translated.</comment>
+    <value>No se ha podido descargar {0}. Tratando de obtener del feed mirror en su lugar.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>No puede almacenar en caché el catálogo de aplicaciones descargadas.</value>
+    <value>No se puede almacenar en caché el catálogo de aplicaciones descargadas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
@@ -190,7 +234,7 @@ Nueva fecha: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' no es un ID conocido en el gestor de paquetes {1}.</value>
+    <value>«{0} » no es un identificador válido en el gestor de paquetes {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -202,11 +246,11 @@ Nueva fecha: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>El directorio de trabajo ya ha sido modificado por un comando anterior.</value>
+    <value>El directorio de trabajo ya ha sido cambiado por un comando anterior.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>El directorio de trabajo contiene una ruta no válida (potencialmente un riesgo para la seguridad).</value>
+    <value>El directorio de trabajo contiene una ruta no válida (lo que podría suponer un riesgo de seguridad).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

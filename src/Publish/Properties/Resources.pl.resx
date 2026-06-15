@@ -60,68 +60,68 @@
   </resheader>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Archiwum zawiera tylko jeden katalog najwyższego poziomu '{0}'. Prawdopodobnie należy ustawić atrybut '{1}' na '{0}', aby uniknąć dodatkowego poziomu zagnieżdżenia.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>Polecenie '{0}' określa ścieżkę '{1}', ale ten plik nie istnieje w archiwum.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Wyszukiwanie plików wykonywalnych</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Skrót manifestu został obliczony dla pustego katalogu. Sprawdź, czy ustawiłeś prawidłową wartość "{0}" dla archiwum.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>Nie znaleziono punktu wejścia aplikacji.
 Spróbuj określić go ręcznie.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
     <value>Pobieranie '{0}' przy użyciu Zero Install</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>Nie można znaleźć pliku '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
     <value>Wykryto '{0}' jako katalog instalacyjny.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
     <value>Nie znaleziono 32-bitowego katalogu %ProgramFiles%.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
     <value>W rejestrze wykryto wiele nowych programów domyślnych. Obsługuje je wszystkie, ale ostatni może mieć pierwszeństwo w niektórych przypadkach.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Wykryto wiele katalogów instalacyjnych. Domyślnie wybierany jest pierwszy.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Wykryto wiele nowych rejestracji aplikacji w rejestrze. Wybór pierwszej domyślnie.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Nie wykryto katalogu instalacyjnego.
 Spróbuj określić go ręcznie.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Ta metoda jest obecnie dostępna tylko w systemie Windows.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
     <value>Tajny klucz nie znajduje się w breloku użytkownika.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
     <value>Rozmiar pliku nie został jeszcze określony.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

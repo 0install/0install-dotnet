@@ -60,68 +60,68 @@
   </resheader>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Архив содержит только один каталог верхнего уровня '{0}'. Возможно, вам следует установить атрибут '{1}' на '{0}', чтобы избежать дополнительного уровня вложенности.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>Команда '{0}' указывает путь '{1}', но этого файла в архиве не существует.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Поиск исполняемых файлов</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Дайджест манифеста был рассчитан для пустой директории. Проверьте, что вы установили правильное значение "{0}" для архива.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>Точка входа в приложение не найдена.
 Попробуйте указать ее вручную.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
     <value>Загрузка '{0}' с помощью Zero Install</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>Файл '{0}' не найден.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
     <value>Обнаружен '{0}' в качестве каталога установки.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
     <value>Не найден 32-битный каталог %ProgramFiles%.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
     <value>В реестре обнаружено несколько новых программ по умолчанию. Обработайте их все, но последняя может иметь приоритет в некоторых случаях.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Обнаружено несколько директорий установки. По умолчанию выбирается первая.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>В реестре обнаружено несколько новых регистраций приложений. По умолчанию выбирается первое.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Не обнаружен каталог установки.
 Попробуйте указать ее вручную.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>В настоящее время этот метод доступен только в Windows.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
     <value>Секретный ключ не хранится в связке ключей пользователя.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
     <value>Размер файла пока не определен.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

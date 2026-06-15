@@ -68,23 +68,67 @@ Vuoi considerare attendibile questa chiave per firmare i feed da '{3}'?
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
     <value>La riga di comando risultante è vuota.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
     <value>Comando per '{0}' non specificato.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>Impossibile trovare tutte le implementazioni richieste:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>Non è possibile utilizzare {0} con la selezione di {1} ({2})</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>Incompatibile con la restrizione: {0}</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>Nessun comando "{0}"</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>Non sono note implementazioni</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>Nessuna implementazione utilizzabile:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(problema)</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>Candidati respinti:</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>richiede</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>Non idoneo</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>Versione richiesta dall'utente {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>Ricerca nella rete locale</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>i binding &lt;environment&gt; devono contenere un attributo 'value' o 'insert'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
     <value>Errore nel caricamento del catalogo</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
     <value>Errore durante il salvataggio del database attendibile</value>
@@ -92,15 +136,15 @@ Vuoi considerare attendibile questa chiave per firmare i feed da '{3}'?
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Esecuzione di un solutore esterno</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
     <value>Non è stato possibile trovare versioni adeguate di {0} e delle sue dipendenze.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
     <value>Impossibile trovare una versione di {0} adatta a {1}.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Il feed '{0}' non è memorizzato nella cache e Zero Install al momento è in modalità offline.</value>
@@ -108,7 +152,7 @@ Vuoi considerare attendibile questa chiave per firmare i feed da '{3}'?
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
     <value>'{0}' non può essere trovato nella cache dei feed.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
     <value>Il feed '{0}' non è stato firmato con una chiave attendibile.</value>
@@ -116,15 +160,15 @@ Vuoi considerare attendibile questa chiave per firmare i feed da '{3}'?
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
     <value>{0}' è un file locale. Dovrebbe essere un URL HTTP(S).</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
     <value>L'attributo uri di &lt;interface&gt; ('{0}') non corrisponde all'URL da cui è stato scaricato il feed ('{1}').</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
     <value>Manca l'attributo uri &lt;interface&gt;. Dovrebbe essere '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
     <value>Problema durante il recupero di '{0}'.</value>
@@ -132,19 +176,19 @@ Vuoi considerare attendibile questa chiave per firmare i feed da '{3}'?
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
     <value>Carattere illegale nel nome del binding {0}.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
     <value>I feed devono specificare l'URI da cui provengono per poter essere importati.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
     <value>Nome mancante in {0} binding.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
     <value>Non è stata specificata alcuna interfaccia.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
     <value>Impossibile scaricare {0} perché Zero Install è in modalità offline.</value>
@@ -152,15 +196,15 @@ Vuoi considerare attendibile questa chiave per firmare i feed da '{3}'?
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
     <value>Il server di informazioni sulle chiavi non è stato in grado di fornire ulteriori informazioni su questa chiave.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
     <value>Nessun manifest digest per l'implementazione '{0}' trovato.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Nessun metodo di recupero trovato per l'implementazione '{0}' trovata.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>Il feed scaricato corrisponde a una versione precedente rispetto a quella già presente nella cache. Continueremo a utilizzare la versione più recente.
@@ -171,11 +215,11 @@ Nuova data: {2}</value>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
     <value>Impossibile scaricare {0}. Si sta cercando invece di scaricare da feed mirror.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
     <value>Impossibile memorizzare nella cache il catalogo delle applicazioni scaricate.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
     <value>Impossibile analizzare il feed scaricato da {0}.</value>
@@ -191,7 +235,7 @@ Nuova data: {2}</value>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
     <value>'{0}' non è un ID noto nel gestore di pacchetti {1}.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
     <value>Il feed è firmato con chiavi non attendibili!</value>
@@ -203,10 +247,10 @@ Nuova data: {2}</value>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
     <value>La directory di lavoro è già stata modificata da un comando precedente.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
     <value>La directory di lavoro contiene un percorso non valido (potenzialmente un rischio per la sicurezza).</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

@@ -59,55 +59,55 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>字符串的形式必须是 "{0}"。</value>
+    <value>该字符串必须采用“{0} ”的形式。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
-    <value>无法找到命令 "{0}"。</value>
+    <value>无法找到命令“{0} ”。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>加载馈送首选项 "{0}"时出错。恢复为默认值。</value>
-    <comment>Automatically translated.</comment>
+    <value>加载 feed 首选项 '{0}' 时出错。恢复为默认值。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>加载 "{0}"界面首选项时出错。恢复为默认值。</value>
+    <value>加载“{0} ”的界面首选项时出错。将恢复为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>加载信任数据库时出错。恢复默认值。</value>
+    <value>加载信任数据库时出错。将恢复为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>无法在目录中找到 feed '{0}'。</value>
+    <value>无法在目录中找到源 '{0}'。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>可替代</value>
-    <comment>Automatically translated.</comment>
+    <value>找到的替代：</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>无法在选择中找到界面 "{0}"的实现。</value>
+    <value>无法在选项中找到接口“{0} ”的实现。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>{0}"不是有效的 "http(s): "URI，也不是有效的本地路径。</value>
+    <value>“{0} ”既不是有效的“http(s):” URI，也不是有效的本地路径。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>{1} 上的 "{0}"属性无效。</value>
+    <value>{1} 上的 '{0}' 属性无效。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>{1} 上缺少 "{0}"属性。</value>
+    <value>{1} 缺少 '{0}' 属性。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>{1} 内缺少{0} 标签。</value>
+    <value>{1} 文件中缺少 `{0} ` 标签。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>点分隔列表只能包含十进制数字。</value>
+    <value>以点分隔的列表中只能包含十进制数。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
@@ -115,31 +115,31 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>版本号必须以点分隔的小数开头。</value>
+    <value>版本号必须以一串用点分隔的小数开头。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>未指定已知的摘要方法。</value>
+    <value>未指定任何已知的摘要生成方法。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>无法解析相对路径 "{0}"。只有保存为本地文件的信息才可能包含相对路径。</value>
+    <value>无法解析相对路径“{0} ”。仅保存为本地文件的订阅源可包含相对路径。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>相对 URI '{0}' 无法解析。只有保存为本地文件的 feed 才可能包含相对 URI。</value>
+    <value>无法解析相对 URI '{0}'。仅保存为本地文件的订阅源可包含相对 URI。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>{0} 上的 "rollout-percentage "属性只能在 "稳定性 "为 "测试 "或未设置时设置。</value>
+    <value>{0} 上的 'rollout-percentage' 属性仅在 'stability' 设置为 'testing' 或未设置时才可设置。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>执行有缺陷</value>
+    <value>实现存在缺陷</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>不提供 "{0}"命令。</value>
+    <value>不提供“{0} ”命令。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
@@ -147,11 +147,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>不安全的实施</value>
+    <value>不安全的实现</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>不在缓存中执行（目前为离线模式）</value>
+    <value>未在缓存中实现（当前处于离线模式）</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
@@ -159,7 +159,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>执行版本过旧或过新</value>
+    <value>实现版本过旧或过新</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
@@ -167,23 +167,23 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>应为安全 ID。只能包含字母数字字符、空格（ ）、点（.）、下划线（_）、连字符（-）和加号（+）。</value>
+    <value>用户名应为安全用户名。仅可包含字母数字、空格 ( )、句点 (.)、下划线 (_)、连字符 (-) 和加号 (+)。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>实现 "{1}"中的配方步骤 "{0}"的实现引用无效。</value>
+    <value>在实现“{1} ”中的配方步骤“{0} ”中，存在一个无效的实现引用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>文件扩展名 "{0}"与已知归档类型不符。</value>
+    <value>文件扩展名“{0} ”不对应任何已知的存档类型。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
-    <value>未知修改器。</value>
+    <value>未知修饰符。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>版本范围的末尾必须是独占的。使用"..!{0}"，而不是".{0}"。</value>
-    <comment>Automatically translated.</comment>
+    <value>版本范围的末尾必须是独占的。使用 '..!{0}'，而不是 '..{0}'。</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

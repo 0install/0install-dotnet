@@ -74,6 +74,50 @@ Você deseja confiar nessa chave para assinar feeds de "{3}"?
     <value>Comando para '{0}' não especificado.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DiagCantFindImplementations" xml:space="preserve">
+    <value>Não é possível encontrar todas as implementações necessárias:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagCpuMismatch" xml:space="preserve">
+    <value>Não é possível usar {0} com a seleção de {1} ({2})</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
+    <value>Incompatível com a restrição: {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagNoCommand" xml:space="preserve">
+    <value>Nenhum comando '{0}'</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagNoKnownImplementations" xml:space="preserve">
+    <value>Nenhuma implementação conhecida</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagNoUsableImplementations" xml:space="preserve">
+    <value>Não há implementações utilizáveis:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagProblem" xml:space="preserve">
+    <value>(problema)</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagRejectedCandidates" xml:space="preserve">
+    <value>Candidatos rejeitados:</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagRequires" xml:space="preserve">
+    <value>requer</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagUnsuitable" xml:space="preserve">
+    <value>Inadequado</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="DiagUserRequestedVersion" xml:space="preserve">
+    <value>O usuário selecionou a versão {0}</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>Pesquisando na rede local</value>
     <comment>Manually overriden.</comment>

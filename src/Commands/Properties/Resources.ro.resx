@@ -59,19 +59,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Added0installToPath" xml:space="preserve">
-    <value>Comanda "0install" a fost adăugată la PATH-ul liniei dvs. de comandă.</value>
+    <value>Comanda „0install” a fost adăugată la PATH-ul liniei de comandă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasCreated" xml:space="preserve">
-    <value>A fost creat un alias numit '{0}' pentru '{1}'.</value>
+    <value>A fost creat un alias numit „{0} ” pentru „{1} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasNotFound" xml:space="preserve">
-    <value>Nu a fost găsit niciun alias existent numit '{0}'.</value>
+    <value>Nu s-a găsit niciun alias existent numit „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
-    <value>Aliasul numit '{0}' pentru '{1}' a fost eliminat.</value>
+    <value>Aliasul numit „{0} ” pentru „{1} ” a fost eliminat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
@@ -79,32 +79,32 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AllComponentsExported" xml:space="preserve">
-    <value>Toate componentele necesare pentru a rula {0} au fost exportate în '{1}'.
+    <value>Toate componentele necesare pentru rularea {0} au fost exportate în '{1}'.
 Puteți utiliza scriptul de import sau executabilul Bootstrap din '{1}' pentru a importa aceste fișiere pe un alt computer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>'{0}' se află deja în lista de cache-uri de implementare personalizate.</value>
+    <value>„{0} ” se află deja în lista cache-urilor de implementare personalizate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
-    <value>Aplicație alias</value>
+    <value>Alias al aplicației</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppList" xml:space="preserve">
-    <value>Lista de aplicații</value>
+    <value>Lista aplicațiilor</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Setup Zero Install pentru toți utilizatorii (la nivelul întregii mașini) în loc de doar pentru utilizatorul curent?</value>
+    <value>Configurarea Zero Install pentru toți utilizatorii (la nivel de sistem) în loc de doar pentru utilizatorul curent?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
-    <value>Sunteți sigur că doriți să implementați o nouă copie a Zero Install la '{0}'?</value>
+    <value>Ești sigur că vrei să instalezi o nouă copie a Zero Install în '{0}'?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>Acest lucru va adăuga Zero Install la meniul Start și la linia de comandă. Continuați?</value>
+    <value>Aceasta va adăuga Zero Install în meniul Start și în linia de comandă. Continuați?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -112,17 +112,17 @@ Puteți utiliza scriptul de import sau executabilul Bootstrap din '{1}' pentru a
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
-    <value>Doriți să încercați acest lucru acum?</value>
+    <value>Vrei să încerci acum?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>Doriți să actualizați orice integrare desktop existentă pentru a reflecta acest lucru?
-Dacă selectați "Da", integrările potențial incompatibile vor fi eliminate.
-Dacă selectați "Nu", Zero Install va continua să utilizeze vechile capacități.</value>
+    <value>Doriți să actualizați vreo integrare desktop existentă pentru a reflecta acest lucru?
+Dacă selectați „Da”, integrările potențial incompatibile vor fi eliminate.
+Dacă selectați „Nu”, Zero Install va continua să utilizeze vechile funcționalități.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
-    <value>Implementări în cache</value>
+    <value>Implementări stocate în cache</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -130,27 +130,27 @@ Dacă selectați "Nu", Zero Install va continua să utilizeze vechile capacită�
     <comment>Manually overriden.</comment>
   </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
-    <value>Capacitățile aplicației '{0}' s-au schimbat.</value>
+    <value>Capacitățile aplicației „{0} ” s-au modificat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CatalogAlreadyRegistered" xml:space="preserve">
-    <value>Catalogul URI {0} este deja înregistrat.</value>
+    <value>URI-ul catalogului {0} este deja înregistrat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CatalogNotRegistered" xml:space="preserve">
-    <value>Catalogul URI {0} nu este înregistrat.</value>
+    <value>URI-ul catalogului {0} nu este înregistrat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CatalogSources" xml:space="preserve">
-    <value>Catalog surse</value>
+    <value>Surse de catalog</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Change" xml:space="preserve">
-    <value>Schimbare</value>
+    <value>Modificare</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ChangesFound" xml:space="preserve">
-    <value>Modificări găsite</value>
+    <value>Modificări constatate</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ClickToChoose" xml:space="preserve">
@@ -162,7 +162,7 @@ Dacă selectați "Nu", Zero Install va continua să utilizeze vechile capacită�
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandLineArguments" xml:space="preserve">
-    <value>Argumente din linia de comandă</value>
+    <value>Argumente de linie de comandă</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Configuration" xml:space="preserve">
@@ -170,27 +170,27 @@ Dacă selectați "Nu", Zero Install va continua să utilizeze vechile capacită�
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
-    <value>Doriți să eliminați toate fișierele de aplicații din memoria cache Zero Install?
-Aceste fișiere pot fi descărcate din nou dacă este necesar.</value>
+    <value>Doriți să ștergeți toate fișierele aplicațiilor din cache-ul Zero Install?
+Aceste fișiere pot fi descărcate din nou, dacă este necesar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>Doriți să eliminați toate aplicațiile din lista "Aplicațiile mele"? Acest lucru previne rămășițele de meniu după eliminarea Zero Install.
-Puteți crea o copie de rezervă a acestei liste utilizând "0install sync".</value>
+    <value>Doriți să eliminați toate aplicațiile din lista „Aplicațiile mele”? Acest lucru previne rămânerea unor intrări de meniu după eliminarea Zero Install.
+Puteți crea o copie de rezervă a acestei liste folosind „0install sync”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
-    <value>Începeți introducerea textului în ultimul rând pentru a crea o nouă intrare.
-Selectați un întreg rând făcând clic în prima coloană și apoi apăsați DEL pe tastatură pentru a elimina o intrare.</value>
+    <value>Începeți să introduceți text în ultima linie pentru a crea o nouă intrare.
+Selectați o linie întreagă făcând clic în prima coloană și apoi apăsați tasta DEL de pe tastatură pentru a șterge o intrare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Setați o casetă de selectare pentru a transforma o capacitate în gestionarul implicit dorit.
-Eliminați o casetă de selectare pentru a elimina statutul implicit al unei capabilități (aceasta rămâne totuși disponibilă).</value>
+    <value>Bifați o casetă de selectare pentru a seta o funcționalitate ca gestionar implicit dorit.
+Debifați o casetă de selectare pentru a elimina statutul implicit al unei funcționalități (aceasta rămâne totuși disponibilă).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>Doriți să ștergeți elementul (elementele) verificat(e) {0} din cache?</value>
+    <value>Doriți să ștergeți elementul (elementele) selectat(e) d {0} din cache?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
@@ -198,20 +198,20 @@ Eliminați o casetă de selectare pentru a elimina statutul implicit al unei cap
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
-    <value>O versiune portabilă a Zero Install a fost implementată în '{0}'.
-O puteți utiliza rulând fișierul ZeroInstall.exe din directorul respectiv.</value>
+    <value>O versiune portabilă a Zero Install a fost implementată la adresa „{0} ”.
+O puteți utiliza rulând fișierul ZeroInstall.exe din director.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Atunci când utilizați opțiunea {0}, trebuie să specificați explicit directorul țintă.</value>
+    <value>Când utilizați opțiunea „ {0} ”, trebuie să specificați în mod explicit directorul de destinație.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>Directorul țintă specificat ({0}) se află în afara directorului dvs. personal.</value>
+    <value>Directorul țintă specificat ({0}) se află în afara directorului dvs. de bază.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeprecatedOption" xml:space="preserve">
-    <value>Opțiune depășită. Vă rugăm să utilizați în schimb '{0}'.</value>
+    <value>Opțiune învechită. Vă rugăm să utilizați în schimb „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -219,7 +219,7 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din directorul respectiv.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Creați un alias pentru lansarea unei aplicații prin 0install fără a fi nevoie să introduceți mereu URI-ul complet.</value>
+    <value>Creează un alias pentru lansarea unei aplicații prin 0install fără a fi nevoie să introduci mereu URI-ul complet.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
@@ -235,15 +235,15 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din directorul respectiv.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogList" xml:space="preserve">
-    <value>Listează toate cataloagele înregistrate.</value>
+    <value>Afișează toate cataloagele înregistrate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogRefresh" xml:space="preserve">
-    <value>Actualizează (descarcă) toate cataloagele înregistrate.</value>
+    <value>Reîmprospătează (descărcă) toate cataloagele înregistrate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
-    <value>Înlătură un URI din lista de cataloage.</value>
+    <value>Elimină un URI din lista de cataloage.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogReset" xml:space="preserve">
@@ -251,92 +251,92 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din directorul respectiv.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Caută în cataloagele înregistrate aplicații care corespund interogării specificate. Dacă nu este specificată nicio interogare, sunt listate toate aplicațiile din cataloage.</value>
+    <value>Caută în cataloagele înregistrate aplicațiile care corespund interogării specificate. Dacă nu se introduce nicio interogare, sunt afișate toate aplicațiile din cataloage.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>Deschide interfața grafică centrală a utilizatorului pentru lansarea și gestionarea aplicațiilor.</value>
+    <value>Deschide interfața grafică centrală pentru lansarea și gestionarea aplicațiilor.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Vizualizează sau modifică setările de configurare.
-Fără niciun argument, afișează toate setările și valorile lor curente. Cu un argument, afișează valoarea curentă a setării numite. Cu două argumente, setează setarea la valoarea dată sau o resetează la valoarea implicită dacă este dată valoarea "{0}".</value>
+Fără argumente, afișează toate setările și valorile lor curente. Cu un argument, afișează valoarea curentă a setării menționate. Cu două argumente, setează setarea la valoarea dată sau o resetează la valoarea implicită dacă se specifică valoarea „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
-    <value>Calculează manifest digest-ul unui director sau al unei arhive.</value>
+    <value>Calculează rezumatul manifestului unui director sau al unei arhive.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>Se comportă similar cu "0install select", cu excepția faptului că descarcă și versiunile selectate dacă acestea nu sunt deja în cache.
-Returnează un status de ieșire de 0 dacă a selectat un set adecvat de versiuni și acestea sunt acum toate descărcate și în cache; în caz contrar, returnează un status de 1.</value>
+    <value>Se comportă similar cu „0install select”, cu excepția faptului că descarcă și versiunile selectate dacă acestea nu sunt deja stocate în cache.
+Returnează un cod de ieșire 0 dacă a selectat un set adecvat de versiuni și acestea sunt acum toate descărcate și în cache; returnează un cod de ieșire 1 în caz contrar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exportă toate fluxurile și implementările necesare pentru a lansa programul specificat de un URI într-un DIRECTORY.</value>
-    <comment>Automatically translated.</comment>
+    <value>Exportă toate feed-urile și implementările necesare pentru a lansa programul specificat de un URI într-un DIRECTORY.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importă un feed dintr-un fișier local, ca și cum ar fi fost descărcat din rețea. Acest lucru este util atunci când se testează un fișier de alimentare, pentru a evita încărcarea acestuia pe un server de la distanță pentru a-l descărca din nou.
+    <value>Importă un feed dintr-un fișier local, ca și cum ar fi fost descărcat din rețea. Acest lucru este util atunci când se testează un fișier feed, pentru a evita încărcarea acestuia pe un server de la distanță pentru a-l descărca din nou.
 Fișierul trebuie să aibă o semnătură digitală de încredere, la fel ca în cazul preluării din rețea.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
     <value>Importă un set de aplicații și integrări desktop dintr-un fișier app-list.xml existent.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>Adaugă o aplicație la lista de aplicații (dacă lipsește) și o integrează în mediul desktop.</value>
+    <value>Adaugă o aplicație la lista de aplicații (dacă nu există) și o integrează în mediul desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Listează toate URI-urile de alimentare cunoscute local. Dacă se dă un termen de căutare, sunt afișate numai URI-urile care conțin acel șir de caractere (fără a ține cont de majuscule).</value>
-    <comment>Automatically translated.</comment>
+    <value>Listează toate URI-urile de feed cunoscute local. Dacă se dă un termen de căutare, sunt afișate numai URI-urile care conțin acel șir de caractere (fără a ține cont de majuscule).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Listează toate aplicațiile aflate în prezent în lista dvs. de aplicații. Dacă este dat un URI, este afișată numai aplicația cu acel URI de alimentare. Dacă este dat un PATTERN, sunt afișate numai aplicațiile care conțin acel șir de caractere în numele lor (insensibil la majuscule).</value>
-    <comment>Automatically translated.</comment>
+    <value>Listează toate aplicațiile aflate în prezent în lista dvs. de aplicații. Dacă este dat un URI, este afișată numai aplicația cu acel URI de feed. Dacă este dat un PATTERN, sunt afișate numai aplicațiile care conțin acel șir de caractere în numele lor (insensibil la majuscule).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>Listează toate fluxurile suplimentare adăugate la URI folosind "0install add-feed".</value>
-    <comment>Automatically translated.</comment>
+    <value>Listează toate feed-urile suplimentare adăugate la URI folosind "0install add-feed".</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Implementează Zero Install în directorul TARGET specificat sau în directorul implicit pentru programe și îl integrează în sistem.</value>
+    <value>Instalează Zero Install în directorul TARGET specificat sau în directorul implicit pentru programe și îl integrează în sistem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Îndepărtează instanța curentă a Zero Install din sistem.</value>
+    <value>Elimină instanța curentă a Zero Install din sistem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>Elimină toate aplicațiile din lista de aplicații și anulează orice integrare a mediului desktop. Utilizați această comandă pentru a curăța sistemul înainte de a elimina Zero Install.</value>
+    <value>Elimină toate aplicațiile din lista de aplicații și anulează orice integrare cu mediul desktop. Utilizați această comandă pentru a curăța sistemul înainte de a dezinstala Zero Install.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>Înlătură o aplicație din lista de aplicații și anulează orice integrare în mediul desktop.</value>
+    <value>Elimină o aplicație din lista de aplicații și anulează orice integrare în mediul desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
-    <value>Anularea înregistrării unui feed, inversând efectul "0install add-feed".</value>
+    <value>Anulează înregistrarea unui feed, inversând efectul comenzii „0install add-feed”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
-    <value>Reaplică toate integrările desktop ale aplicațiilor din lista de aplicații.</value>
+    <value>Reaplică toate integrările pe desktop ale aplicațiilor din lista de aplicații.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>Se comportă similar cu "0install download", cu excepția faptului că rulează și programul după ce se asigură că acesta se află în cache.
-Returnează o stare de ieșire de 1 dacă etapa de descărcare a eșuat. În caz contrar, starea de ieșire va fi starea de ieșire a programului care se execută.</value>
+    <value>Se comportă similar cu „0install download”, cu excepția faptului că rulează și programul după ce se asigură că acesta se află în cache.
+Returnează un cod de ieșire de 1 dacă etapa de descărcare a eșuat. În caz contrar, codul de ieșire va fi codul de ieșire al programului care se rulează.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Caută fluxuri indexate de serverul oglindă care corespund cuvintelor cheie specificate. Rețineți că serverul oglindă implicit indexează toate fluxurile cunoscute, indiferent de calitate; trebuie să decideți dacă să aveți încredere în programe înainte de a le executa.</value>
-    <comment>Automatically translated.</comment>
+    <value>Caută feed-uri indexate de serverul oglindă care corespund cuvintelor cheie specificate. Rețineți că serverul oglindă implicit indexează toate feed-urile cunoscute, indiferent de calitate; trebuie să decideți dacă să aveți încredere în programe înainte de a le executa.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>Selectează o versiune a programului identificat prin URI și versiuni compatibile ale tuturor dependențelor sale.
-Returnează un status de ieșire de 0 dacă a selectat un set de versiuni și un status de 1 dacă nu a putut găsi un set compatibil.</value>
+    <value>Selectează o versiune a programului identificată prin URI și versiuni compatibile ale tuturor dependențelor sale.
+Returnează un cod de ieșire 0 dacă a selectat un set de versiuni și un cod de ieșire 1 dacă nu a putut găsi un set compatibil.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
@@ -344,7 +344,7 @@ Returnează un status de ieșire de 0 dacă a selectat un set de versiuni și un
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAdd" xml:space="preserve">
-    <value>Adaugă conținutul unui director sau al unei arhive în memoria cache.</value>
+    <value>Adaugă conținutul unui director sau al unei arhive în cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
@@ -353,58 +353,58 @@ Returnează un status de ieșire de 0 dacă a selectat un set de versiuni și un
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
     <value>Verifică dacă toate implementările din cache sunt intacte.
-Argumentele suplimentare specifică locații cache personalizate.</value>
+Argumentele suplimentare specifică locații personalizate pentru cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>Copiază o implementare în cache. Similar cu "0install store add", dar digestul este extras din numele directorului.
-Un argument suplimentar specifică o locație cache țintă personalizată.</value>
+    <value>Copiază o implementare în cache. Similar cu „0install store add”, dar digestul este extras din numele directorului.
+Un argument suplimentar specifică o locație personalizată pentru cache-ul de destinație.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Exportează o implementare în cache sub formă de arhivă (ZIP, TAR etc.). Rezultatul poate fi importat pe o altă mașină utilizând "0install store add".</value>
+    <value>Exportă o implementare stocată în cache ca arhivă (ZIP, TAR etc.). Rezultatul poate fi importat pe un alt computer folosind comanda „0install store add”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
-    <value>Determină calea locală a unei implementări în cache.</value>
+    <value>Determină calea locală a unei implementări stocate în cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Listează toate directoarele cache de implementare.</value>
+    <value>Afișează toate directoarele cache de implementare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Listează toate implementările din cache. Dacă este specificat un URI al fluxului, sunt enumerate numai implementările pentru respectivul flux.</value>
+    <value>Afișează toate implementările stocate în cache. Dacă este specificat un URI de feed, sunt afișate doar implementările pentru acel feed specific.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
-    <value>Afișează o interfață grafică cu utilizatorul pentru gestionarea implementărilor din cache. Afișează asociațiile cu implementările din cache.</value>
-    <comment>Automatically translated.</comment>
+    <value>Afișează o interfață grafică cu utilizatorul pentru gestionarea implementărilor din cache. Afișează asociațiile cu feed-urile din cache.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
-    <value>Economisește spațiu pe disc prin fuzionarea fișierelor identice cu hardlink-uri.
-Argumentele suplimentare specifică locații cache personalizate.</value>
+    <value>Economisește spațiu pe disc prin combinarea fișierelor identice cu legături hard.
+Argumentele suplimentare specifică locații personalizate pentru cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Îndepărtează toate implementările din cache. Utilizați această comandă pentru a curăța sistemul înainte de a elimina Zero Install. Ștergerea manuală a directoarelor cache poate fi dificilă din cauza ACL-urilor NTFS utilizate pentru a proteja implementările împotriva modificării.
-Argumentele suplimentare specifică locații cache personalizate.</value>
+    <value>Elimină toate implementările din cache. Utilizați această comandă pentru a curăța sistemul înainte de a dezinstala Zero Install. Ștergerea manuală a directoarelor cache poate fi dificilă din cauza ACL-urilor NTFS utilizate pentru a proteja implementările împotriva modificării.
+Argumentele suplimentare specifică locații personalizate pentru cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreRemove" xml:space="preserve">
-    <value>Îndepărtează o implementare din cache.</value>
+    <value>Elimină o implementare din cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
-    <value>Îndepărtează un director din lista de cache-uri de implementare personalizate.</value>
+    <value>Elimină un director din lista cache-urilor de implementare personalizate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
-    <value>Servește implementări din cache ca arhive prin HTTP.</value>
+    <value>Furnizează implementări din cache sub formă de arhive prin HTTP.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>Se asigură că o implementare nu a fost deteriorată (de exemplu, că manifestul digest nu a fost modificat).</value>
+    <value>Se asigură că o implementare nu a fost deteriorată (adică digestul manifestului său nu s-a modificat).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -412,20 +412,20 @@ Argumentele suplimentare specifică locații cache personalizate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Acordă încredere fluxurilor de la un anumit DOMENIU atunci când sunt semnate cu o anumită amprentă digitală.</value>
+    <value>Are încredere în fluxurile provenite de la un DOMENIU specific atunci când sunt semnate cu o AMPRENTĂ specifică.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Listează cheile de încredere pentru semnarea feed-urilor. Listează numai domeniile pentru care un anumit FINGERPRINT este de încredere, dacă este specificat.</value>
+    <value>Enumeră cheile de încredere pentru semnarea fluxurilor. Enumeră doar domeniile pentru care o anumită AMPRENTĂ este considerată de încredere, dacă este specificată.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Nu mai acordă încredere feed-urilor semnate cu un anumit FINGERPRINT. Oprește încrederea doar pentru un anumit DOMENIU, dacă este specificat.</value>
+    <value>Încetează să mai aibă încredere în fluxurile semnate cu o amprentă digitală (FINGERPRINT) specifică. Încetează să mai aibă încredere doar pentru un domeniu (DOMAIN) specific, dacă acesta este specificat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Verifică dacă există actualizări pentru program și le descarcă dacă sunt găsite.
-Acest lucru este similar cu "0install download --refresh", cu excepția faptului că tipărește informații despre dacă au fost găsite modificări.</value>
+Acest lucru este similar cu „0install download --refresh”, cu excepția faptului că afișează informații despre dacă au fost găsite modificări.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -437,11 +437,11 @@ Acest lucru este similar cu "0install download --refresh", cu excepția faptului
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationApply" xml:space="preserve">
-    <value>Aplicarea integrării desktop-ului</value>
+    <value>Aplicarea integrării desktop</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DesktopIntegrationRemove" xml:space="preserve">
-    <value>Eliminarea integrării desktop-ului</value>
+    <value>Eliminarea integrării cu desktopul</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -449,7 +449,7 @@ Acest lucru este similar cu "0install download --refresh", cu excepția faptului
     <comment>Automatically translated.</comment>
   </data>
   <data name="Done" xml:space="preserve">
-    <value>Efectuat</value>
+    <value>Gata</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DownloadComplete" xml:space="preserve">
@@ -457,8 +457,8 @@ Acest lucru este similar cu "0install download --refresh", cu excepția faptului
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de fluxuri de adăugat:</value>
-    <comment>Automatically translated.</comment>
+    <value>Vă rugăm să introduceți URL-ul sau calea fișierului local al catalogului de feed-uri de adăugat:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
     <value>Vă rugăm să introduceți adresa URL a noii surse de implementări pentru această interfață:</value>
@@ -469,20 +469,20 @@ Acest lucru este similar cu "0install download --refresh", cu excepția faptului
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
-    <value>O copie existentă a programului Zero Install a fost detectată în '{0}'.</value>
+    <value>A fost detectată o copie existentă a Zero Install în „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
-    <value>Export complet.</value>
+    <value>Export finalizat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
-    <value>Feed-ul a fost deja înregistrat pentru toate interfețele corespunzătoare.</value>
+    <value>Feed-ul era deja înregistrat pentru toate interfețele corespunzătoare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
-    <value>Gestionarea hranei pentru animale</value>
-    <comment>Automatically translated.</comment>
+    <value>Gestionarea feed-urilor</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
     <value>Feed-ul nu a fost înregistrat pentru nicio interfață.</value>
@@ -493,85 +493,85 @@ Acest lucru este similar cu "0install download --refresh", cu excepția faptului
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
-    <value>'{0}' a fost înlocuit cu '{1}'. Luați în considerare actualizarea.</value>
+    <value>„{0} ” a fost înlocuit cu „{1} ”. Luați în considerare actualizarea.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>Fluxul pentru '{0}' ({1}) a fost înlocuit cu '{2}'. Doriți să utilizați în schimb noul feed?</value>
+    <value>Feed-ul pentru „{0} ” ({1}) a fost înlocuit cu „{2} ”. Doriți să utilizați noul feed?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
-    <value>Fluxuri în cache</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed-uri în cache</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedsRegistered" xml:space="preserve">
-    <value>Fluxuri înregistrate pentru '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed-uri înregistrate pentru '{0}'</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
-    <value>Feed-ul a fost neînregistrat cu succes pentru următoarele interfețe:</value>
+    <value>Feed-ul a fost dezabonat cu succes pentru următoarele interfețe:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileCheckComplete" xml:space="preserve">
-    <value>Verificare fișier completă</value>
+    <value>Verificarea fișierelor finalizată</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Nu se poate găsi fișierul sau directorul '{0}'.</value>
+    <value>Nu se poate găsi fișierul sau directorul „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
-    <value>Utilizați file:///path pentru căi absolute, nu file:/path.</value>
+    <value>Utilizați file:///path pentru căile absolute, nu file:/path.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Hide" xml:space="preserve">
-    <value>Ascundeți</value>
+    <value>Ascunde</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
-    <value>Acest feed nu pare să fie pentru aceeași aplicație. Adăugați-l totuși?
-O etichetă &lt;feed-for&gt; indică compatibilitatea fluxului.</value>
+    <value>Acest feed nu pare să fie pentru aceeași aplicație. Să îl adaug oricum?
+O etichetă &lt;feed-for&gt; indică compatibilitatea feed-ului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
-    <value>Instalarea Zero Install Store Service</value>
+    <value>Instalarea serviciului Zero Install Store</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>Integrare {0}</value>
+    <value>Integrează {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
-    <value>Selecțiile dvs. de integrare pe desktop nu pot fi aplicate.</value>
+    <value>Opțiunile de integrare pe desktop nu pot fi aplicate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
-    <value>Doriți să vă schimbați selecția și să încercați din nou?</value>
+    <value>Doriți să modificați selecția și să încercați din nou?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
-    <value>Vă rugăm să utilizați versiunea GUI a Zero Install sau să specificați opțiuni de integrare explicite utilizând argumente din linia de comandă.</value>
+    <value>Vă rugăm să utilizați versiunea GUI a Zero Install sau să specificați opțiuni de integrare explicite folosind argumente de linie de comandă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
-    <value>Argument invalid '{0}'.</value>
+    <value>Argument invalid „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' nu este un URI de alimentare sau o cale de fișier valabilă.</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}' nu este un URI de feed valid sau o cale de fișier valabilă.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="KioskModeNotInCatalog" xml:space="preserve">
-    <value>Modul Kiosk este activat și {0} nu este listat în catalog.</value>
+    <value>Modul Kiosk este activat, iar aplicația „ {0} ” nu este listată în catalog.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>O versiune ulterioară ({0}) există, dar nu a fost selectată. Se utilizează {1} în schimb.</value>
+    <value>Există o versiune mai recentă ({0}), dar nu a fost selectată. Se utilizează în schimb {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
-    <value>Acest program vine cu ABSOLUT NICIO GARANȚIE, în măsura permisă de lege.
-Puteți redistribui copii ale acestui program în conformitate cu termenii GNU Lesser General Public License.</value>
+    <value>Acest program este furnizat FĂRĂ NICIUN FEL DE GARANȚIE, în măsura permisă de lege.
+Puteți redistribui copii ale acestui program în conformitate cu termenii Licenței Publice Generale Reduse GNU.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
@@ -583,19 +583,19 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii GNU L
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>Lipsește elementul &lt;feed-for&gt; în '{0}'; nu poate fi utilizat ca feed pentru nicio altă interfață.</value>
+    <value>Elementul &lt;feed-for&gt; lipsește în „{0} ”; acesta nu poate fi utilizat ca sursă pentru nicio altă interfață.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
-    <value>Lipsește valoarea necesară pentru opțiunea {0}.</value>
+    <value>Lipsește valoarea necesară pentru opțiunea „ {0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
-    <value>Trebuie să fiți administrator pentru a efectua operațiuni la nivelul întregii mașini.</value>
+    <value>Trebuie să fiți administrator pentru a efectua operațiuni la nivel de sistem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
-    <value>Așteaptă ca toate instanțele Zero Install să se încheie</value>
+    <value>Așteaptă finalizarea tuturor instanțelor Zero Install</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MyApps" xml:space="preserve">
@@ -607,7 +607,7 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii GNU L
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} poate fi specificat numai împreună cu un nume alias.</value>
+    <value>{0} poate fi specificată numai împreună cu un nume de alias.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -615,32 +615,32 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii GNU L
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install trebuie să fie implementat pe sistemul dvs. pentru ca integrarea desktop să funcționeze.</value>
+    <value>Zero Install trebuie să fie instalat pe sistemul dvs. pentru ca integrarea cu desktopul să funcționeze.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install rulează în modul portabil. Trebuie să fie implementat într-o locație permanentă pentru ca integrarea desktop să funcționeze.
-Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă de copia dvs. portabilă.</value>
+    <value>Zero Install rulează în modul portabil. Trebuie instalat într-o locație permanentă pentru ca integrarea cu desktopul să funcționeze.
+Puteți face acest lucru folosind comanda „{0} ”. Aceasta va fi complet independentă de copia dvs. portabilă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install rulează dintr-un director specific utilizatorului. Acesta trebuie implementat într-un director accesibil tuturor utilizatorilor pentru ca integrarea desktop-ului la nivelul întregii mașini să funcționeze.</value>
+    <value>Zero Install rulează dintr-un director specific utilizatorului. Pentru ca integrarea desktop la nivel de sistem să funcționeze, acesta trebuie implementat într-un director accesibil tuturor utilizatorilor.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
-    <value>Atunci când executați o aplicație, comanda poate să nu fie goală.</value>
+    <value>La rularea unei implementări, comanda nu poate fi goală.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Se poate actualiza numai cu URI-uri de alimentare, nu și cu documente de selecție.</value>
-    <comment>Automatically translated.</comment>
+    <value>Se poate actualiza numai cu URI-uri de feed, nu și cu documente de selecție.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
     <value>Această operațiune nu este disponibilă în modul portabil.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotInImplDirs" xml:space="preserve">
-    <value>'{0}' nu se află în lista de cache-uri de implementare personalizate.</value>
+    <value>„{0} ” nu se află în lista cache-urilor de implementare personalizate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
@@ -648,19 +648,19 @@ Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă d
     <comment>Automatically translated.</comment>
   </data>
   <data name="OpenInFileManager" xml:space="preserve">
-    <value>Deschidere în managerul de fișiere</value>
-    <comment>Automatically translated.</comment>
+    <value>&amp;Deschidere în managerul de fișiere</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptimiseComplete" xml:space="preserve">
-    <value>Optimizare completă</value>
+    <value>Optimizare finalizată</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAlgorithm" xml:space="preserve">
-    <value>Algoritmul {HASH} de utilizat pentru digest.</value>
+    <value>Algoritmul „ {HASH} ” care trebuie utilizat pentru digest.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasRemove" xml:space="preserve">
-    <value>Eliminați un alias existent.</value>
+    <value>Elimină un alias existent.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasResolve" xml:space="preserve">
@@ -668,19 +668,19 @@ Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă d
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Ascundeți interfața grafică cu utilizatorul și utilizați în schimb o pictogramă de tip tray.</value>
+    <value>Ascunde interfața grafică cu utilizatorul și folosește în schimb ceva de genul unei pictograme din bara de sistem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Răspunde automat la întrebări cu valori implicite atunci când este posibil și simplifică ieșirea din consolă (fără tabele sau bare de progres).</value>
+    <value>Răspunde automat la întrebări cu valorile implicite, atunci când este posibil, și simplifică ieșirea consolei (fără tabele sau bare de progres).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Necesită o versiune a programului principal mai veche decât {VERSION}. Adică, forțează utilizarea unei versiuni vechi a programului.</value>
+    <value>Necesită o versiune a programului principal anterioară versiunii {VERSION}, adică impune utilizarea unei versiuni mai vechi a programului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Sari peste descărcarea catalogului pentru a verifica dacă este valid înainte de a-l adăuga în listă.</value>
+    <value>Omite descărcarea catalogului pentru a verifica dacă este valid înainte de a-l adăuga la listă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -688,37 +688,37 @@ Puteți face acest lucru utilizând '{0}'. Aceasta va fi complet independentă d
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>În loc să executați comanda implicită, utilizați în schimb {COMMAND}. Numele comenzilor valide sunt specificate în feed-ul programului.
-Setați la gol ("") pentru a ignora comanda în timpul selecției.</value>
+    <value>În loc să executați comanda implicită, utilizați {COMMAND}. Numele de comenzi valide sunt specificate în feed-ul programului.
+Setați la gol („”) pentru a ignora comanda în timpul selecției.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Comutare la o filă specifică în interfața grafică de configurare.</value>
+    <value>Comută la o filă specifică din interfața grafică de configurare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>Forțează rezolvatorul să vizeze un anumit {CPU}.</value>
+    <value>Forțează solverul să vizeze un anumit {CPU}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Afișează editorul grafic de politici. Acesta vă permite să personalizați ce versiune a unui program sau a unei biblioteci să utilizați.</value>
+    <value>Afișează editorul grafic de politici. Acesta vă permite să personalizați versiunea unui program sau a unei biblioteci pe care doriți să o utilizați.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Afișează rezumatul manifestului (activat implicit dacă --manifest nu este setat).</value>
-    <comment>Automatically translated.</comment>
+    <value>Afișează digest-ul manifestului (activat implicit dacă --manifest nu este setat).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Încearcă să descopere implementări pe alte mașini din rețeaua locală, în loc să le extragă din sursa lor inițială.</value>
+    <value>Încearcă să găsească implementări pe alte mașini din rețeaua locală, în loc să le descarce de la sursa originală.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>Includeți Zero Install în export alături de aplicație.</value>
+    <value>Includeți Zero Install însuși în export, alături de aplicație.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>Nu includeți arhivele de implementare în export. Exportați numai fluxurile.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nu includeți arhivele de implementare în export. Exportați numai feed-urile.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
     <value>Efectuează actualizarea chiar dacă versiunea instalată în prezent este aceeași sau mai nouă.</value>
@@ -733,11 +733,11 @@ Setați la gol ("") pentru a ignora comanda în timpul selecției.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
-    <value>Adaugă toate punctele de acces disponibile.</value>
+    <value>Adăugați toate punctele de acces disponibile.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">
-    <value>Adaugă punctele de acces standard recomandate.</value>
+    <value>Adăugați punctele de acces standard recomandate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
@@ -749,66 +749,66 @@ Setați la gol ("") pentru a ignora comanda în timpul selecției.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Specifică limba preferată pentru implementare. Utilizați codurile scurte de limbă ISO (de exemplu, en sau en-US).
+    <value>Specifică limba preferată pentru implementare. Utilizați coduri scurte ISO pentru limbi (de ex. en sau en-US).
 Puteți utiliza această opțiune de mai multe ori pentru a specifica mai multe limbi acceptabile.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Deplasați Zero Install ca bibliotecă pentru a fi utilizată de alte aplicații fără propria integrare în desktop.</value>
-    <comment>Automatically translated.</comment>
+    <value>Implementați Zero Install ca bibliotecă pentru a fi utilizată de alte aplicații fără propria integrare în desktop.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Aplică configurația la nivelul întregii mașini (pentru întregul computer) în loc să o aplice doar pentru utilizatorul curent.</value>
+    <value>Aplică configurația la nivel de sistem (pentru întregul computer), nu doar pentru utilizatorul curent.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Rulează executabilul specificat {MAIN} în locul celui implicit. Dacă începe cu "/" sau "\", atunci calea este relativă la directorul de nivel superior al implementării, în timp ce în caz contrar este relativă la directorul care conține programul principal implicit.
-Nu poate conține argumente de linie de comandă! Spațiile albe nu trebuie să fie scăpate.</value>
+    <value>Rulează executabilul specificat {MAIN} în locul celui implicit. Dacă începe cu '/' sau '\', atunci calea este relativă la directorul de nivel superior al implementării, în timp ce în caz contrar este relativă la directorul care conține programul principal implicit.
+Nu poate conține argumente de linie de comandă! Spațiile nu trebuie să fie escapate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
-    <value>Afișează manifestul propriu-zis (o linie pentru fiecare fișier sau director).</value>
+    <value>Afișează manifestul în sine (o linie pentru fiecare fișier sau director).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMessage" xml:space="preserve">
-    <value>Mesaj care să fie afișat atunci când se interacționează cu utilizatorul.</value>
+    <value>Mesaj afișat la interacțiunea cu utilizatorul.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
-    <value>Nu descărcați încă aplicația în sine. Va fi în schimb descărcată automat la prima utilizare.</value>
+    <value>Nu descărcați încă aplicația. Aceasta va fi descărcată automat la prima utilizare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Necesită o versiune a programului principal care să nu fie anterioară lui {VERSION}. De exemplu, dacă doriți să rulați versiunea 2.0 sau ulterioară, utilizați --not-before=2.0.</value>
+    <value>Necesită o versiune a programului principal nu mai veche decât {VERSION}. De exemplu, dacă doriți să rulați versiunea 2.0 sau o versiune ulterioară, utilizați --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Revine imediat după ce programul ales a fost lansat, în loc să aștepte ca acesta să termine execuția. Pe Windows, codul de ieșire este ID-ul de proces al programului lansat.</value>
+    <value>Se întoarce imediat după ce programul ales a fost lansat, în loc să aștepte finalizarea execuției acestuia. Pe Windows, codul de ieșire este ID-ul procesului programului lansat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>Rulează în modul off-line, anulând setarea implicită.
-În modul off-line, nicio interfață nu este reîmprospătată, chiar dacă este depășită, iar versiunile mai noi ale programelor nu vor fi descărcate chiar dacă injectorul știe deja despre ele (de exemplu, de la o reîmprospătare anterioară).</value>
+    <value>Funcționează în modul offline, ignorând setarea implicită.
+În modul offline, niciuna dintre interfețe nu este actualizată, chiar dacă sunt depășite, iar versiunile mai noi ale programelor nu vor fi descărcate, chiar dacă injectorul are deja cunoștință de ele (de exemplu, dintr-o actualizare anterioară).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
-    <value>Forțează rezolvatorul să vizeze sistemul de operare {OS}.</value>
+    <value>Forțează solverul să vizeze sistemul de operare d {OS}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPin" xml:space="preserve">
-    <value>Marchează versiunea selectată ca fiind preferată pentru rulări viitoare.</value>
+    <value>Marchează versiunea selectată ca preferată pentru rulările viitoare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Creați o instalare portabilă care poate fi mutată (de exemplu, pe o unitate thumb drive).</value>
+    <value>Creați o instalare portabilă care poate fi mutată (de exemplu, pe un stick USB).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
-    <value>Fetch copii proaspete ale tuturor fluxurilor utilizate.</value>
-    <comment>Automatically translated.</comment>
+    <value>Obțineți copii proaspete ale tuturor feed-urilor utilizate.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Repornește interfața grafică "0install central" după actualizare.</value>
+    <value>Reporniți interfața grafică „0install central” după actualizare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">
@@ -816,53 +816,53 @@ Nu poate conține argumente de linie de comandă! Spațiile albe nu trebuie să 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionShow" xml:space="preserve">
-    <value>Afișează unde sunt stocate pe disc componentele selectate.</value>
+    <value>Afișează locația pe disc a componentelor selectate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Selectați codul sursă mai degrabă decât un binar. Aceasta este utilizată intern de "0compile".</value>
+    <value>Selectați codul sursă în locul unui fișier binar. Acesta este utilizat intern de către „0compile”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Resetează datele de sincronizare. Site-urile {MODE}valide sunt "none" (fuzionează datele din client și server în mod normal), "client" (înlocuiește toate datele de pe client cu datele de pe server) și "server" (înlocuiește toate datele de pe server cu datele de pe client).</value>
-    <comment>Automatically translated.</comment>
+    <value>Resetează datele de sincronizare. Modurile {MODE} valide sunt 'none' (fuzionează datele din client și server în mod normal), 'client' (înlocuiește toate datele de pe client cu datele de pe server) și 'server' (înlocuiește toate datele de pe server cu datele de pe client).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
-    <value>Eliberează versiuni marcate anterior ca fiind preferate.</value>
+    <value>Lansează versiunile marcate anterior ca preferate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Mai multă verbose output. Utilizați de două ori pentru o ieșire și mai verbose.</value>
-    <comment>Automatically translated.</comment>
+    <value>Ieșire mai detaliată. Utilizați de două ori pentru o ieșire și mai detaliată.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
     <value>Afișează informații despre versiune.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Necesită o versiune a programului principal în intervalul dat {RANGE}.
-Rangurile sunt separate prin conducte (|).
-Fiecare interval este de forma "START..!END". Intervalul corespunde versiunilor la care START &lt;= VERSION &lt; END. Începutul sau sfârșitul pot fi omise.
-Un singur număr de versiune poate fi utilizat în locul unui interval pentru a se potrivi numai cu versiunea respectivă sau !VERSION pentru a se potrivi cu totul, cu excepția versiunii respective.</value>
+    <value>Solicită o versiune a programului principal din intervalul dat {RANGE}.
+Intervalele sunt separate prin bare verticale (|).
+Fiecare interval are forma „START..!END”. Intervalul corespunde versiunilor în care START &lt;= VERSION &lt; END. Startul sau sfârșitul pot fi omise.
+Se poate utiliza un singur număr de versiune în locul unui interval pentru a corespunde doar acelei versiuni, sau !VERSION pentru a corespunde tuturor versiunilor, cu excepția acelei versiuni.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Pentru orice bibliotecă sau subcomponentă cu adresa {0:URI} se specifică versiunea {1:RANGE} (ca pentru --version).</value>
+    <value>Pentru orice bibliotecă sau subcomponentă cu {0:URI} specificat, indică versiunea {1:RANGE} (ca și pentru --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>Adăugați {DIR} la lista de cache-uri de implementare pentru căutare.
-Cu toate acestea, noile descărcări nu vor fi scrise în acest director.</value>
+    <value>Adaugă {DIR} la lista cache-urilor de implementare care urmează să fie căutate.
+Cu toate acestea, noile descărcări nu vor fi salvate în acest director.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>În loc să executați direct programul ales, rulați {COMMAND} PROGRAM ARGS. Acest lucru este util pentru a executa depanatoare și instrumente de urmărire pe program (mai degrabă decât pe Zero Install!).
+    <value>În loc să executați direct programul ales, rulați {COMMAND} PROGRAM ARGS. Acest lucru este util pentru rularea de depanatoare și instrumente de urmărire pe program (mai degrabă decât pe Zero Install!).
 Rețineți că wrapper-ul este executat în mediul selectat de program; prin urmare, acest mecanism nu poate fi utilizat pentru sandboxing.
-Poate conține argumente din linia de comandă. Spațiile albe trebuie să fie scăpate!</value>
+Poate conține argumente de linie de comandă. Spațiile albe trebuie să fie escapate!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Scrie ieșirea pe consolă ca XML lizibil de mașină.</value>
+    <value>Scrie ieșirea pe consolă sub formă de XML lizibil de mașini.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
@@ -874,15 +874,15 @@ Poate conține argumente din linia de comandă. Spațiile albe trebuie să fie s
     <comment>Automatically translated.</comment>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>Eliminați</value>
+    <value>Eliminare</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Doriți să eliminați de pe listă tastele bifate {0}?</value>
+    <value>Doriți să eliminați din listă cheile bifate de tipul „ {0} ”?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>Doriți să eliminați din listă intrările selectate {0}?</value>
+    <value>Doriți să eliminați intrările selectate din lista „ {0} ”?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
@@ -894,19 +894,19 @@ Poate conține argumente din linia de comandă. Spațiile albe trebuie să fie s
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Este posibil să trebuiască să închideți și să redeschideți terminalul pentru ca acest lucru să devină efectiv.</value>
+    <value>Este posibil să fie necesar să închideți și să redeschideți terminalul pentru ca această modificare să aibă efect.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
-    <value>Doriți să readuceți lista la starea sa inițială?</value>
+    <value>Doriți să resetați lista la starea inițială?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>Rezolvat '{0}' în '{1}' utilizând un alias.</value>
+    <value>Am rezolvat problema „{0} ” cu „{1} ” folosind un alias.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
-    <value>Rezolvă '{0}' în '{1}' utilizând un catalog.</value>
+    <value>A rezolvat „{0} ” în „{1} ” folosind un catalog.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
@@ -922,7 +922,7 @@ Poate conține argumente din linia de comandă. Spațiile albe trebuie să fie s
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
-    <value>Este disponibilă o actualizare la Zero Install v{0}. Instalați acum?</value>
+    <value>Este disponibilă o actualizare la Zero Install v{0}. Doriți să o instalați acum?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
@@ -930,24 +930,24 @@ Poate conține argumente din linia de comandă. Spațiile albe trebuie să fie s
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>Autoactualizarea este dezactivată.
-Rulați "0install config self_update_uri default" pentru a o activa.</value>
+    <value>Actualizarea automată este dezactivată.
+Rulați „0install config self_update_uri default” pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Implementări de servire pe port {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Implementări servite pe portul {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
     <value>Setați politica de stabilitate pentru {0} pentru a se potrivi?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>Resetați politica de stabilitate pentru {0} la valoarea implicită?</value>
+    <value>Resetarea politicii de stabilitate pentru {0} la valorile implicite?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
-    <value>Politica de stabilitate necesară pentru a selecta implementările din {0} este '{1}'.</value>
+    <value>Politica de stabilitate necesară pentru a selecta implementări de pe {0} este „{1} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
@@ -963,11 +963,11 @@ Rulați "0install config self_update_uri default" pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
-    <value>Audit magazin</value>
-    <comment>Automatically translated.</comment>
+    <value>Audit cache</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>Activarea suportului Windows pentru căi lungi poate rezolva această problemă.</value>
+    <value>Activarea suportului Windows pentru Long Paths ar putea rezolva această problemă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
@@ -975,8 +975,8 @@ Rulați "0install config self_update_uri default" pentru a o activa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>Cheia criptografică este utilizată pentru a vă cripta datele la nivel local înainte de a le transmite către server.
-Păstrați secretă această cheie și folosiți ceva diferit pentru parolă. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
+    <value>Cheia criptografică este utilizată pentru a cripta datele dvs. local înainte de a le transmite către server.
+Păstrați această cheie secretă și folosiți o parolă diferită. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
@@ -992,11 +992,11 @@ Păstrați secretă această cheie și folosiți ceva diferit pentru parolă. Î
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Încercați {0}</value>
+    <value>Încearcă {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Încercați {0} cu unul dintre acestea:</value>
+    <value>Încercați {0} cu una dintre acestea:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryRunAgain" xml:space="preserve">
@@ -1004,11 +1004,11 @@ Păstrați secretă această cheie și folosiți ceva diferit pentru parolă. Î
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
-    <value>Dezinstalarea Zero Install Store Service</value>
+    <value>Dezinstalarea serviciului Zero Install Store</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
-    <value>Comandă necunoscută '{0}'.</value>
+    <value>Comandă necunoscută „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Usage" xml:space="preserve">
@@ -1016,23 +1016,23 @@ Păstrați secretă această cheie și folosiți ceva diferit pentru parolă. Î
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseDefaultSetting" xml:space="preserve">
-    <value>Utilizați setările implicite</value>
+    <value>Utilizează setările implicite</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
-    <value>Utilizați în schimb '{0}'.</value>
+    <value>Utilizați în schimb „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">
-    <value>Utilizați limba sistemului</value>
+    <value>Utilizează limba sistemului</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">
-    <value>Verificare</value>
+    <value>Verificați</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VerifyImplementation" xml:space="preserve">
-    <value>Verificarea implementării</value>
+    <value>Verifică implementarea</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionInformation" xml:space="preserve">
@@ -1040,7 +1040,7 @@ Păstrați secretă această cheie și folosiți ceva diferit pentru parolă. Î
     <comment>Automatically translated.</comment>
   </data>
   <data name="Working" xml:space="preserve">
-    <value>Funcționare</value>
+    <value>Funcțional</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -59,19 +59,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Added0installToPath" xml:space="preserve">
-    <value>Perintah '0install' telah ditambahkan ke PATH baris perintah Anda.</value>
+    <value>Perintah '0install' telah ditambahkan ke jalur PATH baris perintah Anda.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasCreated" xml:space="preserve">
-    <value>Alias bernama '{0}' untuk '{1}' dibuat.</value>
+    <value>Sebuah alias bernama '{0}' untuk '{1}' telah dibuat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasNotFound" xml:space="preserve">
-    <value>Tidak ditemukan nama alias bernama '{0}'.</value>
+    <value>Tidak ditemukan alias yang bernama '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
-    <value>Nama alias '{0}' untuk '{1}' telah dihapus.</value>
+    <value>Alias bernama '{0}' untuk '{1}' telah dihapus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
@@ -88,7 +88,7 @@ Anda dapat menggunakan skrip impor atau Bootstrap yang dapat dieksekusi di '{1}'
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
-    <value>Nama alias aplikasi</value>
+    <value>Alias aplikasi</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppList" xml:space="preserve">
@@ -96,19 +96,19 @@ Anda dapat menggunakan skrip impor atau Bootstrap yang dapat dieksekusi di '{1}'
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Mengatur Penginstalan Nol untuk semua pengguna (di seluruh mesin), bukan hanya pengguna saat ini?</value>
+    <value>Apakah pengaturan Zero Install berlaku untuk semua pengguna (di seluruh sistem) atau hanya untuk pengguna saat ini?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
-    <value>Apakah Anda yakin ingin menyebarkan salinan baru Zero Install ke '{0}'?</value>
+    <value>Apakah Anda yakin ingin menginstal salinan baru Zero Install ke '{0}'?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>Ini akan menambahkan Zero Install ke menu mulai dan baris perintah. Lanjutkan?</value>
+    <value>Ini akan menambahkan Zero Install ke menu Start dan baris perintah. Lanjutkan?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
-    <value>Anda yakin ingin menghapus Zero Install dari komputer ini?</value>
+    <value>Apakah Anda yakin ingin menghapus Zero Install dari komputer ini?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
@@ -116,13 +116,13 @@ Anda dapat menggunakan skrip impor atau Bootstrap yang dapat dieksekusi di '{1}'
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>Apakah Anda ingin memperbarui integrasi desktop yang ada untuk mencerminkan hal ini?
-Jika Anda memilih 'Ya', integrasi yang mungkin tidak kompatibel akan dihapus.
+    <value>Apakah Anda ingin memperbarui integrasi desktop yang ada agar sesuai dengan ini?
+Jika Anda memilih 'Ya', integrasi yang berpotensi tidak kompatibel akan dihapus.
 Jika Anda memilih 'Tidak', Zero Install akan terus menggunakan kemampuan lama.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
-    <value>Implementasi yang di-cache</value>
+    <value>Implementasi yang disimpan dalam cache</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -130,15 +130,15 @@ Jika Anda memilih 'Tidak', Zero Install akan terus menggunakan kemampuan lama.</
     <comment>Manually overriden.</comment>
   </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
-    <value>Kemampuan aplikasi '{0}' telah berubah.</value>
+    <value>Fitur aplikasi '{0}' telah berubah.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CatalogAlreadyRegistered" xml:space="preserve">
-    <value>Katalog URI {0} sudah terdaftar.</value>
+    <value>URI katalog {0} sudah terdaftar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CatalogNotRegistered" xml:space="preserve">
-    <value>Katalog URI {0} tidak terdaftar.</value>
+    <value>URI katalog {0} tidak terdaftar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CatalogSources" xml:space="preserve">
@@ -170,27 +170,27 @@ Jika Anda memilih 'Tidak', Zero Install akan terus menggunakan kemampuan lama.</
     <comment>Manually overriden.</comment>
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
-    <value>Apakah Anda ingin menghapus semua file aplikasi dari cache Zero Install?
+    <value>Apakah Anda ingin menghapus semua berkas aplikasi dari cache Zero Install?
 Berkas-berkas ini dapat diunduh kembali jika diperlukan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>Apakah Anda ingin menghapus semua aplikasi dari daftar 'Aplikasi saya'? Hal ini untuk mencegah adanya entri menu yang tersisa setelah menghapus Zero Install.
+    <value>Apakah Anda ingin menghapus semua aplikasi dari daftar 'Aplikasi Saya'? Hal ini mencegah tersisa entri menu setelah menghapus Zero Install.
 Anda dapat membuat cadangan daftar ini dengan menggunakan '0install sync'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
-    <value>Mulai memasukkan teks di baris terakhir untuk membuat entri baru.
-Pilih seluruh baris dengan mengeklik di kolom pertama, lalu tekan DEL pada papan ketik untuk menghapus entri.</value>
+    <value>Mulailah mengetik teks di baris terakhir untuk membuat entri baru.
+Pilih seluruh baris dengan mengklik kolom pertama, lalu tekan tombol DEL pada keyboard untuk menghapus entri.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Mengatur kotak centang untuk menjadikan kemampuan sebagai penangan default yang Anda inginkan.
-Menghapus kotak centang untuk menghapus status default kemampuan (masih tetap tersedia).</value>
+    <value>Centang kotak centang untuk menjadikan suatu kemampuan sebagai penangan default yang Anda inginkan.
+Hapus centang kotak centang untuk menghapus status default suatu kemampuan (kemampuan tersebut tetap tersedia).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>Apakah Anda ingin menghapus elemen yang dicentang {0} dari cache?</value>
+    <value>Apakah Anda ingin menghapus elemen yang dicentang di " {0} " dari cache?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
@@ -198,20 +198,20 @@ Menghapus kotak centang untuk menghapus status default kemampuan (masih tetap te
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
-    <value>Versi portabel dari Zero Install telah disebarkan ke '{0}'.
-Anda dapat menggunakannya dengan menjalankan file ZeroInstall.exe di direktori tersebut.</value>
+    <value>Versi portabel Zero Install telah diunggah ke '{0}'.
+Anda dapat menggunakannya dengan menjalankan berkas ZeroInstall.exe di direktori tersebut.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
-    <value>Saat menggunakan opsi {0}, Anda harus secara eksplisit menentukan direktori target.</value>
+    <value>Saat menggunakan opsi " {0} ", Anda harus secara eksplisit menentukan direktori tujuan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>Direktori target yang ditentukan ({0}) terletak di luar direktori rumah Anda.</value>
+    <value>Direktori tujuan yang ditentukan ({0}) terletak di luar direktori home Anda.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeprecatedOption" xml:space="preserve">
-    <value>Opsi yang tidak digunakan lagi. Silakan gunakan '{0}' sebagai gantinya.</value>
+    <value>Opsi yang sudah tidak digunakan lagi. Silakan gunakan '{0}' sebagai gantinya.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -219,15 +219,15 @@ Anda dapat menggunakannya dengan menjalankan file ZeroInstall.exe di direktori t
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddAlias" xml:space="preserve">
-    <value>Membuat alias untuk meluncurkan aplikasi melalui 0install tanpa harus memasukkan URI lengkap.</value>
+    <value>Buat alias untuk menjalankan aplikasi melalui 0install tanpa harus selalu memasukkan URI lengkap.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddApp" xml:space="preserve">
-    <value>Menambahkan aplikasi ke daftar aplikasi.</value>
+    <value>Tambahkan aplikasi ke daftar aplikasi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddFeed" xml:space="preserve">
-    <value>Mendaftarkan sumber implementasi (versi) tambahan dari sebuah program.</value>
+    <value>Mendaftarkan sumber tambahan untuk implementasi (versi) suatu program.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogAdd" xml:space="preserve">
@@ -235,11 +235,11 @@ Anda dapat menggunakannya dengan menjalankan file ZeroInstall.exe di direktori t
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogList" xml:space="preserve">
-    <value>Mencantumkan semua katalog yang terdaftar.</value>
+    <value>Menampilkan daftar semua katalog yang terdaftar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogRefresh" xml:space="preserve">
-    <value>Menyegarkan (mengunduh) semua katalog yang terdaftar.</value>
+    <value>Memperbarui (mengunduh) semua katalog yang terdaftar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
@@ -247,66 +247,66 @@ Anda dapat menggunakannya dengan menjalankan file ZeroInstall.exe di direktori t
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>Mengatur ulang daftar katalog ke sumber default.</value>
+    <value>Mengembalikan daftar katalog ke sumber default.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Mencari katalog terdaftar untuk aplikasi yang sesuai dengan kueri yang ditentukan. Jika tidak ada permintaan yang diberikan, semua aplikasi dalam katalog akan dicantumkan.</value>
+    <value>Mencari aplikasi yang sesuai dengan kueri yang ditentukan di katalog yang terdaftar. Jika tidak ada kueri yang diberikan, semua aplikasi di katalog akan ditampilkan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>Membuka antarmuka pengguna grafis pusat untuk meluncurkan dan mengelola aplikasi.</value>
+    <value>Membuka antarmuka pengguna grafis utama untuk menjalankan dan mengelola aplikasi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Melihat atau mengubah pengaturan konfigurasi.
-Tanpa argumen, ini menampilkan semua pengaturan dan nilainya saat ini. Dengan satu argumen, ini menampilkan nilai saat ini dari pengaturan bernama. Dengan dua argumen, ini mengatur pengaturan ke nilai yang diberikan atau mengatur ulang ke nilai default jika nilai "{0}" diberikan.</value>
+Tanpa argumen, perintah ini menampilkan semua pengaturan beserta nilai saat ini. Dengan satu argumen, perintah ini menampilkan nilai saat ini dari pengaturan yang disebutkan. Dengan dua argumen, perintah ini mengatur pengaturan ke nilai yang diberikan atau mengembalikannya ke nilai default jika nilai "{0}" diberikan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
-    <value>Menghitung intisari manifes dari direktori atau arsip.</value>
+    <value>Menghitung ringkasan manifes dari sebuah direktori atau arsip.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>Berperilaku mirip dengan '0install select', kecuali bahwa ia juga mengunduh versi yang dipilih jika belum di-cache.
-Mengembalikan status keluar 0 jika memilih sekumpulan versi yang sesuai dan semuanya sudah diunduh dan berada di cache; mengembalikan status 1 jika tidak.</value>
+    <value>Berfungsi serupa dengan '0install select', kecuali bahwa ia juga mengunduh versi yang dipilih jika versi tersebut belum disimpan dalam cache.
+Mengembalikan status keluar 0 jika telah memilih kumpulan versi yang sesuai dan semua versi tersebut kini telah diunduh dan tersimpan dalam cache; mengembalikan status 1 jika tidak.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Mengekspor semua feed dan implementasi yang diperlukan untuk meluncurkan program yang ditentukan oleh URI ke direktori.</value>
+    <value>Mengekspor semua feed dan implementasi yang diperlukan untuk menjalankan program yang ditentukan oleh URI ke sebuah DIREKTORI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Mengimpor feed dari file lokal, seolah-olah telah diunduh dari jaringan. Hal ini berguna ketika menguji file feed, untuk menghindari mengunggahnya ke server jarak jauh untuk mengunduhnya lagi.
-File harus memiliki tanda tangan digital tepercaya, seperti saat mengambil dari jaringan.</value>
+    <value>Mengimpor umpan dari berkas lokal, seolah-olah telah diunduh dari jaringan. Hal ini berguna saat menguji berkas umpan, untuk menghindari mengunggahnya ke server jarak jauh hanya untuk mengunduhnya kembali.
+Berkas tersebut harus memiliki tanda tangan digital yang tepercaya, sama seperti saat mengambilnya dari jaringan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>Mengimpor sekumpulan aplikasi dan integrasi desktop dari file app-list.xml yang sudah ada.</value>
+    <value>Mengimpor sekumpulan aplikasi dan integrasi desktop dari berkas app-list.xml yang sudah ada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>Menambahkan aplikasi ke daftar aplikasi (jika tidak ada) dan mengintegrasikannya ke dalam lingkungan desktop.</value>
+    <value>Menambahkan aplikasi ke daftar aplikasi (jika belum ada) dan mengintegrasikannya ke dalam lingkungan desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Mencantumkan semua URI umpan yang dikenal secara lokal. Jika istilah pencarian diberikan, hanya URI yang mengandung string tersebut yang ditampilkan (tidak peka huruf besar/kecil).</value>
-    <comment>Automatically translated.</comment>
+    <value>Mencantumkan semua URI feed yang dikenal secara lokal. Jika istilah pencarian diberikan, hanya URI yang mengandung string tersebut yang ditampilkan (tidak peka huruf besar/kecil).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Mencantumkan semua aplikasi yang saat ini ada dalam daftar aplikasi Anda. Jika URI diberikan, hanya aplikasi dengan URI umpan yang ditampilkan. Jika diberikan PATTERN, hanya aplikasi yang mengandung string tersebut dalam namanya yang akan ditampilkan (huruf besar/kecil tidak peka).</value>
-    <comment>Automatically translated.</comment>
+    <value>Mencantumkan semua aplikasi yang saat ini ada dalam daftar aplikasi Anda. Jika URI diberikan, hanya aplikasi dengan URI feed tersebut yang ditampilkan. Jika diberikan PATTERN, hanya aplikasi yang mengandung string tersebut dalam namanya yang akan ditampilkan (tidak peka huruf besar/kecil).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>Mencantumkan semua feed tambahan yang ditambahkan ke URI menggunakan '0install add-feed'.</value>
+    <value>Menampilkan daftar semua feed tambahan yang ditambahkan ke URI menggunakan perintah '0install add-feed'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Menyebarkan Zero Install ke direktori TARGET yang ditentukan atau direktori default untuk program dan mengintegrasikannya ke dalam sistem.</value>
+    <value>Menerapkan Zero Install ke direktori TARGET yang ditentukan atau direktori default untuk program dan mengintegrasikannya ke dalam sistem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Menghapus instans Zero Install saat ini dari sistem.</value>
+    <value>Menghapus instance Zero Install yang sedang berjalan dari sistem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -314,37 +314,37 @@ File harus memiliki tanda tangan digital tepercaya, seperti saat mengambil dari 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>Menghapus aplikasi dari daftar aplikasi dan membatalkan integrasi lingkungan desktop.</value>
+    <value>Menghapus aplikasi dari daftar aplikasi dan membatalkan integrasi dengan lingkungan desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
-    <value>Membatalkan pendaftaran feed, membalikkan efek '0install add-feed'.</value>
+    <value>Membatalkan pendaftaran feed, membatalkan efek dari perintah '0install add-feed'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
-    <value>Menerapkan kembali semua integrasi desktop aplikasi dalam daftar aplikasi.</value>
+    <value>Menerapkan kembali semua integrasi desktop dari aplikasi dalam daftar aplikasi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>Berperilaku mirip dengan '0install download', kecuali bahwa ia juga menjalankan program setelah memastikan program tersebut ada di cache.
-Mengembalikan status keluar 1 jika langkah pengunduhan gagal. Jika tidak, status keluar akan menjadi status keluar dari program yang sedang dijalankan.</value>
+    <value>Berfungsi serupa dengan '0install download', kecuali bahwa ia juga menjalankan program setelah memastikan program tersebut ada di cache.
+Mengembalikan status keluar 1 jika langkah unduhan gagal. Jika tidak, status keluar akan sama dengan status keluar dari program yang sedang dijalankan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Mencari feed yang diindeks oleh server mirror yang cocok dengan kata kunci yang ditentukan. Perhatikan bahwa server mirror default mengindeks semua feed yang diketahui, terlepas dari kualitasnya; Anda harus memutuskan apakah akan mempercayai program sebelum menjalankannya.</value>
+    <value>Mencari umpan yang diindeks oleh server cermin yang sesuai dengan kata kunci yang ditentukan. Perhatikan bahwa server cermin default mengindeks semua umpan yang diketahui, terlepas dari kualitasnya; Anda harus memutuskan apakah akan mempercayai program-program tersebut sebelum menjalankannya.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>Memilih versi program yang diidentifikasi oleh URI, dan versi yang kompatibel dari semua ketergantungannya.
-Mengembalikan status keluar 0 jika memilih sekumpulan versi, dan status 1 jika tidak dapat menemukan sekumpulan yang konsisten.</value>
+    <value>Memilih versi program yang diidentifikasi oleh URI, serta versi yang kompatibel dari semua dependensinya.
+Mengembalikan status keluar 0 jika berhasil memilih sekumpulan versi, dan status 1 jika tidak dapat menemukan sekumpulan versi yang konsisten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
-    <value>Memperbarui Zero Install sendiri ke versi terbaru.</value>
+    <value>Memperbarui Zero Install ke versi terbaru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAdd" xml:space="preserve">
-    <value>Menambahkan konten direktori atau arsip ke cache.</value>
+    <value>Menambahkan isi direktori atau arsip ke cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
@@ -352,43 +352,43 @@ Mengembalikan status keluar 0 jika memilih sekumpulan versi, dan status 1 jika t
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
-    <value>Memeriksa bahwa semua implementasi dalam cache tidak rusak.
+    <value>Memastikan bahwa semua implementasi di cache tidak rusak.
 Argumen tambahan menentukan lokasi cache khusus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>Menyalin implementasi ke dalam cache. Mirip dengan '0install store add', tetapi intisari diekstrak dari nama direktori.
-Argumen tambahan menentukan lokasi cache target khusus.</value>
+    <value>Menyalin implementasi ke dalam cache. Mirip dengan '0install store add', tetapi ringkasan (digest) diekstraksi dari nama direktori.
+Argumen tambahan menentukan lokasi cache tujuan yang disesuaikan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
-    <value>Mengekspor implementasi yang di-cache sebagai arsip (ZIP, TAR, dll.). Hasilnya dapat diimpor di mesin lain menggunakan '0install store add'.</value>
+    <value>Mengekspor implementasi yang disimpan dalam cache sebagai arsip (ZIP, TAR, dll.). Hasilnya dapat diimpor ke mesin lain menggunakan perintah '0install store add'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreFind" xml:space="preserve">
-    <value>Menentukan jalur lokal dari implementasi yang di-cache.</value>
+    <value>Menentukan jalur lokal dari implementasi yang disimpan dalam cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreList" xml:space="preserve">
-    <value>Mencantumkan semua direktori cache implementasi.</value>
+    <value>Menampilkan daftar semua direktori cache implementasi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>Mencantumkan semua implementasi yang di-cache. Jika URI feed ditentukan, hanya implementasi untuk feed tertentu yang dicantumkan.</value>
+    <value>Menampilkan daftar semua implementasi yang disimpan dalam cache. Jika URI feed ditentukan, hanya implementasi untuk feed tersebut yang ditampilkan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
-    <value>Menampilkan antarmuka pengguna grafis untuk mengelola implementasi dalam cache. Menampilkan asosiasi dengan umpan yang di-cache.</value>
-    <comment>Automatically translated.</comment>
+    <value>Menampilkan antarmuka pengguna grafis untuk mengelola implementasi dalam cache. Menampilkan asosiasi dengan feed yang di-cache.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
-    <value>Menghemat ruang disk dengan menggabungkan file yang identik dengan hardlink.
+    <value>Menghemat ruang disk dengan menggabungkan berkas yang identik menggunakan tautan keras.
 Argumen tambahan menentukan lokasi cache khusus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Menghapus semua implementasi dari cache. Gunakan perintah ini untuk membersihkan sistem sebelum menghapus Zero Install. Menghapus direktori cache secara manual mungkin sulit dilakukan karena ACL NTFS yang digunakan untuk melindungi implementasi dari modifikasi.
-Argumen tambahan menentukan lokasi cache khusus.</value>
+    <value>Menghapus semua implementasi dari cache. Gunakan perintah ini untuk membersihkan sistem sebelum menghapus Zero Install. Menghapus direktori cache secara manual mungkin sulit karena penggunaan ACL NTFS yang digunakan untuk melindungi implementasi dari modifikasi.
+Argumen tambahan menentukan lokasi cache kustom.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreRemove" xml:space="preserve">
@@ -404,28 +404,28 @@ Argumen tambahan menentukan lokasi cache khusus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>Memastikan implementasi tidak rusak (yaitu intisari manifes tidak berubah).</value>
+    <value>Memastikan bahwa implementasi tidak rusak (yaitu, ringkasan manifesnya tidak berubah).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
-    <value>Menyelaraskan daftar aplikasi dengan server.</value>
+    <value>Menyinkronkan daftar aplikasi dengan server.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Memercayai umpan dari DOMAIN tertentu ketika ditandatangani dengan sidik jari tertentu.</value>
-    <comment>Automatically translated.</comment>
+    <value>Memercayai feed dari DOMAIN tertentu ketika ditandatangani dengan FINGERPRINT tertentu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Membuat daftar kunci yang dipercaya untuk menandatangani umpan. Hanya mencantumkan domain yang dipercayai FINGERPRINT tertentu, jika ditentukan.</value>
-    <comment>Automatically translated.</comment>
+    <value>Membuat daftar kunci yang dipercaya untuk menandatangani feed. Hanya mencantumkan domain yang dipercayai FINGERPRINT tertentu, jika ditentukan.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Berhenti mempercayai feed yang ditandatangani dengan sidik jari tertentu. Hanya berhenti mempercayai DOMAIN tertentu, jika ditentukan.</value>
+    <value>Berhenti mempercayai umpan yang ditandatangani dengan FINGERPRINT tertentu. Hanya berhenti mempercayai untuk DOMAIN tertentu, jika ditentukan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Memeriksa pembaruan program dan mengunduhnya jika ditemukan.
-Ini mirip dengan '0install download - refresh', kecuali bahwa ia mencetak informasi tentang apakah ada perubahan yang ditemukan.</value>
+Ini mirip dengan perintah '0install download --refresh', kecuali bahwa perintah ini menampilkan informasi apakah ada perubahan yang ditemukan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -457,11 +457,11 @@ Ini mirip dengan '0install download - refresh', kecuali bahwa ia mencetak inform
     <comment>Manually overriden.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>Masukkan URL atau jalur file lokal dari katalog feed yang akan ditambahkan:</value>
+    <value>Silakan masukkan URL atau jalur file lokal dari katalog feed yang akan ditambahkan:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
-    <value>Masukkan URL sumber implementasi baru untuk antarmuka ini:</value>
+    <value>Silakan masukkan URL sumber implementasi baru untuk antarmuka ini:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExclusiveOptions" xml:space="preserve">
@@ -469,7 +469,7 @@ Ini mirip dengan '0install download - refresh', kecuali bahwa ia mencetak inform
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
-    <value>Salinan Zero Install yang ada terdeteksi di '{0}'.</value>
+    <value>Salinan Zero Install yang sudah ada terdeteksi di '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
@@ -477,43 +477,43 @@ Ini mirip dengan '0install download - refresh', kecuali bahwa ia mencetak inform
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
-    <value>Umpan sudah terdaftar untuk semua antarmuka yang sesuai.</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed sudah terdaftar untuk semua antarmuka yang sesuai.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
-    <value>Manajemen umpan</value>
-    <comment>Automatically translated.</comment>
+    <value>Manajemen feed</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
-    <value>Umpan tidak terdaftar untuk antarmuka apa pun.</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed tidak terdaftar untuk antarmuka apa pun.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
-    <value>Umpan berhasil didaftarkan untuk antarmuka berikut ini:</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed berhasil didaftarkan untuk antarmuka berikut ini:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
     <value>'{0}' telah diganti dengan '{1}'. Pertimbangkan untuk memperbarui.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>Umpan untuk '{0}' ({1}) telah diganti dengan '{2}'. Apakah Anda ingin menggunakan feed yang baru?</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed untuk '{0}' ({1}) telah diganti dengan '{2}'. Apakah Anda ingin menggunakan feed yang baru?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
-    <value>Umpan yang di-cache</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed yang di-cache</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedsRegistered" xml:space="preserve">
-    <value>Umpan yang terdaftar untuk '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed yang terdaftar untuk '{0}'</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
-    <value>Umpan berhasil dibatalkan pendaftarannya untuk antarmuka berikut ini:</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed berhasil dibatalkan pendaftarannya untuk antarmuka berikut ini:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileCheckComplete" xml:space="preserve">
-    <value>Pemeriksaan file selesai</value>
+    <value>Pemeriksaan berkas selesai</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -529,16 +529,16 @@ Ini mirip dengan '0install download - refresh', kecuali bahwa ia mencetak inform
     <comment>Manually overriden.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
-    <value>Umpan ini tampaknya bukan untuk aplikasi yang sama. Bagaimana cara menambahkannya?
+    <value>Feed ini tampaknya bukan untuk aplikasi yang sama. Tambahkan saja?
 Tag &lt;feed-for&gt; mengindikasikan kompatibilitas feed.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
     <value>Menginstal Zero Install Store Service</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>Mengintegrasikan {0}</value>
+    <value>Integrasikan {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
@@ -546,11 +546,11 @@ Tag &lt;feed-for&gt; mengindikasikan kompatibilitas feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppRetry" xml:space="preserve">
-    <value>Apakah Anda ingin mengubah pilihan Anda dan mencoba lagi?</value>
+    <value>Apakah Anda ingin mengubah pilihan dan mencoba lagi?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
-    <value>Gunakan versi GUI dari Zero Install atau tentukan opsi integrasi eksplisit menggunakan argumen baris perintah.</value>
+    <value>Silakan gunakan versi GUI dari Zero Install atau tentukan opsi integrasi secara eksplisit menggunakan argumen baris perintah.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
@@ -558,44 +558,44 @@ Tag &lt;feed-for&gt; mengindikasikan kompatibilitas feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' bukan URI feed atau jalur file yang valid.</value>
+    <value>'{0}' bukanlah URI feed atau jalur file yang valid.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="KioskModeNotInCatalog" xml:space="preserve">
-    <value>Mode kios diaktifkan dan {0} tidak tercantum dalam katalog.</value>
+    <value>Mode kiosk diaktifkan dan " {0} " tidak terdaftar dalam katalog.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Versi yang lebih baru ({0}) ada tetapi tidak dipilih. Sebagai gantinya, gunakan {1}.</value>
+    <value>Tersedia versi yang lebih baru ({0}), tetapi tidak dipilih. Sebagai gantinya, menggunakan {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Program ini hadir tanpa jaminan sama sekali, sejauh diizinkan oleh hukum.
-Anda dapat menyebarluaskan salinan program ini di bawah ketentuan Lisensi Publik Umum GNU Lesser.</value>
-    <comment>Automatically translated.</comment>
+Anda dapat menyebarluaskan salinan program ini di bawah persyaratan GNU Lesser General Public License.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
     <value>Jalur lokal dari {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingArguments" xml:space="preserve">
-    <value>Argumen yang hilang.</value>
+    <value>Argumen tidak lengkap.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>Elemen &lt;feed-for&gt; yang hilang di '{0}'; tidak dapat digunakan sebagai feed untuk antarmuka lain.</value>
+    <value>Elemen &lt;feed-for&gt; hilang di '{0}'; elemen ini tidak dapat digunakan sebagai sumber data untuk antarmuka lain.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
-    <value>Nilai yang diperlukan hilang untuk opsi {0}.</value>
+    <value>Nilai yang diperlukan untuk opsi ` {0}` tidak ditemukan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
-    <value>Anda harus menjadi administrator untuk melakukan operasi di seluruh mesin.</value>
+    <value>Anda harus menjadi administrator untuk melakukan operasi pada seluruh sistem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
-    <value>Menunggu semua contoh Zero Install selesai</value>
+    <value>Menunggu hingga semua instance Zero Install selesai</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MyApps" xml:space="preserve">
@@ -615,16 +615,16 @@ Anda dapat menyebarluaskan salinan program ini di bawah ketentuan Lisensi Publik
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install perlu diterapkan pada sistem Anda agar integrasi desktop dapat bekerja.</value>
+    <value>Zero Install harus diinstal di sistem Anda agar integrasi desktop dapat berfungsi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install berjalan dalam mode portabel. Ia perlu ditempatkan di lokasi permanen agar integrasi desktop dapat bekerja.
-Anda bisa melakukannya dengan menggunakan '{0}'. Ini akan sepenuhnya independen dari salinan portabel Anda.</value>
+    <value>Zero Install sedang berjalan dalam mode portabel. Aplikasi ini perlu dipasang di lokasi permanen agar integrasi desktop dapat berfungsi.
+Anda dapat melakukannya dengan menggunakan perintah '{0}'. Ini akan sepenuhnya terpisah dari salinan portabel Anda.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install berjalan dari direktori khusus pengguna. Aplikasi ini harus ditempatkan pada direktori yang dapat diakses oleh semua pengguna agar integrasi desktop di seluruh mesin dapat bekerja.</value>
+    <value>Zero Install berjalan dari direktori khusus pengguna. Untuk memastikan integrasi desktop di seluruh sistem berfungsi, Zero Install perlu diinstal di direktori yang dapat diakses oleh semua pengguna.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -632,7 +632,7 @@ Anda bisa melakukannya dengan menggunakan '{0}'. Ini akan sepenuhnya independen 
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Hanya dapat memperbarui dengan Feed URI, bukan dengan dokumen pilihan.</value>
+    <value>Hanya dapat diperbarui dengan Feed URI, bukan dengan dokumen pilihan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -652,187 +652,187 @@ Anda bisa melakukannya dengan menggunakan '{0}'. Ini akan sepenuhnya independen 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptimiseComplete" xml:space="preserve">
-    <value>Pengoptimalan selesai</value>
+    <value>Optimasi selesai</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAlgorithm" xml:space="preserve">
-    <value>Algoritma {HASH} yang digunakan untuk intisari.</value>
+    <value>Algoritma yang digunakan untuk membuat ringkasan ( {HASH} ).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasRemove" xml:space="preserve">
-    <value>Menghapus alias yang sudah ada.</value>
+    <value>Hapus alias yang sudah ada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasResolve" xml:space="preserve">
-    <value>Mencetak URI antarmuka untuk alias yang diberikan.</value>
+    <value>Cetak URI antarmuka untuk alias yang diberikan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Menyembunyikan antarmuka pengguna grafis dan menggunakan sesuatu seperti ikon baki sebagai gantinya.</value>
+    <value>Sembunyikan antarmuka pengguna grafis dan gunakan ikon baki sebagai gantinya.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Menjawab pertanyaan secara otomatis dengan default jika memungkinkan dan menyederhanakan keluaran konsol (tidak ada tabel atau bilah kemajuan).</value>
+    <value>Secara otomatis menjawab pertanyaan dengan nilai default jika memungkinkan dan menyederhanakan keluaran konsol (tanpa tabel atau bilah kemajuan).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>Memerlukan versi program utama yang lebih awal dari {VERSION}. yaitu, memaksa penggunaan program versi lama.</value>
+    <value>Memerlukan versi program utama yang lebih lama dari {VERSION}. Artinya, memaksa penggunaan versi lama dari program tersebut.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Lewati mengunduh katalog untuk memverifikasi keabsahannya sebelum menambahkannya ke daftar.</value>
+    <value>Lewati pengunduhan katalog untuk memverifikasi keabsahannya sebelum menambahkannya ke daftar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
-    <value>Menghapus implementasi yang tidak lagi diperlukan setelah pembaruan.</value>
+    <value>Hapus implementasi yang tidak lagi diperlukan setelah pembaruan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Alih-alih menjalankan perintah default, gunakan {COMMAND} sebagai gantinya. Nama perintah yang valid ditentukan dalam umpan program.
+    <value>Alih-alih menjalankan perintah default, gunakan {COMMAND} sebagai gantinya. Nama perintah yang valid ditentukan dalam feed program.
 Atur ke kosong ("") untuk mengabaikan perintah selama pemilihan.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Beralih ke tab tertentu dalam GUI konfigurasi.</value>
+    <value>Beralih ke tab tertentu di antarmuka konfigurasi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>Memaksa pemecah untuk menargetkan {CPU} tertentu.</value>
+    <value>Memaksa pemecah masalah (solver) untuk menargetkan file konfigurasi tertentu ( {CPU}).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Menampilkan editor kebijakan grafis. Ini memungkinkan Anda untuk menyesuaikan versi program atau pustaka yang akan digunakan.</value>
+    <value>Tampilkan editor kebijakan grafis. Ini memungkinkan Anda menyesuaikan versi program atau pustaka mana yang akan digunakan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Menampilkan intisari manifes (diaktifkan secara default jika --manifes tidak ditetapkan).</value>
+    <value>Menampilkan ringkasan manifes (diaktifkan secara default jika opsi --manifest tidak ditetapkan).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Mencoba menemukan implementasi pada mesin lain di jaringan lokal alih-alih mengambilnya dari sumber aslinya.</value>
+    <value>Cobalah untuk mencari implementasi pada mesin lain di jaringan lokal daripada mengambilnya dari sumber aslinya.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>Menyertakan Zero Install itu sendiri dalam ekspor bersama aplikasi.</value>
+    <value>Sertakan Zero Install itu sendiri dalam ekspor bersama dengan aplikasi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>Jangan menyertakan arsip implementasi dalam ekspor. Hanya mengekspor feed.</value>
+    <value>Jangan sertakan arsip implementasi dalam ekspor. Ekspor hanya feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
-    <value>Melakukan pembaruan meskipun versi yang diinstal saat ini sama atau lebih baru.</value>
+    <value>Melakukan pembaruan meskipun versi yang terinstal saat ini sama atau lebih baru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
-    <value>Menampilkan teks bantuan bawaan.</value>
+    <value>Tampilkan teks bantuan bawaan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
-    <value>Menambahkan semua jalur akses dari {CATEGORY} tertentu.</value>
+    <value>Tambahkan semua titik akses dari {CATEGORY} tertentu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
-    <value>Menambahkan semua jalur akses yang tersedia.</value>
+    <value>Tambahkan semua titik akses yang tersedia.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">
-    <value>Menambahkan jalur akses standar yang direkomendasikan.</value>
+    <value>Tambahkan titik akses standar yang direkomendasikan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
-    <value>Menghapus semua jalur akses dari {CATEGORY} tertentu.</value>
+    <value>Hapus semua titik akses dari {CATEGORY} tertentu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemoveAll" xml:space="preserve">
-    <value>Menghapus semua jalur akses.</value>
+    <value>Hapus semua titik akses.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Menentukan bahasa yang diinginkan untuk implementasi. Gunakan kode bahasa singkat ISO (misalnya en atau en-US).
-Anda dapat menggunakan opsi ini beberapa kali untuk menentukan beberapa bahasa yang dapat diterima.</value>
+    <value>Menentukan bahasa yang diinginkan untuk implementasi. Gunakan kode bahasa ISO singkat (misalnya en atau en-US).
+Anda dapat menggunakan opsi ini beberapa kali untuk menentukan beberapa bahasa yang diterima.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Menyebarkan Zero Install sebagai perpustakaan untuk digunakan oleh aplikasi lain tanpa integrasi desktopnya sendiri.</value>
+    <value>Gunakan Zero Install sebagai perpustakaan yang dapat digunakan oleh aplikasi lain tanpa integrasi desktop tersendiri.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Menerapkan konfigurasi di seluruh komputer (untuk seluruh komputer), bukan hanya untuk pengguna saat ini.</value>
+    <value>Terapkan konfigurasi ke seluruh sistem (untuk seluruh komputer) alih-alih hanya untuk pengguna saat ini.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Menjalankan file yang dapat dieksekusi yang ditentukan {MAIN} dan bukan default. Jika diawali dengan '/' atau '\' maka jalur tersebut relatif terhadap direktori tingkat atas implementasi, sedangkan jika tidak, jalur tersebut relatif terhadap direktori yang berisi program utama default.
-Tidak boleh berisi argumen baris perintah! Spasi tidak perlu di-escape.</value>
+    <value>Jalankan file eksekusi yang ditentukan {MAIN} sebagai pengganti yang default. Jika dimulai dengan '/' atau '\', maka jalurnya relatif terhadap direktori tingkat atas implementasi, sedangkan jika tidak, jalurnya relatif terhadap direktori yang berisi program utama default.
+Tidak boleh mengandung argumen baris perintah! Spasi kosong tidak perlu di-escape.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
-    <value>Menampilkan manifes itu sendiri (satu baris untuk setiap file atau direktori).</value>
+    <value>Menampilkan manifes itu sendiri (satu baris untuk setiap berkas atau direktori).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMessage" xml:space="preserve">
-    <value>Pesan yang akan ditampilkan saat berinteraksi dengan pengguna.</value>
+    <value>Pesan yang ditampilkan saat berinteraksi dengan pengguna.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
-    <value>Belum mengunduh aplikasi itu sendiri. Akan diunduh secara otomatis saat pertama kali digunakan.</value>
+    <value>Jangan unduh aplikasinya terlebih dahulu. Aplikasi akan diunduh secara otomatis saat pertama kali digunakan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Memerlukan versi program utama yang tidak lebih awal dari {VERSION}. Misalnya, jika Anda ingin menjalankan versi 2.0 atau yang lebih baru, gunakan --not-before=2.0.</value>
+    <value>Membutuhkan versi program utama yang tidak lebih lama dari {VERSION}. Misalnya, jika Anda ingin menjalankan versi 2.0 atau yang lebih baru, gunakan --not-before=2.0.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Segera kembali setelah program yang dipilih diluncurkan, bukannya menunggu sampai program tersebut selesai dijalankan. Pada Windows, kode keluar adalah ID proses dari program yang diluncurkan.</value>
+    <value>Segera kembali setelah program yang dipilih diluncurkan, bukan menunggu hingga proses eksekusi selesai. Pada Windows, kode keluar adalah ID proses dari program yang diluncurkan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>Menjalankan dalam mode off-line, mengesampingkan pengaturan default.
-Dalam mode off-line, tidak ada antarmuka yang di-refresh meskipun sudah ketinggalan zaman, dan versi program yang lebih baru tidak akan diunduh meskipun injektor sudah mengetahuinya (misalnya dari penyegaran sebelumnya).</value>
+    <value>Berjalan dalam mode offline, menggantikan pengaturan default.
+Dalam mode offline, antarmuka tidak diperbarui meskipun sudah usang, dan versi terbaru program tidak akan diunduh meskipun injektor sudah mengetahuinya (misalnya dari pembaruan sebelumnya).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
-    <value>Memaksa pemecah untuk menargetkan sistem operasi {OS}.</value>
+    <value>Memaksa pemecah masalah untuk menargetkan sistem operasi {OS}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPin" xml:space="preserve">
-    <value>Menandai versi yang dipilih sebagai versi yang lebih disukai untuk dijalankan di masa mendatang.</value>
+    <value>Menandai versi yang dipilih sebagai versi pilihan untuk penggunaan selanjutnya.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Membuat instalasi portabel yang dapat dipindahkan (misalnya, pada thumb drive).</value>
+    <value>Buat instalasi portabel yang dapat dipindahkan (misalnya, ke flashdisk).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
-    <value>Mengambil salinan baru dari semua feed yang digunakan.</value>
+    <value>Mengambil salinan terbaru dari semua umpan yang digunakan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Memulai ulang GUI '0install central' setelah pembaruan.</value>
+    <value>Mulai ulang antarmuka pengguna '0install central' setelah pembaruan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">
-    <value>Pilihan:</value>
+    <value>Opsi:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionShow" xml:space="preserve">
-    <value>Menunjukkan di mana komponen yang dipilih disimpan pada disk.</value>
+    <value>Tampilkan lokasi penyimpanan komponen yang dipilih di disk.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Memilih kode sumber daripada biner. Ini digunakan secara internal oleh '0compile'.</value>
+    <value>Pilih kode sumber daripada file biner. Ini digunakan secara internal oleh '0compile'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Mengatur ulang data sinkronisasi. {MODE} yang valid adalah 'tidak ada' (menggabungkan data dari klien dan server secara normal), 'klien' (mengganti semua data di klien dengan data dari server) dan 'server' (mengganti semua data di server dengan data dari klien).</value>
+    <value>Atur ulang data sinkronisasi. Nilai {MODE}yang valid adalah 'none' (menggabungkan data dari klien dan server secara normal), 'client' (mengganti semua data di klien dengan data dari server), dan 'server' (mengganti semua data di server dengan data dari klien).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
-    <value>Merilis versi yang sebelumnya ditandai sebagai pilihan.</value>
+    <value>Mengaktifkan versi yang sebelumnya ditandai sebagai pilihan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Output yang lebih bertele-tele. Gunakan dua kali untuk hasil yang lebih bertele-tele.</value>
+    <value>Output yang lebih rinci. Gunakan dua kali untuk output yang lebih rinci lagi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -840,29 +840,29 @@ Dalam mode off-line, tidak ada antarmuka yang di-refresh meskipun sudah ketingga
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Memerlukan versi program utama dalam {RANGE} yang diberikan.
-Rentang dipisahkan dengan pipa (|).
-Setiap rentang berbentuk "MULAI ... AKHIR". Rentang ini cocok dengan versi di mana MULAI &lt;= VERSI &lt; AKHIR. Bagian awal atau akhir dapat dihilangkan.
-Satu nomor versi dapat digunakan sebagai pengganti rentang untuk mencocokkan hanya versi tersebut, atau !VERSI untuk mencocokkan semuanya kecuali versi tersebut.</value>
+    <value>Memerlukan versi program utama dalam rentang yang ditentukan {RANGE}.
+Rentang dipisahkan oleh tanda pipa (|).
+Setiap rentang berbentuk "START..!END". Rentang tersebut cocok dengan versi di mana START &lt;= VERSION &lt; END. Awal atau akhir dapat dihilangkan.
+Nomor versi tunggal dapat digunakan sebagai pengganti rentang untuk mencocokkan hanya versi tersebut, atau !VERSION untuk mencocokkan semua versi kecuali versi tersebut.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Untuk pustaka atau sub-komponen apa pun dengan {0:URI} yang diberikan, tentukan versinya {1:RANGE} (seperti untuk --versi).</value>
+    <value>Untuk setiap pustaka atau subkomponen dengan opsi ` {0:URI} ` yang ditentukan, menampilkan versi ` {1:RANGE} ` (seperti pada opsi `--version`).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
     <value>Tambahkan {DIR} ke daftar cache implementasi yang akan dicari.
-Namun, unduhan baru tidak akan ditulis ke direktori ini.</value>
+Namun, unduhan baru tidak akan disimpan ke direktori ini.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Daripada menjalankan program yang dipilih secara langsung, jalankan {COMMAND} PROGRAM ARGS. Ini berguna untuk menjalankan debugger dan alat penelusuran pada program (bukan pada Zero Install!).
-Perhatikan bahwa wrapper dieksekusi pada lingkungan yang dipilih oleh program; oleh karena itu, mekanisme ini tidak dapat digunakan untuk sandboxing.
-Dapat berisi argumen baris perintah. Spasi harus dihilangkan!</value>
+    <value>Alih-alih menjalankan program yang dipilih secara langsung, jalankan {COMMAND} PROGRAM ARGS. Ini berguna untuk menjalankan debugger dan alat pelacakan pada program (bukan pada Zero Install!).
+Perhatikan bahwa wrapper dijalankan dalam lingkungan yang dipilih oleh program; oleh karena itu, mekanisme ini tidak dapat digunakan untuk sandboxing.
+Dapat berisi argumen baris perintah. Spasi kosong harus di-escape!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Menulis output ke konsol sebagai XML yang dapat dibaca mesin.</value>
+    <value>Menulis keluaran ke konsol sebagai XML yang dapat dibaca mesin.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
@@ -878,11 +878,11 @@ Dapat berisi argumen baris perintah. Spasi harus dihilangkan!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Apakah Anda ingin menghapus {0} yang dicentang dari daftar?</value>
+    <value>Apakah Anda ingin menghapus kunci yang dicentang " {0} " dari daftar?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>Apakah Anda ingin menghapus entri yang dipilih {0} dari daftar?</value>
+    <value>Apakah Anda ingin menghapus entri yang dipilih dari daftar " {0} "?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
@@ -894,11 +894,11 @@ Dapat berisi argumen baris perintah. Spasi harus dihilangkan!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Anda mungkin harus menutup dan membuka kembali terminal Anda agar dapat berjalan efektif.</value>
+    <value>Anda mungkin perlu menutup dan membuka kembali terminal Anda agar perubahan ini berlaku.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
-    <value>Apakah Anda ingin mengatur ulang daftar ke keadaan semula?</value>
+    <value>Apakah Anda ingin mengembalikan daftar ke keadaan semula?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
@@ -906,7 +906,7 @@ Dapat berisi argumen baris perintah. Spasi harus dihilangkan!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
-    <value>Menyelesaikan '{0}' ke '{1}' menggunakan katalog.</value>
+    <value>Mengubah '{0}' menjadi '{1}' menggunakan katalog.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
@@ -918,7 +918,7 @@ Dapat berisi argumen baris perintah. Spasi harus dihilangkan!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>Contoh Zero Install ini tidak digunakan. Tidak ada yang perlu dihapus.</value>
+    <value>Instan Zero Install ini belum diinstal. Tidak ada yang perlu dihapus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
@@ -926,24 +926,24 @@ Dapat berisi argumen baris perintah. Spasi harus dihilangkan!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Instance Zero Install ini tidak digunakan. Oleh karena itu, ia tidak dapat memperbarui dirinya sendiri.</value>
+    <value>Instan Zero Install ini belum diimplementasikan. Oleh karena itu, ia tidak dapat memperbarui dirinya sendiri.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>Pembaruan mandiri dinonaktifkan.
-Jalankan '0install config self_update_uri default' untuk mengaktifkannya.</value>
+    <value>Pembaruan otomatis dinonaktifkan.
+Jalankan perintah '0install config self_update_uri default' untuk mengaktifkannya.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Melayani implementasi pada port {0}</value>
+    <value>Menyediakan implementasi pada port {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>Tetapkan kebijakan stabilitas untuk {0} agar sesuai?</value>
+    <value>Apakah kebijakan stabilitas untuk {0} perlu disesuaikan?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>Setel ulang kebijakan stabilitas untuk {0} ke default?</value>
+    <value>Atur ulang kebijakan stabilitas untuk {0} ke pengaturan default?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
@@ -959,15 +959,15 @@ Jalankan '0install config self_update_uri default' untuk mengaktifkannya.</value
     <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
-    <value>{0} ruang penyimpanan yang direklamasi.</value>
+    <value>{0} ruang penyimpanan yang telah dibebaskan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
-    <value>Audit toko</value>
-    <comment>Automatically translated.</comment>
+    <value>Audit cache</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>Mengaktifkan dukungan Windows untuk Long Path dapat mengatasi masalah ini.</value>
+    <value>Mengaktifkan dukungan Windows untuk Long Paths mungkin dapat mengatasi masalah ini.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
@@ -975,16 +975,16 @@ Jalankan '0install config self_update_uri default' untuk mengaktifkannya.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>Kunci kripto digunakan untuk mengenkripsi data Anda secara lokal sebelum mengirimkannya ke server.
-Rahasiakan kunci ini dan gunakan sesuatu yang berbeda untuk kata sandi Anda. Dengan cara ini tidak ada yang bisa mengakses data Anda, bahkan jika servernya disusupi.</value>
+    <value>Kunci enkripsi digunakan untuk mengenkripsi data Anda secara lokal sebelum mengirimkannya ke server.
+Jaga kerahasiaan kunci ini dan gunakan kata sandi yang berbeda. Dengan cara ini, tidak ada yang dapat mengakses data Anda, bahkan jika server diretas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
-    <value>Terlalu banyak argumen atau opsi yang tidak diketahui.</value>
+    <value>Terlalu banyak argumen atau opsi yang tidak dikenal.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
-    <value>{0} tepercaya untuk domain</value>
+    <value>{0} dipercaya untuk domain</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
@@ -992,11 +992,11 @@ Rahasiakan kunci ini dan gunakan sesuatu yang berbeda untuk kata sandi Anda. Den
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Mencoba {0}</value>
+    <value>Coba {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Coba {0} dengan salah satunya:</value>
+    <value>Coba {0} dengan salah satu dari berikut ini:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryRunAgain" xml:space="preserve">
@@ -1008,7 +1008,7 @@ Rahasiakan kunci ini dan gunakan sesuatu yang berbeda untuk kata sandi Anda. Den
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownCommand" xml:space="preserve">
-    <value>Perintah yang tidak dikenal '{0}'.</value>
+    <value>Perintah tidak dikenal '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Usage" xml:space="preserve">
@@ -1016,7 +1016,7 @@ Rahasiakan kunci ini dan gunakan sesuatu yang berbeda untuk kata sandi Anda. Den
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseDefaultSetting" xml:space="preserve">
-    <value>Menggunakan pengaturan default</value>
+    <value>Gunakan pengaturan default</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseInstead" xml:space="preserve">
@@ -1024,7 +1024,7 @@ Rahasiakan kunci ini dan gunakan sesuatu yang berbeda untuk kata sandi Anda. Den
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">
-    <value>Menggunakan bahasa sistem</value>
+    <value>Gunakan bahasa sistem</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">
@@ -1032,7 +1032,7 @@ Rahasiakan kunci ini dan gunakan sesuatu yang berbeda untuk kata sandi Anda. Den
     <comment>Automatically translated.</comment>
   </data>
   <data name="VerifyImplementation" xml:space="preserve">
-    <value>Memverifikasi implementasi</value>
+    <value>Verifikasi implementasi</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionInformation" xml:space="preserve">

@@ -58,6 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
+    <value>Das Archiv enthält nur ein einziges Top-Level Verzeichnis, mit dem Namen '{0}'. Sie sollten das Attribut '{1}' wahrscheinlich auf '{0}' setzen, um eine zusätzliche Verschachtelungsebene zu vermeiden.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="CommandPathNotFound" xml:space="preserve">
+    <value>Der Befehl '{0}' gibt den Pfad '{1}' an, aber diese Datei existiert nicht im Archiv.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Suche nach ausführbaren Dateien</value>
     <comment>Manually overriden.</comment>

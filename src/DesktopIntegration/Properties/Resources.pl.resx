@@ -60,23 +60,23 @@
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
     <value>Następujące istniejące punkty dostępu są ze sobą w konflikcie:</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
     <value>Następujące punkty dostępu do aplikacji {0} są ze sobą w konflikcie:</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
     <value>Istniejący punkt dostępu {0} jest w konflikcie z nowym punktem dostępu {1}.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
     <value>Aplikacja '{0}' znajduje się już na liście aplikacji.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
     <value>Wprowadzanie zmian</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
     <value>Tworzenie skrótu na pulpicie dla {0}</value>
@@ -84,7 +84,7 @@
   </data>
   <data name="AppNotInList" xml:space="preserve">
     <value>Nie można znaleźć aplikacji '{0}' na liście aplikacji.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
     <value>Możesz jednocześnie utworzyć tylko jeden skrót na pulpicie.</value>
@@ -96,7 +96,7 @@
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
     <value>Użyj "0install central" lub "0install config", aby skonfigurować Sync.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
     <value>Wystąpił problem z załadowaniem „{0}”.</value>
@@ -104,40 +104,40 @@
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
     <value>Naprawa integracji pulpitu</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
     <value>Nazwa skrótu '{0}' zawiera nieprawidłowe znaki.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
     <value>Nazwa użytkownika i/lub hasło wprowadzone dla serwera Sync są nieprawidłowe. Sprawdź opcje synchronizacji.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
     <value>Klucz kryptograficzny wprowadzony dla synchronizacji jest nieprawidłowy. Sprawdź opcje synchronizacji.
 Możesz zmienić klucz kryptograficzny używany na serwerze, uruchamiając kreatora rozwiązywania problemów (kliknij prawym przyciskiem myszy przycisk "Synchronizacja", aby się tam dostać) lub wykonując polecenie "0install sync --reset=server".</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
     <value>Pobieranie danych synchronizacji</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Dane aktualnie przechowywane na serwerze Sync są uszkodzone.
 Możesz zastąpić dane przechowywane na serwerze, uruchamiając kreatora rozwiązywania problemów (kliknij prawym przyciskiem myszy przycisk "Sync", aby się tam dostać) lub wykonując polecenie "0install sync --reset=server".</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
     <value>Przesyłanie danych synchronizacji</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
     <value>Nie można znaleźć {0} z ID '{1}'.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
     <value>Nie można zastąpić nieaktualnego pliku wykonywalnego "{0}".</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

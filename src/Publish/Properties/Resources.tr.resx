@@ -96,15 +96,15 @@ Giriş noktasını el ile belirtmeyi deneyin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Kayıt defterinde çoklu varsayılan uygulama kaydı algılandı. Tümü işleniyor, ancak bazı durumlarda sonuncu kayıt öncelikli olabilir.</value>
+    <value>Kayıt defterinde birden fazla varsayılan uygulama kaydı bulundu. Tümü işleniyor, ancak bazı durumlarda sonuncu kayıt öncelikli olabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Çoklu kurulum klasörü algılandı. Varsayılan olarak ilki seçildi.</value>
+    <value>Birden fazla kurulum klasörü bulundu. Varsayılan olarak ilki seçildi.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Kayıt defterinde çoklu yeni uygulama kayıtları algılandı. Varsayılan olarak ilki seçildi.</value>
+    <value>Kayıt defterinde birden fazla yeni uygulama kaydı bulundu. Varsayılan olarak ilki seçildi.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">

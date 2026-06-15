@@ -59,51 +59,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>Řetězec musí být ve tvaru "{0}".</value>
+    <value>Řetězec musí mít tvar „{0} “.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
-    <value>Nelze najít příkaz '{0}'.</value>
+    <value>Nelze najít příkaz „{0} “.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Předvolby chybového načítání kanálu pro '{0}'. Návrat k výchozím hodnotám.</value>
+    <value>Chyba při načítání předvoleb kanálu pro „{0} “. Vrací se k výchozím hodnotám.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Předvolby rozhraní pro chybové načítání pro '{0}'. Návrat k výchozím hodnotám.</value>
+    <value>Chyba při načítání předvoleb rozhraní pro „{0} “. Vrací se k výchozím hodnotám.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Chybné načítání databáze důvěryhodnosti. Návrat k výchozím hodnotám.</value>
+    <value>Chyba při načítání databáze důvěryhodnosti. Vrací se k výchozím hodnotám.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>V katalogu nelze najít kanál '{0}'.</value>
+    <value>Nelze najít zdroj „{0} “ v katalogu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Nalezeno místo:</value>
+    <value>Nalezeno místo toho:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Ve výběru nelze najít implementaci pro rozhraní '{0}'.</value>
+    <value>Nelze najít implementaci pro rozhraní „{0} “ ve výběru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' není platný URI 'http(s):' a není ani platnou místní cestou.</value>
+    <value>„{0} “ není platný URI typu „http(s):“ a není ani platnou lokální cestou.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Neplatný atribut '{0}' na adrese {1}.</value>
+    <value>Neplatný atribut „{0} “ na stránce {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Chybějící atribut '{0}' na adrese {1}.</value>
+    <value>Chybí atribut „{0} “ na stránce {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Chybějící značka {0} uvnitř {1}.</value>
+    <value>Chybí značka ` {0} ` uvnitř ` {1}`.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -111,35 +111,35 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Číslo verze může obsahovat pouze desetinná místa oddělená tečkami a modifikující řetězce.</value>
+    <value>Číslo verze může obsahovat pouze desetinná čísla oddělená tečkami a modifikační řetězce.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Číslo verze musí začínat seznamem desetinných míst oddělených tečkami.</value>
+    <value>Číslo verze musí začínat seznamem desetinných čísel oddělených tečkami.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nebyl zadán žádný známý způsob trávení.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nebyla zadána žádná známá metoda výpočtu digestu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Relativní cestu '{0}' se nepodařilo vyřešit. Relativní cesty mohou obsahovat pouze kanály uložené jako místní soubory.</value>
+    <value>Relativní cestu „{0} “ nebylo možné vyřešit. Relativní cesty mohou obsahovat pouze kanály uložené jako místní soubory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Relativní URI '{0}' se nepodařilo vyřešit. Relativní URI mohou obsahovat pouze kanály uložené jako místní soubory.</value>
+    <value>Relativní URI „{0} “ nebylo možné vyřešit. Relativní URI mohou obsahovat pouze kanály uložené jako místní soubory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>atribut 'rollout-percentage' na adrese {0} lze nastavit pouze tehdy, když je hodnota 'stability' 'testing' nebo není nastavena.</value>
+    <value>Atribut „rollout-percentage“ na adrese {0} lze nastavit pouze v případě, že je „stability“ nastaveno na „testing“ nebo není nastaveno vůbec.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Implementace s chybami</value>
+    <value>Chybová implementace</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Neposkytuje příkaz '{0}'.</value>
+    <value>Nepodporuje příkaz „{0} “.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
@@ -151,19 +151,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementace není v mezipaměti (v současné době v režimu off-line)</value>
+    <value>Implementace není v mezipaměti (v současné době v režimu offline)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Nespustitelná zdrojová implementace</value>
+    <value>Nespustitelná implementace zdrojového kódu</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Příliš stará nebo příliš nová verze implementace</value>
+    <value>Verze implementace je příliš stará nebo příliš nová</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Mělo by se jednat o platný typ MIME.</value>
+    <value>Měl by to být platný typ MIME.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
@@ -171,11 +171,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>Krok receptu '{0}' v implementaci '{1}' má neplatný odkaz na implementaci.</value>
+    <value>Krok receptu „{0} “ v implementaci „{1} “ má neplatný odkaz na implementaci.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>Přípona souboru '{0}' neodpovídá známému typu archivu.</value>
+    <value>Přípona souboru „{0} “ neodpovídá žádnému známému typu archivu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Konec rozsahu verzí musí být exkluzivní. Použijte '..!{0}', nikoli '..{0}'.</value>
+    <value>Konec rozsahu verzí musí být exkluzivní. Použijte „..!{0} “, nikoli „..{0} “.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>String harus dalam bentuk "{0}".</value>
+    <value>String tersebut harus berbentuk "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
@@ -67,23 +67,23 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Kesalahan memuat preferensi umpan untuk '{0}'. Kembali ke nilai default.</value>
-    <comment>Automatically translated.</comment>
+    <value>Kesalahan memuat preferensi feed untuk '{0}'. Kembali ke nilai default.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Kesalahan saat memuat preferensi antarmuka untuk '{0}'. Kembali ke nilai default.</value>
+    <value>Terjadi kesalahan saat memuat preferensi antarmuka untuk '{0}'. Kembali ke nilai default.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Kesalahan saat memuat basis data kepercayaan. Kembali ke nilai default.</value>
+    <value>Terjadi kesalahan saat memuat basis data kepercayaan. Kembali ke nilai default.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Tidak dapat menemukan feed '{0}' dalam katalog.</value>
+    <value>Tidak dapat menemukan feed '{0}' di katalog.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Ditemukan sebagai gantinya:</value>
+    <value>Yang ditemukan:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' bukan URI 'http(s):' yang valid dan juga bukan jalur lokal yang valid.</value>
+    <value>'{0}' bukanlah URI 'http(s):' yang valid dan juga bukan jalur lokal yang valid.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -99,43 +99,43 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Atribut '{0}' yang hilang pada {1}.</value>
+    <value>Atribut '{0}' tidak ada di {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Tag {0} yang hilang di dalam {1}.</value>
+    <value>Tag ` {0} ` hilang di dalam ` {1}`.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>Daftar yang dipisahkan dengan titik mungkin hanya berisi angka desimal.</value>
+    <value>Daftar yang dipisahkan titik hanya boleh berisi angka desimal.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Nomor versi hanya boleh berisi desimal yang dipisahkan titik dan string pengubah.</value>
+    <value>Nomor versi hanya boleh berisi angka desimal yang dipisahkan dengan titik dan string modifikator.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Nomor versi harus dimulai dengan daftar desimal yang dipisahkan titik.</value>
+    <value>Nomor versi harus diawali dengan daftar angka desimal yang dipisahkan oleh titik.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Tidak ada metode penguraian yang diketahui.</value>
-    <comment>Automatically translated.</comment>
+    <value>Tidak ada metode hash (digest) yang diketahui yang ditentukan.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Jalur relatif '{0}' tidak dapat diselesaikan. Hanya feed yang disimpan sebagai file lokal yang dapat berisi jalur relatif.</value>
+    <value>Jalur relatif '{0}' tidak dapat diidentifikasi. Hanya umpan yang disimpan sebagai berkas lokal yang boleh berisi jalur relatif.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>URI relatif '{0}' tidak dapat diselesaikan. Hanya feed yang disimpan sebagai file lokal yang dapat berisi URI relatif.</value>
+    <value>URI relatif '{0}' tidak dapat diidentifikasi. Hanya umpan yang disimpan sebagai berkas lokal yang boleh berisi URI relatif.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>atribut 'persentase-peluncuran' pada {0} hanya dapat diatur ketika 'stabilitas' adalah 'pengujian' atau tidak diatur.</value>
-    <comment>Automatically translated.</comment>
+    <value>atribut 'rollout-percentage' pada {0} hanya dapat diatur ketika 'stability' adalah 'testing' atau tidak diatur.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Implementasi buggy</value>
+    <value>Implementasi yang bermasalah</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Sistem operasi atau CPU yang tidak kompatibel</value>
+    <value>Sistem operasi atau CPU tidak kompatibel</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementasi tidak dalam cache (saat ini dalam mode off-line)</value>
+    <value>Implementasi tidak dalam cache (saat ini dalam mode offline)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
@@ -163,11 +163,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Harus merupakan jenis MIME yang valid.</value>
+    <value>Harus berupa tipe MIME yang valid.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Harus berupa ID yang aman. Hanya boleh berisi karakter alfanumerik, spasi ( ), titik (.), garis bawah (_), tanda hubung (-), dan tanda tambah (+).</value>
+    <value>Harus berupa ID yang aman. Hanya boleh berisi karakter alfanumerik, spasi ( ), titik (.), garis bawah (_), tanda hubung (-) dan tanda plus (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
@@ -179,11 +179,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
-    <value>Pengubah yang tidak dikenal.</value>
+    <value>Modifier yang tidak dikenal.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Akhir rentang versi harus eksklusif. Gunakan '..!{0}', bukan '..{0}'.</value>
+    <value>Batas akhir rentang versi harus eksklusif. Gunakan '..!{0}', bukan '..{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

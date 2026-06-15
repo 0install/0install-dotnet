@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>Sprawdzanie uszkodzonych plików</value>
+    <value>Sprawdzanie, czy pliki są uszkodzone</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
@@ -116,7 +116,7 @@ Jeśli chcesz usunąć cały katalog bez użycia Zero Install, możesz użyć te
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Błąd ładowania pakietu kluczy OpenPGP z '{0}'</value>
+    <value>Błąd podczas ładowania pakietu kluczy OpenPGP z „{0} ”</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -124,8 +124,8 @@ Jeśli chcesz usunąć cały katalog bez użycia Zero Install, możesz użyć te
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Korzystanie z feed mirror, które jest wymagane do wyszukiwania, jest wyłączone.
-Uruchom "0install config feed_mirror default", aby ją włączyć.</value>
+    <value>Korzystanie z serwera lustrzanego kanałów, które jest wymagane do wyszukiwania, jest wyłączone.
+Uruchom polecenie „0install config feed_mirror default”, aby je włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -145,23 +145,23 @@ Uruchom "0install config feed_mirror default", aby ją włączyć.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Znajdowanie duplikatów plików w '{0}'</value>
+    <value>Wyszukiwanie zduplikowanych plików w programie „{0} ”</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>Plik '{0}' nie jest ani dowiązaniem symbolicznym, ani zwykłym plikiem.</value>
+    <value>Plik „{0} ” nie jest ani dowiązaniem symbolicznym, ani zwykłym plikiem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>Implementacja '{0}' jest już dostępna w sklepie.</value>
-    <comment>Automatically translated.</comment>
+    <value>Implementacja '{0}' jest już w pamięci podręcznej.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>Implementacja '{0}' jest uszkodzona.</value>
+    <value>Implementacja „{0} ” jest uszkodzona.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Czy chcesz usunąć implementację? W razie potrzeby nowa kopia zostanie automatycznie pobrana ponownie.</value>
+    <value>Czy chcesz usunąć tę implementację? W razie potrzeby nowa kopia zostanie automatycznie pobrana ponownie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
@@ -169,7 +169,7 @@ Uruchom "0install config feed_mirror default", aby ją włączyć.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>Nie można znaleźć implementacji '{0}'.</value>
+    <value>Nie można znaleźć implementacji „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -182,19 +182,19 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Nie można pobrać ikony z {0}, ponieważ obsługiwane są tylko adresy URL HTTP i HTTPS.</value>
+    <value>Nie można pobrać ikony ze strony {0}, ponieważ obsługiwane są tylko adresy URL w protokołach HTTP i HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>Plik manifestu zawiera nieprawidłowe linie.</value>
+    <value>Plik manifestu zawiera nieprawidłowe wiersze.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Nieprawidłowa liczba części w linii.</value>
+    <value>Nieprawidłowa liczba elementów w linii.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>Archiwum zawiera nieprawidłową ścieżkę (potencjalne zagrożenie bezpieczeństwa): {0}</value>
+    <value>Archiwum zawiera nieprawidłową ścieżkę (może to stanowić zagrożenie dla bezpieczeństwa): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -202,12 +202,12 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Tylko administratorzy mogą optymalizować udostępniony sklep.</value>
-    <comment>Automatically translated.</comment>
+    <value>Tylko administratorzy mogą optymalizować udostępnioną pamięć podręczną.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Tylko administratorzy mogą usuwać elementy z udostępnionego sklepu.</value>
-    <comment>Automatically translated.</comment>
+    <value>Tylko administratorzy mogą usuwać elementy z udostępnionej pamięci podręcznej.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>Nazwa pliku lub katalogu nie może zawierać znaku nowej linii.</value>
@@ -222,8 +222,8 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Ścieżka '{0}' nie jest ścieżką bezwzględną. Względne ścieżki są dozwolone tylko w trybie przenośnym.
-Określona w pliku konfiguracyjnym '{1}'.</value>
+    <value>Ścieżka „{0} ” nie jest ścieżką bezwzględną. Ścieżki względne są dozwolone tylko w trybie przenośnym.
+Określone w pliku konfiguracyjnym „{1} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
@@ -231,11 +231,11 @@ Określona w pliku konfiguracyjnym '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install nie może usunąć się z pamięci podręcznej wdrożenia.</value>
+    <value>Zero Install nie może samodzielnie usunąć się z pamięci podręcznej implementacji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>Wartość liczbowa jest zbyt duża.</value>
+    <value>Wartość liczby jest zbyt duża.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
@@ -243,8 +243,8 @@ Określona w pliku konfiguracyjnym '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Wystąpił problem z dostępem do magazynu implementacji '{0}'.
-Uruchom '{1}', aby usunąć go z listy zarejestrowanych katalogów.</value>
+    <value>Wystąpił problem z dostępem do magazynu implementacji „{0} ”.
+Uruchom „{1} ”, aby usunąć go z listy zarejestrowanych katalogów.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
@@ -266,7 +266,7 @@ Aby rozwiązać ten problem, usuń plik „{1}”. Inne ustawienia mogą równie
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>Nie można nawiązać połączenia z usługą StoreService.</value>
+    <value>Nie można nawiązać połączenia z StoreService.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -274,7 +274,7 @@ Aby rozwiązać ten problem, usuń plik „{1}”. Inne ustawienia mogą równie
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>Nie można znaleźć tajnego klucza o określonej nazwie.</value>
+    <value>Nie można znaleźć klucza tajnego o podanej nazwie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">

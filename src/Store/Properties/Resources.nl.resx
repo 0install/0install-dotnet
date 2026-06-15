@@ -124,8 +124,8 @@ Als u de hele map wilt verwijderen zonder Zero Install te gebruiken, kunt u deze
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Gebruik van de feed mirror, die nodig is voor zoeken, is uitgeschakeld.
-Voer '0install config feed_mirror default' uit om het in te schakelen.</value>
+    <value>Het gebruik van de feed-mirror, die nodig is voor het zoeken, is uitgeschakeld.
+Voer '0install config feed_mirror default' uit om deze in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -149,23 +149,23 @@ Voer '0install config feed_mirror default' uit om het in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>Het bestand '{0}' is geen symbolische link en ook geen gewoon bestand.</value>
+    <value>Het bestand '{0}' is geen symbolische koppeling en ook geen gewoon bestand.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>De implementatie '{0}' is al in de winkel.</value>
-    <comment>Automatically translated.</comment>
+    <value>De implementatie '{0}' staat al in de opslag.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
     <value>De implementatie '{0}' is beschadigd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Wil je de implementatie verwijderen? Er wordt automatisch een nieuwe kopie gedownload wanneer dat nodig is.</value>
+    <value>Wilt u de installatie verwijderen? Er wordt automatisch een nieuwe kopie gedownload wanneer dat nodig is.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>De implementatie is verwijderd. Een nieuwe kopie wordt automatisch opnieuw gedownload als dat nodig is.</value>
+    <value>De implementatie is verwijderd. Er wordt automatisch een nieuwe kopie gedownload wanneer dat nodig is.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -182,7 +182,7 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Kan geen pictogram downloaden van {0} omdat alleen HTTP- en HTTPS-URL's worden ondersteund.</value>
+    <value>Kan het pictogram niet downloaden van {0} omdat alleen HTTP- en HTTPS-URL's worden ondersteund.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -190,7 +190,7 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Ongeldig aantal onderdelen in lijn.</value>
+    <value>Ongeldig aantal onderdelen in de regel.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -202,15 +202,15 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Alleen beheerders kunnen een gedeelde winkel optimaliseren.</value>
-    <comment>Automatically translated.</comment>
+    <value>Alleen beheerders kunnen een gedeelde opslag optimaliseren.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Alleen beheerders kunnen elementen verwijderen uit een gedeelde winkel.</value>
-    <comment>Automatically translated.</comment>
+    <value>Alleen beheerders kunnen elementen verwijderen uit een gedeelde opslag.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>De bestands- of mapnaam mag geen newline-teken bevatten.</value>
+    <value>De bestands- of mapnaam mag geen regeleinde bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -222,12 +222,12 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Het pad '{0}' is geen absoluut pad. Relatieve paden zijn alleen toegestaan in draagbare modus.
-Opgegeven in het configuratiebestand '{1}'.</value>
+    <value>Het pad '{0}' is geen absoluut pad. Relatieve paden zijn alleen toegestaan in de draagbare modus.
+Gespecificeerd in het configuratiebestand '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Geen geselecteerde versie</value>
+    <value>Geen versie geselecteerd</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
@@ -235,11 +235,11 @@ Opgegeven in het configuratiebestand '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>De getalwaarde is te groot.</value>
+    <value>De getalswaarde is te groot.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Deze optie wordt geregeld door een groepsbeleid en kan daarom niet worden gewijzigd.</value>
+    <value>Deze optie wordt beheerd door een groepsbeleid en kan daarom niet worden gewijzigd.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
@@ -266,7 +266,7 @@ U kunt het bestand "{1}" verwijderen om het probleem op te lossen. Andere instel
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>Kan geen verbinding maken met StoreService.</value>
+    <value>Kan geen verbinding tot stand brengen met StoreService.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -286,7 +286,7 @@ U kunt het bestand "{1}" verwijderen om het probleem op te lossen. Andere instel
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>De wachtwoordzin die u hebt ingevoerd is onjuist.</value>
+    <value>De wachtwoordzin die u hebt ingevoerd, is onjuist.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

@@ -59,11 +59,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>El archivo contiene un único directorio de nivel superior '{0}'. Probablemente debería establecer el atributo '{1}' en '{0}' para evitar un nivel de anidamiento adicional.</value>
+    <value>El archivo contiene únicamente un único directorio de nivel superior «{0} ». Probablemente deberías establecer el atributo «{1} » en «{0} » para evitar un nivel de anidación adicional.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
-    <value>El comando '{0}' especifica la ruta '{1}' pero este fichero no existe en el archivo.</value>
+    <value>El comando «{0} » especifica la ruta «{1} », pero este archivo no existe en el archivo comprimido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DetectingCandidates" xml:space="preserve">
@@ -71,24 +71,24 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Se ha calculado un resumen del manifiesto para un directorio vacío. Compruebe que ha establecido el valor "{0}" correcto para el archivo.</value>
-    <comment>Automatically translated.</comment>
+    <value>Se ha calculado un manifest digest para un directorio vacío. Compruebe que ha establecido el valor "{0}" correcto para el archivo.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>No se ha encontrado el punto de entrada de la aplicación.
-Intente especificarlo manualmente.</value>
+Intenta especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Descarga '{0}' con Instalación Cero</value>
-    <comment>Automatically translated.</comment>
+    <value>Descargando '{0}' con Zero Install</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
-    <value>No se ha encontrado el archivo '{0}'.</value>
+    <value>No se ha encontrado el archivo «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>Detecta '{0}' como directorio de instalación.</value>
+    <value>Se ha detectado «{0} » como directorio de instalación.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
@@ -96,32 +96,32 @@ Intente especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Se han detectado varios programas nuevos por defecto en el registro. Los maneja todos, pero el último puede tener preferencia en algunos casos.</value>
+    <value>Se han detectado varios programas predeterminados nuevos en el registro. Se están gestionando todos, pero el último puede tener prioridad en algunos casos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Se han detectado varios directorios de instalación. Elección del primero por defecto.</value>
+    <value>Se han detectado varios directorios de instalación. Se selecciona el primero de forma predeterminada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Se han detectado varios registros de nuevas aplicaciones en el registro. Elección de la primera por defecto.</value>
+    <value>Se han detectado múltiples registros de nuevas aplicaciones en el registro. Se selecciona la primera de forma predeterminada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>No se ha detectado ningún directorio de instalación.
-Intente especificarlo manualmente.</value>
+Intenta especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
-    <value>Actualmente, este método sólo está disponible en Windows.</value>
+    <value>Actualmente, este método solo está disponible en Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>La clave secreta no está en el llavero del usuario.</value>
+    <value>La clave secreta no se encuentra en el llavero del usuario.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>Tamaño de archivo aún por determinar.</value>
+    <value>Tamaño del archivo aún por determinar.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

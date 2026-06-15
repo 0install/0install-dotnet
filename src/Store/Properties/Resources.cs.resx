@@ -96,7 +96,7 @@ Pokud chcete odstranit celý adresář bez Zero Install, použijte tento příka
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>Projev hašovací funkce dané implementace neodpovídá očekávané hodnotě.</value>
+    <value>Otisk manifestu dané implementace neodpovídá očekávané hodnotě.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
@@ -104,7 +104,7 @@ Pokud chcete odstranit celý adresář bez Zero Install, použijte tento příka
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Skutečný projev: {0}</value>
+    <value>Skutečný manifest: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
@@ -112,11 +112,11 @@ Pokud chcete odstranit celý adresář bez Zero Install, použijte tento příka
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Očekávaný projev: {0}</value>
+    <value>Očekávaný manifest: {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Chyba při načítání svazku klíčů OpenPGP z adresy '{0}'</value>
+    <value>Chyba při načítání balíčku klíčů OpenPGP z adresy „{0} “</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -124,8 +124,8 @@ Pokud chcete odstranit celý adresář bez Zero Install, použijte tento příka
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Používání zrcadla kanálů, které je nutné pro vyhledávání, je zakázáno.
-Chcete-li jej povolit, spusťte příkaz '0install config feed_mirror default'.</value>
+    <value>Použití zrcadla kanálu, které je nutné pro vyhledávání, je deaktivováno.
+Spusťte příkaz „0install config feed_mirror default“, abyste jej aktivovali.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -145,31 +145,31 @@ Chcete-li jej povolit, spusťte příkaz '0install config feed_mirror default'.<
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Vyhledávání duplicitních souborů v aplikaci '{0}'</value>
-    <comment>Automatically translated.</comment>
+    <value>Vyhledávání duplicitních souborů v '{0}'</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
-    <value>Soubor '{0}' není symbolický odkaz ani běžný soubor.</value>
+    <value>Soubor „{0} “ není ani symbolický odkaz, ani běžný soubor.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>Implementace '{0}' je již v obchodě.</value>
-    <comment>Automatically translated.</comment>
+    <value>Implementace '{0}' je již v mezipaměti.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>Implementace '{0}' je poškozena.</value>
+    <value>Implementace „{0} “ je poškozená.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Chcete odstranit implementaci? V případě potřeby se automaticky znovu stáhne nová kopie.</value>
+    <value>Chcete odstranit tuto implementaci? V případě potřeby se automaticky stáhne nová kopie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Implementace byla odstraněna. V případě potřeby se automaticky znovu stáhne nová kopie.</value>
+    <value>Implementace byla odstraněna. V případě potřeby se automaticky stáhne nová kopie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>Implementaci '{0}' se nepodařilo najít.</value>
+    <value>Nebylo možné najít implementaci „{0} “.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -182,15 +182,15 @@ Pokud používáte disk ve formátu FAT, převeďte jej na NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Nelze stáhnout ikonu z adresy {0}, protože jsou podporovány pouze adresy URL HTTP a HTTPS.</value>
+    <value>Nelze stáhnout ikonu z adresy {0}, protože jsou podporovány pouze adresy URL typu HTTP a HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>Soubor manifest obsahuje neplatné řádky.</value>
+    <value>Soubor manifestu obsahuje neplatné řádky.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Nesprávný počet dílů v řadě.</value>
+    <value>Neplatný počet dílů v řádku.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -202,12 +202,12 @@ Pokud používáte disk ve formátu FAT, převeďte jej na NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>Optimalizovat sdílený sklad mohou pouze správci.</value>
-    <comment>Automatically translated.</comment>
+    <value>Optimalizovat sdílenou mezipaměť mohou pouze správci.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>Prvky ze sdíleného úložiště mohou odebírat pouze správci.</value>
-    <comment>Automatically translated.</comment>
+    <value>Prvky ze sdílené mezipaměti mohou odebírat pouze správci.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>Název souboru nebo adresáře nesmí obsahovat znak nového řádku.</value>
@@ -218,24 +218,24 @@ Pokud používáte disk ve formátu FAT, převeďte jej na NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nebyl zadán žádný známý způsob trávení.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nebyla zadána žádná známá metoda výpočtu digestu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Cesta '{0}' není absolutní cesta. Relativní cesty jsou povoleny pouze v přenosném režimu.
-Zadává se v konfiguračním souboru '{1}'.</value>
+    <value>Cesta „{0} “ není absolutní. Relativní cesty jsou povoleny pouze v přenosném režimu.
+Zadáno v konfiguračním souboru „{1} “.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
-    <value>Žádná vybraná verze</value>
+    <value>Není vybrána žádná verze</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Aplikace Zero Install se nemůže sama odstranit z implementační mezipaměti.</value>
+    <value>Zero Install se nemůže odstranit z implementační mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>Hodnota čísla je příliš velká.</value>
+    <value>Číselná hodnota je příliš velká.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
@@ -243,8 +243,8 @@ Zadává se v konfiguračním souboru '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Došlo k problému s přístupem k úložišti implementace '{0}'.
-Spusťte '{1}' a odstraňte jej ze seznamu registrovaných adresářů.</value>
+    <value>Došlo k problému při přístupu k úložišti implementací „{0} “.
+Spusťte „{1} “, abyste jej odstranili ze seznamu registrovaných adresářů.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
@@ -262,7 +262,7 @@ Problém vyřešíte odstraněním souboru ‚‚{1}‘‘. Může dojít i ke z
     <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
-    <value>Podpisový soubor již existuje.</value>
+    <value>Soubor podpisu již existuje.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
