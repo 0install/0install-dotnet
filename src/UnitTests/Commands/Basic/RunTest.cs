@@ -62,7 +62,7 @@ public class RunTest : SelectionTestBase<Run>
         selections.SaveXml(tempFile);
 
         selections.Normalize();
-        RunAndAssert(null, 0, selections, tempFile, "--arg1", "--arg2");
+        RunAndAssert(null, 0, selections, "--no-wait", tempFile, "--arg1", "--arg2");
     }
 
     public override void ShouldRejectTooManyArgs()

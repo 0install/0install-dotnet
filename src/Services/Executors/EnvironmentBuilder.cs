@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
+using System.Runtime.Versioning;
 using NanoByte.Common.Native;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Native;
@@ -162,6 +163,42 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
         }
         #endregion
     }
+
+#if NET
+    /// <inheritdoc/>
+    [SupportedOSPlatform("linux"), SupportedOSPlatform("freebsd"), SupportedOSPlatform("macos")]
+    [DoesNotReturn]
+    public void Exec()
+    {
+        if (_selections == null || _mainCommandLine == null) throw new InvalidOperationException($"{nameof(Inject)}() must be called first.");
+
+        List<string> commandLine;
+        try
+        {
+            ProcessRunEnvBindings();
+            commandLine = ExpandCommandLine(_mainCommandLine);
+            commandLine.Add(_userArguments);
+        }
+        #region Error handling
+        catch (KeyNotFoundException ex)
+        {
+            // Wrap exception since only certain exception types are allowed
+            throw new ExecutorException(ex.Message);
+        }
+        #endregion
+
+        if (commandLine is []) throw new ExecutorException(Resources.CommandLineEmpty);
+
+        // Exec inherits the current process' environment and working directory, so apply them here
+        foreach (var entry in _startInfo.Environment)
+            Environment.SetEnvironmentVariable(entry.Key, entry.Value);
+        if (!string.IsNullOrEmpty(_startInfo.WorkingDirectory))
+            Environment.CurrentDirectory = _startInfo.WorkingDirectory;
+
+        Log.Debug($"Replacing current process via exec: {commandLine.JoinEscapeArguments()}");
+        UnixUtils.Exec(commandLine[0], commandLine.Skip(1).ToArray()); // Does not return on success
+    }
+#endif
 
     /// <summary>
     /// Returns the main (first) implementation of the selection.

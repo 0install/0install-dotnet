@@ -70,6 +70,19 @@ public class Run : Download
                               .SetEnvironmentVariable(ZeroInstallEnvironment.FeedUriName, Requirements.InterfaceUri.ToStringRfc())
                               .SetCallbackEnvironmentVariables();
 
+#if NET
+        if (UnixUtils.IsUnix && !_noWait && string.IsNullOrEmpty(_wrapper))
+        {
+            BackgroundUpdate();
+            BackgroundSelfUpdate();
+
+            Handler.CloseUI();
+
+            builder.Exec();
+            throw new UnreachableException();
+        }
+#endif
+
         using var process = TryStart(builder);
         if (process == null)
         {

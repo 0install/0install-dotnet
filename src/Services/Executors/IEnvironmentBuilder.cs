@@ -52,4 +52,17 @@ public interface IEnvironmentBuilder
     /// <exception cref="IOException">Failed to start the program.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
     Process? Start();
+
+#if NET
+    /// <summary>
+    /// Replaces the current process with the program. Does not return on success.
+    /// </summary>
+    /// <remarks>Only supported on Unix and only without a <see cref="AddWrapper">wrapper</see>.</remarks>
+    /// <exception cref="ImplementationNotFoundException">One of the <see cref="Implementation"/>s is not cached yet.</exception>
+    /// <exception cref="ExecutorException">The <see cref="IExecutor"/> was unable to process the <see cref="Selections"/>.</exception>
+    /// <exception cref="IOException">The exec call failed (e.g. the executable was not found).</exception>
+    /// <exception cref="UnauthorizedAccessException">Write access to a file is not permitted.</exception>
+    [DoesNotReturn]
+    void Exec();
+#endif
 }
