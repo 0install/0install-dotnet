@@ -135,8 +135,10 @@ public sealed class IconStore(string path, Config config, ITaskHandler handler) 
 
     private static void Validate(Icon icon, string path)
     {
+#if NET
         // Icon validation currently uses GDI+ which is only available on Windows
-        if (!WindowsUtils.IsWindows) return;
+        if (!WindowsUtils.IsWindows7) return;
+#endif
 
         try
         {
