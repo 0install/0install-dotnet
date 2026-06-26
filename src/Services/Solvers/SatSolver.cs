@@ -21,10 +21,9 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
         return new SolverRun(requirements, candidateProvider).Solve();
     }
 
-    /// <summary>Discriminated key for SAT variables: an implementation candidate or a CPU group sentinel.</summary>
+    /// <summary>Discriminated key for SAT variables.</summary>
     private abstract record NodeKey;
     private sealed record ImplNode(SelectionCandidate Candidate) : NodeKey;
-    private sealed record CpuGroupNode(CpuGroup Group) : NodeKey;
 
     private sealed class RoleData
     {
@@ -39,7 +38,6 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
         private readonly Requirements _rootRequirements = requirements.ForCurrentSystem();
         private readonly SatProblem<NodeKey> _problem = new();
         private readonly Dictionary<FeedUri, RoleData> _roles = [];
-        private readonly HashSet<CpuGroup> _cpuGroups = [];
         private readonly Queue<FeedUri> _encodingQueue = new();
         private readonly Queue<(SelectionCandidate Candidate, string CommandName)> _commandQueue = new();
         private readonly HashSet<(SelectionCandidate, string)> _encodedCommands = [];
@@ -102,10 +100,6 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
                     EncodeCandidateCommand(candidate, commandName);
                 }
             }
-
-            // Cross-role CPU group constraint: e.g. AtMostOne(32, 64).
-            if (_cpuGroups.Count >= 2)
-                _problem.AtMostOne(_cpuGroups.Select(g => Literal.Of<NodeKey>(new CpuGroupNode(g))));
         }
 
         private void EnqueueCommand(SelectionCandidate candidate, string? commandName)
@@ -143,17 +137,6 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
             if (candidates.Count > 1)
                 role.AtMostOne = _problem.AtMostOne(candidates.Select(LitFor));
 
-            // Bind each architecture-specific candidate to its CPU group.
-            foreach (var candidate in candidates)
-            {
-                if (candidate.Implementation.Architecture.Cpu.GetGroup() is { } group)
-                {
-                    _cpuGroups.Add(group);
-                    _problem.AddVariable(new CpuGroupNode(group));
-                    _problem.Implies(LitFor(candidate), Literal.Of<NodeKey>(new CpuGroupNode(group)));
-                }
-            }
-
             _encodingQueue.Enqueue(reqs.InterfaceUri);
             return role;
         }
@@ -164,7 +147,7 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
             var impl = candidate.Implementation;
 
             foreach (var dependency in impl.Dependencies.Where(x => x.IsApplicable(roleReqs)))
-                EncodeDependency(candidateLit, dependency);
+                EncodeDependency(candidate, dependency);
             foreach (var restriction in impl.Restrictions.Where(x => x.IsApplicable(roleReqs)))
                 EncodeRestriction(candidateLit, restriction);
             foreach (var binding in impl.Bindings.OfType<ExecutableInBinding>())
@@ -181,15 +164,16 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
 
             if (command.Runner != null) EncodeRunner(candidateLit, command.Runner);
             foreach (var dependency in command.Dependencies.Where(x => x.IsApplicable(roleReqs)))
-                EncodeDependency(candidateLit, dependency);
+                EncodeDependency(candidate, dependency);
             foreach (var restriction in command.Restrictions.Where(x => x.IsApplicable(roleReqs)))
                 EncodeRestriction(candidateLit, restriction);
             foreach (var binding in command.Bindings.OfType<ExecutableInBinding>())
                 EncodeSelfBinding(candidateLit, role?.InterfaceUri ?? _rootRequirements.InterfaceUri, binding);
         }
 
-        private void EncodeDependency(Literal<NodeKey> parent, Dependency dependency)
+        private void EncodeDependency(SelectionCandidate parentCandidate, Dependency dependency)
         {
+            var parent = LitFor(parentCandidate);
             var requirements = Require(dependency.InterfaceUri, command: "");
             requirements.Distributions.Add(dependency.Distributions);
             if (dependency.Versions != null) requirements.AddRestriction(dependency.InterfaceUri, dependency.Versions);
@@ -203,6 +187,14 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
             // Violator exclusion (applies for both Essential and Recommended deps).
             foreach (var violator in depRole.Candidates.Except(matching))
                 _problem.AddClause(parent.Negate(), LitFor(violator).Negate());
+
+            // Keep CPU groups consistent only across dependency edges with EnvironmentBindings.
+            if (dependency.Bindings.OfType<EnvironmentBinding>().Any()
+             && parentCandidate.Implementation.Architecture.Cpu.GetGroup() is {} parentGroup)
+            {
+                foreach (var incompatible in matching.Where(c => c.Implementation.Architecture.Cpu.GetGroup() is {} childGroup && childGroup != parentGroup))
+                    _problem.AddClause(parent.Negate(), LitFor(incompatible).Negate());
+            }
 
             // ExecutableInBindings on the dependency require specific commands on the chosen dependency candidate.
             foreach (var binding in dependency.Bindings.OfType<ExecutableInBinding>())

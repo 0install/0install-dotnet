@@ -25,9 +25,7 @@ public abstract class SolverTest : TestWithRedirect
         }
     }
 
-    [Theory]
-    [MemberData(nameof(TestCases))]
-    public void TestCase(TestCase testCase)
+    protected void AssertTestCase(TestCase testCase)
     {
         if (testCase.Problem == null)
         {
@@ -131,7 +129,7 @@ public abstract class SolverTest : TestWithRedirect
         });
     }
 
-    private Selections Solve(IEnumerable<Feed> feeds, Requirements requirements)
+    protected Selections Solve(IEnumerable<Feed> feeds, Requirements requirements)
     {
         var feedLookup = feeds.ToDictionary(
             keySelector: feed => feed.Uri,
