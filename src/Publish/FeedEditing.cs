@@ -38,7 +38,7 @@ public class FeedEditing : CommandManager<Feed>
         SignedFeed = signedFeed ?? throw new ArgumentNullException(nameof(signedFeed));
 
         // Keep Target and SignedFeed in sync even if Target is replaced with a new object
-        TargetUpdated += () => SignedFeed = new SignedFeed(Target!, SignedFeed.SecretKey);
+        TargetUpdated += _ => SignedFeed = new SignedFeed(Target!, SignedFeed.SecretKey);
     }
 
     /// <summary>
