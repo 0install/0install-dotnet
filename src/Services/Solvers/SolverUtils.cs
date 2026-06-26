@@ -159,6 +159,18 @@ public static class SolverUtils
     }
 
     /// <summary>
+    /// Indicates whether the <paramref name="dependency"/> becomes part of the process of the implementation depending on it, so both must use the same <see cref="CpuGroup"/>.
+    /// </summary>
+    internal static bool SharesProcess(this Dependency dependency)
+        => dependency.Bindings.Any(x => x is EnvironmentBinding or OverlayBinding);
+
+    /// <summary>
+    /// Indicates whether the <paramref name="implementation"/> is executed inside the process of its <see cref="Runner"/> (e.g., an arch-neutral script), so both must use the same <see cref="CpuGroup"/>.
+    /// </summary>
+    internal static bool SharesProcessWithRunner(this Implementation implementation)
+        => implementation.Architecture.Cpu.GetGroup() == null;
+
+    /// <summary>
     /// Separates solver demands into buckets by importance.
     /// </summary>
     public static (List<SolverDemand> essential, List<SolverDemand> recommended) BucketizeImportance(this IEnumerable<SolverDemand> demands)

@@ -15,6 +15,7 @@ internal sealed class SolverDiagnostics
     private readonly Requirements _rootRequirements;
     private readonly IReadOnlyDictionary<FeedUri, Exception> _failedFeeds;
     private readonly Dictionary<FeedUri, Component> _components;
+    private readonly List<(Component Parent, Component Child)> _processEdges = [];
 
     private SolverDiagnostics(
         Requirements rootRequirements,
@@ -42,7 +43,7 @@ internal sealed class SolverDiagnostics
         diagnostics.ApplyUserRestrictions();
         diagnostics.ApplyRootCommand();
         diagnostics.VisitFromRoot();
-        diagnostics.ApplyMachineGroupConstraint();
+        diagnostics.ApplyCpuGroupConstraint();
         diagnostics.PickOrphans();
         return diagnostics.Format();
     }
@@ -176,6 +177,7 @@ internal sealed class SolverDiagnostics
     {
         if (!_components.TryGetValue(dependency.InterfaceUri, out var depComponent)) return;
         ApplyRestrictionToTarget(requiringComponent, requiringImpl, depComponent, dependency);
+        if (dependency.SharesProcess()) _processEdges.Add((requiringComponent, depComponent));
 
         foreach (var binding in dependency.Bindings.OfType<ExecutableInBinding>())
         {
@@ -195,6 +197,7 @@ internal sealed class SolverDiagnostics
     {
         if (!_components.TryGetValue(runner.InterfaceUri, out var runnerComponent)) return;
         ApplyRestrictionToTarget(requiringComponent, requiringImpl, runnerComponent, runner);
+        if (requiringImpl.Implementation.SharesProcessWithRunner()) _processEdges.Add((requiringComponent, runnerComponent));
 
         string command = runner.Command ?? Command.NameRun;
         runnerComponent.Notes.Add($"{requiringComponent.InterfaceUri} {requiringImpl.Version} {Resources.DiagRequires} command='{command}'");
@@ -229,34 +232,62 @@ internal sealed class SolverDiagnostics
         return parts.Count == 0 ? null : string.Join(", ", parts);
     }
 
-    private void ApplyMachineGroupConstraint()
+    /// <summary>
+    /// Components connected via process edges (possibly transitively via arch-neutral implementations) share a process and must use the same <see cref="CpuGroup"/>. Components in separate processes may use different CPU groups.
+    /// </summary>
+    private void ApplyCpuGroupConstraint()
     {
-        // Find the first selected impl (in topological order from root) with a CPU group; treat that as the anchor.
-        Component? anchor = null;
-        CpuGroup anchorGroup = default;
-        foreach (var component in _components.Values.OrderBy(c => c.InterfaceUri == _rootRequirements.InterfaceUri ? 0 : 1).ThenBy(c => c.InterfaceUri.ToString(), StringComparer.Ordinal))
+        foreach (var process in GetProcesses())
         {
-            if (component.Selected?.Implementation.Architecture.Cpu.GetGroup() is {} group)
+            // Treat the first selected impl with a CPU group (root first) as the anchor.
+            var anchor = process.OrderBy(c => c.InterfaceUri == _rootRequirements.InterfaceUri ? 0 : 1)
+                                .ThenBy(c => c.InterfaceUri.ToString(), StringComparer.Ordinal)
+                                .FirstOrDefault(c => c.Selected?.Implementation.Architecture.Cpu.GetGroup() != null);
+            if (anchor == null) continue;
+            var anchorCpu = anchor.Selected!.Implementation.Architecture.Cpu;
+            var anchorGroup = anchorCpu.GetGroup();
+
+            foreach (var component in process)
             {
-                anchor = component;
-                anchorGroup = group;
-                break;
+                if (ReferenceEquals(component, anchor)) continue;
+                component.FilterGood(c =>
+                {
+                    var otherGroup = c.Implementation.Architecture.Cpu.GetGroup();
+                    return otherGroup is null || otherGroup == anchorGroup
+                        ? null
+                        : string.Format(Resources.DiagCpuMismatch, c.Implementation.Architecture.Cpu, anchor.InterfaceUri, anchorCpu);
+                });
+                if (component.Selected != null && !component.Good.Contains(component.Selected))
+                    component.Selected = component.Good.FirstOrDefault();
             }
         }
-        if (anchor == null) return;
+    }
 
-        foreach (var component in _components.Values)
+    /// <summary>
+    /// Groups components that are connected via <see cref="_processEdges"/> (in either direction).
+    /// </summary>
+    private IEnumerable<List<Component>> GetProcesses()
+    {
+        var neighbors = _processEdges.Concat(_processEdges.Select(x => (Parent: x.Child, Child: x.Parent)))
+                                     .ToLookup(x => x.Parent, x => x.Child);
+
+        var seen = new HashSet<Component>();
+        foreach (var start in neighbors.Select(x => x.Key))
         {
-            if (ReferenceEquals(component, anchor)) continue;
-            component.FilterGood(c =>
+            if (!seen.Add(start)) continue;
+
+            var process = new List<Component>();
+            var pending = new Stack<Component>([start]);
+            while (pending.Count > 0)
             {
-                var otherGroup = c.Implementation.Architecture.Cpu.GetGroup();
-                return otherGroup is null || otherGroup == anchorGroup
-                    ? null
-                    : string.Format(Resources.DiagCpuMismatch, c.Implementation.Architecture.Cpu, anchor.InterfaceUri, anchor.Selected!.Implementation.Architecture.Cpu);
-            });
-            if (component.Selected != null && !component.Good.Contains(component.Selected))
-                component.Selected = component.Good.FirstOrDefault();
+                var component = pending.Pop();
+                process.Add(component);
+                foreach (var neighbor in neighbors[component])
+                {
+                    if (seen.Add(neighbor)) pending.Push(neighbor);
+                }
+            }
+            yield return process;
         }
     }
 

@@ -1,4 +1,4 @@
-﻿// Copyright Bastian Eicher et al.
+// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.SatSolver;
@@ -21,10 +21,17 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
         return new SolverRun(requirements, candidateProvider).Solve();
     }
 
-    /// <summary>Discriminated key for SAT variables: an implementation candidate or a CPU group sentinel.</summary>
+    /// <summary>Discriminated key for SAT variables.</summary>
     private abstract record NodeKey;
+
+    /// <summary>The candidate is selected.</summary>
     private sealed record ImplNode(SelectionCandidate Candidate) : NodeKey;
-    private sealed record CpuGroupNode(CpuGroup Group) : NodeKey;
+
+    /// <summary>Any candidate of the interface is selected.</summary>
+    private sealed record InterfaceNode(FeedUri InterfaceUri) : NodeKey;
+
+    /// <summary>The selected candidate of the interface shares a process with implementations from the CPU group.</summary>
+    private sealed record CpuGroupNode(FeedUri InterfaceUri, CpuGroup Group) : NodeKey;
 
     private sealed class RoleData
     {
@@ -39,11 +46,11 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
         private readonly Requirements _rootRequirements = requirements.ForCurrentSystem();
         private readonly SatProblem<NodeKey> _problem = new();
         private readonly Dictionary<FeedUri, RoleData> _roles = [];
-        private readonly HashSet<CpuGroup> _cpuGroups = [];
         private readonly Queue<FeedUri> _encodingQueue = new();
         private readonly Queue<(SelectionCandidate Candidate, string CommandName)> _commandQueue = new();
         private readonly HashSet<(SelectionCandidate, string)> _encodedCommands = [];
         private readonly Dictionary<SelectionCandidate, RoleData> _candidateRole = [];
+        private readonly HashSet<(SelectionCandidate Parent, RoleData Child)> _processEdges = [];
 
         protected override bool TryFulfill(SolverDemand rootDemand)
         {
@@ -103,9 +110,7 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
                 }
             }
 
-            // Cross-role CPU group constraint: e.g. AtMostOne(32, 64).
-            if (_cpuGroups.Count >= 2)
-                _problem.AtMostOne(_cpuGroups.Select(g => Literal.Of<NodeKey>(new CpuGroupNode(g))));
+            EncodeCpuGroups();
         }
 
         private void EnqueueCommand(SelectionCandidate candidate, string? commandName)
@@ -143,17 +148,6 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
             if (candidates.Count > 1)
                 role.AtMostOne = _problem.AtMostOne(candidates.Select(LitFor));
 
-            // Bind each architecture-specific candidate to its CPU group.
-            foreach (var candidate in candidates)
-            {
-                if (candidate.Implementation.Architecture.Cpu.GetGroup() is { } group)
-                {
-                    _cpuGroups.Add(group);
-                    _problem.AddVariable(new CpuGroupNode(group));
-                    _problem.Implies(LitFor(candidate), Literal.Of<NodeKey>(new CpuGroupNode(group)));
-                }
-            }
-
             _encodingQueue.Enqueue(reqs.InterfaceUri);
             return role;
         }
@@ -164,7 +158,7 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
             var impl = candidate.Implementation;
 
             foreach (var dependency in impl.Dependencies.Where(x => x.IsApplicable(roleReqs)))
-                EncodeDependency(candidateLit, dependency);
+                EncodeDependency(candidate, dependency);
             foreach (var restriction in impl.Restrictions.Where(x => x.IsApplicable(roleReqs)))
                 EncodeRestriction(candidateLit, restriction);
             foreach (var binding in impl.Bindings.OfType<ExecutableInBinding>())
@@ -179,17 +173,18 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
             var candidateLit = LitFor(candidate);
             var roleReqs = _candidateRole.TryGetValue(candidate, out var role) ? role.BaselineRequirements : _rootRequirements;
 
-            if (command.Runner != null) EncodeRunner(candidateLit, command.Runner);
+            if (command.Runner != null) EncodeRunner(candidate, command.Runner);
             foreach (var dependency in command.Dependencies.Where(x => x.IsApplicable(roleReqs)))
-                EncodeDependency(candidateLit, dependency);
+                EncodeDependency(candidate, dependency);
             foreach (var restriction in command.Restrictions.Where(x => x.IsApplicable(roleReqs)))
                 EncodeRestriction(candidateLit, restriction);
             foreach (var binding in command.Bindings.OfType<ExecutableInBinding>())
                 EncodeSelfBinding(candidateLit, role?.InterfaceUri ?? _rootRequirements.InterfaceUri, binding);
         }
 
-        private void EncodeDependency(Literal<NodeKey> parent, Dependency dependency)
+        private void EncodeDependency(SelectionCandidate parentCandidate, Dependency dependency)
         {
+            var parent = LitFor(parentCandidate);
             var requirements = Require(dependency.InterfaceUri, command: "");
             requirements.Distributions.Add(dependency.Distributions);
             if (dependency.Versions != null) requirements.AddRestriction(dependency.InterfaceUri, dependency.Versions);
@@ -203,6 +198,9 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
             // Violator exclusion (applies for both Essential and Recommended deps).
             foreach (var violator in depRole.Candidates.Except(matching))
                 _problem.AddClause(parent.Negate(), LitFor(violator).Negate());
+
+            if (dependency.SharesProcess())
+                _processEdges.Add((parentCandidate, depRole));
 
             // ExecutableInBindings on the dependency require specific commands on the chosen dependency candidate.
             foreach (var binding in dependency.Bindings.OfType<ExecutableInBinding>())
@@ -232,8 +230,10 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
                 _problem.AddClause(parent.Negate(), LitFor(violator).Negate());
         }
 
-        private void EncodeRunner(Literal<NodeKey> parent, Runner runner)
+        private void EncodeRunner(SelectionCandidate parentCandidate, Runner runner)
         {
+            var parent = LitFor(parentCandidate);
+
             // A <runner> on a command is essentially a dependency on a specific command of the runner interface.
             string runnerCommand = runner.Command ?? Command.NameRun;
             var runnerReqs = Require(runner.InterfaceUri, command: runnerCommand);
@@ -248,6 +248,9 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
 
             foreach (var violator in role.Candidates.Except(matching))
                 _problem.AddClause(parent.Negate(), LitFor(violator).Negate());
+
+            if (parentCandidate.Implementation.SharesProcessWithRunner())
+                _processEdges.Add((parentCandidate, role));
 
             // The chosen runner candidate's command is now active: queue it for command-level encoding so the runner's own deps/runner/bindings get encoded.
             foreach (var candidate in matching)
@@ -269,6 +272,41 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
             // The bound command is now active on the chosen candidate: queue it for command-level encoding.
             foreach (var candidate in matching)
                 EnqueueCommand(candidate, commandName);
+        }
+
+        // Implementations connected via process edges (possibly transitively via arch-neutral implementations) form a process and must all use the same CPU group. Each involved role gets one variable per CPU group, which is set by its own selected candidate and kept equal across active process edges.
+        private void EncodeCpuGroups()
+        {
+            var roles = _processEdges.SelectMany(x => new[] {_candidateRole[x.Parent], x.Child}).Distinct().ToList();
+            var groups = roles.SelectMany(x => x.Candidates)
+                              .Select(x => x.Implementation.Architecture.Cpu.GetGroup())
+                              .OfType<CpuGroup>()
+                              .Distinct()
+                              .ToList();
+            if (groups.Count < 2) return; // nothing that could be mixed
+
+            foreach (var role in roles)
+            {
+                foreach (var candidate in role.Candidates)
+                {
+                    _problem.Implies(LitFor(candidate), LitFor(role));
+                    if (candidate.Implementation.Architecture.Cpu.GetGroup() is {} group)
+                        _problem.Implies(LitFor(candidate), LitFor(role, group));
+                }
+                _problem.AtMostOne(groups.Select(group => LitFor(role, group)));
+            }
+
+            foreach (var (parent, child) in _processEdges)
+            {
+                var parentRole = _candidateRole[parent];
+
+                // Only active if both ends are selected, so that an unselected recommended dependency does not join unrelated processes.
+                foreach (var group in groups)
+                {
+                    _problem.AddClause(LitFor(parent).Negate(), LitFor(child).Negate(), LitFor(parentRole, group).Negate(), LitFor(child, group));
+                    _problem.AddClause(LitFor(parent).Negate(), LitFor(child).Negate(), LitFor(child, group).Negate(), LitFor(parentRole, group));
+                }
+            }
         }
 
         // Walks the frontier between decided and undecided roles in the dependency tree from the root, then returns the best-undecided candidate of the most-constrained role (fewest remaining candidates). This matches the "best version for elements further up the dependency chain" heuristic from BacktrackingSolver / OCaml: a role that constrains another (e.g. via a version range on a transitive dep) ends up with fewer remaining candidates, so it gets picked first — locking in its best version before downstream choices over-constrain it.
@@ -357,6 +395,12 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
 
         private static Literal<NodeKey> LitFor(SelectionCandidate candidate)
             => Literal.Of<NodeKey>(new ImplNode(candidate));
+
+        private static Literal<NodeKey> LitFor(RoleData role)
+            => Literal.Of<NodeKey>(new InterfaceNode(role.InterfaceUri));
+
+        private static Literal<NodeKey> LitFor(RoleData role, CpuGroup group)
+            => Literal.Of<NodeKey>(new CpuGroupNode(role.InterfaceUri, group));
 
         /// <summary>
         /// Checks whether <paramref name="candidate"/> satisfies the command, version and distribution restrictions captured in <paramref name="requirements"/>.

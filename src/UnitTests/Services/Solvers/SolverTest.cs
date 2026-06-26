@@ -131,7 +131,7 @@ public abstract class SolverTest : TestWithRedirect
         });
     }
 
-    private Selections Solve(IEnumerable<Feed> feeds, Requirements requirements)
+    protected Selections Solve(IEnumerable<Feed> feeds, Requirements requirements)
     {
         var feedLookup = feeds.ToDictionary(
             keySelector: feed => feed.Uri,

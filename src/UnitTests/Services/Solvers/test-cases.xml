@@ -596,11 +596,15 @@
       <name>prog</name>
       <implementation arch="*-i686" version="1.0" id="app32">
         <command name="run" path="test-app"/>
-        <requires interface="http://example.com/lib.xml"/>
+        <requires interface="http://example.com/lib.xml">
+          <environment name="LIB" insert="."/>
+        </requires>
       </implementation>
       <implementation arch="*-x86_64" version="1.0" id="app64">
         <command name="run" path="test-app"/>
-        <requires interface="http://example.com/lib.xml"/>
+        <requires interface="http://example.com/lib.xml">
+          <environment name="LIB" insert="."/>
+        </requires>
       </implementation>
     </interface>
     <interface uri="http://example.com/lib.xml">
@@ -611,7 +615,9 @@
     <selections source="false" command="run" interface="http://example.com/app.xml">
       <selection arch="*-i686" version="1.0" id="app32" interface="http://example.com/app.xml">
         <command name="run" path="test-app"/>
-        <requires interface="http://example.com/lib.xml"/>
+        <requires interface="http://example.com/lib.xml">
+          <environment name="LIB" insert="."/>
+        </requires>
       </selection>
       <selection arch="*-i486" version="1.0" id="lib" interface="http://example.com/lib.xml"/>
     </selections>
@@ -1171,7 +1177,9 @@ Can't find all required implementations:
   <test name='mismatched-machine-types'>
     <requirements interface='http://localhost/top.xml' fails='true' command='run' os='Windows'/>
     <interface uri='http://localhost/top.xml'><name>Top</name><summary>Top</summary><group><group>
-	  <requires interface='http://localhost/diagnostics.xml'/>
+	  <requires interface='http://localhost/diagnostics.xml'>
+	    <environment name='DIAGNOSTICS' insert='.'/>
+	  </requires>
 	  <implementation version='1' id='1' main='foo' arch='Windows-i486'>
 	    <archive href='http://localhost:3000/foo.tgz' size='100'/>
 	  </implementation>
