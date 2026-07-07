@@ -25,7 +25,7 @@ public interface IImplementationSink
     /// Adds a new implementation.
     /// </summary>
     /// <param name="manifestDigest">The digest the implementation is supposed to match.</param>
-    /// <param name="build">Callback for building the implementation.</param>
+    /// <param name="build">Callback for building the implementation. Should be safe to execute more than once, for retries.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="ImplementationAlreadyInStoreException">There is already an implementation with the specified <paramref name="manifestDigest"/> in the store.</exception>
     /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
