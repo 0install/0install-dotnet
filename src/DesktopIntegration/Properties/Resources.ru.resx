@@ -115,8 +115,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>Криптографический ключ, введенный вами для синхронизации, неверный. Проверьте настройки синхронизации.
-Вы можете изменить криптографический ключ, используемый на сервере, запустив мастер устранения неполадок (щелкните правой кнопкой мыши по кнопке «Синхронизация», чтобы перейти к нему) или выполнив команду '0install sync --reset=server'.</value>
+    <value>Введенный вами криптографический ключ для синхронизации неверный. Пожалуйста, проверьте настройки синхронизации.
+Вы можете изменить криптографический ключ, используемый на сервере, запустив мастер устранения неполадок (щелкните правой кнопкой мыши по кнопке «Синхронизация», чтобы перейти к нему) или выполнив команду «0install sync --reset=server».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -125,7 +125,7 @@
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Данные, хранящиеся в настоящее время на сервере Sync, повреждены.
-Вы можете заменить данные, хранящиеся на сервере, запустив мастер устранения неполадок (щелкните правой кнопкой мыши по кнопке «Sync», чтобы перейти к нему) или выполнив команду '0install sync --reset=server'.</value>
+Вы можете заменить данные, хранящиеся на сервере, запустив мастер устранения неполадок (для этого щелкните правой кнопкой мыши по кнопке «Sync») или выполнив команду «0install sync --reset=server».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
@@ -133,11 +133,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
-    <value>Не удалось найти {0} с ID '{1}'.</value>
+    <value>Не удалось найти файл {0} с идентификатором «{1} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Не удается заменить устаревший исполняемый файл-заглушку «{0} ».</value>
+    <value>Не удалось заменить устаревший исполняемый файл-заглушку «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

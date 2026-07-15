@@ -67,11 +67,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>결과 명령줄은 비어 있습니다.</value>
+    <value>결과로 표시되는 명령줄은 비어 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>'{0}' 명령어가 지정되지 않았습니다.</value>
+    <value>'{0}'에 대한 명령이 지정되지 않았습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
@@ -79,11 +79,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>' {1} ' ({2})를 선택하면 ' {0} '를 사용할 수 없습니다.</value>
+    <value>{1} ({2})를 선택하면 {0} 를 사용할 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
-    <value>다음 제한 사항과 호환되지 않음: {0}</value>
+    <value>다음 제한 사항과 호환되지 않습니다: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>현재 알려진 구현 사례가 전혀 없음</value>
+    <value>현재 알려진 구현 사례는 전혀 없음</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRejectedCandidates" xml:space="preserve">
-    <value>거절된 후보자:</value>
+    <value>탈락한 후보자:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
@@ -119,7 +119,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>로컬 네트워크 검색</value>
+    <value>로컬 네트워크에서 검색</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
@@ -127,7 +127,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>카탈로그를 불러오는 중 오류가 발생했습니다</value>
+    <value>카탈로그 불러오기 오류</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
@@ -139,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>{0} 와 그 종속성들의 적합한 버전을 찾지 못했습니다.</value>
+    <value>{0} 와 그 종속성 중 적합한 버전을 찾을 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
@@ -159,7 +159,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}'은 로컬 파일입니다. HTTP(S) URL이어야 합니다.</value>
+    <value>'{0}'는 로컬 파일입니다. HTTP(S) URL이어야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>피드는 가져올 수 있도록 원본 URI를 명시해야 합니다.</value>
+    <value>피드를 가져오려면 해당 피드가 생성된 출처의 URI를 명시해야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
@@ -187,7 +187,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>지정된 인터페이스가 없습니다.</value>
+    <value>인터페이스가 지정되지 않았습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -195,7 +195,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>키 정보 서버에서 이 키에 대한 추가 정보를 제공할 수 없습니다.</value>
+    <value>키 정보 서버에서 이 키에 대한 추가 정보를 제공할 수 없었습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -203,7 +203,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>'{0}' 구현에 대한 검색 방법을 찾을 수 없습니다.</value>
+    <value>'{0}' 구현에 대한 검색 방법이 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">

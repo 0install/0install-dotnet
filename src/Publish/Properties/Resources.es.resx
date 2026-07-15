@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>El archivo contiene únicamente un único directorio de nivel superior «{0} ». Probablemente deberías establecer el atributo «{1} » en «{0} » para evitar un nivel de anidación adicional.</value>
+    <value>El archivo contiene únicamente un único directorio de nivel superior: «{0} ». Probablemente deberías establecer el atributo «{1} » en «{0} » para evitar un nivel de anidación adicional.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
@@ -96,15 +96,15 @@ Intenta especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Se han detectado varios programas predeterminados nuevos en el registro. Se están gestionando todos, pero el último puede tener prioridad en algunos casos.</value>
+    <value>Se han detectado varios programas nuevos predeterminados en el registro. Se están gestionando todos ellos, pero el último puede tener prioridad en algunos casos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Se han detectado varios directorios de instalación. Se selecciona el primero de forma predeterminada.</value>
+    <value>Se han detectado varios directorios de instalación. Se selecciona el primero por defecto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Se han detectado múltiples registros de nuevas aplicaciones en el registro. Se selecciona la primera de forma predeterminada.</value>
+    <value>Se han detectado varios registros de nuevas aplicaciones en el registro. Se selecciona la primera de forma predeterminada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">

@@ -71,7 +71,7 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Perintah '{0}' tidak ditentukan.</value>
+    <value>Perintah untuk '{0}' tidak ditentukan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
@@ -91,7 +91,7 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>Tidak ada implementasi yang diketahui sama sekali</value>
+    <value>Belum ada implementasi yang diketahui sama sekali</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
@@ -119,15 +119,15 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>Mencari di jaringan lokal</value>
+    <value>Pencarian di jaringan lokal</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt; bindings harus berisi atribut 'value' atau 'insert'.</value>
+    <value>&lt;environment&gt; binding harus berisi atribut 'value' atau 'insert'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
-    <value>Kesalahan saat memuat katalog</value>
+    <value>Terjadi kesalahan saat memuat katalog</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
@@ -167,7 +167,7 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Atribut URI &lt;interface&gt; tidak ada. Harusnya '{0}'.</value>
+    <value>Atribut URI &lt;interface&gt; tidak ada. Seharusnya '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -183,7 +183,7 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Nama hilang dalam pengikatan {0}.</value>
+    <value>Nama yang hilang dalam pengikatan {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -199,7 +199,7 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Tidak ditemukan ringkasan manifes untuk implementasi '{0}'.</value>
+    <value>Tidak ditemukan ringkasan manifest untuk implementasi '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
@@ -214,7 +214,7 @@ Tanggal baru: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Gagal mengunduh {0}. Mencoba mengunduh dari cermin feed sebagai gantinya.</value>
+    <value>Gagal mengunduh {0}. Mencoba mengunduhnya dari cermin feed sebagai gantinya.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -234,7 +234,7 @@ Tanggal baru: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' bukanlah ID yang dikenal di pengelola paket {1}.</value>
+    <value>'{0}' bukanlah ID yang dikenal dalam pengelola paket {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -250,7 +250,7 @@ Tanggal baru: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Direktori kerja berisi jalur yang tidak valid (berpotensi menjadi risiko keamanan).</value>
+    <value>Direktori kerja berisi jalur yang tidak valid (berpotensi menimbulkan risiko keamanan).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

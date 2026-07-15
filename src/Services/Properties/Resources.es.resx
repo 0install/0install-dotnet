@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>No se puede utilizar {0} con la selección de {1} ({2})</value>
+    <value>No se puede utilizar « {0} » con la opción « {1} » ({2}).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
-    <value>No hay comando «{0} »</value>
+    <value>No existe el comando «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
-    <value>Requisitos</value>
+    <value>Requisitos:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUnsuitable" xml:space="preserve">
@@ -135,7 +135,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Ejecución del solucionador externo</value>
+    <value>Ejecución de un solucionador externo</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>No se ha encontrado una versión de {0} adecuada para {1}.</value>
+    <value>No se ha podido encontrar una versión de {0} compatible con {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -163,7 +163,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>El atributo URI de &lt;interface&gt; («{0} ») no coincide con la URL desde la que se descargó el feed («{1} »).</value>
+    <value>El atributo uri de &lt;interface&gt; («{0} ») no coincide con la URL desde la que se descargó el feed («{1} »).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -175,7 +175,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Carácter no válido en el nombre de enlace de {0}.</value>
+    <value>Carácter no válido en el nombre de enlace de « {0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
@@ -187,7 +187,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>No se especificó ninguna interfaz.</value>
+    <value>No se ha especificado ninguna interfaz.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -234,7 +234,7 @@ Nueva fecha: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>«{0} » no es un identificador válido en el gestor de paquetes {1}.</value>
+    <value>«{0} » no es un identificador conocido en el gestor de paquetes {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -246,7 +246,7 @@ Nueva fecha: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WorkingDirAlreadyChanged" xml:space="preserve">
-    <value>El directorio de trabajo ya ha sido cambiado por un comando anterior.</value>
+    <value>El directorio de trabajo ya ha sido modificado por un comando anterior.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">

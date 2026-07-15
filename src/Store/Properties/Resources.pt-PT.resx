@@ -116,7 +116,7 @@ Se pretende eliminar todo o diretório sem utilizar o Zero Install, pode fazê-l
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Erro ao carregar o pacote de chaves OpenPGP de '{0}'</value>
+    <value>Erro ao carregar o conjunto de chaves OpenPGP a partir de «{0} »</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -125,7 +125,7 @@ Se pretende eliminar todo o diretório sem utilizar o Zero Install, pode fazê-l
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>A utilização do espelho de feeds, necessária para a pesquisa, está desativada.
-Execute «0install config feed_mirror default» para ativá-la.</value>
+Execute «0install config feed_mirror default» para a ativar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -165,7 +165,7 @@ Execute «0install config feed_mirror default» para ativá-la.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>A implementação foi removida. Uma nova cópia será automaticamente descarregada novamente quando necessário.</value>
+    <value>A implementação foi removida. Uma nova cópia será descarregada automaticamente quando necessário.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -182,7 +182,7 @@ Se estiver a utilizar um disco formatado para FAT, converta-o para NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Não é possível descarregar o ícone de {0} porque apenas são suportados URLs HTTP e HTTPS.</value>
+    <value>Não é possível descarregar o ícone de {0}, uma vez que apenas são suportados URLs HTTP e HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -210,7 +210,7 @@ Se estiver a utilizar um disco formatado para FAT, converta-o para NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>O nome do ficheiro ou diretório não deve conter um caractere de nova linha.</value>
+    <value>O nome do ficheiro ou diretório não pode conter um caractere de nova linha.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -239,7 +239,7 @@ Especificado no ficheiro de configuração «{1} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Esta opção é controlada por uma política de grupo e, por isso, não pode ser modificada.</value>
+    <value>Esta opção é controlada por uma política de grupo e, por isso, não pode ser alterada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
@@ -266,7 +266,7 @@ Para corrigir o problema, pode eliminar o ficheiro "{1}". É possível que se pe
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>Não é possível estabelecer ligação com o StoreService.</value>
+    <value>Não foi possível estabelecer ligação com o StoreService.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -286,7 +286,7 @@ Para corrigir o problema, pode eliminar o ficheiro "{1}". É possível que se pe
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>A senha que introduziu está incorreta.</value>
+    <value>A frase-passe que introduziu está incorreta.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

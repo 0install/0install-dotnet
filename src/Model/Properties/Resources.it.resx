@@ -59,11 +59,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>La stringa deve essere nella forma "{0}".</value>
+    <value>La stringa deve avere il formato "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
-    <value>Impossibile trovare il comando '{0}'.</value>
+    <value>Impossibile trovare il comando "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Impossibile trovare l'implementazione per l'interfaccia '{0}' nella selezione.</value>
+    <value>Impossibile trovare l'implementazione dell'interfaccia "{0}" nella selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -95,7 +95,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Attributo '{0}' non valido su {1}.</value>
+    <value>Attributo "{0}" non valido su {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
@@ -111,31 +111,31 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Il numero di versione può contenere solo decimali separati da punti e stringhe modificatrici.</value>
+    <value>Il numero di versione può contenere solo cifre decimali separate da punti e stringhe modificatrici.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Il numero di versione deve iniziare con una lista di decimali separati da punti.</value>
+    <value>Il numero di versione deve iniziare con una serie di cifre decimali separate da punti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Non è stato specificato alcun metodo di digest.</value>
+    <value>Non è stato specificato alcun metodo di digest noto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Impossibile risolvere il percorso relativo '{0}'. Solo i feed salvati come file locali possono contenere percorsi relativi.</value>
+    <value>Impossibile risolvere il percorso relativo "{0}". Solo i feed salvati come file locali possono contenere percorsi relativi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Non è stato possibile risolvere l'URI relativo '{0}'. Solo i feed salvati come file locali possono contenere URI relativi.</value>
+    <value>Non è stato possibile risolvere l'URI relativo "{0}". Solo i feed salvati come file locali possono contenere URI relativi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>L'attributo 'rollout-percentage' su {0} può essere impostato solo quando 'stability' è 'testing' o non è impostato.</value>
+    <value>L'attributo «rollout-percentage» su {0} può essere impostato solo quando «stability» è impostato su «testing» o non è impostato.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Implementazione difettosa</value>
+    <value>Implementazione non ancora perfezionata</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
@@ -163,11 +163,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Dovrebbe essere un tipo MIME valido.</value>
+    <value>Deve essere un tipo MIME valido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Deve essere un ID sicuro. Può contenere solo caratteri alfanumerici, spazi ( ), punti (.), trattini bassi (_), trattini (-) e segni più (+).</value>
+    <value>L'ID deve essere sicuro. Può contenere solo caratteri alfanumerici, spazi ( ), punti (.), trattini bassi (_), trattini (-) e segni più (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
@@ -175,7 +175,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>L'estensione del file "{0}" non corrisponde a un tipo di archivio conosciuto.</value>
+    <value>L'estensione del file "{0}" non corrisponde a nessun tipo di archivio conosciuto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">

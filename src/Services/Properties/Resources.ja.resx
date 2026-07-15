@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>結果として表示されるコマンドラインは空です。</value>
+    <value>その結果、コマンドラインは空になります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>「{1} 」を選択した場合（{2} ）、{0} は使用できません。</value>
+    <value>「{1} 」（{2} ）を選択した場合、{0} は使用できません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
@@ -119,11 +119,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>ローカルネットワーク内を検索</value>
+    <value>ローカルネットワーク内での検索</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt; バインディングには、'value' 属性または 'insert' 属性のいずれかを含める必要があります。</value>
+    <value>&lt;environment&gt;のバインディングには、'value'属性または'insert'属性のいずれかを指定する必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>{1} に対応した{0} のバージョンが見つかりませんでした。</value>
+    <value>{1} に適した{0} のバージョンが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -163,11 +163,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>&lt;interface&gt;要素のuri属性（'{0}'）が、フィードがダウンロードされたURL（'{1}'）と一致しません。</value>
+    <value>&lt;interface&gt;のuri属性（「{0} 」）が、フィードがダウンロードされたURL（「{1} 」）と一致しません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>&lt;interface&gt; 要素の uri 属性が欠落しています。'{0}' とする必要があります。</value>
+    <value>&lt;interface&gt; の uri 属性が欠落しています。'{0}' である必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -187,7 +187,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
-    <value>インターフェースは指定されていません。</value>
+    <value>インターフェースは指定されていませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -203,7 +203,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>実装 '{0}' に対する取得メソッドが見つかりませんでした。</value>
+    <value>実装「{0} 」に対応する取得メソッドが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">

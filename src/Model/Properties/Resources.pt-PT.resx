@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>A string deve ter o formato «{0} ».</value>
+    <value>A cadeia de caracteres deve ter o formato «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
@@ -75,7 +75,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Erro ao carregar a base de dados de confiança. A reverter para os valores predefinidos.</value>
+    <value>Erro ao carregar a base de dados de confiança. A repor os valores predefinidos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -87,11 +87,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Não foi possível encontrar a implementação para a interface «{0} » na seleção.</value>
+    <value>Não foi possível encontrar a implementação da interface «{0} » na seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>«{0} » não é um URI «http(s):» válido e também não é um caminho local válido.</value>
+    <value>«{0} » não é um URI «http(s):» válido, nem é um caminho local válido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Falta uma tag {0} dentro de {1}.</value>
+    <value>Falta a tag « {0} » dentro de « {1} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>O número da versão deve começar com uma lista de decimais separados por pontos.</value>
+    <value>O número da versão deve começar com uma lista de números decimais separados por pontos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -155,7 +155,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Implementação de código-fonte não executável</value>
+    <value>Implementação do código-fonte não executável</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">

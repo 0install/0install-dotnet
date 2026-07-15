@@ -87,11 +87,11 @@ Vuoi considerare attendibile questa chiave per firmare i feed da '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
-    <value>Nessun comando "{0}"</value>
+    <value>Non è presente il comando "{0}"</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>Non sono note implementazioni</value>
+    <value>Non sono note implementazioni di alcun tipo</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">

@@ -79,7 +79,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>Impossible d'utiliser {0} avec la sélection d'{1} ({2})</value>
+    <value>Impossible d'utiliser {0} avec la sélection de {1} ({2})</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
@@ -143,7 +143,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>Impossible de trouver une version d'{0}. adaptée à {1}.</value>
+    <value>Impossible de trouver une version d'{0} compatible avec {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -151,7 +151,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>«{0} » est introuvable dans le cache du flux.</value>
+    <value>Le fichier «{0} » est introuvable dans le cache du flux.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -163,7 +163,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>L'attribut URI &lt;interface&gt; («{0} ») ne correspond pas à l'URL à partir de laquelle le flux a été téléchargé («{1} »).</value>
+    <value>L'attribut uri de &lt;interface&gt; («{0} ») ne correspond pas à l'URL à partir de laquelle le flux a été téléchargé («{1} »).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -179,11 +179,11 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Les flux doivent indiquer l'URI d'origine pour pouvoir être importés.</value>
+    <value>Pour pouvoir être importés, les flux doivent indiquer l'URI d'où ils proviennent.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Nom manquant dans la liaison d'{0}.</value>
+    <value>Nom manquant dans la liaison « {0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -195,7 +195,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Le serveur d'informations sur les clés n'a pas été en mesure de fournir d'informations supplémentaires concernant cette clé.</value>
+    <value>Le serveur d'informations sur les clés n'a pas pu fournir d'informations supplémentaires concernant cette clé.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -234,7 +234,7 @@ Nouvelle date : {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>«{0} » n'est pas un identifiant reconnu dans le gestionnaire de paquets {1}.</value>
+    <value>«{0} » n'est pas un identifiant reconnu par le gestionnaire de paquets {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -250,7 +250,7 @@ Nouvelle date : {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Le répertoire de travail contient un chemin d'accès non valide (ce qui peut constituer un risque pour la sécurité).</value>
+    <value>Le répertoire de travail contient un chemin d'accès non valide (ce qui peut constituer un risque de sécurité).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

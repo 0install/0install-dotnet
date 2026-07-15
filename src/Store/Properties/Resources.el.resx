@@ -67,11 +67,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Αυτός ο κατάλογος είναι μια προσωρινή μνήμη υλοποίησης. Τα αρχεία εδώ έχουν οριστεί ως μόνο για ανάγνωση χρησιμοποιώντας δικαιώματα συστήματος αρχείων. Αυτό εμποδίζει τη διαγραφή τους με τον συνήθη τρόπο.
+    <value>Αυτός ο κατάλογος αποτελεί προσωρινή μνήμη υλοποίησης. Τα αρχεία εδώ έχουν οριστεί ως μόνο για ανάγνωση μέσω των δικαιωμάτων του συστήματος αρχείων. Αυτό εμποδίζει τη διαγραφή τους με τον συνήθη τρόπο.
 
-Εάν επιθυμείτε να διαγράψετε μια μεμονωμένη υλοποίηση, μπορείτε να χρησιμοποιήσετε την ακόλουθη γραμμή εντολών:{0}
-Εάν επιθυμείτε να διαγράψετε ολόκληρο τον κατάλογο, μπορείτε να χρησιμοποιήσετε την ακόλουθη γραμμή εντολών:{1}
-Εάν επιθυμείτε να διαγράψετε ολόκληρο τον κατάλογο χωρίς να χρησιμοποιήσετε το Zero Install, μπορείτε να χρησιμοποιήσετε την ακόλουθη γραμμή εντολών:
+Αν θέλετε να διαγράψετε μια μεμονωμένη υλοποίηση, μπορείτε να χρησιμοποιήσετε την ακόλουθη εντολή γραμμής εντολών:
+{0}
+
+Αν θέλετε να διαγράψετε ολόκληρο αυτόν τον κατάλογο, μπορείτε να χρησιμοποιήσετε την ακόλουθη εντολή γραμμής εντολών:
+{1}
+
+Αν θέλετε να διαγράψετε ολόκληρο αυτόν τον κατάλογο χωρίς να χρησιμοποιήσετε το Zero Install, μπορείτε να χρησιμοποιήσετε την ακόλουθη εντολή γραμμής εντολών:
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -112,16 +116,16 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Σφάλμα κατά τη φόρτωση του πακέτου κλειδιών OpenPGP από το '{0}'</value>
+    <value>Σφάλμα κατά τη φόρτωση του πακέτου κλειδιών OpenPGP από τη διεύθυνση «{0} »</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Αποτυχία ξεκλειδώματος αρχείων που βρίσκονται σε χρήση στο «{0} »</value>
+    <value>Δεν ήταν δυνατή η απεμπλοκή των αρχείων που βρίσκονται σε χρήση στο «{0} »</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Η χρήση του feed mirror, που απαιτείται για την αναζήτηση, είναι απενεργοποιημένη.
-Εκτελέστε την εντολή '0install config feed_mirror default' για να την ενεργοποιήσετε.</value>
+    <value>Η χρήση του feed mirror, η οποία απαιτείται για την αναζήτηση, είναι απενεργοποιημένη.
+Εκτελέστε την εντολή «0install config feed_mirror default» για να την ενεργοποιήσετε.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -178,7 +182,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Δεν είναι δυνατή η λήψη εικονιδίου από τη διεύθυνση {0}, καθώς υποστηρίζονται μόνο διευθύνσεις URL τύπου HTTP και HTTPS.</value>
+    <value>Δεν είναι δυνατή η λήψη του εικονιδίου από τη διεύθυνση {0}, καθώς υποστηρίζονται μόνο διευθύνσεις URL τύπου HTTP και HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -210,7 +214,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Δεν είναι δυνατή η λήψη του {0} επειδή το Zero Install βρίσκεται σε λειτουργία εκτός σύνδεσης.</value>
+    <value>Δεν είναι δυνατή η λήψη του {0}, επειδή το Zero Install βρίσκεται σε λειτουργία εκτός σύνδεσης.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -227,7 +231,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Το Zero Install δεν μπορεί να αφαιρεθεί από την προσωρινή μνήμη εφαρμογών.</value>
+    <value>Το Zero Install δεν μπορεί να αφαιρεθεί από την προσωρινή μνήμη μιας εγκατάστασης.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -254,7 +258,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReadDirectory" xml:space="preserve">
-    <value>Ανάγνωση καταλόγου «{0} »</value>
+    <value>Ανάγνωση του καταλόγου «{0} »</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">

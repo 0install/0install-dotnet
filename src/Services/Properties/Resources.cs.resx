@@ -71,7 +71,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Příkaz pro „{0} “ nebyl zadán.</value>
+    <value>Příkaz „{0} “ nebyl zadán.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
@@ -79,7 +79,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>Nelze použít {0} s výběrem {1} ({2})</value>
+    <value>Nelze použít {0} při výběru {1} ({2})</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
@@ -103,7 +103,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRejectedCandidates" xml:space="preserve">
-    <value>Odmítnutí kandidáti:</value>
+    <value>Odmítnutí uchazeči:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
@@ -119,7 +119,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>Vyhledávání v místní síti</value>
+    <value>Vyhledávání v lokální síti</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
@@ -163,7 +163,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Atribut URI &lt;interface&gt; („{0} “) neodpovídá URL, ze které byl kanál stažen („{1} “).</value>
+    <value>Atribut URI &lt;interface&gt; („{0} “) neodpovídá URL adrese, ze které byl kanál stažen („{1} “).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -175,7 +175,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Nesprávný znak v názvu vazby {0}.</value>
+    <value>V názvu vazby {0} se nachází nepřípustný znak.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
@@ -203,7 +203,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Nebylo nalezeno žádné způsob načtení pro implementaci „{0} “.</value>
+    <value>Nebyla nalezena žádná metoda pro implementaci „{0} “.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -214,7 +214,7 @@ Nová časová značka: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Stahování souboru {0} se nezdařilo. Pokoušíme se jej stáhnout z alternativního zdroje.</value>
+    <value>Stahování souboru {0} se nezdařilo. Pokoušíme se jej místo toho stáhnout z alternativního zdroje.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -250,7 +250,7 @@ Nová časová značka: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Pracovní adresář obsahuje neplatnou cestu (potenciální bezpečnostní riziko).</value>
+    <value>Pracovní adresář obsahuje neplatnou cestu (což může představovat bezpečnostní riziko).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

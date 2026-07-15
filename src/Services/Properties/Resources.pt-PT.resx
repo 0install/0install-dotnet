@@ -79,23 +79,23 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>Não é possível utilizar {0} com a seleção de {1} ({2})</value>
+    <value>Não é possível utilizar o {0} com a opção {1} ({2})</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
-    <value>Incompatível com restrições: {0}</value>
+    <value>Incompatível com a restrição: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
-    <value>Sem comando «{0} »</value>
+    <value>Não existe o comando «{0} »</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>Não há implementações conhecidas</value>
+    <value>Não se conhecem quaisquer implementações</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
-    <value>Sem implementações utilizáveis:</value>
+    <value>Não existem implementações utilizáveis:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagProblem" xml:space="preserve">

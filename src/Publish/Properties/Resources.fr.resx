@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>L'archive ne contient qu'un seul répertoire de niveau supérieur «{0} ». Vous devriez probablement définir l'attribut «{1} » sur «{0} » pour éviter un niveau d'imbrication supplémentaire.</value>
+    <value>L'archive ne contient qu'un seul répertoire de niveau supérieur : «{0} ». Il est probablement préférable de définir l'attribut «{1} » sur «{0} » afin d'éviter un niveau d'imbrication supplémentaire.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
@@ -96,7 +96,7 @@ Essayez de le spécifier manuellement.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Plusieurs nouveaux programmes par défaut ont été détectés dans le registre. Ils sont tous pris en charge, mais le dernier peut avoir la priorité dans certains cas.</value>
+    <value>Plusieurs nouveaux programmes par défaut ont été détectés dans le registre. Ils sont tous pris en charge, mais le dernier peut, dans certains cas, avoir la priorité.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
@@ -116,7 +116,7 @@ Essayez de le spécifier manuellement.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>La clé secrète ne se trouve pas dans le trousseau de l'utilisateur.</value>
+    <value>La clé secrète ne se trouve pas dans le trousseau de clés de l'utilisateur.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">

@@ -67,15 +67,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Wystąpił błąd podczas ładowania preferencji kanału dla „{0} ”. Przywracanie wartości domyślnych.</value>
+    <value>Wystąpił błąd podczas ładowania preferencji kanału dla „{0} ”. Przywracane są wartości domyślne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Wystąpił błąd podczas ładowania preferencji interfejsu dla „{0} ”. Przywracanie wartości domyślnych.</value>
+    <value>Wystąpił błąd podczas ładowania ustawień interfejsu dla „{0} ”. Przywracane są wartości domyślne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Wystąpił błąd podczas ładowania bazy danych zaufania. Przywracanie wartości domyślnych.</value>
+    <value>Wystąpił błąd podczas ładowania bazy danych zaufanych źródeł. Przywracane są wartości domyślne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -87,11 +87,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Nie można znaleźć implementacji dla interfejsu „{0} ” w wyborze.</value>
+    <value>Nie można znaleźć implementacji interfejsu „{0} ” w wybranej opcji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>„{0} ” nie jest prawidłowym adresem URI typu „http(s):” ani prawidłową ścieżką lokalną.</value>
+    <value>„{0} ” nie jest prawidłowym adresem URI w formacie „http(s):” ani prawidłową ścieżką lokalną.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -99,7 +99,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Brakuje atrybutu „{0} ” na stronie {1}.</value>
+    <value>Brakuje atrybutu „{0} ” w pliku {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
@@ -111,7 +111,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Numer wersji może zawierać wyłącznie ułamki dziesiętne oddzielone kropkami oraz ciągi modyfikujące.</value>
+    <value>Numer wersji może zawierać wyłącznie ułamki dziesiętne oddzielone kropkami oraz ciągi znaków modyfikujących.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -123,23 +123,23 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Nie można rozpoznać ścieżki względnej „{0} ”. Tylko kanały zapisane jako pliki lokalne mogą zawierać ścieżki względne.</value>
+    <value>Nie udało się rozpoznać ścieżki względnej „{0} ”. Tylko kanały zapisane jako pliki lokalne mogą zawierać ścieżki względne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Nie można rozpoznać względnego adresu URI „{0} ”. Tylko kanały zapisane jako pliki lokalne mogą zawierać względne adresy URI.</value>
+    <value>Nie udało się rozpoznać względnego adresu URI „{0} ”. Tylko kanały zapisane jako pliki lokalne mogą zawierać względne adresy URI.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>Atrybut „rollout-percentage” w {0} może być ustawiony tylko wtedy, gdy „stability” ma wartość „testing” lub nie jest ustawione.</value>
+    <value>Atrybut „rollout-percentage” na stronie {0} można ustawić tylko wtedy, gdy atrybut „stability” ma wartość „testing” lub nie jest ustawiony.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Wdrożenie zawiera błędy</value>
+    <value>Wdrożenie zawierające błędy</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Nie udostępnia polecenia „{0} ”.</value>
+    <value>Nie obsługuje polecenia „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
@@ -151,11 +151,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Wdrożenie nie w pamięci podręcznej (obecnie w trybie offline)</value>
+    <value>Realizacja nie odbywa się z pamięci podręcznej (obecnie w trybie offline)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Implementacja źródłowa bez możliwości uruchamiania</value>
+    <value>Implementacja źródłowa bez możliwości uruchomienia</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
@@ -167,11 +167,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Powinien to być bezpieczny identyfikator. Może zawierać wyłącznie znaki alfanumeryczne, spacje ( ), kropki (.), podkreślenia (_), łączniki (-) i znaki plus (+).</value>
+    <value>Identyfikator powinien być bezpieczny. Może zawierać wyłącznie znaki alfanumeryczne, spacje ( ), kropki (.), znaki podkreślenia (_), myślniki (-) oraz znaki plus (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>Krok przepisu „{0} ” w implementacji „{1} ” ma nieprawidłowe odniesienie do implementacji.</value>
+    <value>Krok przepisu „{0} ” w implementacji „{1} ” zawiera nieprawidłowe odwołanie do implementacji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">

@@ -99,7 +99,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagProblem" xml:space="preserve">
-    <value>(проблема)</value>
+    <value>(задача)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRejectedCandidates" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>Не удалось найти файл «{0} » в кэше каналов.</value>
+    <value>Файл «{0} » не найден в кэше каналов.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -159,7 +159,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>«{0} » — это локальный файл. Это должен быть URL-адрес HTTP(S).</value>
+    <value>«{0} » — это локальный файл. Это должен быть URL-адрес в формате HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -167,7 +167,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Отсутствует атрибут URI &lt;interface&gt;. Должно быть '{0}'.</value>
+    <value>Отсутствует атрибут URI &lt;interface&gt;. Должно быть «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -195,7 +195,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Сервер ключевой информации не смог предоставить никакой дополнительной информации об этом ключе.</value>
+    <value>Сервер информации о ключах не смог предоставить никакой дополнительной информации об этом ключе.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -214,7 +214,7 @@ URI фида: {0}
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Не удалось загрузить {0}. Попытка загрузки с зеркального сервера.</value>
+    <value>Не удалось загрузить файл {0}. Попытка загрузки с зеркального сервера.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -234,7 +234,7 @@ URI фида: {0}
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>«{0} » — это неизвестный идентификатор в диспетчере пакетов {1}.</value>
+    <value>«{0} » — неизвестный идентификатор в диспетчере пакетов {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -250,7 +250,7 @@ URI фида: {0}
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Рабочий каталог содержит недопустимый путь (потенциальная угроза безопасности).</value>
+    <value>Рабочий каталог содержит недопустимый путь (что может представлять угрозу безопасности).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

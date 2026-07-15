@@ -116,7 +116,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>无法从 '{0}' 加载 OpenPGP 密钥包</value>
+    <value>从“{0} ”加载 OpenPGP 密钥包时发生错误</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -157,7 +157,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>实现 '{0}' 已损坏。</value>
+    <value>实现“{0} ”已损坏。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
@@ -169,7 +169,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>无法找到实现 '{0}'。</value>
+    <value>无法找到实现“{0} ”。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -186,7 +186,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>清单文件中包含无效行。</value>
+    <value>清单文件中包含无效的行。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
@@ -194,7 +194,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>该存档包含一个无效路径（可能存在安全风险）：{0}</value>
+    <value>该压缩包中包含一个无效路径（可能存在安全风险）：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -218,12 +218,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>未指定已知的摘要计算方法。</value>
+    <value>未指定任何已知的摘要计算方法。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>路径 '{0}' 不是绝对路径。相对路径仅在便携模式下允许使用。
-在配置文件 '{1}' 中指定。</value>
+    <value>路径“{0} ”不是绝对路径。相对路径仅在便携模式下允许使用。
+在配置文件“{1} ”中指定。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
@@ -235,7 +235,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>数值过大。</value>
+    <value>该数值过大。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">

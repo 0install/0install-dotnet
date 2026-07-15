@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>Los siguientes puntos de acceso para la aplicación {0} están en conflicto entre sí:</value>
+    <value>Los siguientes puntos de acceso de la aplicación {0} están en conflicto entre sí:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>La aplicación «{0} » ya se encuentra en la lista de aplicaciones.</value>
+    <value>La aplicación «{0} » ya figura en la lista de aplicaciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
-    <value>No se ha encontrado la aplicación «{0} » en la lista de aplicaciones.</value>
+    <value>No se ha podido encontrar la aplicación «{0} » en la lista de aplicaciones.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">
@@ -125,7 +125,7 @@ Puedes cambiar la clave de cifrado utilizada en el servidor ejecutando el asiste
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Los datos almacenados actualmente en el servidor Sync están dañados.
-Puedes reemplazar los datos almacenados en el servidor ejecutando el asistente de resolución de problemas (haz clic con el botón derecho del ratón en el botón «Sync» para acceder a él) o ejecutando «0install sync --reset=server».</value>
+Puedes sustituir los datos almacenados en el servidor ejecutando el asistente de resolución de problemas (haz clic con el botón derecho del ratón en el botón «Sync» para acceder a él) o ejecutando «0install sync --reset=server».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">

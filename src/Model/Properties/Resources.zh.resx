@@ -71,15 +71,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>加载“{0} ”的界面首选项时出错。将恢复为默认值。</value>
+    <value>加载“{0} ”的界面首选项时发生错误。将恢复为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>加载信任数据库时出错。将恢复为默认值。</value>
+    <value>加载信任数据库时发生错误。将恢复为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>无法在目录中找到源 '{0}'。</value>
+    <value>无法在目录中找到源“{0} ”。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
@@ -99,11 +99,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>{1} 缺少 '{0}' 属性。</value>
+    <value>{1} 页面缺少“{0} ”属性。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>{1} 文件中缺少 `{0} ` 标签。</value>
+    <value>{1} 中缺少{0} 标签。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -119,15 +119,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>未指定任何已知的摘要生成方法。</value>
+    <value>未指定任何已知的摘要计算方法。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>无法解析相对路径“{0} ”。仅保存为本地文件的订阅源可包含相对路径。</value>
+    <value>无法解析相对路径“{0} ”。只有保存为本地文件的订阅源才可包含相对路径。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>无法解析相对 URI '{0}'。仅保存为本地文件的订阅源可包含相对 URI。</value>
+    <value>无法解析相对 URI “{0} ”。只有保存为本地文件的订阅源才可包含相对 URI。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
@@ -135,7 +135,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>实现存在缺陷</value>
+    <value>实现存在诸多缺陷</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
@@ -147,7 +147,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>不安全的实现</value>
+    <value>不安全的实现方式</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
@@ -163,19 +163,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>应为有效的 MIME 类型。</value>
+    <value>应为有效的MIME类型。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>用户名应为安全用户名。仅可包含字母数字、空格 ( )、句点 (.)、下划线 (_)、连字符 (-) 和加号 (+)。</value>
+    <value>ID 应确保安全。仅可包含字母数字、空格 ( )、句点 (.)、下划线 (_)、连字符 (-) 和加号 (+)。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>在实现“{1} ”中的配方步骤“{0} ”中，存在一个无效的实现引用。</value>
+    <value>实现“{1} ”中的配方步骤“{0} ”包含一个无效的实现引用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>文件扩展名“{0} ”不对应任何已知的存档类型。</value>
+    <value>文件扩展名“{0} ”不属于任何已知的压缩包类型。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
