@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Added0installToPath" xml:space="preserve">
-    <value>命令 '0install' 已添加到您的命令行 PATH 中。</value>
+    <value>命令“0install”已添加到您的命令行 PATH 中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasCreated" xml:space="preserve">
@@ -96,28 +96,28 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>是否应为所有用户（全系统范围）配置 Zero Install，而非仅限当前用户？</value>
+    <value>是否应为所有用户（全系统范围）配置 Zero Install，而不仅仅是当前用户？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
-    <value>您确定要将 Zero Install 的新副本部署到 '{0}' 吗？</value>
+    <value>您确定要将 Zero Install 的新副本部署到“{0} ”吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>这将把 Zero Install 添加到开始菜单和命令行中。继续吗？</value>
+    <value>这将把 Zero Install 添加到“开始”菜单和命令行中。继续吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
-    <value>您确定要从这台计算机中卸载 Zero Install 吗？</value>
+    <value>您确定要从这台计算机上卸载 Zero Install 吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
-    <value>您现在要试用一下吗？</value>
+    <value>您现在想试用一下吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>您是否希望更新任何现有的桌面集成以反映此变更？
-如果您选择“是”，潜在的不兼容集成将被移除。
+    <value>您是否希望更新任何现有的桌面集成以反映这一变化？
+如果您选择“是”，则可能会移除存在兼容性问题的集成。
 如果您选择“否”，Zero Install 将继续使用旧版功能。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -130,7 +130,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
-    <value>应用程序“{0} ”的功能已发生变更。</value>
+    <value>“{0} ”应用程序的功能已发生变更。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CatalogAlreadyRegistered" xml:space="preserve">
@@ -170,22 +170,22 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
-    <value>您是否希望从 Zero Install 缓存中删除所有应用程序文件？
-如有需要，这些文件可以重新下载。</value>
+    <value>您是否要从 Zero Install 缓存中删除所有应用程序文件？
+如有需要，这些文件可以再次下载。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>您是否希望从“我的应用程序”列表中移除所有应用程序？这可避免在卸载 Zero Install 后留下残留的菜单条目。
-您可以使用“0install sync”命令备份此列表。</value>
+    <value>您是否希望从“我的应用程序”列表中移除所有应用程序？这样可以避免在卸载 Zero Install 后，菜单中残留条目。
+您可以使用“0install sync”命令对该列表进行备份。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
-    <value>在最后一行输入文本以创建新条目。
-点击第一列选中整行，然后按键盘上的 DEL 键删除该条目。</value>
+    <value>在最后一行开始输入文本以创建新条目。
+点击第一列选中整行，然后按键盘上的 DEL 键即可删除该条目。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>勾选复选框可将某项功能设为默认处理程序。
+    <value>勾选复选框可将某项功能设为所需的默认处理程序。
 取消勾选复选框可取消该功能的默认状态（该功能仍可使用）。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -211,7 +211,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeprecatedOption" xml:space="preserve">
-    <value>已弃用的选项。请改用 '{0}'。</value>
+    <value>已弃用的选项。请改用“{0} ”。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -227,7 +227,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionAddFeed" xml:space="preserve">
-    <value>注册程序的额外实现源（版本）。</value>
+    <value>注册该程序的额外实现源（版本）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogAdd" xml:space="preserve">
@@ -255,11 +255,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>打开用于启动和管理应用程序的中央图形用户界面。</value>
+    <value>打开用于启动和管理应用程序的核心图形用户界面。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
-    <value>查看或修改配置设置。
+    <value>查看或更改配置设置。
 若不带参数，则显示所有设置及其当前值。若带一个参数，则显示指定设置的当前值。若带两个参数，则将该设置设为给定值；若给定值为“{0} ”，则将其重置为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -268,7 +268,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>其行为与 '0install select' 类似，不同之处在于，如果所选版本尚未缓存，它还会下载这些版本。
+    <value>其行为与“0install select”类似，不同之处在于，如果所选版本尚未缓存，它还会下载这些版本。
 如果选定了一组合适的版本，且这些版本现已全部下载并存入缓存，则返回退出状态 0；否则返回状态 1。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -286,11 +286,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>将应用程序添加到应用程序列表中（若尚未存在），并将其集成到桌面环境中。</value>
+    <value>将应用程序添加到应用程序列表中（如果尚未存在），并将其集成到桌面环境中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>列出所有已知的本地订阅源URI。若提供搜索词，则仅显示包含该字符串的URI（不区分大小写）。</value>
+    <value>列出所有已知的本地订阅源 URI。如果提供了搜索词，则仅显示包含该字符串的 URI（不区分大小写）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -298,15 +298,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>列出所有通过 '0install add-feed' 命令添加到 URI 的额外订阅源。</value>
+    <value>列出所有通过“0install add-feed”命令添加到 URI 的额外源。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>将 Zero Install 部署到指定的 TARGET 目录或程序默认目录，并将其集成到系统中。</value>
+    <value>将 Zero Install 部署到指定的 TARGET 目录或程序的默认目录，并将其集成到系统中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>从系统中移除当前的 Zero Install 实例。</value>
+    <value>从系统中移除当前运行的 Zero Install 实例。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -314,7 +314,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>从应用程序列表中移除应用程序，并撤销任何桌面环境集成。</value>
+    <value>将应用程序从应用程序列表中移除，并撤销其与桌面环境的任何集成。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
@@ -322,21 +322,21 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
-    <value>重新应用应用程序列表中所有应用程序的桌面集成。</value>
+    <value>重新应用应用程序列表中所有应用程序的桌面集成设置。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>其行为与“0install download”类似，不同之处在于它会在确认程序已存入缓存后自动运行该程序。
-如果下载步骤失败，则返回退出状态 1。否则，退出状态将取决于正在运行的程序的退出状态。</value>
+    <value>其行为与“0install download”类似，不同之处在于它会在确认程序已存入缓存后，自动运行该程序。
+如果下载步骤失败，则返回退出状态 1。否则，退出状态将与所运行程序的退出状态一致。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>搜索由镜像服务器索引且与指定关键词匹配的订阅源。请注意，默认镜像服务器会索引所有已知的订阅源，无论其质量如何；在运行程序之前，您必须自行判断是否信任这些程序。</value>
+    <value>搜索由镜像服务器索引的、与指定关键词匹配的订阅源。请注意，默认镜像服务器会索引所有已知的订阅源，无论其质量如何；在运行这些程序之前，您必须自行判断是否值得信赖。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>根据 URI 选择程序的某个版本，并选择其所有依赖项的兼容版本。
-如果成功选定了一组版本，则返回退出状态 0；如果无法找到一致的版本集，则返回状态 1。</value>
+    <value>根据 URI 选择程序的某个版本，以及所有依赖项的兼容版本。
+如果选定了一组版本，则返回退出状态 0；如果无法找到一致的版本组合，则返回状态 1。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
@@ -353,12 +353,12 @@
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
     <value>检查缓存中的所有实现是否完好无损。
-通过附加参数指定自定义缓存位置。</value>
+通过附加参数可指定自定义缓存位置。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>将实现复制到缓存中。类似于“0install store add”，但摘要值是从目录名称中提取的。
-通过额外参数指定自定义目标缓存位置。</value>
+    <value>将一个实现复制到缓存中。类似于“0install store add”，但摘要是从目录名称中提取的。
+通过额外参数可以指定自定义的目标缓存位置。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
@@ -374,7 +374,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>列出所有已缓存的实现。如果指定了源 URI，则仅列出该特定源的实现。</value>
+    <value>列出所有缓存的实现。如果指定了源 URI，则仅列出该特定源的实现。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
@@ -382,7 +382,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
-    <value>通过硬链接合并重复文件以节省磁盘空间。
+    <value>通过使用硬链接合并重复文件，从而节省磁盘空间。
 可通过额外参数指定自定义缓存位置。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -400,7 +400,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
-    <value>通过HTTP协议从缓存中以归档文件形式提供实现。</value>
+    <value>通过HTTP从缓存中以归档文件的形式提供实现。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
@@ -416,16 +416,16 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>列出用于签署源的可信密钥。若指定了特定指纹，则仅列出该指纹所信任的域名。</value>
+    <value>列出用于对源进行签名的受信任密钥。如果指定了特定的“指纹”，则仅列出该“指纹”所对应的受信任域名。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>停止信任使用特定指纹（FINGERPRINT）签名的源。仅当指定了特定域名（DOMAIN）时，才停止信任该域名。</value>
+    <value>停止信任使用特定“指纹”签名的源。仅当指定了特定“域名”时，才停止信任该域名。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>检查程序更新，若发现更新则进行下载。
-这与 '0install download --refresh' 类似，不同之处在于它会显示是否发现任何更改的信息。</value>
+这与“0install download --refresh”类似，不同之处在于它会显示是否发现任何更改的相关信息。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -469,7 +469,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
-    <value>在 '{0}' 路径下检测到现有版本的 Zero Install。</value>
+    <value>在“{0} ”中检测到现有版本的 Zero Install。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
@@ -489,15 +489,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
-    <value>该源已成功注册到以下界面：</value>
+    <value>该源已成功注册到以下接口：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
-    <value>'{0}' 已被 '{1}' 取代。请考虑更新。</value>
+    <value>“{0} ”已被“{1} ”取代。请考虑更新。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>“{0} ”（{1} ）的订阅源已替换为“{2} ”。您是否要改用新的订阅源？</value>
+    <value>“{0} ”（{1} ）的订阅源已被“{2} ”取代。您是否要改用新的订阅源？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -521,7 +521,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilePrefixAbsoluteUsage" xml:space="preserve">
-    <value>请使用 file:///path 表示绝对路径，而非 file:/path。</value>
+    <value>使用 file:///path 表示绝对路径，而非 file:/path。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Hide" xml:space="preserve">
@@ -550,7 +550,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppUseGui" xml:space="preserve">
-    <value>请使用 Zero Install 的图形界面版本，或通过命令行参数指定具体的集成选项。</value>
+    <value>请使用 Zero Install 的图形界面版本，或通过命令行参数明确指定集成选项。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidArgument" xml:space="preserve">
@@ -566,7 +566,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>虽然存在一个更新版本（{0} ），但未被选中。改用{1} 。</value>
+    <value>虽然存在一个较新版本（{0} ），但未被选中。改用{1} 代替。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -583,7 +583,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>在 '{0}' 中缺少 &lt;feed-for&gt; 元素；因此无法将其用作其他接口的源。</value>
+    <value>“{0} ”中缺少&lt;feed-for&gt;元素；因此无法将其用作其他接口的源。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
@@ -603,7 +603,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NeedsGui" xml:space="preserve">
-    <value>请使用 Zero Install 的图形界面版本来实现此功能。</value>
+    <value>请使用 Zero Install 的图形界面（GUI）版本来实现此功能。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
@@ -615,16 +615,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>为了使桌面集成功能正常工作，您的系统上需要部署 Zero Install。</value>
+    <value>为了使桌面集成功能正常工作，需要在您的系统上部署 Zero Install。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install 当前处于便携模式。若要实现桌面集成功能，需将其部署到永久位置。
-您可以通过执行 '{0}' 来完成此操作。这样部署的版本将与您的便携版完全独立。</value>
+    <value>Zero Install 目前处于便携模式。若要实现桌面集成，需要将其部署到永久位置。
+您可以使用 '{0}' 命令完成此操作。这样部署的版本将与您的便携版完全独立。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install 当前运行于用户专属目录中。若要实现全机桌面集成，需将其部署到所有用户均可访问的目录中。</value>
+    <value>Zero Install 当前运行于用户专属目录中。为实现全机桌面集成，需将其部署到所有用户均可访问的目录中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -632,7 +632,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>仅支持通过Feed URI进行更新，不支持通过选定文档进行更新。</value>
+    <value>只能通过 Feed URI 进行更新，不能通过选定文档进行更新。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -668,15 +668,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>隐藏图形用户界面，改用系统托盘图标等替代方案。</value>
+    <value>隐藏图形用户界面，转而使用系统托盘图标等替代方案。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>在可能的情况下自动使用默认值回答问题，并简化控制台输出（不显示表格或进度条）。</value>
+    <value>在可能的情况下，自动使用默认值回答问题，并简化控制台输出（不显示表格或进度条）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
-    <value>要求主程序版本早于{VERSION} ，即强制使用旧版本程序。</value>
+    <value>要求主程序版本早于{VERSION} ，即强制使用旧版本的程序。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -688,8 +688,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>请勿执行默认命令，而应使用{COMMAND} 。有效的命令名称在程序的配置文件中指定。
-设置为空字符串（""）可在选择时忽略该命令。</value>
+    <value>请勿执行默认命令，而应使用{COMMAND} 。有效的命令名称在程序的源中指定。
+设置为空（""）可在选择时忽略该命令。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -697,11 +697,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>强制求解器针对特定的{CPU} 。</value>
+    <value>强制求解器针对特定的{CPU} 进行求解。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>显示图形化策略编辑器。这允许您自定义要使用的程序或库的版本。</value>
+    <value>显示图形化策略编辑器。通过它，您可以自定义要使用的程序或库的版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -709,7 +709,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>尝试在本地网络中查找其他机器上的实现，而非从原始来源获取。</value>
+    <value>尝试在本地网络中的其他计算机上查找相关实现，而不是从原始来源获取它们。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
@@ -721,7 +721,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
-    <value>即使当前已安装的版本与更新版本相同或更新，仍执行更新。</value>
+    <value>即使当前已安装的版本与更新版本相同或更新，仍会执行更新。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
@@ -749,12 +749,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>指定程序的首选语言。请使用 ISO 短语言代码（例如 en 或 en-US）。
+    <value>指定实现时首选的语言。请使用 ISO 短语言代码（例如 en 或 en-US）。
 您可以多次使用此选项来指定多个可接受的语言。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>将 Zero Install 作为库进行部署，供其他应用程序使用，且不包含其自身的桌面集成功能。</value>
+    <value>将 Zero Install 作为库进行部署，供其他应用程序使用，而无需其自身的桌面集成功能。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -762,7 +762,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>运行指定的可执行文件{MAIN} 而不是默认的。如果路径以 '/' 或 '\' 开头，则该路径相对于实现的顶级目录；否则，则相对于包含默认主程序的目录。
+    <value>运行指定的可执行文件{MAIN} 而不是默认的可执行文件。如果路径以 '/' 或 '\' 开头，则该路径相对于实现的顶级目录；否则，则相对于包含默认主程序的目录。
 不得包含命令行参数！空格无需转义。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -775,28 +775,28 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
-    <value>目前请勿下载应用程序本身。该程序将在首次使用时自动下载。</value>
+    <value>请暂勿下载应用程序本身。该应用程序将在首次使用时自动下载。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>要求主程序版本不低于{VERSION} 。例如，若要运行2.0或更高版本，请使用 --not-before=2.0。</value>
+    <value>要求主程序版本不低于{VERSION} 。例如，若要运行 2.0 或更高版本，请使用 --not-before=2.0。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>在选定的程序启动后立即返回，而非等待其执行完毕。在 Windows 系统中，退出代码即为已启动程序的进程 ID。</value>
+    <value>在选定的程序启动后立即返回，而不等待其执行完成。在 Windows 系统中，退出代码即为已启动程序的进程 ID。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>在离线模式下运行，覆盖默认设置。
-在离线模式下，即使界面已过时也不会刷新，即使注入器已知晓新版本程序（例如来自之前的刷新），也不会下载这些新版本。</value>
+    <value>以离线模式运行，覆盖默认设置。
+在离线模式下，即使界面内容已过时，也不会进行刷新；即使注入器已知晓新版本程序（例如通过之前的刷新获取），也不会下载这些新版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
-    <value>强制求解器针对{OS} 操作系统。</value>
+    <value>强制求解器针对{OS} 操作系统进行优化。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPin" xml:space="preserve">
-    <value>将选定的版本标记为首选，以便将来运行时使用。</value>
+    <value>将所选版本标记为首选，以便今后运行时使用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
@@ -820,19 +820,19 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>请选择源代码而非二进制文件。此选项供“0compile”内部使用。</value>
+    <value>请选择源代码而非二进制文件。这是“0compile”在内部使用的。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>重置同步数据。有效的{MODE}值为“none”（正常合并客户端和服务器端的数据）、“client”（用服务器端的数据替换客户端的所有数据）和“server”（用客户端的数据替换服务器端的所有数据）。</value>
+    <value>重置同步数据。有效的{MODE}值为“none”（正常合并客户端和服务器端的数据）、“client”（用服务器端的数据替换客户端上的所有数据）和“server”（用客户端的数据替换服务器端上的所有数据）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
-    <value>发布先前标记为首选的版本。</value>
+    <value>发布先前标记为“首选”的版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>显示更详细的输出。若需更详细的输出，请重复执行两次。</value>
+    <value>显示更详细的输出信息。若需显示更详细的输出信息，请重复执行两次。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -842,8 +842,8 @@
   <data name="OptionVersionRange" xml:space="preserve">
     <value>要求主程序的版本号在给定的{RANGE} 范围内。
 范围之间用竖线 (|) 分隔。
-每个范围采用“START..!END”的形式。该范围匹配满足START &lt;= VERSION &lt; END的版本。起始值或结束值可以省略。
-可使用单个版本号代替范围，以仅匹配该版本；或使用 !VERSION 来匹配除该版本以外的所有版本。</value>
+每个范围的格式为“START..!END”。该范围匹配满足 START &lt;= VERSION &lt; END 的版本。起始值或结束值可以省略。
+可以使用单个版本号代替范围，以仅匹配该版本；或者使用 !VERSION 来匹配除该版本以外的所有版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
@@ -856,8 +856,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>不要直接执行所选程序，而是运行 `{COMMAND} PROGRAM ARGS`。这对于在程序上（而非在 Zero Install 上！）运行调试器和跟踪工具非常有用。
-请注意，该包装器是在程序所选的环境中执行的；因此，此机制无法用于沙箱隔离。
+    <value>不要直接执行所选程序，而应运行 `{COMMAND} PROGRAM ARGS`。这对于在程序上（而非在 Zero Install 上！）运行调试器和跟踪工具非常有用。
+请注意，该包装程序是在程序所选的环境中执行的；因此，此机制不能用于沙箱隔离。
 可能包含命令行参数。空格必须进行转义！</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -870,7 +870,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="PropertiesFor" xml:space="preserve">
-    <value>属性{0}</value>
+    <value>属性：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Remove" xml:space="preserve">
@@ -894,11 +894,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>您可能需要关闭并重新打开终端，以便此设置生效。</value>
+    <value>您可能需要关闭并重新打开终端，才能使此设置生效。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
-    <value>您要将列表重置为初始状态吗？</value>
+    <value>您要将列表重置为原始状态吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
@@ -939,15 +939,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>是否为{0} 设置相应的稳定性策略？</value>
+    <value>是否应为{0} 设置相应的稳定性策略？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>将{0} 的稳定性策略重置为默认值？</value>
+    <value>将{0} 的稳定性策略重置为默认值吗？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
-    <value>从{0} 选择实现所需的稳定性策略为 '{1}'。</value>
+    <value>从{0} 选择实现所需的稳定性策略为“{1} ”。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">
@@ -976,7 +976,7 @@
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>加密密钥用于在将数据传输至服务器之前对其进行本地加密。
-请妥善保管此密钥，并为密码设置不同的内容。这样即使服务器遭到入侵，也无人能访问您的数据。</value>
+请妥善保管此密钥，并为密码设置不同的内容。这样即使服务器遭到入侵，任何人都无法访问您的数据。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
@@ -996,7 +996,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>请尝试使用以下其中一种语言的{0} ：</value>
+    <value>请尝试使用以下任一链接访问{0} ：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryRunAgain" xml:space="preserve">

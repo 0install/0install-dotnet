@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Tag ` {0} ` hilang di dalam ` {1}`.</value>
+    <value>Tag ` {0} ` tidak ada di dalam ` {1}`.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -111,7 +111,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Nomor versi hanya boleh berisi angka desimal yang dipisahkan dengan titik dan string modifikator.</value>
+    <value>Nomor versi hanya boleh berisi angka desimal yang dipisahkan dengan titik dan string pengubah.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -175,11 +175,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>Ekstensi file '{0}' tidak sesuai dengan jenis arsip yang dikenal.</value>
+    <value>Ekstensi berkas '{0}' tidak sesuai dengan jenis arsip yang dikenal.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
-    <value>Modifier yang tidak dikenal.</value>
+    <value>Modifikator tidak dikenal.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">

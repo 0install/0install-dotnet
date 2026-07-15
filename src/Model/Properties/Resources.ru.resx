@@ -87,15 +87,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Не удалось найти реализацию для интерфейса «{0} » в списке.</value>
+    <value>Не удалось найти реализацию интерфейса «{0} » в списке.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>«{0} » не является допустимым URI в формате «http(s):» и не является допустимым локальным путем.</value>
+    <value>«{0} » не является допустимым URI в формате «http(s):», а также не является допустимым локальным путем.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Недопустимый атрибут «{0} » на {1}.</value>
+    <value>Недопустимый атрибут «{0} » на странице {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Отсутствует тег ` {0} ` внутри тега ` {1}`.</value>
+    <value>В теге ` {1}` отсутствует тег ` {0} `.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>Атрибут «rollout-percentage» на {0} может быть установлен только в том случае, если «stability» имеет значение «testing» или не установлено.</value>
+    <value>Атрибут «rollout-percentage» на странице {0} можно установить только в том случае, если атрибут «stability» имеет значение «testing» или не задан.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -167,11 +167,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Идентификатор должен быть безопасным. Может содержать только буквенно-цифровые символы, пробелы ( ), точки (.), подчеркивания (_), дефисы (-) и знаки плюс (+).</value>
+    <value>Идентификатор должен быть безопасным. Может содержать только буквенно-цифровые символы, пробелы ( ), точки (.), подчеркивания (_), дефисы (-) и знаки «плюс» (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>Шаг рецепта «{0} » в реализации «{1} » имеет неверную ссылку на реализацию.</value>
+    <value>Шаг рецепта «{0} » в реализации «{1} » содержит недопустимую ссылку на реализацию.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">

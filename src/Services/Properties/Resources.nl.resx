@@ -83,15 +83,15 @@ Wilt u deze sleutel vertrouwen om feeds van "{3}" te ondertekenen?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
-    <value>Niet compatibel met beperking: {0}</value>
+    <value>Niet compatibel met de volgende beperking: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
-    <value>Geen '{0}'-commando</value>
+    <value>Geen '{0}'-opdracht</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>Geen enkele bekende implementatie</value>
+    <value>Er zijn helemaal geen implementaties bekend</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
@@ -111,11 +111,11 @@ Wilt u deze sleutel vertrouwen om feeds van "{3}" te ondertekenen?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUnsuitable" xml:space="preserve">
-    <value>Ongeschikt</value>
+    <value>Niet geschikt</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUserRequestedVersion" xml:space="preserve">
-    <value>Door gebruiker gevraagde versie {0}</value>
+    <value>Door de gebruiker gevraagde versie {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">

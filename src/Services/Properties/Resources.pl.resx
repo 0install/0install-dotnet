@@ -79,7 +79,7 @@ Czy chcesz zezwolić temu kluczowi na podpisywanie kanałów z „{3}”?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>Nie można korzystać z {0} przy wybraniu opcji {1} ({2})</value>
+    <value>Nie można korzystać z {0} przy wybranej opcji {1} ({2})</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
@@ -107,7 +107,7 @@ Czy chcesz zezwolić temu kluczowi na podpisywanie kanałów z „{3}”?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
-    <value>wymaga</value>
+    <value>wymagania</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUnsuitable" xml:space="preserve">

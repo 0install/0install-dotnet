@@ -75,7 +75,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
-    <value>Δεν μπορώ να βρω όλες τις απαιτούμενες υλοποιήσεις:</value>
+    <value>Δεν μπορούν να βρεθούν όλες οι απαιτούμενες υλοποιήσεις:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>Δεν υπάρχουν καθόλου γνωστές εφαρμογές</value>
+    <value>Δεν υπάρχουν καθόλου γνωστές υλοποιήσεις</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUserRequestedVersion" xml:space="preserve">
-    <value>Ζητούμενη από τον χρήστη έκδοση {0}</value>
+    <value>Έκδοση που ζήτησε ο χρήστης {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -139,11 +139,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>Δεν βρέθηκαν κατάλληλες εκδόσεις του {0} και των εξαρτήσεών του.</value>
+    <value>Δεν ήταν δυνατή η εύρεση κατάλληλων εκδόσεων του {0} και των εξαρτήσεών του.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>Δεν βρέθηκε έκδοση του {0} κατάλληλη για το {1}.</value>
+    <value>Δεν ήταν δυνατή η εύρεση έκδοσης του {0} κατάλληλης για το {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -159,7 +159,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>Το «{0} » είναι ένα τοπικό αρχείο. Θα πρέπει να είναι μια διεύθυνση URL HTTP(S).</value>
+    <value>Το «{0} » είναι ένα τοπικό αρχείο. Θα πρέπει να είναι μια διεύθυνση URL τύπου HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -167,7 +167,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Λείπει το χαρακτηριστικό uri της &lt;interface&gt;. Θα πρέπει να είναι '{0}'.</value>
+    <value>Λείπει το χαρακτηριστικό uri της &lt;interface&gt;. Θα πρέπει να είναι «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -191,7 +191,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>Δεν είναι δυνατή η λήψη του {0} επειδή το Zero Install βρίσκεται σε λειτουργία εκτός σύνδεσης.</value>
+    <value>Δεν είναι δυνατή η λήψη του {0}, επειδή το Zero Install βρίσκεται σε λειτουργία εκτός σύνδεσης.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
@@ -214,7 +214,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Αποτυχία λήψης του {0}. Προσπαθώ να το λάβω από τον καθρέφτη τροφοδοσίας.</value>
+    <value>Αποτυχία λήψης του αρχείου {0}. Προσπαθώ να το λάβω από τον εναλλακτικό καθρέφτη τροφοδοσίας.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -222,7 +222,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>Δεν είναι δυνατή η ανάλυση της ροής που κατεβάστηκε από το {0}.</value>
+    <value>Δεν είναι δυνατή η ανάλυση της ροής που κατεβάστηκε από τη διεύθυνση {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">

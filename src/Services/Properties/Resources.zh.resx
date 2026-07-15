@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>生成的命令行为空。</value>
+    <value>生成的命令行内容为空。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
-    <value>不兼容以下限制：{0}</value>
+    <value>与以下限制不兼容：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
@@ -95,7 +95,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
-    <value>尚无可用实现：</value>
+    <value>尚无可用的实现方案：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagProblem" xml:space="preserve">
@@ -123,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt; 绑定必须包含 'value' 或 'insert' 属性之一。</value>
+    <value>&lt;environment&gt; 绑定必须包含“value”或“insert”属性之一。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -199,7 +199,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>未找到实现 '{0}' 的清单摘要。</value>
+    <value>未找到实现“{0} ”的清单摘要。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
@@ -218,7 +218,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>无法缓存下载的应用程序目录。</value>
+    <value>无法将下载的应用程序目录缓存到本地。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
@@ -234,7 +234,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>“{0} ”在{1} 包管理器中不是已知的ID。</value>
+    <value>“{0} ”在{1} 包管理器中并非已知的ID。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">

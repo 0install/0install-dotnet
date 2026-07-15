@@ -71,15 +71,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Error al cargar las preferencias de la interfaz para «{0} ». Volviendo a los valores predeterminados.</value>
+    <value>Error al cargar las preferencias de la interfaz para «{0} ». Se restablecen los valores predeterminados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Error al cargar la base de datos de confianza. Volviendo a los valores predeterminados.</value>
+    <value>Error al cargar la base de datos de confianza. Se restablecen los valores predeterminados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>No se ha encontrado la fuente «{0} » en el catálogo.</value>
+    <value>No se ha podido encontrar la fuente «{0} » en el catálogo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
@@ -87,11 +87,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>No se ha encontrado la implementación de la interfaz «{0} » en la selección.</value>
+    <value>No se ha encontrado ninguna implementación para la interfaz «{0} » en la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>«{0} » no es un URI «http(s):» válido y tampoco es una ruta local válida.</value>
+    <value>«{0} » no es un URI «http(s):» válido ni tampoco una ruta local válida.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Falta una etiqueta ` {0} ` dentro de ` {1}`.</value>
+    <value>Falta la etiqueta « {0} » dentro de « {1} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -127,11 +127,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>No se ha podido resolver la URI relativa «{0} ». Solo los feeds guardados como archivos locales pueden contener URI relativas.</value>
+    <value>No se ha podido resolver el URI relativo «{0} ». Solo las fuentes guardadas como archivos locales pueden contener URI relativos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>El atributo «rollout-percentage» en {0} solo se puede establecer cuando «stability» es «testing» o no está definido.</value>
+    <value>El atributo «rollout-percentage» de {0} solo se puede establecer cuando «stability» es «testing» o no está definido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -171,7 +171,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>El paso de la receta «{0} » en la implementación «{1} » tiene una referencia de implementación no válida.</value>
+    <value>El paso de la receta «{0} » de la implementación «{1} » tiene una referencia de implementación no válida.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>El final del rango de versiones debe ser exclusivo. Utiliza «..!{0} », no «..{0} ».</value>
+    <value>El rango de versiones debe ser exclusivo. Utiliza «..!{0} », no «..{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -67,11 +67,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>「{0} 」のフィード設定を読み込めませんでした。デフォルト値に戻します。</value>
+    <value>「{0} 」のフィード設定の読み込みに失敗しました。デフォルト値に戻します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>「{0} 」のインターフェース設定を読み込めませんでした。デフォルト値に戻します。</value>
+    <value>「{0} 」のインターフェース設定の読み込みに失敗しました。デフォルト値に戻します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -91,11 +91,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>「{0} 」は有効な「http(s):」URIではなく、有効なローカルパスでもありません。</value>
+    <value>「{0} 」は、有効な「http(s):」URI ではなく、有効なローカルパスでもありません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>{1} における '{0}' 属性が無効です。</value>
+    <value>{1} において、「{0} 」属性が無効です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>ドット区切りのリストには、10進数の数値のみを含めることができます。</value>
+    <value>ドットで区切られたリストには、10進数の数値のみを含めることができます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
@@ -123,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>相対パス「{0} 」を解決できませんでした。相対パスを含むことができるのは、ローカルファイルとして保存されたフィードのみです。</value>
+    <value>相対パス「{0} 」を解決できませんでした。相対パスを含めることができるのは、ローカルファイルとして保存されたフィードのみです。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>{0} の 'rollout-percentage' 属性は、'stability' が 'testing' であるか、設定されていない場合にのみ設定できます。</value>
+    <value>{0} の「rollout-percentage」属性は、「stability」が「testing」であるか、または設定されていない場合にのみ設定できます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -139,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>コマンド「{0} 」は提供されません。</value>
+    <value>「{0} 」コマンドは提供されていません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>キャッシュにない実装（現在はオフラインモード）</value>
+    <value>キャッシュ外での実装（現在はオフラインモード）</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
@@ -167,7 +167,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>安全なIDである必要があります。使用できる文字は、英数字、スペース（ ）、ピリオド（.）、アンダースコア（_）、ハイフン（-）、プラス記号（+）のみです。</value>
+    <value>安全なIDである必要があります。使用できる文字は、英数字、スペース ( )、ピリオド (.)、アンダースコア (_)、ハイフン (-)、プラス記号 (+) のみです。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">

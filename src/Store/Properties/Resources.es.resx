@@ -124,7 +124,7 @@ Para eliminar el directorio completo sin usar Zero Install, ejecuta esta línea 
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>El uso del espejo de feeds, necesario para la búsqueda, está desactivado.
+    <value>El uso del espejo de fuentes, necesario para la búsqueda, está desactivado.
 Ejecuta «0install config feed_mirror default» para activarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -182,7 +182,7 @@ Si estás utilizando una unidad con formato FAT, conviértela a NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>No se puede descargar el icono de {0} porque solo se admiten direcciones URL HTTP y HTTPS.</value>
+    <value>No se puede descargar el icono desde {0} porque solo se admiten direcciones URL HTTP y HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -190,7 +190,7 @@ Si estás utilizando una unidad con formato FAT, conviértela a NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Número de piezas en línea no válido.</value>
+    <value>Número de piezas en la línea no válido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -223,7 +223,7 @@ Si estás utilizando una unidad con formato FAT, conviértela a NTFS.</value>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>La ruta «{0} » no es una ruta absoluta. Las rutas relativas solo están permitidas en modo portátil.
-Especificado en el archivo de configuración «{1} ».</value>
+Se especifica en el archivo de configuración «{1} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
@@ -266,7 +266,7 @@ Para resolver el problema, elimina el archivo «{1}». Es posible que se pierdan
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>No se puede establecer conexión con StoreService.</value>
+    <value>No se ha podido establecer la conexión con StoreService.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
@@ -274,7 +274,7 @@ Para resolver el problema, elimina el archivo «{1}». Es posible que se pierdan
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>No se ha encontrado una clave secreta con el nombre especificado.</value>
+    <value>No se ha podido encontrar una clave secreta con el nombre especificado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">

@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>파일 손상 여부 확인</value>
+    <value>손상된 파일 확인</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
@@ -125,7 +125,7 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>검색에 필요한 피드 미러 기능이 비활성화되어 있습니다.
-이 기능을 활성화하려면 '0install config feed_mirror default'를 실행하십시오.</value>
+이 기능을 활성화하려면 '0install config feed_mirror default' 명령을 실행하십시오.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -157,7 +157,7 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>'{0}' 구현이 손상되었습니다.</value>
+    <value>'{0}' 구현에 오류가 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
@@ -190,11 +190,11 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>라인에 있는 부품 수가 유효하지 않습니다.</value>
+    <value>줄에 포함된 부품 수가 유효하지 않습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>아카이브에 잘못된 경로가 포함되어 있습니다(보안 위험이 있을 수 있음): {0}</value>
+    <value>아카이브에 유효하지 않은 경로가 포함되어 있습니다(보안 위험이 있을 수 있음): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -231,7 +231,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Zero Install은 실행 캐시에서 스스로를 제거할 수 없습니다.</value>
+    <value>Zero Install은 구현 캐시에서 스스로를 제거할 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
@@ -239,7 +239,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>이 옵션은 그룹 정책으로 제어되므로 수정할 수 없습니다.</value>
+    <value>이 옵션은 그룹 정책에 의해 제어되므로 수정할 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
@@ -266,7 +266,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>StoreService와 연결할 수 없습니다.</value>
+    <value>StoreService와의 연결을 설정할 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">

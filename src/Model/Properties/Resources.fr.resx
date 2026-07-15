@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Erreur lors du chargement des préférences de flux pour «{0} ». Retour aux valeurs par défaut.</value>
+    <value>Erreur lors du chargement des préférences du flux pour «{0} ». Retour aux valeurs par défaut.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>«{0} » n'est pas une URI « http(s): » valide et n'est pas non plus un chemin d'accès local valide.</value>
+    <value>«{0} » n'est pas une URI « http(s): » valide et ne correspond pas non plus à un chemin d'accès local valide.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Balise d'{0} manquante à l'intérieur de {1}.</value>
+    <value>Balise « {0} » manquante à l'intérieur de « {1} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>L'attribut « rollout-percentage » de {0} ne peut être défini que lorsque « stability » est « testing » ou n'est pas défini.</value>
+    <value>L'attribut « rollout-percentage » de la balise {0} ne peut être défini que lorsque « stability » a la valeur « testing » ou n'est pas défini.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -163,7 +163,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Doit être un type MIME valide.</value>
+    <value>Le type MIME doit être valide.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
@@ -171,7 +171,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>L'étape de recette «{0} » dans l'implémentation «{1} » comporte une référence d'implémentation non valide.</value>
+    <value>L'étape de recette «{0} » de l'implémentation «{1} » comporte une référence d'implémentation non valide.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">

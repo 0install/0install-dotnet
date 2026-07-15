@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
-    <value>Nu se poate găsi comanda „{0} ”.</value>
+    <value>Nu s-a găsit comanda „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
@@ -71,7 +71,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Eroare la încărcarea preferințelor de interfață pentru „{0} ”. Se revine la valorile implicite.</value>
+    <value>Eroare la încărcarea preferințelor interfeței pentru „{0} ”. Se revine la valorile implicite.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -79,15 +79,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Nu se poate găsi fluxul „{0} ” în catalog.</value>
+    <value>Nu s-a găsit fluxul „{0} ” în catalog.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
-    <value>Găsit în schimb:</value>
+    <value>S-a găsit în schimb:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Nu s-a găsit implementarea pentru interfața „{0} ” în selecție.</value>
+    <value>Nu s-a găsit o implementare pentru interfața „{0} ” în selecție.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Lipsește eticheta „ {0} ” în interiorul „ {1} ”.</value>
+    <value>Lipsește eticheta „ {0} ” din interiorul etichetei „ {1} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -111,7 +111,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Numărul versiunii poate conține doar zecimale separate prin punct și șiruri de modificatori.</value>
+    <value>Numărul versiunii poate conține doar zecimale separate prin punct și șiruri de caractere modificatoare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -131,11 +131,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>Atributul „rollout-percentage” de pe {0} poate fi setat numai când „stability” este „testing” sau nesetat.</value>
+    <value>Atributul „rollout-percentage” de pe {0} poate fi setat numai atunci când „stability” este „testing” sau nu este setat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Implementare defectuoasă</value>
+    <value>Implementare cu erori</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementare fără cache (în prezent în modul offline)</value>
+    <value>Implementare fără utilizarea cache-ului (în prezent în modul offline)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
@@ -163,11 +163,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Ar trebui să fie un tip MIME valid.</value>
+    <value>Trebuie să fie un tip MIME valid.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Trebuie să fie un ID sigur. Poate conține doar caractere alfanumerice, spații ( ), puncte (.), linii de subliniere (_), cratime (-) și semne plus (+).</value>
+    <value>ID-ul trebuie să fie sigur. Poate conține numai caractere alfanumerice, spații ( ), puncte (.), linii de subliniere (_), cratime (-) și semne plus (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Sfârșitul intervalului de versiuni trebuie să fie exclusiv. Utilizați „..!{0} ”, nu „..{0} ”.</value>
+    <value>Limita inferioară a intervalului de versiuni trebuie să fie exclusivă. Utilizați „..!{0} ”, nu „..{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>破損ファイルのチェック</value>
+    <value>破損したファイルの有無を確認中</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
@@ -116,7 +116,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>'{0}' からの OpenPGP キーバンドルの読み込みに失敗しました</value>
+    <value>「{0} 」からのOpenPGPキーバンドルの読み込みに失敗しました</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -124,7 +124,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>検索に必要なフィードミラーの使用は無効になっています。
+    <value>検索に必要となるフィードミラーの使用は無効になっています。
 有効にするには、「0install config feed_mirror default」を実行してください。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -157,7 +157,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>実装 '{0}' が破損しています。</value>
+    <value>実装「{0} 」が破損しています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
@@ -169,7 +169,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>実装 '{0}' が見つかりませんでした。</value>
+    <value>実装「{0} 」が見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -190,7 +190,7 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>行内の部品数が不正です。</value>
+    <value>行内のパーツ数が不正です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -202,7 +202,7 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>共有ストアの最適化は、管理者のみが実行できます。</value>
+    <value>共有ストアの最適化を行えるのは、管理者のみです。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
@@ -210,7 +210,7 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>ファイル名またはディレクトリ名には、改行文字を含めてはいけません。</value>
+    <value>ファイル名またはディレクトリ名には、改行文字を含めてはなりません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -244,7 +244,7 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>実装ストア「{0} 」へのアクセスに問題が発生しました。
-「{1} 」を実行して、登録済みディレクトリの一覧から削除してください。</value>
+「{1} 」を実行して、登録済みディレクトリの一覧からこのディレクトリを削除してください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
@@ -262,11 +262,11 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
     <comment>Manually overriden.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
-    <value>署名ファイルは既に存在します。</value>
+    <value>署名ファイルはすでに存在します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
-    <value>StoreService への接続を確立できません。</value>
+    <value>StoreService との接続を確立できませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
