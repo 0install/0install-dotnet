@@ -110,8 +110,8 @@ public interface IZeroInstallClient
     /// Adds an application to the application list (if missing) and integrates it into the desktop environment.
     /// </summary>
     /// <param name="uri">The feed URI of the application.</param>
-    /// <param name="add">The access point categories to add (e.g., <c>capability-registration</c>, <c>menu-entry</c>, <c>desktop-icon</c>).</param>
-    /// <param name="remove">The access point categories to remove (e.g., <c>capability-registration</c>, <c>menu-entry</c>, <c>desktop-icon</c>).</param>
+    /// <param name="add">The access point categories to add. See <see cref="IntegrationCategories"/> for well-known values.</param>
+    /// <param name="remove">The access point categories to remove. See <see cref="IntegrationCategories"/> for well-known values.</param>
     /// <param name="machineWide">Apply the operation machine-wide instead of just for the current user.</param>
     /// <exception cref="NotAdminException"><paramref name="machineWide"/> was set but the current process is not running with admin rights.</exception>
     /// <exception cref="IOException">0install could not be launched or reported a problem accessing the filesystem.</exception>
