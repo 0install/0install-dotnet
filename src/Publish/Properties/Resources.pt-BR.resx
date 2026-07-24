@@ -76,6 +76,9 @@
     <value>Procurando arquivos executáveis</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>O feed já contém uma implementação com o ID '{0}'.</value>
+  </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Um resumo de manifesto foi calculado para uma pasta vazia. Verifique se você definiu o valor "{0}" correto para o arquivo.</value>
     <comment>Manually overriden.</comment>

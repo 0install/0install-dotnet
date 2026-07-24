@@ -76,6 +76,9 @@
     <value>Yürütülebilir dosyalar aranıyor</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>Akışta '{0}' kimliğine sahip bir uygulama zaten var.</value>
+  </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Boş bir klasör için öge listesi dosyası hazırlandı. Arşiv için "{0}" değerinin doğru şekilde ayarlandığından emin olun.</value>
     <comment>Manually overriden.</comment>

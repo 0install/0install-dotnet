@@ -76,6 +76,9 @@
     <value>Suche nach ausführbaren Dateien</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>Der Feed enthält bereits eine Implementierung mit der ID '{0}'.</value>
+  </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Ein Manifest-Digest wurde für ein leeres Verzeichnis berechnet. Überprüfen Sie, ob Sie den richtigen "{0}"-Wert für das Archiv eingestellt haben.</value>
     <comment>Manually overriden.</comment>

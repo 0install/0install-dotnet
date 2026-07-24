@@ -132,6 +132,9 @@
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Searching for executable files</value>
   </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>The feed already contains an implementation with the ID '{0}'.</value>
+  </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>A manifest digest was calculated for an empty directory. Check that you have set the correct "{0}" value for the archive.</value>
   </data>
