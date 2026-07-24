@@ -5,12 +5,13 @@ using System.Security.Cryptography;
 using NanoByte.Common.Net;
 using NanoByte.Common.Streams;
 using NanoByte.Common.Undo;
+using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Implementations;
 using ZeroInstall.Store.Manifests;
 
 namespace ZeroInstall.Publish;
 
-public class ImplementationExtensionsTest
+public class ImplementationExtensionsTest : TestWithMocks
 {
     private static readonly ManifestDigest _archiveDigest = new(Sha256New: "TPD62FAK7ME7OCER5CHL3HQDZQMNJVENJUBL6E6IXX5UI44OXMJQ");
 
@@ -94,5 +95,96 @@ public class ImplementationExtensionsTest
         using var microServer = new MicroServer("archive.zip", stream);
         var implementation = new Implementation {ID = "1", Version = new("1.0"), ManifestDigest = new(Sha1New: "invalid"), RetrievalMethods = {new Archive {Href = microServer.FileUri}}};
         Assert.Throws<DigestMismatchException>(() => implementation.SetMissing(new SimpleCommandExecutor(), new SilentTaskHandler()));
+    }
+
+    [Fact]
+    public void AddArchive()
+    {
+        using var tempDir = new TemporaryDirectory("0install-test-archive");
+        string path = Path.Combine(tempDir, "archive.zip");
+        typeof(ImplementationExtensionsTest).CopyEmbeddedToFile("testArchive.zip", path);
+
+        var href = new Uri("http://example.com/archive.zip");
+        var implementation = new Implementation {ID = ".", Version = new("1.0")};
+        implementation.AddArchive(href, path, extract: null, formats: null, new SimpleCommandExecutor(), new SilentTaskHandler());
+
+        implementation.ManifestDigest.Should().Be(_archiveDigest);
+        implementation.ID.Should().Be(_archiveDigest.Best);
+
+        var archive = (Archive)implementation.RetrievalMethods.Should().ContainSingle().Subject;
+        archive.Href.Should().Be(href);
+        archive.MimeType.Should().Be(Archive.MimeTypeZip);
+        archive.Size.Should().Be(new FileInfo(path).Length);
+    }
+
+    [Fact]
+    public void AddArchiveMultipleFormats()
+    {
+        using var tempDir = new TemporaryDirectory("0install-test-archive");
+        string path = Path.Combine(tempDir, "archive.zip");
+        typeof(ImplementationExtensionsTest).CopyEmbeddedToFile("testArchive.zip", path);
+
+        var implementation = new Implementation {ID = ".", Version = new("1.0")};
+        implementation.AddArchive(new("http://example.com/archive.zip"), path, extract: null, [ManifestFormat.Sha1New, ManifestFormat.Sha256New], new SimpleCommandExecutor(), new SilentTaskHandler());
+
+        implementation.ManifestDigest.Sha256New.Should().Be(_archiveDigest.Sha256New);
+        implementation.ManifestDigest.Sha1New.Should().NotBeNullOrEmpty();
+    }
+
+    [Fact]
+    public void AddArchiveMissingLocalFile()
+    {
+        var implementation = new Implementation {ID = ".", Version = new("1.0")};
+        Assert.Throws<FileNotFoundException>(() => implementation.AddArchive(
+            new("http://example.com/does-not-exist.zip"), localPath: null, extract: null, formats: null, new SimpleCommandExecutor(), new SilentTaskHandler()));
+    }
+
+    [Fact]
+    public void AddDigest()
+    {
+        using var tempDir = new TemporaryDirectory("0install-test-digest");
+        FileUtils.Touch(Path.Combine(tempDir, "file"));
+
+        var digest = new ManifestDigest(BuildDigest(tempDir, ManifestFormat.Sha256New));
+        var implementation = new Implementation {ID = digest.Best!, Version = new("1.0"), ManifestDigest = digest};
+
+        var storeMock = GetMock<IImplementationStore>();
+        storeMock.Setup(x => x.GetPath(digest)).Returns(tempDir.Path);
+        storeMock.Setup(x => x.Verify(digest));
+
+        implementation.AddDigest(ManifestFormat.Sha1New, storeMock.Object, new SimpleCommandExecutor(), new SilentTaskHandler())
+                      .Should().BeTrue();
+
+        implementation.ManifestDigest.Sha256New.Should().Be(digest.Sha256New, because: "Existing digests should be preserved");
+        ("sha1new=" + implementation.ManifestDigest.Sha1New).Should().Be(BuildDigest(tempDir, ManifestFormat.Sha1New));
+    }
+
+    [Fact]
+    public void AddDigestSkipsExistingFormat()
+    {
+        var implementation = new Implementation {ID = "sha1new=abc", Version = new("1.0"), ManifestDigest = new(Sha1New: "abc")};
+
+        implementation.AddDigest(ManifestFormat.Sha1New, GetMock<IImplementationStore>().Object, new SimpleCommandExecutor(), new SilentTaskHandler())
+                      .Should().BeFalse();
+    }
+
+    [Fact]
+    public void AddDigestSkipsUncachedImplementation()
+    {
+        var digest = new ManifestDigest(Sha256New: "TPD62FAK7ME7OCER5CHL3HQDZQMNJVENJUBL6E6IXX5UI44OXMJQ");
+        var implementation = new Implementation {ID = digest.Best!, Version = new("1.0"), ManifestDigest = digest};
+
+        var storeMock = GetMock<IImplementationStore>();
+        storeMock.Setup(x => x.GetPath(digest)).Returns(() => null);
+
+        implementation.AddDigest(ManifestFormat.Sha1New, storeMock.Object, new SimpleCommandExecutor(), new SilentTaskHandler())
+                      .Should().BeFalse();
+    }
+
+    private static string BuildDigest(string path, ManifestFormat format)
+    {
+        var builder = new ManifestBuilder(format);
+        new SilentTaskHandler().RunTask(new ReadDirectory(path, builder));
+        return builder.Manifest.CalculateDigest();
     }
 }

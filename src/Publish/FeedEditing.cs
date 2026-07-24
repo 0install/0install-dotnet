@@ -42,18 +42,18 @@ public class FeedEditing : CommandManager<Feed>
     }
 
     /// <summary>
-    /// Starts with an empty feed.
+    /// Starts with a new feed pre-filled with placeholder values.
     /// </summary>
     public FeedEditing()
-        : this(new SignedFeed(new Feed {Name = "My App"}))
+        : this(new SignedFeed(FeedTemplate.Create()))
     {}
 
     /// <summary>
-    /// Determines whether the feed is valid and ready for use by 0install.
+    /// Determines whether the feed is valid and ready for use.
     /// </summary>
     /// <param name="problem">Returns human-readable description of the problem if the method result is <c>false</c>.</param>
     /// <returns><c>true</c> if the feed is valid; <c>false</c> otherwise.</returns>
-    public bool IsValid([MaybeNullWhen(true)] out string problem)
+    public bool IsValid([NotNullWhen(false)] out string? problem)
     {
         try
         {

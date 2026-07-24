@@ -58,9 +58,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>Todas as implementações já foram lançadas. Selecione uma versão específica.</value>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>O arquivo compactado contém apenas uma única pasta de nível superior '{0}'. Você provavelmente deveria definir o atributo '{1}' como '{0}' para evitar um nível de aninhamento extra.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>A cópia local do arquivo compactado '{0}' não existe. Use a opção '{1}' para especificar um caminho diferente.</value>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>O comando '{0}' especifica o caminho '{1}', mas este arquivo não existe no arquivo compactado.</value>
@@ -99,18 +105,48 @@ Tente especificá-lo manualmente.</value>
     <value>Vários novos programas padrão foram detectados no registro. Todos serão tratados, mas o último pode ter precedência em alguns casos.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>O feed tem vários elementos {0}. Isso não é suportado aqui.</value>
+  </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Várias pastas de instalação foram detectadas. Escolhendo a primeira por padrão.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>Não há nenhuma implementação com o ID '{0}' e há várias implementações locais para escolher.</value>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Vários novos registros de aplicativos foram detectados no registro. Escolhendo o primeiro por padrão.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>Há várias versões testing. Marcando {0} de {1} implementações com a versão {2} como stable.</value>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>Há várias implementações sem data de lançamento. Selecione uma versão específica.</value>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>Nenhuma implementação da versão {0} está em cache. Não é possível calcular um resumo adicional.</value>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>O feed não tem nenhum elemento {0}. Não é possível usá-lo como um feed local.</value>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>O feed não contém nenhuma implementação com a versão {0}.</value>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>O feed não contém nenhuma implementação.</value>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Nenhuma pasta de instalação foi detectada.
 Tente especificá-la manualmente.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>Não há nenhuma implementação com o ID '{0}' nem uma implementação local à qual aplicar o arquivo compactado.</value>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>Nenhuma implementação está marcada como testing no momento.</value>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Atualmente, esse método está disponível apenas no Windows.</value>

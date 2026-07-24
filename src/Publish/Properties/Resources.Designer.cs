@@ -61,11 +61,29 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All implementations have already been released. Select a specific version instead..
+        /// </summary>
+        internal static string AllImplementationsReleased {
+            get {
+                return ResourceManager.GetString("AllImplementationsReleased", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The archive contains only a single top-level directory '{0}'. You should probably set the '{1}' attribute to '{0}' to avoid an extra nesting level..
         /// </summary>
         internal static string ArchiveContainsSingleTopLevelDirectory {
             get {
                 return ResourceManager.GetString("ArchiveContainsSingleTopLevelDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The local copy of the archive '{0}' does not exist. Use the '{1}' option to specify a different path..
+        /// </summary>
+        internal static string ArchiveFileNotFound {
+            get {
+                return ResourceManager.GetString("ArchiveFileNotFound", resourceCulture);
             }
         }
         
@@ -152,11 +170,29 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The feed has multiple {0} elements. This is not supported here..
+        /// </summary>
+        internal static string MultipleFeedFor {
+            get {
+                return ResourceManager.GetString("MultipleFeedFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Multiple installation directories were detected. Choosing first by default..
         /// </summary>
         internal static string MultipleInstallationDirsDetected {
             get {
                 return ResourceManager.GetString("MultipleInstallationDirsDetected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no implementation with the ID '{0}' and there are multiple local implementations to choose from..
+        /// </summary>
+        internal static string MultipleLocalImplementations {
+            get {
+                return ResourceManager.GetString("MultipleLocalImplementations", resourceCulture);
             }
         }
         
@@ -170,12 +206,84 @@ namespace ZeroInstall.Publish.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are multiple testing versions. Marking {0} of {1} implementations with version {2} as stable..
+        /// </summary>
+        internal static string MultipleTestingVersions {
+            get {
+                return ResourceManager.GetString("MultipleTestingVersions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are multiple implementations without a release date. Select a specific version instead..
+        /// </summary>
+        internal static string MultipleUnreleasedImplementations {
+            get {
+                return ResourceManager.GetString("MultipleUnreleasedImplementations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No implementation of version {0} is cached. Unable to calculate an additional digest..
+        /// </summary>
+        internal static string NoCachedImplementation {
+            get {
+                return ResourceManager.GetString("NoCachedImplementation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The feed has no {0} element. Unable to use it as a local feed..
+        /// </summary>
+        internal static string NoFeedFor {
+            get {
+                return ResourceManager.GetString("NoFeedFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The feed contains no implementation with version {0}..
+        /// </summary>
+        internal static string NoImplementationWithVersion {
+            get {
+                return ResourceManager.GetString("NoImplementationWithVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The feed contains no implementations..
+        /// </summary>
+        internal static string NoImplementations {
+            get {
+                return ResourceManager.GetString("NoImplementations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No installation directory was detected.
         ///Try specifying it manually..
         /// </summary>
         internal static string NoInstallationDirDetected {
             get {
                 return ResourceManager.GetString("NoInstallationDirDetected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no implementation with the ID '{0}' and no local implementation to apply the archive to..
+        /// </summary>
+        internal static string NoLocalImplementation {
+            get {
+                return ResourceManager.GetString("NoLocalImplementation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No implementation is currently marked as testing..
+        /// </summary>
+        internal static string NoTestingImplementations {
+            get {
+                return ResourceManager.GetString("NoTestingImplementations", resourceCulture);
             }
         }
         

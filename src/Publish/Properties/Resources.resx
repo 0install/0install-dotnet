@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>All implementations have already been released. Select a specific version instead.</value>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>The archive contains only a single top-level directory '{0}'. You should probably set the '{1}' attribute to '{0}' to avoid an extra nesting level.</value>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>The local copy of the archive '{0}' does not exist. Use the '{1}' option to specify a different path.</value>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>The command '{0}' specifies path '{1}' but this file does not exist in the archive.</value>
@@ -145,6 +151,18 @@ Try specifying it manually.</value>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
     <value>No 32-bit %ProgramFiles% directory found.</value>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>The feed has multiple {0} elements. This is not supported here.</value>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>There is no implementation with the ID '{0}' and there are multiple local implementations to choose from.</value>
+  </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>There are multiple testing versions. Marking {0} of {1} implementations with version {2} as stable.</value>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>There are multiple implementations without a release date. Select a specific version instead.</value>
+  </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
     <value>Multiple new default programs were detected in the registry. Handling them all, but the last one may take precedence in some cases.</value>
   </data>
@@ -154,9 +172,27 @@ Try specifying it manually.</value>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Multiple new application registrations were detected in the registry. Choosing first by default.</value>
   </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>No implementation of version {0} is cached. Unable to calculate an additional digest.</value>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>The feed has no {0} element. Unable to use it as a local feed.</value>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>The feed contains no implementations.</value>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>The feed contains no implementation with version {0}.</value>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>No installation directory was detected.
 Try specifying it manually.</value>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>There is no implementation with the ID '{0}' and no local implementation to apply the archive to.</value>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>No implementation is currently marked as testing.</value>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>This method is currently only available on Windows.</value>
