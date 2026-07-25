@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Tidak dapat menemukan implementasi untuk antarmuka '{0}' dalam pilihan.</value>
+    <value>Tidak dapat menemukan implementasi untuk antarmuka '{0}' dalam daftar pilihan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">

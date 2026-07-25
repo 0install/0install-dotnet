@@ -58,9 +58,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>모든 구현 버전은 이미 출시되었습니다. 대신 특정 버전을 선택해 주세요.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>아카이브에는 최상위 디렉터리 '{0}' 하나만 포함됩니다. 추가 중첩 수준을 피하려면 '{1}' 속성을 '{0}' 로 설정해야 합니다.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>'{0}' 아카이브의 로컬 사본이 존재하지 않습니다. '{1}' 옵션을 사용하여 다른 경로를 지정하십시오.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>'{0}' 명령은 경로 '{1}' 를 지정하지만 이 파일은 아카이브에 존재하지 않습니다.</value>
@@ -69,6 +77,10 @@
   <data name="DetectingCandidates" xml:space="preserve">
     <value>실행 파일 검색</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>이 피드에는 이미 ID가 '{0}'인 구현 예제가 포함되어 있습니다.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>빈 디렉터리에 대한 매니페스트 다이제스트가 계산되었습니다. 아카이브에 올바른 "{0}" 값을 설정했는지 확인하세요.</value>
@@ -99,18 +111,58 @@
     <value>레지스트리에서 여러 개의 새로운 기본 프로그램이 감지되었습니다. 모두 처리하지만 경우에 따라 마지막 프로그램이 우선할 수 있습니다.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>피드에는 여러 개의 ` {0} ` 요소가 포함되어 있습니다. 이 기능은 여기에서 지원되지 않습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>여러 설치 디렉터리가 감지되었습니다. 기본적으로 첫 번째를 선택합니다.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>ID가 '{0}'인 구현체는 없으며, 선택할 수 있는 로컬 구현체가 여러 개 있습니다.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>레지스트리에서 여러 개의 새 애플리케이션 등록이 감지되었습니다. 기본적으로 첫 번째를 선택합니다.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>여러 테스트 버전이 있습니다. {2} 버전을 사용하는 {1} 구현 중 {0} 를 안정 버전으로 표시합니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>출시일이 정해지지 않은 여러 구현 버전이 있습니다. 대신 특정 버전을 선택하십시오.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>{0} 버전의 구현 정보가 캐시에 저장되어 있지 않습니다. 추가 다이제스트를 계산할 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>이 피드에는 {0} 요소가 없습니다. 로컬 피드로 사용할 수 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>이 피드에는 구현 내용이 포함되어 있지 않습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>이 피드에는 버전 {0} 에 대한 구현 내용이 포함되어 있지 않습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>설치 디렉터리가 감지되지 않았습니다.
 수동으로 지정해 보세요.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>ID가 '{0}'인 구현체가 없으며, 아카이브를 적용할 로컬 구현체도 없습니다.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>현재 테스트 중으로 표시된 구현은 없습니다.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>이 방법은 현재 Windows에서만 사용할 수 있습니다.</value>

@@ -165,7 +165,7 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>이 구현은 제거되었습니다. 필요할 때 새로운 사본이 자동으로 다시 다운로드됩니다.</value>
+    <value>해당 구현은 제거되었습니다. 필요할 때 새로운 사본이 자동으로 다시 다운로드됩니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -190,7 +190,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>줄에 포함된 부품 수가 유효하지 않습니다.</value>
+    <value>라인 내 부품 수가 유효하지 않습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">

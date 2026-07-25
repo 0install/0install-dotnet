@@ -100,7 +100,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
-    <value>Вы действительно хотите установить новую копию Zero Install в папку «{0} »?</value>
+    <value>Вы уверены, что хотите установить новую копию Zero Install в папку «{0} »?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
@@ -171,7 +171,7 @@
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
     <value>Хотите удалить все файлы приложений из кэша Zero Install?
-При необходимости эти файлы можно загрузить заново.</value>
+При необходимости эти файлы можно будет загрузить заново.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
@@ -277,7 +277,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Импортирует канал из локального файла, как если бы он был загружен из сети. Это полезно при тестировании файла канала, чтобы избежать его загрузки на удаленный сервер с целью повторной загрузки.
+    <value>Импортирует канал из локального файла так, как если бы он был загружен из сети. Это удобно при тестировании файла канала, чтобы избежать его загрузки на удаленный сервер с целью повторной загрузки.
 Файл должен иметь доверенную цифровую подпись, как и при получении из сети.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -286,7 +286,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>Добавляет приложение в список приложений (если его там нет) и интегрирует его в рабочий стол.</value>
+    <value>Добавляет приложение в список приложений (если оно отсутствует) и интегрирует его в рабочий стол.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
@@ -607,7 +607,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} может указываться только вместе с именем псевдонима.</value>
+    <value>{0} может быть указан только вместе с именем псевдонима.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -624,7 +624,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install запускается из каталога, привязанного к конкретному пользователю. Для обеспечения интеграции с рабочим столом на уровне всего компьютера его необходимо разместить в каталоге, доступном для всех пользователей.</value>
+    <value>Zero Install запускается из каталога, привязанного к конкретному пользователю. Для обеспечения интеграции с рабочим столом на уровне всего компьютера необходимо разместить его в каталоге, доступном для всех пользователей.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -656,7 +656,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAlgorithm" xml:space="preserve">
-    <value>Для вычисления дайджеста следует использовать алгоритм « {HASH} ».</value>
+    <value>Для вычисления дайджеста используется алгоритм « {HASH} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasRemove" xml:space="preserve">
@@ -762,7 +762,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Запускает указанный исполняемый файл {MAIN} вместо файла по умолчанию. Если имя файла начинается с символа «/» или «\», то путь является относительным по отношению к корневому каталогу реализации; в противном случае он является относительным по отношению к каталогу, содержащему основную программу по умолчанию.
+    <value>Запускает указанный исполняемый файл {MAIN} вместо файла по умолчанию. Если имя файла начинается с символа «/» или «\», путь считается относительным по отношению к корневому каталогу реализации; в противном случае путь считается относительным по отношению к каталогу, содержащему основную программу по умолчанию.
 Не может содержать аргументов командной строки! Пробелы не требуют экранирования.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -787,7 +787,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>Работа в автономном режиме с переопределением настроек по умолчанию.
+    <value>Работает в автономном режиме, переопределяя настройки по умолчанию.
 В автономном режиме интерфейсы не обновляются, даже если они устарели, и более новые версии программ не загружаются, даже если инжектор уже знает о них (например, из предыдущего обновления).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -800,7 +800,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Создать переносную версию установки, которую можно переносить с места на место (например, на флеш-накопителе).</value>
+    <value>Создайте переносную версию установки, которую можно переносить с места на место (например, на флешку).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -828,7 +828,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
-    <value>Запускает версии, ранее отмеченные как предпочтительные.</value>
+    <value>Устанавливает версии, ранее отмеченные как предпочтительные.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -843,20 +843,20 @@
     <value>Требуется версия основной программы, находящаяся в заданном диапазоне {RANGE}.
 Диапазоны разделяются вертикальными чертами (|).
 Каждый диапазон имеет формат «START..!END». Диапазон соответствует версиям, где START &lt;= VERSION &lt; END. Начало или конец могут быть опущены.
-Вместо диапазона можно использовать отдельный номер версии, чтобы найти только эту версию, или !VERSION, чтобы найти все версии, кроме указанной.</value>
+Вместо диапазона можно использовать отдельный номер версии, чтобы подобрать только эту версию, или !VERSION, чтобы подобрать все версии, кроме указанной.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Для любой библиотеки или подкомпонента с заданным параметром ` {0:URI} ` указывает версию ` {1:RANGE} ` (так же, как и при использовании параметра `--version`).</value>
+    <value>Для любой библиотеки или подкомпонента с заданным параметром {0:URI} указывает версию {1:RANGE} (так же, как и при использовании параметра --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>Добавьте {DIR} в список кэшей реализации, в которых следует выполнять поиск.
+    <value>Добавьте {DIR} в список кэшей реализации, в которых будет производиться поиск.
 Однако новые загруженные файлы не будут записываться в этот каталог.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Вместо прямого запуска выбранной программы выполните команду {COMMAND} PROGRAM ARGS. Это удобно для запуска отладчиков и инструментов трассировки на самой программе (а не на Zero Install!).
+    <value>Вместо непосредственного запуска выбранной программы выполните команду {COMMAND} PROGRAM ARGS. Это удобно для запуска отладчиков и инструментов трассировки на самой программе (а не на Zero Install!).
 Обратите внимание, что оболочка запускается в среде, выбранной самой программой; следовательно, этот механизм нельзя использовать для создания песочницы.
 Может содержать аргументы командной строки. Пробелы должны быть экранированы!</value>
     <comment>Automatically translated.</comment>
@@ -939,7 +939,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>Следует ли настроить соответствующую политику стабильности для {0}?</value>
+    <value>Необходимо настроить соответствующую политику стабильности для {0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
@@ -984,7 +984,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
-    <value>{0} trusted for domains</value>
+    <value>{0} доверенный для доменов</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">

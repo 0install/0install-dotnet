@@ -125,7 +125,7 @@ Pokud chcete odstranit celý adresář bez Zero Install, použijte tento příka
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>Použití zrcadla kanálu, které je nutné pro vyhledávání, je deaktivováno.
-Chcete-li jej aktivovat, spusťte příkaz „0install config feed_mirror default“.</value>
+Pro jeho aktivaci spusťte příkaz „0install config feed_mirror default“.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">

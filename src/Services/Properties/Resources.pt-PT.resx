@@ -79,7 +79,7 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>Não é possível utilizar o {0} com a opção {1} ({2})</value>
+    <value>Não é possível utilizar o {0} com a opção « {1} » ({2})</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">

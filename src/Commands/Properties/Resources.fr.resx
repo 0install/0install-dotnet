@@ -247,7 +247,7 @@ Vous pouvez l'utiliser en exécutant le fichier ZeroInstall.exe situé dans ce r
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>Réinitialise la liste des catalogues en rétablissant la source par défaut.</value>
+    <value>Réinitialise la liste des catalogues à la source par défaut.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
@@ -294,7 +294,7 @@ Le fichier doit posséder une signature digitale de confiance, comme s'il était
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Affiche la liste de toutes les applications actuellement présentes dans votre liste d'applications. Si un URI est fourni, seule l'application associée à cet URI de flux est affichée. Si un MOT-CLÉ est fourni, seules les applications dont le nom contient cette chaîne de caractères sont affichées (sans distinction de majuscules/minuscules).</value>
+    <value>Répertorie toutes les applications actuellement présentes dans votre liste d'applications. Si un URI est fourni, seule l'application associée à cet URI de flux s'affiche. Si un MOT-CLÉ est fourni, seules les applications dont le nom contient cette chaîne s'affichent (sans distinction de majuscules/minuscules).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -421,12 +421,12 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Cesse de faire confiance aux flux signés avec une EMPREINTE spécifique. Ne cesse de faire confiance que pour un DOMAINE spécifique, s'il est spécifié.</value>
+    <value>Cesse de faire confiance aux flux signés avec une EMPREINTE spécifique. Ne cesse de faire confiance que pour un DOMAINE spécifique, s'il est indiqué.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Vérifie la présence de mises à jour du programme et les télécharge le cas échéant.
-Ce fonctionnement est similaire à la commande « 0install download --refresh », à la différence près qu'il affiche des informations indiquant si des modifications ont été détectées.</value>
+Ce fonctionnement est similaire à la commande « 0install download --refresh », à la différence qu'il affiche des informations indiquant si des modifications ont été détectées.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -563,11 +563,11 @@ Une balise &lt;feed-for&gt; indique la compatibilité du flux.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="KioskModeNotInCatalog" xml:space="preserve">
-    <value>Le mode kiosque est activé et « {0} » n'apparaît pas dans le catalogue.</value>
+    <value>Le mode kiosque est activé et « {0} » ne figure pas dans le catalogue.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Une version plus récente ({0}) existe, mais n'a pas été retenue. On utilise plutôt {1}.</value>
+    <value>Une version plus récente ({0}) existe, mais n'a pas été sélectionnée. On utilise plutôt {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -681,7 +681,7 @@ Vous pouvez le faire à l'aide de la commande «{0} ». Cette installation sera 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Ignorer le téléchargement du catalogue pour vérifier sa validité avant de l'ajouter à la liste.</value>
+    <value>Ignorer le téléchargement du catalogue pour vérifier qu'il est valide avant de l'ajouter à la liste.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -714,7 +714,7 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>Inclure Zero Install lui-même dans l'exportation, en plus de l'application.</value>
+    <value>Intégrez Zero Install lui-même dans l'exportation, en plus de l'application.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -784,7 +784,7 @@ Peut ne pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas be
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Elle revient immédiatement une fois que le programme choisi a été lancé, au lieu d'attendre la fin de son exécution. Sous Windows, le code de sortie correspond à l'ID du processus du programme lancé.</value>
+    <value>Elle revient immédiatement une fois que le programme sélectionné a été lancé, au lieu d'attendre la fin de son exécution. Sous Windows, le code de sortie correspond à l'ID du processus du programme lancé.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -821,7 +821,7 @@ En mode hors ligne, aucune interface n'est actualisée, même si elle est obsol�
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Sélectionnez le code source plutôt qu'un fichier binaire. Celui-ci est utilisé en interne par « 0compile ».</value>
+    <value>Choisissez le code source plutôt qu'un fichier binaire. Celui-ci est utilisé en interne par « 0compile ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
@@ -833,7 +833,7 @@ En mode hors ligne, aucune interface n'est actualisée, même si elle est obsol�
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Sortie plus détaillée. À utiliser deux fois pour une sortie encore plus détaillée.</value>
+    <value>Affichage plus détaillé. À utiliser deux fois pour un affichage encore plus détaillé.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -857,8 +857,8 @@ Toutefois, les nouveaux téléchargements ne seront pas enregistrés dans ce ré
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Au lieu d'exécuter directement le programme sélectionné, utilisez la commande {COMMAND} PROGRAM ARGS. Cela est utile pour exécuter des débogueurs et des outils de traçage sur le programme (plutôt que sur Zero Install !).
-Notez que le wrapper est exécuté dans l’environnement sélectionné par le programme ; par conséquent, ce mécanisme ne peut pas être utilisé pour le sandboxing.
+    <value>Au lieu d'exécuter directement le programme choisi, exécutez {COMMAND} PROGRAM ARGS. Cela est utile pour exécuter des débogueurs et des outils de traçage sur le programme (plutôt que sur Zero Install !).
+Notez que le wrapper est exécuté dans l'environnement sélectionné par le programme ; par conséquent, ce mécanisme ne peut pas être utilisé pour le sandboxing.
 Peut contenir des arguments de ligne de commande. Les espaces doivent être échappés !</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -895,7 +895,7 @@ Peut contenir des arguments de ligne de commande. Les espaces doivent être éch
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Vous devrez peut-être fermer puis rouvrir votre terminal pour que cela prenne effet.</value>
+    <value>Il se peut que vous deviez fermer puis rouvrir votre terminal pour que cela prenne effet.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -919,7 +919,7 @@ Peut contenir des arguments de ligne de commande. Les espaces doivent être éch
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>Cette instance de Zero Install n'est pas déployée. Il n'y a rien à désinstaller.</value>
+    <value>Cette instance de Zero Install n'est pas déployée. Il n'y a rien à supprimer.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
@@ -985,7 +985,7 @@ gardez cette clé secrète et ne l'utilisez pas comme mot de passe. De cette fa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
-    <value>{0} de confiance pour les domaines</value>
+    <value>{0} fiable pour les domaines</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">

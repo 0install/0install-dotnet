@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Acest director este un cache de implementare. Fișierele de aici sunt setate ca fiind numai pentru citire prin intermediul permisiunilor sistemului de fișiere. Acest lucru împiedică ștergerea lor în mod normal.
+    <value>Acest director este un cache de implementare. Fișierele de aici sunt setate ca fiind numai pentru citire prin permisiunile sistemului de fișiere. Acest lucru împiedică ștergerea lor în mod normal.
 
 Dacă doriți să ștergeți o singură implementare, puteți utiliza următoarea comandă:
 {0}
@@ -120,7 +120,7 @@ Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, p
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Nu s-a putut debloca fișierele utilizate în „{0} ”</value>
+    <value>Nu s-a putut debloca fișierele aflate în uz din „{0} ”</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
@@ -178,7 +178,7 @@ Dacă utilizați o unitate formatată în sistemul FAT, vă rugăm să o convert
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Pictograma încărcată de pe {0} nu este o pictogramă validă de tip {1}.</value>
+    <value>Pictograma încărcată de pe {0} nu este o pictogramă validă de tip „ {1} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
@@ -194,7 +194,7 @@ Dacă utilizați o unitate formatată în sistemul FAT, vă rugăm să o convert
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>Arhiva conține o cale de acces nevalidă (ceea ce poate reprezenta un risc de securitate): {0}</value>
+    <value>Arhiva conține o cale de acces nevalidă (posibil un risc de securitate): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -244,7 +244,7 @@ Specificată în fișierul de configurare „{1} ”.</value>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>A apărut o problemă la accesarea magazinului de implementare „{0} ”.
-Rulați „{1} ” pentru a-l elimina din lista directoarelor înregistrate.</value>
+Rulați „{1} ” pentru a-l elimina din lista de directoare înregistrate.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

@@ -99,11 +99,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagProblem" xml:space="preserve">
-    <value>(问题)</value>
+    <value>（问题）</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRejectedCandidates" xml:space="preserve">
-    <value>被拒绝的候选人：</value>
+    <value>被淘汰的候选人：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
@@ -159,7 +159,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>“{0} ”是一个本地文件。它应为 HTTP(S) URL。</value>
+    <value>“{0} ”是一个本地文件。该地址应为 HTTP(S) URL。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">

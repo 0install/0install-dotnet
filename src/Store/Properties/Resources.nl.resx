@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>Controleren op beschadigde bestanden</value>
+    <value>Controleert op beschadigde bestanden</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
@@ -161,7 +161,7 @@ Voer '0install config feed_mirror default' uit om deze in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Wilt u de installatie verwijderen? Indien nodig wordt er automatisch weer een nieuwe kopie gedownload.</value>
+    <value>Wilt u de installatie verwijderen? Er wordt automatisch een nieuwe kopie gedownload wanneer dat nodig is.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
@@ -223,7 +223,7 @@ Als u een FAT-geformatteerde schijf gebruikt, converteer deze dan naar NTFS.</va
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>Het pad '{0}' is geen absoluut pad. Relatieve paden zijn alleen toegestaan in de draagbare modus.
-Opgegeven in het configuratiebestand '{1}'.</value>
+Gespecificeerd in het configuratiebestand '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">

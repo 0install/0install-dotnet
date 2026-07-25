@@ -58,9 +58,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>Toate implementările au fost deja lansate. Selectați o versiune specifică.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Arhiva conține doar un singur director de nivel superior '{0}'. Probabil ar trebui să setați atributul '{1}' la '{0}' pentru a evita un nivel suplimentar de anidare.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>Copia locală a arhivei „{0} ” nu există. Utilizați opțiunea „{1} ” pentru a specifica o altă cale de acces.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>Comanda '{0}' specifică calea '{1}', dar acest fișier nu există în arhivă.</value>
@@ -69,6 +77,10 @@
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Căutarea de fișiere executabile</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>Feed-ul conține deja o implementare cu ID-ul „{0} ”.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>A fost calculat un manifest digest pentru un director gol. Verificați dacă ați setat valoarea corectă "{0}" pentru arhivă.</value>
@@ -99,18 +111,58 @@
     <value>Mai multe programe implicite noi au fost detectate în registru. Gestionați-le pe toate, dar ultimul poate avea prioritate în unele cazuri.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>Fluxul conține mai multe elemente de tip „ {0} ”. Această funcționalitate nu este acceptată aici.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Au fost detectate directoare de instalare multiple. Alege prima în mod implicit.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>Nu există nicio implementare cu ID-ul „{0} ”, iar există mai multe implementări locale din care puteți alege.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Au fost detectate mai multe înregistrări de aplicații noi în registru. Alegerea primei în mod implicit.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>Există mai multe versiuni de testare. Se marchează {0} dintre implementările {1} cu versiunea {2} ca fiind stabile.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>Există mai multe implementări fără o dată de lansare. Selectați o versiune specifică.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>Nu este stocată în cache nicio implementare a versiunii {0}. Imposibil de calculat un digest suplimentar.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>Fluxul nu conține elementul {0}. Nu poate fi utilizat ca flux local.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>Feed-ul nu conține nicio implementare.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>Feed-ul nu conține nicio implementare cu versiunea {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Nu a fost detectat niciun director de instalare.
 Încercați să-l specificați manual.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>Nu există nicio implementare cu ID-ul „{0} ” și nicio implementare locală la care să se aplice arhiva.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>În prezent, nicio implementare nu este marcată ca fiind în fază de testare.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Această metodă este disponibilă în prezent numai pe Windows.</value>

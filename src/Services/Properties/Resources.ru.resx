@@ -95,7 +95,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
-    <value>Нет рабочих реализаций:</value>
+    <value>Нет работоспособных реализаций:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagProblem" xml:space="preserve">
@@ -175,7 +175,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Недопустимый символ в имени привязки {0}.</value>
+    <value>В имени привязки {0} обнаружен недопустимый символ.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">

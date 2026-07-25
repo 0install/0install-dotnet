@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>«{0} » n'est pas une URI « http(s): » valide et ne correspond pas non plus à un chemin d'accès local valide.</value>
+    <value>«{0} » n'est pas une URI « http(s): » valide et ne constitue pas non plus un chemin d'accès local valide.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -111,7 +111,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Le numéro de version ne peut contenir que des décimales séparées par des points et des chaînes de caractères modificatrices.</value>
+    <value>Le numéro de version ne peut contenir que des décimales séparées par des points et des chaînes de caractères modificatives.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -119,7 +119,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Aucune méthode de hachage n'a été spécifiée.</value>
+    <value>Aucune méthode de hachage connue n'a été spécifiée.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>L'attribut « rollout-percentage » de la balise {0} ne peut être défini que lorsque « stability » a la valeur « testing » ou n'est pas défini.</value>
+    <value>L'attribut « rollout-percentage » de la balise {0} ne peut être défini que lorsque l'attribut « stability » a la valeur « testing » ou n'est pas défini.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">

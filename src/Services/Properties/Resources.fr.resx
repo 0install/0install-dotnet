@@ -151,7 +151,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>Le fichier «{0} » est introuvable dans le cache du flux.</value>
+    <value>Le fichier «{0} » n'a pas pu être localisé dans le cache du flux.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -163,7 +163,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>L'attribut uri de &lt;interface&gt; («{0} ») ne correspond pas à l'URL à partir de laquelle le flux a été téléchargé («{1} »).</value>
+    <value>L'attribut uri de l'élément &lt;interface&gt; («{0} ») ne correspond pas à l'URL à partir de laquelle le flux a été téléchargé («{1} »).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -214,7 +214,7 @@ Nouvelle date : {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Échec du téléchargement de {0}. Tentative de téléchargement à partir d'un miroir de flux à la place.</value>
+    <value>Échec du téléchargement de {0}. Tentative de téléchargement à partir d'un miroir du flux à la place.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -234,7 +234,7 @@ Nouvelle date : {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>«{0} » n'est pas un identifiant reconnu par le gestionnaire de paquets {1}.</value>
+    <value>«{0} » n'est pas un identifiant reconnu dans le gestionnaire de paquets {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">

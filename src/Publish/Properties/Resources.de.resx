@@ -60,6 +60,7 @@
   </resheader>
   <data name="AllImplementationsReleased" xml:space="preserve">
     <value>Alle Implementierungen wurden bereits veröffentlicht. Wählen Sie stattdessen eine bestimmte Version aus.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Das Archiv enthält nur ein einziges Top-Level Verzeichnis, mit dem Namen '{0}'. Sie sollten das Attribut '{1}' wahrscheinlich auf '{0}' setzen, um eine zusätzliche Verschachtelungsebene zu vermeiden.</value>
@@ -67,6 +68,7 @@
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
     <value>Die lokale Kopie des Archivs '{0}' existiert nicht. Verwenden Sie die Option '{1}', um einen anderen Pfad anzugeben.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>Der Befehl '{0}' gibt den Pfad '{1}' an, aber diese Datei existiert nicht im Archiv.</value>
@@ -78,6 +80,7 @@
   </data>
   <data name="DuplicateImplementationID" xml:space="preserve">
     <value>Der Feed enthält bereits eine Implementierung mit der ID '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Ein Manifest-Digest wurde für ein leeres Verzeichnis berechnet. Überprüfen Sie, ob Sie den richtigen "{0}"-Wert für das Archiv eingestellt haben.</value>
@@ -110,6 +113,7 @@ Versuchen Sie, ihn manuell anzugeben.</value>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
     <value>Der Feed hat mehrere {0}-Elemente. Das wird hier nicht unterstützt.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Es wurden mehrere Installationsverzeichnisse erkannt. Wähle erstes als Standard aus.</value>
@@ -117,6 +121,7 @@ Versuchen Sie, ihn manuell anzugeben.</value>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
     <value>Es gibt keine Implementierung mit der ID '{0}' und mehrere lokale Implementierungen zur Auswahl.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Es wurden mehrere neue Anwendungsregistrierungen in der Registrierung entdeckt. Wähle erste als Standard aus.</value>
@@ -124,21 +129,27 @@ Versuchen Sie, ihn manuell anzugeben.</value>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
     <value>Es gibt mehrere Testing-Versionen. {0} von {1} Implementierungen mit der Version {2} werden als stable markiert.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>Es gibt mehrere Implementierungen ohne Veröffentlichungsdatum. Wählen Sie stattdessen eine bestimmte Version aus.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
     <value>Es ist keine Implementierung der Version {0} zwischengespeichert. Ein zusätzlicher Digest kann nicht berechnet werden.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
     <value>Der Feed hat kein {0}-Element. Er kann nicht als lokaler Feed verwendet werden.</value>
-  </data>
-  <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>Der Feed enthält keine Implementierung mit der Version {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
     <value>Der Feed enthält keine Implementierungen.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>Der Feed enthält keine Implementierung mit der Version {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Es wurde kein Installationsverzeichnis gefunden.
@@ -147,9 +158,11 @@ Versuchen Sie, es manuell anzugeben.</value>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">
     <value>Es gibt keine Implementierung mit der ID '{0}' und keine lokale Implementierung, auf die das Archiv angewendet werden könnte.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">
     <value>Derzeit ist keine Implementierung als testing markiert.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Diese Methode ist derzeit nur unter Windows verfügbar.</value>

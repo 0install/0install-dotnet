@@ -75,7 +75,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Errore durante il caricamento del database di fiducia. Si ripristinano i valori predefiniti.</value>
+    <value>Errore durante il caricamento del database di fiducia. Si sta ripristinando l'impostazione predefinita.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Impossibile trovare l'implementazione dell'interfaccia "{0}" nella selezione.</value>
+    <value>Impossibile trovare l'implementazione dell'interfaccia «{0} » nella selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -175,7 +175,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>L'estensione del file "{0}" non corrisponde a nessun tipo di archivio conosciuto.</value>
+    <value>L'estensione del file «{0} » non corrisponde a nessun tipo di archivio conosciuto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">

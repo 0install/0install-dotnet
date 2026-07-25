@@ -58,9 +58,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>Alle implementaties zijn al uitgebracht. Kies in plaats daarvan een specifieke versie.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Het archief bevat slechts één map op het hoogste niveau '{0}'. Je moet waarschijnlijk het '{1}' attribuut instellen op '{0}' om een extra niveau te vermijden.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>De lokale kopie van het archief '{0}' bestaat niet. Gebruik de optie '{1}' om een ander pad op te geven.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>De opdracht '{0}' specificeert pad '{1}' maar dit bestand bestaat niet in het archief.</value>
@@ -69,6 +77,10 @@
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Zoeken naar uitvoerbare bestanden</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>De feed bevat al een implementatie met de ID '{0}'.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Er is een manifest digest berekend voor een lege map. Controleer of je de juiste "{0}" waarde hebt ingesteld voor het archief.</value>
@@ -99,18 +111,58 @@ Probeer het handmatig op te geven.</value>
     <value>Er zijn meerdere nieuwe standaardprogramma's gedetecteerd in het register. Behandelt ze allemaal, maar de laatste kan in sommige gevallen voorrang krijgen.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>De feed bevat meerdere ' {0} '-elementen. Dit wordt hier niet ondersteund.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Er zijn meerdere installatiedirectory's gedetecteerd. Kiest standaard de eerste.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>Er is geen implementatie met de ID '{0}' en er zijn meerdere lokale implementaties waaruit gekozen kan worden.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Er zijn meerdere nieuwe applicatieregistraties gedetecteerd in het register. Kiest standaard de eerste.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>Er zijn meerdere testversies. De implementaties van {0} en {1} met versie {2} worden als stabiel aangemerkt.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>Er zijn meerdere implementaties zonder releasedatum. Kies in plaats daarvan een specifieke versie.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>Er is geen implementatie van de versie {0} in de cache opgeslagen. Het is niet mogelijk om een extra digest te berekenen.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>De feed bevat geen {0} -element. Kan niet als lokale feed worden gebruikt.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>De feed bevat geen implementaties.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>De feed bevat geen implementatie met versie {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Er is geen installatiedirectory gedetecteerd.
 Probeer deze handmatig op te geven.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>Er is geen implementatie met de ID '{0}' en er is geen lokale implementatie waarop het archief kan worden toegepast.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>Er is momenteel geen implementatie gemarkeerd als 'in testfase'.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Deze methode is momenteel alleen beschikbaar op Windows.</value>

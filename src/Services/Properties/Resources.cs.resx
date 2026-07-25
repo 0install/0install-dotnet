@@ -167,7 +167,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Chybí atribut URI &lt;interface&gt;. Měl by být '{0}'.</value>
+    <value>Chybí atribut URI &lt;interface&gt;. Měl by být „{0} “.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -218,7 +218,7 @@ Nová časová značka: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Nelze uložit do mezipaměti stažený katalog aplikací.</value>
+    <value>Nelze uložit stažený katalog aplikací do mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">

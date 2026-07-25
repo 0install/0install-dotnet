@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Došlo k chybě při načítání předvoleb kanálu pro „{0} “. Obnovují se výchozí hodnoty.</value>
+    <value>Došlo k chybě při načítání předvoleb kanálu „{0} “. Obnovují se výchozí hodnoty.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>V souboru {1} chybí značka {0}.</value>
+    <value>Chybí značka ` {0} ` uvnitř značky ` {1}`.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -111,11 +111,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Číslo verze smí obsahovat pouze desetinná místa oddělená tečkami a modifikační řetězce.</value>
+    <value>Číslo verze smí obsahovat pouze desetinná čísla oddělená tečkami a modifikační řetězce.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Číslo verze musí začínat seznamem desetinných čísel oddělených tečkami.</value>
+    <value>Číslo verze musí začínat řetězcem desetinných čísel oddělených tečkami.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Relativní URI „{0} “ nebylo možné vyřešit. Relativní URI mohou obsahovat pouze kanály uložené jako místní soubory.</value>
+    <value>Relativní URI „{0} “ se nepodařilo vyřešit. Relativní URI mohou obsahovat pouze kanály uložené jako místní soubory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">

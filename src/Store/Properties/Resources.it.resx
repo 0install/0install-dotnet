@@ -169,7 +169,7 @@ Eseguire il comando '0install config feed_mirror default' per abilitarlo.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>Impossibile individuare l'implementazione '{0}'.</value>
+    <value>Impossibile individuare l'implementazione "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -182,7 +182,7 @@ Se utilizzi un'unità formattata come FAT, convertila in NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Impossibile scaricare l'icona da {0} poiché sono supportati solo gli URL HTTP e HTTPS.</value>
+    <value>Impossibile scaricare l'icona da {0} poiché sono supportati solo URL HTTP e HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">

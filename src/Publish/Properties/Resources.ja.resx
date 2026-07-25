@@ -58,9 +58,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>すべての実装はすでにリリースされています。代わりに特定のバージョンを選択してください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>アーカイブには、単一のトップレベルディレクトリ '{0}' だけが含まれています。余分なネストレベルを避けるために、おそらく '{1}' 属性を '{0}' に設定する必要があります。</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>アーカイブ「{0} 」のローカルコピーが存在しません。「{1} 」オプションを使用して、別のパスを指定してください。</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>コマンド '{0}' はパス '{1}' を指定しますが、このファイルはアーカイブに存在しません。</value>
@@ -69,6 +77,10 @@
   <data name="DetectingCandidates" xml:space="preserve">
     <value>実行ファイルの検索</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>このフィードには、ID「{0} 」の実装がすでに含まれています。</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>マニフェスト・ダイジェストが空のディレクトリに対して計算されました。アーカイブに正しい "{0}" 値が設定されているか確認してください。</value>
@@ -99,18 +111,58 @@
     <value>レジストリで複数の新しいデフォルトプログラムが検出されました。それらをすべて処理しますが、場合によっては最後のものが優先されることがあります。</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>フィードには複数の{0} 要素が含まれています。ここではこれに対応していません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>複数のインストールディレクトリが検出されました。デフォルトで最初に選択されます。</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>ID「{0} 」を持つ実装は存在せず、選択可能なローカル実装が複数あります。</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>レジストリに複数の新規アプリケーション登録が検出されました。デフォルトで最初のものを選択。</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>複数のテスト版が存在します。バージョン{2} による{1} の実装のうち、{0} を安定版としてマークします。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>リリース日が未定の複数の実装が存在します。代わりに特定のバージョンを選択してください。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>バージョン{0} の実装はキャッシュされていません。追加のダイジェストを計算できません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>このフィードには{0} 要素が含まれていません。ローカルフィードとして使用することはできません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>このフィードには実装内容は含まれていません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>このフィードには、バージョン{0} の実装は含まれていません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>インストールディレクトリが検出されませんでした。
 手動で指定してみてください。</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>ID「{0} 」を持つ実装は存在せず、アーカイブを適用するローカル実装もありません。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>現在、テスト中とマークされている実装はありません。</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>この方法は現在Windowsでのみ利用可能。</value>

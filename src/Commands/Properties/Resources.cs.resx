@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
-    <value>Byl odstraněn alias „{0} “ pro „{1} “.</value>
+    <value>Byl odstraněn alias s názvem „{0} “ pro „{1} “.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
@@ -104,7 +104,7 @@ K importu těchto souborů do jiného počítače můžete použít importní sk
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>Tím se přidá Zero Install do nabídky Start a příkazového řádku. Pokračovat?</value>
+    <value>Tím se přidá Zero Install do nabídky Start a příkazového řádku. Chcete pokračovat?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -116,7 +116,7 @@ K importu těchto souborů do jiného počítače můžete použít importní sk
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>Chcete aktualizovat nějakou stávající integraci s pracovním stolem, aby to zohledňovala?
+    <value>Chcete aktualizovat nějakou stávající integraci do pracovního prostředí, aby tomu odpovídala?
 Pokud vyberete „Ano“, budou odstraněny potenciálně nekompatibilní integrace.
 Pokud vyberete „Ne“, Zero Install bude i nadále používat staré funkce.</value>
     <comment>Automatically translated.</comment>
@@ -190,7 +190,7 @@ Odškrtnutím políčka zrušíte výchozí nastavení dané funkce (ta však z�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>Chcete odstranit z mezipaměti zaškrtnuté položky {0}?</value>
+    <value>Chcete odstranit zaškrtnuté položky z mezipaměti ( {0} )?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
@@ -251,7 +251,7 @@ Můžete ji spustit spuštěním souboru ZeroInstall.exe v daném adresáři.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Prohledává registrované katalogy a hledá aplikace, které odpovídají zadanému dotazu. Pokud není zadán žádný dotaz, zobrazí se seznam všech aplikací v katalozích.</value>
+    <value>Prohledává registrované katalogy a vyhledává aplikace, které odpovídají zadanému dotazu. Pokud není zadán žádný dotaz, zobrazí se seznam všech aplikací v katalozích.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -268,21 +268,21 @@ Bez argumentů zobrazí všechna nastavení a jejich aktuální hodnoty. S jedn�
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>Chová se podobně jako „0install select“, s tím rozdílem, že také stahuje vybrané verze, pokud ještě nejsou v mezipaměti.
+    <value>Funguje podobně jako „0install select“, s tím rozdílem, že také stahuje vybrané verze, pokud ještě nejsou v mezipaměti.
 Vrátí stav ukončení 0, pokud vybral vhodnou sadu verzí a všechny jsou nyní staženy a uloženy v mezipaměti; v opačném případě vrátí stav 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exportuje všechny zdroje a implementace potřebné ke spuštění programu určeného pomocí URI do ADRESÁŘE.</value>
+    <value>Exportuje všechny zdroje a implementace potřebné ke spuštění programu určeného pomocí URI do adresáře.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Načte zdroj z lokálního souboru, jako by byl stažen ze sítě. To je užitečné při testování souboru se zdrojem, aby se předešlo jeho nahrání na vzdálený server za účelem opětovného stažení.
+    <value>Načte zdroj z lokálního souboru, jako by byl stažen ze sítě. To je užitečné při testování souboru se zdrojem, aby se předešlo jeho nahrávání na vzdálený server za účelem opětovného stažení.
 Soubor musí mít důvěryhodný digitální podpis, stejně jako při stahování ze sítě.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>Načte sadu aplikací a integrací do pracovní plochy ze stávajícího souboru app-list.xml.</value>
+    <value>Importuje sadu aplikací a integrací na plochu ze stávajícího souboru app-list.xml.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
@@ -322,11 +322,11 @@ Soubor musí mít důvěryhodný digitální podpis, stejně jako při stahován
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
-    <value>Znovu aplikuje všechny integrace aplikací na plochu v seznamu aplikací.</value>
+    <value>Znovu nastaví všechny integrace aplikací na ploše v seznamu aplikací.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>Funguje podobně jako příkaz „0install download“, s tím rozdílem, že po ověření, že je program v mezipaměti, jej také spustí.
+    <value>Funguje podobně jako příkaz „0install download“, s tím rozdílem, že po ověření, že se program nachází v mezipaměti, jej také spustí.
 Vrátí stav ukončení 1, pokud selhal krok stahování. V opačném případě bude stav ukončení odpovídat stavu ukončení spouštěného programu.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -387,7 +387,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Odstraní všechny implementace z mezipaměti. Tento příkaz použijte k vyčištění systému před odstraněním Zero Install. Ruční smazání adresářů mezipaměti může být obtížné kvůli seznamům přístupových oprávnění (ACL) systému NTFS, které chrání implementace před úpravami.
+    <value>Odstraní všechny implementace z mezipaměti. Tento příkaz použijte k vyčištění systému před odstraněním Zero Install. Ruční smazání adresářů mezipaměti může být obtížné kvůli seznamům přístupových práv (ACL) systému NTFS, které chrání implementace před úpravami.
 Další argumenty určují vlastní umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -396,7 +396,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreRemoveDir" xml:space="preserve">
-    <value>Odebere adresář ze seznamu mezipamětí vlastní implementace.</value>
+    <value>Odebere adresář ze seznamu vlastních implementačních mezipamětí.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
@@ -420,7 +420,7 @@ Další argumenty určují vlastní umístění mezipaměti.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Přestane důvěřovat kanálům podepsaným konkrétním FINGERPRINTEM. Důvěru přestane poskytovat pouze pro konkrétní DOMAINU, pokud je zadána.</value>
+    <value>Přestane důvěřovat kanálům podepsaným konkrétním FINGERPRINTEM. Přestane důvěřovat pouze konkrétní DOMÉNĚ, pokud je zadána.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -477,7 +477,7 @@ Funguje to podobně jako příkaz „0install download --refresh“, s tím rozd
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
-    <value>Kanal byl již zaregistrován pro všechna příslušná rozhraní.</value>
+    <value>Feed byl již zaregistrován pro všechna příslušná rozhraní.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
@@ -497,7 +497,7 @@ Funguje to podobně jako příkaz „0install download --refresh“, s tím rozd
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>Zdroj pro „{0} “ ({1}) byl nahrazen zdrojem „{2} “. Chcete místo něj použít nový zdroj?</value>
+    <value>Zdroj pro „{0} “ ({1}) byl nahrazen zdrojem „{2} “. Chcete místo něj používat nový zdroj?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -538,7 +538,7 @@ Značka &lt;feed-for&gt; označuje kompatibilitu zdroje.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>Integrace {0}</value>
+    <value>Integrovat {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
@@ -570,7 +570,7 @@ Značka &lt;feed-for&gt; označuje kompatibilitu zdroje.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
-    <value>Tento program se dodává BEZ JAKÉKOLIV ZÁRUKY, v rozsahu povoleném zákonem.
+    <value>Tento program je dodáván BEZ JAKÉKOLIV ZÁRUKY, v rozsahu povoleném zákonem.
 Kopie tohoto programu můžete šířit v souladu s podmínkami licence GNU Lesser General Public License.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -689,7 +689,7 @@ To můžete provést pomocí příkazu „{0} “. Tato instalace bude zcela nez
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>Místo provedení výchozího příkazu použijte příkaz {COMMAND}. Platné názvy příkazů jsou uvedeny v datovém zdroji programu.
-Nastavte na prázdnou hodnotu („“), aby byl příkaz při výběru ignorován.</value>
+Nastavte na prázdnou hodnotu („“) pro ignorování příkazu během výběru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -709,7 +709,7 @@ Nastavte na prázdnou hodnotu („“), aby byl příkaz při výběru ignorová
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Zkuste vyhledat implementace na jiných počítačích v místní síti, místo abyste je stahovali z původního zdroje.</value>
+    <value>Snaží se vyhledat implementace na jiných počítačích v místní síti namísto jejich stahování z původního zdroje.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
@@ -749,7 +749,7 @@ Nastavte na prázdnou hodnotu („“), aby byl příkaz při výběru ignorová
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Určuje preferovaný jazyk pro implementaci. Použijte krátké kódy jazyků podle normy ISO (např. en nebo en-US).
+    <value>Určuje preferovaný jazyk pro implementaci. Použijte zkrácené kódy jazyků podle normy ISO (např. en nebo en-US).
 Tuto možnost můžete použít vícekrát a určit tak více přijatelných jazyků.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -758,11 +758,11 @@ Tuto možnost můžete použít vícekrát a určit tak více přijatelných jaz
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Použijte konfiguraci pro celý počítač, nikoli pouze pro aktuálního uživatele.</value>
+    <value>Použít konfiguraci pro celý počítač, nikoli pouze pro aktuálního uživatele.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Spustí zadaný spustitelný soubor {MAIN} namísto výchozího. Pokud název začíná znakem '/' nebo '\', je cesta relativní k nejvyššímu adresáři implementace, v opačném případě je relativní k adresáři obsahujícímu výchozí hlavní program.
+    <value>Spustí zadaný spustitelný soubor {MAIN} namísto výchozího. Pokud název začíná znakem '/' nebo '\', je cesta relativní k nejvyššímu adresáři implementace; v opačném případě je relativní k adresáři obsahujícímu výchozí hlavní program.
 Nesmí obsahovat argumenty příkazového řádku! Mezery není nutné escapovat.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -832,7 +832,7 @@ V offline režimu se žádná rozhraní neaktualizují, i když jsou zastaralá,
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Podrobnější výpis. Pro ještě podrobnější výpis použijte dvakrát.</value>
+    <value>Podrobnější výstup. Pro ještě podrobnější výstup použijte dvakrát.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -856,8 +856,8 @@ Nové soubory ke stažení však nebudou do tohoto adresáře ukládány.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Místo přímého spuštění vybraného programu zadejte příkaz {COMMAND} PROGRAM ARGS. To je užitečné pro spuštění ladicích nástrojů a nástrojů pro trasování na daném programu (nikoli na Zero Install!).
-Upozorňujeme, že obalový program se spouští v prostředí vybraném programem; tento mechanismus proto nelze použít pro sandboxing.
+    <value>Místo přímého spuštění vybraného programu zadejte příkaz {COMMAND} PROGRAM ARGS. To je užitečné pro spuštění ladicích nástrojů a nástrojů pro trasování přímo na daném programu (nikoli na Zero Install!).
+Upozorňujeme, že tento obalový program se spouští v prostředí vybraném programem; tento mechanismus proto nelze použít pro sandboxing.
 Může obsahovat argumenty příkazového řádku. Mezery musí být escapovány!</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -882,7 +882,7 @@ Může obsahovat argumenty příkazového řádku. Mezery musí být escapovány
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>Chcete odstranit vybrané položky z seznamu „ {0} “?</value>
+    <value>Chcete odstranit vybrané položky {0} ze seznamu?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
@@ -894,7 +894,7 @@ Může obsahovat argumenty příkazového řádku. Mezery musí být escapovány
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Aby se tato změna projevila, může být nutné terminál zavřít a znovu spustit.</value>
+    <value>Aby se změna projevila, může být nutné terminál zavřít a znovu spustit.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -947,7 +947,7 @@ Pro její aktivaci spusťte příkaz „0install config self_update_uri default�
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
-    <value>Zásada stability potřebná k výběru implementací z adresáře {0} je „{1} “.</value>
+    <value>Zásada stability potřebná pro výběr implementací z adresáře {0} je „{1} “.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">

@@ -58,9 +58,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>所有实现版本均已发布。请选择特定版本。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>归档文件只包含一个顶级目录 "{0}"。您可能应将 "{1}"属性设置为 "{0}"，以避免额外的嵌套层。</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>本地不存在名为“{0} ”的存档副本。请使用“{1} ”选项指定其他路径。</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>命令 "{0}"指定了路径 "{1}"，但存档中并不存在该文件。</value>
@@ -69,6 +77,10 @@
   <data name="DetectingCandidates" xml:space="preserve">
     <value>搜索可执行文件</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>该源中已包含一个ID为“{0} ”的实现。</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>为空目录计算了清单摘要。检查您是否为压缩包设置了正确的 "{0}" 值。</value>
@@ -99,18 +111,58 @@
     <value>在注册表中检测到多个新的默认程序。处理所有程序，但在某些情况下可能优先处理最后一个程序。</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>该源包含多个{0} 元素。此处不支持此功能。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>检测到多个安装目录。默认选择第一个。</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>没有ID为“{0} ”的实现，但有多个本地实现可供选择。</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>在注册表中检测到多个新的应用程序注册。默认选择第一个。</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>目前有多个测试版本。将{0} 中的{1} 实现（版本号为{2} ）标记为稳定版。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>目前有多个实现版本，但均未公布发布日期。请选择具体版本。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>未缓存版本{0} 的任何实现。无法计算额外的摘要。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>该源中没有{0} 元素。无法将其用作本地源。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>该源中不包含任何实现代码。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>该源在版本{0} 中未包含任何实现。</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>未检测到安装目录。
 请尝试手动指定。</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>没有ID为“{0} ”的实现，也没有可供应用该存档的本地实现。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>目前尚无任何实现被标记为测试中。</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>这种方法目前仅适用于 Windows。</value>

@@ -211,7 +211,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeprecatedOption" xml:space="preserve">
-    <value>已弃用的选项。请改用“{0} ”。</value>
+    <value>该选项已弃用。请改用“{0} ”。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -255,11 +255,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>打开用于启动和管理应用程序的核心图形用户界面。</value>
+    <value>打开用于启动和管理应用程序的中央图形用户界面。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
-    <value>查看或更改配置设置。
+    <value>查看或修改配置设置。
 若不带参数，则显示所有设置及其当前值。若带一个参数，则显示指定设置的当前值。若带两个参数，则将该设置设为给定值；若给定值为“{0} ”，则将其重置为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -286,11 +286,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>将应用程序添加到应用程序列表中（如果尚未存在），并将其集成到桌面环境中。</value>
+    <value>将应用程序添加到应用程序列表中（若尚未存在），并将其集成到桌面环境中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>列出所有已知的本地订阅源 URI。如果提供了搜索词，则仅显示包含该字符串的 URI（不区分大小写）。</value>
+    <value>列出所有已知的本地订阅源URI。如果提供了搜索词，则仅显示包含该字符串的URI（不区分大小写）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -336,7 +336,7 @@
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
     <value>根据 URI 选择程序的某个版本，以及所有依赖项的兼容版本。
-如果选定了一组版本，则返回退出状态 0；如果无法找到一致的版本组合，则返回状态 1。</value>
+如果选定了一组版本，则返回退出状态 0；如果无法找到一致的版本集，则返回状态 1。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
@@ -408,7 +408,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
-    <value>将应用程序列表与服务器同步。</value>
+    <value>将应用程序列表与服务器进行同步。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
@@ -420,7 +420,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>停止信任使用特定“指纹”签名的源。仅当指定了特定“域名”时，才停止信任该域名。</value>
+    <value>停止信任使用特定“指纹”签名的源。仅当指定了特定“域名”时，才停止信任该域名下的源。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -469,7 +469,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
-    <value>在“{0} ”中检测到现有版本的 Zero Install。</value>
+    <value>在“{0} ”中检测到现有的 Zero Install 副本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
@@ -513,7 +513,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileCheckComplete" xml:space="preserve">
-    <value>文件检查完成</value>
+    <value>文件校验完成</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -632,7 +632,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>只能通过 Feed URI 进行更新，不能通过选定文档进行更新。</value>
+    <value>只能通过Feed URI进行更新，无法通过选定文档进行更新。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -680,7 +680,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>在将目录添加到列表之前，跳过下载步骤以验证其有效性。</value>
+    <value>在将目录添加到列表之前，跳过下载步骤，直接验证其有效性。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -688,8 +688,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>请勿执行默认命令，而应使用{COMMAND} 。有效的命令名称在程序的源中指定。
-设置为空（""）可在选择时忽略该命令。</value>
+    <value>请勿执行默认命令，而应使用{COMMAND} 。有效的命令名称在程序的配置文件中指定。
+设置为空字符串（""）可在选择时忽略该命令。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -709,11 +709,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>尝试在本地网络中的其他计算机上查找相关实现，而不是从原始来源获取它们。</value>
+    <value>尝试在本地网络中的其他计算机上查找相关实现，而不是从原始来源获取。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>在导出时，请将 Zero Install 本身与应用程序一同包含在内。</value>
+    <value>在导出时，除应用程序外，还应将 Zero Install 本身包含在内。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -749,7 +749,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>指定实现时首选的语言。请使用 ISO 短语言代码（例如 en 或 en-US）。
+    <value>指定实现的首选语言。请使用 ISO 短语言代码（例如 en 或 en-US）。
 您可以多次使用此选项来指定多个可接受的语言。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -775,7 +775,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
-    <value>请暂勿下载应用程序本身。该应用程序将在首次使用时自动下载。</value>
+    <value>目前请勿下载应用程序本身。该应用程序将在首次使用时自动下载。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
@@ -783,12 +783,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>在选定的程序启动后立即返回，而不等待其执行完成。在 Windows 系统中，退出代码即为已启动程序的进程 ID。</value>
+    <value>在所选程序启动后立即返回，而不等待其执行完成。在 Windows 系统中，退出代码即为已启动程序的进程 ID。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>以离线模式运行，覆盖默认设置。
-在离线模式下，即使界面内容已过时，也不会进行刷新；即使注入器已知晓新版本程序（例如通过之前的刷新获取），也不会下载这些新版本。</value>
+在离线模式下，即使界面内容已过时，也不会进行刷新；即使注入器已知晓新版本程序（例如通过之前的刷新），也不会下载这些新版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -800,7 +800,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>创建一个便携式安装程序，可随身携带（例如存放在U盘中）。</value>
+    <value>创建一个便携式安装包，可随身携带（例如存放在U盘中）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -820,11 +820,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>请选择源代码而非二进制文件。这是“0compile”在内部使用的。</value>
+    <value>请选择源代码而非二进制文件。这是由“0compile”在内部使用的。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>重置同步数据。有效的{MODE}值为“none”（正常合并客户端和服务器端的数据）、“client”（用服务器端的数据替换客户端上的所有数据）和“server”（用客户端的数据替换服务器端上的所有数据）。</value>
+    <value>重置同步数据。有效的{MODE}值为“none”（正常合并客户端和服务器上的数据）、“client”（用服务器上的数据替换客户端上的所有数据）和“server”（用客户端上的数据替换服务器上的所有数据）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
@@ -856,7 +856,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>不要直接执行所选程序，而应运行 `{COMMAND} PROGRAM ARGS`。这对于在程序上（而非在 Zero Install 上！）运行调试器和跟踪工具非常有用。
+    <value>不要直接执行所选程序，而是运行 `{COMMAND} PROGRAM ARGS`。这对于在程序上（而非在 Zero Install 上！）运行调试器和跟踪工具非常有用。
 请注意，该包装程序是在程序所选的环境中执行的；因此，此机制不能用于沙箱隔离。
 可能包含命令行参数。空格必须进行转义！</value>
     <comment>Automatically translated.</comment>
@@ -947,7 +947,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
-    <value>从{0} 选择实现所需的稳定性策略为“{1} ”。</value>
+    <value>从{0} 选择实现时所需的稳定性策略为“{1} ”。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">

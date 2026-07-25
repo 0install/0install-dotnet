@@ -116,7 +116,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>「{0} 」からのOpenPGPキーバンドルの読み込みに失敗しました</value>
+    <value>「{0} 」からのOpenPGP鍵バンドルの読み込みに失敗しました</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -223,7 +223,7 @@ FAT形式のドライブを使用している場合は、NTFSに変換してく�
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>パス「{0} 」は絶対パスではありません。相対パスはポータブルモードでのみ使用可能です。
-設定ファイル「{1} 」で指定されています。</value>
+設定ファイル「{1} 」で指定されます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">

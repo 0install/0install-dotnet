@@ -58,9 +58,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>Tutte le implementazioni sono già state rilasciate. Seleziona invece una versione specifica.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>L'archivio contiene solo una singola directory di primo livello '{0}'. Probabilmente si dovrebbe impostare l'attributo '{1}' a '{0}' per evitare un ulteriore livello di annidamento.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>La copia locale dell'archivio "{0}" non esiste. Utilizzare l'opzione "{1}" per specificare un percorso diverso.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>Il comando '{0}' specifica il percorso '{1}' ma questo file non esiste nell'archivio.</value>
@@ -69,6 +77,10 @@
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Ricerca di file eseguibili</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>Il feed contiene già un'implementazione con l'ID '{0}'.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>È stato calcolato un manifest digest per una directory vuota. Verificare che sia stato impostato il valore "{0}" corretto per l'archivio.</value>
@@ -99,18 +111,58 @@ Provare a specificarlo manualmente.</value>
     <value>Sono stati rilevati diversi nuovi programmi predefiniti nel registro di sistema. Li gestisce tutti, ma l'ultimo potrebbe avere la precedenza in alcuni casi.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>Il feed contiene diversi elementi {0}. Questa funzionalità non è supportata in questa sede.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Sono state rilevate più directory di installazione. Sceglie la prima per impostazione predefinita.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>Non esiste alcuna implementazione con l'ID "{0}" e sono disponibili diverse implementazioni locali tra cui scegliere.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Sono state rilevate più registrazioni di nuove applicazioni nel registro. Scegliere la prima per impostazione predefinita.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>Sono disponibili diverse versioni di prova. Contrassegnare {0} delle implementazioni {1} con versione {2} come stabile.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>Sono disponibili diverse implementazioni senza una data di rilascio. Seleziona invece una versione specifica.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>Nessuna implementazione della versione {0} è memorizzata nella cache. Impossibile calcolare un digest aggiuntivo.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>Il feed non contiene l'elemento {0}. Impossibile utilizzarlo come feed locale.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>Il feed non contiene alcuna implementazione.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>Il feed non contiene alcuna implementazione con versione {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Non è stata rilevata alcuna directory di installazione.
 Provare a specificarla manualmente.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>Non esiste alcuna implementazione con l'ID "{0}" né alcuna implementazione locale a cui applicare l'archivio.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>Al momento nessuna implementazione è contrassegnata come in fase di test.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Questo metodo è attualmente disponibile solo su Windows.</value>

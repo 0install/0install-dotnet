@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>{1} 中缺少{0} 标签。</value>
+    <value>{1} 文件中缺少 `{0} ` 标签。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>{0} 上的 'rollout-percentage' 属性仅在 'stability' 设置为 'testing' 或未设置时才可设置。</value>
+    <value>{0} 上的 'rollout-percentage' 属性仅在 'stability' 属性值为 'testing' 或未设置时才可设置。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -175,7 +175,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>文件扩展名“{0} ”不属于任何已知的压缩包类型。</value>
+    <value>文件扩展名“{0} ”不属于任何已知的压缩文件类型。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">

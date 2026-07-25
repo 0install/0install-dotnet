@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
-    <value>No existe el comando «{0} ».</value>
+    <value>No hay ningún comando «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>No se ha podido encontrar una versión de {0} compatible con {1}.</value>
+    <value>No se ha podido encontrar una versión de {0} adecuada para {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">

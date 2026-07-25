@@ -198,7 +198,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
-    <value>Μια φορητή έκδοση του Zero Install έχει αναρτηθεί στη διεύθυνση «{0} ».
+    <value>Μια φορητή έκδοση του Zero Install έχει εγκατασταθεί στη διεύθυνση «{0} ».
 Μπορείτε να τη χρησιμοποιήσετε εκτελώντας το αρχείο ZeroInstall.exe που βρίσκεται στον κατάλογο.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -412,11 +412,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Εμπιστεύεται ροές από έναν συγκεκριμένο DOMAIN όταν υπογράφονται με ένα συγκεκριμένο FINGERPRINT.</value>
+    <value>Εμπιστεύεται τις ροές από έναν συγκεκριμένο DOMAIN όταν υπογράφονται με ένα συγκεκριμένο FINGERPRINT.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Λίστα κλειδιών που θεωρούνται αξιόπιστα για την υπογραφή ροών. Εμφανίζει μόνο τους τομείς για τους οποίους ένα συγκεκριμένο FINGERPRINT θεωρείται αξιόπιστο, εάν έχει καθοριστεί.</value>
+    <value>Λίστα κλειδιών που θεωρούνται αξιόπιστα για την υπογραφή ροών. Εμφανίζει μόνο τους τομείς για τους οποίους ένα συγκεκριμένο FINGERPRINT θεωρείται αξιόπιστο, εφόσον έχει καθοριστεί.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -603,11 +603,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NeedsGui" xml:space="preserve">
-    <value>Για αυτή τη λειτουργία, παρακαλούμε χρησιμοποιήστε την έκδοση του Zero Install με γραφικό περιβάλλον χρήστη (GUI).</value>
+    <value>Για αυτή τη λειτουργία, παρακαλούμε χρησιμοποιήστε την έκδοση GUI του Zero Install.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} μπορεί να καθοριστεί μόνο σε συνδυασμό με ένα ψευδώνυμο.</value>
+    <value>{0} Μπορεί να καθοριστεί μόνο σε συνδυασμό με ένα ψευδώνυμο.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -967,7 +967,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>Η ενεργοποίηση της υποστήριξης των Windows για μακρές διαδρομές μπορεί να λύσει αυτό το πρόβλημα.</value>
+    <value>Η ενεργοποίηση της υποστήριξης των Windows για μακριές διαδρομές ενδέχεται να λύσει αυτό το πρόβλημα.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">
@@ -984,7 +984,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
-    <value>{0} αξιόπιστο για domains</value>
+    <value>{0} αξιόπιστο για τομείς</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
