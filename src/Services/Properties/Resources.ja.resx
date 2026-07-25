@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
-    <value>以下の制限事項と互換性がありません：{0}</value>
+    <value>以下の制限と互換性がありません：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">

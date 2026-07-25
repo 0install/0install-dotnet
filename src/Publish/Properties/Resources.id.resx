@@ -58,9 +58,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>Semua implementasi telah dirilis. Silakan pilih versi tertentu.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Arsip hanya berisi satu direktori tingkat atas '{0}'. Anda mungkin harus mengatur atribut '{1}' ke '{0}' untuk menghindari tingkat penelusuran tambahan.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>Salinan lokal dari arsip '{0}' tidak ada. Gunakan opsi '{1}' untuk menentukan jalur yang berbeda.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>Perintah '{0}' menentukan jalur '{1}' tetapi file ini tidak ada dalam arsip.</value>
@@ -69,6 +77,10 @@
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Mencari file yang dapat dieksekusi</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>Feed tersebut sudah berisi implementasi dengan ID '{0}'.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Intisari manifes dihitung untuk direktori kosong. Pastikan Anda telah menetapkan nilai "{0}" yang benar untuk arsip.</value>
@@ -99,18 +111,58 @@ Coba tentukan secara manual.</value>
     <value>Beberapa program default baru terdeteksi dalam registri. Menangani semuanya, tetapi yang terakhir mungkin lebih diutamakan dalam beberapa kasus.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>Feed tersebut memiliki beberapa elemen {0}. Hal ini tidak didukung di sini.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Beberapa direktori instalasi terdeteksi. Memilih yang pertama secara default.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>Tidak ada implementasi dengan ID '{0}' dan terdapat beberapa implementasi lokal yang dapat dipilih.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Beberapa pendaftaran aplikasi baru terdeteksi dalam registri. Memilih yang pertama secara default.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>Tersedia beberapa versi uji coba. Menandai implementasi {0} dari {1} dengan versi {2} sebagai versi stabil.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>Tersedia beberapa implementasi yang belum memiliki tanggal rilis. Silakan pilih versi tertentu.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>Tidak ada implementasi dari versi {0} yang disimpan dalam cache. Tidak dapat menghitung ringkasan tambahan.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>Feed tersebut tidak memiliki elemen {0}. Tidak dapat digunakan sebagai feed lokal.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>Feed ini tidak berisi implementasi apa pun.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>Feed ini tidak berisi implementasi dengan versi {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Tidak ada direktori penginstalan yang terdeteksi.
 Coba tentukan secara manual.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>Tidak ada implementasi dengan ID '{0}' dan tidak ada implementasi lokal untuk menerapkan arsip tersebut.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>Saat ini tidak ada implementasi yang ditandai sebagai sedang dalam tahap pengujian.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Metode ini saat ini hanya tersedia di Windows.</value>

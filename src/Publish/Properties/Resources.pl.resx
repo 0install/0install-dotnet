@@ -58,9 +58,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>Wszystkie wersje zostały już wydane. Zamiast tego wybierz konkretną wersję.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Archiwum zawiera tylko jeden katalog najwyższego poziomu '{0}'. Prawdopodobnie należy ustawić atrybut '{1}' na '{0}', aby uniknąć dodatkowego poziomu zagnieżdżenia.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>Lokalna kopia archiwum „{0} ” nie istnieje. Użyj opcji „{1} ”, aby określić inną ścieżkę.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>Polecenie '{0}' określa ścieżkę '{1}', ale ten plik nie istnieje w archiwum.</value>
@@ -69,6 +77,10 @@
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Wyszukiwanie plików wykonywalnych</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>Kanał zawiera już implementację o identyfikatorze „{0} ”.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Skrót manifestu został obliczony dla pustego katalogu. Sprawdź, czy ustawiłeś prawidłową wartość "{0}" dla archiwum.</value>
@@ -99,18 +111,58 @@ Spróbuj określić go ręcznie.</value>
     <value>W rejestrze wykryto wiele nowych programów domyślnych. Obsługuje je wszystkie, ale ostatni może mieć pierwszeństwo w niektórych przypadkach.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>Kanał zawiera wiele elementów typu „ {0} ”. Nie jest to tutaj obsługiwane.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Wykryto wiele katalogów instalacyjnych. Domyślnie wybierany jest pierwszy.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>Nie ma implementacji o identyfikatorze „{0} ”, natomiast do wyboru jest wiele lokalnych implementacji.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Wykryto wiele nowych rejestracji aplikacji w rejestrze. Wybór pierwszej domyślnie.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>Dostępnych jest wiele wersji testowych. Oznaczono implementacje {0} z {1} o wersji {2} jako stabilne.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>Istnieje wiele implementacji bez podanej daty wydania. Zamiast tego wybierz konkretną wersję.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>Nie ma w pamięci podręcznej żadnej implementacji wersji {0}. Nie można obliczyć dodatkowego skrótu.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>Kanał nie zawiera elementu {0}. Nie można go używać jako kanału lokalnego.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>Kanał nie zawiera żadnych implementacji.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>Kanał nie zawiera implementacji w wersji {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Nie wykryto katalogu instalacyjnego.
 Spróbuj określić go ręcznie.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>Nie ma implementacji o identyfikatorze „{0} ” ani lokalnej implementacji, do której można by zastosować archiwum.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>Żadna implementacja nie jest obecnie oznaczona jako testowa.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Ta metoda jest obecnie dostępna tylko w systemie Windows.</value>

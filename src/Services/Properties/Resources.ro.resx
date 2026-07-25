@@ -91,7 +91,7 @@ Doriți să aveți încredere în această cheie pentru semnarea feed-urilor de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>Nu se cunosc deloc implementări</value>
+    <value>Nu există nicio implementare cunoscută</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
@@ -171,7 +171,7 @@ Doriți să aveți încredere în această cheie pentru semnarea feed-urilor de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problemă la preluarea „{0} ”.</value>
+    <value>Problemă la preluarea fișierului „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">

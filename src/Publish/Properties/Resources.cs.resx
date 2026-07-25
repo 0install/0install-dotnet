@@ -58,9 +58,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>Všechny implementace již byly vydány. Vyberte si místo toho konkrétní verzi.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Archiv obsahuje pouze jeden adresář nejvyšší úrovně '{0}'. Pravděpodobně byste měli nastavit atribut '{1}' na '{0}', abyste se vyhnuli další vnořené úrovni.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>Místní kopie archivu „{0} “ neexistuje. Použijte možnost „{1} “ k zadání jiné cesty.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>Příkaz '{0}' zadává cestu '{1}', ale tento soubor v archivu neexistuje.</value>
@@ -69,6 +77,10 @@
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Vyhledávání spustitelných souborů</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>Feed již obsahuje implementaci s ID „{0} “.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Pro prázdný adresář byl vypočten digest manifestu. Zkontrolujte, zda jste pro archiv nastavili správnou hodnotu "{0}".</value>
@@ -99,18 +111,58 @@ Zkuste jej zadat ručně.</value>
     <value>V registru bylo zjištěno několik nových výchozích programů. Obsluhuje je všechny, ale poslední z nich může mít v některých případech přednost.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>Zdroje obsahují více prvků typu „ {0} “. To zde není podporováno.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Bylo zjištěno více instalačních adresářů. Výběr prvního ve výchozím nastavení.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>Neexistuje žádná implementace s ID „{0} “ a je k dispozici několik lokálních implementací, ze kterých lze vybírat.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>V registru bylo zjištěno více registrací nových aplikací. Výběr první ve výchozím nastavení.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>Existuje několik testovacích verzí. Označení implementací {0} a {1} s verzí {2} jako stabilní.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>Existuje několik implementací bez data vydání. Vyberte místo toho konkrétní verzi.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>Žádná implementace verze {0} není uložena v mezipaměti. Nelze vypočítat další kontrolní součet.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>Zdroje neobsahují prvek {0}. Nelze jej použít jako lokální zdroj.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>Feed neobsahuje žádné implementace.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>Feed neobsahuje žádnou implementaci s verzí {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Nebyl zjištěn žádný instalační adresář.
 Zkuste jej zadat ručně.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>Neexistuje žádná implementace s ID „{0} “ ani žádná lokální implementace, na kterou by bylo možné archiv aplikovat.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>Žádná implementace není v současné době označena jako testovací.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Tato metoda je v současné době k dispozici pouze v systému Windows.</value>

@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>В теге ` {1}` отсутствует тег ` {0} `.</value>
+    <value>Отсутствует тег ` {0} ` внутри тега ` {1}`.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>Атрибут «rollout-percentage» на странице {0} можно установить только в том случае, если атрибут «stability» имеет значение «testing» или не задан.</value>
+    <value>Атрибут «rollout-percentage» на странице {0} можно установить только в том случае, если значение «stability» равно «testing» или не задано.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">

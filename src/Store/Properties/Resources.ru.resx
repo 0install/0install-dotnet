@@ -182,7 +182,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Не удалось загрузить значок с сайта {0}, так как поддерживаются только URL-адреса в формате HTTP и HTTPS.</value>
+    <value>Не удалось загрузить значок с сайта {0}, поскольку поддерживаются только URL-адреса в формате HTTP и HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -190,7 +190,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Недопустимое количество деталей в строке.</value>
+    <value>Недопустимое количество деталей в линии.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -223,7 +223,7 @@
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>Путь «{0} » не является абсолютным. Относительные пути допускаются только в переносимом режиме.
-Указывается в конфигурационном файле «{1} ».</value>
+Указывается в файле конфигурации «{1} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
@@ -239,12 +239,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Эта настройка регулируется групповой политикой и поэтому не может быть изменена.</value>
+    <value>Эта настройка управляется групповой политикой и поэтому не может быть изменена.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>Возникла проблема с доступом к хранилищу реализаций «{0} ».
-Запустите «{1} », чтобы удалить его из списка зарегистрированных каталогов.</value>
+Запустите команду «{1} », чтобы удалить его из списка зарегистрированных каталогов.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

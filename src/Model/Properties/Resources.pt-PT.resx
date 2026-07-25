@@ -151,11 +151,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementação não em cache (atualmente em modo offline)</value>
+    <value>Implementação não está na cache (atualmente em modo offline)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Implementação do código-fonte não executável</value>
+    <value>Implementação em código-fonte não executável</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">

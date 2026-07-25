@@ -58,8 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>Toutes les versions ont déjà été publiées. Choisissez plutôt une version spécifique.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>L'archive ne contient qu'un seul répertoire de niveau supérieur : «{0} ». Il est probablement préférable de définir l'attribut «{1} » sur «{0} » afin d'éviter un niveau d'imbrication supplémentaire.</value>
+    <value>L'archive ne contient qu'un seul répertoire de niveau supérieur : «{0} ». Il est recommandé de définir l'attribut «{1} » sur «{0} » afin d'éviter un niveau d'imbrication supplémentaire.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>La copie locale de l'archive «{0} » n'existe pas. Utilisez l'option «{1} » pour spécifier un autre chemin d'accès.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
@@ -68,6 +76,10 @@
   </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Recherche de fichiers exécutables</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>Le flux contient déjà une implémentation portant l'identifiant «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
@@ -99,17 +111,57 @@ Essayez de le spécifier manuellement.</value>
     <value>Plusieurs nouveaux programmes par défaut ont été détectés dans le registre. Ils sont tous pris en charge, mais le dernier peut, dans certains cas, avoir la priorité.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>Le flux contient plusieurs éléments « {0} ». Cette fonctionnalité n'est pas prise en charge ici.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Plusieurs répertoires d'installation ont été détectés. Le premier est choisi par défaut.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>Il n'existe aucune implémentation portant l'identifiant «{0} » et plusieurs implémentations locales sont disponibles.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Plusieurs enregistrements de nouvelle application ont été détectés. Le premier est choisi par défaut.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>Il existe plusieurs versions de test. Marquage de l'{0} de l'implémentation {1} avec la version {2} comme stable.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>Il existe plusieurs versions dont la date de sortie n'est pas encore connue. Veuillez sélectionner une version spécifique.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>Aucune implémentation de la version {0} n'est mise en cache. Impossible de calculer un résumé supplémentaire.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>Le flux ne comporte pas d'élément « {0} ». Impossible de l'utiliser comme flux local.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>Le flux ne contient aucune implémentation.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>Le flux ne contient aucune implémentation avec l'{0} de version.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Aucun répertoire d'installation n'a été détecté.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>Il n'existe aucune implémentation portant l'identifiant «{0} » ni aucune implémentation locale à laquelle appliquer l'archive.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>Aucune implémentation n'est actuellement marquée comme étant en phase de test.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Cette méthode n'est disponible que sur Windows actuellement.</value>

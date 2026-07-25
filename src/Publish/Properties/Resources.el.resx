@@ -58,8 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>Όλες οι εκδόσεις έχουν ήδη κυκλοφορήσει. Επιλέξτε μια συγκεκριμένη έκδοση.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>Το αρχείο περιέχει μόνο έναν κατάλογο ανώτατου επιπέδου, τον «{0} ». Καλό θα ήταν να ορίσετε το χαρακτηριστικό «{1} » σε «{0} », ώστε να αποφύγετε ένα επιπλέον επίπεδο ένθεσης.</value>
+    <value>Το αρχείο περιέχει μόνο έναν κατάλογο κορυφαίου επιπέδου, τον «{0} ». Καλό θα ήταν να ορίσετε το χαρακτηριστικό «{1} » σε «{0} », ώστε να αποφύγετε ένα επιπλέον επίπεδο ένθεσης.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>Το τοπικό αντίγραφο του αρχείου «{0} » δεν υπάρχει. Χρησιμοποιήστε την επιλογή «{1} » για να καθορίσετε διαφορετική διαδρομή.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
@@ -69,6 +77,10 @@
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Αναζήτηση για τα εκτελέσιμα αρχεία</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>Το feed περιέχει ήδη μια υλοποίηση με το αναγνωριστικό «{0} ».</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Δηλωτικό υπολογίστηκε για ένα άδειο κατάλογο. Βεβαιωθείτε ότι έχετε ορίσει το σωστό "{0}" αξίας για το αρχείο.</value>
@@ -99,17 +111,57 @@
     <value>Εντοπίστηκαν πολλά νέα προεπιλεγμένα προγράμματα στο μητρώο. Γίνεται επεξεργασία όλων, αλλά το τελευταίο μπορεί να έχει προτεραιότητα σε ορισμένες περιπτώσεις.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>Η ροή περιέχει πολλά στοιχεία τύπου « {0} ». Αυτό δεν υποστηρίζεται εδώ.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Πολλαπλή κατάλογοι εγκατάστασης εντοπίστηκαν. Επιλέγοντας πρώτο από προεπιλογή.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>Δεν υπάρχει υλοποίηση με το αναγνωριστικό «{0} » και υπάρχουν πολλές τοπικές υλοποιήσεις από τις οποίες μπορείτε να επιλέξετε.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Πολλαπλές νέες εγγραφές εφαρμογής εντοπίστηκαν στο μητρώο. Επιλέγοντας πρώτο από προεπιλογή.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>Υπάρχουν πολλές δοκιμαστικές εκδόσεις. Χαρακτηρίζονται ως σταθερές οι υλοποιήσεις {0} του {1} με έκδοση {2}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>Υπάρχουν πολλές υλοποιήσεις χωρίς ημερομηνία κυκλοφορίας. Επιλέξτε μια συγκεκριμένη έκδοση.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>Δεν υπάρχει αποθηκευμένη στην προσωρινή μνήμη υλοποίηση της έκδοσης {0}. Δεν είναι δυνατός ο υπολογισμός ενός επιπλέον digest.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>Η ροή δεν περιέχει το στοιχείο {0}. Δεν είναι δυνατή η χρήση της ως τοπικής ροής.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>Η ροή δεν περιέχει υλοποιήσεις.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>Το feed δεν περιέχει καμία υλοποίηση με έκδοση {0}.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Δεν εντοπίστηκε κατάλογος εγκατάστασης.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>Δεν υπάρχει υλοποίηση με το αναγνωριστικό «{0} » και δεν υπάρχει τοπική υλοποίηση στην οποία να εφαρμοστεί το αρχείο.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>Καμία υλοποίηση δεν έχει επισημανθεί προς το παρόν ως υπό δοκιμή.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Η μέθοδος αυτή είναι προς το παρόν διαθέσιμη μόνο στα Windows.</value>

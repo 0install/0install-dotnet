@@ -60,6 +60,7 @@
   </resheader>
   <data name="AllImplementationsReleased" xml:space="preserve">
     <value>Tüm uygulamalar zaten yayımlanmış. Bunun yerine belirli bir sürüm seçin.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Arşiv dosyasında yalnızca '{0}' üst düzey klasörü var. Fazladan bir alt klasör düzeyi oluşturulmaması için büyük olasılıkla '{1}' özniteliğini '{0}' olarak ayarlamalısınız.</value>
@@ -67,6 +68,7 @@
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
     <value>'{0}' arşiv dosyasının yerel kopyası yok. Farklı bir yol belirtmek için '{1}' seçeneğini kullanın.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
     <value>'{0}' komutunda '{1}' yolu bulunuyor. Ancak bu dosya arşiv dosyası içinde yok.</value>
@@ -78,6 +80,7 @@
   </data>
   <data name="DuplicateImplementationID" xml:space="preserve">
     <value>Akışta '{0}' kimliğine sahip bir uygulama zaten var.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Boş bir klasör için öge listesi dosyası hazırlandı. Arşiv için "{0}" değerinin doğru şekilde ayarlandığından emin olun.</value>
@@ -110,6 +113,7 @@ Giriş noktasını el ile belirtmeyi deneyin.</value>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
     <value>Akışta birden fazla {0} ögesi var. Bu burada desteklenmiyor.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Birden fazla kurulum klasörü bulundu. Varsayılan olarak ilki seçildi.</value>
@@ -117,6 +121,7 @@ Giriş noktasını el ile belirtmeyi deneyin.</value>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
     <value>'{0}' kimliğine sahip bir uygulama yok ve seçilebilecek birden fazla yerel uygulama var.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
     <value>Kayıt defterinde birden fazla yeni uygulama kaydı bulundu. Varsayılan olarak ilki seçildi.</value>
@@ -124,21 +129,27 @@ Giriş noktasını el ile belirtmeyi deneyin.</value>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
     <value>Birden fazla testing sürümü var. {1} uygulamadan {2} sürümüne sahip {0} tanesi stable olarak işaretleniyor.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>Yayım tarihi olmayan birden fazla uygulama var. Bunun yerine belirli bir sürüm seçin.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
     <value>{0} sürümüne ait bir uygulama önbelleğe alınmamış. Ek bir öge listesi karması hesaplanamıyor.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
     <value>Akışta {0} ögesi yok. Yerel akış olarak kullanılamıyor.</value>
-  </data>
-  <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>Akışta {0} sürümüne sahip bir uygulama yok.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
     <value>Akışta hiç uygulama yok.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>Akışta {0} sürümüne sahip bir uygulama yok.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Kurulum klasörü algılanamadı.
@@ -147,9 +158,11 @@ El ile belirtmeyi deneyin.</value>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">
     <value>'{0}' kimliğine sahip bir uygulama ve arşiv dosyasının uygulanabileceği yerel bir uygulama yok.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">
     <value>Şu anda testing olarak işaretlenmiş bir uygulama yok.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">
     <value>Bu yöntem yalnızca Windows üzerinde kullanılabilir.</value>

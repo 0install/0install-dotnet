@@ -58,8 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllImplementationsReleased" xml:space="preserve">
+    <value>Todas las versiones ya se han publicado. Selecciona una versión concreta.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>El archivo contiene únicamente un único directorio de nivel superior: «{0} ». Probablemente deberías establecer el atributo «{1} » en «{0} » para evitar un nivel de anidación adicional.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="ArchiveFileNotFound" xml:space="preserve">
+    <value>No existe la copia local del archivo «{0} ». Utiliza la opción «{1} » para especificar una ruta diferente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
@@ -68,6 +76,10 @@
   </data>
   <data name="DetectingCandidates" xml:space="preserve">
     <value>Búsqueda de archivos ejecutables</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="DuplicateImplementationID" xml:space="preserve">
+    <value>El feed ya contiene una implementación con el ID «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
@@ -96,20 +108,60 @@ Intenta especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Se han detectado varios programas nuevos predeterminados en el registro. Se están gestionando todos ellos, pero el último puede tener prioridad en algunos casos.</value>
+    <value>Se han detectado varios programas nuevos predeterminados en el registro. Se están gestionando todos ellos, pero es posible que, en algunos casos, el último tenga prioridad.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleFeedFor" xml:space="preserve">
+    <value>El feed contiene varios elementos « {0} ». Esto no es compatible aquí.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Se han detectado varios directorios de instalación. Se selecciona el primero por defecto.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="MultipleLocalImplementations" xml:space="preserve">
+    <value>No hay ninguna implementación con el ID «{0} » y hay varias implementaciones locales entre las que elegir.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Se han detectado varios registros de nuevas aplicaciones en el registro. Se selecciona la primera de forma predeterminada.</value>
+    <value>Se han detectado varios registros de nuevas aplicaciones en el Registro. Se selecciona la primera por defecto.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleTestingVersions" xml:space="preserve">
+    <value>Existen varias versiones de prueba. Se marca {0} de las implementaciones de {1} con la versión {2} como estable.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="MultipleUnreleasedImplementations" xml:space="preserve">
+    <value>Existen varias versiones sin fecha de lanzamiento. Selecciona una versión concreta.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoCachedImplementation" xml:space="preserve">
+    <value>No se ha almacenado en caché ninguna implementación de la versión {0}. No se puede calcular un resumen adicional.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoFeedFor" xml:space="preserve">
+    <value>El feed no tiene un elemento « {0} ». No se puede utilizar como feed local.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementations" xml:space="preserve">
+    <value>El feed no contiene implementaciones.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoImplementationWithVersion" xml:space="preserve">
+    <value>La fuente no contiene ninguna implementación con la versión {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>No se ha detectado ningún directorio de instalación.
 Intenta especificarlo manualmente.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoLocalImplementation" xml:space="preserve">
+    <value>No existe ninguna implementación con el ID «{0} » ni ninguna implementación local a la que aplicar el archivo.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="NoTestingImplementations" xml:space="preserve">
+    <value>Actualmente no hay ninguna implementación marcada como en fase de pruebas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">

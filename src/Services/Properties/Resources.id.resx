@@ -71,7 +71,7 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Perintah untuk '{0}' tidak ditentukan.</value>
+    <value>Perintah '{0}' tidak ditentukan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
@@ -199,7 +199,7 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Tidak ditemukan ringkasan manifest untuk implementasi '{0}'.</value>
+    <value>Tidak ditemukan ringkasan manifes untuk implementasi '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">

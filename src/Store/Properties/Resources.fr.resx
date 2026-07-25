@@ -116,7 +116,7 @@ Pour supprimer l'intégralité du répertoire sans passer par Zero Install, veui
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Erreur lors du chargement du faisceau de clés OpenPGP depuis «{0} »</value>
+    <value>Erreur lors du chargement du faisceau de clés OpenPGP à partir de «{0} »</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -210,7 +210,7 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Manually overriden.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>Le nom du fichier ou du répertoire ne doit pas contenir de caractère de fin de ligne.</value>
+    <value>Le nom du fichier ou du répertoire ne doit pas contenir de caractère de saut de ligne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -218,7 +218,7 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Aucune méthode de hachage n'a été spécifiée.</value>
+    <value>Aucune méthode de hachage connue n'a été spécifiée.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">

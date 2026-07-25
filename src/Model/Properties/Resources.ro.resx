@@ -71,7 +71,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Eroare la încărcarea preferințelor interfeței pentru „{0} ”. Se revine la valorile implicite.</value>
+    <value>Eroare la încărcarea preferințelor de interfață pentru „{0} ”. Se revine la valorile implicite.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -167,7 +167,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>ID-ul trebuie să fie sigur. Poate conține numai caractere alfanumerice, spații ( ), puncte (.), linii de subliniere (_), cratime (-) și semne plus (+).</value>
+    <value>ID-ul trebuie să fie sigur. Poate conține doar caractere alfanumerice, spații ( ), puncte (.), linii de subliniere (_), cratime (-) și semne plus (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">

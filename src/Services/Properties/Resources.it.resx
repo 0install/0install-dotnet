@@ -107,7 +107,7 @@ Vuoi considerare attendibile questa chiave per firmare i feed da '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
-    <value>richiede</value>
+    <value>Requisiti</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUnsuitable" xml:space="preserve">

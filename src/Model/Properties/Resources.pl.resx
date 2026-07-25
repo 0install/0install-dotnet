@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Nie można znaleźć kanału „{0} ” w katalogu.</value>
+    <value>Nie można znaleźć źródła „{0} ” w katalogu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Brakuje tagu ` {0} ` wewnątrz ` {1}`.</value>
+    <value>Brakuje tagu ` {0} ` wewnątrz elementu ` {1}`.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -123,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Nie udało się rozpoznać ścieżki względnej „{0} ”. Tylko kanały zapisane jako pliki lokalne mogą zawierać ścieżki względne.</value>
+    <value>Nie można rozpoznać ścieżki względnej „{0} ”. Tylko kanały zapisane jako pliki lokalne mogą zawierać ścieżki względne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Realizacja nie odbywa się z pamięci podręcznej (obecnie w trybie offline)</value>
+    <value>Wdrożenie nie odbywa się z pamięci podręcznej (obecnie w trybie offline)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
