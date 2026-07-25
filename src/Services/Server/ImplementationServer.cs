@@ -136,38 +136,49 @@ public sealed class ImplementationServer : HttpServer
         }
 
         Log.Debug($"Incoming request: {context.Request.HttpMethod} {url.PathAndQuery}");
+
+        ManifestDigest manifestDigest;
+        string path;
+        IArchiveBuilder builder;
         try
         {
-            (var manifestDigest, string mimeType) = ParseFileName(url.LocalPath[1..]);
-            string path = _implementationStore.GetPath(manifestDigest)
-                       ?? throw new ImplementationNotFoundException(manifestDigest);
+            (manifestDigest, string mimeType) = ParseFileName(url.LocalPath[1..]);
+            path = _implementationStore.GetPath(manifestDigest)
+                ?? throw new ImplementationNotFoundException(manifestDigest);
 
             switch (context.Request.HttpMethod)
             {
                 case "GET":
-                    Log.Info($"Serving implementation {manifestDigest} as {mimeType}");
-                    context.Response.ContentType = mimeType;
-                    using (var builder = ArchiveBuilder.Create(context.Response.OutputStream, mimeType, fast: true))
-                        new ReadDirectory(path, builder).Run();
-                    Log.Info($"Finished serving implementation {manifestDigest}");
                     break;
 
                 case "HEAD":
-                    break;
+                    return;
 
                 default:
                     context.Response.StatusCode = (int)HttpStatusCode.MethodNotAllowed;
-                    break;
+                    return;
             }
+
+            Log.Info($"Serving implementation {manifestDigest} as {mimeType}");
+            context.Response.ContentType = mimeType;
+            builder = ArchiveBuilder.Create(context.Response.OutputStream, mimeType, fast: true);
         }
         #region Error handling
-        catch (HttpListenerException ex) { Log.Info($"Request cancelled: {context.Request.HttpMethod} {url.PathAndQuery}", ex); }
-        catch (NotSupportedException ex) { ReturnError(HttpStatusCode.BadRequest, ex); }
-        catch (ImplementationNotFoundException ex) { ReturnError(HttpStatusCode.NotFound, ex); }
-        catch (UnauthorizedAccessException ex) { ReturnError(HttpStatusCode.Unauthorized, ex); }
-        catch (IOException ex) { ReturnError(HttpStatusCode.ServiceUnavailable, ex); }
-        catch (Exception ex) { ReturnError(HttpStatusCode.InternalServerError, ex); }
+        catch (HttpListenerException ex) { Log.Info($"Request cancelled: {context.Request.HttpMethod} {url.PathAndQuery}", ex); return; }
+        catch (NotSupportedException ex) { ReturnError(HttpStatusCode.BadRequest, ex); return; }
+        catch (ImplementationNotFoundException ex) { ReturnError(HttpStatusCode.NotFound, ex); return; }
+        catch (UnauthorizedAccessException ex) { ReturnError(HttpStatusCode.Unauthorized, ex); return; }
+        catch (IOException ex) { ReturnError(HttpStatusCode.ServiceUnavailable, ex); return; }
+        catch (Exception ex) { ReturnError(HttpStatusCode.InternalServerError, ex); return; }
         #endregion
+
+        new ReadDirectory(path, builder).Run();
+
+        // Deliberately only disposed if the archive was generated completely.
+        // Disposing writes the archive's end marker and closes the response stream, terminating the chunked transfer. Doing that after a failure would present a partial archive to the client as a complete one.
+        builder.Dispose();
+
+        Log.Info($"Finished serving implementation {manifestDigest}");
     }
 
     private static (ManifestDigest manifestDigest, string mimeType) ParseFileName(string fileName)
