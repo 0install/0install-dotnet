@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
-using ZeroInstall.Model.Preferences;
 using ZeroInstall.Model.Selection;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Solvers;
@@ -193,7 +192,7 @@ public class Selection : CliCommand
         // TODO: Handle named apps
 
         if (Pin || Unpin)
-            UnpinImplementations(Requirements.InterfaceUri);
+            PinUtils.Unpin(Requirements.InterfaceUri);
 
         // Don't run the solver if the user provided an external selections document
         if (SelectionsDocument)
@@ -219,7 +218,7 @@ public class Selection : CliCommand
         Handler.CancellationToken.ThrowIfCancellationRequested();
 
         if (Pin)
-            PinImplementation(Selections.MainImplementation);
+            PinUtils.Pin(Selections.MainImplementation);
     }
 
     /// <summary>
@@ -269,34 +268,5 @@ public class Selection : CliCommand
         if (ShowXml) Handler.Output(Resources.SelectedImplementations, Selections.ToXmlString());
         else Handler.Output(Resources.SelectedImplementations, SelectionsManager.GetTree(Selections));
         return ExitCode.OK;
-    }
-
-    /// <summary>
-    /// Pins a specific implementation for future runs.
-    /// </summary>
-    private static void PinImplementation(ImplementationSelection implementation)
-        => FeedPreferences.UpdateFor(
-            implementation.FromFeed ?? implementation.InterfaceUri,
-            preferences => preferences[implementation.ID].UserStability = Stability.Preferred);
-
-    /// <summary>
-    /// Unpins all previously pinned implementations.
-    /// </summary>
-    private static void UnpinImplementations(FeedUri interfaceUri)
-    {
-        var additionalFeeds = InterfacePreferences.LoadFor(interfaceUri).Feeds.Select(x => x.Source);
-        foreach (var feedUri in additionalFeeds.Prepend(interfaceUri))
-        {
-            FeedPreferences.UpdateFor(
-                feedUri,
-                preferences =>
-                {
-                    foreach (var implementation in preferences.Implementations)
-                    {
-                        if (implementation.UserStability == Stability.Preferred)
-                            implementation.UserStability = Stability.Unset;
-                    }
-                });
-        }
     }
 }

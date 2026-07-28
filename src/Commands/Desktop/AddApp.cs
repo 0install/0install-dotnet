@@ -3,6 +3,7 @@
 
 using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration;
+using ZeroInstall.Services.Solvers;
 
 namespace ZeroInstall.Commands.Desktop;
 
@@ -18,6 +19,7 @@ public class AddApp : AppCommand
     protected override int AdditionalArgsMax => 2;
 
     private string? _command;
+    private VersionRange? _version;
 
     /// <inheritdoc/>
     public AddApp(ICommandHandler handler)
@@ -25,6 +27,7 @@ public class AddApp : AppCommand
     {
         Options.Add("no-download", () => Resources.OptionNoDownload, _ => NoDownload = true);
         Options.Add("command=", () => Resources.OptionCommand, command => _command = command);
+        Options.Add("version=", () => Resources.OptionVersionRange, (VersionRange range) => _version = range);
     }
 
     /// <summary>
@@ -43,6 +46,8 @@ public class AddApp : AppCommand
     {
         try
         {
+            if (_version != null) PinVersion(_version);
+
             var appEntry = GetAppEntry(IntegrationManager, ref InterfaceUri);
 
             if (AdditionalArgs is [var alias, _])
@@ -65,5 +70,21 @@ public class AddApp : AppCommand
             return ExitCode.NoChanges;
         }
         #endregion
+    }
+
+    /// <summary>
+    /// Selects a specific version of the application and marks it as preferred for future runs.
+    /// </summary>
+    /// <exception cref="SolverException">The <see cref="ISolver"/> was unable to find an implementation matching <paramref name="versions"/>.</exception>
+    private void PinVersion(VersionRange versions)
+    {
+        EnsureAllowed(InterfaceUri);
+
+        PinUtils.Unpin(InterfaceUri);
+        SelectionCandidateProvider.Clear(); // Clear cache to pick up the preference changes
+
+        PinUtils.Pin(
+            Solver.Solve(new() {InterfaceUri = InterfaceUri, Versions = versions})
+                  .MainImplementation);
     }
 }

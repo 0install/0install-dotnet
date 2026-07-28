@@ -1,7 +1,9 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using ZeroInstall.Model.Preferences;
 using ZeroInstall.Services.Feeds;
+using ZeroInstall.Services.Solvers;
 using ZeroInstall.Store.Feeds;
 
 namespace ZeroInstall.Commands.Desktop;
@@ -23,6 +25,22 @@ public class AddAppTest : CliCommandTestBase<AddApp>
 
         ExceptionUtils.Retry<UnauthorizedAccessException>(() => // Other processes might be competing for IntegrationManager mutex
             RunAndAssert(null, ExitCode.OK, Fake.Feed1Uri.ToStringRfc()));
+    }
+
+    [Fact]
+    public void WithVersion()
+    {
+        CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(new Catalog());
+        FeedCache.Setup(x => x.GetFeed(Fake.Feed1Uri)).Returns(Fake.Feed);
+        GetMock<ISolver>()
+           .Setup(x => x.Solve(new Requirements {InterfaceUri = Fake.Feed1Uri, Versions = new("1.0")}))
+           .Returns(Fake.Selections);
+
+        ExceptionUtils.Retry<UnauthorizedAccessException>(() => // Other processes might be competing for IntegrationManager mutex
+            RunAndAssert(null, ExitCode.OK, "--version=1.0", Fake.Feed1Uri.ToStringRfc()));
+
+        FeedPreferences.LoadFor(Fake.SubFeed1Uri)["id1"]
+                       .UserStability.Should().Be(Stability.Preferred);
     }
 
     [Fact]

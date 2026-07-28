@@ -34,6 +34,8 @@ public class RemoveApp(ICommandHandler handler) : AppCommand(handler)
 
         IntegrationManager.RemoveApp(appEntry);
 
+        PinUtils.Unpin(InterfaceUri);
+
         if (ZeroInstallInstance.IsLibraryMode
          && AppList.IsEmpty()
          && (!ZeroInstallInstance.IsMachineWide || AppList.IsEmpty(machineWide: true)))
