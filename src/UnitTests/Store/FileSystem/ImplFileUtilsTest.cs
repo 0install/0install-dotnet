@@ -27,7 +27,7 @@ public class ImplFileUtilsTest : IDisposable
         // Verify $LXMOD is set
         var lxmodData = FileUtils.ReadExtendedMetadata(testFile, "$LXMOD");
         lxmodData.Should().NotBeNull("$LXMOD should be set for WSL compatibility");
-        lxmodData!.Length.Should().BeGreaterOrEqualTo(4, "$LXMOD should contain at least 4 bytes for mode");
+        lxmodData!.Length.Should().BeGreaterThanOrEqualTo(4, "$LXMOD should contain at least 4 bytes for mode");
 
         // Verify the mode contains executable bit
         int mode = BitConverter.ToInt32(lxmodData, 0);
