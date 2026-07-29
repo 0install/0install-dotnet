@@ -10,10 +10,6 @@
       "automergeType": "branch"
     },
     {
-      "matchPackageNames": ["FluentAssertions"],
-      "allowedVersions": "<8"
-    },
-    {
       "matchPackagePatterns": ["^NanoByte\\.Common"],
       "groupName": "NanoByte.Common",
       "automerge": true,
