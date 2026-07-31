@@ -1,0 +1,131 @@
+name: Build
+on:
+  push:
+    branches-ignore: [translate]
+  pull_request:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      # Prepare
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          show-progress: false
+      - uses: gittools/actions/gitversion/setup@v3.2.1
+        with:
+          versionSpec: '5.12.x'
+      - uses: gittools/actions/gitversion/execute@v3.2.1
+        id: gitversion
+
+      # Build
+      - name: Build
+        run: .\src\build.ps1 ${{steps.gitversion.outputs.nuGetVersion}}${{github.ref_type != 'tag' && format('-{0}', steps.gitversion.outputs.shortSha) || ''}}
+      - name: Test
+        run: .\src\test.ps1
+      - name: Report test results
+        if: always()
+        uses: dorny/test-reporter@v3
+        with:
+          name: windows - Test Report
+          reporter: dotnet-trx
+          path: src/UnitTests/TestResults/*.trx
+      - name: Build documentation
+        run: .\doc\build.ps1
+
+      # Sign
+      - name: Upload artifacts
+        id: artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          path: artifacts
+      - name: Sign artifacts
+        if: github.ref_type == 'tag'
+        uses: signpath/github-action-submit-signing-request@v2
+        with:
+          api-token: ${{secrets.SIGNPATH_API_KEY}}
+          organization-id: 0e70cf92-49a1-4427-a800-b6bc5b497936
+          project-slug: dotnet
+          signing-policy-slug: release-signing
+          github-artifact-id: ${{steps.artifacts.outputs.artifact-id}}
+          output-artifact-directory: artifacts
+          wait-for-completion-timeout-in-seconds: 3600
+
+      # Package
+      - uses: 0install/github-actions/0template@v1
+        id: feed
+        with:
+          template: 0install-dotnet.xml.template
+          version: ${{steps.gitversion.outputs.legacySemVer}}
+          github-release: ${{github.ref_type == 'tag'}}
+
+      # Release
+      - name: Get tag message
+        if: github.ref_type == 'tag'
+        id: tag_message
+        run: |
+          "message<<EOF" >> $env:GITHUB_OUTPUT
+          git fetch -f origin tag ${{github.ref_name}}
+          git tag --format="%(contents)" -l ${{github.ref_name}} >> $env:GITHUB_OUTPUT
+          "EOF" >> $env:GITHUB_OUTPUT
+      - name: Create GitHub Release
+        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v3
+        with:
+          body: |
+            This release mainly serves as a dependency. For end-user releases, take a look at [0install-win](https://github.com/0install/0install-win).
+            ## Changes
+            ${{steps.tag_message.outputs.message}}
+          files: |
+            ${{steps.feed.outputs.feed}}
+            ${{steps.feed.outputs.archive}}
+
+      # Publish
+      - name: Publish documentation
+        if: github.ref_type == 'tag'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{github.token}}
+          force_orphan: true
+          publish_dir: artifacts/Documentation
+          cname: dotnet.0install.net
+      - name: Publish packages (GitHub)
+        if: github.event_name == 'push' && !startsWith(github.ref_name, 'renovate/')
+        run: dotnet nuget push artifacts\Release\*.nupkg --source https://nuget.pkg.github.com/${{github.repository_owner}}/index.json --api-key ${{github.token}} --no-symbols --skip-duplicate
+      - name: Publish packages (NuGet.org)
+        if: github.ref_type == 'tag'
+        run: dotnet nuget push artifacts\Release\*.nupkg --source nuget.org --api-key ${{secrets.NUGET_API_KEY}}
+      - uses: 0install/github-actions/0repo-submit@v1
+        if: github.ref_type == 'tag'
+        with:
+          repository: 0install/apps
+          feed-url: ${{steps.feed.outputs.feed}}
+          token: ${{secrets.PERSONAL_TOKEN}}
+
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      # Prepare
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          show-progress: false
+      - uses: gittools/actions/gitversion/setup@v3.2.1
+        with:
+          versionSpec: '5.12.x'
+      - uses: gittools/actions/gitversion/execute@v3.2.1
+        id: gitversion
+
+      # Build
+      - name: Build
+        run: src/build.sh ${{steps.gitversion.outputs.nuGetVersion}}
+      - name: Test
+        run: src/test.sh
+      - name: Report test results
+        if: always()
+        uses: dorny/test-reporter@v3
+        with:
+          name: linux - Test Report
+          reporter: dotnet-trx
+          path: src/UnitTests/TestResults/*.trx

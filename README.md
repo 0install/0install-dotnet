@@ -1,7 +1,7 @@
 # Zero Install .NET
 
 [![API documentation](https://img.shields.io/badge/api-docs-orange.svg)](https://dotnet.0install.net/)
-[![Build status](https://img.shields.io/appveyor/ci/0install/0install-dotnet.svg)](https://ci.appveyor.com/project/0install/0install-dotnet)  
+[![Build](https://github.com/0install/0install-dotnet/actions/workflows/build.yml/badge.svg)](https://github.com/0install/0install-dotnet/actions/workflows/build.yml)  
 Zero Install is a decentralized cross-platform software installation system. You can learn more at [0install.net](https://0install.net/).
 
 This is the .NET implementation of Zero Install. It can be used as a [command-line tool](#command-line) on various platforms or be embedded into .NET applications as a set of [libraries](#libraries). It provides the basis for [Zero Install for Windows](https://github.com/0install/0install-win).
