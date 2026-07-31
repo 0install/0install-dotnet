@@ -8,6 +8,7 @@
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <IsPackable>False</IsPackable>
     <DeterministicSourcePaths>False</DeterministicSourcePaths>
+    <VSTestLogger>trx%3bLogFileName=$(TargetFramework).trx</VSTestLogger>
   </PropertyGroup>
 
   <!-- Mark as unit test project -->

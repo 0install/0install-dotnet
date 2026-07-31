@@ -17,5 +17,6 @@
 
 # Output
 /artifacts/
+**/TestResults/
 /0install-dotnet-*.xml
 /0install-dotnet-*.tar.gz
