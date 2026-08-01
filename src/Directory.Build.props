@@ -41,7 +41,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)..\icon.png" PackagePath="\" Pack="True" />
-    <None Include="$(MSBuildThisFileDirectory)..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="README.md" Pack="True" PackagePath="\" Condition="Exists('$(MSBuildProjectDirectory)\README.md')" />
   </ItemGroup>
 
   <!-- Make internals visible to unit tests -->
