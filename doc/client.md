@@ -34,11 +34,11 @@ Environment.Exit(0);
 Toggle the app's auto start [desktop integration](https://docs.0install.net/details/desktop-integration/):
 
 ```csharp
-bool isAutoStartEnabled = zeroInstall.GetIntegration(feedUri).Contains("auto-start");
+bool isAutoStartEnabled = zeroInstall.GetIntegration(feedUri).Contains(IntegrationCategories.AutoStart);
 if (isAutoStartEnabled)
-    await zeroInstall.IntegrateAsync(feedUri, remove: new[] {"auto-start"});
+    await zeroInstall.IntegrateAsync(feedUri, remove: new[] {IntegrationCategories.AutoStart});
 else
-    await zeroInstall.IntegrateAsync(feedUri, add: new[] {"auto-start"});
+    await zeroInstall.IntegrateAsync(feedUri, add: new[] {IntegrationCategories.AutoStart});
 ```
 
 ## Error handling
