@@ -149,8 +149,8 @@ public class ImplementationServerTest : IDisposable
         // entire response, so that the client reliably reads the data that was sent before the failure
         using var client = new TcpClient {ReceiveBufferSize = 8192, ReceiveTimeout = 30000};
 
-        // Connect via IPv4, but keep "localhost" in the Host header to match the listener's URL prefix
-        client.Connect(IPAddress.Loopback, _server.Port);
+        // Connect via "localhost" hostname resolution (tries all addresses) to match whichever address the listener is bound to
+        client.Connect("localhost", _server.Port);
         using var stream = client.GetStream();
 
         byte[] requestBytes = Encoding.ASCII.GetBytes(request);
