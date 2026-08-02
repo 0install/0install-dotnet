@@ -23,7 +23,6 @@ This website documents the Zero Install .NET API. You can use this to integrate 
 
 ### Dependencies
 
-
 ```mermaid
 flowchart TD
     commands[ZeroInstall.Commands] --> services
