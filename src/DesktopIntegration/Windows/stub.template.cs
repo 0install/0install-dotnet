@@ -29,8 +29,8 @@ static class Program
     {
         try
         {
-            return Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Zero Install", "InstallLocation", defaultValue: null)?.ToString()
-                ?? Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Zero Install", "InstallLocation", defaultValue: null)?.ToString()
+            return GetInstallLocation(@"HKEY_CURRENT_USER\SOFTWARE\Zero Install")
+                ?? GetInstallLocation(@"HKEY_LOCAL_MACHINE\SOFTWARE\Zero Install")
                 ?? "";
         }
         catch (Exception ex)
@@ -39,6 +39,15 @@ static class Program
             LogError(ex);
             return "";
         }
+    }
+
+    private static string GetInstallLocation(string registryKey)
+    {
+        // Skip deployments that no longer exist, e.g., because they were deleted without unregistering
+        string path = Registry.GetValue(registryKey, "InstallLocation", defaultValue: null) as string;
+        return !string.IsNullOrEmpty(path) && File.Exists(Path.Combine(path, "[EXE]"))
+            ? path
+            : null;
     }
 
     private static int Run(string fileName, string arguments)
