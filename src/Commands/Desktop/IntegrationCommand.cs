@@ -142,7 +142,12 @@ public abstract class IntegrationCommand : CliCommand
         if (!NoDownload && Config.EffectiveNetworkUse == NetworkLevel.Full)
         {
             Log.Info("Starting background download for later use");
-            StartCommandBackground(Download.Name, "--batch", interfaceUri.ToStringRfc());
+            StartCommandBackground(Download.Name, ["--batch", ..BackgroundDownloadArgs, interfaceUri.ToStringRfc()]);
         }
     }
+
+    /// <summary>
+    /// Additional arguments to pass to the command started by <see cref="BackgroundDownload"/>.
+    /// </summary>
+    protected virtual IEnumerable<string> BackgroundDownloadArgs => [];
 }

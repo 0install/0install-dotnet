@@ -51,16 +51,20 @@ public class AddApp : AppCommand
     }
 
     /// <inheritdoc/>
+    protected override IEnumerable<string> BackgroundDownloadArgs
+        => _version == null ? [] : ["--version", _version.ToString()];
+
+    /// <inheritdoc/>
     protected override ExitCode ExecuteHelper()
     {
         try
         {
-            if (_version != null) PinVersion(_version);
-
             var appEntry = GetAppEntry(IntegrationManager, ref InterfaceUri);
 
             if (AdditionalArgs is [var alias, _])
                 CreateAlias(appEntry, alias, _command);
+
+            if (_version != null) PinVersion(_version);
 
             var catalog = CatalogManager.TryGetCached() ?? new();
             if (WindowsUtils.IsWindows && !catalog.ContainsFeed(appEntry.InterfaceUri))
@@ -85,8 +89,6 @@ public class AddApp : AppCommand
     /// <exception cref="SolverException">The <see cref="ISolver"/> was unable to find an implementation matching <paramref name="versions"/>.</exception>
     private void PinVersion(VersionRange versions)
     {
-        EnsureAllowed(InterfaceUri);
-
         PinUtils.Unpin(InterfaceUri);
         SelectionCandidateProvider.Clear(); // Clear cache to pick up the preference changes
 
