@@ -42,6 +42,15 @@ public class AddApp : AppCommand
     }
 
     /// <inheritdoc/>
+    public override void Parse(IReadOnlyList<string> args)
+    {
+        base.Parse(args);
+
+        if (_command != null && AdditionalArgs.Count < 2)
+            throw new OptionException(string.Format(Resources.NoAddCommandWithoutAlias, "--command"), "command");
+    }
+
+    /// <inheritdoc/>
     protected override ExitCode ExecuteHelper()
     {
         try
@@ -52,8 +61,6 @@ public class AddApp : AppCommand
 
             if (AdditionalArgs is [var alias, _])
                 CreateAlias(appEntry, alias, _command);
-            else if (_command != null)
-                throw new OptionException(string.Format(Resources.NoAddCommandWithoutAlias, "--command"), "command");
 
             var catalog = CatalogManager.TryGetCached() ?? new();
             if (WindowsUtils.IsWindows && !catalog.ContainsFeed(appEntry.InterfaceUri))

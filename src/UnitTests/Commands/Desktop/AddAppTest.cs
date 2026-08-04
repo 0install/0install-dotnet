@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NDesk.Options;
 using ZeroInstall.Model.Preferences;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Solvers;
@@ -41,6 +42,12 @@ public class AddAppTest : CliCommandTestBase<AddApp>
 
         FeedPreferences.LoadFor(Fake.SubFeed1Uri)["id1"]
                        .UserStability.Should().Be(Stability.Preferred);
+    }
+
+    [Fact]
+    public void CommandWithoutAlias()
+    {
+        Assert.Throws<OptionException>(() => Sut.Parse(["--command=run", Fake.Feed1Uri.ToStringRfc()]));
     }
 
     [Fact]
