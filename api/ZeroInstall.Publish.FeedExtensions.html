@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FeedExtensions | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FeedExtensions | Zero Install .NET API ">
+      
+      <meta name="description" content="Helpers for editing s.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/new/2.29.3/apiSpec/new?filename=ZeroInstall_Publish_FeedExtensions.md&amp;value=---%0Auid%3A%20ZeroInstall.Publish.FeedExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Publish.FeedExtensions">
+
+
+
+  <h1 id="ZeroInstall_Publish_FeedExtensions" data-uid="ZeroInstall.Publish.FeedExtensions" class="text-break">
+Class FeedExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.29.3/src/Publish/FeedExtensions.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Publish.html">Publish</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Publish.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Helpers for editing <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a>s.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class FeedExtensions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">FeedExtensions</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="ZeroInstall_Publish_FeedExtensions_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>These operate on the un-normalized feed structure, i.e. <a class="xref" href="ZeroInstall.Model.Group.html">Group</a> inheritance is resolved
+on the fly rather than by calling <a class="xref" href="ZeroInstall.Model.Feed.html#ZeroInstall_Model_Feed_Normalize_ZeroInstall_Model_FeedUri_">Normalize(FeedUri?)</a>. This keeps the feed serializable.</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Publish_FeedExtensions_AddArchive_" data-uid="ZeroInstall.Publish.FeedExtensions.AddArchive*"></a>
+
+  <h3 id="ZeroInstall_Publish_FeedExtensions_AddArchive_ZeroInstall_Model_Feed_System_Uri_System_String_System_String_System_Collections_Generic_IEnumerable_ZeroInstall_Store_Manifests_ManifestFormat__NanoByte_Common_Undo_ICommandExecutor_NanoByte_Common_Tasks_ITaskHandler_" data-uid="ZeroInstall.Publish.FeedExtensions.AddArchive(ZeroInstall.Model.Feed,System.Uri,System.String,System.String,System.Collections.Generic.IEnumerable{ZeroInstall.Store.Manifests.ManifestFormat},NanoByte.Common.Undo.ICommandExecutor,NanoByte.Common.Tasks.ITaskHandler)">
+  AddArchive(Feed, Uri, string?, string?, IEnumerable&lt;ManifestFormat&gt;?, ICommandExecutor, ITaskHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.29.3/src/Publish/FeedExtensions.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an <a class="xref" href="ZeroInstall.Model.Archive.html">Archive</a> to the matching <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> in the feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddArchive(this Feed feed, Uri href, string? localPath, string? extract, IEnumerable&lt;ManifestFormat&gt;? formats, ICommandExecutor executor, ITaskHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feed</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The feed.</p>
+</dd>
+    <dt><code>href</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
+    <dd><p>The URL the archive can be downloaded from.</p>
+</dd>
+    <dt><code>localPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A local copy of the archive; <code>null</code> to look for a file named like <code class="paramref">href</code> in the current directory.</p>
+</dd>
+    <dt><code>extract</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The subdirectory of the archive to extract; <code>null</code> for entire archive.</p>
+</dd>
+    <dt><code>formats</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a>&gt;</dt>
+    <dd><p>The manifest formats to calculate digests for. Leave empty for default.</p>
+</dd>
+    <dt><code>executor</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Undo.ICommandExecutor.html">ICommandExecutor</a></dt>
+    <dd><p>Used to modify properties in an undoable fashion.</p>
+</dd>
+    <dt><code>handler</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a></dt>
+    <dd><p>A callback object used when the user is to be informed about progress.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Publish_FeedExtensions_AddArchive_ZeroInstall_Model_Feed_System_Uri_System_String_System_String_System_Collections_Generic_IEnumerable_ZeroInstall_Store_Manifests_ManifestFormat__NanoByte_Common_Undo_ICommandExecutor_NanoByte_Common_Tasks_ITaskHandler__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The archive is added to the implementation that already carries the calculated digest as its
+<a class="xref" href="ZeroInstall.Model.ImplementationBase.html#ZeroInstall_Model_ImplementationBase_ID">ID</a>, or else to the feed's only implementation with a local ID.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception">FileNotFoundException</a></dt>
+    <dd><p>No local copy of the archive could be found.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>No suitable implementation to add the archive to was found.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>The archive type could not be determined.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_FeedExtensions_AddDigests_" data-uid="ZeroInstall.Publish.FeedExtensions.AddDigests*"></a>
+
+  <h3 id="ZeroInstall_Publish_FeedExtensions_AddDigests_ZeroInstall_Model_Feed_ZeroInstall_Store_Manifests_ManifestFormat_ZeroInstall_Store_Implementations_IImplementationStore_NanoByte_Common_Undo_ICommandExecutor_NanoByte_Common_Tasks_ITaskHandler_" data-uid="ZeroInstall.Publish.FeedExtensions.AddDigests(ZeroInstall.Model.Feed,ZeroInstall.Store.Manifests.ManifestFormat,ZeroInstall.Store.Implementations.IImplementationStore,NanoByte.Common.Undo.ICommandExecutor,NanoByte.Common.Tasks.ITaskHandler)">
+  AddDigests(Feed, ManifestFormat, IImplementationStore, ICommandExecutor, ITaskHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.29.3/src/Publish/FeedExtensions.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds digests in an additional <a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a> to all <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s in the feed that have a cached copy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AddDigests(this Feed feed, ManifestFormat format, IImplementationStore implementationStore, ICommandExecutor executor, ITaskHandler handler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feed</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The feed.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="ZeroInstall.Store.Manifests.ManifestFormat.html">ManifestFormat</a></dt>
+    <dd><p>The manifest format to add digests for.</p>
+</dd>
+    <dt><code>implementationStore</code> <a class="xref" href="ZeroInstall.Store.Implementations.IImplementationStore.html">IImplementationStore</a></dt>
+    <dd><p>Used to look for cached copies of the implementations.</p>
+</dd>
+    <dt><code>executor</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Undo.ICommandExecutor.html">ICommandExecutor</a></dt>
+    <dd><p>Used to modify properties in an undoable fashion.</p>
+</dd>
+    <dt><code>handler</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a></dt>
+    <dd><p>A callback object used when the user is to be informed about progress.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user canceled the task.</p>
+</dd>
+    <dt><a class="xref" href="ZeroInstall.Store.Implementations.DigestMismatchException.html">DigestMismatchException</a></dt>
+    <dd><p>A cached implementation does not match its expected digest.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_FeedExtensions_AddVersion_" data-uid="ZeroInstall.Publish.FeedExtensions.AddVersion*"></a>
+
+  <h3 id="ZeroInstall_Publish_FeedExtensions_AddVersion_ZeroInstall_Model_Feed_ZeroInstall_Model_ImplementationVersion_NanoByte_Common_Undo_ICommandExecutor_" data-uid="ZeroInstall.Publish.FeedExtensions.AddVersion(ZeroInstall.Model.Feed,ZeroInstall.Model.ImplementationVersion,NanoByte.Common.Undo.ICommandExecutor)">
+  AddVersion(Feed, ImplementationVersion, ICommandExecutor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.29.3/src/Publish/FeedExtensions.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a> with a local <a class="xref" href="ZeroInstall.Model.ImplementationBase.html#ZeroInstall_Model_ImplementationBase_ID">ID</a> to the feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Implementation AddVersion(this Feed feed, ImplementationVersion version, ICommandExecutor executor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feed</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The feed.</p>
+</dd>
+    <dt><code>version</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd><p>The version number of the new implementation.</p>
+</dd>
+    <dt><code>executor</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Undo.ICommandExecutor.html">ICommandExecutor</a></dt>
+    <dd><p>Used to modify properties in an undoable fashion.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a></dt>
+    <dd><p>The newly added implementation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="ZeroInstall_Publish_FeedExtensions_AddVersion_ZeroInstall_Model_Feed_ZeroInstall_Model_ImplementationVersion_NanoByte_Common_Undo_ICommandExecutor__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The implementation is placed next to the last existing one, inside the same <a class="xref" href="ZeroInstall.Model.Group.html">Group</a> (if any).</p>
+</div>
+
+
+
+
+  <a id="ZeroInstall_Publish_FeedExtensions_MarkStable_" data-uid="ZeroInstall.Publish.FeedExtensions.MarkStable*"></a>
+
+  <h3 id="ZeroInstall_Publish_FeedExtensions_MarkStable_ZeroInstall_Model_Feed_NanoByte_Common_Undo_ICommandExecutor_" data-uid="ZeroInstall.Publish.FeedExtensions.MarkStable(ZeroInstall.Model.Feed,NanoByte.Common.Undo.ICommandExecutor)">
+  MarkStable(Feed, ICommandExecutor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.29.3/src/Publish/FeedExtensions.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Marks the latest <a class="xref" href="ZeroInstall.Model.Stability.html#ZeroInstall_Model_Stability_Testing">Testing</a> <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>(s) in the feed as <a class="xref" href="ZeroInstall.Model.Stability.html#ZeroInstall_Model_Stability_Stable">Stable</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MarkStable(this Feed feed, ICommandExecutor executor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feed</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The feed.</p>
+</dd>
+    <dt><code>executor</code> <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Undo.ICommandExecutor.html">ICommandExecutor</a></dt>
+    <dd><p>Used to modify properties in an undoable fashion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>No implementation is currently testing.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ZeroInstall_Publish_FeedExtensions_SelectImplementations_" data-uid="ZeroInstall.Publish.FeedExtensions.SelectImplementations*"></a>
+
+  <h3 id="ZeroInstall_Publish_FeedExtensions_SelectImplementations_ZeroInstall_Model_Feed_ZeroInstall_Model_ImplementationVersion_" data-uid="ZeroInstall.Publish.FeedExtensions.SelectImplementations(ZeroInstall.Model.Feed,ZeroInstall.Model.ImplementationVersion)">
+  SelectImplementations(Feed, ImplementationVersion?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.29.3/src/Publish/FeedExtensions.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines which <a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>s in the feed a <code>--set-*</code> style operation should be applied to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IReadOnlyList&lt;Implementation&gt; SelectImplementations(this Feed feed, ImplementationVersion? version = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feed</code> <a class="xref" href="ZeroInstall.Model.Feed.html">Feed</a></dt>
+    <dd><p>The feed.</p>
+</dd>
+    <dt><code>version</code> <a class="xref" href="ZeroInstall.Model.ImplementationVersion.html">ImplementationVersion</a></dt>
+    <dd><p>The version number to look for; <code>null</code> to look for the implementation that has not been released yet.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="ZeroInstall.Model.Implementation.html">Implementation</a>&gt;</dt>
+    <dd><p>One or more implementations. Never empty.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.invaliddataexception">InvalidDataException</a></dt>
+    <dd><p>No matching implementation was found or the selection was ambiguous.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.29.3/src/Publish/FeedExtensions.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
