@@ -121,6 +121,37 @@ public sealed partial class ImplementationVersion : IComparable<ImplementationVe
         }
     }
 
+    /// <summary>
+    /// Creates a new <see cref="ImplementationVersion"/> from a SemVer string.
+    /// </summary>
+    /// <remarks>Tries to parse as much as possible, while ignoring parts that can't be mapped to 0install version numbers. Returns <c>0</c> for entirely unparsable values.</remarks>
+    public static ImplementationVersion FromSemVer(string value)
+    {
+        try
+        {
+            return new(value
+                       // Remove Git commit hash
+                      .GetLeftPartAtFirstOccurrence('+')
+                       // Remove period as separator between modifier and counter
+                      .Replace("pre.", "pre").Replace("post.", "post").Replace("rc.", "rc")
+            );
+        }
+        catch (FormatException)
+        {
+            try
+            {
+                return new(value
+                    // Remove everything except main version number
+                   .GetLeftPartAtFirstOccurrence('-')
+                );
+            }
+            catch (FormatException)
+            {
+                return new("0");
+            }
+        }
+    }
+
     #region Conversion
     /// <summary>
     /// Returns a string representation of the version. Safe for parsing!

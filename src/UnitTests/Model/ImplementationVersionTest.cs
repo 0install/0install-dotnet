@@ -39,6 +39,19 @@ public class ImplementationVersionTest
     }
 
     /// <summary>
+    /// Ensures that <see cref="ImplementationVersion.FromSemVer"/> correctly parses SemVer strings.
+    /// </summary>
+    [Fact]
+    public void FromSemVer()
+    {
+        ImplementationVersion.FromSemVer("1.2.3").Should().Be(new ImplementationVersion("1.2.3"));
+        ImplementationVersion.FromSemVer("1.2.3+abc").Should().Be(new ImplementationVersion("1.2.3"));
+        ImplementationVersion.FromSemVer("1.2.3-rc.2").Should().Be(new ImplementationVersion("1.2.3-rc2"));
+        ImplementationVersion.FromSemVer("1.2.3-feature.2").Should().Be(new ImplementationVersion("1.2.3"));
+        ImplementationVersion.FromSemVer("1.2.3-pre-pre0123.4+abc").Should().Be(new ImplementationVersion("1.2.3-pre-pre123.4"));
+    }
+
+    /// <summary>
     /// Ensures the <see cref="Version"/> constructor correctly handles template variables.
     /// </summary>
     [Fact]
