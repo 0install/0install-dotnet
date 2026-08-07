@@ -13,7 +13,7 @@ public static class ModelUtils
     /// <summary>
     /// The version of Zero Install feed model (used for compatibility checks).
     /// </summary>
-    public static ImplementationVersion Version { get; } = new(AppInfo.CurrentLibrary.Version ?? "1.0.0-pre");
+    public static ImplementationVersion Version { get; } = ImplementationVersion.FromSemVer(AppInfo.CurrentLibrary.Version ?? "1.0.0-pre");
 
     /// <summary>
     /// Determines whether a string contains a template variable (a substring enclosed in curly brackets, e.g {var}).
