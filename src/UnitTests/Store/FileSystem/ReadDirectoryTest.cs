@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Linq.Expressions;
 using NanoByte.Common.Native;
 using ZeroInstall.FileSystem;
 using ZeroInstall.Store.Manifests;
@@ -78,8 +79,14 @@ public class ReadDirectoryTest : IDisposable
         var mock = new Mock<IForwardOnlyBuilder>();
         new ReadDirectory(_tempDir, mock.Object).Run(TestContext.Current.CancellationToken);
 
-        mock.Verify(x => x.AddFile("a", It.IsAny<Stream>(), TestFile.DefaultLastWrite, false));
-        mock.Verify(x => x.AddHardlink("b", "a", false));
+        // Exactly one regular file and one hardlink should be emitted
+        Expression<Func<string, bool>> IsAOrB = p => p == "a" || p == "b";
+        mock.Verify(x => x.AddFile(It.Is(IsAOrB), It.IsAny<Stream>(), TestFile.DefaultLastWrite, false), Times.Once);
+        mock.Verify(x => x.AddHardlink(It.Is(IsAOrB), It.Is(IsAOrB), false), Times.Once);
+
+        // Ensure the hardlink path and target are not the same file
+        mock.Verify(x => x.AddHardlink("a", "a", false), Times.Never);
+        mock.Verify(x => x.AddHardlink("b", "b", false), Times.Never);
     }
 
     [Fact]
