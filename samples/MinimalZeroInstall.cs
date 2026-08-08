@@ -1,3 +1,5 @@
+#:package ZeroInstall.Services@*
+
 using NanoByte.Common.Tasks;
 using ZeroInstall.Model;
 using ZeroInstall.Services;
