@@ -22,6 +22,10 @@
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="ZeroInstall.UnitTests" />
+    <InternalsVisibleTo Include="DynamicProxyGenAssembly" />
+  </ItemGroup>
 
   <!-- Publish configuration -->
   <PropertyGroup>
@@ -42,16 +46,6 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)..\icon.png" PackagePath="\" Pack="True" />
     <None Include="README.md" Pack="True" PackagePath="\" Condition="Exists('$(MSBuildProjectDirectory)\README.md')" />
-  </ItemGroup>
-
-  <!-- Make internals visible to unit tests -->
-  <ItemGroup>
-    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>ZeroInstall.UnitTests</_Parameter1>
-    </AssemblyAttribute>
-    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
-    </AssemblyAttribute>
   </ItemGroup>
 
   <!-- Build-time dependencies -->
