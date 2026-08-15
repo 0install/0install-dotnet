@@ -180,7 +180,7 @@ Bu listeyi yedeklemek için '0install sync' komutunu kullanın.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
-    <value>Yeni bir kayıt oluşturmak için son satıra metin yazmaya başlayın.
+    <value>Yeni bir kayıt oluşturmak için son satıra yazı yazmaya başlayın.
 Tüm satırı seçmek için ilk sütuna tıklayın ve sonra bir kaydı silmek için klavyenizin DEL tuşuna basın.</value>
     <comment>Manually overriden.</comment>
   </data>

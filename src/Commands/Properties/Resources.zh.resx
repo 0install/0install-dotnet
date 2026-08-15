@@ -171,11 +171,11 @@
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
     <value>您是否要从 Zero Install 缓存中删除所有应用程序文件？
-如有需要，这些文件可以再次下载。</value>
+如有需要，这些文件可以重新下载。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
-    <value>您是否希望从“我的应用程序”列表中移除所有应用程序？这样可以避免在卸载 Zero Install 后，菜单中残留条目。
+    <value>您是否希望从“我的应用程序”列表中移除所有应用程序？这样可以避免在卸载 Zero Install 后留下残留的菜单项。
 您可以使用“0install sync”命令对该列表进行备份。</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -255,7 +255,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>打开用于启动和管理应用程序的中央图形用户界面。</value>
+    <value>打开用于启动和管理应用程序的核心图形用户界面。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
@@ -336,7 +336,7 @@
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
     <value>根据 URI 选择程序的某个版本，以及所有依赖项的兼容版本。
-如果选定了一组版本，则返回退出状态 0；如果无法找到一致的版本集，则返回状态 1。</value>
+如果选定了一组版本，则返回退出状态 0；如果无法找到一致的版本组合，则返回状态 1。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
@@ -416,7 +416,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>列出用于对源进行签名的受信任密钥。如果指定了特定的“指纹”，则仅列出该“指纹”所对应的受信任域名。</value>
+    <value>列出用于对源进行签名的受信任密钥。若已指定，则仅列出具有特定“指纹”且被信任的域名。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -709,7 +709,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>尝试在本地网络中的其他计算机上查找相关实现，而不是从原始来源获取。</value>
+    <value>尝试在本地网络中的其他计算机上查找相关实现，而不是从原始来源获取它们。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
@@ -783,12 +783,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>在所选程序启动后立即返回，而不等待其执行完成。在 Windows 系统中，退出代码即为已启动程序的进程 ID。</value>
+    <value>在所选程序启动后立即返回，而非等待其执行完毕。在 Windows 系统中，退出代码即为已启动程序的进程 ID。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>以离线模式运行，覆盖默认设置。
-在离线模式下，即使界面内容已过时，也不会进行刷新；即使注入器已知晓新版本程序（例如通过之前的刷新），也不会下载这些新版本。</value>
+在离线模式下，即使界面已过时，也不会进行刷新；即使注入器已知晓新版本程序（例如通过之前的刷新），也不会下载这些新版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -820,7 +820,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>请选择源代码而非二进制文件。这是由“0compile”在内部使用的。</value>
+    <value>请选择源代码而非二进制文件。此选项供“0compile”内部使用。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
@@ -926,7 +926,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>此 Zero Install 实例尚未部署。因此，它无法自行更新。</value>
+    <value>此 Zero Install 实例尚未部署，因此无法自动更新。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">

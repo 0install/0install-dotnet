@@ -75,11 +75,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Wystąpił błąd podczas ładowania bazy danych zaufanych źródeł. Przywracane są wartości domyślne.</value>
+    <value>Wystąpił błąd podczas ładowania bazy danych zaufania. Przywracane są wartości domyślne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Nie można znaleźć źródła „{0} ” w katalogu.</value>
+    <value>Nie można znaleźć kanału „{0} ” w katalogu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
@@ -99,7 +99,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Brakuje atrybutu „{0} ” w pliku {1}.</value>
+    <value>Brakuje atrybutu „{0} ” na stronie {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>Atrybut „rollout-percentage” na stronie {0} można ustawić tylko wtedy, gdy atrybut „stability” ma wartość „testing” lub nie jest ustawiony.</value>
+    <value>Atrybut „rollout-percentage” w pliku {0} można ustawić tylko wtedy, gdy atrybut „stability” ma wartość „testing” lub nie jest ustawiony.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -155,7 +155,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Implementacja źródłowa bez możliwości uruchomienia</value>
+    <value>Implementacja źródłowa bez możliwości uruchamiania</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">

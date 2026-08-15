@@ -656,7 +656,7 @@ Anda dapat melakukannya dengan menggunakan perintah '{0}'. Hal ini akan sepenuhn
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAlgorithm" xml:space="preserve">
-    <value>Algoritma {HASH} yang akan digunakan untuk menghasilkan digest.</value>
+    <value>Algoritma {HASH} yang akan digunakan untuk membuat digest.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasRemove" xml:space="preserve">
@@ -709,7 +709,7 @@ Atur ke kosong ("") untuk mengabaikan perintah selama pemilihan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Cobalah untuk mencari implementasi pada mesin lain di jaringan lokal daripada mengambilnya dari sumber aslinya.</value>
+    <value>Cobalah untuk mencari implementasi pada mesin lain di jaringan lokal alih-alih mengambilnya dari sumber aslinya.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
@@ -847,7 +847,7 @@ Nomor versi tunggal dapat digunakan sebagai pengganti rentang untuk mencocokkan 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Untuk setiap pustaka atau subkomponen dengan opsi ` {0:URI} ` yang ditentukan, akan menampilkan versi ` {1:RANGE} ` (seperti pada opsi `--version`).</value>
+    <value>Untuk setiap pustaka atau subkomponen dengan opsi ` {0:URI} ` yang ditentukan, menampilkan versi ` {1:RANGE} ` (seperti pada opsi `--version`).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
@@ -975,8 +975,8 @@ Jalankan perintah '0install config self_update_uri default' untuk mengaktifkanny
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>Kunci enkripsi ini digunakan untuk mengenkripsi data Anda secara lokal sebelum dikirim ke server.
-Jaga kerahasiaan kunci ini dan gunakan kata sandi yang berbeda. Dengan cara ini, tidak ada yang dapat mengakses data Anda, bahkan jika server tersebut diretas.</value>
+    <value>Kunci enkripsi ini digunakan untuk mengenkripsi data Anda secara lokal sebelum mengirimkannya ke server.
+Jaga kerahasiaan kunci ini dan gunakan kata sandi yang berbeda. Dengan cara ini, tidak ada yang dapat mengakses data Anda, bahkan jika server diretas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

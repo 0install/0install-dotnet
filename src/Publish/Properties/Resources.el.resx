@@ -120,7 +120,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
-    <value>Δεν υπάρχει υλοποίηση με το αναγνωριστικό «{0} » και υπάρχουν πολλές τοπικές υλοποιήσεις από τις οποίες μπορείτε να επιλέξετε.</value>
+    <value>Δεν υπάρχει υλοποίηση με τον αναγνωριστικό «{0} » και υπάρχουν πολλές τοπικές υλοποιήσεις από τις οποίες μπορείτε να επιλέξετε.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
@@ -148,7 +148,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>Το feed δεν περιέχει καμία υλοποίηση με έκδοση {0}.</value>
+    <value>Το feed δεν περιέχει καμία υλοποίηση με την έκδοση {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
@@ -156,7 +156,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">
-    <value>Δεν υπάρχει υλοποίηση με το αναγνωριστικό «{0} » και δεν υπάρχει τοπική υλοποίηση στην οποία να εφαρμοστεί το αρχείο.</value>
+    <value>Δεν υπάρχει υλοποίηση με το αναγνωριστικό «{0} » ούτε τοπική υλοποίηση στην οποία να εφαρμοστεί το αρχείο.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">

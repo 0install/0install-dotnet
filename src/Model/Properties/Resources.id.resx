@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Nomor versi harus diawali dengan daftar angka desimal yang dipisahkan oleh titik.</value>
+    <value>Nomor versi harus diawali dengan daftar angka desimal yang dipisahkan dengan titik.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
-    <value>Modifikator tidak dikenal.</value>
+    <value>Modifier yang tidak diketahui.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">

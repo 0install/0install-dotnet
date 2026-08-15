@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>De relatieve URI '{0}' kon niet worden gevonden. Alleen feeds die als lokale bestanden zijn opgeslagen, mogen relatieve URI's bevatten.</value>
+    <value>De relatieve URI '{0}' kon niet worden opgelost. Alleen feeds die als lokale bestanden zijn opgeslagen, mogen relatieve URI's bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">

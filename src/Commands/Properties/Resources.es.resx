@@ -260,7 +260,7 @@ Puedes utilizarla ejecutando el archivo ZeroInstall.exe que se encuentra en ese 
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Ver o modificar los parámetros de configuración.
-Sin argumentos, muestra todos los parámetros y sus valores actuales. Con un argumento, muestra el valor actual del parámetro indicado. Con dos argumentos, establece el parámetro en el valor dado o lo restablece al valor por defecto si se indica el valor «{0} ».</value>
+Sin argumentos, muestra todos los parámetros y sus valores actuales. Con un argumento, muestra el valor actual del parámetro indicado. Con dos argumentos, establece el parámetro en el valor indicado o lo restablece al valor por defecto si se introduce el valor «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -286,7 +286,7 @@ El archivo debe tener una firma digital de confianza, como cuando se obtiene de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>Añade una aplicación a la lista de aplicaciones (si no está presente) y la integra en el entorno de escritorio.</value>
+    <value>Añade una aplicación a la lista de aplicaciones (si no está) y la integra en el entorno de escritorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
@@ -400,7 +400,7 @@ Los argumentos adicionales especifican ubicaciones de caché personalizadas.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
-    <value>Sirve las implementaciones desde la caché como archivos comprimidos a través de HTTP.</value>
+    <value>Sirve las implementaciones desde la caché como archivos a través de HTTP.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
@@ -603,7 +603,7 @@ Puedes redistribuir copias de este programa bajo los términos de la Licencia P�
     <comment>Automatically translated.</comment>
   </data>
   <data name="NeedsGui" xml:space="preserve">
-    <value>Para utilizar esta función, utiliza la versión con interfaz gráfica de usuario (GUI) de Zero Install.</value>
+    <value>Para utilizar esta función, utiliza la versión con interfaz gráfica de usuario de Zero Install.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
@@ -624,7 +624,7 @@ Puedes hacerlo utilizando «{0} ». Esta instalación será totalmente independi
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install se ejecuta desde un directorio específico del usuario. Para que la integración en el escritorio a nivel de todo el equipo funcione, es necesario instalarlo en un directorio accesible para todos los usuarios.</value>
+    <value>Zero Install se ejecuta desde un directorio específico del usuario. Es necesario instalarlo en un directorio accesible para todos los usuarios para que funcione la integración en el escritorio de todo el equipo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -701,7 +701,7 @@ Déjalo en blanco («») para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Muestra el editor gráfico de políticas. Esto te permite personalizar qué versión de un programa o biblioteca deseas utilizar.</value>
+    <value>Muestra el editor gráfico de políticas. Esto te permite personalizar qué versión de un programa o biblioteca se va a utilizar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
@@ -800,7 +800,7 @@ En modo sin conexión, no se actualizan las interfaces aunque estén desactualiz
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Crea una instalación portátil que se pueda llevar a cualquier parte (por ejemplo, en una memoria USB).</value>
+    <value>Crea una instalación portátil que se pueda trasladar (por ejemplo, en una memoria USB).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">

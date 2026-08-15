@@ -244,7 +244,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>'{0}' 구현 저장소에 액세스하는 데 문제가 발생했습니다.
-'{1}'를 실행하여 등록된 디렉터리 목록에서 해당 항목을 제거하십시오.</value>
+'{1}'을 실행하여 등록된 디렉터리 목록에서 해당 항목을 제거하십시오.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

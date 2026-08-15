@@ -286,7 +286,7 @@ Il file deve avere una firma digitale attendibile, come quando viene recuperato 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>Aggiunge un'applicazione all'elenco delle applicazioni (se non presente) e la integra nell'ambiente desktop.</value>
+    <value>Aggiunge un'applicazione all'elenco delle applicazioni (se non è presente) e la integra nell'ambiente desktop.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
@@ -353,7 +353,7 @@ Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme di version
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
     <value>Verifica che tutte le implementazioni presenti nella cache siano integre.
-Argomenti aggiuntivi specificano percorsi personalizzati per la cache.</value>
+Argomenti aggiuntivi consentono di specificare percorsi personalizzati per la cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
@@ -529,7 +529,7 @@ Argomenti aggiuntivi specificano percorsi personalizzati per la cache.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
-    <value>Questo feed non sembra riferirsi alla stessa applicazione. Vuoi aggiungerlo comunque?
+    <value>Questo feed non sembra corrispondere alla stessa applicazione. Vuoi aggiungerlo comunque?
 Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -615,7 +615,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Per consentire l'integrazione con il desktop, è necessario installare Zero Install sul proprio sistema.</value>
+    <value>Per consentire il funzionamento dell'integrazione con il desktop, è necessario installare Zero Install sul proprio sistema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -783,7 +783,7 @@ Non può contenere argomenti della riga di comando! Non è necessario escapare g
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Ritorna immediatamente una volta avviato il programma selezionato, invece di attendere il completamento della sua esecuzione. Su Windows il codice di uscita corrisponde all'ID del processo del programma avviato.</value>
+    <value>Ritorna immediatamente una volta avviato il programma selezionato, anziché attendere il completamento della sua esecuzione. Su Windows il codice di uscita corrisponde all'ID del processo del programma avviato.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -842,7 +842,7 @@ In modalità offline, nessuna interfaccia viene aggiornata anche se non è aggio
   <data name="OptionVersionRange" xml:space="preserve">
     <value>È richiesta una versione del programma principale compresa nell'{RANGE} e specificata.
 Gli intervalli sono separati da barre verticali (|).
-Ogni intervallo ha il formato "START..!END". L'intervallo corrisponde alle versioni in cui START &lt;= VERSION &lt; END. Il valore iniziale o finale può essere omesso.
+Ogni intervallo ha il formato "START..!END". L'intervallo corrisponde alle versioni in cui START &lt;= VERSION &lt; END. È possibile omettere il valore iniziale o finale.
 È possibile utilizzare un singolo numero di versione al posto di un intervallo per selezionare solo quella versione, oppure !VERSION per selezionare tutte le versioni tranne quella specificata.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -882,7 +882,7 @@ Può contenere argomenti della riga di comando. Gli spazi bianchi devono essere 
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>Vuoi rimuovere le voci selezionate dall'{0} e dall'elenco?</value>
+    <value>Vuoi rimuovere le voci selezionate dall'elenco " {0} "?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
@@ -931,7 +931,7 @@ Può contenere argomenti della riga di comando. Gli spazi bianchi devono essere 
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>L'aggiornamento automatico è disabilitato.
-Eseguire il comando '0install config self_update_uri default' per abilitarlo.</value>
+Eseguire il comando «0install config self_update_uri default» per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">

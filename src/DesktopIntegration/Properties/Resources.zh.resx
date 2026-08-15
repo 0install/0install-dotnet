@@ -125,7 +125,7 @@
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>目前存储在同步服务器上的数据已损坏。
-您可以通过运行故障排除向导（右键单击“同步”按钮即可进入）或执行 '0install sync --reset=server' 命令来替换服务器上的数据。</value>
+您可以通过运行故障排除向导（右键单击“同步”按钮即可进入）或执行命令 '0install sync --reset=server' 来替换服务器上的数据。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">

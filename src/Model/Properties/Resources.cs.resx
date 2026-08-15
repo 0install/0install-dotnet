@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Došlo k chybě při načítání předvoleb kanálu „{0} “. Obnovují se výchozí hodnoty.</value>
+    <value>Došlo k chybě při načítání předvoleb kanálu pro „{0} “. Obnovují se výchozí hodnoty.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">

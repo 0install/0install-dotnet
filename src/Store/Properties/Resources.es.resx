@@ -194,7 +194,7 @@ Si estás utilizando una unidad con formato FAT, conviértela a NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>El archivo contiene una ruta no válida (lo que podría suponer un riesgo de seguridad): {0}</value>
+    <value>El archivo contiene una ruta no válida (lo que podría suponer un riesgo para la seguridad): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">

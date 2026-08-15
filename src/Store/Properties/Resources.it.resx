@@ -169,7 +169,7 @@ Eseguire il comando '0install config feed_mirror default' per abilitarlo.</value
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>Impossibile individuare l'implementazione "{0}".</value>
+    <value>Impossibile individuare l'implementazione '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">

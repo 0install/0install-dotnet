@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Не удалось найти реализацию интерфейса «{0} » в списке.</value>
+    <value>Не удалось найти реализацию интерфейса «{0} » в списке выбора.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">

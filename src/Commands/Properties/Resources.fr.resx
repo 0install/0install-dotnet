@@ -112,7 +112,7 @@ Vous pouvez utiliser le script d'importation ou le fichier Bootstrap exécutable
     <comment>Manually overriden.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
-    <value>Voulez-vous l'essayer maintenant ?</value>
+    <value>Voulez-vous l'essayer dès maintenant ?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
@@ -286,7 +286,7 @@ Le fichier doit posséder une signature digitale de confiance, comme s'il était
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>Ajoute une application à la liste des applications (si elle n'y figure pas) et l'intègre dans l'environnement de bureau.</value>
+    <value>Ajoute une application à la liste des applications (si elle n'y figure pas) et l'intègre à l'environnement de bureau.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
@@ -608,7 +608,7 @@ Vous pouvez redistribuer des copies de ce programme suivant les termes de la “
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} Ne peut être spécifié qu'en association avec un nom d'alias.</value>
+    <value>{0} Ne peut être spécifié qu'en association avec un alias.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -625,7 +625,7 @@ Vous pouvez le faire à l'aide de la commande «{0} ». Cette installation sera 
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install s'exécute à partir d'un répertoire spécifique à l'utilisateur. Il doit être déployé dans un répertoire accessible à tous les utilisateurs pour que l'intégration au bureau à l'échelle de la machine fonctionne.</value>
+    <value>Zero Install s'exécute à partir d'un répertoire propre à l'utilisateur. Il doit être déployé dans un répertoire accessible à tous les utilisateurs pour que l'intégration au bureau à l'échelle de la machine fonctionne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -784,7 +784,7 @@ Peut ne pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas be
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Elle revient immédiatement une fois que le programme sélectionné a été lancé, au lieu d'attendre la fin de son exécution. Sous Windows, le code de sortie correspond à l'ID du processus du programme lancé.</value>
+    <value>Elle revient immédiatement une fois que le programme choisi a été lancé, au lieu d'attendre la fin de son exécution. Sous Windows, le code de sortie correspond à l'ID du processus du programme lancé.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
@@ -848,7 +848,7 @@ Un numéro de version unique peut être utilisé à la place d'un intervalle pou
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Pour toute bibliothèque ou sous-composant dont l'{0:URI} est spécifiée, indique la version {1:RANGE} (comme pour --version).</value>
+    <value>Pour toute bibliothèque ou tout sous-composant dont l'{0:URI} est spécifiée, indique la version {1:RANGE} (comme pour --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">

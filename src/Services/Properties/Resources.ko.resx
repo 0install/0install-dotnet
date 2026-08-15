@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>' {1} ' ({2})를 선택하면 ' {0} '를 사용할 수 없습니다.</value>
+    <value>' {1} ' ({2})를 선택하면 ' {0} '을 사용할 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
