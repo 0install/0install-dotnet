@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>Los siguientes puntos de acceso de la aplicación {0} están en conflicto entre sí:</value>
+    <value>Los siguientes puntos de acceso para la aplicación {0} están en conflicto entre sí:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
@@ -115,8 +115,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>La clave de cifrado que has introducido para la sincronización es incorrecta. Comprueba tus opciones de sincronización.
-Puedes cambiar la clave de cifrado utilizada en el servidor ejecutando el asistente de resolución de problemas (haz clic con el botón derecho del ratón en el botón «Sincronizar» para acceder a él) o ejecutando «0install sync --reset=server».</value>
+    <value>La clave de cifrado que has introducido para «Sync» es incorrecta. Comprueba tus opciones de sincronización.
+Puedes cambiar la clave de cifrado utilizada en el servidor ejecutando el asistente de resolución de problemas (haz clic con el botón derecho del ratón en el botón «Sync» para acceder a él) o ejecutando «0install sync --reset=server».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">

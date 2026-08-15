@@ -259,8 +259,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
-    <value>구성 설정을 확인하거나 변경합니다.
-인수를 지정하지 않으면 모든 설정과 해당 현재 값을 표시합니다. 인수를 하나 지정하면 지정된 설정의 현재 값을 표시합니다. 인수를 두 개 지정하면 설정을 주어진 값으로 설정하거나, "{0}" 값이 주어지면 기본값으로 재설정합니다.</value>
+    <value>구성 설정을 확인하거나 변경할 수 있습니다.
+인수를 지정하지 않으면 모든 설정과 해당 현재 값을 표시합니다. 인수를 하나 지정하면 지정한 설정의 현재 값을 표시합니다. 인수를 두 개 지정하면 설정을 주어진 값으로 설정하거나, "{0}" 값이 주어지면 기본값으로 재설정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -331,7 +331,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>지정된 키워드와 일치하는 피드를 미러 서버에서 색인화된 항목 중에서 검색합니다. 기본 미러 서버는 품질에 관계없이 알려진 모든 피드를 색인화하므로, 프로그램을 실행하기 전에 해당 프로그램을 신뢰할지 여부를 직접 판단해야 합니다.</value>
+    <value>지정된 키워드와 일치하는 피드를 미러 서버에서 색인화된 항목 중에서 검색합니다. 기본 미러 서버는 품질에 관계없이 알려진 모든 피드를 색인화하므로, 프로그램을 실행하기 전에 신뢰할 수 있는지 여부를 직접 판단해야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -357,8 +357,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>구현체를 캐시에 복사합니다. '0install store add'와 유사하지만, 다이제스트는 디렉터리 이름에서 추출됩니다.
-추가 인수를 사용하여 사용자 지정 캐시 저장 위치를 지정할 수 있습니다.</value>
+    <value>구현을 캐시에 복사합니다. '0install store add'와 유사하지만, 다이제스트는 디렉터리 이름에서 추출됩니다.
+추가 인수를 사용하여 사용자 지정 대상 캐시 위치를 지정할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
@@ -425,7 +425,7 @@
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>프로그램 업데이트를 확인하고, 업데이트가 발견되면 이를 다운로드합니다.
-이는 '0install download --refresh' 명령과 유사하지만, 변경 사항이 발견되었는지 여부에 대한 정보를 출력한다는 점이 다릅니다.</value>
+이는 '0install download --refresh'와 유사하지만, 변경 사항이 발견되었는지 여부에 대한 정보를 출력한다는 점이 다릅니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -858,7 +858,7 @@
   <data name="OptionWrapper" xml:space="preserve">
     <value>선택한 프로그램을 직접 실행하는 대신, ` {COMMAND} PROGRAM ARGS`를 실행하십시오. 이는 (Zero Install이 아닌) 해당 프로그램에서 디버거나 추적 도구를 실행할 때 유용합니다.
 이 래퍼는 프로그램이 선택한 환경에서 실행되므로, 이 메커니즘을 샌드박싱 용도로 사용할 수 없다는 점에 유의하십시오.
-명령줄 인수를 포함할 수 있습니다. 공백 문자는 반드시 이스케이프 처리해야 합니다!</value>
+명령줄 인수를 포함할 수 있습니다. 공백 문자는 이스케이프 처리해야 합니다!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">

@@ -178,7 +178,7 @@ Dacă utilizați o unitate formatată în sistemul FAT, vă rugăm să o convert
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIcon" xml:space="preserve">
-    <value>Pictograma încărcată de pe {0} nu este o pictogramă validă de tip „ {1} ”.</value>
+    <value>Pictograma încărcată de pe {0} nu este o pictogramă validă de tip {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
@@ -194,7 +194,7 @@ Dacă utilizați o unitate formatată în sistemul FAT, vă rugăm să o convert
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>Arhiva conține o cale de acces nevalidă (posibil un risc de securitate): {0}</value>
+    <value>Arhiva conține o cale nevalidă (posibil un risc de securitate): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">

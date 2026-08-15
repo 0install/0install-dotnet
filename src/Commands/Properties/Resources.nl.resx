@@ -176,7 +176,7 @@ Deze bestanden kunnen indien nodig opnieuw worden gedownload.</value>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
     <value>Wilt u alle applicaties uit de lijst 'Mijn applicaties' verwijderen? Dit voorkomt dat er menu-items achterblijven na het verwijderen van Zero Install.
-U kunt een back-up van deze lijst maken met behulp van '0install sync'.</value>
+U kunt een back-up van deze lijst maken met '0install sync'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
@@ -294,7 +294,7 @@ Het bestand moet een vertrouwde digitale handtekening hebben, net als bij het op
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Geeft een overzicht van alle applicaties die momenteel in uw applicatielijst staan. Als er een URI wordt opgegeven, wordt alleen de applicatie met die feed-URI weergegeven. Als er een PATROON wordt opgegeven, worden alleen applicaties weergegeven waarvan de naam die tekenreeks bevat (hoofdlettergevoelig).</value>
+    <value>Geeft een overzicht van alle applicaties die momenteel in uw applicatielijst staan. Als er een URI wordt opgegeven, wordt alleen de applicatie met die feed-URI weergegeven. Als er een PATTERN wordt opgegeven, worden alleen applicaties weergegeven waarvan de naam die tekenreeks bevat (hoofdlettergevoelig).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -383,7 +383,7 @@ Met een extra argument kan een aangepaste bestemming voor de cache worden opgege
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
     <value>Bespaart schijfruimte door identieke bestanden samen te voegen met hardlinks.
-Met aanvullende argumenten kunnen aangepaste cachelocaties worden opgegeven.</value>
+Met extra argumenten kunnen aangepaste cachelocaties worden opgegeven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
@@ -465,7 +465,7 @@ Dit is vergelijkbaar met '0install download --refresh', behalve dat er informati
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExclusiveOptions" xml:space="preserve">
-    <value>De opties {0} en {1} kunnen niet samen worden gebruikt.</value>
+    <value>De opties {0} en {1} kunnen niet tegelijkertijd worden gebruikt.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
@@ -688,8 +688,8 @@ U kunt dit doen met '{0}'. Dit zal volledig onafhankelijk zijn van uw draagbare 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>Gebruik in plaats van het standaardcommando de optie ` {COMMAND} `. Geldige commandonamen worden gespecificeerd in de feed van het programma.
-Stel deze optie in op leeg ("") om het commando tijdens de selectie te negeren.</value>
+    <value>Gebruik in plaats van het standaardcommando ` {COMMAND} `. Geldige commandonamen worden gespecificeerd in de feed van het programma.
+Stel deze in op leeg ("") om het commando tijdens de selectie te negeren.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -758,7 +758,7 @@ U kunt deze optie meerdere keren gebruiken om meerdere toegestane talen op te ge
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Pas de configuratie toe op de hele computer (voor de hele computer) in plaats van alleen voor de huidige gebruiker.</value>
+    <value>Pas de configuratie toe op de hele computer in plaats van alleen voor de huidige gebruiker.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
@@ -804,7 +804,7 @@ In de offline-modus worden interfaces niet vernieuwd, zelfs als ze verouderd zij
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
-    <value>Haal nieuwe kopieën van alle gebruikte feeds op.</value>
+    <value>Haal nieuwe exemplaren van alle gebruikte feeds op.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">

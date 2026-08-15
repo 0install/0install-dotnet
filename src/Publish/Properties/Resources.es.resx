@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>El archivo contiene únicamente un único directorio de nivel superior: «{0} ». Probablemente deberías establecer el atributo «{1} » en «{0} » para evitar un nivel de anidación adicional.</value>
+    <value>El archivo contiene únicamente un único directorio de nivel superior: «{0} ». Probablemente deberías establecer el atributo «{1} » en «{0} » para evitar un nivel de anidamiento adicional.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
@@ -108,7 +108,7 @@ Intenta especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Se han detectado varios programas nuevos predeterminados en el registro. Se están gestionando todos ellos, pero es posible que, en algunos casos, el último tenga prioridad.</value>
+    <value>Se han detectado varios programas nuevos predeterminados en el registro. Se están gestionando todos ellos, pero el último puede tener prioridad en algunos casos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">

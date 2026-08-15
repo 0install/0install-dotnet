@@ -96,7 +96,7 @@ Puteți utiliza scriptul de import sau fișierul executabil Bootstrap din „{1}
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Să configurez Zero Install pentru toți utilizatorii (la nivel de sistem) în loc de doar pentru utilizatorul curent?</value>
+    <value>Să configurez Zero Install pentru toți utilizatorii (la nivel de sistem) în loc doar pentru utilizatorul curent?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -108,7 +108,7 @@ Puteți utiliza scriptul de import sau fișierul executabil Bootstrap din „{1}
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
-    <value>Sunteți sigur că doriți să dezinstalați Zero Install de pe acest computer?</value>
+    <value>Sunteți sigur că doriți să eliminați Zero Install de pe acest computer?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
@@ -207,7 +207,7 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din directorul respectiv.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>Directorul țintă specificat ({0}) se află în afara directorului dvs. de bază.</value>
+    <value>Directorul țintă specificat ({0}) se află în afara directorului dvs. personal.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeprecatedOption" xml:space="preserve">
@@ -382,7 +382,7 @@ Un argument suplimentar specifică o locație personalizată pentru cache-ul de 
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
-    <value>Economisește spațiu pe disc prin combinarea fișierelor identice cu legături fizice.
+    <value>Economisește spațiu pe disc prin combinarea fișierelor identice cu legături hardlink.
 Argumentele suplimentare specifică locații personalizate pentru cache.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -842,7 +842,7 @@ Nu poate conține argumente de linie de comandă! Spațiile nu trebuie să fie e
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Este necesară o versiune a programului principal din intervalul dat {RANGE}.
 Intervalele sunt separate prin bare verticale (|).
-Fiecare interval are forma „START..!END”. Intervalul corespunde versiunilor pentru care START &lt;= VERSION &lt; END. Valoarea de început sau de sfârșit poate fi omisă.
+Fiecare interval are forma „START..!END”. Intervalul corespunde versiunilor în care START &lt;= VERSION &lt; END. Valoarea de început sau de sfârșit poate fi omisă.
 Se poate utiliza un singur număr de versiune în locul unui interval pentru a corespunde doar acelei versiuni, sau !VERSION pentru a corespunde tuturor versiunilor, cu excepția acelei versiuni.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -878,7 +878,7 @@ Poate conține argumente de linie de comandă. Spațiile trebuie să fie escapat
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Doriți să eliminați din listă opțiunile bifate de la „ {0} ”?</value>
+    <value>Doriți să eliminați din listă cheile bifate de la {0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
@@ -976,7 +976,7 @@ Rulați comanda „0install config self_update_uri default” pentru a o activa.
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>Cheia criptografică este utilizată pentru a cripta datele dvs. la nivel local înainte de a le transmite către server.
-Păstrați această cheie secretă și folosiți o parolă diferită. În acest fel, nimeni nu vă poate accesa datele, chiar dacă serverul ar fi compromis.</value>
+Păstrați această cheie secretă și folosiți o parolă diferită. Astfel, nimeni nu vă va putea accesa datele, chiar dacă serverul ar fi compromis.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

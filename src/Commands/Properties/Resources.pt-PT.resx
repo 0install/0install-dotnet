@@ -278,7 +278,7 @@ Retorna um estado de saída igual a 0 se tiver selecionado um conjunto adequado 
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>Importa um feed a partir de um ficheiro local, como se tivesse sido descarregado da rede. Isto é útil ao testar um ficheiro de feed, para evitar carregá-lo para um servidor remoto com o objetivo de o descarregar novamente.
-O ficheiro deve possuir uma assinatura digital fiável, tal como acontece quando se faz a recuperação a partir da rede.</value>
+O ficheiro deve possuir uma assinatura digital fiável, tal como quando é obtido a partir da rede.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
@@ -286,7 +286,7 @@ O ficheiro deve possuir uma assinatura digital fiável, tal como acontece quando
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>Adiciona uma aplicação à lista de aplicações (caso ainda não exista) e integra-a no ambiente de trabalho.</value>
+    <value>Adiciona uma aplicação à lista de aplicações (caso ainda não exista) e integra-a no ambiente do ambiente de trabalho.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
@@ -294,7 +294,7 @@ O ficheiro deve possuir uma assinatura digital fiável, tal como acontece quando
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Apresenta uma lista de todas as aplicações atualmente presentes na sua lista de aplicações. Se for fornecido um URI, apenas é apresentada a aplicação com esse URI de feed. Se for fornecido um PATTERN, apenas são apresentadas as aplicações que contenham essa cadeia de caracteres no seu nome (sem distinção entre maiúsculas e minúsculas).</value>
+    <value>Apresenta uma lista de todas as aplicações que se encontram atualmente na sua lista de aplicações. Se for fornecido um URI, apenas é apresentada a aplicação com esse URI de feed. Se for fornecido um PATTERN, apenas são apresentadas as aplicações que contenham essa cadeia de caracteres no seu nome (sem distinção entre maiúsculas e minúsculas).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -416,7 +416,7 @@ Argumentos adicionais especificam localizações personalizadas para a cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Lista as chaves consideradas fiáveis para assinar feeds. Apenas lista os domínios para os quais uma FINGERPRINT específica é considerada fiável, se especificada.</value>
+    <value>Lista as chaves consideradas fiáveis para assinar feeds. Apenas lista os domínios para os quais uma determinada FINGERPRINT é considerada fiável, se especificado.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
@@ -424,7 +424,7 @@ Argumentos adicionais especificam localizações personalizadas para a cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
-    <value>Verifica se existem atualizações para o programa e descarrega-as, caso sejam encontradas.
+    <value>Verifica se existem atualizações para o programa e descarrega-as, caso as encontre.
 Isto é semelhante ao comando «0install download --refresh», com a diferença de que apresenta informações sobre se foram encontradas alterações.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -745,7 +745,7 @@ Defina como vazio («») para ignorar o comando durante a seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemoveAll" xml:space="preserve">
-    <value>Remover todos os pontos de acesso.</value>
+    <value>Remova todos os pontos de acesso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
@@ -763,7 +763,7 @@ Pode utilizar esta opção várias vezes para especificar vários idiomas aceit�
   </data>
   <data name="OptionMain" xml:space="preserve">
     <value>Execute o executável especificado {MAIN} em vez do predefinido. Se começar por «/» ou «\», o caminho é relativo ao diretório de nível superior da implementação; caso contrário, é relativo ao diretório que contém o programa principal predefinido.
-Não pode conter argumentos de linha de comandos! Não é necessário escapar os espaços em branco.</value>
+Não pode conter argumentos de linha de comando! Não é necessário escapar os espaços em branco.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
@@ -804,7 +804,7 @@ No modo offline, nenhuma interface é atualizada, mesmo que esteja desatualizada
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
-    <value>Recupera cópias atualizadas de todos os feeds utilizados.</value>
+    <value>Recolhe cópias atualizadas de todos os feeds utilizados.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
@@ -852,7 +852,7 @@ Um único número de versão pode ser usado em vez de um intervalo para correspo
   </data>
   <data name="OptionWithStore" xml:space="preserve">
     <value>Adicione {DIR} à lista de caches de implementação a pesquisar.
-No entanto, os novos ficheiros descarregados não serão gravados neste diretório.</value>
+No entanto, os novos downloads não serão gravados neste diretório.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
@@ -976,7 +976,7 @@ Execute «0install config self_update_uri default» para a ativar.</value>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>A chave de encriptação é utilizada para encriptar os seus dados localmente antes de os transmitir para o servidor.
-Mantenha esta chave em segredo e utilize algo diferente como palavra-passe. Desta forma, ninguém poderá aceder aos seus dados, mesmo que o servidor venha a ser comprometido.</value>
+Mantenha esta chave em segredo e utilize algo diferente para a sua palavra-passe. Desta forma, ninguém poderá aceder aos seus dados, mesmo que o servidor venha a ser comprometido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

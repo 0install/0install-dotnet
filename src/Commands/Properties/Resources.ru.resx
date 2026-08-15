@@ -122,7 +122,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
-    <value>Реализации в кэше</value>
+    <value>Реализации с кэшированием</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -171,7 +171,7 @@
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
     <value>Хотите удалить все файлы приложений из кэша Zero Install?
-При необходимости эти файлы можно будет загрузить заново.</value>
+При необходимости эти файлы можно загрузить заново.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
@@ -251,7 +251,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Выполняет поиск в зарегистрированных каталогах приложений, соответствующих указанному запросу. Если запрос не указан, отображается список всех приложений в каталогах.</value>
+    <value>Выполняет поиск в зарегистрированных каталогах приложений, соответствующих заданному запросу. Если запрос не указан, отображается список всех приложений из каталогов.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -260,7 +260,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>Просмотр или изменение настроек конфигурации.
-Без аргументов отображает все настройки и их текущие значения. С одним аргументом отображает текущее значение указанной настройки. С двумя аргументами устанавливает для настройки указанное значение или сбрасывает её к значению по умолчанию, если указано значение «{0} ».</value>
+Без аргументов отображает все настройки и их текущие значения. С одним аргументом отображает текущее значение указанной настройки. С двумя аргументами устанавливает значение настройки в указанное или сбрасывает его к значению по умолчанию, если указано значение «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -277,7 +277,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Импортирует канал из локального файла так, как если бы он был загружен из сети. Это удобно при тестировании файла канала, чтобы избежать его загрузки на удаленный сервер с целью повторной загрузки.
+    <value>Импортирует канал из локального файла, как если бы он был загружен из сети. Это полезно при тестировании файла канала, чтобы избежать его загрузки на удаленный сервер с целью повторной загрузки.
 Файл должен иметь доверенную цифровую подпись, как и при получении из сети.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -322,7 +322,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
-    <value>Повторно применяет все настройки интеграции приложений с рабочим столом из списка приложений.</value>
+    <value>Повторно применяет все настройки интеграции приложений в рабочий стол из списка приложений.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
@@ -340,7 +340,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
-    <value>Обновляет саму программу Zero Install до последней версии.</value>
+    <value>Обновляет саму программу Zero Install до самой последней версии.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAdd" xml:space="preserve">
@@ -404,7 +404,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>Проверяет, не повреждена ли установка (т. е. не изменился ли дайджест манифеста).</value>
+    <value>Проверяет, не повреждена ли установка (т. е. не изменился ли дагест манифеста).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -425,7 +425,7 @@
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Проверяет наличие обновлений для программы и загружает их, если они найдены.
-Это похоже на команду «0install download --refresh», за исключением того, что здесь выводится информация о том, были ли найдены какие-либо изменения.</value>
+Это похоже на команду «0install download --refresh», за исключением того, что выводится информация о том, были ли найдены какие-либо изменения.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -624,7 +624,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install запускается из каталога, привязанного к конкретному пользователю. Для обеспечения интеграции с рабочим столом на уровне всего компьютера необходимо разместить его в каталоге, доступном для всех пользователей.</value>
+    <value>Zero Install запускается из каталога, привязанного к конкретному пользователю. Для обеспечения интеграции с рабочим столом на уровне всего компьютера его необходимо разместить в каталоге, доступном для всех пользователей.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -709,7 +709,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Попытаться обнаружить реализации на других компьютерах в локальной сети вместо того, чтобы загружать их из исходного источника.</value>
+    <value>Попытайтесь обнаружить реализации на других компьютерах в локальной сети вместо того, чтобы загружать их из исходного источника.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
@@ -762,7 +762,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Запускает указанный исполняемый файл {MAIN} вместо файла по умолчанию. Если имя файла начинается с символа «/» или «\», путь считается относительным по отношению к корневому каталогу реализации; в противном случае путь считается относительным по отношению к каталогу, содержащему основную программу по умолчанию.
+    <value>Запускает указанный исполняемый файл {MAIN} вместо файла по умолчанию. Если имя файла начинается с «/» или «\», то путь является относительным по отношению к корневому каталогу реализации, в противном случае — по отношению к каталогу, содержащему основную программу по умолчанию.
 Не может содержать аргументов командной строки! Пробелы не требуют экранирования.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -788,7 +788,7 @@
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Работает в автономном режиме, переопределяя настройки по умолчанию.
-В автономном режиме интерфейсы не обновляются, даже если они устарели, и более новые версии программ не загружаются, даже если инжектор уже знает о них (например, из предыдущего обновления).</value>
+В автономном режиме интерфейсы не обновляются, даже если они устарели, и более новые версии программ не будут загружаться, даже если инжектор уже знает о них (например, из предыдущего обновления).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -847,7 +847,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Для любой библиотеки или подкомпонента с заданным параметром {0:URI} указывает версию {1:RANGE} (так же, как и при использовании параметра --version).</value>
+    <value>Для любой библиотеки или подкомпонента с заданным параметром ` {0:URI} ` указывает версию ` {1:RANGE} ` (так же, как и при использовании опции `--version`).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
@@ -857,7 +857,7 @@
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>Вместо непосредственного запуска выбранной программы выполните команду {COMMAND} PROGRAM ARGS. Это удобно для запуска отладчиков и инструментов трассировки на самой программе (а не на Zero Install!).
-Обратите внимание, что оболочка запускается в среде, выбранной самой программой; следовательно, этот механизм нельзя использовать для создания песочницы.
+Обратите внимание, что оболочка запускается в среде, выбранной самой программой; следовательно, этот механизм нельзя использовать для изоляции в «песочнице».
 Может содержать аргументы командной строки. Пробелы должны быть экранированы!</value>
     <comment>Automatically translated.</comment>
   </data>

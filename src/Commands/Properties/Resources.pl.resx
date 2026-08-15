@@ -277,8 +277,8 @@ Zwraca kod zakończenia 0, jeśli wybrano odpowiedni zestaw wersji, a wszystkie 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importuje plik kanału z lokalnego pliku tak, jakby został pobrany z sieci. Jest to przydatne podczas testowania pliku kanału, aby uniknąć konieczności przesyłania go na zdalny serwer w celu ponownego pobrania.
-Plik musi posiadać zaufany podpis cyfrowy, tak samo jak w przypadku pobierania z sieci.</value>
+    <value>Importuje plik kanału z lokalnego pliku, tak jakby został pobrany z sieci. Jest to przydatne podczas testowania pliku kanału, aby uniknąć przesyłania go na zdalny serwer w celu ponownego pobrania.
+Plik musi posiadać zaufany podpis cyfrowy, tak jak w przypadku pobierania z sieci.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
@@ -326,7 +326,7 @@ Plik musi posiadać zaufany podpis cyfrowy, tak samo jak w przypadku pobierania 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>Działa podobnie jak polecenie „0install download”, z tą różnicą, że dodatkowo uruchamia program po upewnieniu się, że znajduje się on w pamięci podręcznej.
+    <value>Działa podobnie jak polecenie „0install download”, z tą różnicą, że uruchamia również program po upewnieniu się, że znajduje się on w pamięci podręcznej.
 Zwraca kod zakończenia 1, jeśli etap pobierania zakończył się niepowodzeniem. W przeciwnym razie kod zakończenia będzie odpowiadał kodowi zakończenia uruchamianego programu.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -378,7 +378,7 @@ Dodatkowy argument określa niestandardową lokalizację docelową pamięci podr
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
-    <value>Wyświetla graficzny interfejs użytkownika do zarządzania implementacjami w pamięci podręcznej. Pokazuje powiązania z buforowanymi kanałami.</value>
+    <value>Wyświetla graficzny interfejs użytkownika służący do zarządzania implementacjami w pamięci podręcznej. Pokazuje powiązania z buforowanymi kanałami.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
@@ -387,7 +387,7 @@ Dodatkowe argumenty pozwalają określić niestandardowe lokalizacje pamięci po
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem Zero Install. Ręczne usunięcie katalogów pamięci podręcznej może być trudne ze względu na listy kontroli dostępu (ACL) systemu plików NTFS, stosowane w celu ochrony implementacji przed modyfikacją.
+    <value>Usuwa wszystkie implementacje z pamięci podręcznej. Użyj tego polecenia, aby wyczyścić system przed usunięciem Zero Install. Ręczne usuwanie katalogów pamięci podręcznej może być trudne ze względu na listy kontroli dostępu (ACL) systemu plików NTFS, stosowane w celu ochrony implementacji przed modyfikacją.
 Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -400,7 +400,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreServe" xml:space="preserve">
-    <value>Udostępnia implementacje z pamięci podręcznej jako archiwa za pośrednictwem protokołu HTTP.</value>
+    <value>Udostępnia implementacje z pamięci podręcznej w postaci archiwów za pośrednictwem protokołu HTTP.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
@@ -420,7 +420,7 @@ Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Przestaje ufać kanałom podpisanym określonym FINGERPRINTEM. Przestaje ufać tylko kanałom z określonej DOMENY, jeśli została ona podana.</value>
+    <value>Przestaje ufać kanałom podpisanym określonym FINGERPRINTEM. Przestaje ufać tylko w odniesieniu do określonej DOMENY, jeśli została ona wskazana.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -591,7 +591,7 @@ Możesz rozpowszechniać kopie tego programu na warunkach określonyc w licencji
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
-    <value>Aby wykonywać operacje dotyczące całego komputera, musisz mieć uprawnienia administratora.</value>
+    <value>Aby wykonywać operacje dotyczące całego komputera, musisz posiadać uprawnienia administratora.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
@@ -689,7 +689,7 @@ Można to zrobić za pomocą polecenia „{0} ”. Będzie to całkowicie niezal
   </data>
   <data name="OptionCommand" xml:space="preserve">
     <value>Zamiast wykonywać domyślne polecenie, należy użyć opcji {COMMAND}. Prawidłowe nazwy poleceń są określone w pliku konfiguracyjnym programu.
-Aby zignorować polecenie podczas wyboru, należy ustawić tę opcję na pustą wartość („”).</value>
+Ustaw wartość pustą („”) aby pominąć to polecenie podczas wyboru.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
@@ -729,7 +729,7 @@ Aby zignorować polecenie podczas wyboru, należy ustawić tę opcję na pustą 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
-    <value>Dodaj wszystkie punkty dostępowe określonej sieci {CATEGORY}.</value>
+    <value>Dodaj wszystkie punkty dostępowe z określonej sieci {CATEGORY}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
@@ -758,7 +758,7 @@ Z tej opcji można skorzystać wielokrotnie, aby określić wiele dopuszczalnych
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
-    <value>Zastosuj konfigurację w skali całego komputera, a nie tylko dla bieżącego użytkownika.</value>
+    <value>Zastosuj konfigurację w całym systemie (dla całego komputera), a nie tylko dla bieżącego użytkownika.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
@@ -878,7 +878,7 @@ Może zawierać argumenty wiersza poleceń. Spacje muszą być escapowane!</valu
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Czy chcesz usunąć z listy zaznaczone klucze „ {0} ”?</value>
+    <value>Czy chcesz usunąć z listy zaznaczone klucze z sekcji „ {0} ”?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
@@ -967,7 +967,7 @@ Aby ją włączyć, uruchom polecenie „0install config self_update_uri default
     <comment>Manually overriden.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>Włączenie obsługi długich ścieżek w systemie Windows może rozwiązać ten problem.</value>
+    <value>Włączenie w systemie Windows obsługi długich ścieżek może rozwiązać ten problem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

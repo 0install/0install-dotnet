@@ -603,7 +603,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NeedsGui" xml:space="preserve">
-    <value>Για αυτή τη λειτουργία, παρακαλούμε χρησιμοποιήστε την έκδοση GUI του Zero Install.</value>
+    <value>Για αυτή τη λειτουργία, παρακαλούμε χρησιμοποιήστε την έκδοση του Zero Install με γραφικό περιβάλλον χρήστη (GUI).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
@@ -680,7 +680,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Παράλειψη της λήψης του καταλόγου για να επαληθευτεί η εγκυρότητά του πριν προστεθεί στη λίστα.</value>
+    <value>Παράλειψη της λήψης του καταλόγου για να επαληθευτεί η εγκυρότητά του πριν από την προσθήκη του στη λίστα.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
@@ -800,7 +800,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Δημιουργήστε μια φορητή εγκατάσταση που μπορεί να μεταφερθεί (π.χ. σε ένα USB stick).</value>
+    <value>Δημιουργήστε μια φορητή εγκατάσταση που μπορεί να μεταφερθεί (π.χ. σε USB stick).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -967,7 +967,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SuggestLongPath" xml:space="preserve">
-    <value>Η ενεργοποίηση της υποστήριξης των Windows για μακριές διαδρομές ενδέχεται να λύσει αυτό το πρόβλημα.</value>
+    <value>Η ενεργοποίηση της υποστήριξης των Windows για μακρές διαδρομές μπορεί να λύσει αυτό το πρόβλημα.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SupportedValues" xml:space="preserve">

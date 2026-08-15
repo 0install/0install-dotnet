@@ -269,11 +269,11 @@
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
     <value>「0install select」と同様の動作をしますが、選択されたバージョンがまだキャッシュされていない場合は、それらもダウンロードするという点が異なります。
-適切なバージョンのセットが選択され、それらがすべてダウンロードされてキャッシュされている場合は、終了ステータス 0 を返します。それ以外の場合は、ステータス 1 を返します。</value>
+適切なバージョンのセットが選択され、それらがすべてダウンロードされてキャッシュされている場合は、終了ステータス0を返します。それ以外の場合は、ステータス1を返します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>URIで指定されたプログラムを起動するために必要なすべてのフィードおよび実装を、ディレクトリにエクスポートします。</value>
+    <value>URIで指定されたプログラムを起動するために必要なすべてのフィードおよび実装を、DIRECTORYにエクスポートします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -298,7 +298,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>「0install add-feed」コマンドを使用してURIに追加されたすべての追加フィードを一覧表示します。</value>
+    <value>「0install add-feed」を使用してURIに追加されたすべての追加フィードを一覧表示します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
@@ -310,11 +310,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
-    <value>アプリケーション一覧からすべてのアプリケーションを削除し、デスクトップ環境との統合設定をすべて解除します。Zero Install を削除する前に、このコマンドを使用してシステムをクリーンアップしてください。</value>
+    <value>アプリケーション一覧からすべてのアプリケーションを削除し、デスクトップ環境との統合設定をすべて元に戻します。Zero Install を削除する前に、このコマンドを使用してシステムをクリーンアップしてください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>アプリケーション一覧からアプリケーションを削除し、デスクトップ環境との連携を解除します。</value>
+    <value>アプリケーションリストからアプリケーションを削除し、デスクトップ環境との連携を解除します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
@@ -326,8 +326,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>「0install download」と同様の動作をしますが、キャッシュにプログラムが格納されていることを確認した上で、そのプログラムを実行するという点が異なります。
-ダウンロード工程で失敗した場合は、終了ステータスとして1を返します。それ以外の場合は、実行中のプログラムの終了ステータスが返されます。</value>
+    <value>「0install download」と同様の動作をしますが、キャッシュにプログラムが格納されていることを確認した上で、そのプログラムを実行する点が異なります。
+ダウンロード工程で失敗した場合は、終了ステータス1を返します。それ以外の場合は、実行中のプログラムの終了ステータスが返されます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
@@ -660,7 +660,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasRemove" xml:space="preserve">
-    <value>既存のアリエイ스를削除します。</value>
+    <value>既存のアリエイスを削除します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasResolve" xml:space="preserve">
@@ -788,7 +788,7 @@
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>デフォルト設定を上書きして、オフラインモードで実行します。
-オフラインモードでは、インターフェースが古くなっても更新されず、インジェクターが（前回の更新などで）すでに認識しているプログラムであっても、新しいバージョンはダウンロードされません。</value>
+オフラインモードでは、インターフェースが古くなっていたとしても更新されず、インジェクターが（前回の更新などで）すでに認識しているプログラムであっても、新しいバージョンはダウンロードされません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -796,7 +796,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPin" xml:space="preserve">
-    <value>選択したバージョンを、今後の実行時の優先バージョンとして設定します。</value>
+    <value>選択したバージョンを、今後の実行時に優先されるバージョンとして設定します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
@@ -976,7 +976,7 @@
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>暗号化キーは、データをサーバーに送信する前にローカルで暗号化するために使用されます。
-このキーは秘密にしておき、パスワードとは別のものを使用してください。そうすることで、たとえサーバーが侵害されたとしても、誰もあなたのデータにアクセスできなくなります。</value>
+このキーは秘密にしておき、パスワードとは別のものを使用してください。そうすれば、たとえサーバーが侵害されたとしても、誰もあなたのデータにアクセスすることはできません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

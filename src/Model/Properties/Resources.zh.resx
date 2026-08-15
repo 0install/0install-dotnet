@@ -175,7 +175,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>文件扩展名“{0} ”不属于任何已知的压缩文件类型。</value>
+    <value>文件扩展名“{0} ”不属于已知的存档类型。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">

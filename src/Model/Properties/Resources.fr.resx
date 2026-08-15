@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>«{0} » n'est pas une URI « http(s): » valide et ne constitue pas non plus un chemin d'accès local valide.</value>
+    <value>«{0} » n'est pas une URI « http(s): » valide et ne correspond pas non plus à un chemin d'accès local valide.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">

@@ -175,7 +175,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>В имени привязки {0} обнаружен недопустимый символ.</value>
+    <value>В имени привязки « {0} » обнаружен недопустимый символ.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">

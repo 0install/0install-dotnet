@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
-    <value>Локальная копия архива «{0} » отсутствует. Воспользуйтесь параметром «{1} », чтобы указать другой путь.</value>
+    <value>Локальная копия архива «{0} » отсутствует. Воспользуйтесь опцией «{1} », чтобы указать другой путь.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
@@ -161,7 +161,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">
-    <value>В настоящее время ни одна реализация не отмечена как находящаяся в стадии тестирования.</value>
+    <value>В настоящее время ни одна реализация не помечена как «в стадии тестирования».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">

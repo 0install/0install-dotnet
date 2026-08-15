@@ -223,7 +223,7 @@
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>Путь «{0} » не является абсолютным. Относительные пути допускаются только в переносимом режиме.
-Указывается в файле конфигурации «{1} ».</value>
+Указывается в конфигурационном файле «{1} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
