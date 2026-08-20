@@ -83,7 +83,7 @@ public abstract class XmlUnknown
 
         public bool Equals(XmlAttribute? x, XmlAttribute? y)
         {
-            if (x == null || y == null) return false;
+            if (x == null || y == null) return x == y;
             return x.NamespaceURI == y.NamespaceURI && x.Name == y.Name && x.Value == y.Value;
         }
 
@@ -96,14 +96,15 @@ public abstract class XmlUnknown
         public static readonly XmlElementComparer Instance = new();
 
         public bool Equals(XmlElement? x, XmlElement? y)
-            => x != null
-            && y != null
-            && x.NamespaceURI == y.NamespaceURI && x.Name == y.Name && x.InnerText == y.InnerText
-            && x.Attributes.OfType<XmlAttribute>().UnsequencedEquals(y.Attributes.OfType<XmlAttribute>(), comparer: XmlAttributeComparer.Instance)
-            && x.ChildNodes.OfType<XmlElement>().SequencedEquals(y.ChildNodes.OfType<XmlElement>(), comparer: Instance);
+        {
+            if (x == null || y == null) return x == y;
+            return x.NamespaceURI == y.NamespaceURI && x.Name == y.Name && x.InnerText == y.InnerText
+                && x.Attributes.OfType<XmlAttribute>().UnsequencedEquals(y.Attributes.OfType<XmlAttribute>(), comparer: XmlAttributeComparer.Instance)
+                && x.ChildNodes.OfType<XmlElement>().SequencedEquals(y.ChildNodes.OfType<XmlElement>(), comparer: Instance);
+        }
 
         public int GetHashCode(XmlElement obj)
-            => HashCode.Combine(obj.Name, obj.Value);
+            => HashCode.Combine(obj.Name, obj.InnerText);
     }
     #endregion
 
