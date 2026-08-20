@@ -142,7 +142,7 @@ public class TrustManager(TrustDB trustDB, Config config, IOpenPgp openPgp, IFee
         {
             var keyInfoUri = new Uri(config.KeyInfoServer, $"key/{fingerprint}");
             Log.Info($"Getting key information for {fingerprint} from: {keyInfoUri}");
-            var xmlReader = XmlReader.Create(keyInfoUri.AbsoluteUri);
+            using var xmlReader = XmlReader.Create(keyInfoUri.AbsoluteUri);
             handler.CancellationToken.ThrowIfCancellationRequested();
             if (!xmlReader.ReadToFollowing("item"))
                 return (false, null);
