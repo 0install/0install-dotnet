@@ -60,7 +60,7 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
     /// <c>null</c> when selections are loaded from a file.
     /// </summary>
     [Browsable(false), XmlIgnore, IgnoreEquality]
-    public IReadOnlyList<SelectionCandidate>? Candidates { get; }
+    public IReadOnlyList<SelectionCandidate>? Candidates { get; private set; }
 
     /// <summary>
     /// The name of the distribution (e.g. Debian, RPM) where this implementation comes from, if any.
@@ -104,7 +104,8 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
             FromFeed = FromFeed,
             ID = ID,
             Version = Version,
-            QuickTestFile = QuickTestFile
+            QuickTestFile = QuickTestFile,
+            Candidates = Candidates
         };
         CloneFromTo(this, implementation);
         return implementation;
