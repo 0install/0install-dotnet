@@ -76,4 +76,16 @@ public class SelectionsTest
         selections2.Implementations.Add(new() {InterfaceUri = FeedTest.Test1Uri, ID = "dummy", Version = new("1.0")});
         selections2.Should().NotBe(selections1, because: "Modified objects should no longer be equal");
     }
+
+    /// <summary>
+    /// Ensures that <see cref="Selections.Clone"/> preserves <see cref="Selections.Source"/>.
+    /// </summary>
+    [Fact]
+    public void CloneSource()
+    {
+        var selections = CreateTestSelections();
+        selections.Source = true;
+
+        selections.Clone().Source.Should().BeTrue();
+    }
 }

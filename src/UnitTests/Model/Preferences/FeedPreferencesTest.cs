@@ -14,7 +14,7 @@ public class FeedPreferencesTest
     public static FeedPreferences CreateTestFeedPreferences() => new()
     {
         LastChecked = new DateTime(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc),
-        Implementations = {new ImplementationPreferences {ID = "test_id", UserStability = Stability.Testing}}
+        Implementations = {new ImplementationPreferences {ID = "test_id", UserStability = Stability.Testing, RolloutPercentage = 42}}
     };
 
     [Fact] // Ensures that the class is correctly serialized and deserialized.

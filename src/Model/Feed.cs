@@ -399,6 +399,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
         UnknownElements = UnknownElements,
         MinInjectorVersion = MinInjectorVersion,
         Uri = Uri,
+        CatalogUri = CatalogUri,
         Name = Name,
         Publisher = Publisher,
         Homepage = Homepage,
@@ -413,6 +414,7 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
         Elements = {Elements.CloneElements()},
         EntryPoints = {EntryPoints.CloneElements()},
         CapabilityLists = {CapabilityLists.CloneElements()},
+        ReplacedBy = ReplacedBy?.Clone()
     };
     #endregion
 

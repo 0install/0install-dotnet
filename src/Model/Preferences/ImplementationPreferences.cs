@@ -47,7 +47,7 @@ public sealed partial class ImplementationPreferences : XmlUnknown, ICloneable<I
     /// Creates a deep copy of this <see cref="ImplementationPreferences"/> instance.
     /// </summary>
     /// <returns>The new copy of the <see cref="ImplementationPreferences"/>.</returns>
-    public ImplementationPreferences Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, UserStability = UserStability};
+    public ImplementationPreferences Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, UserStability = UserStability, RolloutPercentage = RolloutPercentage};
     #endregion
 
     #region Conversion

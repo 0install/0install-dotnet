@@ -22,7 +22,8 @@ public sealed class AppListTest
             {
                 InterfaceUri = FeedTest.Test1Uri,
                 Name = "Test",
-                AutoUpdate = true,
+                AutoUpdate = false,
+                Hostname = "test-host",
                 CapabilityLists = {Model.Capabilities.CapabilityListTest.CreateTestCapabilityList()}
             }
         }
@@ -39,7 +40,8 @@ public sealed class AppListTest
             {
                 InterfaceUri = FeedTest.Test1Uri,
                 Name = "Test",
-                AutoUpdate = true,
+                AutoUpdate = false,
+                Hostname = "test-host",
                 CapabilityLists = {Model.Capabilities.CapabilityListTest.CreateTestCapabilityList()},
                 AccessPoints = CreateTestAccessPointList()
             }
