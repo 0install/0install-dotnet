@@ -50,7 +50,7 @@
 
   <!-- Build-time dependencies -->
   <ItemGroup>
-    <PackageReference Include="Generator.Equals" Version="3.3.0" PrivateAssets="All" />
+    <PackageReference Include="Generator.Equals" Version="4.0.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.400" PrivateAssets="All" />
   </ItemGroup>
 

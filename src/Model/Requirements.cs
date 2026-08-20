@@ -14,7 +14,7 @@ namespace ZeroInstall.Model;
 /// A set of requirements/restrictions imposed by the user on the <see cref="Implementation"/> selection process. Used as input for the solver.
 /// </summary>
 [Serializable, XmlRoot("requirements", Namespace = Feed.XmlNamespace), XmlType("requirements", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable(Explicit = true)] // Explicit, because most members here are serialization helpers or views derived from other members
 public partial record Requirements
 {
     /// <summary>
@@ -25,6 +25,7 @@ public partial record Requirements
 #if !MINIMAL
     [JsonProperty("interface")]
 #endif
+    [DefaultEquality]
     public required FeedUri InterfaceUri { get; set; }
 
     /// <summary>
@@ -36,6 +37,7 @@ public partial record Requirements
 #if !MINIMAL
     [JsonProperty("command")]
 #endif
+    [DefaultEquality]
     public string? Command { get; set; }
 
     // Order is always alphabetical, duplicate entries are not allowed
@@ -61,6 +63,7 @@ public partial record Requirements
 #if !MINIMAL
     [JsonIgnore]
 #endif
+    [DefaultEquality]
     public Architecture Architecture { get; set; }
 
     /// <summary>
@@ -71,13 +74,14 @@ public partial record Requirements
 #if !MINIMAL
     [JsonProperty("message", DefaultValueHandling = DefaultValueHandling.Ignore)]
 #endif
+    [DefaultEquality]
     public string? Message { get; set; }
 
     #region XML/JSON serialization
     /// <summary>Used for XML serialization.</summary>
     /// <seealso cref="InterfaceUri"/>
     [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Used for XML serialization")]
-    [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
+    [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
     [XmlAttribute("interface")]
 #if !MINIMAL
     [JsonIgnore]
@@ -88,7 +92,7 @@ public partial record Requirements
 
     /// <summary>Used for XML and JSON serialization.</summary>
     /// <seealso cref="Languages"/>
-    [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
+    [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never)]
     [DefaultValue("")]
 #if !MINIMAL
     [JsonProperty("langs", DefaultValueHandling = DefaultValueHandling.Ignore)]
