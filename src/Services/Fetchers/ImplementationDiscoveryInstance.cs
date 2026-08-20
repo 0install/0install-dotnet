@@ -13,7 +13,6 @@ namespace ZeroInstall.Services.Fetchers;
 [Equatable]
 internal sealed partial class ImplementationDiscoveryInstance(ushort port, IEnumerable<IPAddress> potentialIPs, DomainName name)
 {
-    [IgnoreEquality]
     private IPAddress? _confirmedIP;
 
     /// <summary>
