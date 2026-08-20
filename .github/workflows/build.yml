@@ -13,10 +13,10 @@ jobs:
         with:
           fetch-depth: 0
           show-progress: false
-      - uses: gittools/actions/gitversion/setup@v3.2.1
+      - uses: gittools/actions/gitversion/setup@v4.7.0
         with:
           versionSpec: '5.12.x'
-      - uses: gittools/actions/gitversion/execute@v3.2.1
+      - uses: gittools/actions/gitversion/execute@v4.7.0
         id: gitversion
 
       # Build
@@ -111,10 +111,10 @@ jobs:
         with:
           fetch-depth: 0
           show-progress: false
-      - uses: gittools/actions/gitversion/setup@v3.2.1
+      - uses: gittools/actions/gitversion/setup@v4.7.0
         with:
           versionSpec: '5.12.x'
-      - uses: gittools/actions/gitversion/execute@v3.2.1
+      - uses: gittools/actions/gitversion/execute@v4.7.0
         id: gitversion
 
       # Build
