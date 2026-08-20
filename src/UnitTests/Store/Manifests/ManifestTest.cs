@@ -279,6 +279,11 @@ public class ManifestTest
         Assert.Throws<FormatException>(() => Manifest.Load("F abc123 128 test".ToStream(), ManifestFormat.Sha1New));
         Assert.Throws<FormatException>(() => Manifest.Load("F abc123 128 test".ToStream(), ManifestFormat.Sha256));
         Assert.Throws<FormatException>(() => Manifest.Load("F abc123 128 test".ToStream(), ManifestFormat.Sha256New));
+
+        // Duplicate entries
+        Assert.Throws<FormatException>(() => Manifest.Load("F abc123 1200000000 128 test\nF abc123 1200000000 128 test".ToStream(), ManifestFormat.Sha1New));
+        Assert.Throws<FormatException>(() => Manifest.Load("F abc123 1200000000 128 test\nF abc123 1200000000 128 test".ToStream(), ManifestFormat.Sha256));
+        Assert.Throws<FormatException>(() => Manifest.Load("F abc123 1200000000 128 test\nF abc123 1200000000 128 test".ToStream(), ManifestFormat.Sha256New));
     }
 
     [Fact] // Ensures that ToXmlString() correctly outputs a serialized form of the manifest.

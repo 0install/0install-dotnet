@@ -293,6 +293,11 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
             {
                 throw new FormatException(Resources.NumberTooLarge, ex);
             }
+            catch (ArgumentException ex)
+            {
+                // Wrap exception since only certain exception types are allowed
+                throw new FormatException(Resources.InvalidLinesInManifest, ex);
+            }
             #endregion
         }
 
