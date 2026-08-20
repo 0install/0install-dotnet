@@ -31,6 +31,7 @@ public class TrustManager(TrustDB trustDB, Config config, IOpenPgp openPgp, IFee
         if (uri.IsFile) throw new UriFormatException(Resources.FeedUriLocal);
 
         var domain = new Domain(uri.Host);
+        var importedKeys = new HashSet<string>();
         lock (_lock)
         {
             KeyImported:
@@ -52,6 +53,9 @@ public class TrustManager(TrustDB trustDB, Config config, IOpenPgp openPgp, IFee
             {
                 Log.Info($"Missing key for {signature.FormatKeyID()}");
                 string id = signature.FormatKeyID();
+
+                // Prevent endless loops if importing the key does not resolve the missing signature
+                if (!importedKeys.Add(id)) continue;
 
                 try
                 {
