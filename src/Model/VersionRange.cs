@@ -88,7 +88,7 @@ public sealed partial class VersionRange
             result = new VersionRange(value);
             return true;
         }
-        catch (ArgumentException)
+        catch (Exception ex) when (ex is FormatException or ArgumentException)
         {
             result = null;
             return false;

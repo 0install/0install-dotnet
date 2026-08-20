@@ -26,6 +26,14 @@ public class VersionRangeTest
     }
 
     /// <summary>
+    /// Ensures <see cref="VersionRange.TryCreate"/> correctly rejects invalid strings.
+    /// </summary>
+    [Theory]
+    [InlineData(""), InlineData("a"), InlineData("1..2"), InlineData("1..!a"), InlineData("!a"), InlineData("1|a")]
+    public void TryCreateInvalid(string value)
+        => VersionRange.TryCreate(value, out _).Should().BeFalse();
+
+    /// <summary>
     /// Ensures <see cref="VersionRange"/> objects are correctly compared.
     /// </summary>
     [Fact]
