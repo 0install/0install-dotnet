@@ -14,7 +14,7 @@ partial class FileType
         if (WindowsIdentity.GetCurrent().User is not { Value: var sid }) return "";
         string lastWriteString = new DateTime(lastWriteTime.Year, lastWriteTime.Month, lastWriteTime.Day, lastWriteTime.Hour, lastWriteTime.Minute, second: 0).ToFileTime().ToString("x16");
         const string experience = @"user choice set via windows user experience {d18b6dd5-6124-4341-9318-804003bafa0b}";
-        byte[] data = Encoding.Unicode.GetBytes((extension + sid + progID).ToLower() + lastWriteString + experience + "\0");
+        byte[] data = Encoding.Unicode.GetBytes((extension + sid + progID).ToLowerInvariant() + lastWriteString + experience + "\0");
 
         using var md5 = MD5.Create();
         return HashInner(data, md5.ComputeHash(data));
