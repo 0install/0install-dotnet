@@ -8,7 +8,8 @@
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <IsPackable>False</IsPackable>
     <DeterministicSourcePaths>False</DeterministicSourcePaths>
-    <VSTestLogger>trx%3bLogFileName=$(TargetFramework).trx</VSTestLogger>
+    <UseMicrosoftTestingPlatformRunner>True</UseMicrosoftTestingPlatformRunner>
+    <TestingPlatformCommandLineArguments>$(TestingPlatformCommandLineArguments) --report-xunit-trx --report-xunit-trx-filename $(TargetFramework).trx --results-directory $(MSBuildProjectDirectory)/TestResults</TestingPlatformCommandLineArguments>
   </PropertyGroup>
 
   <!-- Mark as unit test project -->
@@ -34,7 +35,6 @@
     <PackageReference Include="AwesomeAssertions" Version="9.5.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
     <PackageReference Include="Moq" Version="4.20.72" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="4.0.0" />
     <PackageReference Include="xunit.v3" Version="4.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net8.0'">
