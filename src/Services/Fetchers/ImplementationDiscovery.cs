@@ -70,7 +70,7 @@ public class ImplementationDiscovery : IImplementationDiscovery, IDisposable
     /// <inheritdoc/>
     public Uri GetImplementation(ManifestDigest manifestDigest, CancellationToken cancellationToken)
     {
-        var racer = new ResultRacer<Uri>(cancellationToken);
+        using var racer = new ResultRacer<Uri>(cancellationToken);
 
         void FindImplementation(ImplementationDiscoveryInstance instance)
             => racer.TrySetResultAsync(innerCancellationToken => instance.GetImplementationAsync(manifestDigest, innerCancellationToken));

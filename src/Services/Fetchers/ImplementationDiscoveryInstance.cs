@@ -30,9 +30,17 @@ internal sealed partial class ImplementationDiscoveryInstance(ushort port, IEnum
     /// <returns>An archive URI from which the implementation can be downloaded.</returns>
     /// <exception cref="OperationCanceledException">The <paramref name="cancellationToken"/> was cancelled or the timeout was exceeded.</exception>
     public async Task<Uri?> GetImplementationAsync(ManifestDigest manifestDigest, CancellationToken cancellationToken)
-        => _confirmedIP == null
-            ? await ResultRacer.For(potentialIPs, (ip, innerCancellationToken) => TryGetUriAsync(ip, manifestDigest, innerCancellationToken), cancellationToken).GetResultAsync().ConfigureAwait(false)
-            : await TryGetUriAsync(_confirmedIP, manifestDigest, cancellationToken).ConfigureAwait(false);
+    {
+        if (_confirmedIP == null)
+        {
+            using var racer = ResultRacer.For(potentialIPs, (ip, innerCancellationToken) => TryGetUriAsync(ip, manifestDigest, innerCancellationToken), cancellationToken);
+            return await racer.GetResultAsync().ConfigureAwait(false);
+        }
+        else
+        {
+            return await TryGetUriAsync(_confirmedIP, manifestDigest, cancellationToken).ConfigureAwait(false);
+        }
+    }
 
     private static readonly HttpClient _httpClient = new() {Timeout = TimeSpan.FromSeconds(2)};
 
