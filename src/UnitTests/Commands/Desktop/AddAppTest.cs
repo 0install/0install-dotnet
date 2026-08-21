@@ -72,6 +72,12 @@ public class AddAppTest : CliCommandTestBase<AddApp>
         CatalogManagerMock.Setup(x => x.GetOnline()).Returns(catalog);
 
         Sut.Parse([Fake.Feed1Uri.ToStringRfc()]);
-        Assert.Throws<WebException>(() => Sut.Execute());
+        ExceptionUtils.Retry<UnauthorizedAccessException>(() =>
+        {
+            var exception = Record.Exception(() => Sut.Execute());
+            // Other processes might be competing for IntegrationManager mutex
+            if (exception is UnauthorizedAccessException) throw exception;
+            exception.Should().BeOfType<WebException>();
+        });
     }
 }
