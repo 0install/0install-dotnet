@@ -124,7 +124,7 @@ public class FeedManager : IFeedManager
     {
         // Double-checked locking
         if (IsCheckAttemptDelayed(feedUri)) return true;
-        using (new MutexLock("ZeroInstall.Services.Feeds.FeedManager.RateLimit." + feedUri.GetHashCode()))
+        using (new MutexLock("ZeroInstall.Services.Feeds.FeedManager.RateLimit." + feedUri.ToStringRfc().GetStableHashCode()))
         {
             if (IsCheckAttemptDelayed(feedUri)) return true;
             SetLastCheckAttempt(feedUri);

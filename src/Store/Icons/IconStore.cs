@@ -47,7 +47,7 @@ public sealed class IconStore(string path, Config config, ITaskHandler handler) 
     /// <inheritdoc/>
     public string Get(Icon icon, out bool shouldRefresh)
     {
-        using (new MutexLock("ZeroInstall.Model.Icon." + GetPath(icon).GetHashCode()))
+        using (new MutexLock("ZeroInstall.Model.Icon." + GetPath(icon).GetStableHashCode()))
             return TryGetCached(icon, out shouldRefresh) ?? Download(icon);
     }
 
