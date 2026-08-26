@@ -18,9 +18,17 @@ public class DmgExtractor(ITaskHandler handler)
     /// <inheritdoc/>
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
     {
+        ProcessLauncher launcher =
+#if NET
+            OperatingSystem.IsMacOSVersionAtLeast(15)
+                ? new("diskutil", "image")
+                : new("hdiutil");
+#else
+                new("diskutil", "image");
+#endif
+
         EnsureFile(stream, archivePath =>
         {
-            var launcher = new ProcessLauncher("hdiutil");
             using var tempDir = new TemporaryDirectory("0install-archive");
 
             try
