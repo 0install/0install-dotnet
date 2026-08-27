@@ -7,7 +7,8 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// An access point represents changes to the desktop environment's UI which the user explicitly requested.
 /// </summary>
 [XmlType("access-point", Namespace = AppList.XmlNamespace)]
-public abstract class AccessPoint : XmlUnknown, ICloneable<AccessPoint>
+[Cloneable]
+public abstract partial class AccessPoint : XmlUnknown, ICloneable<AccessPoint>
 {
     /// <summary>
     /// Retrieves identifiers from a namespace global to all <see cref="AccessPoint"/>s.
@@ -41,10 +42,4 @@ public abstract class AccessPoint : XmlUnknown, ICloneable<AccessPoint>
     /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
     public abstract void Unapply(AppEntry appEntry, bool machineWide);
-
-    /// <summary>
-    /// Creates a deep copy of this <see cref="AccessPoint"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="AccessPoint"/>.</returns>
-    public abstract AccessPoint Clone();
 }

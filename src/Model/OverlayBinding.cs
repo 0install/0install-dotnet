@@ -9,7 +9,7 @@ namespace ZeroInstall.Model;
 /// <remarks>This is to support legacy programs which use hard-coded paths.</remarks>
 [Description("Make a chosen Implementation available by overlaying it onto another part of the file-system.")]
 [Serializable, XmlRoot("overlay", Namespace = Feed.XmlNamespace), XmlType("overlay", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class OverlayBinding : Binding
 {
     /// <summary>
@@ -31,13 +31,5 @@ public sealed partial class OverlayBinding : Binding
     /// Returns the binding in the form "Source => MountPoint". Not safe for parsing!
     /// </summary>
     public override string ToString() => $"{Source} => {MountPoint}";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="OverlayBinding"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="OverlayBinding"/>.</returns>
-    public override Binding Clone() => new OverlayBinding {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Source = Source, MountPoint = MountPoint};
     #endregion
 }

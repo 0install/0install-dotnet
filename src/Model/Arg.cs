@@ -8,7 +8,7 @@ namespace ZeroInstall.Model;
 /// </summary>
 [Description("A single command-line arguments to be passed to an executable.")]
 [Serializable, XmlRoot("arg", Namespace = Feed.XmlNamespace), XmlType("arg", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class Arg : ArgBase, ICloneable<Arg>
 {
     /// <summary>
@@ -38,19 +38,5 @@ public partial class Arg : ArgBase, ICloneable<Arg>
     /// Returns <see cref="Value"/>. Not safe for parsing!
     /// </summary>
     public override string ToString() => Value;
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Arg"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Arg"/>.</returns>
-    Arg ICloneable<Arg>.Clone() => new() {Value = Value};
-
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Arg"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Arg"/>.</returns>
-    public override ArgBase Clone() => ((ICloneable<Arg>)this).Clone();
     #endregion
 }

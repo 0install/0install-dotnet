@@ -9,7 +9,7 @@ namespace ZeroInstall.Model;
 /// <seealso cref="Feed.Elements"/>
 [Description("An implementation is a specific version of an application that can be downloaded and executed (e.g. Firefox 3.6 for Windows).")]
 [Serializable, XmlRoot("implementation", Namespace = Feed.XmlNamespace), XmlType("implementation", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class Implementation : ImplementationBase
 {
     /// <summary>
@@ -46,25 +46,5 @@ public partial class Implementation : ImplementationBase
         }
         RetrievalMethods.Remove(toRemove);
     }
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Implementation"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Implementation"/>.</returns>
-    public Implementation CloneImplementation()
-    {
-        var implementation = new Implementation {ID = ID, Version = Version};
-        CloneFromTo(this, implementation);
-        implementation.RetrievalMethods.Add(RetrievalMethods.CloneElements());
-        return implementation;
-    }
-
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Implementation"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Implementation"/>.</returns>
-    public override Element Clone() => CloneImplementation();
     #endregion
 }

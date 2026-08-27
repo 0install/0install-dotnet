@@ -9,7 +9,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// Makes an application discoverable via the system's search PATH.
 /// </summary>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class AppAlias : CommandAccessPoint
 {
     public const string TagName = "alias", AltName = "aliases";
@@ -46,9 +46,4 @@ public partial class AppAlias : CommandAccessPoint
         else if (UnixUtils.IsMacOSX) MacOS.AppAlias.Remove(Name, machineWide);
         else if (UnixUtils.IsUnix) Unix.AppAlias.Remove(Name, machineWide);
     }
-
-    #region Clone
-    /// <inheritdoc/>
-    public override AccessPoint Clone() => new AppAlias {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
-    #endregion
 }

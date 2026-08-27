@@ -11,7 +11,7 @@ namespace ZeroInstall.Model;
 /// <seealso cref="Model.Command.Runner"/>
 [Description("A special kind of dependency: the program that is used to run this one. For example, a Python program might specify Python as its runner.")]
 [Serializable, XmlRoot("runner", Namespace = Feed.XmlNamespace), XmlType("runner", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class Runner : Dependency, IArgBaseContainer
 {
     /// <summary>
@@ -47,28 +47,5 @@ public partial class Runner : Dependency, IArgBaseContainer
     /// Returns the runner in the form "Interface (Command)". Not safe for parsing!
     /// </summary>
     public override string ToString() => $"{InterfaceUri} ({Command ?? Model.Command.NameRun})";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Runner"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Runner"/>.</returns>
-    public Runner CloneRunner() => new()
-    {
-        InterfaceUri = InterfaceUri,
-        Use = Use,
-        Command = Command,
-        Versions = Versions,
-        Bindings = {Bindings.CloneElements()},
-        Constraints = {Constraints.CloneElements()},
-        Arguments = {Arguments.CloneElements()}
-    };
-
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Runner"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Runner"/>.</returns>
-    public override Restriction Clone() => CloneRunner();
     #endregion
 }

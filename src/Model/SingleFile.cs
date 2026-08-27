@@ -8,7 +8,7 @@ namespace ZeroInstall.Model;
 /// </summary>
 [Description("Retrieves an implementation by downloading a single file.")]
 [Serializable, XmlRoot("file", Namespace = Feed.XmlNamespace), XmlType("file", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class SingleFile : DownloadRetrievalMethod
 {
     /// <summary>
@@ -40,13 +40,5 @@ public sealed partial class SingleFile : DownloadRetrievalMethod
     /// Returns the file in the form "Location (Size) => Destination". Not safe for parsing!
     /// </summary>
     public override string ToString() => $"{Href} ({Size}) => {Destination}";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="SingleFile"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="SingleFile"/>.</returns>
-    public override RetrievalMethod Clone() => new SingleFile {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Href = Href, Size = Size, Destination = Destination, Executable = Executable};
     #endregion
 }

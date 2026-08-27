@@ -7,7 +7,7 @@ namespace ZeroInstall.Model.Preferences;
 /// Stores user-specific preferences for an <see cref="Implementation"/>.
 /// </summary>
 [XmlType("implementation-preferences", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class ImplementationPreferences : XmlUnknown, ICloneable<ImplementationPreferences>
 {
     /// <summary>
@@ -41,14 +41,6 @@ public sealed partial class ImplementationPreferences : XmlUnknown, ICloneable<I
     public bool IsSuperfluous
         => UserStability == Stability.Unset
         && RolloutPercentage == 0;
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="ImplementationPreferences"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="ImplementationPreferences"/>.</returns>
-    public ImplementationPreferences Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, UserStability = UserStability, RolloutPercentage = RolloutPercentage};
-    #endregion
 
     #region Conversion
     /// <summary>

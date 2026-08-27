@@ -7,7 +7,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// Abstract base class for capabilities that can be applied as default handlers for something at the user's request.
 /// </summary>
 [XmlType("default-capability", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public abstract partial class DefaultCapability : Capability
 {
     /// <summary>

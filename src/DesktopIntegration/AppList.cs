@@ -13,7 +13,7 @@ namespace ZeroInstall.DesktopIntegration;
 [XmlNamespace("xsi", XmlStorage.XsiNamespace)]
 //[XmlNamespace("caps", CapabilityList.XmlNamespace)]
 //[XmlNamespace("feed", Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
 {
     #region Constants
@@ -251,18 +251,5 @@ public sealed partial class AppList : XmlUnknown, ICloneable<AppList>
             zipStream.CloseEntry();
         }
     }
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="AppList"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="AppList"/>.</returns>
-    public AppList Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        Entries = {Entries.CloneElements()}
-    };
     #endregion
 }

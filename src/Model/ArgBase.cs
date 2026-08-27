@@ -10,19 +10,14 @@ namespace ZeroInstall.Model;
 /// </summary>
 [TypeConverter(typeof(ArgBaseConverter))]
 [XmlType("arg-base", Namespace = Feed.XmlNamespace)]
-public abstract class ArgBase : FeedElement, ICloneable<ArgBase>
+[Cloneable]
+public abstract partial class ArgBase : FeedElement, ICloneable<ArgBase>
 {
     /// <summary>
     /// Converts legacy elements, sets default values, etc..
     /// </summary>
     /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
     public abstract void Normalize();
-
-    /// <summary>
-    /// Creates a deep copy of this <see cref="ArgBase"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="ArgBase"/>.</returns>
-    public abstract ArgBase Clone();
 
     /// <summary>
     /// Convenience cast for turning strings into plain <see cref="Arg"/>s.

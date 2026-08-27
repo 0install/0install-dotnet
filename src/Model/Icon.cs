@@ -13,7 +13,7 @@ namespace ZeroInstall.Model;
 /// <seealso cref="EntryPoint.Icons"/>
 [Description("An icon representing the application. Used in the Catalog GUI as well as for desktop icons, menu entries, etc..")]
 [Serializable, XmlRoot("icon", Namespace = Feed.XmlNamespace), XmlType("icon", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class Icon : FeedElement, ICloneable<Icon>
 {
     #region Constants
@@ -84,13 +84,6 @@ public partial class Icon : FeedElement, ICloneable<Icon>
     public override string ToString() => $"{Href} ({MimeType})";
     #endregion
 
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Icon"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Icon"/>.</returns>
-    public Icon Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Href = Href, MimeType = MimeType};
-    #endregion
 }
 
 /// <summary>

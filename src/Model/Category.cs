@@ -10,7 +10,7 @@ namespace ZeroInstall.Model;
 /// </summary>
 [Description("An application category (e.g. Game or Office). Used for organizing application menus.")]
 [Serializable, XmlRoot("category", Namespace = Feed.XmlNamespace), XmlType("category", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class Category : FeedElement, ICloneable<Category>
 {
     #region Constants
@@ -45,13 +45,5 @@ public sealed partial class Category : FeedElement, ICloneable<Category>
     /// Returns <see cref="Name"/> directly. Safe for parsing!
     /// </summary>
     public override string ToString() => Name ?? "unset";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a plain copy of this category.
-    /// </summary>
-    /// <returns>The cloned category.</returns>
-    public Category Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, TypeNamespace = TypeNamespace};
     #endregion
 }

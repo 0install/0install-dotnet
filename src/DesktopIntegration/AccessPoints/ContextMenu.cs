@@ -10,7 +10,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 /// <seealso cref="Model.Capabilities.ContextMenu"/>
 [XmlType("context-menu", Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class ContextMenu : DefaultAccessPoint
 {
     /// <inheritdoc/>
@@ -57,10 +57,5 @@ public partial class ContextMenu : DefaultAccessPoint
     /// Returns the access point in the form "ContextMenu". Not safe for parsing!
     /// </summary>
     public override string ToString() => "ContextMenu";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override AccessPoint Clone() => new ContextMenu {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Capability = Capability};
     #endregion
 }

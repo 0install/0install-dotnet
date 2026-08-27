@@ -11,7 +11,7 @@ namespace ZeroInstall.Model;
 /// <seealso cref="Element.Commands"/>
 [Description("A command says how to run an implementation as a program.")]
 [Serializable, XmlRoot("command", Namespace = Feed.XmlNamespace), XmlType("command", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class Command : FeedElement, IArgBaseContainer, IBindingContainer, IDependencyContainer, ICloneable<Command>
 {
     #region Constants
@@ -126,26 +126,5 @@ public partial class Command : FeedElement, IArgBaseContainer, IBindingContainer
     /// Returns the Command in the form "Name (Path)". Not safe for parsing!
     /// </summary>
     public override string ToString() => $"{Name} ({Path})";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Command"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Command"/>.</returns>
-    public Command Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        IfZeroInstallVersion = IfZeroInstallVersion,
-        Name = Name,
-        Path = Path,
-        WorkingDir = WorkingDir?.Clone(),
-        Runner = Runner?.CloneRunner(),
-        Arguments = {Arguments.CloneElements()},
-        Bindings = {Bindings.CloneElements()},
-        Dependencies = {Dependencies.CloneElements()},
-        Restrictions = {Restrictions.CloneElements()}
-    };
     #endregion
 }

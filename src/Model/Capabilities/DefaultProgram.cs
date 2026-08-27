@@ -8,7 +8,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Description("Can act as the default provider for a well-known service such web-browser, e-mail client.")]
 [Serializable, XmlType("default-program", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class DefaultProgram : VerbCapability
 {
     #region Constants
@@ -94,21 +94,5 @@ public sealed partial class DefaultProgram : VerbCapability
     /// </summary>
     public override string ToString()
         => $"{Service} ({ID})";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override Capability Clone() => new DefaultProgram
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        ExplicitOnly = ExplicitOnly,
-        Service = Service,
-        InstallCommands = InstallCommands,
-        Descriptions = {Descriptions.CloneElements()},
-        Icons = {Icons.CloneElements()},
-        Verbs = {Verbs.CloneElements()}
-    };
     #endregion
 }

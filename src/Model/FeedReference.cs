@@ -9,7 +9,7 @@ namespace ZeroInstall.Model;
 /// <seealso cref="Feed.Feeds"/>
 [Description("A linked feed that contains more implementations of this interface. Is treated by the solver as if it were part of the main feed.")]
 [Serializable, XmlRoot("feed", Namespace = Feed.XmlNamespace), XmlType("feed", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class FeedReference : TargetBase, ICloneable<FeedReference>
 {
     /// <summary>
@@ -43,18 +43,5 @@ public sealed partial class FeedReference : TargetBase, ICloneable<FeedReference
     public override string ToString() => Languages.Count == 0
         ? $"{Source} ({Architecture})"
         : $"{Source} ({Architecture}, {Languages})";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="FeedReference"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="FeedReference"/>.</returns>
-    public FeedReference Clone()
-    {
-        var feedReference = new FeedReference {Source = Source};
-        CloneFromTo(this, feedReference);
-        return feedReference;
-    }
     #endregion
 }

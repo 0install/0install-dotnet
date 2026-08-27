@@ -15,7 +15,8 @@ namespace ZeroInstall.Model;
 /// Abstract base class for XML serializable classes that are intended to retain any unknown XML elements or attributes loaded from an XML file.
 /// </summary>
 /// <remarks>Inheriting from this class will prevent the <see cref="XmlSerializer.UnknownElement"/> event from being triggered.</remarks>
-public abstract class XmlUnknown
+[Cloneable]
+public abstract partial class XmlUnknown
 {
     /// <summary>
     /// Contains any unknown additional XML attributes.

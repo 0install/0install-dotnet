@@ -12,7 +12,7 @@ Expands an environment variable to multiple arguments.
 The variable specified in ItemFrom is split using Separator and the arguments are added once for each item.
 """)]
 [Serializable, XmlRoot("for-each", Namespace = Feed.XmlNamespace), XmlType("for-each", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class ForEachArgs : ArgBase
 {
     /// <summary>
@@ -48,24 +48,5 @@ public partial class ForEachArgs : ArgBase
     /// Returns the for-each instruction in the form "ItemFrom". Not safe for parsing!
     /// </summary>
     public override string ToString() => ItemFrom;
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="ForEachArgs"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="ForEachArgs"/>.</returns>
-    private ForEachArgs CloneForEachArgs() => new()
-    {
-        ItemFrom = ItemFrom,
-        Separator = Separator,
-        Arguments = {Arguments.CloneElements()}
-    };
-
-    /// <summary>
-    /// Creates a deep copy of this <see cref="ForEachArgs"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="ForEachArgs"/>.</returns>
-    public override ArgBase Clone() => CloneForEachArgs();
     #endregion
 }

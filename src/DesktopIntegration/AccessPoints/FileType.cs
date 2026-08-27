@@ -10,7 +10,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 /// <seealso cref="Model.Capabilities.FileType"/>
 [XmlType("file-type", Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class FileType : DefaultAccessPoint
 {
     /// <inheritdoc/>
@@ -53,10 +53,5 @@ public partial class FileType : DefaultAccessPoint
     /// Returns the access point in the form "FileType: Capability". Not safe for parsing!
     /// </summary>
     public override string ToString() => $"FileType: {Capability}";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override AccessPoint Clone() => new FileType {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Capability = Capability};
     #endregion
 }

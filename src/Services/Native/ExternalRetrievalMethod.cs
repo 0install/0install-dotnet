@@ -7,7 +7,7 @@ namespace ZeroInstall.Services.Native;
 /// Retrieves an implementation by installing it via an external package manager rather than Zero Install itself.
 /// </summary>
 /// <seealso cref="IPackageManager"/>
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class ExternalRetrievalMethod : RetrievalMethod
 {
     /// <summary>
@@ -33,19 +33,6 @@ public sealed partial class ExternalRetrievalMethod : RetrievalMethod
     /// <summary>
     /// A function to call to install this package.
     /// </summary>
+    [ShallowClone]
     public Action? Install { get; set; }
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="ExternalRetrievalMethod"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="ExternalRetrievalMethod"/>.</returns>
-    private ExternalRetrievalMethod CloneNativeRetrievalMethod() => new() {Distro = Distro, PackageID = PackageID, Size = Size, ConfirmationQuestion = ConfirmationQuestion, Install = Install};
-
-    /// <summary>
-    /// Creates a deep copy of this <see cref="ExternalRetrievalMethod"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="ExternalRetrievalMethod"/>.</returns>
-    public override RetrievalMethod Clone() => CloneNativeRetrievalMethod();
-    #endregion
 }

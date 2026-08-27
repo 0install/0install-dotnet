@@ -9,7 +9,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// Automatically starts an application when the user logs in.
 /// </summary>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class AutoStart : CommandAccessPoint
 {
     public const string TagName = "auto-start";
@@ -42,9 +42,4 @@ public partial class AutoStart : CommandAccessPoint
 
         if (WindowsUtils.IsWindows) Windows.Shortcut.Remove(this, machineWide);
     }
-
-    #region Clone
-    /// <inheritdoc/>
-    public override AccessPoint Clone() => new AutoStart {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
-    #endregion
 }

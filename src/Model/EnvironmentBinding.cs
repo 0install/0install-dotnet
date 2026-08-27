@@ -28,7 +28,7 @@ public enum EnvironmentMode
 /// </summary>
 [Description("Make a chosen implementation available by setting environment variables.")]
 [Serializable, XmlRoot("environment", Namespace = Feed.XmlNamespace), XmlType("environment", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class EnvironmentBinding : Binding
 {
     /// <summary>
@@ -92,13 +92,5 @@ public sealed partial class EnvironmentBinding : Binding
     public override string ToString() => string.IsNullOrEmpty(Insert)
         ? $"{Name} = {Value} ({Mode})"
         : $"{Name} = Impl+{Insert} ({Mode})";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="EnvironmentBinding"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="EnvironmentBinding"/>.</returns>
-    public override Binding Clone() => new EnvironmentBinding {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Name = Name, Value = Value, Insert = Insert, Mode = Mode, Separator = Separator, Default = Default};
     #endregion
 }

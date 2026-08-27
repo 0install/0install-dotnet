@@ -13,7 +13,7 @@ All attributes of a group are inherited by any child Groups and Implementations 
 All Dependencies and Bindings are inherited (sub-groups may add more Dependencies and Bindings to the list, but cannot remove any).
 """)]
 [Serializable, XmlRoot("group", Namespace = Feed.XmlNamespace), XmlType("group", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class Group : Element, IElementContainer
 {
     /// <summary>
@@ -50,25 +50,6 @@ public sealed partial class Group : Element, IElementContainer
         Elements.Clear();
         Elements.Add(collapsedElements);
     }
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Group"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Group"/>.</returns>
-    public Group CloneGroup()
-    {
-        var group = new Group();
-        CloneFromTo(this, group);
-        foreach (var element in Elements)
-            group.Elements.Add(element.Clone());
-
-        return group;
-    }
-
-    /// <inheritdoc/>
-    public override Element Clone() => CloneGroup();
     #endregion
 
     #region Conversion

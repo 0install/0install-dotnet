@@ -7,7 +7,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// A capability tells the desktop environment what an application can do and in which fashion this can be represented to the user.
 /// </summary>
 [XmlType("capability", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public abstract partial class Capability : XmlUnknown, ICloneable<Capability>
 {
     /// <summary>
@@ -40,13 +40,5 @@ public abstract partial class Capability : XmlUnknown, ICloneable<Capability>
     /// <exception cref="InvalidDataException">A required property is not set or invalid.</exception>
     public virtual void Normalize()
         => EnsureAttributeSafeID(ID, "id");
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Capability"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Capability"/>.</returns>
-    public abstract Capability Clone();
     #endregion
 }

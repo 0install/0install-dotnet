@@ -8,7 +8,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Description("""A specific AutoPlay event such as "Audio CD inserted".""")]
 [Serializable, XmlRoot("event", Namespace = CapabilityList.XmlNamespace), XmlType("event", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class AutoPlayEvent : XmlUnknown, ICloneable<AutoPlayEvent>
 {
     #region Constants
@@ -50,13 +50,5 @@ public partial class AutoPlayEvent : XmlUnknown, ICloneable<AutoPlayEvent>
     /// </summary>
     public override string ToString()
         => $"{Name}";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="AutoPlayEvent"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="AutoPlayEvent"/>.</returns>
-    public AutoPlayEvent Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name};
     #endregion
 }

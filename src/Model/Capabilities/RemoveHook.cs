@@ -1,4 +1,4 @@
-﻿// Copyright Bastian Eicher et al.
+// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.Model.Design;
@@ -10,7 +10,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Description("A hook/callback into the application to be called during '0install remove'.")]
 [Serializable, XmlRoot("remove-hook", Namespace = CapabilityList.XmlNamespace), XmlType("remove-hook", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class RemoveHook : Capability
 {
     /// <summary>
@@ -39,17 +39,5 @@ public sealed partial class RemoveHook : Capability
     /// </summary>
     public override string ToString()
         => $"{Command}";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override Capability Clone() => new RemoveHook
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        Command = Command,
-        Arguments = {Arguments.CloneElements()}
-    };
     #endregion
 }

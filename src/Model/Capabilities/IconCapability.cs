@@ -7,7 +7,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// Abstract base class for capabilities that can have multiple <see cref="Icon"/>s and descriptions.
 /// </summary>
 [Serializable, XmlType("icon-capability", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public abstract partial class IconCapability : DefaultCapability, IIconContainer, IDescriptionContainer
 {
     /// <inheritdoc/>

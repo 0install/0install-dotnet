@@ -8,7 +8,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Description("A browser extension.")]
 [Serializable, XmlRoot("browser-extension", Namespace = CapabilityList.XmlNamespace), XmlType("browser-extension", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class BrowserExtension : XmlUnknown, ICloneable<BrowserExtension>
 {
     /// <summary>
@@ -30,9 +30,4 @@ public partial class BrowserExtension : XmlUnknown, ICloneable<BrowserExtension>
     /// </summary>
     public override string ToString()
         => $"{ID}";
-
-    /// <summary>
-    /// Creates a deep copy of this <see cref="BrowserExtension"/> instance.
-    /// </summary>
-    public BrowserExtension Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID};
 }

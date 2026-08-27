@@ -8,7 +8,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Description("An application's ability to handle a certain URL protocol such as HTTP.")]
 [Serializable, XmlRoot("url-protocol", Namespace = CapabilityList.XmlNamespace), XmlType("url-protocol", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class UrlProtocol : VerbCapability
 {
     /// <summary>
@@ -38,20 +38,5 @@ public sealed partial class UrlProtocol : VerbCapability
     /// </summary>
     public override string ToString()
         => $"{ID}";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override Capability Clone() => new UrlProtocol
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        ExplicitOnly = ExplicitOnly,
-        Icons = {Icons.CloneElements()},
-        Descriptions = {Descriptions.CloneElements()},
-        Verbs = {Verbs.CloneElements()},
-        KnownPrefixes = {KnownPrefixes.CloneElements()}
-    };
     #endregion
 }

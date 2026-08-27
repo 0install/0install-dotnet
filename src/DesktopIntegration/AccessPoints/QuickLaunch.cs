@@ -9,7 +9,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// Creates a shortcut for an application in the Quick Launch bar.
 /// </summary>
 [XmlType("quick-launch", Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class QuickLaunch : IconAccessPoint
 {
     /// <inheritdoc/>
@@ -40,9 +40,4 @@ public partial class QuickLaunch : IconAccessPoint
 
         if (WindowsUtils.IsWindows && !machineWide) Windows.Shortcut.Remove(this);
     }
-
-    #region Clone
-    /// <inheritdoc/>
-    public override AccessPoint Clone() => new QuickLaunch {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
-    #endregion
 }

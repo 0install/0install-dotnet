@@ -11,7 +11,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// <remarks>The actual integration information is pulled from the other <see cref="Capability"/>s.</remarks>
 [Description("""Indicates that an application should be listed in the "Set your Default Programs" UI (Windows Vista and later).""")]
 [Serializable, XmlRoot("registration", Namespace = CapabilityList.XmlNamespace), XmlType("registration", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class AppRegistration : Capability
 {
     /// <inheritdoc/>
@@ -45,10 +45,5 @@ public sealed partial class AppRegistration : Capability
     /// </summary>
     public override string ToString()
         => $"{CapabilityRegPath}";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override Capability Clone() => new AppRegistration {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID, CapabilityRegPath = CapabilityRegPath};
     #endregion
 }

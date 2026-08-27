@@ -14,7 +14,7 @@ namespace ZeroInstall.Model.Selection;
 /// See also: https://docs.0install.net/specifications/selections/
 /// </remarks>
 [Serializable, XmlRoot("selections", Namespace = Feed.XmlNamespace), XmlType("selections", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<Selections>
 {
     /// <summary>
@@ -137,23 +137,6 @@ public sealed partial class Selections : XmlUnknown, IInterfaceUri, ICloneable<S
         foreach (var implementation in Implementations)
             implementation.Normalize(implementation.FromFeed ?? implementation.InterfaceUri);
     }
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Selections"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Selections"/>.</returns>
-    public Selections Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        InterfaceUri = InterfaceUri,
-        Name = Name,
-        Source = Source,
-        Command = Command,
-        Implementations = {Implementations.CloneElements()}
-    };
     #endregion
 
     #region Conversion

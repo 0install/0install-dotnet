@@ -7,7 +7,7 @@ namespace ZeroInstall.Model.Preferences;
 /// Stores user-specific preferences for a <see cref="Feed"/>.
 /// </summary>
 [XmlRoot("feed-preferences", Namespace = Feed.XmlNamespace), XmlType("feed-preferences", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPreferences>
 {
     /// <summary>
@@ -157,20 +157,6 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
         update(preferences);
         preferences.SaveFor(feedUri);
     }
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="FeedPreferences"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="FeedPreferences"/>.</returns>
-    public FeedPreferences Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        LastChecked = LastChecked,
-        Implementations = {Implementations.CloneElements()}
-    };
     #endregion
 
     #region Conversion

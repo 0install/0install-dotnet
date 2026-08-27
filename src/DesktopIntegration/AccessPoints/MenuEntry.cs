@@ -9,7 +9,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// Creates an entry for an application in the user's application menu (i.e. Windows start menu, GNOME application menu, etc.).
 /// </summary>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class MenuEntry : IconAccessPoint
 {
     public const string TagName = "menu-entry", AltName = "menu";
@@ -53,9 +53,4 @@ public partial class MenuEntry : IconAccessPoint
         else if (UnixUtils.IsMacOSX) MacOS.DesktopEntry.Remove(this, machineWide);
         else if (UnixUtils.IsUnix) Unix.FreeDesktop.Remove(this, machineWide);
     }
-
-    #region Clone
-    /// <inheritdoc/>
-    public override AccessPoint Clone() => new MenuEntry {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command, Category = Category};
-    #endregion
 }

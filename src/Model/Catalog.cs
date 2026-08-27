@@ -13,7 +13,7 @@ namespace ZeroInstall.Model;
 [Serializable, XmlRoot("catalog", Namespace = XmlNamespace), XmlType("catalog", Namespace = XmlNamespace)]
 [XmlNamespace("xsi", XmlStorage.XsiNamespace)]
 //[XmlNamespace("feed", Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class Catalog : XmlUnknown, ICloneable<Catalog>
 {
     #region Constants
@@ -148,18 +148,5 @@ public partial class Catalog : XmlUnknown, ICloneable<Catalog>
             feed.CatalogUri = catalogUri;
         }
     }
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Catalog"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Catalog"/>.</returns>
-    public Catalog Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        Feeds = {Feeds.CloneElements()}
-    };
     #endregion
 }

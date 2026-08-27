@@ -8,7 +8,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 /// <seealso cref="Model.Command"/>
 [XmlType("command-access-point", Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public abstract partial class CommandAccessPoint : AccessPoint
 {
     /// <summary>

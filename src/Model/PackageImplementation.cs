@@ -11,7 +11,7 @@ namespace ZeroInstall.Model;
 /// <remarks>Any <see cref="Binding"/>s inside <see cref="Dependency"/>s for the <see cref="Feed"/> will be ignored; it is assumed that the requiring component knows how to use the packaged version without further help.</remarks>
 [Description("An implementation provided by a distribution-specific package manager instead of Zero Install.")]
 [Serializable, XmlRoot("package-implementation", Namespace = Feed.XmlNamespace), XmlType("package-implementation", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable(MethodName = "CloneImplementation")]
 public sealed partial class PackageImplementation : Element
 {
     /// <summary>
@@ -109,29 +109,5 @@ public sealed partial class PackageImplementation : Element
     /// Returns the implementation in the form "Package (Distributions)". Not safe for parsing!
     /// </summary>
     public override string ToString() => $"{Package} ({DistributionsString})";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="PackageImplementation"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="PackageImplementation"/>.</returns>
-    public PackageImplementation CloneImplementation()
-    {
-        var implementation = new PackageImplementation
-        {
-            Package = Package,
-            Version = Version,
-            Distributions = {Distributions}
-        };
-        CloneFromTo(this, implementation);
-        return implementation;
-    }
-
-    /// <summary>
-    /// Creates a deep copy of this <see cref="PackageImplementation"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="PackageImplementation"/>.</returns>
-    public override Element Clone() => CloneImplementation();
     #endregion
 }

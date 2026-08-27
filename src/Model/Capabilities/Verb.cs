@@ -10,7 +10,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Description("The mapping of an action/verb (e.g. open, edit) to a Command.")]
 [Serializable, XmlRoot("verb", Namespace = CapabilityList.XmlNamespace), XmlType("verb", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class Verb : XmlUnknown, IDescriptionContainer, ICloneable<Verb>
 {
     #region Constants
@@ -122,24 +122,5 @@ public sealed partial class Verb : XmlUnknown, IDescriptionContainer, ICloneable
     /// Returns the extension in the form "Name = Command". Not safe for parsing!
     /// </summary>
     public override string ToString() => $"{Name} = {Command ?? Model.Command.NameRun}";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Verb"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Verb"/>.</returns>
-    public Verb Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        Name = Name,
-        Command = Command,
-        ArgumentsLiteral = ArgumentsLiteral,
-        SingleElementOnly = SingleElementOnly,
-        Extended = Extended,
-        Descriptions = {Descriptions.CloneElements()},
-        Arguments = {Arguments.CloneElements()}
-    };
     #endregion
 }

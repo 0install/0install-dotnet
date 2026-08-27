@@ -8,7 +8,7 @@ namespace ZeroInstall.Model;
 /// </summary>
 [Description("Zero Install will not know how to run a program using generic bindings itself, but it will include them in any selections documents it creates, which can then be executed by your custom code.")]
 [Serializable, XmlRoot("binding", Namespace = Feed.XmlNamespace), XmlType("binding", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class GenericBinding : ExecutableInBinding
 {
     /// <summary>
@@ -23,14 +23,5 @@ public sealed partial class GenericBinding : ExecutableInBinding
     /// Returns the binding in the form "Path = Command". Not safe for parsing!
     /// </summary>
     public override string ToString() => $"{Path} = {Command}";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="GenericBinding"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="GenericBinding"/>.</returns>
-    public override Binding Clone()
-        => new GenericBinding {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Path = Path, Command = Command};
     #endregion
 }

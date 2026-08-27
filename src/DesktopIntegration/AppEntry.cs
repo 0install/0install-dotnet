@@ -10,7 +10,7 @@ namespace ZeroInstall.DesktopIntegration;
 /// Represents an application in the <see cref="AppList"/> identified by its interface URI.
 /// </summary>
 [XmlType("app", Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, ICloneable<AppEntry>
 {
     /// <summary>
@@ -117,24 +117,5 @@ public sealed partial class AppEntry : XmlUnknown, IMergeable<AppEntry>, IClonea
     /// </summary>
     public override string ToString()
         => $"{InterfaceUri}: {Name} [{AccessPoints}]";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="AppEntry"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="AppEntry"/>.</returns>
-    public AppEntry Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        Name = Name,
-        InterfaceUri = InterfaceUri,
-        Requirements = Requirements == null ? null : Requirements with {},
-        AutoUpdate = AutoUpdate,
-        Hostname = Hostname,
-        AccessPoints = AccessPoints?.Clone(),
-        CapabilityLists = {CapabilityLists.CloneElements()}
-    };
     #endregion
 }

@@ -7,7 +7,7 @@ namespace ZeroInstall.Model;
 /// Abstract base class for XML serializable classes that are part of the Zero Install feed model.
 /// </summary>
 /// <remarks>Does not include <see cref="ZeroInstall.Model.Capabilities"/>.</remarks>
-[Equatable]
+[Equatable, Cloneable]
 public abstract partial class FeedElement : XmlUnknown
 {
     /// <summary>

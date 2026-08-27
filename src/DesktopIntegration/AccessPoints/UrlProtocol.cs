@@ -10,7 +10,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 /// <seealso cref="Model.Capabilities.UrlProtocol"/>
 [XmlType("url-protocol", Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class UrlProtocol : DefaultAccessPoint
 {
     /// <inheritdoc/>
@@ -55,10 +55,5 @@ public partial class UrlProtocol : DefaultAccessPoint
     /// Returns the access point in the form "UrlProtocol: Capability". Not safe for parsing!
     /// </summary>
     public override string ToString() => $"UrlProtocol: {Capability}";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override AccessPoint Clone() => new UrlProtocol {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Capability = Capability};
     #endregion
 }

@@ -8,7 +8,7 @@ namespace ZeroInstall.Model;
 /// </summary>
 [Description("Retrieves an implementation by applying a list of recipe steps, such as downloading and combining multiple archives.")]
 [Serializable, XmlRoot("recipe", Namespace = Feed.XmlNamespace), XmlType("recipe", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class Recipe : RetrievalMethod
 {
     /// <summary>
@@ -67,18 +67,5 @@ public sealed partial class Recipe : RetrievalMethod
     /// </summary>
     public override string ToString()
         => $"Recipe ({Steps.Count} steps)";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Recipe"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Recipe"/>.</returns>
-    public override RetrievalMethod Clone() => new Recipe
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        Steps = {Steps.CloneElements()}
-    };
     #endregion
 }

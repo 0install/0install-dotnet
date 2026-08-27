@@ -11,7 +11,7 @@ namespace ZeroInstall.Model;
 /// <seealso cref="Feed.EntryPoints"/>
 [Description("Associates a command with a user-friendly name and description.")]
 [Serializable, XmlRoot("entry-point", Namespace = Feed.XmlNamespace), XmlType("entry-point", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class EntryPoint : FeedElement, IIconContainer, ISummaryContainer, ICloneable<EntryPoint>
 {
     /// <summary>
@@ -127,28 +127,5 @@ public sealed partial class EntryPoint : FeedElement, IIconContainer, ISummaryCo
     public override string ToString() => string.IsNullOrEmpty(BinaryName)
         ? Command
         : $"{Command} ({BinaryName})";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="EntryPoint"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="EntryPoint"/>.</returns>
-    public EntryPoint Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        IfZeroInstallVersion = IfZeroInstallVersion,
-        Command = Command,
-        BinaryName = BinaryName,
-        AppId = AppId,
-        NeedsTerminal = NeedsTerminal,
-        SuggestAutoStart = SuggestAutoStart,
-        SuggestSendTo = SuggestSendTo,
-        Names = {Names.CloneElements()},
-        Summaries = {Summaries.CloneElements()},
-        Descriptions = {Descriptions.CloneElements()},
-        Icons = {Icons.CloneElements()}
-    };
     #endregion
 }

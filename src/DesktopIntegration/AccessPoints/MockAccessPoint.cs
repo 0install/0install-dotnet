@@ -7,7 +7,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// A mock access point that does nothing (used for testing). Points to a <see cref="Model.Capabilities.FileType"/>.
 /// </summary>
 [XmlType("mock", Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class MockAccessPoint : DefaultAccessPoint
 {
     [SetsRequiredMembers]
@@ -76,18 +76,5 @@ public partial class MockAccessPoint : DefaultAccessPoint
     /// Returns the access point in the form "MockAccessPoint: ID". Not safe for parsing!
     /// </summary>
     public override string ToString() => $"MockAccessPoint: {ID} (ApplyFlagPath: {ApplyFlagPath}, UnapplyFlagPath: {UnapplyFlagPath})";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override AccessPoint Clone() => new MockAccessPoint
-    {
-        ID = ID,
-        Capability = Capability,
-        ApplyFlagPath = ApplyFlagPath,
-        UnapplyFlagPath = UnapplyFlagPath,
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements
-    };
     #endregion
 }

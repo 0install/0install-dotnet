@@ -10,7 +10,7 @@ namespace ZeroInstall.Model;
 /// Common base for <see cref="Implementation"/> and <see cref="ImplementationSelection"/>.
 /// </summary>
 [XmlType("implementation-base", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public abstract partial class ImplementationBase : Element
 {
     /// <summary>
@@ -87,18 +87,6 @@ public abstract partial class ImplementationBase : Element
 
         EnsureAttribute(ID, "id");
         EnsureAttribute(Version, "version");
-    }
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Copies all known values from one instance to another. Helper method for instance cloning.
-    /// </summary>
-    protected static void CloneFromTo(ImplementationBase from, ImplementationBase to)
-    {
-        Element.CloneFromTo(from ?? throw new ArgumentNullException(nameof(from)), to ?? throw new ArgumentNullException(nameof(to)));
-        to.LocalPath = from.LocalPath;
-        to.ManifestDigest = from.ManifestDigest;
     }
     #endregion
 

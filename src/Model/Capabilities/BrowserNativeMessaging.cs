@@ -11,7 +11,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Description("An application's ability to act as a browser native messaging host.")]
 [Serializable, XmlRoot("native-messaging", Namespace = CapabilityList.XmlNamespace), XmlType("native-messaging", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class BrowserNativeMessaging : Capability
 {
     /// <summary>
@@ -98,16 +98,4 @@ public sealed partial class BrowserNativeMessaging : Capability
     /// </summary>
     public override string ToString()
         => $"{Name} => {Command}";
-
-    /// <inheritdoc/>
-    public override Capability Clone() => new BrowserNativeMessaging
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        Browsers = {Browsers},
-        Name = Name,
-        BrowserExtensions = {BrowserExtensions.CloneElements()},
-        Command = Command
-    };
 }

@@ -10,7 +10,7 @@ namespace ZeroInstall.Model.Selection;
 /// <seealso cref="Selections.Implementations"/>
 [XmlType("selection", Namespace = Feed.XmlNamespace)]
 [SuppressMessage("Microsoft.Design", "CA1036:OverrideMethodsOnComparableTypes", Justification = "IComparable is only used for deterministic ordering")]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class ImplementationSelection : ImplementationBase, IInterfaceUriBindingContainer, ICloneable<ImplementationSelection>, IComparable<ImplementationSelection>
 {
     /// <summary>
@@ -59,7 +59,7 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
     /// All <see cref="Implementation"/>s that were considered by the solver when this one was chosen.
     /// <c>null</c> when selections are loaded from a file.
     /// </summary>
-    [Browsable(false), XmlIgnore, IgnoreEquality]
+    [Browsable(false), XmlIgnore, IgnoreEquality, ShallowClone]
     public IReadOnlyList<SelectionCandidate>? Candidates { get; private set; }
 
     /// <summary>
@@ -89,33 +89,6 @@ public sealed partial class ImplementationSelection : ImplementationBase, IInter
     #region Conversion
     /// <inheritdoc/>
     public override string ToString() => $"{base.ToString()} ({InterfaceUri})";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="ImplementationSelection"/>
-    /// </summary>
-    /// <returns>The cloned <see cref="ImplementationSelection"/>.</returns>
-    ImplementationSelection ICloneable<ImplementationSelection>.Clone()
-    {
-        var implementation = new ImplementationSelection
-        {
-            InterfaceUri = InterfaceUri,
-            FromFeed = FromFeed,
-            ID = ID,
-            Version = Version,
-            QuickTestFile = QuickTestFile,
-            Candidates = Candidates
-        };
-        CloneFromTo(this, implementation);
-        return implementation;
-    }
-
-    /// <summary>
-    /// Creates a deep copy of this <see cref="ImplementationSelection"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="ImplementationSelection"/>.</returns>
-    public override Element Clone() => ((ICloneable<ImplementationSelection>)this).Clone();
     #endregion
 
     #region Comparison

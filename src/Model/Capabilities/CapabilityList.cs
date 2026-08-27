@@ -8,7 +8,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Description("Groups a number of application capabilities (for a specific operating system) that can be registered in a desktop environment.")]
 [Serializable, XmlRoot("capabilities", Namespace = XmlNamespace), XmlType("capabilities", Namespace = XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class CapabilityList : XmlUnknown, ICloneable<CapabilityList>
 {
     #region Constants
@@ -65,19 +65,6 @@ public sealed partial class CapabilityList : XmlUnknown, ICloneable<CapabilityLi
         return Entries.OfType<T>().FirstOrDefault(specificCapability => specificCapability.ID == id);
     }
 
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="CapabilityList"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="CapabilityList"/>.</returns>
-    public CapabilityList Clone() => new()
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        OS = OS,
-        Entries = {Entries.CloneElements()}
-    };
-    #endregion
 
     #region Conversion
     /// <summary>

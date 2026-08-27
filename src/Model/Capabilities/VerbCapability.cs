@@ -7,7 +7,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// Abstract base class for capabilities that can have multiple <see cref="Verb"/>s.
 /// </summary>
 [XmlType("verb-capability", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public abstract partial class VerbCapability : IconCapability
 {
     /// <summary>

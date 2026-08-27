@@ -9,7 +9,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// Creates an icon for an application on the user's desktop.
 /// </summary>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class DesktopIcon : IconAccessPoint
 {
     public const string TagName = "desktop-icon", AltName = "desktop";
@@ -46,9 +46,4 @@ public partial class DesktopIcon : IconAccessPoint
         else if (UnixUtils.IsMacOSX) MacOS.DesktopEntry.Remove(this, machineWide);
         else if (UnixUtils.IsUnix) Unix.FreeDesktop.Remove(this, machineWide);
     }
-
-    #region Clone
-    /// <inheritdoc/>
-    public override AccessPoint Clone() => new DesktopIcon {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
-    #endregion
 }

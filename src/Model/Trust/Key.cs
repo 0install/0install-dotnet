@@ -7,7 +7,7 @@ namespace ZeroInstall.Model.Trust;
 /// A known OpenPGP key, trusted to sign feeds from a certain set of domains.
 /// </summary>
 [XmlType("key", Namespace = TrustDB.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class Key : ICloneable<Key>
 {
     /// <summary>
@@ -29,17 +29,5 @@ public sealed partial class Key : ICloneable<Key>
     /// </summary>
     public override string ToString()
         => $"{Fingerprint}: {Domains}";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="Key"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="Key"/>.</returns>
-    public Key Clone() => new()
-    {
-        Fingerprint = Fingerprint,
-        Domains = {Domains}
-    };
     #endregion
 }

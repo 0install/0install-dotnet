@@ -10,7 +10,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Description("A specific file extension used to identify a file type.")]
 [Serializable, XmlRoot("extension", Namespace = CapabilityList.XmlNamespace), XmlType("extension", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtension>
 {
     #region Constants
@@ -65,13 +65,5 @@ public partial class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtensio
     /// </summary>
     public override string ToString()
         => $"{Value} ({MimeType})";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="FileTypeExtension"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="FileTypeExtension"/>.</returns>
-    public FileTypeExtension Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Value = Value, MimeType = MimeType, PerceivedType = PerceivedType};
     #endregion
 }

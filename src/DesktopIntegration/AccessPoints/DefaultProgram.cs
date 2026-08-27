@@ -10,7 +10,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 /// <seealso cref="Model.Capabilities.DefaultProgram"/>
 [XmlType("default-program", Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class DefaultProgram : DefaultAccessPoint
 {
     /// <inheritdoc/>
@@ -55,10 +55,5 @@ public partial class DefaultProgram : DefaultAccessPoint
     /// Returns the access point in the form "DefaultProgram". Not safe for parsing!
     /// </summary>
     public override string ToString() => "DefaultProgram";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override AccessPoint Clone() => new DefaultProgram {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Capability = Capability};
     #endregion
 }

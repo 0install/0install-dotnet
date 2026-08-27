@@ -10,7 +10,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 /// <seealso cref="ZeroInstall.Model.Capabilities"/>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class CapabilityRegistration : AccessPoint
 {
     public const string TagName = "capability-registration", AltName = "capabilities";
@@ -128,10 +128,5 @@ public partial class CapabilityRegistration : AccessPoint
     /// Returns the access point in the form "CapabilityRegistration". Not safe for parsing!
     /// </summary>
     public override string ToString() => "CapabilityRegistration";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override AccessPoint Clone() => new CapabilityRegistration {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements};
     #endregion
 }

@@ -9,7 +9,7 @@ namespace ZeroInstall.Model;
 /// Represents a retrieval method that downloads data from the net.
 /// </summary>
 [XmlType("download-retrieval-method", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public abstract partial class DownloadRetrievalMethod : RetrievalMethod, IRecipeStep
 {
     /// <summary>
@@ -53,10 +53,5 @@ public abstract partial class DownloadRetrievalMethod : RetrievalMethod, IRecipe
 
         if (Size < 0) throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, "size", ToShortXml()));
     }
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    IRecipeStep ICloneable<IRecipeStep>.Clone() => (IRecipeStep)Clone();
     #endregion
 }

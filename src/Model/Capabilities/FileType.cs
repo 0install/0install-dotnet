@@ -8,7 +8,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Description("An application's ability to open a certain file type.")]
 [Serializable, XmlRoot("file-type", Namespace = CapabilityList.XmlNamespace), XmlType("file-type", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class FileType : VerbCapability
 {
     /// <summary>
@@ -38,20 +38,5 @@ public sealed partial class FileType : VerbCapability
     /// </summary>
     public override string ToString()
         => $"{ID}";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override Capability Clone() => new FileType
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        ExplicitOnly = ExplicitOnly,
-        Descriptions = {Descriptions.CloneElements()},
-        Icons = {Icons.CloneElements()},
-        Verbs = {Verbs.CloneElements()},
-        Extensions = {Extensions.CloneElements()}
-    };
     #endregion
 }

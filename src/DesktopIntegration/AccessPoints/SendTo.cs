@@ -9,7 +9,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// Creates a shortcut for an application in the "Send to" menu.
 /// </summary>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public partial class SendTo : IconAccessPoint
 {
     public const string TagName = "send-to";
@@ -42,9 +42,4 @@ public partial class SendTo : IconAccessPoint
 
         if (WindowsUtils.IsWindows && !machineWide) Windows.Shortcut.Remove(this);
     }
-
-    #region Clone
-    /// <inheritdoc/>
-    public override AccessPoint Clone() => new SendTo {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, Name = Name, Command = Command};
-    #endregion
 }

@@ -8,7 +8,7 @@ namespace ZeroInstall.DesktopIntegration.AccessPoints;
 /// </summary>
 /// <seealso cref="Model.Capabilities.Capability"/>
 [XmlType(TagName, Namespace = AppList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public abstract partial class DefaultAccessPoint : AccessPoint
 {
     public const string TagName = "default-access-point", AltName = "default-app";

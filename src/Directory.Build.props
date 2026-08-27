@@ -51,6 +51,7 @@
   <!-- Build-time dependencies -->
   <ItemGroup>
     <PackageReference Include="Generator.Equals" Version="3.3.0" PrivateAssets="All" />
+    <PackageReference Include="NanoByte.CloneGenerator" Version="0.1.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.400" PrivateAssets="All" />
   </ItemGroup>
 
@@ -64,6 +65,7 @@
     <Using Include="System.Xml.Serialization" />
     <Using Include="JetBrains.Annotations" />
     <Using Include="Generator.Equals" />
+    <Using Include="NanoByte.CloneGenerator" />
     <Using Include="NanoByte.Common" />
     <Using Include="NanoByte.Common.Collections" />
     <Using Include="NanoByte.Common.Storage" />

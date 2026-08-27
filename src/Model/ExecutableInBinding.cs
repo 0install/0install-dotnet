@@ -9,7 +9,7 @@ namespace ZeroInstall.Model;
 /// Make a chosen <see cref="Implementation"/> available as an executable at runtime.
 /// </summary>
 [XmlType("executable-in-binding", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public abstract partial class ExecutableInBinding : Binding
 {
     /// <summary>

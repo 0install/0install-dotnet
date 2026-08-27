@@ -32,7 +32,7 @@ public enum ContextMenuTarget
 /// </summary>
 [Description("An entry in the file manager's context menu for all file types.")]
 [Serializable, XmlRoot("context-menu", Namespace = CapabilityList.XmlNamespace), XmlType("context-menu", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class ContextMenu : VerbCapability
 {
     /// <summary>
@@ -63,21 +63,5 @@ public sealed partial class ContextMenu : VerbCapability
     /// Returns the capability in the form "ID". Not safe for parsing!
     /// </summary>
     public override string ToString() => ID;
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override Capability Clone() => new ContextMenu
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        ExplicitOnly = ExplicitOnly,
-        Target = Target,
-        Descriptions = {Descriptions.CloneElements()},
-        Icons = {Icons.CloneElements()},
-        Verbs = {Verbs.CloneElements()},
-        Extensions = {Extensions.CloneElements()}
-    };
     #endregion
 }

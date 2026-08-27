@@ -8,7 +8,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Description("An application's ability to act as a COM server.")]
 [Serializable, XmlRoot("com-server", Namespace = CapabilityList.XmlNamespace), XmlType("com-server", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class ComServer : Capability
 {
     /// <inheritdoc/>
@@ -20,10 +20,5 @@ public sealed partial class ComServer : Capability
     /// Returns the capability in the form "-". Not safe for parsing!
     /// </summary>
     public override string ToString() => "-";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override Capability Clone() => new ComServer {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, ID = ID};
     #endregion
 }

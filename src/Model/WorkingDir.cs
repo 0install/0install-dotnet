@@ -13,7 +13,7 @@ Switches the working directory of a process on startup to a location within an i
 Useful for supporting legacy Windows applications which do not properly locate their installation directory.
 """)]
 [Serializable, XmlRoot("working-dir", Namespace = Feed.XmlNamespace), XmlType("working-dir", Namespace = Feed.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class WorkingDir : FeedElement, ICloneable<WorkingDir>
 {
     /// <summary>
@@ -28,13 +28,5 @@ public sealed partial class WorkingDir : FeedElement, ICloneable<WorkingDir>
     /// Returns the binding in the form "Source". Not safe for parsing!
     /// </summary>
     public override string ToString() => Source ?? "(unset)";
-    #endregion
-
-    #region Clone
-    /// <summary>
-    /// Creates a deep copy of this <see cref="WorkingDir"/> instance.
-    /// </summary>
-    /// <returns>The new copy of the <see cref="WorkingDir"/>.</returns>
-    public WorkingDir Clone() => new() {UnknownAttributes = UnknownAttributes, UnknownElements = UnknownElements, IfZeroInstallVersion = IfZeroInstallVersion, Source = Source};
     #endregion
 }

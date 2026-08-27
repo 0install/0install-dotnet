@@ -8,7 +8,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Description("An application's ability to handle one or more AutoPlay events.")]
 [Serializable, XmlRoot("auto-play", Namespace = CapabilityList.XmlNamespace), XmlType("auto-play", Namespace = CapabilityList.XmlNamespace)]
-[Equatable]
+[Equatable, Cloneable]
 public sealed partial class AutoPlay : IconCapability
 {
     /// <summary>
@@ -55,22 +55,5 @@ public sealed partial class AutoPlay : IconCapability
     /// </summary>
     public override string ToString()
         => $"{ID}";
-    #endregion
-
-    #region Clone
-    /// <inheritdoc/>
-    public override Capability Clone() => new AutoPlay
-    {
-        UnknownAttributes = UnknownAttributes,
-        UnknownElements = UnknownElements,
-        ID = ID,
-        ExplicitOnly = ExplicitOnly,
-        Provider = Provider,
-        // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-        Verb = Verb?.Clone()!,
-        Icons = {Icons.CloneElements()},
-        Descriptions = {Descriptions.CloneElements()},
-        Events = {Events.CloneElements()}
-    };
     #endregion
 }
