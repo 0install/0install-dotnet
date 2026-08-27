@@ -7,6 +7,6 @@ function Run-DotNet {
 }
 
 echo "Unit tests"
-Run-DotNet test --verbosity quiet --no-build --configuration Release UnitTests\UnitTests.csproj
+Run-DotNet test --verbosity quiet --no-build --configuration Release
 
 popd

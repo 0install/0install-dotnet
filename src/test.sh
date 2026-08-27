@@ -10,4 +10,4 @@ cd `dirname $0`
 #fi
 
 echo "Unit tests"
-$dotnet test --verbosity quiet --no-build --configuration Release --framework net10.0 UnitTests/UnitTests.csproj
+$dotnet test --verbosity quiet --no-build --configuration Release --framework net10.0
