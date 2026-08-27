@@ -41,17 +41,23 @@ public abstract class ManagerBase(ITaskHandler handler, bool machineWide) : IDis
     /// <exception cref="TimeoutException">Another process is already holding the mutex.</exception>
     protected void AcquireMutex()
     {
+        string name = MutexName;
+
+        // Mainly for unit tests
+        if (Locations.IsPortable)
+            name += $"-{Locations.PortableBase.ToLowerInvariant().GetStableHashCode()}";
+
 #if NETFRAMEWORK
         if (MachineWide)
         {
             var mutexSecurity = new MutexSecurity();
             mutexSecurity.AddAccessRule(new(new SecurityIdentifier(WellKnownSidType.WorldSid, null), MutexRights.FullControl, AccessControlType.Allow));
-            _mutex = new(false, $@"Global\{MutexName}", out _, mutexSecurity);
+            _mutex = new(false, $@"Global\{name}", out _, mutexSecurity);
         }
         else
 #endif
         {
-            _mutex = new(false, MutexName);
+            _mutex = new(false, name);
         }
 
         _mutex.WaitOne(Handler.CancellationToken, millisecondsTimeout: 2000);
