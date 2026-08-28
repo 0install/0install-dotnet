@@ -148,7 +148,7 @@ public partial record Requirements
 #endif
     public VersionRange? Versions
     {
-        get => ExtraRestrictions.TryGetValue(InterfaceUri, out var range) ? range : null;
+        get => ExtraRestrictions.GetValueOrDefault(InterfaceUri);
         set
         {
             if (value == null) ExtraRestrictions.Remove(InterfaceUri);
