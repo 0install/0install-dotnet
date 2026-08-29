@@ -23,8 +23,7 @@ namespace ZeroInstall.Model;
 #if !NET
 [Serializable]
 #endif
-[Equatable]
-public sealed partial class FeedUri : Uri
+public sealed class FeedUri : Uri, IEquatable<FeedUri>
 #if !NET
     , ISerializable
 #endif
@@ -306,5 +305,19 @@ public sealed partial class FeedUri : Uri
     /// Safe for parsing!
     /// </summary>
     public string ToStringRfc() => PrependPrefix(IsFile ? LocalPath : AbsoluteUri);
+    #endregion
+
+    #region Equality
+    /// <inheritdoc/>
+    public bool Equals(FeedUri? other)
+        => other is not null
+        && (ReferenceEquals(this, other)
+         || (base.Equals(other) && IsFake == other.IsFake && IsFromDistribution == other.IsFromDistribution));
+
+    /// <inheritdoc/>
+    public override bool Equals(object? obj) => Equals(obj as FeedUri);
+
+    /// <inheritdoc/>
+    public override int GetHashCode() => HashCode.Combine(base.GetHashCode(), IsFake, IsFromDistribution);
     #endregion
 }

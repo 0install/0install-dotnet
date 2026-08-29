@@ -15,20 +15,22 @@ namespace ZeroInstall.Model;
 /// Abstract base class for XML serializable classes that are intended to retain any unknown XML elements or attributes loaded from an XML file.
 /// </summary>
 /// <remarks>Inheriting from this class will prevent the <see cref="XmlSerializer.UnknownElement"/> event from being triggered.</remarks>
-[Cloneable]
+[Equatable, Cloneable]
 public abstract partial class XmlUnknown
 {
+#pragma warning disable GE001 // Collections are handled by dedicated comparers
     /// <summary>
     /// Contains any unknown additional XML attributes.
     /// </summary>
-    [XmlAnyAttribute]
+    [XmlAnyAttribute, CustomEquality(typeof(XmlAttributesComparer))]
     public XmlAttribute[]? UnknownAttributes;
 
     /// <summary>
     /// Contains any unknown additional XML elements.
     /// </summary>
-    [XmlAnyElement]
+    [XmlAnyElement, CustomEquality(typeof(XmlElementsComparer))]
     public XmlElement[]? UnknownElements;
+#pragma warning restore GE001
 
     /// <summary>
     /// Ensures that a value deserialized from an XML attribute is set (not <c>null</c>).
@@ -78,6 +80,17 @@ public abstract partial class XmlUnknown
     }
 
     #region Comparers
+    private class XmlAttributesComparer : IEqualityComparer<XmlAttribute[]?>
+    {
+        public static readonly XmlAttributesComparer Default = new();
+
+        public bool Equals(XmlAttribute[]? x, XmlAttribute[]? y)
+            => (x ?? []).UnsequencedEquals(y ?? [], comparer: XmlAttributeComparer.Instance);
+
+        public int GetHashCode(XmlAttribute[]? obj)
+            => obj is {Length: > 0} ? obj.GetUnsequencedHashCode(XmlAttributeComparer.Instance) : 0;
+    }
+
     private class XmlAttributeComparer : IEqualityComparer<XmlAttribute>
     {
         public static readonly XmlAttributeComparer Instance = new();
@@ -90,6 +103,17 @@ public abstract partial class XmlUnknown
 
         public int GetHashCode(XmlAttribute obj)
             => HashCode.Combine(obj.Name, obj.Value);
+    }
+
+    private class XmlElementsComparer : IEqualityComparer<XmlElement[]?>
+    {
+        public static readonly XmlElementsComparer Default = new();
+
+        public bool Equals(XmlElement[]? x, XmlElement[]? y)
+            => (x ?? []).SequencedEquals(y ?? [], comparer: XmlElementComparer.Instance);
+
+        public int GetHashCode(XmlElement[]? obj)
+            => obj is {Length: > 0} ? obj.GetSequencedHashCode(XmlElementComparer.Instance) : 0;
     }
 
     private class XmlElementComparer : IEqualityComparer<XmlElement>
@@ -107,19 +131,5 @@ public abstract partial class XmlUnknown
         public int GetHashCode(XmlElement obj)
             => HashCode.Combine(obj.Name, obj.InnerText);
     }
-    #endregion
-
-    #region Equatable
-    /// <inheritdoc/>
-    public override bool Equals(object? obj)
-        => obj is XmlUnknown other
-        && (UnknownAttributes ?? []).UnsequencedEquals(other.UnknownAttributes ?? [], comparer: XmlAttributeComparer.Instance)
-        && (UnknownElements ?? []).SequencedEquals(other.UnknownElements ?? [], comparer: XmlElementComparer.Instance);
-
-    /// <inheritdoc/>
-    public override int GetHashCode()
-        => HashCode.Combine(
-            (UnknownAttributes ?? []).GetUnsequencedHashCode(XmlAttributeComparer.Instance),
-            (UnknownElements ?? []).GetSequencedHashCode(XmlElementComparer.Instance));
     #endregion
 }
