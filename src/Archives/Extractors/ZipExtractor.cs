@@ -24,7 +24,7 @@ public class ZipExtractor(ITaskHandler handler) : ArchiveExtractor(handler)
             ExtractFiles(new ZipInputStream(stream) { IsStreamOwner = false }, subDir, builder);
         }
         #region Error handling
-        catch (Exception ex) when (ex is SharpZipBaseException or InvalidDataException or ArgumentOutOfRangeException)
+        catch (Exception ex) when (ex is SharpZipBaseException or InvalidDataException or ArgumentOutOfRangeException or IndexOutOfRangeException)
         {
             // Wrap exception since only certain exception types are allowed
             throw new IOException(Resources.ArchiveInvalid, ex);
