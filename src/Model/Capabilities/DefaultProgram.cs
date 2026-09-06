@@ -1,6 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Native;
+
 namespace ZeroInstall.Model.Capabilities;
 
 /// <summary>
@@ -55,7 +57,7 @@ public sealed partial class DefaultProgram : VerbCapability
 
     /// <inheritdoc/>
     [XmlIgnore]
-    public override bool WindowsMachineWideOnly => true;
+    public override bool WindowsMachineWideOnly => !WindowsUtils.IsWindows8;
 
     /// <summary>
     /// The name of the service the application provides.

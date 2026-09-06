@@ -57,7 +57,7 @@ public partial class CapabilityRegistration : AccessPoint
                     break;
 
                 case Model.Capabilities.DefaultProgram defaultProgram:
-                    if (WindowsUtils.IsWindows && machineWide) Windows.DefaultProgram.Register(target, defaultProgram, iconStore);
+                    if ((WindowsUtils.IsWindows && machineWide) || WindowsUtils.IsWindows8) Windows.DefaultProgram.Register(target, defaultProgram, iconStore, machineWide);
                     else if (UnixUtils.IsMacOSX) MacOS.DefaultProgram.Register(target, defaultProgram, iconStore, machineWide);
                     else if (UnixUtils.IsUnix) Unix.DefaultProgram.Register(target, defaultProgram, iconStore, machineWide);
                     break;
@@ -105,7 +105,7 @@ public partial class CapabilityRegistration : AccessPoint
                     break;
 
                 case Model.Capabilities.DefaultProgram defaultProgram:
-                    if (WindowsUtils.IsWindows && machineWide) Windows.DefaultProgram.Unregister(defaultProgram);
+                    if ((WindowsUtils.IsWindows && machineWide) || WindowsUtils.IsWindows8) Windows.DefaultProgram.Unregister(defaultProgram, machineWide);
                     else if (UnixUtils.IsMacOSX) MacOS.DefaultProgram.Unregister(defaultProgram, machineWide);
                     else if (UnixUtils.IsUnix) Unix.DefaultProgram.Unregister(defaultProgram, machineWide);
                     break;

@@ -35,7 +35,7 @@ public partial class DefaultProgram : DefaultAccessPoint
         var capability = appEntry.LookupCapability<Model.Capabilities.DefaultProgram>(Capability);
         var target = new FeedTarget(appEntry.InterfaceUri, feed);
         if (WindowsUtils.IsWindows && machineWide)
-            Windows.DefaultProgram.Register(target, capability, iconStore, accessPoint: true);
+            Windows.DefaultProgram.Register(target, capability, iconStore, machineWide, accessPoint: true);
     }
 
     /// <inheritdoc/>
@@ -47,7 +47,7 @@ public partial class DefaultProgram : DefaultAccessPoint
 
         var capability = appEntry.LookupCapability<Model.Capabilities.DefaultProgram>(Capability);
         if (WindowsUtils.IsWindows && machineWide)
-            Windows.DefaultProgram.Unregister(capability, accessPoint: true);
+            Windows.DefaultProgram.Unregister(capability, machineWide, accessPoint: true);
     }
 
     #region Conversion

@@ -67,7 +67,7 @@ public class CategoryIntegrationManager(Config config, ITaskHandler handler, boo
         try
         {
             AddAccessPointsInternal(appEntry, feed, accessPointsToAdd);
-            if (menu && MachineWide) ToggleIconsVisible(appEntry, true);
+            if (menu && (MachineWide || WindowsUtils.IsWindows8)) ToggleIconsVisible(appEntry, true);
         }
         catch (KeyNotFoundException ex)
         {
@@ -114,7 +114,7 @@ public class CategoryIntegrationManager(Config config, ITaskHandler handler, boo
         try
         {
             RemoveAccessPointsInternal(appEntry, accessPointsToRemove);
-            if (menu && MachineWide) ToggleIconsVisible(appEntry, false);
+            if (menu && (MachineWide || WindowsUtils.IsWindows8)) ToggleIconsVisible(appEntry, false);
         }
         catch (KeyNotFoundException ex)
         {
@@ -135,7 +135,7 @@ public class CategoryIntegrationManager(Config config, ITaskHandler handler, boo
     /// <param name="appEntry">The application being modified.</param>
     /// <param name="iconsVisible"><c>true</c> if the icons are currently visible, <c>false</c> if the icons are currently not visible.</param>
     /// <remarks>This is a special handler to support <see cref="Windows.DefaultProgram"/>.</remarks>
-    private static void ToggleIconsVisible(AppEntry appEntry, bool iconsVisible)
+    private void ToggleIconsVisible(AppEntry appEntry, bool iconsVisible)
     {
         #region Sanity checks
         if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
@@ -144,7 +144,7 @@ public class CategoryIntegrationManager(Config config, ITaskHandler handler, boo
         foreach (var defaultProgram in appEntry.CapabilityLists.CompatibleCapabilities().OfType<Model.Capabilities.DefaultProgram>())
         {
             if (WindowsUtils.IsWindows)
-                Windows.DefaultProgram.ToggleIconsVisible(defaultProgram, iconsVisible);
+                Windows.DefaultProgram.ToggleIconsVisible(defaultProgram, MachineWide, iconsVisible);
         }
     }
     #endregion

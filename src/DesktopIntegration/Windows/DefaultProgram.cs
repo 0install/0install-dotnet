@@ -39,37 +39,43 @@ public static class DefaultProgram
 
     #region Register
     /// <summary>
-    /// Registers an application as a candidate for a default program for some service in the current system. This can only be applied machine-wide, not per user.
+    /// Registers an application as a candidate for a default program for some service in the current system.
     /// </summary>
     /// <param name="target">The application being integrated.</param>
     /// <param name="defaultProgram">The default program information to be registered.</param>
     /// <param name="iconStore">Stores icon files downloaded from the web as local files.</param>
+    /// <param name="machineWide">Register the application machine-wide instead of just for the current user.</param>
     /// <param name="accessPoint">Indicates that the program should be set as the current default for the service it provides.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
     /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
     /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-    public static void Register(FeedTarget target, Model.Capabilities.DefaultProgram defaultProgram, IIconStore iconStore, bool accessPoint = false)
+    public static void Register(FeedTarget target, Model.Capabilities.DefaultProgram defaultProgram, IIconStore iconStore, bool machineWide, bool accessPoint = false)
     {
         #region Sanity checks
         if (defaultProgram == null) throw new ArgumentNullException(nameof(defaultProgram));
         if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
         #endregion
 
-        using var serviceKey = Registry.LocalMachine.CreateSubKeyChecked($@"{RegKeyMachineClients}\{defaultProgram.Service}");
+        var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
+
+        using var serviceKey = hive.CreateSubKeyChecked($@"{RegKeyMachineClients}\{defaultProgram.Service}");
         using (var appKey = serviceKey.CreateSubKeyChecked(defaultProgram.ID))
         {
             appKey.SetValue("", target.Feed.Name);
             appKey.SetValue(accessPoint ? RegistryClasses.PurposeFlagAccessPoint : RegistryClasses.PurposeFlagCapability, "");
-            RegistryClasses.Register(appKey, target, defaultProgram, iconStore, machineWide: true);
+            RegistryClasses.Register(appKey, target, defaultProgram, iconStore, machineWide);
 
             // Set callbacks for Windows SPAD
             using (var installInfoKey = appKey.CreateSubKeyChecked(RegSubKeyInstallInfo))
             {
                 string exePath = Paths.Combine(Locations.InstallBase, "0install-win.exe");
-                installInfoKey.SetValue(RegValueReinstallCommand, new[] {exePath, "integrate", "--machine", "--batch", "--add", "defaults", target.Uri.ToStringRfc()}.JoinEscapeArguments());
-                installInfoKey.SetValue(RegValueShowIconsCommand, new[] {exePath, "integrate", "--machine", "--batch", "--add", MenuEntry.TagName, "--add", DesktopIcon.TagName, target.Uri.ToStringRfc()}.JoinEscapeArguments());
-                installInfoKey.SetValue(RegValueHideIconsCommand, new[] {exePath, "integrate", "--machine", "--batch", "--remove", MenuEntry.TagName, "--remove", DesktopIcon.TagName, target.Uri.ToStringRfc()}.JoinEscapeArguments());
+                string[] integrate = machineWide
+                    ? [exePath, "integrate", "--machine", "--batch"]
+                    : [exePath, "integrate", "--batch"];
+                installInfoKey.SetValue(RegValueReinstallCommand, integrate.Concat(["--add", "defaults", target.Uri.ToStringRfc()]).JoinEscapeArguments());
+                installInfoKey.SetValue(RegValueShowIconsCommand, integrate.Concat(["--add", MenuEntry.TagName, "--add", DesktopIcon.TagName, target.Uri.ToStringRfc()]).JoinEscapeArguments());
+                installInfoKey.SetValue(RegValueHideIconsCommand, integrate.Concat(["--remove", MenuEntry.TagName, "--remove", DesktopIcon.TagName, target.Uri.ToStringRfc()]).JoinEscapeArguments());
                 installInfoKey.SetValue(RegValueIconsVisible, 0, RegistryValueKind.DWord);
             }
 
@@ -77,7 +83,7 @@ public static class DefaultProgram
             {
                 var mailToProtocol = new Model.Capabilities.UrlProtocol {ID = "dummy", Verbs = {new() {Name = Verb.NameOpen}}};
                 using var mailToKey = appKey.CreateSubKeyChecked(@"Protocols\mailto");
-                RegistryClasses.Register(mailToKey, target, mailToProtocol, iconStore, machineWide: true);
+                RegistryClasses.Register(mailToKey, target, mailToProtocol, iconStore, machineWide);
             }
         }
 
@@ -88,29 +94,34 @@ public static class DefaultProgram
     /// Toggles the registry entry indicating whether icons for the application are currently visible.
     /// </summary>
     /// <param name="defaultProgram">The default program information to be modified.</param>
+    /// <param name="machineWide">The application was registered machine-wide instead of just for the current user.</param>
     /// <param name="iconsVisible"><c>true</c> if the icons are currently visible, <c>false</c> if the icons are currently not visible.</param>
-    internal static void ToggleIconsVisible(Model.Capabilities.DefaultProgram defaultProgram, bool iconsVisible)
+    internal static void ToggleIconsVisible(Model.Capabilities.DefaultProgram defaultProgram, bool machineWide, bool iconsVisible)
     {
-        using var installInfoKey = Registry.LocalMachine.CreateSubKeyChecked($@"{RegKeyMachineClients}\{defaultProgram.Service}\{defaultProgram.ID}\{RegSubKeyInstallInfo}");
+        var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
+        using var installInfoKey = hive.CreateSubKeyChecked($@"{RegKeyMachineClients}\{defaultProgram.Service}\{defaultProgram.ID}\{RegSubKeyInstallInfo}");
         installInfoKey.SetValue(RegValueIconsVisible, iconsVisible ? 1 : 0, RegistryValueKind.DWord);
     }
     #endregion
 
     #region Unregister
     /// <summary>
-    /// Unregisters an application as a candidate for a default program in the current system. This can only be applied machine-wide, not per user.
+    /// Unregisters an application as a candidate for a default program in the current system.
     /// </summary>
     /// <param name="defaultProgram">The default program information to be removed.</param>
+    /// <param name="machineWide">The application was registered machine-wide instead of just for the current user.</param>
     /// <param name="accessPoint">Indicates that the program was set as the current default for the service it provides.</param>
     /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
-    public static void Unregister(Model.Capabilities.DefaultProgram defaultProgram, bool accessPoint = false)
+    public static void Unregister(Model.Capabilities.DefaultProgram defaultProgram, bool machineWide, bool accessPoint = false)
     {
         #region Sanity checks
         if (defaultProgram == null) throw new ArgumentNullException(nameof(defaultProgram));
         #endregion
 
-        using var serviceKey = Registry.LocalMachine.OpenSubKeyChecked($@"{RegKeyMachineClients}\{defaultProgram.Service}", writable: true);
+        var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
+
+        using var serviceKey = hive.OpenSubKeyChecked($@"{RegKeyMachineClients}\{defaultProgram.Service}", writable: true);
         if (accessPoint)
         {
             // TODO: Restore previous default
