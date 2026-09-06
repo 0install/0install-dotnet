@@ -23,6 +23,7 @@ internal static class UserChoice
     /// <param name="associationsKey">An open writable registry key below which per-association subkeys live (e.g. Explorer's <c>FileExts</c> or Shell's <c>UrlAssociations</c>).</param>
     /// <param name="association">The file extension (e.g. <c>.txt</c>) or URL protocol prefix (e.g. <c>http</c>).</param>
     /// <param name="progID">The ProgID of the handler to set as the default.</param>
+    /// <exception cref="DefaultAppException">Access to the <c>UserChoice</c> registry key was denied.</exception>
     public static void Set(RegistryKey associationsKey, string association, string progID)
     {
         using var associationKey = associationsKey.CreateSubKeyChecked(association);
@@ -45,7 +46,7 @@ internal static class UserChoice
         #region Error handling
         catch (Exception ex) when (ex is UnauthorizedAccessException or SecurityException)
         {
-            Log.Info("Failed to modify default handler user choice", ex);
+            throw new DefaultAppException($"Failed to set the Default App for '{association}'.", ex);
         }
         #endregion
     }

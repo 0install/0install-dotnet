@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration.AccessPoints;
@@ -275,15 +276,40 @@ public class IntegrationManager : IntegrationManagerBase
         }
         #endregion
 
+        Windows.DefaultAppException? windowsDefaultAppError = null;
         Handler.RunTask(ForEachTask.Create(string.Format(Resources.ApplyingIntegration, appEntry.Name),
             accessPoints,
-            action: accessPoint => accessPoint.Apply(appEntry, feed, iconStore, MachineWide),
+            action: accessPoint =>
+            {
+                try
+                {
+                    accessPoint.Apply(appEntry, feed, iconStore, MachineWide);
+                }
+                #region Error handling
+                catch (Windows.DefaultAppException ex)
+                {
+                    // Try processing the remaining access points before handling this error
+                    windowsDefaultAppError ??= ex;
+                }
+                #endregion
+            },
             rollback: accessPoint =>
             {
                 // Don't perform rollback if the access point was already applied previously and this was only a refresh
                 if (!appEntry.AccessPoints.Entries.Contains(accessPoint))
                     accessPoint.Unapply(appEntry, MachineWide);
             }));
+
+        if (windowsDefaultAppError != null)
+        {
+            if (Handler.Verbosity != Verbosity.Batch && appEntry.CapabilityLists.CompatibleCapabilities().OfType<AppRegistration>().FirstOrDefault()?.ID is {} appId)
+            {
+                Log.Info("Asking user to set Default App manually using Windows Settings UI", windowsDefaultAppError);
+                new ProcessStartInfo($"ms-settings:defaultapps?registeredAppUser={Uri.EscapeDataString(appId)}") {UseShellExecute = true}.Start();
+            }
+            else
+                Log.Error(windowsDefaultAppError);
+        }
 
         appEntry.AccessPoints.Entries.Remove(accessPoints); // Replace pre-existing entries
         appEntry.AccessPoints.Entries.Add(accessPoints);

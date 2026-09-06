@@ -52,6 +52,7 @@ public static class FileType
     /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
     /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
+    /// <exception cref="DefaultAppException"><paramref name="accessPoint"/> is <c>true</c> and access to the <c>UserChoice</c> registry key was denied.</exception>
     public static void Register(FeedTarget target, Model.Capabilities.FileType fileType, IIconStore iconStore, bool machineWide, bool accessPoint = false)
     {
         #region Sanity checks
