@@ -69,8 +69,8 @@ public static class UrlProtocol
                 {
                     if (WindowsUtils.IsWindowsVista && !machineWide)
                     {
-                        using var userChoiceKey = Registry.CurrentUser.CreateSubKeyChecked($@"{RegKeyUserVistaUrlAssoc}\{prefix.Value}\UserChoice");
-                        userChoiceKey.SetValue("ProgID", RegistryClasses.Prefix + urlProtocol.ID);
+                        using var associationsKey = Registry.CurrentUser.CreateSubKeyChecked(RegKeyUserVistaUrlAssoc);
+                        UserChoice.Set(associationsKey, prefix.Value, RegistryClasses.Prefix + urlProtocol.ID);
                     }
                     else
                     {

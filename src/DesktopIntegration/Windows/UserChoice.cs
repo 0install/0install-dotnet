@@ -1,14 +1,55 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Runtime.Versioning;
+using System.Security;
 using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
+using Microsoft.Win32;
+using NanoByte.Common.Native;
 
 namespace ZeroInstall.DesktopIntegration.Windows;
 
-partial class FileType
+/// <summary>
+/// Contains control logic for setting Windows <c>UserChoice</c> registry keys that select the default handler for a file extension or URL protocol.
+/// </summary>
+[SupportedOSPlatform("windows")]
+internal static class UserChoice
 {
+    /// <summary>
+    /// Sets a <c>UserChoice</c> registry key selecting <paramref name="progID"/> as the default handler for <paramref name="association"/>.
+    /// </summary>
+    /// <param name="associationsKey">An open writable registry key below which per-association subkeys live (e.g. Explorer's <c>FileExts</c> or Shell's <c>UrlAssociations</c>).</param>
+    /// <param name="association">The file extension (e.g. <c>.txt</c>) or URL protocol prefix (e.g. <c>http</c>).</param>
+    /// <param name="progID">The ProgID of the handler to set as the default.</param>
+    public static void Set(RegistryKey associationsKey, string association, string progID)
+    {
+        using var associationKey = associationsKey.CreateSubKeyChecked(association);
+
+        using (var userChoiceKey = associationKey.TryOpenSubKey("UserChoice", writable: false))
+        {
+            // Leave unchanged if user choice already points to the desired value
+            if ((userChoiceKey?.GetValue("Progid") ?? userChoiceKey?.GetValue("ProgID") ?? "").ToString() == progID) return;
+        }
+
+        try
+        {
+            // Must delete and recreate instead of direct modification due to ACLs
+            associationKey.DeleteSubKey("UserChoice", throwOnMissingSubKey: false);
+
+            using var userChoiceKey = associationKey.CreateSubKeyChecked("UserChoice");
+            userChoiceKey.SetValue("Progid", progID);
+            userChoiceKey.SetValue("Hash", CalculateHash(association, progID, userChoiceKey.GetLastWriteTime()));
+        }
+        #region Error handling
+        catch (Exception ex) when (ex is UnauthorizedAccessException or SecurityException)
+        {
+            Log.Info("Failed to modify default handler user choice", ex);
+        }
+        #endregion
+    }
+
     private static string CalculateHash(string extension, string progID, DateTime lastWriteTime)
     {
         if (WindowsIdentity.GetCurrent().User is not { Value: var sid }) return "";

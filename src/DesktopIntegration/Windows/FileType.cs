@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Runtime.Versioning;
-using System.Security;
 using Microsoft.Win32;
 using NanoByte.Common.Native;
 
@@ -12,7 +11,7 @@ namespace ZeroInstall.DesktopIntegration.Windows;
 /// Contains control logic for applying <see cref="Model.Capabilities.FileType"/> and <see cref="AccessPoints.FileType"/> on Windows systems.
 /// </summary>
 [SupportedOSPlatform("windows")]
-public static partial class FileType
+public static class FileType
 {
     #region Constants
     /// <summary>The registry value name for friendly type name storage.</summary>
@@ -84,7 +83,11 @@ public static partial class FileType
 
                 if (accessPoint)
                 {
-                    if (!machineWide && WindowsUtils.IsWindowsVista) SetUserChoice(extension, progID);
+                    if (!machineWide && WindowsUtils.IsWindowsVista)
+                    {
+                        using var extensionsKey = Registry.CurrentUser.OpenSubKeyChecked(RegKeyExplorerFileExtensions, writable: true);
+                        UserChoice.Set(extensionsKey, extension.Value, progID);
+                    }
                     else extensionKey.SetValue("", progID);
                 }
             }
@@ -98,33 +101,6 @@ public static partial class FileType
         }
     }
 
-    private static void SetUserChoice(FileTypeExtension extension, string progID)
-    {
-        using var extensionsKey = Registry.CurrentUser.OpenSubKeyChecked(RegKeyExplorerFileExtensions, writable: true);
-        using var extensionKey = extensionsKey.CreateSubKeyChecked(extension.Value);
-
-        using (var userChoiceKey = extensionKey.TryOpenSubKey("UserChoice", writable: false))
-        {
-            // Leave unchanged if user choice already points to the desired value
-            if ((userChoiceKey?.GetValue("Progid") ?? "").ToString() == progID) return;
-        }
-
-        try
-        {
-            // Must delete and recreate instead of direct modification due to ACLs
-            extensionKey.DeleteSubKey("UserChoice", throwOnMissingSubKey: false);
-
-            using var userChoiceKey = extensionKey.CreateSubKeyChecked("UserChoice");
-            userChoiceKey.SetValue("Progid", progID);
-            userChoiceKey.SetValue("Hash", CalculateHash(extension.Value, progID, userChoiceKey.GetLastWriteTime()));
-        }
-        #region Error handling
-        catch (Exception ex) when (ex is UnauthorizedAccessException or SecurityException)
-        {
-            Log.Info("Failed to modify file type association user choice", ex);
-        }
-        #endregion
-    }
     #endregion
 
     #region Unregister
