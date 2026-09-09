@@ -34,7 +34,7 @@
     },
     {
       "matchPackagePatterns": ["docfx", "SourceLink"],
-      "matchPackageNames": ["SharpZipLib", "SharpCompress", "ZstdSharp.Port", "ELFSharp"],
+      "matchPackageNames": ["NanoByte.CloneGenerator", "SharpZipLib", "SharpCompress", "ZstdSharp.Port", "ELFSharp"],
       "automerge": true,
       "automergeType": "branch"
     },
