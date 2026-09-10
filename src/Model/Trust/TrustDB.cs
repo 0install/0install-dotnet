@@ -121,7 +121,6 @@ public sealed partial class TrustDB : ICloneable<TrustDB>
     /// <summary>
     /// The path of the file the trust DB was loaded from and/or will be saved to.
     /// </summary>
-    [IgnoreEquality]
     internal string FilePath = Locations.GetSaveConfigPath(AppName, isFile: true, _resource);
 
     /// <summary>
