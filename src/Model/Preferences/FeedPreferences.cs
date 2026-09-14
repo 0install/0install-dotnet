@@ -106,7 +106,6 @@ public sealed partial class FeedPreferences : XmlUnknown, ICloneable<FeedPrefere
         #endregion
     }
 
-    [IgnoreEquality]
 #if NET9_0_OR_GREATER
     private static readonly Lock _saveLock = new();
 #else
