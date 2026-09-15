@@ -75,7 +75,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Došlo k chybě při načítání databáze důvěryhodných zdrojů. Obnovují se výchozí hodnoty.</value>
+    <value>Došlo k chybě při načítání databáze důvěryhodnosti. Obnovují se výchozí hodnoty.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
@@ -95,7 +95,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Neplatný atribut „{0} “ na stránce {1}.</value>
+    <value>Neplatný atribut „{0} “ na adrese {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Chybí značka ` {0} ` uvnitř značky ` {1}`.</value>
+    <value>V souboru {1} chybí značka {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -127,11 +127,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Relativní URI „{0} “ se nepodařilo vyřešit. Relativní URI mohou obsahovat pouze kanály uložené jako místní soubory.</value>
+    <value>Relativní URI „{0} “ nebylo možné vyřešit. Relativní URI mohou obsahovat pouze kanály uložené jako místní soubory.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>Atribut „rollout-percentage“ na stránce {0} lze nastavit pouze v případě, že je „stability“ nastaveno na „testing“ nebo není nastaveno vůbec.</value>
+    <value>Atribut „rollout-percentage“ na adrese {0} lze nastavit pouze v případě, že je „stability“ nastaveno na „testing“ nebo není nastaveno vůbec.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -167,7 +167,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Mělo by se jednat o bezpečné ID. Může obsahovat pouze alfanumerické znaky, mezery ( ), tečky (.), podtržítka (_), pomlčky (-) a znaménka plus (+).</value>
+    <value>Mělo by se jednat o bezpečné ID. Smí obsahovat pouze alfanumerické znaky, mezery ( ), tečky (.), podtržítka (_), pomlčky (-) a znaménka plus (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">

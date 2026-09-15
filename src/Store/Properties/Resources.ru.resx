@@ -145,7 +145,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Поиск дубликатов файлов в папке «{0} »</value>
+    <value>Поиск дубликатов файлов в «{0} »</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
@@ -165,7 +165,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Реализация была удалена. При необходимости новая копия будет автоматически загружена заново.</value>
+    <value>Реализация была удалена. Новая копия будет автоматически загружена при необходимости.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -182,7 +182,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Не удалось загрузить значок с сайта {0}, поскольку поддерживаются только URL-адреса в формате HTTP и HTTPS.</value>
+    <value>Не удалось загрузить значок с сайта {0}, так как поддерживаются только URL-адреса в формате HTTP и HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -194,7 +194,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>Архив содержит недопустимый путь (потенциальная угроза безопасности): {0}</value>
+    <value>Архив содержит недопустимый путь (что может представлять угрозу безопасности): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -239,12 +239,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Эта настройка управляется групповой политикой и поэтому не может быть изменена.</value>
+    <value>Эта настройка регулируется групповой политикой и поэтому не может быть изменена.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>Возникла проблема с доступом к хранилищу реализаций «{0} ».
-Запустите команду «{1} », чтобы удалить его из списка зарегистрированных каталогов.</value>
+Запустите «{1} », чтобы удалить его из списка зарегистрированных каталогов.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
-    <value>Δεν υπάρχει εντολή «{0} »</value>
+    <value>Δεν υπάρχει η εντολή «{0} »</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
@@ -95,7 +95,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
-    <value>Δεν υπάρχουν λειτουργικές υλοποιήσεις:</value>
+    <value>Δεν υπάρχουν χρησιμοποιήσιμες υλοποιήσεις:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagProblem" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>Δεν βρέθηκε έκδοση του {0} κατάλληλη για το {1}.</value>
+    <value>Δεν ήταν δυνατή η εύρεση μιας έκδοσης του {0} κατάλληλης για το {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">

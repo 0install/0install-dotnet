@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Не удалось найти реализацию интерфейса «{0} » в списке выбора.</value>
+    <value>Не удалось найти реализацию интерфейса «{0} » в списке.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Отсутствует тег ` {0} ` внутри тега ` {1}`.</value>
+    <value>В теге ` {1}` отсутствует тег ` {0} `.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>Атрибут «rollout-percentage» на странице {0} можно установить только в том случае, если значение «stability» равно «testing» или не задано.</value>
+    <value>Атрибут «rollout-percentage» на странице {0} можно установить только в том случае, если параметр «stability» имеет значение «testing» или не задан.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">

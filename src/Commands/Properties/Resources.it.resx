@@ -67,11 +67,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasNotFound" xml:space="preserve">
-    <value>Non è stato trovato alcun alias esistente denominato «{0} ».</value>
+    <value>Non è stato trovato alcun alias esistente denominato "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasRemoved" xml:space="preserve">
-    <value>L'alias denominato "{0}" corrispondente a "{1}" è stato rimosso.</value>
+    <value>L'alias denominato "{0}" per "{1}" è stato rimosso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AllComponentsDownloaded" xml:space="preserve">
@@ -88,7 +88,7 @@ Puoi utilizzare lo script di importazione o il file Bootstrap eseguibile in '{1}
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
-    <value>Alias dell'applicazione</value>
+    <value>Alias dell’applicazione</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppList" xml:space="preserve">
@@ -100,11 +100,11 @@ Puoi utilizzare lo script di importazione o il file Bootstrap eseguibile in '{1}
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
-    <value>Sei sicuro di voler distribuire una nuova copia di Zero Install su '{0}'?</value>
+    <value>Sei sicuro di voler distribuire una nuova copia di Zero Install in "{0}"?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployZeroInstall" xml:space="preserve">
-    <value>Questa operazione aggiungerà Zero Install al menu Start e alla riga di comando. Procedere?</value>
+    <value>Questa operazione aggiungerà Zero Install al menu Start e alla riga di comando. Continuare?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskRemoveZeroInstall" xml:space="preserve">
@@ -116,9 +116,9 @@ Puoi utilizzare lo script di importazione o il file Bootstrap eseguibile in '{1}
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
-    <value>Desideri aggiornare eventuali integrazioni desktop esistenti per riflettere questa modifica?
-Se selezioni "Sì", le integrazioni potenzialmente incompatibili verranno rimosse.
-Se selezioni "No", Zero Install continuerà a utilizzare le vecchie funzionalità.</value>
+    <value>Desideri aggiornare eventuali integrazioni desktop esistenti per riflettere queste modifiche?
+Se selezioni «Sì», le integrazioni potenzialmente incompatibili verranno rimosse.
+Se selezioni «No», Zero Install continuerà a utilizzare le vecchie funzionalità.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CachedImplementations" xml:space="preserve">
@@ -180,8 +180,8 @@ Questi file possono essere scaricati nuovamente, se necessario.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridCommandAccessPointHelp" xml:space="preserve">
-    <value>Inizia a digitare del testo nell'ultima riga per creare una nuova voce.
-Seleziona un'intera riga cliccando sulla prima colonna, quindi premi il tasto CANC sulla tastiera per eliminare una voce.</value>
+    <value>Inizia a digitare del testo nell’ultima riga per creare una nuova voce.
+Seleziona un’intera riga cliccando sulla prima colonna, quindi premi il tasto CANC sulla tastiera per eliminare una voce.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
@@ -211,7 +211,7 @@ Deselezionare una casella di controllo per rimuovere lo stato predefinito di una
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeprecatedOption" xml:space="preserve">
-    <value>Opzione obsoleta. Si prega di utilizzare invece '{0}'.</value>
+    <value>Opzione obsoleta. Si prega di utilizzare invece "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -255,7 +255,7 @@ Deselezionare una casella di controllo per rimuovere lo stato predefinito di una
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
-    <value>Apre l'interfaccia utente grafica centrale per l'avvio e la gestione delle applicazioni.</value>
+    <value>Apre l'interfaccia grafica utente centrale per l'avvio e la gestione delle applicazioni.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
@@ -268,8 +268,8 @@ Senza argomenti, visualizza tutte le impostazioni e i relativi valori correnti. 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>Si comporta in modo simile a «0install select», con la differenza che scarica anche le versioni selezionate se non sono già presenti nella cache.
-Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato di versioni e queste sono state tutte scaricate e si trovano ora nella cache; restituisce uno stato pari a 1 in caso contrario.</value>
+    <value>Funziona in modo simile a «0install select», con la differenza che scarica anche le versioni selezionate se non sono già presenti nella cache.
+Restituisce uno stato di uscita pari a 0 se è stato selezionato un insieme adeguato di versioni e queste sono state tutte scaricate e si trovano ora nella cache; in caso contrario, restituisce uno stato pari a 1.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
@@ -278,7 +278,7 @@ Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme adeguato d
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>Importa un feed da un file locale, come se fosse stato scaricato dalla rete. Ciò è utile quando si testa un file di feed, per evitare di caricarlo su un server remoto al fine di scaricarlo nuovamente.
-Il file deve avere una firma digitale attendibile, come quando viene recuperato dalla rete.</value>
+Il file deve avere una firma digitale attendibile, come nel caso del recupero dalla rete.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
@@ -298,7 +298,7 @@ Il file deve avere una firma digitale attendibile, come quando viene recuperato 
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>Elenca tutti i feed aggiuntivi inseriti nell'URI tramite il comando '0install add-feed'.</value>
+    <value>Elenca tutti i feed aggiuntivi inseriti nell'URI tramite il comando «0install add-feed».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
@@ -331,7 +331,7 @@ Restituisce uno stato di uscita pari a 1 se la fase di download non è andata a 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Cerca i feed indicizzati dal server mirror che corrispondono alle parole chiave specificate. Si noti che il server mirror predefinito indicizza tutti i feed conosciuti, indipendentemente dalla qualità; spetta all'utente decidere se fidarsi dei programmi prima di eseguirli.</value>
+    <value>Cerca i feed indicizzati dal server mirror che corrispondono alle parole chiave specificate. Si noti che il server mirror predefinito indicizza tutti i feed conosciuti, indipendentemente dalla qualità; è necessario decidere se fidarsi dei programmi prima di eseguirli.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -344,7 +344,7 @@ Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme di version
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAdd" xml:space="preserve">
-    <value>Aggiunge il contenuto di una directory o di un archivio alla cache.</value>
+    <value>Aggiunge il contenuto di una cartella o di un archivio alla cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreAddDir" xml:space="preserve">
@@ -353,7 +353,7 @@ Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme di version
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
     <value>Verifica che tutte le implementazioni presenti nella cache siano integre.
-Argomenti aggiuntivi consentono di specificare percorsi personalizzati per la cache.</value>
+Argomenti aggiuntivi specificano percorsi personalizzati per la cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
@@ -388,7 +388,7 @@ Argomenti aggiuntivi consentono di specificare percorsi personalizzati per la ca
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
     <value>Rimuove tutte le implementazioni dalla cache. Utilizzare questo comando per ripulire il sistema prima di rimuovere Zero Install. L'eliminazione manuale delle directory della cache potrebbe risultare difficile a causa degli ACL NTFS utilizzati per proteggere le implementazioni da eventuali modifiche.
-Argomenti aggiuntivi specificano percorsi personalizzati per la cache.</value>
+Argomenti aggiuntivi consentono di specificare percorsi personalizzati per la cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreRemove" xml:space="preserve">
@@ -408,7 +408,7 @@ Argomenti aggiuntivi specificano percorsi personalizzati per la cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
-    <value>Sincronizza l'elenco delle applicazioni con il server.</value>
+    <value>Sincronizza l’elenco delle applicazioni con il server.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
@@ -497,7 +497,7 @@ Argomenti aggiuntivi specificano percorsi personalizzati per la cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>Il feed di "{0}" ({1}) è stato sostituito da "{2}". Vuoi utilizzare il nuovo feed?</value>
+    <value>Il feed per "{0}" ({1}) è stato sostituito da "{2}". Vuoi utilizzare il nuovo feed?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
@@ -509,7 +509,7 @@ Argomenti aggiuntivi specificano percorsi personalizzati per la cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
-    <value>La registrazione del feed è stata cancellata con successo per le seguenti interfacce:</value>
+    <value>La disregistrazione del feed è stata completata con successo per le seguenti interfacce:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileCheckComplete" xml:space="preserve">
@@ -570,7 +570,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
-    <value>Questo programma viene fornito SENZA ALCUNA GARANZIA, nella misura consentita dalla legge.
+    <value>Questo programma viene fornito SENZA ALCUNA GARANZIA, nei limiti consentiti dalla legge.
 È possibile ridistribuire copie di questo programma secondo i termini della GNU Lesser General Public License.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -615,7 +615,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Per consentire il funzionamento dell'integrazione con il desktop, è necessario installare Zero Install sul proprio sistema.</value>
+    <value>Per consentire l'integrazione con il desktop, è necessario installare Zero Install sul proprio sistema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
@@ -672,7 +672,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>Risponde automaticamente alle domande con i valori predefiniti, quando possibile, e semplifica l'output della console (senza tabelle né barre di avanzamento).</value>
+    <value>Risponde automaticamente alle domande con valori predefiniti, quando possibile, e semplifica l'output della console (senza tabelle né barre di avanzamento).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBefore" xml:space="preserve">
@@ -684,7 +684,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
-    <value>Rimuovere le implementazioni non più necessarie dopo l'aggiornamento.</value>
+    <value>Rimuovere le implementazioni non più necessarie dopo l’aggiornamento.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
@@ -713,7 +713,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
-    <value>Includere Zero Install stesso nell’esportazione insieme all’applicazione.</value>
+    <value>Includere Zero Install stesso nell'esportazione insieme all'applicazione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
@@ -721,7 +721,7 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
-    <value>Esegue l'aggiornamento anche se la versione attualmente installata è la stessa o più recente.</value>
+    <value>Esegue l’aggiornamento anche se la versione attualmente installata è la stessa o più recente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
@@ -741,15 +741,15 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
-    <value>Rimuove tutti i punti di accesso di un determinato {CATEGORY}.</value>
+    <value>Rimuove tutti i punti di accesso di una specifica {CATEGORY}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateRemoveAll" xml:space="preserve">
-    <value>Rimuovi tutti i punti di accesso.</value>
+    <value>Rimuovere tutti i punti di accesso.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Specifica la lingua preferita per l'implementazione. Utilizzare i codici lingua abbreviati ISO (ad es. en o en-US).
+    <value>Specifica la lingua preferita per l’implementazione. Utilizzare i codici abbreviati ISO delle lingue (ad es. en o en-US).
 È possibile utilizzare questa opzione più volte per specificare più lingue accettabili.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -771,7 +771,7 @@ Non può contenere argomenti della riga di comando! Non è necessario escapare g
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMessage" xml:space="preserve">
-    <value>Messaggio da visualizzare durante l'interazione con l'utente.</value>
+    <value>Messaggio da visualizzare durante l’interazione con l’utente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
@@ -783,16 +783,16 @@ Non può contenere argomenti della riga di comando! Non è necessario escapare g
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Ritorna immediatamente una volta avviato il programma selezionato, anziché attendere il completamento della sua esecuzione. Su Windows il codice di uscita corrisponde all'ID del processo del programma avviato.</value>
+    <value>Ritorna immediatamente una volta avviato il programma scelto, invece di attendere il completamento della sua esecuzione. Su Windows il codice di uscita corrisponde all’ID del processo del programma avviato.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
-    <value>Funziona in modalità offline, sovrascrivendo l'impostazione predefinita.
-In modalità offline, nessuna interfaccia viene aggiornata anche se non è aggiornata, e le versioni più recenti dei programmi non verranno scaricate anche se l'iniettore ne è già a conoscenza (ad esempio da un precedente aggiornamento).</value>
+    <value>Funziona in modalità offline, sovrascrivendo l’impostazione predefinita.
+In modalità offline, nessuna interfaccia viene aggiornata anche se non è più attuale e le versioni più recenti dei programmi non verranno scaricate anche se l’iniettore ne è già a conoscenza (ad esempio, a seguito di un precedente aggiornamento).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
-    <value>Imposta il solver in modo che utilizzi il sistema operativo {OS}.</value>
+    <value>Costringe il solutore a utilizzare come sistema operativo {OS}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPin" xml:space="preserve">
@@ -808,7 +808,7 @@ In modalità offline, nessuna interfaccia viene aggiornata anche se non è aggio
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>Riavvia l'interfaccia grafica di «0install central» dopo l'aggiornamento.</value>
+    <value>Riavviare l'interfaccia grafica di «0install central» dopo l'aggiornamento.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Options" xml:space="preserve">
@@ -832,7 +832,7 @@ In modalità offline, nessuna interfaccia viene aggiornata anche se non è aggio
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>Output più dettagliato. Utilizzare due volte per ottenere un output ancora più dettagliato.</value>
+    <value>Uscita più dettagliata. Utilizzare due volte per un'uscita ancora più dettagliata.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -840,9 +840,9 @@ In modalità offline, nessuna interfaccia viene aggiornata anche se non è aggio
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>È richiesta una versione del programma principale compresa nell'{RANGE} e specificata.
+    <value>Richiede una versione del programma principale compresa nell'{RANGE} e specificata.
 Gli intervalli sono separati da barre verticali (|).
-Ogni intervallo ha il formato "START..!END". L'intervallo corrisponde alle versioni in cui START &lt;= VERSION &lt; END. È possibile omettere il valore iniziale o finale.
+Ogni intervallo ha il formato "START..!END". L'intervallo corrisponde alle versioni in cui START &lt;= VERSIONE &lt; END. È possibile omettere il valore iniziale o finale.
 È possibile utilizzare un singolo numero di versione al posto di un intervallo per selezionare solo quella versione, oppure !VERSION per selezionare tutte le versioni tranne quella specificata.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -878,7 +878,7 @@ Può contenere argomenti della riga di comando. Gli spazi bianchi devono essere 
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Vuoi rimuovere dall’elenco le voci selezionate con l’ {0}?</value>
+    <value>Vuoi rimuovere dalla lista le voci selezionate con l'{0}?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
@@ -931,7 +931,7 @@ Può contenere argomenti della riga di comando. Gli spazi bianchi devono essere 
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
     <value>L'aggiornamento automatico è disabilitato.
-Eseguire il comando «0install config self_update_uri default» per abilitarlo.</value>
+Esegui il comando '0install config self_update_uri default' per abilitarlo.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
@@ -959,7 +959,7 @@ Eseguire il comando «0install config self_update_uri default» per abilitarlo.<
     <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
-    <value>{0} Spazio di archiviazione recuperato.</value>
+    <value>{0} spazio di archiviazione recuperato.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
@@ -1024,7 +1024,7 @@ Mantieni segreta questa chiave e utilizza una password diversa. In questo modo n
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">
-    <value>Utilizza la lingua del sistema</value>
+    <value>Utilizza la lingua di sistema</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">
@@ -1032,7 +1032,7 @@ Mantieni segreta questa chiave e utilizza una password diversa. In questo modo n
     <comment>Automatically translated.</comment>
   </data>
   <data name="VerifyImplementation" xml:space="preserve">
-    <value>Verifica dell'implementazione</value>
+    <value>Verifica dell’implementazione</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionInformation" xml:space="preserve">

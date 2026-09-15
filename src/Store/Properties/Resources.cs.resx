@@ -125,7 +125,7 @@ Pokud chcete odstranit celý adresář bez Zero Install, použijte tento příka
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>Použití zrcadla kanálu, které je nutné pro vyhledávání, je deaktivováno.
-Pro jeho aktivaci spusťte příkaz „0install config feed_mirror default“.</value>
+Chcete-li jej aktivovat, spusťte příkaz „0install config feed_mirror default“.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -161,11 +161,11 @@ Pro jeho aktivaci spusťte příkaz „0install config feed_mirror default“.</
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Chcete odstranit tuto implementaci? V případě potřeby se automaticky stáhne nová kopie.</value>
+    <value>Chcete odstranit tuto implementaci? V případě potřeby se nová kopie automaticky stáhne znovu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Implementace byla odstraněna. V případě potřeby se automaticky stáhne nová kopie.</value>
+    <value>Tato implementace byla odstraněna. V případě potřeby se automaticky stáhne nová kopie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -190,7 +190,7 @@ Pokud používáte disk ve formátu FAT, převeďte jej na NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Neplatný počet dílů v řádku.</value>
+    <value>Neplatný počet položek v řádku.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -282,7 +282,7 @@ Problém vyřešíte odstraněním souboru ‚‚{1}‘‘. Může dojít i ke z
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
-    <value>Neznámé rozhraní.</value>
+    <value>Neznámé uživatelské rozhraní.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">

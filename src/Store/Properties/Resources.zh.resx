@@ -116,7 +116,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>从 '{0}' 加载 OpenPGP 密钥包时出错</value>
+    <value>从 '{0}' 加载 OpenPGP 密钥包时发生错误</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -186,11 +186,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>清单文件中包含无效的行。</value>
+    <value>清单文件中包含无效行。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>行中的部件数量无效。</value>
+    <value>行中部件数量无效。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -239,7 +239,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>此选项受组策略控制，因此无法进行修改。</value>
+    <value>此选项受组策略控制，因此无法修改。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

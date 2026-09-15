@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>Το αρχείο περιέχει μόνο έναν κατάλογο κορυφαίου επιπέδου, τον «{0} ». Καλό θα ήταν να ορίσετε το χαρακτηριστικό «{1} » σε «{0} », ώστε να αποφύγετε ένα επιπλέον επίπεδο ένθεσης.</value>
+    <value>Το αρχείο περιέχει μόνο έναν κατάλογο κορυφαίου επιπέδου «{0} ». Θα πρέπει πιθανώς να ορίσετε το χαρακτηριστικό «{1} » ως «{0} » για να αποφύγετε ένα επιπλέον επίπεδο ένθεσης.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
@@ -108,7 +108,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Εντοπίστηκαν πολλά νέα προεπιλεγμένα προγράμματα στο μητρώο. Γίνεται επεξεργασία όλων, αλλά το τελευταίο μπορεί να έχει προτεραιότητα σε ορισμένες περιπτώσεις.</value>
+    <value>Εντοπίστηκαν πολλά νέα προεπιλεγμένα προγράμματα στο μητρώο. Γίνεται διαχείριση όλων, αλλά το τελευταίο μπορεί να έχει προτεραιότητα σε ορισμένες περιπτώσεις.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
@@ -120,7 +120,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
-    <value>Δεν υπάρχει υλοποίηση με τον αναγνωριστικό «{0} » και υπάρχουν πολλές τοπικές υλοποιήσεις από τις οποίες μπορείτε να επιλέξετε.</value>
+    <value>Δεν υπάρχει υλοποίηση με τον κωδικό «{0} » και υπάρχουν πολλές τοπικές υλοποιήσεις από τις οποίες μπορείτε να επιλέξετε.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
@@ -128,7 +128,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Υπάρχουν πολλές δοκιμαστικές εκδόσεις. Χαρακτηρίζονται ως σταθερές οι υλοποιήσεις {0} του {1} με έκδοση {2}.</value>
+    <value>Υπάρχουν πολλές δοκιμαστικές εκδόσεις. Η έκδοση {0} των υλοποιήσεων {1} με έκδοση {2} χαρακτηρίζεται ως σταθερή.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
@@ -136,7 +136,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>Δεν υπάρχει αποθηκευμένη στην προσωρινή μνήμη υλοποίηση της έκδοσης {0}. Δεν είναι δυνατός ο υπολογισμός ενός επιπλέον digest.</value>
+    <value>Δεν υπάρχει αποθηκευμένη στην κρυφή μνήμη καμία υλοποίηση της έκδοσης {0}. Δεν είναι δυνατός ο υπολογισμός ενός επιπλέον συνοπτικού κωδικού.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
@@ -148,7 +148,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>Το feed δεν περιέχει καμία υλοποίηση με την έκδοση {0}.</value>
+    <value>Το feed δεν περιέχει καμία υλοποίηση με έκδοση {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
@@ -156,7 +156,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">
-    <value>Δεν υπάρχει υλοποίηση με το αναγνωριστικό «{0} » ούτε τοπική υλοποίηση στην οποία να εφαρμοστεί το αρχείο.</value>
+    <value>Δεν υπάρχει υλοποίηση με το αναγνωριστικό «{0} » και δεν υπάρχει τοπική υλοποίηση στην οποία να εφαρμοστεί το αρχείο.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">

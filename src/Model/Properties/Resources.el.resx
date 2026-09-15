@@ -75,7 +75,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Σφάλμα κατά τη φόρτωση της βάσης δεδομένων εμπιστοσύνης. Επαναφορά στις προεπιλεγμένες τιμές.</value>
+    <value>Σφάλμα κατά τη φόρτωση της βάσης δεδομένων αξιοπιστίας. Επαναφορά στις προεπιλεγμένες τιμές.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">

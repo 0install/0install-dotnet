@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlreadyInList" xml:space="preserve">
-    <value>L'applicazione "{0}" è già presente nell'elenco delle applicazioni.</value>
+    <value>L'applicazione «{0} » è già presente nell'elenco delle applicazioni.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
-    <value>Impossibile trovare l'applicazione "{0}" nell'elenco delle applicazioni.</value>
+    <value>Impossibile trovare l'applicazione «{0} » nell'elenco delle applicazioni.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IntegrationMutex" xml:space="preserve">

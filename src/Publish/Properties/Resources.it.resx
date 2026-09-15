@@ -79,7 +79,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DuplicateImplementationID" xml:space="preserve">
-    <value>Il feed contiene già un'implementazione con l'ID '{0}'.</value>
+    <value>Il feed contiene già un'implementazione con l'ID "{0}".</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
@@ -112,7 +112,7 @@ Provare a specificarlo manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
-    <value>Il feed contiene diversi elementi {0}. Questa funzionalità non è supportata in questa sede.</value>
+    <value>Il feed contiene diversi elementi {0}. Questa funzionalità non è supportata in questo contesto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
@@ -128,11 +128,11 @@ Provare a specificarlo manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Sono disponibili diverse versioni di prova. Contrassegnare {0} delle implementazioni {1} con versione {2} come stabile.</value>
+    <value>Sono disponibili diverse versioni di prova. Contrassegnare l'implementazione {0} di {1} con la versione {2} come stabile.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
-    <value>Sono disponibili diverse implementazioni senza una data di rilascio. Seleziona invece una versione specifica.</value>
+    <value>Esistono diverse implementazioni senza una data di rilascio. Seleziona invece una versione specifica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
@@ -157,7 +157,7 @@ Provare a specificarla manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">
-    <value>Non esiste alcuna implementazione con l'ID "{0}" né alcuna implementazione locale a cui applicare l'archivio.</value>
+    <value>Non esiste alcuna implementazione con l’ID «{0} » né alcuna implementazione locale a cui applicare l’archivio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">

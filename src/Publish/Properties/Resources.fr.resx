@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>L'archive ne contient qu'un seul répertoire de niveau supérieur : «{0} ». Il est recommandé de définir l'attribut «{1} » sur «{0} » afin d'éviter un niveau d'imbrication supplémentaire.</value>
+    <value>L'archive ne contient qu'un seul répertoire de niveau supérieur, «{0} ». Il est recommandé de définir l'attribut «{1} » sur «{0} » afin d'éviter un niveau d'imbrication supplémentaire.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
@@ -112,7 +112,7 @@ Essayez de le spécifier manuellement.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
-    <value>Le flux contient plusieurs éléments « {0} ». Cette fonctionnalité n'est pas prise en charge ici.</value>
+    <value>Le flux comporte plusieurs éléments « {0} ». Cette fonctionnalité n’est pas prise en charge ici.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
@@ -128,15 +128,15 @@ Essayez de le spécifier manuellement.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Il existe plusieurs versions de test. Marquage de l'{0} de l'implémentation {1} avec la version {2} comme stable.</value>
+    <value>Il existe plusieurs versions de test. Marquage de l'{0} des implémentations de {1} dont la version {2} est considérée comme stable.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
-    <value>Il existe plusieurs versions dont la date de sortie n'est pas encore connue. Veuillez sélectionner une version spécifique.</value>
+    <value>Il existe plusieurs implémentations sans date de sortie. Sélectionnez plutôt une version spécifique.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>Aucune implémentation de la version {0} n'est mise en cache. Impossible de calculer un résumé supplémentaire.</value>
+    <value>Aucune implémentation de la version {0} n'est mise en cache. Impossible de calculer un condensé supplémentaire.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
@@ -148,7 +148,7 @@ Essayez de le spécifier manuellement.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>Le flux ne contient aucune implémentation avec l'{0} de version.</value>
+    <value>Le flux ne contient aucune implémentation avec la version {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
@@ -168,7 +168,7 @@ Essayez de le spécifier manuellement.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>La clé secrète ne se trouve pas dans le trousseau de clés de l'utilisateur.</value>
+    <value>La clé secrète ne se trouve pas dans le trousseau de l'utilisateur.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">

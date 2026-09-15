@@ -79,7 +79,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DuplicateImplementationID" xml:space="preserve">
-    <value>Kanał zawiera już implementację o identyfikatorze „{0} ”.</value>
+    <value>W kanale znajduje się już implementacja o identyfikatorze „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
@@ -120,7 +120,7 @@ Spróbuj określić go ręcznie.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
-    <value>Nie ma implementacji o identyfikatorze „{0} ”, natomiast do wyboru jest wiele lokalnych implementacji.</value>
+    <value>Nie ma implementacji o identyfikatorze „{0} ”, a do wyboru jest kilka lokalnych implementacji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
@@ -128,7 +128,7 @@ Spróbuj określić go ręcznie.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Dostępnych jest wiele wersji testowych. Oznaczono implementacje {0} z {1} o wersji {2} jako stabilne.</value>
+    <value>Dostępnych jest wiele wersji testowych. Oznaczono implementacje {0} i {1} o wersji {2} jako stabilne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
@@ -148,7 +148,7 @@ Spróbuj określić go ręcznie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>Kanał nie zawiera implementacji w wersji {0}.</value>
+    <value>W kanale nie ma implementacji w wersji {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">

@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllImplementationsReleased" xml:space="preserve">
-    <value>Toate implementările au fost deja lansate. Selectați o versiune specifică.</value>
+    <value>Toate versiunile au fost deja lansate. Selectați o versiune specifică.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
-    <value>Copia locală a arhivei „{0} ” nu există. Utilizați opțiunea „{1} ” pentru a specifica o altă cale de acces.</value>
+    <value>Copia locală a arhivei „{0} ” nu există. Utilizați opțiunea „{1} ” pentru a specifica o altă cale.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
@@ -112,7 +112,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
-    <value>Fluxul conține mai multe elemente de tip „ {0} ”. Această funcționalitate nu este acceptată aici.</value>
+    <value>Fluxul conține mai multe elemente de tip „ {0} ”. Aceasta nu este acceptată aici.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
@@ -120,7 +120,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
-    <value>Nu există nicio implementare cu ID-ul „{0} ”, iar există mai multe implementări locale din care puteți alege.</value>
+    <value>Nu există nicio implementare cu ID-ul „{0} ”, iar există mai multe implementări locale din care se poate alege.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
@@ -128,7 +128,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Există mai multe versiuni de testare. Se marchează {0} dintre implementările {1} cu versiunea {2} ca fiind stabile.</value>
+    <value>Există mai multe versiuni de testare. Se marchează {0} din implementările {1} cu versiunea {2} ca fiind stabilă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
@@ -136,7 +136,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>Nu este stocată în cache nicio implementare a versiunii {0}. Imposibil de calculat un digest suplimentar.</value>
+    <value>Nicio implementare a versiunii {0} nu este stocată în cache. Imposibil de calculat un digest suplimentar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
@@ -144,7 +144,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
-    <value>Feed-ul nu conține nicio implementare.</value>
+    <value>Feedul nu conține nicio implementare.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
@@ -157,7 +157,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">
-    <value>Nu există nicio implementare cu ID-ul „{0} ” și nicio implementare locală la care să se aplice arhiva.</value>
+    <value>Nu există nicio implementare cu ID-ul „{0} ” și nici o implementare locală la care să se aplice arhiva.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">

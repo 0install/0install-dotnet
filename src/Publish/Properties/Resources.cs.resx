@@ -120,7 +120,7 @@ Zkuste jej zadat ručně.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
-    <value>Neexistuje žádná implementace s ID „{0} “ a je k dispozici několik lokálních implementací, ze kterých lze vybírat.</value>
+    <value>Neexistuje žádná implementace s ID „{0} “ a je možné vybrat si z několika lokálních implementací.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
@@ -128,11 +128,11 @@ Zkuste jej zadat ručně.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Existuje několik testovacích verzí. Označení implementací {0} a {1} s verzí {2} jako stabilní.</value>
+    <value>Existuje několik testovacích verzí. Označujeme implementace {0} a {1} s verzí {2} jako stabilní.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
-    <value>Existuje několik implementací bez data vydání. Vyberte místo toho konkrétní verzi.</value>
+    <value>Existuje několik implementací bez data vydání. Vyberte si místo toho konkrétní verzi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">

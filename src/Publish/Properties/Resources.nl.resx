@@ -136,7 +136,7 @@ Probeer het handmatig op te geven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>Er is geen implementatie van de versie {0} in de cache opgeslagen. Het is niet mogelijk om een extra digest te berekenen.</value>
+    <value>Er is geen implementatie van de versie- {0} in de cache opgeslagen. Kan geen aanvullende digest berekenen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
@@ -148,7 +148,7 @@ Probeer het handmatig op te geven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>De feed bevat geen implementatie met versie {0}.</value>
+    <value>De feed bevat geen implementatie met versie- {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">

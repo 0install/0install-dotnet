@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>Controleert op beschadigde bestanden</value>
+    <value>Controleren op beschadigde bestanden</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
@@ -145,7 +145,7 @@ Voer '0install config feed_mirror default' uit om deze in te schakelen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Dubbele bestanden zoeken in '{0}'</value>
+    <value>Dubbele bestanden opsporen in '{0}'</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
@@ -165,7 +165,7 @@ Voer '0install config feed_mirror default' uit om deze in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>De implementatie is verwijderd. Indien nodig wordt er automatisch weer een nieuwe kopie gedownload.</value>
+    <value>De implementatie is verwijderd. Indien nodig wordt er automatisch opnieuw een kopie gedownload.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -286,7 +286,7 @@ U kunt het bestand "{1}" verwijderen om het probleem op te lossen. Andere instel
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>De wachtzin die u hebt ingevoerd, is onjuist.</value>
+    <value>De wachtwoordzin die u hebt ingevoerd, is onjuist.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

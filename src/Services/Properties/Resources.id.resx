@@ -175,7 +175,7 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Terdapat karakter yang tidak sah dalam nama pengikat ` {0} `.</value>
+    <value>Terdapat karakter yang tidak diperbolehkan dalam nama pengikat ` {0} `.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
@@ -183,7 +183,7 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Nama yang hilang dalam pengikatan {0}.</value>
+    <value>Nama hilang dalam pengikatan {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -234,7 +234,7 @@ Tanggal baru: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' bukanlah ID yang dikenal dalam pengelola paket {1}.</value>
+    <value>'{0}' bukanlah ID yang dikenal di pengelola paket {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
@@ -250,7 +250,7 @@ Tanggal baru: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Direktori kerja berisi jalur yang tidak valid (berpotensi menimbulkan risiko keamanan).</value>
+    <value>Direktori kerja mengandung jalur yang tidak valid (berpotensi menimbulkan risiko keamanan).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>
