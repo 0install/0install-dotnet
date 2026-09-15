@@ -79,11 +79,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>' {1} ' ({2})를 선택하면 ' {0} '을 사용할 수 없습니다.</value>
+    <value>{1} ({2})를 선택하면 {0} 를 사용할 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
-    <value>다음 제한 사항과 호환되지 않습니다: {0}</value>
+    <value>다음 제한 사항과 호환되지 않음: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>현재 알려진 구현 사례는 전혀 없음</value>
+    <value>현재 알려진 구현 사례가 전혀 없음</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
-    <value>필요 사항</value>
+    <value>필수 사항</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUnsuitable" xml:space="preserve">
@@ -119,7 +119,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>로컬 네트워크에서 검색</value>
+    <value>로컬 네트워크에서 검색하기</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
@@ -139,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>{0} 와 그 종속성 중 적합한 버전을 찾지 못했습니다.</value>
+    <value>{0} 와 그 종속 항목에 대한 적합한 버전을 찾을 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>피드 캐시에서 '{0}'을 찾을 수 없습니다.</value>
+    <value>피드 캐시에서 '{0}'를 찾을 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -175,11 +175,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>{0} 바인딩 이름에 허용되지 않는 문자가 포함되어 있습니다.</value>
+    <value>{0} 바인딩 이름에 유효하지 않은 문자가 포함되어 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>피드를 가져오려면 해당 피드가 생성된 출처의 URI를 반드시 명시해야 합니다.</value>
+    <value>피드를 가져오려면 해당 피드가 생성된 출처의 URI를 명시해야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
@@ -195,7 +195,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>키 정보 서버에서 이 키에 대한 추가 정보를 제공할 수 없었습니다.</value>
+    <value>키 정보 서버에서는 이 키에 대한 추가 정보를 제공할 수 없었습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -203,7 +203,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>'{0}' 구현에 대한 검색 방법이 없습니다.</value>
+    <value>'{0}' 구현에 대한 검색 방법을 찾을 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">

@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllImplementationsReleased" xml:space="preserve">
-    <value>모든 구현 버전은 이미 출시되었습니다. 대신 특정 버전을 선택해 주세요.</value>
+    <value>모든 구현 버전은 이미 출시되었습니다. 대신 특정 버전을 선택해 주십시오.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
@@ -157,7 +157,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">
-    <value>ID가 '{0}'인 구현체가 없으며, 아카이브를 적용할 로컬 구현체도 없습니다.</value>
+    <value>ID '{0}'에 해당하는 구현체가 없으며, 아카이브를 적용할 로컬 구현체도 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">

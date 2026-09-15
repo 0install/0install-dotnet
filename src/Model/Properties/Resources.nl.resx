@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>De relatieve URI '{0}' kon niet worden opgelost. Alleen feeds die als lokale bestanden zijn opgeslagen, mogen relatieve URI's bevatten.</value>
+    <value>De relatieve URI '{0}' kon niet worden omgezet. Alleen feeds die als lokale bestanden zijn opgeslagen, mogen relatieve URI's bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementatie niet in de cache (momenteel in offline modus)</value>
+    <value>Implementatie niet in cache (momenteel in offline modus)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
@@ -159,7 +159,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>De geïmplementeerde versie is te oud of te nieuw</value>
+    <value>De implementatieversie is te oud of te nieuw</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
@@ -167,11 +167,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Moet een veilige ID zijn. Mag alleen bestaan uit alfanumerieke tekens, spaties ( ), punten (.), onderstrepingstekens (_), koppeltekens (-) en plustekens (+).</value>
+    <value>Moet een veilige ID zijn. Mag alleen alfanumerieke tekens, spaties ( ), punten (.), onderstrepingstekens (_), koppeltekens (-) en plustekens (+) bevatten.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>De receptstap '{0}' in de implementatie '{1}' heeft een ongeldige implementatieverwijzing.</value>
+    <value>De receptstap '{0}' in de implementatie '{1}' bevat een ongeldige implementatieverwijzing.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">

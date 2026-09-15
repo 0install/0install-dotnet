@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>Los siguientes puntos de acceso para la aplicación {0} están en conflicto entre sí:</value>
+    <value>Los siguientes puntos de acceso de la aplicación {0} entran en conflicto entre sí:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">

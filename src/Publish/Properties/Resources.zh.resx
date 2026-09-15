@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
-    <value>本地不存在名为“{0} ”的存档副本。请使用“{1} ”选项指定其他路径。</value>
+    <value>本地不存在名为“{0} ”的压缩包副本。请使用“{1} ”选项指定其他路径。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
@@ -112,7 +112,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
-    <value>该源包含多个{0} 元素。此处不支持此功能。</value>
+    <value>该源包含多个{0} 元素。此处不支持该功能。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
@@ -132,7 +132,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
-    <value>目前有多个实现版本，但均未公布发布日期。请选择具体版本。</value>
+    <value>目前有多个实现版本，但均未公布发布日期。请选择一个具体版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
@@ -140,7 +140,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
-    <value>该源中没有{0} 元素。无法将其用作本地源。</value>
+    <value>该源不包含{0} 元素。无法将其用作本地源。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
@@ -157,7 +157,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">
-    <value>没有ID为“{0} ”的实现，也没有可供应用该存档的本地实现。</value>
+    <value>没有 ID 为“{0} ”的实现，也没有可供应用该存档的本地实现。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">

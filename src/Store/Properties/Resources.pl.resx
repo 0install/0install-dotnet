@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>Sprawdzanie, czy pliki są uszkodzone</value>
+    <value>Sprawdzanie, czy pliki nie są uszkodzone</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
@@ -124,7 +124,7 @@ Jeśli chcesz usunąć cały katalog bez użycia Zero Install, możesz użyć te
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Korzystanie z serwera lustrzanego kanału, które jest wymagane do wyszukiwania, jest wyłączone.
+    <value>Korzystanie z serwera lustrzanego kanałów, które jest wymagane do wyszukiwania, jest wyłączone.
 Aby je włączyć, uruchom polecenie „0install config feed_mirror default”.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -161,7 +161,7 @@ Aby je włączyć, uruchom polecenie „0install config feed_mirror default”.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Czy chcesz usunąć tę implementację? W razie potrzeby nowa kopia zostanie automatycznie pobrana ponownie.</value>
+    <value>Czy chcesz usunąć tę wersję? W razie potrzeby nowa kopia zostanie automatycznie pobrana ponownie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
@@ -218,7 +218,7 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nie określono żadnej znanej metody skrótu.</value>
+    <value>Nie określono żadnej znanej metody generowania skrótu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
@@ -235,7 +235,7 @@ Określone w pliku konfiguracyjnym „{1} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
-    <value>Wartość liczby jest zbyt duża.</value>
+    <value>Wartość liczbową jest zbyt duża.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
@@ -244,7 +244,7 @@ Określone w pliku konfiguracyjnym „{1} ”.</value>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>Wystąpił problem z dostępem do magazynu implementacji „{0} ”.
-Uruchom „{1} ”, aby usunąć go z listy zarejestrowanych katalogów.</value>
+Uruchom plik „{1} ”, aby usunąć go z listy zarejestrowanych katalogów.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
@@ -286,7 +286,7 @@ Aby rozwiązać ten problem, usuń plik „{1}”. Inne ustawienia mogą równie
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Wprowadzona hasło jest nieprawidłowe.</value>
+    <value>Wprowadzona hasła jest nieprawidłowa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

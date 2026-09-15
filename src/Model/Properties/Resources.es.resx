@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>No se ha encontrado ninguna implementación para la interfaz «{0} » en la selección.</value>
+    <value>No se ha encontrado ninguna implementación de la interfaz «{0} » en la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Falta la etiqueta « {0} » dentro de « {1} ».</value>
+    <value>Falta la etiqueta ` {0} ` dentro de ` {1}`.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -127,7 +127,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>No se ha podido resolver el URI relativo «{0} ». Solo las fuentes guardadas como archivos locales pueden contener URI relativos.</value>
+    <value>No se ha podido resolver la URI relativa «{0} ». Solo las fuentes guardadas como archivos locales pueden contener URI relativas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">
-    <value>Sistema operativo o CPU incompatible</value>
+    <value>Sistema operativo o CPU incompatibles</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">

@@ -128,11 +128,11 @@ Tente especificá-lo manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Existem várias versões de teste. A marcação {0} das implementações {1} com a versão {2} como estáveis.</value>
+    <value>Existem várias versões de teste. A implementação {0} de {1} com a versão {2} é considerada estável.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
-    <value>Existem várias implementações sem data de lançamento. Selecione uma versão específica.</value>
+    <value>Existem várias implementações sem data de lançamento. Selecione, em vez disso, uma versão específica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">

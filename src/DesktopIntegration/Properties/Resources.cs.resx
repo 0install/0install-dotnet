@@ -111,12 +111,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>Uživatelské jméno a/nebo heslo, které jste zadali pro synchronizační server, jsou nesprávné. Zkontrolujte prosím své možnosti synchronizace.</value>
+    <value>Uživatelské jméno a/nebo heslo, které jste zadali pro synchronizační server, jsou nesprávné. Zkontrolujte prosím nastavení synchronizace.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
     <value>Šifrovací klíč, který jste zadali pro synchronizaci, je nesprávný. Zkontrolujte prosím své možnosti synchronizace.
-Šifrovací klíč používaný na serveru můžete změnit spuštěním průvodce řešením problémů (k tomu klikněte pravým tlačítkem myši na tlačítko „Sync“) nebo provedením příkazu „0install sync --reset=server“.</value>
+Šifrovací klíč používaný na serveru můžete změnit spuštěním průvodce řešením problémů (klikněte pravým tlačítkem myši na tlačítko „Sync“) nebo provedením příkazu '0install sync --reset=server'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -125,7 +125,7 @@
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Data aktuálně uložená na serveru Sync jsou poškozená.
-Data uložená na serveru můžete nahradit spuštěním průvodce řešením problémů (k němu se dostanete kliknutím pravým tlačítkem myši na tlačítko „Sync“) nebo provedením příkazu „0install sync --reset=server“.</value>
+Data uložená na serveru můžete nahradit spuštěním průvodce řešením problémů (k jeho spuštění klikněte pravým tlačítkem myši na tlačítko „Sync“) nebo provedením příkazu „0install sync --reset=server“.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">

@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>生成的命令行内容为空。</value>
+    <value>生成的命令行是空的。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
@@ -103,11 +103,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRejectedCandidates" xml:space="preserve">
-    <value>被淘汰的候选人：</value>
+    <value>被拒绝的候选人：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
-    <value>需要</value>
+    <value>要求</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUnsuitable" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUserRequestedVersion" xml:space="preserve">
-    <value>用户请求的版本{0}</value>
+    <value>用户要求的版本{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -159,11 +159,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>“{0} ”是一个本地文件。该地址应为 HTTP(S) URL。</value>
+    <value>“{0} ”是一个本地文件。它应为 HTTP(S) URL。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>&lt;interface&gt; 的 uri 属性（'{0}'）与下载源的 URL（'{1}'）不匹配。</value>
+    <value>&lt;interface&gt; 的 uri 属性（“{0} ”）与下载源的 URL（“{1} ”）不匹配。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -234,7 +234,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>“{0} ”在{1} 包管理器中并非已知的ID。</value>
+    <value>“{0} ”在{1} 包管理器中不是已知的ID。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">

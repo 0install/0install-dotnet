@@ -79,7 +79,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DuplicateImplementationID" xml:space="preserve">
-    <value>В фиде уже есть реализация с ID «{0} ».</value>
+    <value>В ленте уже есть реализация с ID «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
@@ -120,7 +120,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
-    <value>Реализация с идентификатором «{0} » отсутствует, а на выбор предлагается несколько локальных реализаций.</value>
+    <value>Реализация с идентификатором «{0} » отсутствует, но имеется несколько локальных реализаций на выбор.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
@@ -136,11 +136,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>Реализация версии {0} не кэшируется. Не удается вычислить дополнительный дайджест.</value>
+    <value>Ни одна реализация версии {0} не кэшируется. Не удается вычислить дополнительный дайджест.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
-    <value>В кане не содержится элемент {0}. Невозможно использовать его в качестве локального канала.</value>
+    <value>В кане не содержится элемент {0}. Невозможно использовать его в качестве локальной каны.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
@@ -161,7 +161,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">
-    <value>В настоящее время ни одна реализация не помечена как «в стадии тестирования».</value>
+    <value>В настоящее время ни одна реализация не отмечена как находящаяся на этапе тестирования.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">

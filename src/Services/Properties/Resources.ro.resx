@@ -75,7 +75,7 @@ Doriți să aveți încredere în această cheie pentru semnarea feed-urilor de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
-    <value>Nu se pot găsi toate implementările necesare:</value>
+    <value>Nu se găsesc toate implementările necesare:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
@@ -91,7 +91,7 @@ Doriți să aveți încredere în această cheie pentru semnarea feed-urilor de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>Nu există nicio implementare cunoscută</value>
+    <value>Nu se cunosc deloc implementări</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">

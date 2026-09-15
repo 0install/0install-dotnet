@@ -128,7 +128,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>複数のテスト版が存在します。バージョン{2} による{1} の実装のうち、{0} を安定版としてマークします。</value>
+    <value>複数のテスト版が存在します。バージョン{2} を持つ{1} の実装のうち、{0} を安定版としてマークします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">

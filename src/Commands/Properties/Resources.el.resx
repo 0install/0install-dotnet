@@ -84,7 +84,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
-    <value>Το «{0} » βρίσκεται ήδη στη λίστα των προσαρμοσμένων προσωρινών αποθηκευτικών χώρων υλοποίησης.</value>
+    <value>Το «{0} » βρίσκεται ήδη στη λίστα των προσαρμοσμένων cache υλοποίησης.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AppAlias" xml:space="preserve">
@@ -171,7 +171,7 @@
   </data>
   <data name="ConfirmPurge" xml:space="preserve">
     <value>Θέλετε να διαγράψετε όλα τα αρχεία εφαρμογών από την προσωρινή μνήμη του Zero Install;
-Αυτά τα αρχεία μπορούν να κατεβαστούν ξανά, αν χρειαστεί.</value>
+Αυτά τα αρχεία μπορούν να μεταφορτωθούν ξανά, αν χρειαστεί.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ConfirmRemoveAll" xml:space="preserve">
@@ -198,7 +198,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
-    <value>Μια φορητή έκδοση του Zero Install έχει εγκατασταθεί στη διεύθυνση «{0} ».
+    <value>Μια φορητή έκδοση του Zero Install έχει εγκατασταθεί στο «{0} ».
 Μπορείτε να τη χρησιμοποιήσετε εκτελώντας το αρχείο ZeroInstall.exe που βρίσκεται στον κατάλογο.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -251,7 +251,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
-    <value>Αναζητά στους καταχωρημένους καταλόγους εφαρμογές που αντιστοιχούν στην καθορισμένη αναζήτηση. Εάν δεν δοθεί καμία αναζήτηση, εμφανίζονται όλες οι εφαρμογές των καταλόγων.</value>
+    <value>Αναζητά στους καταχωρημένους καταλόγους εφαρμογές που αντιστοιχούν στο καθορισμένο κριτήριο αναζήτησης. Εάν δεν δοθεί κριτήριο αναζήτησης, εμφανίζονται όλες οι εφαρμογές των καταλόγων.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCentral" xml:space="preserve">
@@ -273,7 +273,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Εξάγει όλες τις ροές και τις υλοποιήσεις που απαιτούνται για την εκκίνηση του προγράμματος που καθορίζεται από ένα URI σε έναν ΚΑΤΑΛΟΓΟ.</value>
+    <value>Εξάγει όλα τα feeds και τις υλοποιήσεις που απαιτούνται για την εκκίνηση του προγράμματος που καθορίζεται από ένα URI σε έναν DIRECTORY.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
@@ -294,7 +294,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Παρουσιάζει όλες τις εφαρμογές που βρίσκονται αυτή τη στιγμή στη λίστα εφαρμογών σας. Εάν δοθεί ένα URI, εμφανίζεται μόνο η εφαρμογή με αυτό το URI τροφοδοσίας. Εάν δοθεί ένα PATTERN, εμφανίζονται μόνο οι εφαρμογές που περιέχουν αυτή τη συμβολοσειρά στο όνομά τους (χωρίς διάκριση κεφαλαίων-μικρών).</value>
+    <value>Παρουσιάζει όλες τις εφαρμογές που βρίσκονται αυτή τη στιγμή στη λίστα εφαρμογών σας. Εάν δοθεί ένα URI, εμφανίζεται μόνο η εφαρμογή με αυτό το URI τροφοδοσίας. Εάν δοθεί ένα PATTERN, εμφανίζονται μόνο οι εφαρμογές που περιέχουν αυτή τη συμβολοσειρά στο όνομά τους (χωρίς διάκριση πεζών-κεφαλαίων).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -302,7 +302,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Εγκαθιστά το Zero Install στον καθορισμένο κατάλογο TARGET ή στον προεπιλεγμένο κατάλογο για προγράμματα και το ενσωματώνει στο σύστημα.</value>
+    <value>Εγκαθιστά το Zero Install στον καθορισμένο κατάλογο TARGET ή στον προεπιλεγμένο κατάλογο προγραμμάτων και το ενσωματώνει στο σύστημα.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
@@ -412,7 +412,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Εμπιστεύεται τις ροές από έναν συγκεκριμένο DOMAIN όταν υπογράφονται με ένα συγκεκριμένο FINGERPRINT.</value>
+    <value>Εμπιστεύεται ροές από έναν συγκεκριμένο DOMAIN όταν υπογράφονται με ένα συγκεκριμένο FINGERPRINT.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
@@ -469,7 +469,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
-    <value>Εντοπίστηκε ένα υπάρχον αντίγραφο του Zero Install στο «{0} ».</value>
+    <value>Εντοπίστηκε ένα υπάρχον αντίγραφο του Zero Install στο '{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
@@ -566,7 +566,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Υπάρχει μια νεότερη έκδοση ({0}), αλλά δεν επιλέχθηκε. Χρησιμοποιείται αντ' αυτού το {1}.</value>
+    <value>Υπάρχει μια νεότερη έκδοση ({0}), αλλά δεν επιλέχθηκε. Χρησιμοποιείται αντ' αυτής η έκδοση {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
@@ -624,7 +624,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Το Zero Install εκτελείται από έναν κατάλογο συγκεκριμένου χρήστη. Πρέπει να εγκατασταθεί σε έναν κατάλογο προσβάσιμο από όλους τους χρήστες, ώστε να λειτουργήσει η ενσωμάτωση στην επιφάνεια εργασίας σε επίπεδο συστήματος.</value>
+    <value>Το Zero Install εκτελείται από έναν κατάλογο συγκεκριμένο για κάθε χρήστη. Πρέπει να εγκατασταθεί σε έναν κατάλογο προσβάσιμο από όλους τους χρήστες, ώστε να λειτουργεί η ενσωμάτωση στην επιφάνεια εργασίας σε επίπεδο συστήματος.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -640,7 +640,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NotInImplDirs" xml:space="preserve">
-    <value>Το «{0} » δεν περιλαμβάνεται στη λίστα των προσαρμοσμένων προσωρινών αποθηκευτικών χώρων υλοποίησης.</value>
+    <value>Το «{0} » δεν περιλαμβάνεται στη λίστα των προσαρμοσμένων κρυφών μνημών υλοποίησης.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
@@ -709,7 +709,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
-    <value>Προσπαθεί να εντοπίσει υλοποιήσεις σε άλλους υπολογιστές του τοπικού δικτύου, αντί να τις ανακτά από την αρχική τους πηγή.</value>
+    <value>Προσπαθήστε να εντοπίσετε υλοποιήσεις σε άλλους υπολογιστές του τοπικού δικτύου, αντί να τις ανακτήσετε από την αρχική τους πηγή.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportIncludeZeroInstall" xml:space="preserve">
@@ -800,7 +800,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Δημιουργήστε μια φορητή εγκατάσταση που μπορεί να μεταφερθεί (π.χ. σε USB stick).</value>
+    <value>Δημιουργήστε μια φορητή εγκατάσταση που μπορεί να μεταφερθεί (π.χ. σε ένα USB stick).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -828,7 +828,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
-    <value>Απελευθερώνει εκδόσεις που είχαν προηγουμένως επισημανθεί ως προτιμώμενες.</value>
+    <value>Απελευθερώνει εκδόσεις που έχουν προηγουμένως επισημανθεί ως προτιμώμενες.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
@@ -918,7 +918,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>Αυτή η παρουσία του Zero Install δεν έχει εγκατασταθεί. Δεν υπάρχει τίποτα να αφαιρεθεί.</value>
+    <value>Αυτή η παρουσία του Zero Install δεν έχει αναπτυχθεί. Δεν υπάρχει τίποτα προς κατάργηση.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
@@ -926,7 +926,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Αυτή η παρουσία του Zero Install δεν έχει αναπτυχθεί. Επομένως, δεν μπορεί να ενημερωθεί αυτόματα.</value>
+    <value>Αυτή η εγκατάσταση του Zero Install δεν έχει αναπτυχθεί. Επομένως, δεν μπορεί να ενημερωθεί αυτόματα.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
@@ -935,7 +935,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
-    <value>Παροχή εφαρμογών στη θύρα {0}</value>
+    <value>Παροχή υλοποιήσεων στη θύρα {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
@@ -984,7 +984,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
-    <value>{0} αξιόπιστο για τομείς</value>
+    <value>{0} αξιόπιστο για domain</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">

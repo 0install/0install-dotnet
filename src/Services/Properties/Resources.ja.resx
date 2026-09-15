@@ -79,11 +79,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>「{1} 」（{2} ）を選択した場合、{0} は使用できません。</value>
+    <value>「{1} 」（{2} ）を選択した場合、「{0} 」は使用できません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
-    <value>以下の制限と互換性がありません：{0}</value>
+    <value>以下の制限事項と互換性がありません：{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
@@ -123,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt;のバインディングには、'value'属性または'insert'属性のいずれかを指定する必要があります。</value>
+    <value>&lt;environment&gt; のバインディングには、'value' 属性または 'insert' 属性のいずれかを指定する必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -199,7 +199,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>実装「{0} 」のマニフェストダイジェストが見つかりませんでした。</value>
+    <value>実装「{0} 」に対応するマニフェストダイジェストが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
@@ -214,7 +214,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>{0} のダウンロードに失敗しました。代わりにフィードミラーから取得しようとしています。</value>
+    <value>{0} のダウンロードに失敗しました。代わりにフィードのミラーサイトから取得しようとしています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

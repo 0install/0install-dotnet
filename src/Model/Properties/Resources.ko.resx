@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>문자열은 "{0}" 형식으로 되어야 합니다.</value>
+    <value>문자열은 "{0}" 형식이어야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}'는 유효한 'http(s):' URI가 아니며, 유효한 로컬 경로도 아닙니다.</value>
+    <value>'{0}'은 유효한 'http(s):' URI가 아니며, 유효한 로컬 경로도 아닙니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -107,11 +107,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>점(.)으로 구분된 목록에는 소수점 숫자만 포함될 수 있습니다.</value>
+    <value>점(.)으로 구분된 목록에는 소수만 포함될 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>버전 번호에는 점(.)으로 구분된 소수점 숫자와 수정자 문자열만 포함될 수 있습니다.</value>
+    <value>버전 번호에는 점(.)으로 구분된 소수점과 수정자 문자열만 포함될 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -123,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>상대 경로 '{0}'을 찾을 수 없습니다. 상대 경로는 로컬 파일로 저장된 피드에만 포함될 수 있습니다.</value>
+    <value>상대 경로 '{0}'을(를) 찾을 수 없습니다. 로컬 파일로 저장된 피드에만 상대 경로를 포함할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
@@ -135,7 +135,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>오류가 많은 구현</value>
+    <value>버그가 많은 구현</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
@@ -151,11 +151,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>캐시에 구현되지 않음(현재 오프라인 모드)</value>
+    <value>캐시에 저장되지 않은 상태(현재 오프라인 모드)에서 실행</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>실행 불가능한 소스 구현</value>
+    <value>실행 불가능한 소스 코드 구현</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
@@ -167,11 +167,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>안전한 ID여야 합니다. 영숫자, 공백( ), 점(.), 밑줄(_), 하이픈(-) 및 더하기 기호(+)만 포함할 수 있습니다.</value>
+    <value>안전한 ID여야 합니다. 영숫자, 공백 ( ), 점 (.), 밑줄 (_), 하이픈 (-) 및 더하기 기호 (+)만 포함할 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>'{1}' 구현체의 '{0}' 레시피 단계에 잘못된 구현체 참조가 있습니다.</value>
+    <value>'{1}' 구현체의 '{0}' 레시피 단계에 유효하지 않은 구현체 참조가 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">

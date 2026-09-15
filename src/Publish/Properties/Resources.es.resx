@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>El archivo contiene únicamente un único directorio de nivel superior: «{0} ». Probablemente deberías establecer el atributo «{1} » en «{0} » para evitar un nivel de anidamiento adicional.</value>
+    <value>El archivo contiene únicamente un directorio de nivel superior: «{0} ». Probablemente deberías establecer el atributo «{1} » en «{0} » para evitar un nivel de anidamiento adicional.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
@@ -108,7 +108,7 @@ Intenta especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Se han detectado varios programas nuevos predeterminados en el registro. Se están gestionando todos ellos, pero el último puede tener prioridad en algunos casos.</value>
+    <value>Se han detectado varios programas nuevos predeterminados en el registro. Se están gestionando todos ellos, pero es posible que, en algunos casos, el último tenga prioridad.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
@@ -124,11 +124,11 @@ Intenta especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Se han detectado varios registros de nuevas aplicaciones en el Registro. Se selecciona la primera por defecto.</value>
+    <value>Se han detectado varios registros de nuevas aplicaciones en el registro. Por defecto, se selecciona la primera.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Existen varias versiones de prueba. Se marca {0} de las implementaciones de {1} con la versión {2} como estable.</value>
+    <value>Existen varias versiones de prueba. Se ha marcado {0} de las implementaciones de {1} con la versión {2} como estable.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
@@ -136,7 +136,7 @@ Intenta especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>No se ha almacenado en caché ninguna implementación de la versión {0}. No se puede calcular un resumen adicional.</value>
+    <value>No se almacena en caché ninguna implementación de la versión {0}. No se puede calcular un resumen adicional.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
@@ -144,11 +144,11 @@ Intenta especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
-    <value>El feed no contiene implementaciones.</value>
+    <value>El feed no contiene ninguna implementación.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>La fuente no contiene ninguna implementación con la versión {0}.</value>
+    <value>El feed no contiene ninguna implementación con la versión {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">

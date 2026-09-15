@@ -95,7 +95,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
-    <value>No hay implementaciones utilizables:</value>
+    <value>No hay implementaciones viables:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagProblem" xml:space="preserve">
@@ -163,7 +163,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>El atributo uri de &lt;interface&gt; («{0} ») no coincide con la URL desde la que se descargó el feed («{1} »).</value>
+    <value>El atributo URI de &lt;interface&gt; («{0} ») no coincide con la URL desde la que se descargó el feed («{1} »).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">

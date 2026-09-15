@@ -125,7 +125,7 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
     <value>검색에 필요한 피드 미러 기능이 비활성화되어 있습니다.
-이 기능을 활성화하려면 '0install config feed_mirror default' 명령을 실행하십시오.</value>
+이 기능을 활성화하려면 '0install config feed_mirror default'를 실행하십시오.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -190,7 +190,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>라인 내 부품 수가 유효하지 않습니다.</value>
+    <value>줄에 포함된 부품 수가 유효하지 않습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -210,7 +210,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
-    <value>파일 또는 디렉터리 이름에는 줄바꿈 문자가 포함되어서는 안 됩니다.</value>
+    <value>파일명이나 디렉터리명에는 줄바꿈 문자가 포함되어서는 안 됩니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
@@ -244,7 +244,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>'{0}' 구현 저장소에 액세스하는 데 문제가 발생했습니다.
-'{1}'을 실행하여 등록된 디렉터리 목록에서 해당 항목을 제거하십시오.</value>
+'{1}'를 실행하여 등록된 디렉터리 목록에서 해당 항목을 제거하십시오.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

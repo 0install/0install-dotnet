@@ -128,11 +128,11 @@ Coba tentukan secara manual.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Tersedia beberapa versi uji coba. Menandai implementasi {0} dari {1} dengan versi {2} sebagai versi stabil.</value>
+    <value>Tersedia beberapa versi uji coba. Penandaan {0} dari implementasi {1} dengan versi {2} sebagai versi stabil.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
-    <value>Tersedia beberapa implementasi yang belum memiliki tanggal rilis. Silakan pilih versi tertentu.</value>
+    <value>Tersedia beberapa implementasi tanpa tanggal rilis. Silakan pilih versi tertentu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
