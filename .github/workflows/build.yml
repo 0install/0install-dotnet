@@ -1,5 +1,8 @@
 name: Build
 on: [push, pull_request]
+permissions:
+  actions: read
+  contents: read
 
 jobs:
   windows:
@@ -47,7 +50,6 @@ jobs:
           signing-policy-slug: release-signing
           github-artifact-id: ${{steps.artifacts.outputs.artifact-id}}
           output-artifact-directory: artifacts
-          wait-for-completion-timeout-in-seconds: 3600
 
       # Package
       - uses: 0install/github-actions/0template@v1
