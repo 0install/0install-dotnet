@@ -3,6 +3,7 @@
 
 using System.Diagnostics;
 using System.Runtime.Versioning;
+using Microsoft.Win32;
 using NanoByte.Common.Native;
 using static System.Environment;
 using static System.Runtime.InteropServices.Architecture;
@@ -80,7 +81,7 @@ public class WindowsPackageManager : PackageManagerBase
         secondaryExe: "java");
 
     private IEnumerable<ExternalImplementation> FindJava(int version, string typeShort, string typeLong, string mainExe, string secondaryCommand, string secondaryExe)
-        => from javaHome in GetRegisteredPaths($@"JavaSoft\{typeLong}\1.{version}", "JavaHome")
+        => from javaHome in GetJavaHomes(version, typeShort, typeLong)
            let mainPath = Paths.Combine(javaHome.path, $@"bin\{mainExe}.exe")
            let secondaryPath = Paths.Combine(javaHome.path, $@"bin\{secondaryExe}.exe")
            where File.Exists(mainPath) && File.Exists(secondaryPath)
@@ -96,6 +97,27 @@ public class WindowsPackageManager : PackageManagerBase
                IsInstalled = true,
                QuickTestFile = mainPath
            };
+
+    private static IEnumerable<(Cpu cpu, string path)> GetJavaHomes(int version, string typeShort, string typeLong)
+    {
+        // Java 8 and older register under "Java Runtime Environment\1.8"
+        if (version <= 8) return GetRegisteredPaths($@"JavaSoft\{typeLong}\1.{version}", "JavaHome");
+
+        // Java 9 and newer register under "JRE\9" or with a full version like "JRE\9.0.4"
+        string typeKey = $@"JavaSoft\{typeShort.ToUpperInvariant()}";
+        return GetRegisteredSubKeys(typeKey)
+              .Where(name => name == version.ToString() || name.StartsWith($"{version}."))
+              .SelectMany(name => GetRegisteredPaths($@"{typeKey}\{name}", "JavaHome"))
+              .Distinct();
+    }
+
+    private static IEnumerable<string> GetRegisteredSubKeys(string registrySuffix)
+    {
+        var names = Registry.LocalMachine.GetSubKeyNames($@"SOFTWARE\{registrySuffix}");
+        if (Is64BitProcess)
+            names = [..names, ..Registry.LocalMachine.GetSubKeyNames($@"SOFTWARE\Wow6432Node\{registrySuffix}")];
+        return names.Distinct();
+    }
 
     private static IEnumerable<(Cpu cpu, string path)> GetRegisteredPaths(string registrySuffix, string valueName)
     {
