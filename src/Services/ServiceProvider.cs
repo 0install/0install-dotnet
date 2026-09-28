@@ -37,7 +37,7 @@ public class ServiceProvider
         _feedManager = new(() => new(Config, FeedCache, TrustManager, Handler));
         _catalogManager = new(() => new(Config, TrustManager, Handler));
         _selectionCandidateProvider = new(() => new(Config, FeedManager, ImplementationStore, PackageManager));
-        _solver = new(() => Config.PreferSatSolver ? new SatSolver(SelectionCandidateProvider) : new FallbackSolver(new BacktrackingSolver(SelectionCandidateProvider), new SatSolver(SelectionCandidateProvider)));
+        _solver = new(() => SolverFactory.Create(Config, SelectionCandidateProvider));
         _fetcher = new(() => new(Config, ImplementationStore, Handler));
         _executor = new(() => new(ImplementationStore));
         _selectionsManager = new(() => new(FeedManager, ImplementationStore, PackageManager));
