@@ -13,6 +13,14 @@
   <Project Path="Store/Store.csproj" />
   <Project Path="Archives/Archives.csproj" />
   <Project Path="Services/Services.csproj" />
+  <Project Path="Stub/Cli/Stub.Cli.csproj">
+    <BuildType Solution="Minimal|*" Project="Release" />
+    <Build Solution="Minimal|*" Project="false" />
+  </Project>
+  <Project Path="Stub/Gui/Stub.Gui.csproj">
+    <BuildType Solution="Minimal|*" Project="Release" />
+    <Build Solution="Minimal|*" Project="false" />
+  </Project>
   <Project Path="DesktopIntegration/DesktopIntegration.csproj">
     <BuildType Solution="Minimal|*" Project="Release" />
     <Build Solution="Minimal|*" Project="false" />

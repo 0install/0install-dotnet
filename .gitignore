@@ -12,6 +12,7 @@
 /src/_ReSharper.*/
 /src/*/obj/
 /src/*/bin/
+/src/Stub/*/obj/
 /doc/obj/
 /doc/api/
 

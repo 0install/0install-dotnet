@@ -30,17 +30,21 @@
   <ItemGroup>
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.3.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net48'">
     <Reference Include="System.Net.Http" Pack="False" />
   </ItemGroup>
 
+  <!-- Stub EXE templates (built but not referenced) -->
+  <ItemGroup>
+    <ProjectReference Include="..\Stub\Cli\Stub.Cli.csproj" ReferenceOutputAssembly="False" SkipGetTargetFrameworkProperties="True" GlobalPropertiesToRemove="TargetFramework" PrivateAssets="All" />
+    <ProjectReference Include="..\Stub\Gui\Stub.Gui.csproj" ReferenceOutputAssembly="False" SkipGetTargetFrameworkProperties="True" GlobalPropertiesToRemove="TargetFramework" PrivateAssets="All" />
+  </ItemGroup>
+
   <!-- Embedded resources -->
   <ItemGroup>
-    <EmbeddedResource Include="Windows\stub.template.cs" />
-    <EmbeddedResource Include="Windows\Stub.manifest" />
-    <Compile Remove="Windows\stub.template.cs" />
+    <EmbeddedResource Include="..\Stub\bin\$(Configuration)\ZeroInstall.Stub.Cli.exe" LogicalName="ZeroInstall.DesktopIntegration.Windows.stub-cli.exe" Visible="False" />
+    <EmbeddedResource Include="..\Stub\bin\$(Configuration)\ZeroInstall.Stub.Gui.exe" LogicalName="ZeroInstall.DesktopIntegration.Windows.stub-gui.exe" Visible="False" />
   </ItemGroup>
 
 </Project>

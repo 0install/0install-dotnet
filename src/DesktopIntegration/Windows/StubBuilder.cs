@@ -3,8 +3,7 @@
 
 using System.Runtime.Versioning;
 using System.Security.Cryptography;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
+using System.Text;
 using NanoByte.Common.Native;
 using NanoByte.Common.Streams;
 
@@ -25,7 +24,6 @@ public class StubBuilder(IIconStore iconStore)
     /// <param name="machineWide"><c>true</c> place the generated stub in a machine-wide location; <c>false</c> to place it in the current user profile.</param>
     /// <param name="needsTerminal"><c>true</c> if the sub should be a command-line app, <c>false</c> if it should be a GUI app, <c>null</c> if it should be auto-detected.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-    /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
     /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
     /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
@@ -78,14 +76,20 @@ public class StubBuilder(IIconStore iconStore)
         yield return uri.ToStringRfc();
     }
 
-    /// <summary>The point in time when the stub template was last changed.</summary>
-    private static readonly DateTime _templateLastChanged = new(2023,5, 3, 12, 0, 0, DateTimeKind.Utc);
+    /// <summary>
+    /// The revision of the stub template. Increment when changing the template to cause existing stubs to be rebuilt.
+    /// </summary>
+    /// <remarks>Stubs built by older versions of this library (compiled at runtime) contain no stub data and are treated as revision 0.</remarks>
+    internal const int TemplateRevision = 1;
+
+    /// <summary>The name of the <c>RT_RCDATA</c> resource containing the data read by the stub at runtime.</summary>
+    private const string StubDataResourceName = "ZEROINSTALL_STUB";
 
     private void CreateOrUpdateRunStub(string path, FeedTarget target, bool needsTerminal, string? command)
     {
         if (File.Exists(path))
         { // Existing stub
-            if (File.GetLastWriteTimeUtc(path) < _templateLastChanged // Built by older version of this library, try to rebuild
+            if (GetRevision(path) < TemplateRevision // Built by older version of this library, try to rebuild
              && !File.GetAttributes(path).HasFlag(FileAttributes.ReadOnly)) // Don't try to overwrite readonly files
             {
                 try
@@ -105,15 +109,23 @@ public class StubBuilder(IIconStore iconStore)
     }
 
     /// <summary>
-    /// .NET assembly references to include when building a stub EXE.
+    /// Determines the <see cref="TemplateRevision"/> an existing stub EXE was built with.
     /// </summary>
-    private static readonly Lazy<IReadOnlyList<PortableExecutableReference>> _references = new(() =>
-    {
-        string netFxDirectory = WindowsUtils.GetNetFxDirectory(WindowsUtils.NetFx40);
-        return new[] {"mscorlib.dll", "System.dll", "System.Core.dll"}
-              .Select(x => MetadataReference.CreateFromFile(Paths.Combine(netFxDirectory, x)))
-              .ToList();
-    });
+    /// <returns>The revision or 0 if the file is not a stub built from a template (e.g., compiled at runtime by an older version of this library).</returns>
+    internal static int GetRevision(string path)
+        => ReadStubData(path) is [var revision, ..]
+        && int.TryParse(revision, NumberStyles.None, CultureInfo.InvariantCulture, out int result)
+            ? result
+            : 0;
+
+    /// <summary>
+    /// Reads the data fields (revision, exe, arguments, title) embedded in a stub EXE.
+    /// </summary>
+    /// <returns>The fields or <c>null</c> if the file is not a stub built from a template.</returns>
+    internal static string[]? ReadStubData(string path)
+        => Win32Resources.TryRead(path, Win32Resources.TypeRCData, StubDataResourceName)
+                        ?.To(Encoding.Unicode.GetString)
+                         .Split('\0');
 
     /// <summary>
     /// Builds a stub EXE that executes the <c>0install run</c> command at a specific path.
@@ -123,81 +135,72 @@ public class StubBuilder(IIconStore iconStore)
     /// <param name="command">The command argument to be passed to the <c>0install run</c> command; can be <c>null</c>.</param>
     /// <param name="needsTerminal"><c>true</c> if the sub should be a command-line app, <c>false</c> if it should be a GUI app.</param>
     /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-    /// <exception cref="InvalidOperationException">There was a compilation error while generating the stub EXE.</exception>
     /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
     /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
     public void BuildRunStub(string path, FeedTarget target, string? command, bool needsTerminal)
+        => BuildStub(
+            path,
+            exe: GetExe(needsTerminal),
+            arguments: GetArguments(target.Uri, command, needsTerminal).JoinEscapeArguments(),
+            title: target.Feed.GetBestName(CultureInfo.CurrentUICulture, command),
+            needsTerminal,
+            icon: GetIcon(target, command));
+
+    /// <summary>
+    /// Builds a stub EXE that executes a specific EXE at a specific path.
+    /// </summary>
+    /// <param name="path">The path to store the generated EXE file.</param>
+    /// <param name="exe">The file name of the EXE to launch. Looked up in the Zero Install installation directory and the <c>PATH</c>.</param>
+    /// <param name="arguments">The command-line arguments to pass to the EXE, followed by any arguments passed to the stub.</param>
+    /// <param name="title">The title of the stub EXE, shown in Windows Explorer and Task Manager.</param>
+    /// <param name="needsTerminal"><c>true</c> if the sub should be a command-line app, <c>false</c> if it should be a GUI app.</param>
+    /// <param name="icon">The contents of an <c>.ico</c> file to use as the application icon; can be <c>null</c>.</param>
+    /// <exception cref="IOException">A problem occurred while writing to the filesystem.</exception>
+    /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
+    internal static void BuildStub(string path, string exe, string arguments, string title, bool needsTerminal, byte[]? icon = null)
     {
         #region Sanity checks
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
-        var compilation = CSharpCompilation.Create(
-            assemblyName: "ZeroInstall.Stub",
-            syntaxTrees:
-            [
-                GetCode(
-                    exe: GetExe(needsTerminal),
-                    arguments: GetArguments(target.Uri, command, needsTerminal),
-                    title: target.Feed.GetBestName(CultureInfo.CurrentUICulture, command))
-            ],
-            _references.Value,
-            options: new(
-                needsTerminal ? OutputKind.ConsoleApplication : OutputKind.WindowsApplication,
-                optimizationLevel: OptimizationLevel.Release,
-                deterministic: true));
-        var resources = GetResources(compilation, GetIconPath(target, command));
-
         using var atomic = new AtomicWrite(path);
-        using (var stream = File.Create(atomic.WritePath))
+        typeof(StubBuilder).CopyEmbeddedToFile(needsTerminal ? "stub-cli.exe" : "stub-gui.exe", atomic.WritePath);
+        Win32Resources.Update(atomic.WritePath, resources =>
         {
-            var result = compilation.Emit(stream, win32Resources: resources);
-            if (!result.Success)
-                throw new IOException(result.Diagnostics.FirstOrDefault()?.ToString());
-        }
+            resources.Set(Win32Resources.TypeRCData, StubDataResourceName,
+                Encoding.Unicode.GetBytes(string.Join("\0", TemplateRevision.ToString(CultureInfo.InvariantCulture), exe, arguments, title)));
+            resources.SetVersionInfo(
+                ("FileDescription", title),
+                ("ProductName", title),
+                ("InternalName", Path.GetFileName(path)),
+                ("OriginalFilename", Path.GetFileName(path)),
+                ("FileVersion", "0.0.0.0"),
+                ("ProductVersion", "0.0.0.0"));
+            if (icon != null) resources.SetIcon(icon);
+        });
         atomic.Commit();
     }
 
-    private static SyntaxTree GetCode(string exe, IEnumerable<string> arguments, string title)
-        => CSharpSyntaxTree.ParseText(
-            typeof(StubBuilder)
-               .GetEmbeddedString("stub.template.cs")
-               .Replace("[EXE]", EscapeForCode(exe))
-               .Replace("[ARGUMENTS]", EscapeForCode(arguments.JoinEscapeArguments()))
-               .Replace("[TITLE]", EscapeForCode(title)));
-
-    private static string EscapeForCode(string value)
-        => value.Replace(@"\", @"\\").Replace("\"", "\\\"").Replace("\n", @"\n");
-
-    private static Stream GetResources(Compilation compilation, string? iconPath)
-    {
-        using var manifestStream = typeof(StubBuilder).GetEmbeddedStream("Stub.manifest");
-        using var iconStream = iconPath?.To(File.OpenRead);
-        return compilation.CreateDefaultWin32Resources(
-            versionResource: true,
-            noManifest: false,
-            manifestStream,
-            iconStream);
-    }
-
-    private string? GetIconPath(FeedTarget target, string? command)
+    private byte[]? GetIcon(FeedTarget target, string? command)
     {
         var icon = target.Feed.GetBestIcon(Icon.MimeTypeIco, command);
         if (icon == null) return null;
 
         try
         {
-            string iconPath = iconStore.GetFresh(icon);
-#if NETFRAMEWORK
-            new System.Drawing.Icon(iconPath).Dispose(); // Try to parse icon to ensure it is valid
-#endif
-            return iconPath;
+            var data = File.ReadAllBytes(iconStore.GetFresh(icon));
+            Win32Resources.ParseIco(data); // Try to parse icon to ensure it is valid
+            return data;
         }
         #region Error handling
         catch (Exception ex) when (ex is UriFormatException or WebException)
         {
             Log.Warn(ex);
+        }
+        catch (InvalidDataException ex)
+        {
+            Log.Warn($"Failed to parse {icon}", ex);
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {

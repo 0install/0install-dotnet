@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Stub EXE template for GUI apps; see ..\Program.cs -->
+  <PropertyGroup>
+    <AssemblyName>ZeroInstall.Stub.Gui</AssemblyName>
+    <OutputType>WinExe</OutputType>
+  </PropertyGroup>
+
+</Project>

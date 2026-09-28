@@ -1,0 +1,33 @@
+<Project>
+
+  <!-- Shared settings for the stub EXE templates embedded into ZeroInstall.DesktopIntegration.
+       Intentionally does not import ..\Directory.Build.props, since the templates must not depend on anything but the .NET Framework. -->
+
+  <PropertyGroup>
+    <TargetFramework>net40</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <Deterministic>True</Deterministic>
+    <DebugType>none</DebugType>
+    <Prefer32Bit>False</Prefer32Bit>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <IsPackable>False</IsPackable>
+    <ApplicationManifest>$(MSBuildThisFileDirectory)Stub.manifest</ApplicationManifest>
+    <OutputPath>$(MSBuildThisFileDirectory)bin\$(Configuration)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>False</AppendTargetFrameworkToOutputPath>
+    <GenerateSupportedRuntime>False</GenerateSupportedRuntime>
+    <Product>Zero Install</Product>
+    <Copyright>Copyright Bastian Eicher et al.</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Program.cs" Link="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>

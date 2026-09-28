@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Stub EXE template for command-line apps; see ..\Program.cs -->
+  <PropertyGroup>
+    <AssemblyName>ZeroInstall.Stub.Cli</AssemblyName>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+</Project>
