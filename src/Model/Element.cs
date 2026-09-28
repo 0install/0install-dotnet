@@ -258,7 +258,7 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
     public Command? GetCommand(string name)
     {
         #region Sanity checks
-        if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(name);
+        if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(nameof(name));
         #endregion
 
         return Commands.FirstOrDefault(command => command.Name == name);

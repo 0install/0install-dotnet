@@ -9,7 +9,7 @@ namespace ZeroInstall.Services.Solvers;
 /// Wraps two solvers always passing requests to the primary one initially and falling back to secondary one should the primary one fail.
 /// </summary>
 /// <param name="primarySolver">The solver to run initially.</param>
-/// <param name="secondarySolver">he solver to fall back to should <paramref name="primarySolver"/> fail.</param>
+/// <param name="secondarySolver">The solver to fall back to should <paramref name="primarySolver"/> fail.</param>
 /// <remarks>This class is immutable and thread-safe.</remarks>
 public sealed class FallbackSolver(ISolver primarySolver, ISolver secondarySolver) : ISolver
 {
@@ -26,8 +26,8 @@ public sealed class FallbackSolver(ISolver primarySolver, ISolver secondarySolve
             }
             catch (WebException ex2)
             {
-                Log.Info("Unable to download secondary solver", ex2);
-                throw ex.Rethrow(); // Report the original problem instead of inability to launch secondary solver
+                Log.Info("Secondary solver failed to download a feed", ex2);
+                throw ex.Rethrow(); // Report the original problem instead of the secondary solver's download failure
             }
         }
 

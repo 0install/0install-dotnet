@@ -124,7 +124,7 @@ public class Fetcher(Config config, IImplementationStore store, ITaskHandler han
                 Retrieve(recipe.Steps, manifestDigest, tag);
                 break;
             default:
-                throw new NotSupportedException($"Unknown retrieval method: ${retrievalMethod}");
+                throw new NotSupportedException($"Unknown retrieval method: {retrievalMethod}");
         }
     }
 
@@ -203,7 +203,7 @@ public class Fetcher(Config config, IImplementationStore store, ITaskHandler han
                 builder.CopyFrom(copyFrom, GetPath(copyFrom.Implementation) ?? throw new IOException($"Unable to resolve {copyFrom.ID}."), handler);
                 break;
             default:
-                throw new NotSupportedException($"Unknown recipe step: ${step}");
+                throw new NotSupportedException($"Unknown recipe step: {step}");
         }
     }
 

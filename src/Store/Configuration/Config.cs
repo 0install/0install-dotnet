@@ -170,9 +170,11 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
             : null;
 
     /// <summary>
-    /// Always prefer the newest versions, even if they have not been marked as <see cref="Stability.Stable"/> yet.
+    /// Use Kerberos authentication against the <see cref="SyncServer"/>.
+    /// Uses <see cref="SyncServerCredentials"/> if specified, otherwise the credentials of the current user.
     /// </summary>
-    [DefaultValue(false), Category("Sync"), DisplayName(@"Use Kerberos authentication"), Description("Use Kerberos.")]
+    /// <seealso cref="SyncServer"/>
+    [DefaultValue(false), Category("Sync"), DisplayName(@"Use Kerberos authentication"), Description("Use Kerberos authentication against the sync server. Uses the username and password if specified, otherwise the credentials of the current user.")]
     public bool SyncServerKerberos { get; set; }
 
     /// <summary>
