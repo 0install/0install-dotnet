@@ -1,6 +1,8 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Diagnostics;
+using NanoByte.Common.Native;
 using NanoByte.Common.Streams;
 using ZeroInstall.FileSystem;
 using ZeroInstall.Store.Manifests;
@@ -373,6 +375,73 @@ public class DirectoryBuilderTest : IDisposable
 
         FileUtils.AreHardlinked(Path.Combine(sourceDir, "file1"), Path.Combine(destDir, "file1")).Should().BeTrue();
         FileUtils.AreHardlinked(Path.Combine(sourceDir, "file2"), Path.Combine(destDir, "file2")).Should().BeTrue();
+    }
+
+    [Fact]
+    public void RejectsAlternateDataStreams()
+    {
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Alternate data streams are Windows-specific");
+
+        _builder.AddFile("file", DataStream, modifiedTime: 0);
+        _builder.Invoking(x => x.AddFile("file:stream", DataStream, modifiedTime: 0))
+                .Should().Throw<IOException>();
+        _builder.Invoking(x => x.AddFile("file::$DATA", DataStream, modifiedTime: 0))
+                .Should().Throw<IOException>();
+    }
+
+    [Fact]
+    public void DoesNotFollowDirectoryLinks()
+    {
+        using var outsideDir = new TemporaryDirectory("0install-unit-test-outside");
+        File.WriteAllText(Path.Combine(outsideDir, "victim"), Data);
+        CreateDirectoryLink(Path.Combine(_tempDir, "link"), outsideDir);
+
+        string Inside(string name) => Path.Combine("link", name);
+
+        _builder.Invoking(x => x.AddFile(Inside("new"), DataStream, modifiedTime: 0)).Should().Throw<IOException>();
+        _builder.Invoking(x => x.AddFile(Inside("victim"), DataStream, modifiedTime: 0)).Should().Throw<IOException>();
+        _builder.Invoking(x => x.AddDirectory(Inside("dir"))).Should().Throw<IOException>();
+        _builder.Invoking(x => x.AddSymlink(Inside("symlink"), "target")).Should().Throw<IOException>();
+        _builder.Invoking(x => x.Remove(Inside("victim"))).Should().Throw<IOException>();
+        _builder.Invoking(x => x.Rename(Inside("victim"), "stolen")).Should().Throw<IOException>();
+        _builder.Invoking(x => x.MarkAsExecutable(Inside("victim"))).Should().Throw<IOException>();
+        _builder.Invoking(x => x.TurnIntoSymlink(Inside("victim"))).Should().Throw<IOException>();
+        _builder.Invoking(x => x.AddHardlink("hardlink", Inside("victim"))).Should().Throw<IOException>();
+        _builder.AddFile("file", DataStream, modifiedTime: 0);
+        _builder.Invoking(x => x.Rename("file", Inside("planted"))).Should().Throw<IOException>();
+        _builder.Invoking(x => x.AddHardlink(Inside("planted"), "file")).Should().Throw<IOException>();
+
+        Directory.GetFileSystemEntries(outsideDir).Should().Equal(Path.Combine(outsideDir, "victim"));
+        File.ReadAllText(Path.Combine(outsideDir, "victim")).Should().Be(Data);
+        ImplFileUtils.IsExecutable(Path.Combine(outsideDir, "victim")).Should().BeFalse();
+    }
+
+    [Fact]
+    public void RemovesDirectoryLinkWithoutFollowing()
+    {
+        using var outsideDir = new TemporaryDirectory("0install-unit-test-outside");
+        File.WriteAllText(Path.Combine(outsideDir, "victim"), Data);
+        CreateDirectoryLink(Path.Combine(_tempDir, "link"), outsideDir);
+
+        new DirectoryBuilder(_tempDir).Remove("link");
+
+        Directory.Exists(Path.Combine(_tempDir, "link")).Should().BeFalse();
+        File.ReadAllText(Path.Combine(outsideDir, "victim")).Should().Be(Data);
+    }
+
+    /// <summary>
+    /// Creates a directory junction (Windows) or symlink (Unix). Simulates a link planted by a previous build step.
+    /// </summary>
+    private static void CreateDirectoryLink(string link, string target)
+    {
+        if (WindowsUtils.IsWindows)
+        {
+            var process = Process.Start(new ProcessStartInfo("cmd.exe", $"/c mklink /J \"{link}\" \"{target}\"") {UseShellExecute = false, CreateNoWindow = true, RedirectStandardOutput = true})!;
+            process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
+            process.ExitCode.Should().Be(0);
+        }
+        else FileUtils.CreateSymlink(link, target);
     }
 
     [MustUseReturnValue]
