@@ -126,6 +126,24 @@ public class CompositeImplementationStoreTest : IDisposable
     }
 
     [Fact]
+    public void AddPrefersAdditionalSinks()
+    {
+        var mockSink = new Mock<IImplementationSink>();
+        var store = new CompositeImplementationStore([_mockStore1.Object, _mockStore2.Object], [mockSink.Object]);
+        _mockStore1.Setup(x => x.Contains(_digest1)).Returns(false);
+        _mockStore2.Setup(x => x.Contains(_digest1)).Returns(false);
+        mockSink.Setup(x => x.Contains(_digest1)).Returns(false);
+
+        Action<IBuilder> build = _ => {};
+        mockSink.Setup(x => x.Add(_digest1, build)).Throws(new IOException("Fake IO exception for testing"));
+        _mockStore2.Setup(x => x.Add(_digest1, build));
+        store.Add(_digest1, build);
+
+        mockSink.VerifyAll();
+        store.Stores.Should().Equal(_mockStore1.Object, _mockStore2.Object);
+    }
+
+    [Fact]
     public void AddFailAlreadyInStore()
     {
         _mockStore1.Setup(x => x.Contains(_digest1)).Returns(true);
@@ -164,19 +182,7 @@ public class CompositeImplementationStoreTest : IDisposable
     [Fact]
     public void VerifyExitsAfterFirstSuccess()
     {
-        _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
         _mockStore1.Setup(x => x.Verify(_digest1));
-
-        _testStore.Verify(_digest1);
-    }
-
-    [Fact]
-    public void VerifySkipsServiceStore()
-    {
-        _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.Service);
-
-        _mockStore2.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
-        _mockStore2.Setup(x => x.Verify(_digest1));
 
         _testStore.Verify(_digest1);
     }
@@ -184,11 +190,9 @@ public class CompositeImplementationStoreTest : IDisposable
     [Fact]
     public void VerifyContinuesOnNotFound()
     {
-        _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
         _mockStore1.Setup(x => x.Verify(_digest1))
                    .Throws<ImplementationNotFoundException>();
 
-        _mockStore2.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
         _mockStore2.Setup(x => x.Verify(_digest1));
 
         _testStore.Verify(_digest1);
@@ -197,11 +201,9 @@ public class CompositeImplementationStoreTest : IDisposable
     [Fact]
     public void VerifyReportsIfAllNotFound()
     {
-        _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
         _mockStore1.Setup(x => x.Verify(_digest1))
                    .Throws<ImplementationNotFoundException>();
 
-        _mockStore2.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
         _mockStore2.Setup(x => x.Verify(_digest1))
                    .Throws<ImplementationNotFoundException>();
 
@@ -212,7 +214,6 @@ public class CompositeImplementationStoreTest : IDisposable
     [Fact]
     public void VerifyReportsFailsFast()
     {
-        _mockStore1.SetupGet(x => x.Kind).Returns(ImplementationStoreKind.ReadWrite);
         _mockStore1.Setup(x => x.Verify(_digest1))
                    .Throws<IOException>();
 

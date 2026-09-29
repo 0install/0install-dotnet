@@ -14,10 +14,5 @@ public enum ImplementationStoreKind
     /// <summary>
     /// This store cannot be modified.
     /// </summary>
-    ReadOnly,
-
-    /// <summary>
-    /// This store is managed by a background service.
-    /// </summary>
-    Service
+    ReadOnly
 }

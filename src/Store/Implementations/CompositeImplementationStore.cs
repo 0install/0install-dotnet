@@ -22,10 +22,15 @@ public class CompositeImplementationStore : CompositeImplementationSink, IImplem
     /// </summary>
     /// <param name="stores">
     ///   A priority-sorted list of <see cref="IImplementationStore"/>s.
-    ///   Queried last-to-first for adding new <see cref="Implementation"/>s, first-to-last otherwise.
+    ///   Tried last-to-first for adding new <see cref="Implementation"/>s.
+    ///   Queried first-to-last for finding existing <see cref="Implementation"/>s.
     /// </param>
-    public CompositeImplementationStore(IReadOnlyList<IImplementationStore> stores)
-        : base(stores)
+    /// <param name="additionalSinks">
+    ///   <see cref="IImplementationSink"/>s that can only be used for adding new <see cref="Implementation"/>s.
+    ///   Tried before any of the <paramref name="stores"/> for adding new <see cref="Implementation"/>s.
+    /// </param>
+    public CompositeImplementationStore(IReadOnlyList<IImplementationStore> stores, IReadOnlyList<IImplementationSink>? additionalSinks = null)
+        : base([..stores, ..additionalSinks ?? []])
     {
         Stores = stores;
     }
@@ -60,7 +65,7 @@ public class CompositeImplementationStore : CompositeImplementationSink, IImplem
     public void Verify(ManifestDigest manifestDigest)
     {
         Exception? lastException = null;
-        foreach (var store in Stores.Where(x => x.Kind != ImplementationStoreKind.Service))
+        foreach (var store in Stores)
         {
             try
             {

@@ -44,12 +44,13 @@ public static class ImplementationStores
             #endregion
         }
 
+        var additionalSinks = new List<IImplementationSink>();
 #if NETFRAMEWORK
-            if (WindowsUtils.IsWindowsNT && !Locations.IsPortable)
-                stores.Add(new ServiceImplementationStore());
+        if (WindowsUtils.IsWindowsNT && !Locations.IsPortable)
+            additionalSinks.Add(new ServiceImplementationSink());
 #endif
 
-        return new CompositeImplementationStore(stores);
+        return new CompositeImplementationStore(stores, additionalSinks);
     }
 
     /// <summary>

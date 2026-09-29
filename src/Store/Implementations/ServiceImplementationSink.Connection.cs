@@ -12,7 +12,7 @@ using System.Security.Principal;
 
 namespace ZeroInstall.Store.Implementations;
 
-public partial class ServiceImplementationStore
+public partial class ServiceImplementationSink
 {
     /// <summary>
     /// The IPC port to use to contact the store service.
@@ -30,7 +30,7 @@ public partial class ServiceImplementationStore
     public static readonly CommonSecurityDescriptor IpcAcl;
 
     [SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline", Justification = "Must build ACL during init")]
-    static ServiceImplementationStore()
+    static ServiceImplementationSink()
     {
         var dacl = new DiscretionaryAcl(false, false, 1);
         dacl.AddAccess(AccessControlType.Allow, new SecurityIdentifier(WellKnownSidType.CreatorOwnerSid, null), -1, InheritanceFlags.None, PropagationFlags.None);
