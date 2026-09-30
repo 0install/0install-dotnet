@@ -196,6 +196,18 @@ public class DirectoryBuilderTest : IDisposable
         ]);
     }
 
+    [Theory]
+    [InlineData("")]
+    [InlineData("target\0evil")]
+    [InlineData("target\nevil")]
+    public void TurnIntoSymlinkRejectsInvalidTarget(string target)
+    {
+        _builder.AddFile("symlink", target.ToStream(), modifiedTime: 0);
+
+        _builder.Invoking(x => x.TurnIntoSymlink("symlink"))
+                .Should().Throw<IOException>();
+    }
+
     [Fact]
     public void Complex()
     {

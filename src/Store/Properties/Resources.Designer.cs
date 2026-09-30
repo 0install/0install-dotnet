@@ -369,6 +369,15 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to turn &apos;{0}&apos; into a symbolic link because it does not contain a valid link target..
+        /// </summary>
+        internal static string InvalidSymlinkTarget {
+            get {
+                return ResourceManager.GetString("InvalidSymlinkTarget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Only administrators can optimise a shared store..
         /// </summary>
         internal static string MustBeAdminToOptimise {

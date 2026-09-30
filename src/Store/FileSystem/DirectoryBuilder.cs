@@ -175,7 +175,10 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         EnsureRegularFile(fullPath, path);
         if (new FileInfo(fullPath).Length > MaxSymlinkTargetSize) throw new IOException(string.Format(Resources.InvalidPath, path));
 
-        AddSymlink(path, File.ReadAllText(fullPath, Encoding.UTF8));
+        string target = File.ReadAllText(fullPath, Encoding.UTF8);
+        if (!ImplFileUtils.IsValidSymlinkTarget(target)) throw new IOException(string.Format(Resources.InvalidSymlinkTarget, path));
+
+        AddSymlink(path, target);
     }
 
     /// <summary>

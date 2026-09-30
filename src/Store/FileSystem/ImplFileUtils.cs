@@ -163,4 +163,11 @@ public static class ImplFileUtils
             CygwinUtils.CreateSymlink(sourcePath, targetPath);
         }
     }
+
+    /// <summary>
+    /// Determines whether a string can be used as the target of a symbolic link.
+    /// </summary>
+    /// <returns><c>false</c> if <paramref name="target"/> is empty or contains control characters (which some platforms truncate at or cannot store); <c>true</c> otherwise.</returns>
+    internal static bool IsValidSymlinkTarget(string target)
+        => target.Length != 0 && !target.Any(c => c < 0x20);
 }

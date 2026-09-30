@@ -224,6 +224,9 @@ If you are using a FAT-formatted drive please convert it to NTFS.</value>
   <data name="InvalidSignature" xml:space="preserve">
     <value>The signature is invalid or damaged.</value>
   </data>
+  <data name="InvalidSymlinkTarget" xml:space="preserve">
+    <value>Unable to turn '{0}' into a symbolic link because it does not contain a valid link target.</value>
+  </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Only administrators can optimise a shared store.</value>
   </data>
