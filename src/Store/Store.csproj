@@ -34,7 +34,6 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net48'">
     <Reference Include="System.ComponentModel.DataAnnotations" Pack="False" />
-    <Reference Include="System.Runtime.Remoting" Pack="False" />
     <Reference Include="System.Net.Http" Pack="False" />
   </ItemGroup>
 
