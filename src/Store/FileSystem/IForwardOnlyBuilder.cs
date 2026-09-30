@@ -41,7 +41,7 @@ public interface IForwardOnlyBuilder
     /// </summary>
     /// <param name="path">The path of the hardlink to create relative to the implementation root.</param>
     /// <param name="target">The path of the existing file the hardlink shall be based on relative to the implementation root. Must point</param>
-    /// <param name="executable"><c>true</c> if the executable bit of the hardlink is set; <c>false</c> otherwise.</param>
+    /// <param name="executable"><c>true</c> if the executable bit of the target is set; <c>false</c> otherwise. May be ignored by the implementation if it can detect the executable bit of the target itself.</param>
     /// <exception cref="UnauthorizedAccessException">Access to a resource was denied.</exception>
     /// <exception cref="IOException">An IO operation failed.</exception>
     /// <exception cref="NotSupportedException">The currently platform or builder does not support hardlinks. Use <see cref="AddFile"/> instead.</exception>

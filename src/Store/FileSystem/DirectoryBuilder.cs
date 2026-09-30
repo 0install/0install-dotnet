@@ -71,6 +71,9 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         string targetAbsolute = GetFullPath(target, AllowedHardlinkRoot);
         EnsureRegularFile(targetAbsolute, target);
 
+        // Do not trust the caller to provide the correct value for 'executable'
+        executable = ImplFileUtils.IsExecutable(targetAbsolute);
+
         FileUtils.CreateHardlink(sourceAbsolute, targetAbsolute);
         if (executable) ImplFileUtils.SetExecutable(targetAbsolute);
 
