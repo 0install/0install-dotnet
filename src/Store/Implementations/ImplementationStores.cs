@@ -2,10 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Text;
-
-#if NETFRAMEWORK
 using NanoByte.Common.Native;
-#endif
 
 namespace ZeroInstall.Store.Implementations;
 
@@ -45,10 +42,8 @@ public static class ImplementationStores
         }
 
         var additionalSinks = new List<IImplementationSink>();
-#if NETFRAMEWORK
         if (WindowsUtils.IsWindowsNT && !Locations.IsPortable)
             additionalSinks.Add(new ServiceImplementationSink());
-#endif
 
         return new CompositeImplementationStore(stores, additionalSinks);
     }
