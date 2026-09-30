@@ -8,6 +8,8 @@
   href: ../publish.md
 - name: File system
   href: ../file-system.md
+- name: Store Service protocol
+  href: ../store-service.md
 - name: Command-line interface
   href: ../cli.md
 - name: Client library

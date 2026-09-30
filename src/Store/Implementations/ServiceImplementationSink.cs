@@ -1,20 +1,39 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-#if NETFRAMEWORK
-using System.Reflection;
-using System.Runtime.Remoting;
-using System.Runtime.Serialization;
-using NanoByte.Common.Threading;
+using System.Security.Principal;
+using NanoByte.Common.Native;
 using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Store.Implementations;
 
 /// <summary>
-/// Forwards request to an <see cref="IImplementationSink"/> running in a Store Service via IPC.
+/// Sends implementations to the Store Service (<see cref="StoreServiceServer"/>) via a named pipe, to add them to a machine-wide cache.
 /// </summary>
-public partial class ServiceImplementationSink : IImplementationSink
+/// <remarks>
+/// Only available on Windows.
+/// Only implementations identified by SHA-256 based digests are accepted.
+/// </remarks>
+public sealed class ServiceImplementationSink : IImplementationSink
 {
+    private readonly string _pipeName;
+    private readonly IReadOnlyCollection<SecurityIdentifier>? _trustedOwners;
+    private readonly TimeSpan _connectTimeout;
+
+    /// <summary>
+    /// Creates a new sink for sending implementations to the Store Service.
+    /// </summary>
+    public ServiceImplementationSink()
+        : this(StoreServiceProtocol.PipeName, trustedOwners: null, TimeSpan.FromSeconds(10))
+    {}
+
+    internal ServiceImplementationSink(string pipeName, IReadOnlyCollection<SecurityIdentifier>? trustedOwners, TimeSpan connectTimeout)
+    {
+        _pipeName = pipeName ?? throw new ArgumentNullException(nameof(pipeName));
+        _trustedOwners = trustedOwners;
+        _connectTimeout = connectTimeout;
+    }
+
     /// <summary>
     /// Always returns <c>false</c>. Use a non-IPC <see cref="IImplementationStore"/> for this method instead.
     /// </summary>
@@ -24,18 +43,19 @@ public partial class ServiceImplementationSink : IImplementationSink
     /// <inheritdoc/>
     public void Add(ManifestDigest manifestDigest, Action<IBuilder> build)
     {
-        try
-        {
-            GetProxy().Add(manifestDigest, build.ToMarshalByRef());
-            Log.Info($"Sent implementation to Store Service: {manifestDigest.Best}");
-        }
-        #region Error handling
-        catch (Exception ex) when (ex is RemotingException or SerializationException or TargetInvocationException or MemberAccessException or ArgumentNullException or NullReferenceException)
-        {
-            // Wrap exception since only certain exception types are allowed
-            throw new IOException(Resources.StoreServiceCommunicationProblem, ex);
-        }
+        #region Sanity checks
+        if (build == null) throw new ArgumentNullException(nameof(build));
         #endregion
+
+        if (!WindowsUtils.IsWindowsNT) throw new IOException(Resources.StoreServiceCommunicationProblem, new PlatformNotSupportedException());
+        if (manifestDigest.Sha256New == null && manifestDigest.Sha256 == null) throw new IOException("The Store Service only accepts implementations identified by SHA-256 based digests.");
+
+        using var client = StoreServiceClient.Connect(_pipeName, _trustedOwners ?? StoreServiceSecurity.DefaultTrustedOwners, _connectTimeout);
+        client.Begin(manifestDigest);
+        build(new StoreServiceBuilder(client));
+        client.Commit();
+
+        Log.Info($"Sent implementation to Store Service: {manifestDigest.Best}");
     }
 
     /// <summary>
@@ -44,4 +64,3 @@ public partial class ServiceImplementationSink : IImplementationSink
     public override string ToString()
         => "Store Service";
 }
-#endif
