@@ -46,6 +46,18 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     public void AddFile(string path, Stream stream, UnixTime modifiedTime, bool executable = false)
     {
         string fullPath = GetFullPath(path);
+
+        if (!UnixUtils.IsMacOSX)
+        {
+            if (IsAppleDoubleFile(fullPath))
+            {
+                Log.Debug($"Skipping AppleDouble file '{path}'");
+                stream.CopyToEx(Stream.Null); // Some sources require their content to be consumed
+                return;
+            }
+            DeleteAppleDoubleFile(fullPath);
+        }
+
         Directory.CreateDirectory(Paths.Parent(fullPath));
 
         // Delete any preexisting file to reset permissions, etc.
@@ -282,6 +294,63 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         if (!attributes.HasFlag(FileAttributes.Directory)) File.Delete(fullPath);
         else if (attributes.HasFlag(FileAttributes.ReparsePoint)) Directory.Delete(fullPath, recursive: false);
     }
+
+    /// <summary>
+    /// Determines whether <paramref name="fullPath"/> is an AppleDouble file (<c>._name</c>) for an existing file or link (<c>name</c>).
+    /// Matches the rule <see cref="ManifestBuilder"/> uses to leave AppleDouble files out of the manifest.
+    /// </summary>
+    private static bool IsAppleDoubleFile(string fullPath)
+        => System.IO.Path.GetFileName(fullPath).StartsWith(ManifestBuilder.AppleDoublePrefix, out string? name)
+        && name.Length != 0
+        && IsFileOrLink(Paths.Combine(Paths.Parent(fullPath), name));
+
+    /// <summary>
+    /// Deletes the AppleDouble file (<c>._name</c>) for <paramref name="fullPath"/> (<c>name</c>) if there is one.
+    /// Matches the rule <see cref="ManifestBuilder"/> uses to remove AppleDouble files from the manifest.
+    /// </summary>
+    private static void DeleteAppleDoubleFile(string fullPath)
+    {
+        string appleDoublePath = Paths.Combine(Paths.Parent(fullPath), ManifestBuilder.AppleDoublePrefix + System.IO.Path.GetFileName(fullPath));
+        if (IsFileOrLink(appleDoublePath))
+        {
+            Log.Debug($"Deleting AppleDouble file '{appleDoublePath}'");
+            DeleteFileOrLink(appleDoublePath);
+        }
+    }
+
+    /// <summary>
+    /// Determines whether <paramref name="fullPath"/> is an existing file or link (but not a regular directory) with exactly the requested name, without following links.
+    /// </summary>
+    private static bool IsFileOrLink(string fullPath)
+    {
+        FileAttributes attributes;
+        if (WindowsUtils.IsWindows)
+        {
+            string name = System.IO.Path.GetFileName(fullPath);
+            if (name.Length > MaxWindowsNameLength) return false; // Cannot exist and would make the lookup fail
+            if (WindowsUtils.TryGetDirectoryEntry(fullPath) is not {} entry || entry.Name != name) return false; // Windows resolves names case-insensitively and via 8.3 short names
+            attributes = entry.Attributes;
+        }
+        else
+        {
+            try
+            {
+                if (TryGetAttributes(fullPath) is not {} existing) return false;
+                attributes = existing;
+            }
+            catch (PathTooLongException)
+            {
+                return false;
+            }
+        }
+
+        return attributes.HasFlag(FileAttributes.ReparsePoint) || !attributes.HasFlag(FileAttributes.Directory);
+    }
+
+    /// <summary>
+    /// The maximum length of a file or directory name on Windows.
+    /// </summary>
+    private const int MaxWindowsNameLength = 255;
 
     /// <summary>
     /// Gets the attributes of a file system entry without following links.

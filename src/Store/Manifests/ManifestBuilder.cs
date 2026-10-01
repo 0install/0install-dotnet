@@ -18,6 +18,12 @@ public class ManifestBuilder(ManifestFormat format) : MarshalNoTimeout, IBuilder
     /// </summary>
     public Manifest Manifest { get; } = new(format);
 
+    /// <summary>
+    /// The name prefix of AppleDouble files (<c>._name</c>), which macOS uses to store metadata for a file (<c>name</c>).
+    /// Files added via <see cref="AddFile"/> are left out of the manifest if they are AppleDouble files for an existing file.
+    /// </summary>
+    internal const string AppleDoublePrefix = "._";
+
     /// <inheritdoc/>
     public void AddDirectory(string path)
         => Manifest.Add(path.ToUnixPath());
@@ -37,14 +43,13 @@ public class ManifestBuilder(ManifestFormat format) : MarshalNoTimeout, IBuilder
 
         var manifestDir = Manifest[dir];
 
-        const string appleDoublePrefix = "._";
-        if (file.StartsWith(appleDoublePrefix, out var rest) && manifestDir.ContainsKey(rest))
+        if (file.StartsWith(AppleDoublePrefix, out var rest) && manifestDir.ContainsKey(rest))
         {
             Log.Debug($"Ignoring AppleDouble file '{path}' in manifest");
             return;
         }
-        if (manifestDir.Remove(appleDoublePrefix + file))
-            Log.Debug($"Ignoring AppleDouble file '{Paths.Combine(dir, appleDoublePrefix + "path")}' in manifest");
+        if (manifestDir.Remove(AppleDoublePrefix + file))
+            Log.Debug($"Ignoring AppleDouble file '{Paths.Combine(dir, AppleDoublePrefix + file)}' in manifest");
 
         manifestDir[file] = executable
             ? new ManifestExecutableFile(digest, modifiedTime, stream.Length)

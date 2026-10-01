@@ -15,11 +15,12 @@ public class DirectoryBuilderTest : IDisposable
     private static Stream DataStream => Data.ToStream();
 
     private readonly TemporaryDirectory _tempDir = new("0install-unit-test-impl");
+    private readonly ManifestBuilder _manifestBuilder = new(ManifestFormat.Sha1New);
     private readonly DirectoryBuilder _builder;
 
     public DirectoryBuilderTest()
     {
-        _builder = new DirectoryBuilder(_tempDir, new ManifestBuilder(ManifestFormat.Sha1New));
+        _builder = new DirectoryBuilder(_tempDir, _manifestBuilder);
     }
 
     public void Dispose() => _tempDir.Dispose();
@@ -54,6 +55,75 @@ public class DirectoryBuilderTest : IDisposable
         Verify([
             new TestFile("file") { Contents = Data, LastWrite = 1337, IsExecutable = true }
         ]);
+    }
+
+    [Fact]
+    public void SkipsAppleDoubleFileAfterOriginal()
+    {
+        Assert.SkipWhen(UnixUtils.IsMacOSX, "AppleDouble files are kept on macOS");
+
+        _builder.AddFile("file", DataStream, modifiedTime: 1337);
+        var appleDouble = "metadata".ToStream();
+        _builder.AddFile("._file", appleDouble, modifiedTime: 1337);
+
+        appleDouble.Position.Should().Be(appleDouble.Length, because: "the content should be consumed");
+        Verify([
+            new TestFile("file") { Contents = Data, LastWrite = 1337 }
+        ]);
+        File.Exists(Path.Combine(_tempDir, "._file")).Should().BeFalse();
+        _manifestBuilder.Manifest[""].Keys.Should().Equal("file");
+    }
+
+    [Fact]
+    public void DeletesAppleDoubleFileBeforeOriginal()
+    {
+        Assert.SkipWhen(UnixUtils.IsMacOSX, "AppleDouble files are kept on macOS");
+
+        _builder.AddFile("._file", "metadata".ToStream(), modifiedTime: 1337);
+        _builder.AddFile("file", DataStream, modifiedTime: 1337);
+
+        Verify([
+            new TestFile("file") { Contents = Data, LastWrite = 1337 }
+        ]);
+        File.Exists(Path.Combine(_tempDir, "._file")).Should().BeFalse();
+        _manifestBuilder.Manifest[""].Keys.Should().Equal("file");
+    }
+
+    [Fact]
+    public void KeepsAppleDoubleFileOnMacOS()
+    {
+        Assert.SkipUnless(UnixUtils.IsMacOSX, "AppleDouble files are only kept on macOS");
+
+        _builder.AddFile("file", DataStream, modifiedTime: 1337);
+        _builder.AddFile("._file", "metadata".ToStream(), modifiedTime: 1337);
+
+        File.Exists(Path.Combine(_tempDir, "._file")).Should().BeTrue();
+        _manifestBuilder.Manifest[""].Keys.Should().Equal("file");
+    }
+
+    [Fact]
+    public void KeepsFileNamedLikeAppleDoubleForDirectory()
+    {
+        _builder.AddDirectory("file");
+        _builder.AddFile("._file", "metadata".ToStream(), modifiedTime: 1337);
+
+        Verify([
+            new TestFile("._file") { Contents = "metadata", LastWrite = 1337 },
+            new TestDirectory("file")
+        ]);
+        _manifestBuilder.Manifest[""].Keys.Should().Equal("._file");
+    }
+
+    [Fact]
+    public void KeepsFileNamedLikeAppleDoubleWithDifferentCase()
+    {
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Case-insensitive name resolution is Windows-specific");
+
+        _builder.AddFile("file", DataStream, modifiedTime: 1337);
+        _builder.AddFile("._FILE", "metadata".ToStream(), modifiedTime: 1337);
+
+        Directory.GetFiles(_tempDir).Select(Path.GetFileName).Should().BeEquivalentTo("file", "._FILE");
+        _manifestBuilder.Manifest[""].Keys.Should().BeEquivalentTo("file", "._FILE");
     }
 
     [Fact]
