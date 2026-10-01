@@ -258,6 +258,9 @@ Specified in the configuration file '{1}'.</value>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>This option is controlled by a group policy and can therefore not be modified.</value>
   </data>
+  <data name="PathCaseCollision" xml:space="preserve">
+    <value>The path '{0}' refers to the existing file or directory '{1}'. Names that only differ in upper/lower case are not supported on Windows.</value>
+  </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
     <value>There was a problem accessing the implementation store '{0}'.
 Run '{1}' to remove it from the list of registered directories.</value>

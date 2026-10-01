@@ -402,6 +402,50 @@ public class DirectoryBuilderTest : IDisposable
     }
 
     [Fact]
+    public void RejectsCaseCollisions()
+    {
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Case-insensitive name resolution is Windows-specific");
+
+        _builder.AddDirectory("dir");
+        _builder.AddFile(Path.Combine("dir", "file"), DataStream, modifiedTime: 1337);
+
+        _builder.Invoking(x => x.AddDirectory("DIR")).Should().Throw<IOException>();
+        _builder.Invoking(x => x.AddFile(Path.Combine("DIR", "new"), DataStream, modifiedTime: 0)).Should().Throw<IOException>();
+        _builder.Invoking(x => x.AddFile(Path.Combine("dir", "FILE"), "other".ToStream(), modifiedTime: 0)).Should().Throw<IOException>();
+        _builder.Invoking(x => x.AddSymlink(Path.Combine("dir", "FILE"), "target")).Should().Throw<IOException>();
+        _builder.Invoking(x => x.AddHardlink(Path.Combine("dir", "FILE"), Path.Combine("dir", "file"))).Should().Throw<IOException>();
+        _builder.Invoking(x => x.AddHardlink("link", Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
+        _builder.Invoking(x => x.Rename("DIR", "dir2")).Should().Throw<IOException>();
+        _builder.Invoking(x => x.Rename(Path.Combine("dir", "file"), Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
+        _builder.Invoking(x => x.Remove(Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
+        _builder.Invoking(x => x.MarkAsExecutable(Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
+        _builder.Invoking(x => x.TurnIntoSymlink(Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
+
+        Verify([
+            new TestDirectory("dir")
+            {
+                new TestFile("file") { Contents = Data, LastWrite = 1337 }
+            }
+        ]);
+    }
+
+    [Fact]
+    public void RejectsShortNameAliases()
+    {
+        Assert.SkipUnless(WindowsUtils.IsWindows, "8.3 short names are Windows-specific");
+
+        _builder.AddFile("longfilename.txt", DataStream, modifiedTime: 1337);
+        Assert.SkipUnless(File.Exists(Path.Combine(_tempDir, "LONGFI~1.TXT")), "8.3 short name generation is disabled on this volume");
+
+        _builder.Invoking(x => x.AddFile("LONGFI~1.TXT", "other".ToStream(), modifiedTime: 0)).Should().Throw<IOException>();
+        _builder.Invoking(x => x.Remove("LONGFI~1.TXT")).Should().Throw<IOException>();
+
+        Verify([
+            new TestFile("longfilename.txt") { Contents = Data, LastWrite = 1337 }
+        ]);
+    }
+
+    [Fact]
     public void DoesNotFollowDirectoryLinks()
     {
         using var outsideDir = new TemporaryDirectory("0install-unit-test-outside");

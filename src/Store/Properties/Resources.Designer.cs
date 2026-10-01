@@ -469,6 +469,15 @@ namespace ZeroInstall.Store.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The path &apos;{0}&apos; refers to the existing file or directory &apos;{1}&apos;. Names that only differ in upper/lower case are not supported on Windows..
+        /// </summary>
+        internal static string PathCaseCollision {
+            get {
+                return ResourceManager.GetString("PathCaseCollision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There was a problem accessing the implementation store &apos;{0}&apos;.
         ///Run &apos;{1}&apos; to remove it from the list of registered directories..
         /// </summary>

@@ -85,7 +85,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     {
         if (!target.FullName.StartsWith(AllowedHardlinkRoot + System.IO.Path.DirectorySeparatorChar))
             return false;
-        EnsureNoLinksInParents(target.FullName, AllowedHardlinkRoot);
+        EnsureNoLinksInParents(target.FullName, AllowedHardlinkRoot, checkNames: false);
         EnsureRegularFile(target.FullName, target.FullName);
 
         string sourceAbsolute = GetFullPath(path);
@@ -194,7 +194,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     /// </summary>
     /// <param name="relativePath">The relative path to resolve.</param>
     /// <param name="allowedRoot">A directory the resulting path must be a child of.</param>
-    /// <exception cref="IOException"><paramref name="relativePath"/> is invalid (e.g. is absolute, lies outside of <paramref name="allowedRoot"/>, contains invalid characters, passes through a link).</exception>
+    /// <exception cref="IOException"><paramref name="relativePath"/> is invalid (e.g. is absolute, lies outside of <paramref name="allowedRoot"/>, contains invalid characters, passes through a link, differs only in case from an existing entry on Windows).</exception>
     private string GetFullPath(string relativePath, string allowedRoot)
     {
         if (Manifest.RejectPath(relativePath)) throw new IOException(string.Format(Resources.InvalidPath, relativePath));
@@ -207,7 +207,11 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         if (!fullPath.StartsWith(allowedRoot + System.IO.Path.DirectorySeparatorChar))
             throw new IOException(string.Format(Resources.InvalidPath, relativePath));
 
-        EnsureNoLinksInParents(fullPath, allowedRoot);
+        // Windows path normalization (expanding 8.3 short names, stripping trailing dots and spaces, etc.) would let the directory on disk diverge from the manifest calculated by the inner builder
+        if (WindowsUtils.IsWindows && fullPath != Path + System.IO.Path.DirectorySeparatorChar + relativePath)
+            throw new IOException(string.Format(Resources.InvalidPath, relativePath));
+
+        EnsureNoLinksInParents(fullPath, allowedRoot, checkNames: true);
 
         return fullPath;
     }
@@ -216,17 +220,37 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     /// Ensures that no existing directory between <paramref name="root"/> and <paramref name="fullPath"/> is a link (symlink, junction, etc.) or a file.
     /// Prevents writing, reading or deleting outside of <paramref name="root"/> via links created by previous build steps.
     /// </summary>
-    /// <exception cref="IOException">A parent directory of <paramref name="fullPath"/> is a link or a file.</exception>
-    private static void EnsureNoLinksInParents(string fullPath, string root)
+    /// <param name="fullPath">The path to check.</param>
+    /// <param name="root">The directory to start checking at.</param>
+    /// <param name="checkNames">
+    /// <c>true</c> to also ensure on Windows that every existing entry below <see cref="Path"/> (including <paramref name="fullPath"/> itself) has exactly the requested name.
+    /// Windows resolves names case-insensitively and via 8.3 short names, which would otherwise let the directory on disk diverge from the manifest calculated by the inner builder.
+    /// </param>
+    /// <exception cref="IOException">A parent directory of <paramref name="fullPath"/> is a link or a file, or an existing entry has a different name.</exception>
+    private void EnsureNoLinksInParents(string fullPath, string root, bool checkNames)
     {
+        checkNames &= WindowsUtils.IsWindows;
+
         string[] parts = fullPath[(root.Length + 1)..].Split(System.IO.Path.DirectorySeparatorChar);
         string current = root;
-        for (int i = 0; i < parts.Length - 1; i++)
+        for (int i = 0; i < (checkNames ? parts.Length : parts.Length - 1); i++)
         {
             current = System.IO.Path.Combine(current, parts[i]);
-            if (TryGetAttributes(current) is not {} attributes) return; // Remaining directories do not exist yet and will be created as needed
+            FileAttributes attributes;
+            if (checkNames && WindowsUtils.IsWindows && current.StartsWith(Path + System.IO.Path.DirectorySeparatorChar))
+            {
+                if (WindowsUtils.TryGetDirectoryEntry(current) is not {} entry) return; // Remaining entries do not exist yet and will be created as needed
+                if (entry.Name != parts[i])
+                {
+                    string relative = current[(Path.Length + 1)..];
+                    throw new IOException(string.Format(Resources.PathCaseCollision, relative, relative[..^parts[i].Length] + entry.Name));
+                }
+                attributes = entry.Attributes;
+            }
+            else if (TryGetAttributes(current) is {} existing) attributes = existing;
+            else return; // Remaining directories do not exist yet and will be created as needed
 
-            if (attributes.HasFlag(FileAttributes.ReparsePoint) || !attributes.HasFlag(FileAttributes.Directory))
+            if (i < parts.Length - 1 && (attributes.HasFlag(FileAttributes.ReparsePoint) || !attributes.HasFlag(FileAttributes.Directory)))
                 throw new IOException(string.Format(Resources.InvalidPath, fullPath));
         }
     }
