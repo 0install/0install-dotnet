@@ -88,7 +88,7 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
                         break;
 
                     case ManifestSymlink:
-                        if (ImplFileUtils.IsSymlink(sourcePath, out string? symlinkTarget)) ImplFileUtils.CreateSymlink(tempPath, symlinkTarget);
+                        if (ImplFileUtils.IsSymlink(sourcePath, out string? symlinkTarget)) ImplFileUtils.CreateSymlink(tempPath, symlinkTarget, DestinationPath);
                         break;
                 }
             }

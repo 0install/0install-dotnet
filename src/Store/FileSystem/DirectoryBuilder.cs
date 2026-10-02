@@ -133,7 +133,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         // Delete any preexisting file to reset permissions, etc.
         DeleteFileOrLink(sourceAbsolute);
 
-        ImplFileUtils.CreateSymlink(sourceAbsolute, target);
+        ImplFileUtils.CreateSymlink(sourceAbsolute, target, Path);
 
         innerBuilder?.AddSymlink(path, target);
     }

@@ -151,8 +151,16 @@ public static class ImplFileUtils
     /// </summary>
     /// <param name="sourcePath">The path of the link to create.</param>
     /// <param name="targetPath">The path of the existing file or directory to point to (relative to <paramref name="sourcePath" />).</param>
-    public static void CreateSymlink(string sourcePath, string targetPath)
+    /// <param name="implementationRoot">The root directory of the implementation the link is created in.</param>
+    public static void CreateSymlink(string sourcePath, string targetPath, string implementationRoot)
     {
+        if (WindowsUtils.IsWindows && !IsInside(sourcePath, targetPath, implementationRoot))
+        {
+            Log.Info($"Creating Cygwin symlink instead of NTFS symlink because target points outside of implementation: {sourcePath}");
+            CygwinUtils.CreateSymlink(sourcePath, targetPath);
+            return;
+        }
+
         try
         {
             FileUtils.CreateSymlink(sourcePath, targetPath);
@@ -161,6 +169,31 @@ public static class ImplFileUtils
         {
             Log.Debug($"Creating Cygwin symlink instead of NTFS symlink due to insufficient permissions: {sourcePath}");
             CygwinUtils.CreateSymlink(sourcePath, targetPath);
+        }
+    }
+
+    /// <summary>
+    /// Determines whether a symlink target resolves to a location inside <paramref name="root"/>.
+    /// </summary>
+    /// <param name="sourcePath">The path of the link.</param>
+    /// <param name="targetPath">The path the link points to (relative to <paramref name="sourcePath"/>).</param>
+    /// <param name="root">The directory the target must be inside of (or equal to).</param>
+    private static bool IsInside(string sourcePath, string targetPath, string root)
+    {
+        // Colons would allow drive-relative paths or addressing NTFS alternate data streams
+        if (targetPath.Contains(":")) return false;
+
+        try
+        {
+            if (Path.IsPathRooted(targetPath)) return false;
+
+            string fullRoot = Path.GetFullPath(root).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+            string fullTarget = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(Path.GetFullPath(sourcePath)) ?? fullRoot, targetPath));
+            return fullTarget == fullRoot || fullTarget.StartsWith(fullRoot + Path.DirectorySeparatorChar, StringComparison.Ordinal);
+        }
+        catch (Exception ex) when (ex is ArgumentException or NotSupportedException or PathTooLongException)
+        {
+            return false;
         }
     }
 

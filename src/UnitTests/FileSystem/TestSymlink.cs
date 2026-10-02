@@ -29,7 +29,7 @@ public class TestSymlink : TestElement
     }
 
     public override void Build(string parentPath)
-        => ImplFileUtils.CreateSymlink(Path.Combine(parentPath, Name), Target);
+        => ImplFileUtils.CreateSymlink(Path.Combine(parentPath, Name), Target, parentPath);
 
     public override void Verify(string parentPath)
     {

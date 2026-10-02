@@ -252,6 +252,39 @@ public class DirectoryBuilderTest : IDisposable
         ]);
     }
 
+    [Theory]
+    [InlineData(@"..\outside")]
+    [InlineData("../../outside")]
+    [InlineData(@"dir\..\..\outside")]
+    [InlineData(@"C:\Windows")]
+    [InlineData("C:foo")]
+    [InlineData(@"\foo")]
+    [InlineData(@"\\server\share")]
+    [InlineData("target:stream")]
+    public void AddSymlinkOutsideImplementationOnWindows(string target)
+    {
+        Assert.SkipUnless(WindowsUtils.IsWindows, "Real symlinks are only avoided on Windows");
+
+        _builder.AddSymlink("symlink", target);
+
+        string path = Path.Combine(_tempDir, "symlink");
+        FileUtils.IsSymlink(path).Should().BeFalse(because: "symlinks pointing outside of the implementation should not be real NTFS symlinks");
+        ImplFileUtils.IsSymlink(path, out string? actualTarget).Should().BeTrue();
+        actualTarget.Should().Be(target);
+    }
+
+    [Theory]
+    [InlineData("target")]
+    [InlineData("dir/../target")]
+    [InlineData(".")]
+    public void AddSymlinkInsideImplementation(string target)
+    {
+        _builder.AddSymlink("symlink", target);
+
+        ImplFileUtils.IsSymlink(Path.Combine(_tempDir, "symlink"), out string? actualTarget).Should().BeTrue();
+        actualTarget.Should().Be(target);
+    }
+
     [Fact]
     public void TurnIntoSymlink()
     {
