@@ -23,7 +23,7 @@ public static class ImplFileUtils
     private const string LxModIndicator = "$LXMOD";
 
     /// <summary>
-    /// Default Unix permission mode for executable files (0755 octal = rwxr-xr-x).
+    /// Default Unix permission mode for executable files (rwxr-xr-x).
     /// </summary>
     private const int DefaultExecutableMode = 493; // 0755 in octal
 
