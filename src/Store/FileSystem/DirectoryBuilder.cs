@@ -30,7 +30,8 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     /// <summary>
     /// The maximum size of a file that can be turned into a symlink with <see cref="TurnIntoSymlink"/>.
     /// </summary>
-    public const long MaxSymlinkTargetSize = 64 * 1024;
+    /// <remarks>Matches <c>PATH_MAX</c> on Linux. Longer symlink targets would not be usable on most platforms anyway.</remarks>
+    internal const int MaxSymlinkTargetSize = 4096;
 
     /// <inheritdoc/>
     public void AddDirectory(string path)
