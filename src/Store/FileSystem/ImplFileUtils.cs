@@ -198,6 +198,34 @@ public static class ImplFileUtils
     }
 
     /// <summary>
+    /// Deletes a file or a link (without following it) if it exists. Does not delete regular directories.
+    /// </summary>
+    internal static void DeleteFileOrLink(string fullPath)
+    {
+        FileAttributes attributes;
+        try
+        {
+            attributes = File.GetAttributes(fullPath);
+        }
+        catch (Exception ex) when (ex is FileNotFoundException or DirectoryNotFoundException)
+        {
+            return;
+        }
+
+        if (!attributes.HasFlag(FileAttributes.Directory)) File.Delete(fullPath);
+        else if (attributes.HasFlag(FileAttributes.ReparsePoint)) Directory.Delete(fullPath, recursive: false);
+    }
+
+    /// <summary>
+    /// Moves a file or a link (without following it). Unlike <see cref="File.Move(string,string)"/>, this also handles directory links on Windows.
+    /// </summary>
+    internal static void MoveFileOrLink(string sourcePath, string destinationPath)
+    {
+        if (File.GetAttributes(sourcePath).HasFlag(FileAttributes.Directory)) Directory.Move(sourcePath, destinationPath);
+        else File.Move(sourcePath, destinationPath);
+    }
+
+    /// <summary>
     /// Determines whether a string can be used as the target of a symbolic link.
     /// </summary>
     /// <returns><c>false</c> if <paramref name="target"/> is empty or contains control characters (which some platforms truncate at or cannot store); <c>true</c> otherwise.</returns>

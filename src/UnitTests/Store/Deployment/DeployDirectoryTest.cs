@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using NanoByte.Common.Native;
+using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Manifests;
 
 namespace ZeroInstall.Store.Deployment;
@@ -79,6 +80,67 @@ public class DeployDirectoryTest : DirectoryOperationTestBase
         }
 
         Directory.GetFileSystemEntries(_destinationDirectory).Length.Should().Be(1, because: "All new content should be gone after rollback.");
+    }
+
+    [Fact]
+    public void CopiesSymlinks()
+    {
+        using var sourceDir = BuildWithSymlinks(out var manifest);
+        FileUtils.CreateSymlink(Path.Combine(_destinationDirectory, "dir-link"), "dir");
+
+        using (var operation = new DeployDirectory(sourceDir, manifest, _destinationDirectory, new SilentTaskHandler()))
+        {
+            operation.Stage();
+            operation.Commit();
+        }
+
+        AssertSymlink("dir-link", "dir", isDirectory: true);
+        AssertSymlink("absolute-link", Path.GetTempPath(), isDirectory: false);
+    }
+
+    [Fact]
+    public void RollsBackSymlinks()
+    {
+        using var sourceDir = BuildWithSymlinks(out var manifest);
+
+        using (var operation = new DeployDirectory(sourceDir, manifest, _destinationDirectory, new SilentTaskHandler()))
+        {
+            operation.Stage();
+            // Missing .Commit() automatically triggers rollback
+        }
+
+        Directory.GetFileSystemEntries(_destinationDirectory).Should().BeEmpty(because: "All new content should be gone after rollback.");
+    }
+
+    /// <summary>
+    /// Builds an implementation containing a directory link and a file link whose target is an existing directory outside the implementation.
+    /// </summary>
+    private static TemporaryDirectory BuildWithSymlinks(out Manifest manifest)
+    {
+        Assert.SkipUnless(WindowsUtils.IsWindows, "File and directory symlinks are only distinguished on Windows");
+
+        var sourceDir = new TemporaryDirectory("0install-test-source");
+        var manifestBuilder = new ManifestBuilder(ManifestFormat.Sha256New);
+        var builder = new DirectoryBuilder(sourceDir, manifestBuilder);
+        builder.AddDirectory("dir");
+        builder.AddSymlink("dir-link", "dir");
+        builder.AddSymlink("absolute-link", Path.GetTempPath()); // Exists, but must not be checked
+        if (!FileUtils.IsSymlink(Path.Combine(sourceDir, "dir-link")))
+        {
+            sourceDir.Dispose();
+            Assert.Skip("Creating NTFS symlinks requires Developer Mode or administrator rights");
+        }
+
+        manifest = manifestBuilder.Manifest;
+        return sourceDir;
+    }
+
+    private void AssertSymlink(string name, string target, bool isDirectory)
+    {
+        string path = Path.Combine(_destinationDirectory, name);
+        ImplFileUtils.IsSymlink(path, out string? actualTarget).Should().BeTrue();
+        actualTarget.Should().Be(target);
+        File.GetAttributes(path).HasFlag(FileAttributes.Directory).Should().Be(isDirectory);
     }
 
     [Fact]

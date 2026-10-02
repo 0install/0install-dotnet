@@ -62,7 +62,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         Directory.CreateDirectory(Paths.Parent(fullPath));
 
         // Delete any preexisting file to reset permissions, etc.
-        DeleteFileOrLink(fullPath);
+        ImplFileUtils.DeleteFileOrLink(fullPath);
 
         using (var fileStream = FileUtils.Create(fullPath, Math.Max(0, stream.Length)))
         {
@@ -131,7 +131,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         Directory.CreateDirectory(Paths.Parent(sourceAbsolute));
 
         // Delete any preexisting file to reset permissions, etc.
-        DeleteFileOrLink(sourceAbsolute);
+        ImplFileUtils.DeleteFileOrLink(sourceAbsolute);
 
         ImplFileUtils.CreateSymlink(sourceAbsolute, target, Path);
 
@@ -159,7 +159,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     {
         string fullPath = GetFullPath(path);
         if (IsLink(fullPath))
-            DeleteFileOrLink(fullPath);
+            ImplFileUtils.DeleteFileOrLink(fullPath);
         else if (File.Exists(fullPath))
             File.Delete(fullPath);
         else if (Directory.Exists(fullPath))
@@ -286,17 +286,6 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         => TryGetAttributes(fullPath) is {} attributes && attributes.HasFlag(FileAttributes.ReparsePoint);
 
     /// <summary>
-    /// Deletes a file or a link (without following it) if it exists. Does not delete regular directories.
-    /// </summary>
-    private static void DeleteFileOrLink(string fullPath)
-    {
-        if (TryGetAttributes(fullPath) is not {} attributes) return;
-
-        if (!attributes.HasFlag(FileAttributes.Directory)) File.Delete(fullPath);
-        else if (attributes.HasFlag(FileAttributes.ReparsePoint)) Directory.Delete(fullPath, recursive: false);
-    }
-
-    /// <summary>
     /// Determines whether <paramref name="fullPath"/> is an AppleDouble file (<c>._name</c>) for an existing file or link (<c>name</c>).
     /// Matches the rule <see cref="ManifestBuilder"/> uses to leave AppleDouble files out of the manifest.
     /// </summary>
@@ -315,7 +304,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         if (IsFileOrLink(appleDoublePath))
         {
             Log.Debug($"Deleting AppleDouble file '{appleDoublePath}'");
-            DeleteFileOrLink(appleDoublePath);
+            ImplFileUtils.DeleteFileOrLink(appleDoublePath);
         }
     }
 

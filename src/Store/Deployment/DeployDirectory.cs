@@ -59,6 +59,9 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
 
     private void CopyFromSourceToTemp()
     {
+        // Symlinks are created last, so their targets already exist (on Windows file and directory links are distinguished at creation time)
+        var pendingSymlinks = new List<(string sourcePath, string tempPath)>();
+
         foreach ((string directoryPath, var directory) in Manifest)
         {
             string dirPath = directoryPath.ToNativePath();
@@ -88,10 +91,16 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
                         break;
 
                     case ManifestSymlink:
-                        if (ImplFileUtils.IsSymlink(sourcePath, out string? symlinkTarget)) ImplFileUtils.CreateSymlink(tempPath, symlinkTarget, DestinationPath);
+                        pendingSymlinks.Add((sourcePath, tempPath));
                         break;
                 }
             }
+        }
+
+        foreach ((string sourcePath, string tempPath) in pendingSymlinks)
+        {
+            if (ImplFileUtils.IsSymlink(sourcePath, out string? symlinkTarget))
+                ImplFileUtils.CreateSymlink(tempPath, symlinkTarget, DestinationPath);
         }
     }
 
@@ -106,10 +115,11 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
 
     private void MoveFromTempToDestination()
     {
+        // Entries may be directory links on Windows, which File.Exists(), File.Delete() and File.Move() do not handle
         _pendingFileRenames.PopEach(x =>
         {
-            if (File.Exists(x.destination)) File.Delete(x.destination);
-            File.Move(x.source, x.destination);
+            ImplFileUtils.DeleteFileOrLink(x.destination);
+            ImplFileUtils.MoveFileOrLink(x.source, x.destination);
         });
     }
 
@@ -118,10 +128,7 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
     {
         Log.Debug($"Rolling back atomic deployment to {DestinationPath}");
 
-        _pendingFileRenames.PopEach(x =>
-        {
-            if (File.Exists(x.source)) File.Delete(x.source);
-        });
+        _pendingFileRenames.PopEach(x => ImplFileUtils.DeleteFileOrLink(x.source));
 
         _createdDirectories.PopEach(path =>
         {
