@@ -36,25 +36,39 @@ public class ImplementationDiscoveryTest : IDisposable
     [Fact]
     public void FoundServerStartedBefore()
     {
+        SkipIfMulticastBlocked();
         var digest = AddImplementation();
         using var server = StartServer();
 
         using var discovery = new ImplementationDiscovery();
-        discovery.GetImplementation(digest, TestContext.Current.CancellationToken)
-                 .LocalPath.Should().Contain(digest.Best);
+        var uri = discovery.TryGetImplementation(digest, _foundTimeout, TestContext.Current.CancellationToken);
+        uri.Should().NotBeNull();
+        uri!.LocalPath.Should().Contain(digest.Best);
     }
 
     [Fact]
     public async Task FoundServerStartedLater()
     {
+        SkipIfMulticastBlocked();
         var digest = AddImplementation();
         using var discovery = new ImplementationDiscovery();
 
         // ReSharper disable once AccessToDisposedClosure
-        var task = Task.Run(() => discovery.GetImplementation(digest, TestContext.Current.CancellationToken));
+        var task = Task.Run(() => discovery.TryGetImplementation(digest, _foundTimeout, TestContext.Current.CancellationToken));
         using var server = StartServer();
-        (await task).LocalPath.Should().Contain(digest.Best);
+        var uri = await task;
+        uri.Should().NotBeNull();
+        uri!.LocalPath.Should().Contain(digest.Best);
     }
+
+    /// <summary>
+    /// Upper bound for finding a server, so that broken discovery fails the test instead of hanging it.
+    /// </summary>
+    private static readonly TimeSpan _foundTimeout = TimeSpan.FromSeconds(10);
+
+    private static void SkipIfMulticastBlocked()
+        => Assert.SkipWhen(UnixUtils.IsMacOSX && !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("CI")),
+            "macOS Local Network privacy blocks multicast for non-interactive processes like CI runners");
 
     [Fact]
     public void NotFound()
