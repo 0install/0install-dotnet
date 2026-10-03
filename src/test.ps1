@@ -6,7 +6,7 @@ function Run-DotNet {
     if ($LASTEXITCODE -ne 0) {throw "Exit Code: $LASTEXITCODE"}
 }
 
-echo "Unit tests"
-Run-DotNet test --verbosity quiet --no-build --configuration Release
+echo "Run unit tests"
+Run-DotNet test --no-build --configuration Release
 
 popd

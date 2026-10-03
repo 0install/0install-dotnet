@@ -1,15 +1,22 @@
 name: Build
 on: [push, pull_request]
-permissions:
-  actions: read
-  artifact-metadata: read
-  contents: write
-  packages: write
-  pages: write
 
 jobs:
-  windows:
-    runs-on: windows-latest
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            build: src\build.ps1
+            test: src\test.ps1
+          - os: ubuntu-latest
+            build: src/build.sh
+            test: src/test.sh
+          - os: macos-latest
+            build: src/build.sh
+            test: src/test.sh
+    runs-on: ${{matrix.os}}
+
     steps:
       # Prepare
       - uses: actions/checkout@v7
@@ -24,27 +31,29 @@ jobs:
 
       # Build
       - name: Build
-        run: .\src\build.ps1 ${{steps.gitversion.outputs.nuGetVersion}}${{github.ref_type != 'tag' && format('-{0}', steps.gitversion.outputs.shortSha) || ''}}
+        run: ${{matrix.build}} ${{steps.gitversion.outputs.nuGetVersion}}${{github.ref_type != 'tag' && format('-{0}', steps.gitversion.outputs.shortSha) || ''}}
       - name: Test
-        run: .\src\test.ps1
+        run: ${{matrix.test}}
       - name: Report test results
         if: always()
         uses: dorny/test-reporter@v3
         with:
-          name: windows - Test Report
+          name: ${{runner.os}} - Test Report
           reporter: dotnet-trx
           path: src/UnitTests/TestResults/*.trx
       - name: Build documentation
-        run: .\doc\build.ps1
+        if: runner.os == 'Windows'
+        run: doc\build.ps1
 
       # Sign
       - name: Upload artifacts
+        if: runner.os == 'Windows'
         id: artifacts
         uses: actions/upload-artifact@v7
         with:
           path: artifacts
       - name: Sign artifacts
-        if: github.ref_type == 'tag'
+        if: runner.os == 'Windows' && github.ref_type == 'tag'
         uses: signpath/github-action-submit-signing-request@v3
         with:
           api-token: ${{secrets.SIGNPATH_API_KEY}}
@@ -56,6 +65,7 @@ jobs:
 
       # Package
       - uses: 0install/github-actions/0template@v1
+        if: runner.os == 'Windows'
         id: feed
         with:
           template: 0install-dotnet.xml.template
@@ -64,7 +74,7 @@ jobs:
 
       # Release
       - name: Get tag message
-        if: github.ref_type == 'tag'
+        if: runner.os == 'Windows' && github.ref_type == 'tag'
         id: tag_message
         run: |
           "message<<EOF" >> $env:GITHUB_OUTPUT
@@ -72,7 +82,7 @@ jobs:
           git tag --format="%(contents)" -l ${{github.ref_name}} >> $env:GITHUB_OUTPUT
           "EOF" >> $env:GITHUB_OUTPUT
       - name: Create GitHub Release
-        if: github.ref_type == 'tag'
+        if: runner.os == 'Windows' && github.ref_type == 'tag'
         uses: softprops/action-gh-release@v3
         with:
           body: |
@@ -85,7 +95,7 @@ jobs:
 
       # Publish
       - name: Publish documentation
-        if: github.ref_type == 'tag'
+        if: runner.os == 'Windows' && github.ref_type == 'tag'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{github.token}}
@@ -93,41 +103,14 @@ jobs:
           publish_dir: artifacts/Documentation
           cname: dotnet.0install.net
       - name: Publish packages (GitHub)
-        if: github.event_name == 'push' && !startsWith(github.ref_name, 'renovate/')
+        if: runner.os == 'Windows' && github.event_name == 'push' && !startsWith(github.ref_name, 'renovate/')
         run: dotnet nuget push artifacts\Release\*.nupkg --source https://nuget.pkg.github.com/${{github.repository_owner}}/index.json --api-key ${{github.token}} --no-symbols --skip-duplicate
       - name: Publish packages (NuGet.org)
-        if: github.ref_type == 'tag'
+        if: runner.os == 'Windows' && github.ref_type == 'tag'
         run: dotnet nuget push artifacts\Release\*.nupkg --source nuget.org --api-key ${{secrets.NUGET_API_KEY}}
       - uses: 0install/github-actions/0repo-submit@v1
-        if: github.ref_type == 'tag'
+        if: runner.os == 'Windows' && github.ref_type == 'tag'
         with:
           repository: 0install/apps
           feed-url: ${{steps.feed.outputs.feed}}
           token: ${{secrets.PERSONAL_TOKEN}}
-
-  linux:
-    runs-on: ubuntu-latest
-    steps:
-      # Prepare
-      - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-          show-progress: false
-      - uses: gittools/actions/gitversion/setup@v3.2.1
-        with:
-          versionSpec: '5.12.x'
-      - uses: gittools/actions/gitversion/execute@v3.2.1
-        id: gitversion
-
-      # Build
-      - name: Build
-        run: src/build.sh ${{steps.gitversion.outputs.nuGetVersion}}
-      - name: Test
-        run: src/test.sh
-      - name: Report test results
-        if: always()
-        uses: dorny/test-reporter@v3
-        with:
-          name: linux - Test Report
-          reporter: dotnet-trx
-          path: src/UnitTests/TestResults/*.trx

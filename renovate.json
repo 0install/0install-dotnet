@@ -8,6 +8,12 @@
       "allowedVersions": "<4"
     },
     {
+      "matchPackageNames": ["dotnet-sdk"],
+      "matchUpdateTypes": ["patch"],
+      "enabled": false,
+      "description": "Using automatic roll-forward instead of explicit update"
+    },
+    {
       "matchPackagePatterns": ["Test", "Assert", "Mock", "[Xx]unit", "Moq"],
       "groupName": "Testing deps",
       "automerge": true,
