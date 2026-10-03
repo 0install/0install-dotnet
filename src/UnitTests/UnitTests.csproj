@@ -4,6 +4,7 @@
   <PropertyGroup>
     <AssemblyName>ZeroInstall.UnitTests</AssemblyName>
     <RootNamespace>ZeroInstall</RootNamespace>
+    <TargetFrameworks>net48;net10.0</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <IsPackable>False</IsPackable>
