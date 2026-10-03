@@ -16,6 +16,7 @@ jobs:
             build: src/build.sh
             test: src/test.sh
     runs-on: ${{matrix.os}}
+    timeout-minutes: 30
 
     steps:
       # Prepare
@@ -34,6 +35,7 @@ jobs:
         run: ${{matrix.build}} ${{steps.gitversion.outputs.nuGetVersion}}${{github.ref_type != 'tag' && format('-{0}', steps.gitversion.outputs.shortSha) || ''}}
       - name: Test
         run: ${{matrix.test}}
+        timeout-minutes: 15
       - name: Report test results
         if: always()
         uses: dorny/test-reporter@v3
@@ -41,6 +43,15 @@ jobs:
           name: ${{runner.os}} - Test Report
           reporter: dotnet-trx
           path: src/UnitTests/TestResults/*.trx
+      - name: Upload hang dumps
+        if: failure() || cancelled()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{runner.os}}-hang-dumps
+          path: |
+            src/UnitTests/TestResults/**/*_hang.dmp
+            src/UnitTests/TestResults/**/*_hang.log
+          if-no-files-found: ignore
       - name: Build documentation
         if: runner.os == 'Windows'
         run: doc\build.ps1
