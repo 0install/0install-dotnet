@@ -18,22 +18,13 @@ public class DmgExtractor(ITaskHandler handler)
     /// <inheritdoc/>
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
     {
-        ProcessLauncher launcher =
-#if NET
-            OperatingSystem.IsMacOSVersionAtLeast(15)
-                ? new("diskutil", "image")
-                : new("hdiutil");
-#else
-                new("diskutil", "image");
-#endif
-
         EnsureFile(stream, archivePath =>
         {
             using var tempDir = new TemporaryDirectory("0install-archive");
 
             try
             {
-                launcher.Run("attach", "-quiet", "-readonly", "-mountpoint", tempDir, "-nobrowse", archivePath);
+                Attach(archivePath, tempDir);
                 try
                 {
                     if (subDir == null)
@@ -55,7 +46,7 @@ public class DmgExtractor(ITaskHandler handler)
                 }
                 finally
                 {
-                    launcher.Run("detach", "-quiet", tempDir);
+                    Detach(tempDir);
                 }
             }
             #region Error handling
@@ -66,5 +57,24 @@ public class DmgExtractor(ITaskHandler handler)
             }
             #endregion
         });
+    }
+
+    private static readonly bool _useDiskutil =
+#if NET
+        OperatingSystem.IsMacOSVersionAtLeast(15);
+#else
+        false;
+#endif
+
+    private static void Attach(string archivePath, string mountPoint)
+    {
+        if (_useDiskutil) new ProcessLauncher("diskutil").Run("image", "attach", "--readOnly", "--nobrowse", "--mountPoint", mountPoint, archivePath);
+        else new ProcessLauncher("hdiutil").Run("attach", "-quiet", "-readonly", "-mountpoint", mountPoint, "-nobrowse", archivePath);
+    }
+
+    private static void Detach(string mountPoint)
+    {
+        if (_useDiskutil) new ProcessLauncher("diskutil").Run("eject", mountPoint);
+        else new ProcessLauncher("hdiutil").Run("detach", "-quiet", mountPoint);
     }
 }
