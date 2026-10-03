@@ -10,7 +10,7 @@
     <IsPackable>False</IsPackable>
     <DeterministicSourcePaths>False</DeterministicSourcePaths>
     <UseMicrosoftTestingPlatformRunner>True</UseMicrosoftTestingPlatformRunner>
-    <TestingPlatformCommandLineArguments>$(TestingPlatformCommandLineArguments) --report-xunit-trx --report-xunit-trx-filename $(TargetFramework).trx --results-directory $(MSBuildProjectDirectory)/TestResults</TestingPlatformCommandLineArguments>
+    <TestingPlatformCommandLineArguments>$(TestingPlatformCommandLineArguments) --report-xunit-trx --report-xunit-trx-filename $(TargetFramework).trx --results-directory $(MSBuildProjectDirectory)/TestResults --hangdump --hangdump-timeout 10m --hangdump-type Mini</TestingPlatformCommandLineArguments>
   </PropertyGroup>
 
   <!-- Mark as unit test project -->
@@ -35,6 +35,7 @@
   <ItemGroup>
     <PackageReference Include="AwesomeAssertions" Version="9.6.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
+    <PackageReference Include="Microsoft.Testing.Extensions.HangDump" Version="2.4.1" />
     <PackageReference Include="Moq" Version="4.21.0" />
     <PackageReference Include="xunit.v3" Version="4.0.1" />
   </ItemGroup>
