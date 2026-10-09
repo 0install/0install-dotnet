@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
-    <value>Copia locală a arhivei „{0} ” nu există. Utilizați opțiunea „{1} ” pentru a specifica o altă cale.</value>
+    <value>Nu există o copie locală a arhivei „{0} ”. Utilizați opțiunea „{1} ” pentru a specifica o altă cale de acces.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandPathNotFound" xml:space="preserve">
@@ -128,7 +128,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Există mai multe versiuni de testare. Se marchează {0} din implementările {1} cu versiunea {2} ca fiind stabilă.</value>
+    <value>Există mai multe versiuni de testare. Se marchează {0} dintre implementările {1} cu versiunea {2} ca fiind stabile.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
@@ -157,7 +157,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">
-    <value>Nu există nicio implementare cu ID-ul „{0} ” și nici o implementare locală la care să se aplice arhiva.</value>
+    <value>Nu există nicio implementare cu ID-ul „{0} ” și nicio implementare locală la care să se aplice arhiva.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">

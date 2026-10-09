@@ -69,13 +69,13 @@
   <data name="DeleteInfoFileContent" xml:space="preserve">
     <value>Acest director este un cache de implementare. Fișierele de aici sunt setate ca fiind numai pentru citire prin permisiunile sistemului de fișiere. Acest lucru împiedică ștergerea lor în mod normal.
 
-Dacă doriți să ștergeți o singură implementare, puteți utiliza următoarea comandă:
+Dacă doriți să ștergeți o singură implementare, puteți utiliza această linie de comandă:
 {0}
 
-Dacă doriți să ștergeți întregul director, puteți utiliza următoarea comandă:
+Dacă doriți să ștergeți întregul director, puteți utiliza această linie de comandă:
 {1}
 
-Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, puteți utiliza următoarea comandă:
+Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, puteți utiliza această linie de comandă:
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -100,7 +100,7 @@ Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, p
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
-    <value>Valoare reală: {0}</value>
+    <value>Valoarea reală: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
@@ -120,7 +120,7 @@ Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, p
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Nu s-a putut debloca fișierele utilizate din „{0} ”</value>
+    <value>Nu s-a putut debloca fișierele aflate în uz din „{0} ”</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
@@ -129,7 +129,7 @@ Rulați comanda „0install config feed_mirror default” pentru a o activa.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
-    <value>Nu s-a putut găsi fișierul sau directorul „{0} ”.</value>
+    <value>Nu s-a găsit fișierul sau directorul „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
@@ -161,7 +161,7 @@ Rulați comanda „0install config feed_mirror default” pentru a o activa.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Doriți să eliminați această versiune? O nouă copie va fi descărcată automat din nou atunci când va fi necesar.</value>
+    <value>Doriți să eliminați această implementare? O nouă copie va fi descărcată automat din nou atunci când va fi necesar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
@@ -173,7 +173,7 @@ Rulați comanda „0install config feed_mirror default” pentru a o activa.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
-    <value>Sistemul de fișiere subiacent nu stochează datele de modificare ale fișierelor cu suficientă precizie.
+    <value>Sistemul de fișiere subiacent nu stochează datele de modificare ale fișierelor cu o precizie suficientă.
 Dacă utilizați o unitate formatată în sistemul FAT, vă rugăm să o convertiți în NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -182,7 +182,7 @@ Dacă utilizați o unitate formatată în sistemul FAT, vă rugăm să o convert
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Nu se poate descărca pictograma de pe {0}, deoarece sunt acceptate numai adresele URL de tip HTTP și HTTPS.</value>
+    <value>Nu se poate descărca pictograma de pe {0}, deoarece sunt acceptate doar adresele URL de tip HTTP și HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -194,11 +194,15 @@ Dacă utilizați o unitate formatată în sistemul FAT, vă rugăm să o convert
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>Arhiva conține o cale de acces nevalidă (ceea ce poate reprezenta un risc de securitate): {0}</value>
+    <value>Arhiva conține o cale nevalidă (posibil un risc de securitate): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
     <value>Semnătura este nevalidă sau deteriorată.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="InvalidSymlinkTarget" xml:space="preserve">
+    <value>Nu se poate transforma „{0} ” într-o legătură simbolică, deoarece nu conține o destinație validă pentru legătură.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
@@ -242,8 +246,12 @@ Specificată în fișierul de configurare „{1} ”.</value>
     <value>Această opțiune este controlată de o politică de grup și, prin urmare, nu poate fi modificată.</value>
     <comment>Automatically translated.</comment>
   </data>
+  <data name="PathCaseCollision" xml:space="preserve">
+    <value>Calea „{0} ” se referă la fișierul sau directorul existent „{1} ”. Numele care diferă doar prin majuscule/minuscule nu sunt acceptate în Windows.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>A apărut o problemă la accesarea magazinului de implementări „{0} ”.
+    <value>A apărut o problemă la accesarea magazinului de implementare „{0} ”.
 Rulați „{1} ” pentru a-l elimina din lista directoarelor înregistrate.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -286,7 +294,7 @@ Puteți șterge fișierul „{1} ” pentru a remedia problema. Este posibil ca 
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Fraza de acces pe care ați introdus-o este incorectă.</value>
+    <value>Fraza de acces introdusă este incorectă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

@@ -67,11 +67,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>「{0} 」のフィード設定を読み込めませんでした。デフォルト値に戻します。</value>
+    <value>「{0} 」のフィード設定の読み込みに失敗しました。デフォルト値に戻します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>「{0} 」のインターフェース設定を読み込めませんでした。デフォルト値に戻します。</value>
+    <value>「{0} 」のインターフェース設定の読み込みに失敗しました。デフォルト値に戻します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -95,7 +95,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>{1} における「{0} 」属性が無効です。</value>
+    <value>{1} において、「{0} 」属性が無効です。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
@@ -155,7 +155,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>実行不可のソースコードによる実装</value>
+    <value>実行不能なソースコードによる実装</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
@@ -167,11 +167,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>安全なIDである必要があります。使用できる文字は、英数字、スペース（ ）、ピリオド（.）、アンダースコア（_）、ハイフン（-）、プラス記号（+）のみです。</value>
+    <value>安全なIDである必要があります。使用できる文字は、英数字、スペース ( )、ピリオド (.)、アンダースコア (_)、ハイフン (-)、およびプラス記号 (+) のみです。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>実装「{1} 」内のレシピステップ「{0} 」に、無効な実装参照があります。</value>
+    <value>実装「{1} 」内のレシピステップ「{0} 」には、無効な実装参照があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">

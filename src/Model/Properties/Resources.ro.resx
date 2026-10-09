@@ -131,7 +131,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>Atributul „rollout-percentage” de pe {0} poate fi setat numai atunci când „stability” este „testing” sau nu este setat.</value>
+    <value>Atributul „rollout-percentage” de pe {0} poate fi setat numai atunci când „stability” are valoarea „testing” sau nu este setat.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">

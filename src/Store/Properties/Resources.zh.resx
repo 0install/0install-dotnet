@@ -116,7 +116,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>从 '{0}' 加载 OpenPGP 密钥包时发生错误</value>
+    <value>从“{0} ”加载 OpenPGP 密钥包时发生错误</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
@@ -186,11 +186,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
-    <value>清单文件中包含无效行。</value>
+    <value>清单文件中包含无效的行。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>行中部件数量无效。</value>
+    <value>行中的部件数量无效。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -200,6 +200,10 @@
   <data name="InvalidSignature" xml:space="preserve">
     <value>签名无效或损坏。</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="InvalidSymlinkTarget" xml:space="preserve">
+    <value>无法将“{0} ”转换为符号链接，因为它不包含有效的链接目标。</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>只有管理员才能优化共享存储。</value>
@@ -223,7 +227,7 @@
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>路径“{0} ”不是绝对路径。相对路径仅在便携模式下允许使用。
-在配置文件“{1} ”中进行设置。</value>
+在配置文件“{1} ”中指定。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
@@ -239,7 +243,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>此选项受组策略控制，因此无法修改。</value>
+    <value>此选项受组策略控制，因此无法进行修改。</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="PathCaseCollision" xml:space="preserve">
+    <value>路径“{0} ”指的是现有的文件或目录“{1} ”。Windows 系统不支持仅在大小写上有所区别的名称。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

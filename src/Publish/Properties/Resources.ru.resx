@@ -120,7 +120,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
-    <value>Реализация с идентификатором «{0} » отсутствует, но имеется несколько локальных реализаций на выбор.</value>
+    <value>Реализация с идентификатором «{0} » отсутствует, а на выбор предлагается несколько локальных реализаций.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
@@ -140,11 +140,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
-    <value>В кане не содержится элемент {0}. Невозможно использовать его в качестве локальной каны.</value>
+    <value>В кане не содержится элемент {0}. Невозможно использовать его в качестве локальной кане.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
-    <value>В фиде нет реализаций.</value>
+    <value>В этом фиде нет реализаций.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
@@ -161,7 +161,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">
-    <value>В настоящее время ни одна реализация не отмечена как находящаяся на этапе тестирования.</value>
+    <value>В настоящее время ни одна реализация не отмечена как находящаяся в стадии тестирования.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">

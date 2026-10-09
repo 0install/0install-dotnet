@@ -69,13 +69,13 @@
   <data name="DeleteInfoFileContent" xml:space="preserve">
     <value>Αυτός ο κατάλογος αποτελεί προσωρινή μνήμη υλοποίησης. Τα αρχεία εδώ έχουν οριστεί ως μόνο για ανάγνωση μέσω των δικαιωμάτων του συστήματος αρχείων. Αυτό εμποδίζει τη διαγραφή τους με τον συνήθη τρόπο.
 
-Αν θέλετε να διαγράψετε μια μεμονωμένη υλοποίηση, μπορείτε να χρησιμοποιήσετε την ακόλουθη εντολή γραμμής εντολών:
+Αν θέλετε να διαγράψετε μια μεμονωμένη υλοποίηση, μπορείτε να χρησιμοποιήσετε την ακόλουθη εντολή:
 {0}
 
-Αν θέλετε να διαγράψετε ολόκληρο αυτόν τον κατάλογο, μπορείτε να χρησιμοποιήσετε την ακόλουθη εντολή γραμμής εντολών:
+Αν θέλετε να διαγράψετε ολόκληρο αυτόν τον κατάλογο, μπορείτε να χρησιμοποιήσετε την ακόλουθη εντολή:
 {1}
 
-Αν θέλετε να διαγράψετε ολόκληρο αυτόν τον κατάλογο χωρίς να χρησιμοποιήσετε το Zero Install, μπορείτε να χρησιμοποιήσετε την ακόλουθη εντολή γραμμής εντολών:
+Αν θέλετε να διαγράψετε ολόκληρο αυτόν τον κατάλογο χωρίς να χρησιμοποιήσετε το Zero Install, μπορείτε να χρησιμοποιήσετε την ακόλουθη εντολή:
 {2}</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -116,11 +116,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Σφάλμα κατά τη φόρτωση της δέσμης κλειδιών OpenPGP από τη διεύθυνση «{0} »</value>
+    <value>Σφάλμα κατά τη φόρτωση του πακέτου κλειδιών OpenPGP από τη διεύθυνση «{0} »</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
-    <value>Δεν κατέστη δυνατή η απεμπλοκή των αρχείων που βρίσκονται σε χρήση στο «{0} »</value>
+    <value>Δεν ήταν δυνατή η απεμπλοκή των αρχείων που βρίσκονται σε χρήση στο «{0} »</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
@@ -182,7 +182,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Δεν είναι δυνατή η λήψη εικονιδίου από τη διεύθυνση {0}, καθώς υποστηρίζονται μόνο διευθύνσεις URL τύπου HTTP και HTTPS.</value>
+    <value>Δεν είναι δυνατή η λήψη του εικονιδίου από τη διεύθυνση {0}, καθώς υποστηρίζονται μόνο διευθύνσεις URL τύπου HTTP και HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -200,6 +200,10 @@
   <data name="InvalidSignature" xml:space="preserve">
     <value>Η υπογραφή δεν είναι έγκυρη ή έχει υποστεί ζημιά.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="InvalidSymlinkTarget" xml:space="preserve">
+    <value>Δεν είναι δυνατή η μετατροπή του «{0} » σε συμβολικό σύνδεσμο, επειδή δεν περιέχει έγκυρο προορισμό συνδέσμου.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Μόνο οι διαχειριστές μπορούν να βελτιστοποιήσουν μια κοινή αποθήκη.</value>
@@ -240,6 +244,10 @@
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>Αυτή η επιλογή ελέγχεται από μια πολιτική ομάδας και, ως εκ τούτου, δεν μπορεί να τροποποιηθεί.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="PathCaseCollision" xml:space="preserve">
+    <value>Η διαδρομή «{0} » αναφέρεται στο υπάρχον αρχείο ή κατάλογο «{1} ». Τα ονόματα που διαφέρουν μόνο ως προς τη χρήση κεφαλαίων/μικρών γραμμάτων δεν υποστηρίζονται στα Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

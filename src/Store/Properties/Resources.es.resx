@@ -201,6 +201,10 @@ Si estás utilizando una unidad con formato FAT, conviértela a NTFS.</value>
     <value>La firma no es válida o está dañada.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="InvalidSymlinkTarget" xml:space="preserve">
+    <value>No se puede convertir «{0} » en un enlace simbólico porque no contiene un destino de enlace válido.</value>
+    <comment>Automatically translated.</comment>
+  </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Solo los administradores pueden optimizar un almacén compartido.</value>
     <comment>Automatically translated.</comment>
@@ -240,6 +244,10 @@ Se especifica en el archivo de configuración «{1} ».</value>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>Esta opción está controlada por una política de grupo y, por lo tanto, no se puede modificar.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="PathCaseCollision" xml:space="preserve">
+    <value>La ruta «{0} » hace referencia al archivo o directorio existente «{1} ». En Windows no se admiten nombres que solo difieran en mayúsculas y minúsculas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
