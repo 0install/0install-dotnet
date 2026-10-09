@@ -1,0 +1,14 @@
+/* Make parameter lists more compact */
+dl.parameters dt {
+  margin-bottom: 2px !important;
+}
+
+/* Hide "Field/Property Value" headers */
+h4[id^="field-value"], h4[id^="property-value"] {
+  display: none;
+}
+
+/* Hide the package title of READMEs embedded as namespace docs */
+.markdown.conceptual > .NOTE + h1 {
+  display: none;
+}
