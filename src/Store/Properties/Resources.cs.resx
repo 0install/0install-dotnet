@@ -124,7 +124,7 @@ Pokud chcete odstranit celý adresář bez Zero Install, použijte tento příka
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Použití zrcadla kanálu, které je nutné pro vyhledávání, je deaktivováno.
+    <value>Použití zrcadla zdrojů, které je nutné pro vyhledávání, je deaktivováno.
 Chcete-li jej aktivovat, spusťte příkaz „0install config feed_mirror default“.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -161,11 +161,11 @@ Chcete-li jej aktivovat, spusťte příkaz „0install config feed_mirror defaul
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Chcete odstranit tuto implementaci? V případě potřeby se nová kopie automaticky stáhne znovu.</value>
+    <value>Chcete odstranit tuto implementaci? V případě potřeby se automaticky stáhne nová kopie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Tato implementace byla odstraněna. V případě potřeby se automaticky stáhne nová kopie.</value>
+    <value>Implementace byla odstraněna. V případě potřeby se automaticky stáhne nová kopie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
@@ -190,7 +190,7 @@ Pokud používáte disk ve formátu FAT, převeďte jej na NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Neplatný počet položek v řádku.</value>
+    <value>Neplatný počet dílů v řádku.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
@@ -200,6 +200,10 @@ Pokud používáte disk ve formátu FAT, převeďte jej na NTFS.</value>
   <data name="InvalidSignature" xml:space="preserve">
     <value>Podpis je neplatný nebo poškozený.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="InvalidSymlinkTarget" xml:space="preserve">
+    <value>Nelze převést „{0} “ na symbolický odkaz, protože neobsahuje platný cíl odkazu.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Optimalizovat sdílenou mezipaměť mohou pouze správci.</value>
@@ -223,7 +227,7 @@ Pokud používáte disk ve formátu FAT, převeďte jej na NTFS.</value>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>Cesta „{0} “ není absolutní. Relativní cesty jsou povoleny pouze v přenosném režimu.
-Nastaveno v konfiguračním souboru „{1} “.</value>
+Je uvedeno v konfiguračním souboru „{1} “.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
@@ -240,6 +244,10 @@ Nastaveno v konfiguračním souboru „{1} “.</value>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>Tato možnost je řízena zásadami skupiny, a proto ji nelze změnit.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="PathCaseCollision" xml:space="preserve">
+    <value>Cesta „{0} “ odkazuje na existující soubor nebo adresář „{1} “. Názvy, které se liší pouze velkými a malými písmeny, nejsou ve Windows podporovány.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
@@ -282,7 +290,7 @@ Problém vyřešíte odstraněním souboru ‚‚{1}‘‘. Může dojít i ke z
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
-    <value>Neznámé uživatelské rozhraní.</value>
+    <value>Neznámé rozhraní.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">

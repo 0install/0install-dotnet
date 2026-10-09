@@ -201,6 +201,10 @@ FAT biçimindeki bir sürücü kullanıyorsanız lütfen bunu NTFS biçimine dö
     <value>İmza geçersiz veya bozuk.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="InvalidSymlinkTarget" xml:space="preserve">
+    <value>Geçerli bir bağlantı hedefi içermediğinden '{0}' bir sembolik bağlantıya dönüştürülemedi.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Yalnızca yöneticiler paylaşılan bir depoyu iyileştirebilir.</value>
     <comment>Manually overriden.</comment>
@@ -240,6 +244,10 @@ FAT biçimindeki bir sürücü kullanıyorsanız lütfen bunu NTFS biçimine dö
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>Bu seçenek bir grup ilkesi tarafından ayarlandığından değiştirilemez.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="PathCaseCollision" xml:space="preserve">
+    <value>'{0}' yolu var olan bir dosyayı veya klasörü ifade eder '{1}'. Windows üzerinde yalnızca büyük/küçük harf farklılığı olan adlar desteklenmez.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

@@ -132,7 +132,7 @@ Tente especificá-lo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
-    <value>Existem várias implementações sem data de lançamento. Selecione, em vez disso, uma versão específica.</value>
+    <value>Existem várias implementações sem data de lançamento. Selecione uma versão específica.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">

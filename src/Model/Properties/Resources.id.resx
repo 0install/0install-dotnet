@@ -167,7 +167,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Harus berupa ID yang aman. Hanya boleh berisi karakter alfanumerik, spasi ( ), titik (.), garis bawah (_), tanda hubung (-) dan tanda plus (+).</value>
+    <value>ID harus aman. Hanya boleh berisi karakter alfanumerik, spasi ( ), titik (.), garis bawah (_), tanda hubung (-) dan tanda plus (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Batas akhir rentang versi harus eksklusif. Gunakan '..!{0}', bukan '..{0}'.</value>
+    <value>Batas akhir rentang versi harus bersifat eksklusif. Gunakan '..!{0}', bukan '..{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -201,6 +201,10 @@ Wenn Sie ein mit FAT formatiertes Laufwerk verwenden, konvertieren Sie es bitte 
     <value>Die Signatur ist ungültig oder beschädigt.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="InvalidSymlinkTarget" xml:space="preserve">
+    <value>'{0}' kann nicht in einen symbolischen Link umgewandelt werden, da es kein gültiges Linkziel enthält.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Nur Administratoren können einen gemeinsam genutzten Store optimieren.</value>
     <comment>Manually overriden.</comment>
@@ -240,6 +244,10 @@ Festgelegt in der Konfigurationsdatei '{1}'.</value>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>Diese Einstellung wird durch eine Gruppenrichtlinie gesteuert und kann daher nicht geändert werden.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="PathCaseCollision" xml:space="preserve">
+    <value>Der Pfad '{0}' verweist auf die vorhandene Datei oder das vorhandene Verzeichnis '{1}'. Namen, die sich lediglich in der Groß- und Kleinschreibung unterscheiden, werden unter Windows nicht unterstützt.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>No se puede utilizar « {0} » con la opción « {1} » ({2}).</value>
+    <value>No se puede utilizar {0} con la opción de {1} ({2})</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">

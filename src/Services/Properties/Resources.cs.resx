@@ -67,7 +67,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>Výsledný řádek příkazů je prázdný.</value>
+    <value>Výsledný příkazový řádek je prázdný.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
@@ -103,7 +103,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRejectedCandidates" xml:space="preserve">
-    <value>Odmítnutí kandidáti:</value>
+    <value>Odmítnutí uchazeči:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
@@ -163,7 +163,7 @@ Chcete tomuto klíči důvěřovat při podepisování kanálů pomocí ‚‚{3
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Atribut URI &lt;interface&gt; („{0} “) neodpovídá URL, ze které byl kanál stažen („{1} “).</value>
+    <value>Atribut URI &lt;interface&gt; („{0} “) neodpovídá adrese URL, ze které byl kanál stažen („{1} “).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -214,11 +214,11 @@ Nová časová značka: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Stahování souboru {0} se nezdařilo. Pokouší se jej místo toho stáhnout z alternativního zdroje.</value>
+    <value>Stahování souboru {0} se nezdařilo. Pokoušíme se jej místo toho stáhnout z alternativního zdroje.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Nelze uložit stažený katalog aplikací do mezipaměti.</value>
+    <value>Nelze uložit do mezipaměti stažený katalog aplikací.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">

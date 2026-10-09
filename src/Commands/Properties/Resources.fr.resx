@@ -207,7 +207,7 @@ Vous pouvez l'utiliser en exécutant le fichier ZeroInstall.exe situé dans ce r
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>Le répertoire de destination indiqué ({0}) se trouve en dehors de votre répertoire personnel.</value>
+    <value>Le répertoire de destination spécifié ({0}) se trouve en dehors de votre répertoire personnel.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeprecatedOption" xml:space="preserve">
@@ -286,7 +286,7 @@ Le fichier doit posséder une signature digitale de confiance, comme s'il était
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>Ajoute une application à la liste des applications (si elle n'y figure pas) et l'intègre dans l'environnement de bureau.</value>
+    <value>Ajoute une application à la liste des applications (si elle n'y figure pas) et l'intègre à l'environnement de bureau.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
@@ -294,7 +294,7 @@ Le fichier doit posséder une signature digitale de confiance, comme s'il était
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Affiche la liste de toutes les applications actuellement présentes dans votre liste d’applications. Si un URI est fourni, seule l’application associée à cet URI de flux s’affiche. Si un MOT-CLÉ est fourni, seules les applications dont le nom contient cette chaîne s’affichent (sans distinction de majuscules/minuscules).</value>
+    <value>Affiche la liste de toutes les applications actuellement présentes dans votre liste d'applications. Si un URI est fourni, seule l'application associée à cet URI de flux s'affiche. Si un MOT-CLÉ est fourni, seules les applications dont le nom contient cette chaîne s'affichent (sans distinction de majuscules/minuscules).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -302,7 +302,7 @@ Le fichier doit posséder une signature digitale de confiance, comme s'il était
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Déploie Zero Install dans le répertoire TARGET spécifié ou dans le répertoire par défaut des programmes, et l'intègre au système.</value>
+    <value>Déploie Zero Install dans le répertoire CIBLE spécifié ou dans le répertoire par défaut des programmes, et l'intègre au système.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
@@ -332,7 +332,7 @@ Autrement le code de sortie correspondra au code de sortie du programme exécut�
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Recherche les flux indexés par le serveur miroir qui correspondent aux mots-clés spécifiés. Notez que le serveur miroir par défaut indexe tous les flux connus, quelle que soit leur qualité ; c'est à vous de décider si vous pouvez faire confiance aux programmes avant de les exécuter.</value>
+    <value>Recherche les flux indexés par le serveur miroir qui correspondent aux mots-clés spécifiés. Notez que le serveur miroir par défaut indexe tous les flux connus, quelle que soit leur qualité ; c'est à vous de décider si vous faites confiance aux programmes avant de les exécuter.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -417,16 +417,16 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Liste des clés de confiance pour la signature des flux. N'affiche que les domaines pour lesquels une empreinte (FINGERPRINT) spécifique est considérée comme fiable, si celle-ci est spécifiée.</value>
+    <value>Répertorie les clés de confiance utilisées pour signer les flux. N'affiche que les domaines pour lesquels une empreinte digitale spécifique est considérée comme fiable, si celle-ci est spécifiée.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Cesse de faire confiance aux flux signés avec une EMPREINTE spécifique. Ne cesse de faire confiance que pour un DOMAINE spécifique, s'il est spécifié.</value>
+    <value>Cesse de faire confiance aux flux signés avec une EMPREINTE spécifique. Ne cesse de faire confiance que pour un DOMAINE spécifique, s'il est indiqué.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Vérifie la présence de mises à jour du programme et les télécharge si nécessaire.
-Ce fonctionnement est similaire à la commande « 0install download --refresh », à la différence qu'il affiche des informations indiquant si des modifications ont été détectées.</value>
+Ce fonctionnement est similaire à la commande « 0install download --refresh », à la différence près qu'il affiche des informations indiquant si des modifications ont été détectées.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -563,7 +563,7 @@ Une balise &lt;feed-for&gt; indique la compatibilité du flux.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="KioskModeNotInCatalog" xml:space="preserve">
-    <value>Le mode kiosque est activé et « {0} » ne figure pas dans le catalogue.</value>
+    <value>Le mode kiosque est activé et « {0} » n'apparaît pas dans le catalogue.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
@@ -608,7 +608,7 @@ Vous pouvez redistribuer des copies de ce programme suivant les termes de la “
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} ne peut être spécifié qu'en association avec un nom d'alias.</value>
+    <value>{0} Ne peut être spécifié qu'en association avec un nom d'alias.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
@@ -755,7 +755,7 @@ Vous pouvez utiliser cette option plusieurs fois pour spécifier plusieurs langu
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Déployez Zero Install en tant que bibliothèque pouvant être utilisée par d’autres applications sans intégration propre au bureau.</value>
+    <value>Déployez Zero Install en tant que bibliothèque pouvant être utilisée par d'autres applications sans intégration propre au bureau.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
@@ -789,7 +789,7 @@ Peut ne pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas be
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Fonctionne en mode hors ligne, en remplaçant le paramètre par défaut.
-En mode hors ligne, aucune interface n'est actualisée, même si elle est obsolète, et les versions plus récentes des programmes ne sont pas téléchargées, même si l'injecteur en a déjà connaissance (par exemple, suite à une actualisation précédente).</value>
+En mode hors ligne, aucune interface n'est actualisée, même si elle est obsolète, et les versions plus récentes des programmes ne seront pas téléchargées, même si l'injecteur en a déjà connaissance (par exemple, suite à une actualisation précédente).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -821,7 +821,7 @@ En mode hors ligne, aucune interface n'est actualisée, même si elle est obsol�
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Choisissez le code source plutôt qu'un fichier binaire. Celui-ci est utilisé en interne par « 0compile ».</value>
+    <value>Sélectionnez le code source plutôt qu'un fichier binaire. Celui-ci est utilisé en interne par « 0compile ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
@@ -857,13 +857,13 @@ Toutefois, les nouveaux téléchargements ne seront pas enregistrés dans ce ré
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Au lieu d'exécuter directement le programme choisi, lancez {COMMAND} PROGRAMME ARGUMENTS. Cela est utile pour exécuter des débogueurs et des outils de traçage sur le programme (plutôt que sur Zero Install !).
+    <value>Au lieu d'exécuter directement le programme choisi, exécutez {COMMAND} PROGRAM ARGS. Cela est utile pour exécuter des débogueurs et des outils de traçage sur le programme (plutôt que sur Zero Install !).
 Notez que le wrapper est exécuté dans l’environnement sélectionné par le programme ; par conséquent, ce mécanisme ne peut pas être utilisé pour le sandboxing.
 Peut contenir des arguments de ligne de commande. Les espaces doivent être échappés !</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
-    <value>Écrit les données de sortie sur la console au format XML lisible par machine.</value>
+    <value>Écrit les résultats sur la console sous forme de XML lisible par machine.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PortableMode" xml:space="preserve">
@@ -895,7 +895,7 @@ Peut contenir des arguments de ligne de commande. Les espaces doivent être éch
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Vous devrez peut-être fermer puis rouvrir votre terminal pour que ces modifications prennent effet.</value>
+    <value>Vous devrez peut-être fermer puis rouvrir votre terminal pour que cela prenne effet.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -903,7 +903,7 @@ Peut contenir des arguments de ligne de commande. Les espaces doivent être éch
     <comment>Manually overriden.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>A remplacé «{0} » par «{1} » à l'aide d'un alias.</value>
+    <value>Remplacement de «{0} » par «{1} » à l'aide d'un alias.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
@@ -944,7 +944,7 @@ Exécutez la commande « 0install config self_update_uri default » pour l'activ
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>Réinitialiser la politique de stabilité d'{0} e à ses paramètres par défaut ?</value>
+    <value>Réinitialiser la politique de stabilité d'{0} e à ses valeurs par défaut ?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
@@ -997,7 +997,7 @@ gardez cette clé secrète et ne l'utilisez pas comme mot de passe. De cette fa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>Essayez {0} avec l'un des éléments suivants :</value>
+    <value>Essayez {0} avec l'une des options suivantes :</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryRunAgain" xml:space="preserve">

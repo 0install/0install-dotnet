@@ -67,11 +67,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>生成的命令行是空的。</value>
+    <value>生成的命令行内容为空。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>未指定“{0} ”命令。</value>
+    <value>未指定“{0} ”的命令。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>无法在选择“{1} ”（{2} ）时使用{0} </value>
+    <value>无法在选择“{1} ”（{2} ）的情况下使用{0} </value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
@@ -103,11 +103,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRejectedCandidates" xml:space="preserve">
-    <value>被拒绝的候选人：</value>
+    <value>被淘汰的候选方案：</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
-    <value>要求</value>
+    <value>需要</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUnsuitable" xml:space="preserve">
@@ -115,7 +115,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUserRequestedVersion" xml:space="preserve">
-    <value>用户要求的版本{0}</value>
+    <value>用户请求的版本{0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -159,11 +159,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>“{0} ”是一个本地文件。它应为 HTTP(S) URL。</value>
+    <value>“{0} ”是一个本地文件。该地址应为 HTTP(S) URL。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>&lt;interface&gt; 的 uri 属性（“{0} ”）与下载源的 URL（“{1} ”）不匹配。</value>
+    <value>&lt;interface&gt; 的 uri 属性（'{0}'）与下载源的 URL（'{1}'）不匹配。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">

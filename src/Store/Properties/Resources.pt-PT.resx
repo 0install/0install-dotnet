@@ -182,7 +182,7 @@ Se estiver a utilizar um disco formatado para FAT, converta-o para NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Não é possível descarregar o ícone de {0}, uma vez que apenas são suportadas URLs HTTP e HTTPS.</value>
+    <value>Não é possível descarregar o ícone de {0}, uma vez que apenas são suportados URLs HTTP e HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -200,6 +200,10 @@ Se estiver a utilizar um disco formatado para FAT, converta-o para NTFS.</value>
   <data name="InvalidSignature" xml:space="preserve">
     <value>A assinatura não é válida ou está danificada.</value>
     <comment>Manually overriden.</comment>
+  </data>
+  <data name="InvalidSymlinkTarget" xml:space="preserve">
+    <value>Não foi possível transformar «{0} » num link simbólico, uma vez que não contém um destino de link válido.</value>
+    <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Apenas os administradores podem otimizar uma cache partilhada.</value>
@@ -240,6 +244,10 @@ Especificado no ficheiro de configuração «{1} ».</value>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>Esta opção é controlada por uma política de grupo e, por isso, não pode ser alterada.</value>
+    <comment>Automatically translated.</comment>
+  </data>
+  <data name="PathCaseCollision" xml:space="preserve">
+    <value>O caminho «{0} » refere-se ao ficheiro ou diretório existente «{1} ». Os nomes que diferem apenas em maiúsculas e minúsculas não são suportados no Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

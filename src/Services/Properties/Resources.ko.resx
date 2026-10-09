@@ -71,7 +71,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>'{0}' 명령어가 지정되지 않았습니다.</value>
+    <value>'{0}'에 대한 명령이 지정되지 않았습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>현재 알려진 구현 사례가 전혀 없음</value>
+    <value>현재 알려진 구현 사례는 전혀 없음</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
@@ -107,7 +107,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
-    <value>필수 사항</value>
+    <value>필요 사항</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUnsuitable" xml:space="preserve">
@@ -139,7 +139,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>{0} 와 그 종속 항목에 대한 적합한 버전을 찾을 수 없습니다.</value>
+    <value>{0} 와 그 종속성 중 적합한 버전을 찾지 못했습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
@@ -151,7 +151,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>피드 캐시에서 '{0}'를 찾을 수 없습니다.</value>
+    <value>피드 캐시에서 '{0}'을 찾을 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -159,7 +159,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>'{0}'는 로컬 파일입니다. HTTP(S) URL이어야 합니다.</value>
+    <value>'{0}'은 로컬 파일입니다. HTTP(S) URL이어야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -195,7 +195,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>키 정보 서버에서는 이 키에 대한 추가 정보를 제공할 수 없었습니다.</value>
+    <value>키 정보 서버에서 이 키에 대한 추가 정보를 제공할 수 없었습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -203,7 +203,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>'{0}' 구현에 대한 검색 방법을 찾을 수 없습니다.</value>
+    <value>'{0}' 구현에 대한 검색 방법이 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -214,7 +214,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>{0} 다운로드에 실패했습니다. 대신 피드 미러에서 가져오려고 합니다.</value>
+    <value>{0} 파일을 다운로드하는 데 실패했습니다. 대신 피드 미러에서 가져오려고 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

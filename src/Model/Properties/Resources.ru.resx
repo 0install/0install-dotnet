@@ -99,11 +99,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Отсутствует атрибут «{0} » на странице {1}.</value>
+    <value>На странице {1} отсутствует атрибут «{0} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>В теге ` {1}` отсутствует тег ` {0} `.</value>
+    <value>В теге {1} отсутствует тег {0}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -131,7 +131,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>Атрибут «rollout-percentage» на странице {0} можно установить только в том случае, если параметр «stability» имеет значение «testing» или не задан.</value>
+    <value>Атрибут «rollout-percentage» на странице {0} можно установить только в том случае, если атрибут «stability» имеет значение «testing» или не задан.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -163,7 +163,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
-    <value>Должен быть действительным типом MIME.</value>
+    <value>Должен быть допустимым типом MIME.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">

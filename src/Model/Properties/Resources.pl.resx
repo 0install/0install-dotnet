@@ -71,15 +71,15 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Wystąpił błąd podczas wczytywania ustawień interfejsu dla „{0} ”. Przywracane są wartości domyślne.</value>
+    <value>Wystąpił błąd podczas ładowania ustawień interfejsu dla „{0} ”. Przywracane są wartości domyślne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Wystąpił błąd podczas wczytywania bazy danych certyfikatów. Przywracane są wartości domyślne.</value>
+    <value>Wystąpił błąd podczas ładowania bazy danych certyfikatów. Przywracane są wartości domyślne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Nie można znaleźć źródła „{0} ” w katalogu.</value>
+    <value>Nie można znaleźć kanału „{0} ” w katalogu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
@@ -87,7 +87,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Nie można znaleźć implementacji interfejsu „{0} ” w wybranym zestawie.</value>
+    <value>Nie można znaleźć implementacji interfejsu „{0} ” w wybranej opcji.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
@@ -99,11 +99,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Brakuje atrybutu „{0} ” na stronie {1}.</value>
+    <value>Brakuje atrybutu „{0} ” w pliku {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Brakuje tagu „ {0} ” wewnątrz elementu „ {1} ”.</value>
+    <value>Brakuje tagu ` {0} ` wewnątrz elementu ` {1}`.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -111,7 +111,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Numer wersji może zawierać wyłącznie ułamki dziesiętne oddzielone kropkami oraz ciągi znaków modyfikujące.</value>
+    <value>Numer wersji może zawierać wyłącznie ułamki dziesiętne oddzielone kropkami oraz ciągi znaków modyfikujących.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
@@ -155,7 +155,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Implementacja źródłowa bez możliwości uruchamiania</value>
+    <value>Implementacja źródłowa bez możliwości uruchomienia</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
@@ -167,7 +167,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>Identyfikator powinien być bezpieczny. Może zawierać wyłącznie znaki alfanumeryczne, spacje ( ), kropki (.), podkreślenia (_), myślniki (-) oraz znaki plus (+).</value>
+    <value>Identyfikator powinien być bezpieczny. Może zawierać wyłącznie znaki alfanumeryczne, spacje ( ), kropki (.), znaki podkreślenia (_), myślniki (-) oraz znaki plus (+).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">

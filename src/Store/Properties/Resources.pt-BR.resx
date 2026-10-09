@@ -201,6 +201,10 @@ Se você estiver usando uma unidade formatada em FAT, converta-a para NTFS.</val
     <value>A assinatura é inválida ou está danificada.</value>
     <comment>Manually overriden.</comment>
   </data>
+  <data name="InvalidSymlinkTarget" xml:space="preserve">
+    <value>Não foi possível transformar '{0}' em um link simbólico porque ele não contém um destino de link válido.</value>
+    <comment>Manually overriden.</comment>
+  </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Somente administradores podem otimizar um armazenamento compartilhado.</value>
     <comment>Manually overriden.</comment>
@@ -240,6 +244,10 @@ Especificado no arquivo de configuração '{1}'.</value>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
     <value>Esta opção é controlada por uma política de grupo e, portanto, não pode ser modificada.</value>
+    <comment>Manually overriden.</comment>
+  </data>
+  <data name="PathCaseCollision" xml:space="preserve">
+    <value>O caminho '{0}' refere-se ao arquivo ou pasta existente '{1}'. Nomes que diferem apenas em letras maiúsculas/minúsculas não são suportados no Windows.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

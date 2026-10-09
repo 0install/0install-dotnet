@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>「{1} 」（{2} ）を選択した場合、「{0} 」は使用できません。</value>
+    <value>「{1} 」（{2} ）を選択した場合、{0} は使用できません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
@@ -87,11 +87,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
-    <value>「{0} 」コマンドはありません</value>
+    <value>「{0} 」コマンドは使用しません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>現在、実装例は一切確認されていない</value>
+    <value>既知の実装は一切ない</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
@@ -123,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt; のバインディングには、'value' 属性または 'insert' 属性のいずれかを指定する必要があります。</value>
+    <value>&lt;environment&gt;のバインディングには、'value'属性または'insert'属性のいずれかが含まれている必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -143,7 +143,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>{1} に適した{0} のバージョンが見つかりませんでした。</value>
+    <value>{1} に適したバージョンの{0} が見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
@@ -199,7 +199,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>実装「{0} 」に対応するマニフェストダイジェストが見つかりませんでした。</value>
+    <value>実装「{0} 」のマニフェストダイジェストが見つかりませんでした。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
@@ -214,7 +214,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>{0} のダウンロードに失敗しました。代わりにフィードのミラーサイトから取得しようとしています。</value>
+    <value>{0} のダウンロードに失敗しました。代わりにフィードミラーから取得しようとしています。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
