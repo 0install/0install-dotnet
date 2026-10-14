@@ -16,7 +16,7 @@ namespace ZeroInstall.Model;
 /// </code>
 /// </remarks>
 [Serializable]
-public readonly struct VersionDottedList : IEquatable<VersionDottedList>, IComparable<VersionDottedList>
+public readonly partial struct VersionDottedList : IEquatable<VersionDottedList>, IComparable<VersionDottedList>
 {
     /// <summary>
     /// The individual decimals.
@@ -32,7 +32,14 @@ public readonly struct VersionDottedList : IEquatable<VersionDottedList>, ICompa
         Decimals = decimals ?? throw new ArgumentNullException(nameof(decimals));
     }
 
-    private static readonly Regex _dottedListPattern = new(@"^(\d+(\.\d+)*)$");
+    private const string DottedListPattern = @"^(\d+(\.\d+)*)$";
+#if NET
+    [GeneratedRegex(DottedListPattern)]
+    private static partial Regex DottedListRegex();
+#else
+    private static readonly Regex _dottedListRegex = new(DottedListPattern);
+    private static Regex DottedListRegex() => _dottedListRegex;
+#endif
 
     /// <summary>
     /// Parses a string into a version dotted-list.
@@ -60,7 +67,7 @@ public readonly struct VersionDottedList : IEquatable<VersionDottedList>, ICompa
     /// Checks whether a string represents a valid dotted-list.
     /// </summary>
     public static bool IsValid(string value)
-        => _dottedListPattern.IsMatch(value);
+        => DottedListRegex().IsMatch(value);
 
     #region Conversion
     /// <inheritdoc/>

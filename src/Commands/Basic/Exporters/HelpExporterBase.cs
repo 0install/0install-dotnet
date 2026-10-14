@@ -9,7 +9,7 @@ namespace ZeroInstall.Commands.Basic.Exporters;
 /// <summary>
 /// Common base class for exporting all <see cref="CliCommand"/> help texts in a structured text format.
 /// </summary>
-public abstract class HelpExporterBase
+public abstract partial class HelpExporterBase
 {
     /// <summary>
     /// Returns all <see cref="CliCommand"/> help texts in a structured text format.
@@ -50,12 +50,19 @@ public abstract class HelpExporterBase
         }
     }
 
-    private static readonly Regex _descriptionParameterRegex = new("{([A-Z]*)}");
+    private const string DescriptionParameterPattern = "{([A-Z]*)}";
+#if NET
+    [GeneratedRegex(DescriptionParameterPattern)]
+    private static partial Regex DescriptionParameterRegex();
+#else
+    private static readonly Regex _descriptionParameterRegex = new(DescriptionParameterPattern);
+    private static Regex DescriptionParameterRegex() => _descriptionParameterRegex;
+#endif
 
     private static IEnumerable<string> GetPrototypes(Option option)
     {
         // ReSharper disable once RedundantEnumerableCastCall
-        var parameters = _descriptionParameterRegex.Matches(option.Description).Cast<Match>().Select(x => x.Captures[0].Value).ToList();
+        var parameters = DescriptionParameterRegex().Matches(option.Description).Cast<Match>().Select(x => x.Captures[0].Value).ToList();
         var prototypes = option.Prototype.TrimEnd('=').Split('|').Select(x => (x.Length == 1 ? $"-{x}" : $"--{x}"));
         if (parameters.Count > 0) prototypes = prototypes.Select(x => $"{x} {string.Join(" ", parameters)}");
         return prototypes;

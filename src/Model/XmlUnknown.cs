@@ -42,7 +42,14 @@ public abstract partial class XmlUnknown
             throw new InvalidDataException(string.Format(Resources.MissingXmlAttributeOnTag, attributeName, ToShortXml()));
     }
 
-    private static readonly Regex _safeIdRegex = new(@"^[a-zA-Z0-9 ._+\-]+$", RegexOptions.Compiled);
+    private const string SafeIdPattern = @"^[a-zA-Z0-9 ._+\-]+$";
+#if NET
+    [GeneratedRegex(SafeIdPattern)]
+    private static partial Regex SafeIdRegex();
+#else
+    private static readonly Regex _safeIdRegex = new(SafeIdPattern);
+    private static Regex SafeIdRegex() => _safeIdRegex;
+#endif
 
     /// <summary>
     /// Ensures that a value deserialized from an XML attribute is set (not <c>null</c>) and only contains alphanumeric characters, spaces ( ), dots (.), underscores (_), hyphens (-) and plus signs (+).
@@ -52,7 +59,7 @@ public abstract partial class XmlUnknown
     /// <exception cref="InvalidDataException"><paramref name="value"/> is invalid.</exception>
     protected void EnsureAttributeSafeID(string? value, string attributeName)
     {
-        if (string.IsNullOrEmpty(value) || !_safeIdRegex.IsMatch(value))
+        if (string.IsNullOrEmpty(value) || !SafeIdRegex().IsMatch(value))
             throw new InvalidDataException($"{string.Format(Resources.InvalidXmlAttributeOnTag, attributeName, ToShortXml())} {Resources.ShouldBeSafeID} {Resources.FoundInstead} {value}");
     }
 

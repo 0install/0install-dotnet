@@ -43,7 +43,14 @@ public partial class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtensio
     public string? PerceivedType { get; set; }
 
     #region Normalize
-    private static readonly Regex _mimeTypeRegex = new(@"\w+\/\w[-+.\w]*");
+    private const string MimeTypePattern = @"\w+\/\w[-+.\w]*";
+#if NET
+    [GeneratedRegex(MimeTypePattern)]
+    private static partial Regex MimeTypeRegex();
+#else
+    private static readonly Regex _mimeTypeRegex = new(MimeTypePattern);
+    private static Regex MimeTypeRegex() => _mimeTypeRegex;
+#endif
 
     /// <summary>
     /// Converts legacy elements, sets default values, etc..
@@ -54,7 +61,7 @@ public partial class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtensio
         EnsureAttributeSafeID(Value, "value");
         if (!Value.StartsWith(".")) Value = "." + Value;
 
-        if (!string.IsNullOrEmpty(MimeType) && !_mimeTypeRegex.IsMatch(MimeType))
+        if (!string.IsNullOrEmpty(MimeType) && !MimeTypeRegex().IsMatch(MimeType))
             throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, "mime-type", ToShortXml()) + " " + Resources.ShouldBeMimeType + " " + Resources.FoundInstead + " " + MimeType);
     }
     #endregion

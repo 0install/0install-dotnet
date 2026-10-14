@@ -71,7 +71,17 @@ public sealed partial class BrowserNativeMessaging : Capability
     [Browsable(false), XmlIgnore, IgnoreEquality]
     public override IEnumerable<string> ConflictIDs => Browsers.Select(browser => $"native-messaging:{browser}:{Name}");
 
-    private static readonly Regex _nameRegex = new(@"^[a-z0-9._]+$"), _browserRegex = new(@"^[a-zA-Z0-9]+$");
+    private const string NamePattern = @"^[a-z0-9._]+$", BrowserPattern = @"^[a-zA-Z0-9]+$";
+#if NET
+    [GeneratedRegex(NamePattern)]
+    private static partial Regex NameRegex();
+    [GeneratedRegex(BrowserPattern)]
+    private static partial Regex BrowserRegex();
+#else
+    private static readonly Regex _nameRegex = new(NamePattern), _browserRegex = new(BrowserPattern);
+    private static Regex NameRegex() => _nameRegex;
+    private static Regex BrowserRegex() => _browserRegex;
+#endif
 
     /// <inheritdoc/>
     public override void Normalize()
@@ -79,12 +89,12 @@ public sealed partial class BrowserNativeMessaging : Capability
         base.Normalize();
 
         EnsureAttribute(Name, "name");
-        if (Name == null || Name.StartsWith(".") || Name.EndsWith(".") || Name.Contains("..") || !_nameRegex.IsMatch(Name))
+        if (Name == null || Name.StartsWith(".") || Name.EndsWith(".") || Name.Contains("..") || !NameRegex().IsMatch(Name))
             throw new InvalidDataException($"{string.Format(Resources.InvalidXmlAttributeOnTag, "name", ToShortXml())} Can only contain lowercase alphanumeric characters, underscores and dots. Can't start or end with a dot, and a dot can't be followed by another dot. {Resources.FoundInstead} {Name}");
 
         if (Browsers.Count == 0)
             throw new InvalidDataException(string.Format(Resources.MissingXmlAttributeOnTag, "browser", ToShortXml()));
-        if (Browsers.Any(x => !_browserRegex.IsMatch(x)))
+        if (Browsers.Any(x => !BrowserRegex().IsMatch(x)))
             throw new InvalidDataException($"{string.Format(Resources.InvalidXmlAttributeOnTag, "browser", ToShortXml())} Can only contain space-separated sequences of alphanumeric characters. {Resources.FoundInstead} {BrowsersString}");
 
         if (BrowserExtensions.Count == 0)
