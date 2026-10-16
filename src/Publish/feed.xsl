@@ -15,6 +15,7 @@ http://creativecommons.org/licenses/by-sa/2.5/
 			<head>
 				<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 				<meta http-equiv="Content-Language" content="en"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 				<title><xsl:value-of select="zi:name"/></title>
 				<link rel="stylesheet" type="text/css" href='feed.css'/>
 			</head>
@@ -25,15 +26,15 @@ http://creativecommons.org/licenses/by-sa/2.5/
 							<div class="post inner">
 								<xsl:variable name="icon-href" select="(zi:icon[@type='image/png'][1])/@href"/>
 								<xsl:if test="$icon-href != ''">
-									<img class="alpha icon" src="{$icon-href}" referrerpolicy="no-referrer"/>
+									<img class="icon" src="{$icon-href}" referrerpolicy="no-referrer"/>
 								</xsl:if>
 
 								<h1><xsl:value-of select="zi:name"/></h1>
 
 								<h2>
 									<xsl:choose>
-										<xsl:when test="zi:summary[@lang='en']">
-											<xsl:value-of select="zi:summary[@lang='en']"/>
+										<xsl:when test="zi:summary[@xml:lang='en']">
+											<xsl:value-of select="zi:summary[@xml:lang='en']"/>
 										</xsl:when>
 										<xsl:otherwise>
 											<xsl:value-of select="zi:summary"/>
@@ -43,18 +44,20 @@ http://creativecommons.org/licenses/by-sa/2.5/
 
 								<div class="what-is-this">
 									<xsl:if test="(//zi:implementation[@main] | //zi:group[@main] | //zi:command[@name='run'] | //zi:package-implementation[@main] | //zi:entry-point[@command='run']) and not(//zi:feed-for)">
-										<form action="https://get.0install.net/bootstrap/" method="get" style="float: left; margin-right: 4px;">
-											<input type="hidden" name="name" value="{zi:name}"/>
-											<input type="hidden" name="uri" value="{/zi:interface/@uri}"/>
-											<input type="hidden" name="mode" value="run"/>
-											<input type="submit" value="Run {zi:name}"/>
-										</form>
-										<form action="https://get.0install.net/bootstrap/" method="get" style="clear: right;">
-											<input type="hidden" name="name" value="{zi:name}"/>
-											<input type="hidden" name="uri" value="{/zi:interface/@uri}"/>
-											<input type="hidden" name="mode" value="integrate"/>
-											<input type="submit" value="Integrate {zi:name}"/>
-										</form>
+										<div class="actions">
+											<form action="https://get.0install.net/bootstrap/" method="get">
+												<input type="hidden" name="name" value="{zi:name}"/>
+												<input type="hidden" name="uri" value="{/zi:interface/@uri}"/>
+												<input type="hidden" name="mode" value="run"/>
+												<input type="submit" value="Run {zi:name}"/>
+											</form>
+											<form action="https://get.0install.net/bootstrap/" method="get">
+												<input type="hidden" name="name" value="{zi:name}"/>
+												<input type="hidden" name="uri" value="{/zi:interface/@uri}"/>
+												<input type="hidden" name="mode" value="integrate"/>
+												<input type="submit" value="Integrate {zi:name}"/>
+											</form>
+										</div>
 									</xsl:if>
 									This page is a Zero Install feed.<br/>
 									<a href="#what-is-this">Learn more...</a>
@@ -104,9 +107,9 @@ http://creativecommons.org/licenses/by-sa/2.5/
 									</xsl:if>
 
 									<xsl:choose>
-										<xsl:when test="zi:description[@lang='en']">
+										<xsl:when test="zi:description[@xml:lang='en']">
 											<xsl:call-template name="description">
-												<xsl:with-param name="text"><xsl:value-of select="zi:description[@lang='en']"/></xsl:with-param>
+												<xsl:with-param name="text"><xsl:value-of select="zi:description[@xml:lang='en']"/></xsl:with-param>
 											</xsl:call-template>
 										</xsl:when>
 										<xsl:when test="zi:description">
@@ -305,21 +308,30 @@ http://creativecommons.org/licenses/by-sa/2.5/
 	<xsl:template name="description">
 		<xsl:param name="text"/>
 		<xsl:if test="normalize-space($text)">
-			<xsl:variable name="first" select="substring-before($text, '&#xa;&#xa;')"/>
 			<dt>Description</dt>
 			<dd class="description">
-				<xsl:choose>
-					<xsl:when test="normalize-space($first)">
-						<p><xsl:value-of select="$first"/></p>
-						<xsl:call-template name="description">
-							<xsl:with-param name="text"><xsl:value-of select="substring-after($text, '&#xa;&#xa;')"/></xsl:with-param>
-						</xsl:call-template>
-					</xsl:when>
-					<xsl:otherwise>
-						<p><xsl:value-of select="$text"/></p>
-					</xsl:otherwise>
-				</xsl:choose>
+				<xsl:call-template name="paragraphs">
+					<xsl:with-param name="text" select="$text"/>
+				</xsl:call-template>
 			</dd>
 		</xsl:if>
+	</xsl:template>
+
+	<xsl:template name="paragraphs">
+		<xsl:param name="text"/>
+		<xsl:choose>
+			<xsl:when test="contains($text, '&#xa;&#xa;')">
+				<xsl:variable name="first" select="substring-before($text, '&#xa;&#xa;')"/>
+				<xsl:if test="normalize-space($first)">
+					<p><xsl:value-of select="$first"/></p>
+				</xsl:if>
+				<xsl:call-template name="paragraphs">
+					<xsl:with-param name="text" select="substring-after($text, '&#xa;&#xa;')"/>
+				</xsl:call-template>
+			</xsl:when>
+			<xsl:when test="normalize-space($text)">
+				<p><xsl:value-of select="$text"/></p>
+			</xsl:when>
+		</xsl:choose>
 	</xsl:template>
 </xsl:stylesheet>
