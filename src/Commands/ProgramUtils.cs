@@ -196,6 +196,11 @@ public static class ProgramUtils
             {
                 return (ExitCode)startInfo.AsAdmin().Run();
             }
+            catch (PlatformNotSupportedException)
+            { // UAC disabled
+                handler.Error(ex);
+                return ExitCode.IOError;
+            }
             catch (IOException ex2)
             {
                 handler.Error(ex2);
