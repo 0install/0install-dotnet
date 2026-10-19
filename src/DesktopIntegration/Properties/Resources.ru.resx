@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
-    <value>Создание ярлыка на рабочем столе для {0}</value>
+    <value>Применение интеграции с рабочим столом для {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AppNotInList" xml:space="preserve">
@@ -129,12 +129,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
-    <value>Загрузка данных синхронизации</value>
-    <comment>Automatically translated.</comment>
+    <value>Отправка данных синхронизации</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
-    <value>Не удалось найти файл « {0} » с идентификатором «{1} ».</value>
-    <comment>Automatically translated.</comment>
+    <value>Не удалось найти {0} с идентификатором «{1}».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
     <value>Не удалось заменить устаревший исполняемый файл-заглушку «{0} ».</value>

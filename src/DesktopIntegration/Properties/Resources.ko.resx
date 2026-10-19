@@ -75,8 +75,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
-    <value>변경 사항 적용</value>
-    <comment>Automatically translated.</comment>
+    <value>변경 사항 적용 중</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
     <value>{0}의 데스크톱 통합 적용 중</value>
@@ -103,8 +103,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>데스크톱 통합 문제 해결</value>
-    <comment>Automatically translated.</comment>
+    <value>데스크톱 통합 복구 중</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
     <value>바로 가기 이름 '{0}'에 유효하지 않은 문자가 포함되어 있습니다.</value>
@@ -129,8 +129,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
-    <value>동기화 데이터 업로드</value>
-    <comment>Automatically translated.</comment>
+    <value>동기화 데이터 업로드 중</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
     <value>ID '{1}'를 가진 {0} 를 찾을 수 없습니다.</value>

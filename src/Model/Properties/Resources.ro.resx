@@ -75,12 +75,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Eroare la încărcarea bazei de date de încredere. Se revine la valorile implicite.</value>
-    <comment>Automatically translated.</comment>
+    <value>Eroare la încărcarea bazei de date a cheilor de încredere. Se revine la valorile implicite.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Nu s-a găsit fluxul „{0} ” în catalog.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nu s-a găsit feed-ul „{0}” în catalog.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
     <value>S-a găsit în schimb:</value>
@@ -119,8 +119,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nu a fost specificată nicio metodă de digestie cunoscută.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nu a fost specificată nicio metodă de digest cunoscută.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
     <value>Calea relativă '{0}' nu a putut fi rezolvată. Numai feed-urile salvate ca fișiere locale pot conține căi relative.</value>
@@ -151,16 +151,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementare fără utilizarea cache-ului (în prezent în modul offline)</value>
-    <comment>Automatically translated.</comment>
+    <value>Implementarea nu se află în cache (în prezent în modul offline)</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
     <value>Implementare sursă neexecutabilă</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Versiunea de implementare este prea veche sau prea nouă</value>
-    <comment>Automatically translated.</comment>
+    <value>Versiunea implementării este prea veche sau prea nouă</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
     <value>Trebuie să fie un tip MIME valid.</value>
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Limita inferioară a intervalului de versiuni trebuie să fie exclusivă. Utilizați „..!{0} ”, nu „..{0} ”.</value>
-    <comment>Automatically translated.</comment>
+    <value>Limita superioară a intervalului de versiuni trebuie să fie exclusivă. Utilizați „..!{0}”, nu „..{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

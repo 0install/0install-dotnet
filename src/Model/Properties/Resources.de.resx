@@ -95,15 +95,15 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Ungültiges '{0}' Attribut auf {1}.</value>
+    <value>Ungültiges Attribut '{0}' in {1}.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Fehlendes '{0}' Attribut auf {1}.</value>
+    <value>Fehlendes Attribut '{0}' in {1}.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Fehlender {0} Tag in {1}.</value>
+    <value>Fehlendes Tag {0} in {1}.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
@@ -139,7 +139,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
-    <value>Bietet den Command '{0}' nicht.</value>
+    <value>Stellt den Command '{0}' nicht bereit.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteIncompatibleArchitecture" xml:space="preserve">

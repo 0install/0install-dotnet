@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Error al cargar las preferencias de feed para '{0}'. Volver a los valores por defecto.</value>
+    <value>Error al cargar las preferencias de feed para '{0}'. Se restablecen los valores predeterminados.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
@@ -79,8 +79,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>No se ha podido encontrar la fuente «{0} » en el catálogo.</value>
-    <comment>Automatically translated.</comment>
+    <value>No se ha podido encontrar el feed «{0}» en el catálogo.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
     <value>Encontrado en su lugar:</value>
@@ -103,8 +103,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Falta una etiqueta ` {0} ` dentro de ` {1}`.</value>
-    <comment>Automatically translated.</comment>
+    <value>Falta la etiqueta {0} dentro de {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>La lista separada por puntos solo puede contener números decimales.</value>
@@ -123,12 +123,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>No se ha podido resolver la ruta relativa «{0} ». Solo las fuentes guardadas como archivos locales pueden contener rutas relativas.</value>
-    <comment>Automatically translated.</comment>
+    <value>No se ha podido resolver la ruta relativa «{0}». Solo los feeds guardados como archivos locales pueden contener rutas relativas.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>No se ha podido resolver la URI relativa «{0} ». Solo los canales guardados como archivos locales pueden contener URI relativas.</value>
-    <comment>Automatically translated.</comment>
+    <value>No se ha podido resolver el URI relativo «{0}». Solo los feeds guardados como archivos locales pueden contener URI relativos.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
     <value>El atributo «rollout-percentage» de {0} solo se puede establecer cuando «stability» es «testing» o no está definido.</value>
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>El rango de versiones debe ser exclusivo. Utiliza «..!{0} », no «..{0} ».</value>
-    <comment>Automatically translated.</comment>
+    <value>El final del rango de versiones debe ser exclusivo. Utiliza «..!{0}», no «..{0}».</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>

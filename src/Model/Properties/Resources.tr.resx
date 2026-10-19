@@ -131,7 +131,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>{0} üzerindeki 'rollout-percentage' özniteliği yalnızca 'kararlılık' değeri 'testing' olduğunda veya ayarlanmamış ise ayarlanabilir.</value>
+    <value>{0} üzerindeki 'rollout-percentage' özniteliği yalnızca 'stability' değeri 'testing' olduğunda veya ayarlanmamış ise ayarlanabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
@@ -171,7 +171,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>'{0}'. tarif adımında  '{1}' uyarlamasındaki uyarlama referansı geçersiz.</value>
+    <value>'{1}' uyarlamasındaki '{0}' tarif adımında geçersiz bir uyarlama başvurusu var.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Sürüm aralığı sonu özel olmalıdır. '..!{0}' kullanın '..{0}' değil.</value>
+    <value>Sürüm aralığının sonu hariç tutulmalıdır. '..{0}' değil, '..!{0}' kullanın.</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

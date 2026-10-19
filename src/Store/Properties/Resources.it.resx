@@ -190,8 +190,8 @@ Se utilizzi un'unità formattata come FAT, convertila in NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Numero di parti nella linea non valido.</value>
-    <comment>Automatically translated.</comment>
+    <value>Numero di parti nella riga non valido.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>L'archivio contiene un percorso non valido (potenzialmente un rischio per la sicurezza): {0}</value>
@@ -261,7 +261,7 @@ Puoi eliminare il file '{0}' per risolvere il problema.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigValue" xml:space="preserve">
-    <value>Si è verificato un problema durante il caricamento del file di configurazione '{0}'.
+    <value>Si è verificato un problema durante il caricamento del valore di configurazione '{0}'.
 Puoi eliminare il file '{1}' per risolvere il problema. È possibile che anche altre impostazioni vadano perse.</value>
     <comment>Manually overriden.</comment>
   </data>

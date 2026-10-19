@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArchitectureStringFormat" xml:space="preserve">
-    <value>Η σειρά πρέπει να είναι σε μορφή "{0}".</value>
+    <value>Η συμβολοσειρά πρέπει να είναι σε μορφή "{0}".</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandNotFound" xml:space="preserve">
@@ -71,7 +71,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>Προτιμήσεις διεπαφής Σφάλμα κατά τη φόρτωση για '{0}'. Επαναφορά στις προεπιλεγμένες τιμές.</value>
+    <value>Σφάλμα κατά τη φόρτωση των προτιμήσεων διεπαφής για '{0}'. Επαναφορά στις προεπιλεγμένες τιμές.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
@@ -87,24 +87,24 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Αδυναμία εύρεσης εφαρμογής για διασύνδεση '{0}' στην επιλογή.</value>
+    <value>Αδυναμία εύρεσης υλοποίησης για τη διασύνδεση '{0}' στην επιλογή.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>'{0}' δεν είναι έγκυρο 'http (s): «URI και δεν είναι έγκυρη τοπική διαδρομή.</value>
+    <value>Το '{0}' δεν είναι έγκυρο URI 'http(s):' ούτε έγκυρη τοπική διαδρομή.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Μη έγκυρο χαρακτηριστικό «{0} » στη διεύθυνση {1}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Μη έγκυρο χαρακτηριστικό «{0}» στο {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Λείπει το χαρακτηριστικό «{0} » στη διεύθυνση {1}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Λείπει το χαρακτηριστικό «{0}» στο {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Λείπει η ετικέτα ` {0} ` μέσα στο ` {1}`.</value>
-    <comment>Automatically translated.</comment>
+    <value>Λείπει η ετικέτα {0} μέσα στο {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>Η λίστα διαχωρισμένη με τελείες μπορεί να περιέχει μόνο δεκαδικούς αριθμούς.</value>
@@ -123,11 +123,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>Η σχετική διαδρομή '{0}' έχει καθοριστεί σε μια απομακρυσμένη τροφοδοσία. Μόνο τοπικές τροφοδοσίες μπορούν να περιέχουν σχετικές διαδρομές.</value>
+    <value>Δεν ήταν δυνατή η επίλυση της σχετικής διαδρομής '{0}'. Μόνο τροφοδοσίες αποθηκευμένες ως τοπικά αρχεία μπορούν να περιέχουν σχετικές διαδρομές.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Η σχετική HREF '{0}' έχει καθοριστεί σε μια απομακρυσμένη τροφοδοσίας. Μόνο τοπικές τροφοδοσίες μπορούν να περιέχουν σχετικές HREFs.</value>
+    <value>Δεν ήταν δυνατή η επίλυση του σχετικού URI '{0}'. Μόνο τροφοδοσίες αποθηκευμένες ως τοπικά αρχεία μπορούν να περιέχουν σχετικά URI.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
@@ -135,7 +135,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Προβληματικη εφαρμογή</value>
+    <value>Προβληματική υλοποίηση</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
@@ -147,19 +147,19 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>Ανασφαλής εφαρμογή</value>
+    <value>Ανασφαλής υλοποίηση</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Εφαρμογή όχι στην προσωρινή μνήμη (επί του παρόντος σε λειτουργία εκτός σύνδεσης)</value>
+    <value>Η υλοποίηση δεν βρίσκεται στην προσωρινή μνήμη (επί του παρόντος σε λειτουργία εκτός σύνδεσης)</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
-    <value>Μη εκτελέσιμη εφαρμογή πηγής</value>
+    <value>Μη εκτελέσιμη υλοποίηση πηγαίου κώδικα</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteVersionMismatch" xml:space="preserve">
-    <value>Η εκδοση εφαρμογής ειναι πολύ παλιά ή πολύ νέα</value>
+    <value>Η έκδοση της υλοποίησης είναι πολύ παλιά ή πολύ νέα</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ShouldBeMimeType" xml:space="preserve">
@@ -175,7 +175,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">
-    <value>Άγνωστος τύπος αρχείου '{0}'.</value>
+    <value>Η επέκταση αρχείου '{0}' δεν αντιστοιχεί σε γνωστό τύπο αρχείου αρχειοθέτησης.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownModifier" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Το τέλος της σειράς έκδοσης πρέπει να είναι αποκλειστική χρήση »..! {0} ', όχι' .. {0} '.</value>
+    <value>Το τέλος του εύρους εκδόσεων πρέπει να είναι αποκλειστικό. Χρησιμοποιήστε '..!{0}', όχι '..{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

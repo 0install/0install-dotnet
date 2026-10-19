@@ -67,11 +67,11 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>La ligne de commande qui s'affiche est vide.</value>
-    <comment>Automatically translated.</comment>
+    <value>La ligne de commande résultante est vide.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Commande pour '{0}' non précisés.</value>
+    <value>Commande pour '{0}' non précisée.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
@@ -91,8 +91,8 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>Aucune implémentation connue à ce jour</value>
-    <comment>Automatically translated.</comment>
+    <value>Aucune implémentation connue</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
     <value>Aucune implémentation utilisable :</value>
@@ -115,8 +115,8 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUserRequestedVersion" xml:space="preserve">
-    <value>Version demandée par l'utilisateur {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Version {0} demandée par l'utilisateur</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>Recherche sur le réseau local</value>
@@ -131,7 +131,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Erreur d'enregistrement de la signature</value>
+    <value>Erreur lors de l'enregistrement de la base de données de confiance</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -139,23 +139,23 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Automatically translated.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>Impossible de trouver des versions compatibles d'{0} et de ses dépendances.</value>
-    <comment>Automatically translated.</comment>
+    <value>Impossible de trouver des versions compatibles de {0} et de ses dépendances.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
-    <value>Impossible de trouver une version d'{0} compatible avec {1}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Impossible de trouver une version de {0} compatible avec {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
     <value>Le flux '{0}' n'a pas été mis en cache et Zero Install est actuellement en mode hors ligne.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>Le fichier «{0} » est introuvable dans le cache du flux.</value>
-    <comment>Automatically translated.</comment>
+    <value>« {0} » est introuvable dans le cache des flux.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>Le flux '{0}' n'a pas été signé avec une clé connue.</value>
+    <value>Le flux '{0}' n'a été signé avec aucune clé de confiance.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
@@ -175,8 +175,8 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Caractère non autorisé dans le nom de liaison d'{0}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Caractère non autorisé dans le nom de la liaison {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
     <value>Pour pouvoir être importés, les flux doivent préciser l'URI d'où ils proviennent.</value>
@@ -218,8 +218,8 @@ Nouvelle date : {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Impossible de mettre en cache le catalogue d'applications téléchargées.</value>
-    <comment>Automatically translated.</comment>
+    <value>Impossible de mettre en cache le catalogue d'applications téléchargé.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
     <value>Impossible d'analyser le flux téléchargé depuis {0}.</value>
@@ -238,7 +238,7 @@ Nouvelle date : {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>Le flux est signé avec des clés inconnues!</value>
+    <value>Le flux est signé avec des clés qui ne sont pas de confiance !</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">

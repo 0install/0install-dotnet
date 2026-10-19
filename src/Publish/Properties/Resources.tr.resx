@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllImplementationsReleased" xml:space="preserve">
-    <value>Tüm uygulamalar zaten yayınlanmış. Bunun yerine belirli bir sürüm seçin.</value>
+    <value>Tüm uyarlamalar zaten yayınlanmış. Bunun yerine belirli bir sürüm seçin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
@@ -79,11 +79,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DuplicateImplementationID" xml:space="preserve">
-    <value>Akışta '{0}' kimlikli bir uygulama zaten var.</value>
+    <value>Akışta '{0}' kimlikli bir uyarlama zaten var.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Boş bir klasör için öge listesi dosyası hazırlandı. Arşiv için "{0}" değerinin doğru şekilde ayarlandığından emin olun.</value>
+    <value>Boş bir klasör için öge listesi karması hesaplandı. Arşiv için "{0}" değerinin doğru şekilde ayarlandığından emin olun.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
@@ -120,7 +120,7 @@ Giriş noktasını el ile belirtmeyi deneyin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
-    <value>'{0}' kimlikli bir uygulama yok ve seçilebilecek birden fazla yerel uygulama var.</value>
+    <value>'{0}' kimlikli bir uyarlama yok ve seçilebilecek birden fazla yerel uyarlama var.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
@@ -128,15 +128,15 @@ Giriş noktasını el ile belirtmeyi deneyin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Birden fazla deneme sürümü var. Sürümü {2} olan {0}/{1} uygulama kararlı olarak işaretleniyor.</value>
+    <value>Birden fazla deneme sürümü var. Sürümü {2} olan {0}/{1} uyarlama kararlı olarak işaretleniyor.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
-    <value>Yayın tarihi olmayan birden fazla uygulama var. Bunun yerine belirli bir sürüm seçin.</value>
+    <value>Yayın tarihi olmayan birden fazla uyarlama var. Bunun yerine belirli bir sürüm seçin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>{0} sürümünde bir uygulama ön belleğe alınmamış. Ek bir öge listesi karması hesaplanamıyor.</value>
+    <value>{0} sürümünde bir uyarlama ön belleğe alınmamış. Ek bir öge listesi karması hesaplanamıyor.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
@@ -144,11 +144,11 @@ Giriş noktasını el ile belirtmeyi deneyin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
-    <value>Akışta herhangi bir uygulama yok.</value>
+    <value>Akışta herhangi bir uyarlama yok.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>Akışta {0} sürümünde bir uygulama yok.</value>
+    <value>Akışta {0} sürümünde bir uyarlama yok.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
@@ -157,11 +157,11 @@ El ile belirtmeyi deneyin.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">
-    <value>'{0}' kimlikli bir uygulama ve arşiv dosyasının uygulanabileceği bir yerel uygulama yok.</value>
+    <value>'{0}' kimlikli bir uyarlama ve arşiv dosyasının uygulanabileceği bir yerel uyarlama yok.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">
-    <value>Şu anda deneme olarak işaretlenmiş bir uygulama yok.</value>
+    <value>Şu anda deneme olarak işaretlenmiş bir uyarlama yok.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OnlyAvailableOnWindows" xml:space="preserve">

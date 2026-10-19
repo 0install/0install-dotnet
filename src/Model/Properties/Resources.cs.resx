@@ -75,48 +75,48 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Došlo k chybě při načítání databáze důvěryhodných zdrojů. Obnovují se výchozí hodnoty.</value>
-    <comment>Automatically translated.</comment>
+    <value>Došlo k chybě při načítání databáze důvěryhodných klíčů. Obnovují se výchozí hodnoty.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>V katalogu nelze najít zdroj „{0} “.</value>
-    <comment>Automatically translated.</comment>
+    <value>V katalogu nelze najít kanál „{0}“.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
     <value>Místo toho bylo nalezeno:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>V nabídce nelze najít implementaci pro rozhraní „{0} “.</value>
-    <comment>Automatically translated.</comment>
+    <value>Ve výběru nelze najít implementaci pro rozhraní „{0}“.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>„{0} “ není platný URI typu „http(s):“ a není ani platnou lokální cestou.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Neplatný atribut „{0} “ na stránce {1}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Neplatný atribut „{0}“ v prvku {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>Na stránce {1} chybí atribut „{0} “.</value>
-    <comment>Automatically translated.</comment>
+    <value>V prvku {1} chybí atribut „{0}“.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Chybí značka ` {0} ` uvnitř ` {1}`.</value>
-    <comment>Automatically translated.</comment>
+    <value>Uvnitř {1} chybí značka {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>Seznam oddělený tečkami smí obsahovat pouze desetinná čísla.</value>
-    <comment>Automatically translated.</comment>
+    <value>Seznam oddělený tečkami smí obsahovat pouze celá čísla.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Číslo verze smí obsahovat pouze desetinná čísla oddělená tečkami a modifikační řetězce.</value>
-    <comment>Automatically translated.</comment>
+    <value>Číslo verze smí obsahovat pouze celá čísla oddělená tečkami a řetězce modifikátorů.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Číslo verze musí začínat seznamem desetinných čísel oddělených tečkami.</value>
-    <comment>Automatically translated.</comment>
+    <value>Číslo verze musí začínat seznamem celých čísel oddělených tečkami.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Nebyla zadána žádná známá metoda výpočtu digestu.</value>
@@ -131,12 +131,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>Atribut „rollout-percentage“ na stránce {0} lze nastavit pouze v případě, že je „stability“ nastaveno na „testing“ nebo není nastaveno vůbec.</value>
-    <comment>Automatically translated.</comment>
+    <value>Atribut „rollout-percentage“ v prvku {0} lze nastavit pouze v případě, že je „stability“ nastaveno na „testing“ nebo není nastaveno vůbec.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>Chybová implementace</value>
-    <comment>Automatically translated.</comment>
+    <value>Chybná implementace</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
     <value>Nepodporuje příkaz „{0} “.</value>

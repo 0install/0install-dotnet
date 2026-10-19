@@ -75,7 +75,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DetectingCandidates" xml:space="preserve">
-    <value>Pesquisa de ficheiros executáveis</value>
+    <value>A pesquisar ficheiros executáveis</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DuplicateImplementationID" xml:space="preserve">
@@ -83,7 +83,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Foi calculado um manifesto digest para um diretório vazio. Verifique se definiu o valor correto "{0}" para o arquivo.</value>
+    <value>Foi calculado um resumo do manifesto para um diretório vazio. Verifique se definiu o valor correto "{0}" para o arquivo.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
@@ -92,7 +92,7 @@ Tente especificá-lo manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Descarregar '{0}' utilizando o Zero Install</value>
+    <value>A transferir '{0}' utilizando o Zero Install</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -100,7 +100,7 @@ Tente especificá-lo manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>Detectou '{0}' como diretório de instalação.</value>
+    <value>'{0}' detetado como diretório de instalação.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
@@ -108,7 +108,7 @@ Tente especificá-lo manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Foram detectados vários novos programas predefinidos no registo. Trata de todos eles, mas o último pode ter precedência em alguns casos.</value>
+    <value>Foram detetados vários novos programas predefinidos no registo. Todos serão processados, mas o último pode ter precedência em alguns casos.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
@@ -116,7 +116,7 @@ Tente especificá-lo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Foram detectados vários diretórios de instalação. Seleção do primeiro por predefinição.</value>
+    <value>Foram detetados vários diretórios de instalação. A selecionar o primeiro por predefinição.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
@@ -124,12 +124,12 @@ Tente especificá-lo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Foram detectados vários registos de novas aplicações no registo. Seleção da primeira por predefinição.</value>
+    <value>Foram detetados vários registos de novas aplicações no registo. A selecionar o primeiro por predefinição.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Existem várias versões de teste. A implementação {0} de {1} com a versão {2} é considerada estável.</value>
-    <comment>Automatically translated.</comment>
+    <value>Existem várias versões de teste. A marcar {0} de {1} implementações com a versão {2} como estáveis.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>Existem várias implementações sem data de lançamento. Selecione uma versão específica.</value>
@@ -152,7 +152,7 @@ Tente especificá-lo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
-    <value>Não foi detectado nenhum diretório de instalação.
+    <value>Não foi detetado nenhum diretório de instalação.
 Tente especificá-lo manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>

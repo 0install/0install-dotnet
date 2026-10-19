@@ -63,7 +63,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>Das Archiv enthält nur ein einziges Top-Level Verzeichnis, mit dem Namen '{0}'. Sie sollten das Attribut '{1}' wahrscheinlich auf '{0}' setzen, um eine zusätzliche Verschachtelungsebene zu vermeiden.</value>
+    <value>Das Archiv enthält nur ein einziges Top-Level-Verzeichnis namens '{0}'. Sie sollten das Attribut '{1}' wahrscheinlich auf '{0}' setzen, um eine zusätzliche Verschachtelungsebene zu vermeiden.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
@@ -92,7 +92,7 @@ Versuchen Sie, ihn manuell anzugeben.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Herunterladen von '{0}' mit Zero Install</value>
+    <value>'{0}' wird mit Zero Install heruntergeladen</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -104,7 +104,7 @@ Versuchen Sie, ihn manuell anzugeben.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
-    <value>Kein 32-bit %ProgramFiles% Verzeichnis gefunden.</value>
+    <value>Kein 32-Bit-%ProgramFiles%-Verzeichnis gefunden.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
@@ -116,7 +116,7 @@ Versuchen Sie, ihn manuell anzugeben.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Es wurden mehrere Installationsverzeichnisse erkannt. Wähle erstes als Standard aus.</value>
+    <value>Es wurden mehrere Installationsverzeichnisse erkannt. Standardmäßig wird das erste ausgewählt.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
@@ -124,7 +124,7 @@ Versuchen Sie, ihn manuell anzugeben.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Es wurden mehrere neue Anwendungsregistrierungen in der Registrierung entdeckt. Wähle erste als Standard aus.</value>
+    <value>Es wurden mehrere neue Anwendungsregistrierungen in der Registrierung entdeckt. Standardmäßig wird die erste ausgewählt.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
@@ -173,7 +173,7 @@ Versuchen Sie, es manuell anzugeben.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>Dateigröße noch nicht festgelegt.</value>
+    <value>Dateigröße noch nicht ermittelt.</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

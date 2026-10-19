@@ -92,7 +92,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>ゼロインストールを使用した '{0}' のダウンロード</value>
+    <value>Zero Install を使用して '{0}' をダウンロード中</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -100,7 +100,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>{0}' をインストールディレクトリとして検出。</value>
+    <value>'{0}' をインストールディレクトリとして検出。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
@@ -128,8 +128,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>複数のテスト版が存在します。バージョン{2} による{1} の実装のうち、{0} を安定版としてマークします。</value>
-    <comment>Automatically translated.</comment>
+    <value>複数のテスト版が存在します。実装{1}個のうち、バージョン{2}の{0}個を安定版としてマークします。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>リリース日が未定の複数の実装が存在します。代わりに特定のバージョンを選択してください。</value>
@@ -144,8 +144,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
-    <value>このフィードには実装内容は含まれていません。</value>
-    <comment>Automatically translated.</comment>
+    <value>このフィードには実装が含まれていません。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
     <value>このフィードには、バージョン{0} の実装は含まれていません。</value>

@@ -108,7 +108,7 @@ Tente especificar manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Vários novos programas padrão foram detectados no registro. Lidar com todos eles, mas o último pode ter precedência em alguns casos.</value>
+    <value>Vários novos programas padrão foram detectados no registro. Todos serão tratados, mas o último pode ter precedência em alguns casos.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
@@ -116,7 +116,7 @@ Tente especificar manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Várias pastas de instalação foram detectadas. Escolhendo o primeiro por padrão.</value>
+    <value>Várias pastas de instalação foram detectadas. Escolhendo a primeira por padrão.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">

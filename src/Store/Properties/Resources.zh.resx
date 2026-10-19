@@ -96,7 +96,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>执行清单的哈希值与预期值不匹配。</value>
+    <value>实现的清单哈希值与预期值不匹配。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
@@ -124,9 +124,9 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>搜索所需的源镜像功能已被禁用。
+    <value>搜索所需的 feed 镜像功能已被禁用。
 请运行 '0install config feed_mirror default' 命令以启用该功能。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>无法找到文件或目录'{0}'。</value>
@@ -182,16 +182,16 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>无法从{0} 下载图标，因为该网站仅支持 HTTP 和 HTTPS URL。</value>
-    <comment>Automatically translated.</comment>
+    <value>无法从 {0} 下载图标，因为仅支持 HTTP 和 HTTPS URL。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>清单文件中包含无效的行。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>行中的部件数量无效。</value>
-    <comment>Automatically translated.</comment>
+    <value>行中的部分数量无效。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>该压缩包中包含一个无效路径（可能存在安全风险）：{0}</value>
@@ -282,16 +282,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>无法找到指定名称的密钥。</value>
-    <comment>Automatically translated.</comment>
+    <value>无法找到具有指定名称的私钥。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
     <value>无法为'{0}'启用写保护。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">
-    <value>未知界面。</value>
-    <comment>Automatically translated.</comment>
+    <value>未知接口。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
     <value>您输入的密码不正确。</value>

@@ -75,8 +75,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
-    <value>Errore durante il caricamento del database di fiducia. Si sta ripristinando l'impostazione predefinita.</value>
-    <comment>Automatically translated.</comment>
+    <value>Errore durante il caricamento del database delle chiavi attendibili. Ripristino dei valori predefiniti.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
     <value>Impossibile trovare il feed "{0}" nel catalogo.</value>
@@ -103,8 +103,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Manca il tag ` {0} ` all'interno di ` {1}`.</value>
-    <comment>Automatically translated.</comment>
+    <value>Manca il tag {0} all'interno di {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>L'elenco separato da punti può contenere solo numeri decimali.</value>

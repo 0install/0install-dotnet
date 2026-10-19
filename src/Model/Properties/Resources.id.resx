@@ -103,8 +103,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Tag ` {0} ` tidak ada di dalam ` {1}`.</value>
-    <comment>Automatically translated.</comment>
+    <value>Tag {0} tidak ada di dalam {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>Daftar yang dipisahkan titik hanya boleh berisi angka desimal.</value>
@@ -127,8 +127,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>URI relatif '{0}' tidak dapat diidentifikasi. Hanya umpan yang disimpan sebagai berkas lokal yang boleh berisi URI relatif.</value>
-    <comment>Automatically translated.</comment>
+    <value>URI relatif '{0}' tidak dapat diidentifikasi. Hanya feed yang disimpan sebagai berkas lokal yang boleh berisi URI relatif.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
     <value>atribut 'rollout-percentage' pada {0} hanya dapat diatur ketika 'stability' adalah 'testing' atau tidak diatur.</value>

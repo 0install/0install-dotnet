@@ -96,8 +96,8 @@ Anda dapat menggunakan skrip impor atau Bootstrap yang dapat dieksekusi di '{1}'
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Apakah pengaturan Zero Install berlaku untuk semua pengguna (di seluruh sistem) atau hanya untuk pengguna saat ini?</value>
-    <comment>Automatically translated.</comment>
+    <value>Pasang Zero Install untuk semua pengguna (di seluruh sistem), bukan hanya untuk pengguna saat ini?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
     <value>Apakah Anda yakin ingin menginstal salinan baru Zero Install ke '{0}'?</value>
@@ -130,8 +130,8 @@ Jika Anda memilih 'Tidak', Zero Install akan terus menggunakan kemampuan lama.</
     <comment>Manually overriden.</comment>
   </data>
   <data name="CapabilitiesChanged" xml:space="preserve">
-    <value>Fitur-fitur aplikasi '{0}' telah berubah.</value>
-    <comment>Automatically translated.</comment>
+    <value>Kemampuan aplikasi '{0}' telah berubah.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CatalogAlreadyRegistered" xml:space="preserve">
     <value>URI katalog {0} sudah terdaftar.</value>
@@ -190,17 +190,17 @@ Hapus centang kotak centang untuk menghapus status default suatu kemampuan (kema
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>Apakah Anda ingin menghapus elemen yang dicentang ( {0} ) dari cache?</value>
-    <comment>Automatically translated.</comment>
+    <value>Apakah Anda ingin menghapus {0} elemen yang dicentang dari cache?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>Apakah Anda ingin menghapus entri ini dari cache?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
-    <value>Versi portabel Zero Install telah disebarkan ke '{0}'.
+    <value>Versi portabel Zero Install telah dipasang ke '{0}'.
 Anda dapat menggunakannya dengan menjalankan berkas ZeroInstall.exe di direktori tersebut.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
     <value>Saat menggunakan opsi " {0} ", Anda harus secara eksplisit menentukan direktori tujuan.</value>
@@ -264,22 +264,22 @@ Tanpa argumen, perintah ini menampilkan semua pengaturan beserta nilai saat ini.
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
-    <value>Menghitung ringkasan manifes dari sebuah direktori atau arsip.</value>
-    <comment>Automatically translated.</comment>
+    <value>Menghitung intisari manifes dari sebuah direktori atau arsip.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
-    <value>Berfungsi mirip dengan '0install select', kecuali bahwa program ini juga mengunduh versi yang dipilih jika versi tersebut belum tersimpan dalam cache.
-Mengembalikan status keluar 0 jika program ini telah memilih sekumpulan versi yang sesuai dan semuanya kini telah diunduh serta tersimpan dalam cache; sebaliknya, mengembalikan status 1.</value>
-    <comment>Automatically translated.</comment>
+    <value>Berfungsi mirip dengan '0install select', kecuali bahwa perintah ini juga mengunduh versi yang dipilih jika versi tersebut belum tersimpan dalam cache.
+Mengembalikan status keluar 0 jika perintah ini telah memilih sekumpulan versi yang sesuai dan semuanya kini telah diunduh serta tersimpan dalam cache; sebaliknya, mengembalikan status 1.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
     <value>Mengekspor semua feed dan implementasi yang diperlukan untuk menjalankan program yang ditentukan oleh URI ke sebuah DIRECTORY.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Mengimpor umpan dari berkas lokal, seolah-olah berkas tersebut telah diunduh dari jaringan. Fitur ini berguna saat menguji berkas umpan, untuk menghindari mengunggahnya ke server jarak jauh hanya untuk mengunduhnya kembali.
+    <value>Mengimpor feed dari berkas lokal, seolah-olah berkas tersebut telah diunduh dari jaringan. Fitur ini berguna saat menguji berkas feed, untuk menghindari mengunggahnya ke server jarak jauh hanya untuk mengunduhnya kembali.
 Berkas tersebut harus memiliki tanda tangan digital yang tepercaya, sama seperti saat mengambilnya dari jaringan.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
     <value>Mengimpor sekumpulan aplikasi dan integrasi desktop dari berkas app-list.xml yang sudah ada.</value>
@@ -302,8 +302,8 @@ Berkas tersebut harus memiliki tanda tangan digital yang tepercaya, sama seperti
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Menerapkan Zero Install ke direktori TARGET yang ditentukan atau direktori default untuk program dan mengintegrasikannya ke dalam sistem.</value>
-    <comment>Automatically translated.</comment>
+    <value>Memasang Zero Install ke direktori TARGET yang ditentukan atau direktori default untuk program dan mengintegrasikannya ke dalam sistem.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
     <value>Menghapus instance Zero Install yang sedang berjalan dari sistem.</value>
@@ -326,13 +326,13 @@ Berkas tersebut harus memiliki tanda tangan digital yang tepercaya, sama seperti
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>Berfungsi mirip dengan '0install download', kecuali bahwa antarmuka ini juga menjalankan program setelah memastikan program tersebut ada di cache.
+    <value>Berfungsi mirip dengan '0install download', kecuali bahwa perintah ini juga menjalankan program setelah memastikan program tersebut ada di cache.
 Mengembalikan status keluar 1 jika langkah pengunduhan gagal. Jika tidak, status keluar yang dikembalikan adalah status keluar dari program yang sedang dijalankan.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Mencari umpan yang diindeks oleh server cermin yang sesuai dengan kata kunci yang ditentukan. Perhatikan bahwa server cermin default mengindeks semua umpan yang diketahui, terlepas dari kualitasnya; Anda harus memutuskan apakah akan mempercayai program-program tersebut sebelum menjalankannya.</value>
-    <comment>Automatically translated.</comment>
+    <value>Mencari feed yang diindeks oleh server cermin yang sesuai dengan kata kunci yang ditentukan. Perhatikan bahwa server cermin default mengindeks semua feed yang diketahui, terlepas dari kualitasnya; Anda harus memutuskan apakah akan memercayai program-program tersebut sebelum menjalankannya.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
     <value>Memilih versi program yang diidentifikasi oleh URI, serta versi yang kompatibel dari semua dependensinya.
@@ -404,8 +404,8 @@ Argumen tambahan menentukan lokasi cache khusus.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>Memastikan bahwa implementasi tersebut tidak rusak (yaitu, ringkasan manifesnya tidak berubah).</value>
-    <comment>Automatically translated.</comment>
+    <value>Memastikan bahwa implementasi tersebut tidak rusak (yaitu, intisari manifesnya tidak berubah).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
     <value>Menyinkronkan daftar aplikasi dengan server.</value>
@@ -420,8 +420,8 @@ Argumen tambahan menentukan lokasi cache khusus.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Berhenti mempercayai umpan yang ditandatangani dengan FINGERPRINT tertentu. Hanya berhenti mempercayai untuk DOMAIN tertentu, jika ditentukan.</value>
-    <comment>Automatically translated.</comment>
+    <value>Berhenti memercayai feed yang ditandatangani dengan FINGERPRINT tertentu. Hanya berhenti memercayai untuk DOMAIN tertentu, jika ditentukan.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Memeriksa pembaruan program dan mengunduhnya jika ditemukan.
@@ -445,8 +445,8 @@ Ini mirip dengan perintah '0install download --refresh', kecuali bahwa perintah 
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>Pencarian di jaringan lokal</value>
-    <comment>Automatically translated.</comment>
+    <value>Mencari di jaringan lokal</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Done" xml:space="preserve">
     <value>Selesai</value>
@@ -587,8 +587,8 @@ Anda dapat menyebarluaskan salinan program ini di bawah persyaratan GNU Lesser G
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
-    <value>Nilai yang diperlukan untuk opsi ` {0}` tidak ditemukan.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nilai yang diperlukan untuk opsi {0} tidak ada.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
     <value>Anda harus menjadi administrator untuk melakukan operasi yang berlaku di seluruh sistem.</value>
@@ -648,8 +648,8 @@ Anda dapat melakukannya dengan menggunakan perintah '{0}'. Hal ini akan sepenuhn
     <comment>Manually overriden.</comment>
   </data>
   <data name="OpenInFileManager" xml:space="preserve">
-    <value>Buka di pengelola file</value>
-    <comment>Automatically translated.</comment>
+    <value>&amp;Buka di pengelola berkas</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptimiseComplete" xml:space="preserve">
     <value>Optimisasi selesai</value>
@@ -697,16 +697,16 @@ Atur ke kosong ("") untuk mengabaikan perintah selama pemilihan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>Memaksa pemecah masalah untuk menargetkan {CPU} tertentu.</value>
-    <comment>Automatically translated.</comment>
+    <value>Memaksa pemecah dependensi untuk menargetkan {CPU} tertentu.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
     <value>Tampilkan editor kebijakan grafis. Fitur ini memungkinkan Anda menyesuaikan versi program atau pustaka mana yang akan digunakan.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Menampilkan ringkasan manifes (diaktifkan secara default jika opsi --manifest tidak ditetapkan).</value>
-    <comment>Automatically translated.</comment>
+    <value>Menampilkan intisari manifes (diaktifkan secara default jika opsi --manifest tidak ditetapkan).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
     <value>Cobalah untuk mencari implementasi pada mesin lain di jaringan lokal daripada mengambilnya dari sumber aslinya.</value>
@@ -754,17 +754,17 @@ Anda dapat menggunakan opsi ini beberapa kali untuk menentukan beberapa bahasa y
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Gunakan Zero Install sebagai pustaka yang dapat digunakan oleh aplikasi lain tanpa integrasi desktop tersendiri.</value>
-    <comment>Automatically translated.</comment>
+    <value>Pasang Zero Install sebagai pustaka untuk digunakan oleh aplikasi lain tanpa integrasi desktop tersendiri.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
     <value>Terapkan konfigurasi tersebut ke seluruh sistem (untuk seluruh komputer), bukan hanya untuk pengguna saat ini.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Jalankan file eksekusi yang ditentukan {MAIN} sebagai pengganti yang default. Jika dimulai dengan '/' atau '\', maka jalur tersebut relatif terhadap direktori tingkat atas implementasi, sedangkan jika tidak, jalur tersebut relatif terhadap direktori yang berisi program utama default.
+    <value>Jalankan berkas yang dapat dieksekusi {MAIN} yang ditentukan, bukan yang default. Jika dimulai dengan '/' atau '\', maka jalur tersebut relatif terhadap direktori tingkat atas implementasi, sedangkan jika tidak, jalur tersebut relatif terhadap direktori yang berisi program utama default.
 Tidak boleh mengandung argumen baris perintah! Spasi kosong tidak perlu di-escape.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
     <value>Menampilkan manifes itu sendiri (satu baris untuk setiap berkas atau direktori).</value>
@@ -792,8 +792,8 @@ Dalam mode offline, antarmuka tidak akan diperbarui meskipun sudah kedaluwarsa, 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
-    <value>Memaksa pemecah masalah untuk menargetkan sistem operasi {OS}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Memaksa pemecah dependensi untuk menargetkan sistem operasi {OS}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionPin" xml:space="preserve">
     <value>Menandai versi yang dipilih sebagai versi pilihan untuk penggunaan di masa mendatang.</value>
@@ -804,8 +804,8 @@ Dalam mode offline, antarmuka tidak akan diperbarui meskipun sudah kedaluwarsa, 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
-    <value>Mengambil salinan terbaru dari semua umpan yang digunakan.</value>
-    <comment>Automatically translated.</comment>
+    <value>Mengambil salinan terbaru dari semua feed yang digunakan.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
     <value>Mulai ulang antarmuka pengguna grafis '0install central' setelah pembaruan.</value>
@@ -824,12 +824,12 @@ Dalam mode offline, antarmuka tidak akan diperbarui meskipun sudah kedaluwarsa, 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Atur ulang data sinkronisasi. Nilai {MODE}yang valid adalah 'none' (menggabungkan data dari klien dan server secara normal), 'client' (mengganti semua data di klien dengan data dari server), dan 'server' (mengganti semua data di server dengan data dari klien).</value>
-    <comment>Automatically translated.</comment>
+    <value>Atur ulang data sinkronisasi. Nilai {MODE} yang valid adalah 'none' (menggabungkan data dari klien dan server secara normal), 'client' (mengganti semua data di klien dengan data dari server), dan 'server' (mengganti semua data di server dengan data dari klien).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
-    <value>Mengaktifkan versi yang sebelumnya ditandai sebagai pilihan utama.</value>
-    <comment>Automatically translated.</comment>
+    <value>Membatalkan penandaan versi yang sebelumnya ditandai sebagai versi pilihan.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>Output yang lebih rinci. Gunakan dua kali untuk output yang lebih rinci lagi.</value>
@@ -847,8 +847,8 @@ Nomor versi tunggal dapat digunakan sebagai pengganti rentang untuk mencocokkan 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Untuk setiap pustaka atau subkomponen dengan opsi ` {0:URI} ` yang ditentukan, akan menampilkan versi ` {1:RANGE} ` (seperti pada opsi `--version`).</value>
-    <comment>Automatically translated.</comment>
+    <value>Untuk setiap pustaka atau subkomponen dengan {0:URI} yang diberikan, menentukan {1:RANGE} versi (seperti pada --version).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
     <value>Tambahkan {DIR} ke daftar cache implementasi yang akan dicari.
@@ -856,10 +856,10 @@ Namun, unduhan baru tidak akan disimpan ke direktori ini.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Alih-alih menjalankan program yang dipilih secara langsung, jalankan perintah ` {COMMAND} PROGRAM ARGS`. Hal ini berguna untuk menjalankan debugger dan alat pelacakan pada program tersebut (bukan pada Zero Install!).
+    <value>Alih-alih menjalankan program yang dipilih secara langsung, jalankan {COMMAND} PROGRAM ARGS. Hal ini berguna untuk menjalankan debugger dan alat pelacakan pada program tersebut (bukan pada Zero Install!).
 Perhatikan bahwa wrapper dijalankan dalam lingkungan yang dipilih oleh program; oleh karena itu, mekanisme ini tidak dapat digunakan untuk sandboxing.
 Dapat berisi argumen baris perintah. Spasi kosong harus di-escape!</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionXml" xml:space="preserve">
     <value>Menulis keluaran ke konsol dalam bentuk XML yang dapat dibaca oleh mesin.</value>
@@ -878,12 +878,12 @@ Dapat berisi argumen baris perintah. Spasi kosong harus di-escape!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Apakah Anda ingin menghapus kunci yang dicentang " {0} " dari daftar?</value>
-    <comment>Automatically translated.</comment>
+    <value>Apakah Anda ingin menghapus {0} kunci yang dicentang dari daftar?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>Apakah Anda ingin menghapus entri yang dipilih dari daftar " {0} "?</value>
-    <comment>Automatically translated.</comment>
+    <value>Apakah Anda ingin menghapus {0} entri yang dipilih dari daftar?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
     <value>Menghapus aplikasi</value>
@@ -910,7 +910,7 @@ Dapat berisi argumen baris perintah. Spasi kosong harus di-escape!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
-    <value>Rakitan .NET prakompilasi untuk startup aplikasi yang lebih cepat</value>
+    <value>Mengompilasi awal rakitan .NET untuk startup aplikasi yang lebih cepat</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
@@ -918,29 +918,29 @@ Dapat berisi argumen baris perintah. Spasi kosong harus di-escape!</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>Instan Zero Install ini belum diimplementasikan. Tidak ada yang perlu dihapus.</value>
-    <comment>Automatically translated.</comment>
+    <value>Instance Zero Install ini belum dipasang. Tidak ada yang perlu dihapus.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
     <value>Tersedia pembaruan untuk Zero Install v{0}. Instal sekarang?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Instan Zero Install ini belum diimplementasikan. Oleh karena itu, ia tidak dapat memperbarui dirinya sendiri.</value>
-    <comment>Automatically translated.</comment>
+    <value>Instance Zero Install ini belum dipasang. Oleh karena itu, instance ini tidak dapat memperbarui dirinya sendiri.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>Fitur pembaruan otomatis dinonaktifkan.
+    <value>Pembaruan mandiri dinonaktifkan.
 Jalankan perintah '0install config self_update_uri default' untuk mengaktifkannya.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
     <value>Menyediakan implementasi pada port {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>Apakah perlu menetapkan kebijakan stabilitas untuk {0} agar sesuai?</value>
-    <comment>Automatically translated.</comment>
+    <value>Tetapkan kebijakan stabilitas untuk {0} agar sesuai?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
     <value>Apakah kebijakan stabilitas untuk {0} akan dikembalikan ke pengaturan default?</value>
@@ -959,8 +959,8 @@ Jalankan perintah '0install config self_update_uri default' untuk mengaktifkanny
     <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
-    <value>{0} ruang penyimpanan yang telah dibebaskan.</value>
-    <comment>Automatically translated.</comment>
+    <value>{0} ruang penyimpanan telah dibebaskan.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>Audit cache</value>

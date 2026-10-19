@@ -420,7 +420,7 @@ Argumentos adicionais especificam locais de cache personalizados.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Pára de confiar em feeds assinados com um FINGERPRINT específico. Só para de confiar em um DOMÍNIO específico, se especificado.</value>
+    <value>Para de confiar em feeds assinados com um FINGERPRINT específico. Se especificado, só para de confiar para um DOMAIN específico.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">

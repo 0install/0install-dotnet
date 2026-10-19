@@ -91,20 +91,20 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>현재 알려진 구현 사례는 전혀 없음</value>
-    <comment>Automatically translated.</comment>
+    <value>알려진 구현이 전혀 없음</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
-    <value>사용 가능한 구현 예시 없음:</value>
-    <comment>Automatically translated.</comment>
+    <value>사용 가능한 구현 없음:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagProblem" xml:space="preserve">
     <value>(문제)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRejectedCandidates" xml:space="preserve">
-    <value>탈락한 후보자:</value>
-    <comment>Automatically translated.</comment>
+    <value>거부된 후보:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
     <value>필요 사항</value>
@@ -119,8 +119,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>로컬 네트워크에서 검색하기</value>
-    <comment>Automatically translated.</comment>
+    <value>로컬 네트워크에서 검색 중</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>&lt;environment&gt; 바인딩에는 'value' 또는 'insert' 속성이 포함되어야 합니다.</value>
@@ -135,12 +135,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>외부 솔버 실행</value>
-    <comment>Automatically translated.</comment>
+    <value>외부 솔버 실행 중</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
-    <value>{0} 와 그 종속성 중 적합한 버전을 찾지 못했습니다.</value>
-    <comment>Automatically translated.</comment>
+    <value>{0} 및 해당 종속성의 적합한 버전을 찾지 못했습니다.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolveForArchitecture" xml:space="preserve">
     <value>{1} 에 적합한 {0} 버전을 찾을 수 없습니다.</value>
@@ -203,8 +203,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>'{0}' 구현에 대한 검색 방법이 없습니다.</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}' 구현에 대한 가져오기 방법을 찾을 수 없습니다.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>다운로드한 피드가 이미 캐시에 있는 버전보다 오래된 버전입니다. 계속 최신 버전을 사용할 예정입니다.

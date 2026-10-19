@@ -59,8 +59,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllImplementationsReleased" xml:space="preserve">
-    <value>Toutes les versions ont déjà été publiées. Choisissez plutôt une version spécifique.</value>
-    <comment>Automatically translated.</comment>
+    <value>Toutes les implémentations ont déjà été publiées. Choisissez plutôt une version spécifique.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>L'archive ne contient qu'un seul répertoire de niveau supérieur : «{0} ». Il est probablement préférable de définir l'attribut «{1} » sur «{0} » afin d'éviter un niveau d'imbrication supplémentaire.</value>
@@ -83,8 +83,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Un résumé du manifeste a été calculé pour un répertoire vide. Vérifiez que vous avez défini la valeur correcte pour «{0} » dans l'archive.</value>
-    <comment>Automatically translated.</comment>
+    <value>Une empreinte de manifeste a été calculée pour un répertoire vide. Vérifiez que vous avez défini la valeur correcte pour « {0} » dans l'archive.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>Le point d'entrée de l'application est introuvable.
@@ -92,7 +92,7 @@ Essayez de le spécifier manuellement.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Téléchargement du '{0}' avec Zero Install</value>
+    <value>Téléchargement de '{0}' avec Zero Install</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -128,16 +128,16 @@ Essayez de le spécifier manuellement.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Il existe plusieurs versions de test. Marquage de l'{0} e des implémentations de {1} dont la version {2} est considérée comme stable.</value>
-    <comment>Automatically translated.</comment>
+    <value>Il existe plusieurs versions de test. Marquage comme stables de {0} implémentation(s) sur {1} ayant la version {2}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>Il existe plusieurs implémentations sans date de sortie. Sélectionnez plutôt une version spécifique.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>Aucune implémentation de la version {0} n'est mise en cache. Impossible de calculer un condensé supplémentaire.</value>
-    <comment>Automatically translated.</comment>
+    <value>Aucune implémentation de la version {0} n'est présente dans le cache. Impossible de calculer une empreinte supplémentaire.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
     <value>Le flux ne comporte pas d'élément « {0} ». Impossible de l'utiliser comme flux local.</value>
@@ -148,11 +148,12 @@ Essayez de le spécifier manuellement.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>Le flux ne contient aucune implémentation avec l'{0}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Le flux ne contient aucune implémentation avec la version {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
-    <value>Aucun répertoire d'installation n'a été détecté.</value>
+    <value>Aucun répertoire d'installation n'a été détecté.
+Essayez de le spécifier manuellement.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">
@@ -172,7 +173,7 @@ Essayez de le spécifier manuellement.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>La taille du fichier n'est pas encore determinée</value>
+    <value>La taille du fichier n'est pas encore déterminée.</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

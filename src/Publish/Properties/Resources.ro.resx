@@ -59,8 +59,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllImplementationsReleased" xml:space="preserve">
-    <value>Toate versiunile au fost deja lansate. Selectați o versiune specifică.</value>
-    <comment>Automatically translated.</comment>
+    <value>Toate implementările au fost deja lansate. Selectați o versiune specifică.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Arhiva conține doar un singur director de nivel superior '{0}'. Probabil ar trebui să setați atributul '{1}' la '{0}' pentru a evita un nivel suplimentar de anidare.</value>
@@ -100,7 +100,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>A detectat '{0}' ca director de instalare.</value>
+    <value>S-a detectat '{0}' ca director de instalare.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
@@ -108,28 +108,28 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Mai multe programe implicite noi au fost detectate în registru. Gestionați-le pe toate, dar ultimul poate avea prioritate în unele cazuri.</value>
+    <value>Au fost detectate în registru mai multe programe implicite noi. Sunt gestionate toate, dar în unele cazuri ultimul poate avea prioritate.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
-    <value>Fluxul conține mai multe elemente de tip „ {0} ”. Aceasta nu este acceptată aici.</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed-ul conține mai multe elemente {0}. Acest lucru nu este acceptat aici.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Au fost detectate directoare de instalare multiple. Alege prima în mod implicit.</value>
+    <value>Au fost detectate mai multe directoare de instalare. Se alege primul în mod implicit.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
-    <value>Nu există nicio implementare cu ID-ul „{0} ”, iar există mai multe implementări locale din care se poate alege.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nu există nicio implementare cu ID-ul „{0}” și există mai multe implementări locale din care se poate alege.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Au fost detectate mai multe înregistrări de aplicații noi în registru. Alegerea primei în mod implicit.</value>
+    <value>Au fost detectate mai multe înregistrări de aplicații noi în registru. Se alege prima în mod implicit.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Există mai multe versiuni de testare. Se marchează {0} dintre implementările {1} cu versiunea {2} ca fiind stabile.</value>
-    <comment>Automatically translated.</comment>
+    <value>Există mai multe versiuni de testare. Se marchează {0} din {1} implementări cu versiunea {2} ca stabile.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>Există mai multe implementări fără o dată de lansare. Selectați o versiune specifică.</value>
@@ -140,12 +140,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
-    <value>Fluxul nu conține elementul {0}. Nu poate fi utilizat ca flux local.</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed-ul nu conține elementul {0}. Nu poate fi utilizat ca feed local.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
-    <value>Feedul nu conține nicio implementare.</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed-ul nu conține nicio implementare.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
     <value>Feed-ul nu conține nicio implementare cu versiunea {0}.</value>

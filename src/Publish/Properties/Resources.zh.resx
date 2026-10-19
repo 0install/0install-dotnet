@@ -79,8 +79,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DuplicateImplementationID" xml:space="preserve">
-    <value>该源中已包含一个ID为“{0} ”的实现。</value>
-    <comment>Automatically translated.</comment>
+    <value>该 feed 中已包含一个 ID 为“{0}”的实现。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>为空目录计算了清单摘要。检查您是否为压缩包设置了正确的 "{0}" 值。</value>
@@ -92,7 +92,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>使用 "零安装 "下载 '{0}</value>
+    <value>使用 Zero Install 下载 '{0}'</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -112,8 +112,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
-    <value>该源包含多个{0} 元素。此处不支持此功能。</value>
-    <comment>Automatically translated.</comment>
+    <value>该 feed 包含多个 {0} 元素。此处不支持这种情况。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>检测到多个安装目录。默认选择第一个。</value>
@@ -128,8 +128,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>目前有多个测试版本。将{0} 中的{1} 实现（版本号为{2} ）标记为稳定版。</value>
-    <comment>Automatically translated.</comment>
+    <value>目前有多个测试版本。将 {1} 个实现中版本为 {2} 的 {0} 个标记为稳定版。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>目前有多个实现版本，但均无发布日期。请选择具体版本。</value>
@@ -140,16 +140,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
-    <value>该源中没有{0} 元素。无法将其用作本地源。</value>
-    <comment>Automatically translated.</comment>
+    <value>该 feed 中没有 {0} 元素。无法将其用作本地 feed。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
-    <value>该源中不包含任何实现。</value>
-    <comment>Automatically translated.</comment>
+    <value>该 feed 中不包含任何实现。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>该源在版本{0} 中未包含任何实现。</value>
-    <comment>Automatically translated.</comment>
+    <value>该 feed 中不包含版本为 {0} 的实现。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>未检测到安装目录。

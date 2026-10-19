@@ -59,8 +59,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllImplementationsReleased" xml:space="preserve">
-    <value>Todas las versiones ya se han publicado. Selecciona una versión concreta.</value>
-    <comment>Automatically translated.</comment>
+    <value>Todas las implementaciones ya se han publicado. Selecciona una versión concreta en su lugar.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>El archivo contiene únicamente un único directorio de nivel superior: «{0} ». Probablemente deberías establecer el atributo «{1} » en «{0} » para evitar un nivel de anidamiento adicional.</value>
@@ -75,8 +75,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DetectingCandidates" xml:space="preserve">
-    <value>Búsqueda de archivos ejecutables</value>
-    <comment>Automatically translated.</comment>
+    <value>Buscando archivos ejecutables</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DuplicateImplementationID" xml:space="preserve">
     <value>El feed ya contiene una implementación con el ID «{0} ».</value>
@@ -128,16 +128,16 @@ Intenta especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Existen varias versiones de prueba. Se marca {0} de las implementaciones de {1} con la versión {2} como estable.</value>
-    <comment>Automatically translated.</comment>
+    <value>Existen varias versiones de prueba. Se marcan como estables {0} de {1} implementaciones con la versión {2}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
-    <value>Existen varias versiones sin fecha de lanzamiento. Selecciona una versión concreta.</value>
-    <comment>Automatically translated.</comment>
+    <value>Existen varias implementaciones sin fecha de publicación. Selecciona una versión concreta en su lugar.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>No se ha almacenado en caché ninguna implementación de la versión {0}. No se puede calcular un resumen adicional.</value>
-    <comment>Automatically translated.</comment>
+    <value>No hay ninguna implementación de la versión {0} almacenada en caché. No se puede calcular un digest adicional.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
     <value>El feed no tiene un elemento « {0} ». No se puede utilizar como feed local.</value>

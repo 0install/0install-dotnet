@@ -59,8 +59,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllImplementationsReleased" xml:space="preserve">
-    <value>Wszystkie wersje zostały już wydane. Zamiast tego wybierz konkretną wersję.</value>
-    <comment>Automatically translated.</comment>
+    <value>Wszystkie implementacje zostały już wydane. Zamiast tego wybierz konkretną wersję.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Archiwum zawiera tylko jeden katalog najwyższego poziomu '{0}'. Prawdopodobnie należy ustawić atrybut '{1}' na '{0}', aby uniknąć dodatkowego poziomu zagnieżdżenia.</value>
@@ -128,8 +128,8 @@ Spróbuj określić go ręcznie.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Dostępnych jest wiele wersji testowych. Oznaczono implementacje {0} z {1} o wersji {2} jako stabilne.</value>
-    <comment>Automatically translated.</comment>
+    <value>Istnieje wiele wersji testowych. Oznaczanie {0} z {1} implementacji w wersji {2} jako stabilnych.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>Istnieje wiele implementacji bez podanej daty wydania. Zamiast tego wybierz konkretną wersję.</value>
@@ -169,7 +169,7 @@ Spróbuj określić go ręcznie.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>Tajny klucz nie znajduje się w breloku użytkownika.</value>
+    <value>Tajny klucz nie znajduje się w zbiorze kluczy użytkownika.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">

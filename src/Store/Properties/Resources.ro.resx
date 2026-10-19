@@ -59,8 +59,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>Verificarea fișierelor deteriorate</value>
-    <comment>Automatically translated.</comment>
+    <value>Căutarea fișierelor deteriorate</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Copierea fișierelor</value>
@@ -84,8 +84,8 @@ Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, p
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeletingDirectory" xml:space="preserve">
-    <value>Ștergerea unui director {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Ștergerea directorului {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
     <value>Ștergerea implementării {0}</value>
@@ -104,16 +104,16 @@ Dacă doriți să ștergeți întregul director fără a utiliza Zero Install, p
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchActualManifest" xml:space="preserve">
-    <value>Manifestul actual: {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Manifestul real: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchExpectedDigest" xml:space="preserve">
     <value>Valoarea așteptată: {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DigestMismatchExpectedManifest" xml:space="preserve">
-    <value>Manifestul preconizat: {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Manifestul așteptat: {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
     <value>Eroare la încărcarea pachetului de chei OpenPGP de la „{0} ”</value>
@@ -145,8 +145,8 @@ Rulați comanda „0install config feed_mirror default” pentru a o activa.</va
     <comment>Automatically translated.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Găsirea fișierelor duplicate în „{0} ”</value>
-    <comment>Automatically translated.</comment>
+    <value>Căutarea fișierelor duplicate în „{0}”</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>Fișierul „{0} ” nu este nici o legătură simbolică, nici un fișier obișnuit.</value>
@@ -190,8 +190,8 @@ Dacă utilizați o unitate formatată în sistemul FAT, vă rugăm să o convert
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Număr invalid de piese în linie.</value>
-    <comment>Automatically translated.</comment>
+    <value>Număr nevalid de părți în linie.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>Arhiva conține o cale nevalidă (posibil un risc de securitate): {0}</value>
@@ -222,8 +222,8 @@ Dacă utilizați o unitate formatată în sistemul FAT, vă rugăm să o convert
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
-    <value>Nu a fost specificată nicio metodă de digestie cunoscută.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nu a fost specificată nicio metodă de digest cunoscută.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
     <value>Calea „{0} ” nu este o cale absolută. Căile relative sunt permise numai în modul portabil.
@@ -251,9 +251,9 @@ Specificată în fișierul de configurare „{1} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>A apărut o problemă la accesarea magazinului de implementare „{0} ”.
-Rulați „{1} ” pentru a-l elimina din lista directoarelor înregistrate.</value>
-    <comment>Automatically translated.</comment>
+    <value>A apărut o problemă la accesarea cache-ului de implementare „{0}”.
+Rulați „{1}” pentru a-l elimina din lista directoarelor înregistrate.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>A apărut o problemă la încărcarea unui fișier de configurare.

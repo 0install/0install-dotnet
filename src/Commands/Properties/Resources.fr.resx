@@ -96,7 +96,7 @@ Vous pouvez utiliser le script d'importation ou le fichier Bootstrap exécutable
     <comment>Manually overriden.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Installer Zero Install pour tous les utilisateurs (tous les ordinateurs) et non seulement pour l'utilisateur actuel?</value>
+    <value>Installer Zero Install pour tous les utilisateurs (à l'échelle de la machine) et non seulement pour l'utilisateur actuel ?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -117,7 +117,7 @@ Vous pouvez utiliser le script d'importation ou le fichier Bootstrap exécutable
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>Souhaitez-vous mettre à jour toute intégration d'application bureau existante afin de refléter ces changements ?
-Si vous choisissez 'Oui' les intégrations potentiellement incompatible seront supprimées.
+Si vous choisissez 'Oui' les intégrations potentiellement incompatibles seront supprimées.
 Si vous sélectionnez 'Non' Zero Install continuera d'utiliser les anciennes capacités.</value>
     <comment>Manually overriden.</comment>
   </data>
@@ -134,11 +134,11 @@ Si vous sélectionnez 'Non' Zero Install continuera d'utiliser les anciennes cap
     <comment>Manually overriden.</comment>
   </data>
   <data name="CatalogAlreadyRegistered" xml:space="preserve">
-    <value>Le catalogue des URL{0} est déjà enregistré.</value>
+    <value>L'URI de catalogue {0} est déjà enregistrée.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="CatalogNotRegistered" xml:space="preserve">
-    <value>Le catalogue des URL '{0}' n'est pas enregistré.</value>
+    <value>L'URI de catalogue {0} n'est pas enregistrée.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="CatalogSources" xml:space="preserve">
@@ -185,12 +185,12 @@ Sélectionnez une ligne entière en cliquant dans la première colonne, puis app
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Cochez une case pour définir une fonctionnalité comme gestionnaire par défaut.
-Décochez une case pour supprimer le statut par défaut d'une fonctionnalité (celle-ci reste toutefois disponible).</value>
-    <comment>Automatically translated.</comment>
+    <value>Cochez une case pour définir une capacité comme gestionnaire par défaut.
+Décochez une case pour supprimer le statut par défaut d'une capacité (celle-ci reste toutefois disponible).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>Souhaitez-vous supprimer le(s) {0} élément(s) sélectionné(s) dans la liste ?</value>
+    <value>Souhaitez-vous supprimer le(s) {0} élément(s) coché(s) du cache ?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
@@ -198,9 +198,9 @@ Décochez une case pour supprimer le statut par défaut d'une fonctionnalité (c
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
-    <value>Une version portable de Zero Install a été déployée à l'adresse «{0} ».
+    <value>Une version portable de Zero Install a été déployée dans « {0} ».
 Vous pouvez l'utiliser en exécutant le fichier ZeroInstall.exe situé dans ce répertoire.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
     <value>Lorsque vous utilisez l'option « {0} », vous devez spécifier explicitement le répertoire de destination.</value>
@@ -231,8 +231,8 @@ Vous pouvez l'utiliser en exécutant le fichier ZeroInstall.exe situé dans ce r
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionCatalogAdd" xml:space="preserve">
-    <value>Ajoute un URI à la liste des catalogues.</value>
-    <comment>Automatically translated.</comment>
+    <value>Ajoute une URI à la liste des catalogues.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionCatalogList" xml:space="preserve">
     <value>Répertorie tous les catalogues enregistrés.</value>
@@ -243,8 +243,8 @@ Vous pouvez l'utiliser en exécutant le fichier ZeroInstall.exe situé dans ce r
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
-    <value>Supprime un URI de la liste des catalogues.</value>
-    <comment>Automatically translated.</comment>
+    <value>Supprime une URI de la liste des catalogues.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionCatalogReset" xml:space="preserve">
     <value>Réinitialise la liste des catalogues à la source par défaut.</value>
@@ -273,8 +273,8 @@ Retourne un code de retour à 0 si un ensemble conforme de versions a été sél
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>Exporte vers un RÉPERTOIRE tous les flux et toutes les implémentations nécessaires au lancement du programme spécifié par une URI.</value>
-    <comment>Automatically translated.</comment>
+    <value>Exporte tous les flux et toutes les implémentations nécessaires au lancement du programme spécifié par une URI vers un répertoire DIRECTORY.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>Importe un flux depuis un fichier local, comme s'il avait été téléchargé depuis le réseau. Pratique pour tester un fichier de flux et ainsi éviter de l'uploader sur un serveur distant.
@@ -294,16 +294,16 @@ Le fichier doit posséder une signature digitale de confiance, comme s'il était
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Affiche la liste de toutes les applications actuellement présentes dans votre liste d'applications. Si un URI est fourni, seule l'application associée à cet URI de flux s'affiche. Si un MOT-CLÉ est fourni, seules les applications dont le nom contient cette chaîne s'affichent (sans distinction de majuscules/minuscules).</value>
-    <comment>Automatically translated.</comment>
+    <value>Affiche toutes les applications actuellement présentes dans votre liste d'applications. Si une URI est fournie, seule l'application associée à cette URI de flux s'affiche. Si un PATTERN est fourni, seules les applications dont le nom contient cette chaîne s'affichent (sans distinction de majuscules/minuscules).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
     <value>Liste tous les flux supplémentaires ajoutés à l'URI en utilisant '0install add-feed'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
-    <value>Déploie Zero Install dans le répertoire CIBLE spécifié ou dans le répertoire par défaut des programmes, et l'intègre au système.</value>
-    <comment>Automatically translated.</comment>
+    <value>Déploie Zero Install dans le répertoire TARGET spécifié ou dans le répertoire par défaut des programmes, et l'intègre au système.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
     <value>Supprime l'instance actuelle de Zero Install du système.</value>
@@ -326,9 +326,8 @@ Le fichier doit posséder une signature digitale de confiance, comme s'il était
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRun" xml:space="preserve">
-    <value>Se comporte comme '0install download', à l'exception qu'il exécute le programme après afin de s'assurer de sa présence dans le cache.
-Retourne un code de sortie à 1 si l'étape de téléchargement à échouée.
-Autrement le code de sortie correspondra au code de sortie du programme exécuté.</value>
+    <value>Se comporte comme '0install download', à ceci près qu'il exécute également le programme après s'être assuré de sa présence dans le cache.
+Retourne un code de sortie à 1 si l'étape de téléchargement a échoué. Sinon, le code de sortie correspondra au code de sortie du programme exécuté.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
@@ -341,7 +340,7 @@ Retourne un code de sortie à 0 si les versions ont pu être sélectionnées, et
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
-    <value>Mets à jour Zero Install avec sa version la plus récente.</value>
+    <value>Met à jour Zero Install vers sa version la plus récente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreAdd" xml:space="preserve">
@@ -413,16 +412,16 @@ Des arguments supplémentaires permettent de spécifier des emplacements de cach
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Fait confiance aux flux provenant d'un DOMAINE spécifique lorsqu'ils sont signés avec une EMPREINTE spécifique.</value>
-    <comment>Automatically translated.</comment>
+    <value>Fait confiance aux flux provenant du domaine DOMAIN lorsqu'ils sont signés avec la clé d'empreinte FINGERPRINT.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Répertorie les clés de confiance utilisées pour signer les flux. N'affiche que les domaines pour lesquels une empreinte digitale spécifique est considérée comme fiable, si celle-ci est spécifiée.</value>
-    <comment>Automatically translated.</comment>
+    <value>Répertorie les clés de confiance utilisées pour signer les flux. Si FINGERPRINT est indiqué, n'affiche que les domaines pour lesquels cette empreinte est considérée comme fiable.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Cesse de faire confiance aux flux signés avec une EMPREINTE spécifique. Ne cesse de faire confiance que pour un DOMAINE spécifique, s'il est indiqué.</value>
-    <comment>Automatically translated.</comment>
+    <value>Cesse de faire confiance aux flux signés avec la clé d'empreinte FINGERPRINT. Si DOMAIN est indiqué, cesse de faire confiance uniquement pour ce domaine.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>Vérifie la présence de mises à jour du programme et les télécharge si nécessaire.
@@ -430,7 +429,7 @@ Ce fonctionnement est similaire à la commande « 0install download --refresh »
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
-    <value>Met à jour toutes les applications dans la liste application.</value>
+    <value>Met à jour toutes les applications de la liste d'applications.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DesktopIntegration" xml:space="preserve">
@@ -470,7 +469,7 @@ Ce fonctionnement est similaire à la commande « 0install download --refresh »
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
-    <value>Une copie existante du Zero Install a été détectée dans '{0}'.</value>
+    <value>Une copie existante de Zero Install a été détectée dans '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExportComplete" xml:space="preserve">
@@ -494,7 +493,7 @@ Ce fonctionnement est similaire à la commande « 0install download --refresh »
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
-    <value>'{0}' a été remplacé par '{1}'. Considérer de le mettre à jour.</value>
+    <value>'{0}' a été remplacé par '{1}'. Pensez à effectuer la mise à jour.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
@@ -567,8 +566,8 @@ Une balise &lt;feed-for&gt; indique la compatibilité du flux.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="LaterVersionNotSelected" xml:space="preserve">
-    <value>Une version plus récente ({0}) existe, mais n'a pas été retenue. On utilise plutôt {1}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Une version plus récente ({0}) existe, mais n'a pas été sélectionnée. Utilisation de {1} à la place.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="LicenseInfo" xml:space="preserve">
     <value>Ce programme est fourni SANS AUCUNE GARANTIE, dans les limites prévues par la loi applicable.
@@ -608,8 +607,8 @@ Vous pouvez redistribuer des copies de ce programme suivant les termes de la “
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} Ne peut être spécifié qu'en association avec un nom d'alias.</value>
-    <comment>Automatically translated.</comment>
+    <value>{0} ne peut être spécifié qu'avec un nom d'alias.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
     <value>L'éditeur graphique de politiques n'est pas disponible en mode ligne de commande.</value>
@@ -629,11 +628,11 @@ Vous pouvez le faire à l'aide de la commande «{0} ». Cette installation sera 
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
-    <value>La commande ne doit pas être vide lorsque qu'une implémentation est en cours d'exécution.</value>
+    <value>La commande ne doit pas être vide lorsqu'une implémentation est exécutée.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>La mise à jour ne peut être réalisée qu'avec les IDs des flux, pas avec les sélections de documents.</value>
+    <value>La mise à jour n'est possible qu'avec des URI de flux, pas avec des documents de sélections.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -641,7 +640,7 @@ Vous pouvez le faire à l'aide de la commande «{0} ». Cette installation sera 
     <comment>Manually overriden.</comment>
   </data>
   <data name="NotInImplDirs" xml:space="preserve">
-    <value>'{0}' ne figure pas dans la liste des caches d'implémentation personnalisée.</value>
+    <value>'{0}' ne figure pas dans la liste des caches d'implémentation personnalisés.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
@@ -653,7 +652,7 @@ Vous pouvez le faire à l'aide de la commande «{0} ». Cette installation sera 
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptimiseComplete" xml:space="preserve">
-    <value>Optimisation complète</value>
+    <value>Optimisation terminée</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionAlgorithm" xml:space="preserve">
@@ -669,8 +668,8 @@ Vous pouvez le faire à l'aide de la commande «{0} ». Cette installation sera 
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Masquez l'interface utilisateur graphique et utilisez plutôt une icône de barre d'état, par exemple.</value>
-    <comment>Automatically translated.</comment>
+    <value>Masque l'interface utilisateur graphique et utilise plutôt, par exemple, une icône dans la barre d'état.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
     <value>Répond automatiquement aux questions en utilisant les valeurs par défaut lorsque cela est possible et simplifie l'affichage de la console (pas de tableaux ni de barres de progression).</value>
@@ -681,11 +680,11 @@ Vous pouvez le faire à l'aide de la commande «{0} ». Cette installation sera 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>Ignorer le téléchargement du catalogue pour vérifier sa validité avant de l'ajouter à la liste.</value>
-    <comment>Automatically translated.</comment>
+    <value>Ne télécharge pas le catalogue pour vérifier sa validité avant de l'ajouter à la liste.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
-    <value>Supprimer les implémentations ne sont plus nécessaires après la mise à jour.</value>
+    <value>Supprime les implémentations qui ne sont plus nécessaires après la mise à jour.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
@@ -702,11 +701,11 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
-    <value>Affiche l'éditeur graphique de règles. Cela vous permet de personnaliser la version d'un programme ou d'une bibliothèque à utiliser.</value>
-    <comment>Automatically translated.</comment>
+    <value>Affiche l'éditeur graphique de politiques. Cela vous permet de personnaliser la version d'un programme ou d'une bibliothèque à utiliser.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Affiche l'empreinte du manifeste (activé par défaut si --manifest n'est pas définit).</value>
+    <value>Affiche l'empreinte du manifeste (activé par défaut si --manifest n'est pas défini).</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
@@ -718,19 +717,19 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>N'incluez pas les archives d'implémentation dans l'exportation. Exportez uniquement les flux.</value>
-    <comment>Automatically translated.</comment>
+    <value>N'inclut pas les archives d'implémentation dans l'exportation. Exporte uniquement les flux.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
     <value>Réalise la mise à jour même si la version actuellement installée est la même ou plus récente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
-    <value>Affiche le texte d'aide encastrée.</value>
+    <value>Affiche le texte d'aide intégré.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
-    <value>Ajouter tous les points d'accès d'un spécifique {CATEGORY}.</value>
+    <value>Ajouter tous les points d'accès d'une catégorie {CATEGORY} spécifique.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
@@ -738,11 +737,11 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionIntegrateAddStandard" xml:space="preserve">
-    <value>Ajoutez les points d'accès standard recommandée.</value>
+    <value>Ajouter les points d'accès standard recommandés.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionIntegrateRemove" xml:space="preserve">
-    <value>Supprimer tous les points d'accès d'un spécifique {CATEGORY}.</value>
+    <value>Supprimer tous les points d'accès d'une catégorie {CATEGORY} spécifique.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionIntegrateRemoveAll" xml:space="preserve">
@@ -750,21 +749,21 @@ Valoriser à vide ("") pour ignorer la commande durant la sélection.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>Spécifie la langue préférée pour l'installation. Utilisez les codes de langue courts ISO (par exemple, en ou en-US).
+    <value>Spécifie la langue préférée pour l'implémentation. Utilisez les codes de langue courts ISO (par exemple, en ou en-US).
 Vous pouvez utiliser cette option plusieurs fois pour spécifier plusieurs langues acceptables.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
-    <value>Déployez Zero Install en tant que bibliothèque pouvant être utilisée par d'autres applications sans intégration propre au bureau.</value>
-    <comment>Automatically translated.</comment>
+    <value>Déploie Zero Install en tant que bibliothèque pouvant être utilisée par d'autres applications, sans intégration propre au bureau.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMachine" xml:space="preserve">
     <value>Applique la configuration au niveau de la machine (pour tout le monde) au lieu d'uniquement au niveau de l'utilisateur courant.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Lance l'exécutable spacifié {MAIN} au lieu de l'exécutable par défaut. Si il débute par '/' ou '\' alors le chemin est relatif au répertoire de plus haut niveau de l'implémentation, autrement il est relatif au répertoire contenant le programme principale par défaut.
-Peut ne pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas besoin d'être achapés.</value>
+    <value>Lance l'exécutable spécifié {MAIN} au lieu de l'exécutable par défaut. S'il commence par '/' ou '\' alors le chemin est relatif au répertoire de plus haut niveau de l'implémentation, sinon il est relatif au répertoire contenant le programme principal par défaut.
+Ne doit pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas besoin d'être échappés.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
@@ -776,16 +775,16 @@ Peut ne pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas be
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
-    <value>Ne téléchargez pas encore l'application elle-même. Elle sera téléchargée automatiquement lors de la première utilisation.</value>
-    <comment>Automatically translated.</comment>
+    <value>Ne télécharge pas encore l'application elle-même. Elle sera téléchargée automatiquement lors de la première utilisation.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNotBefore" xml:space="preserve">
-    <value>Requiert une version du programme principale non inférieure à {VERSION}. Par exemple si vous souhaitez lancer la version 2.0 ou plus, utilisez --not-before=2.0.</value>
+    <value>Requiert une version du programme principal non antérieure à {VERSION}. Par exemple, si vous souhaitez lancer la version 2.0 ou ultérieure, utilisez --not-before=2.0.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Elle revient immédiatement une fois que le programme sélectionné a été lancé, au lieu d'attendre la fin de son exécution. Sous Windows, le code de sortie correspond à l'ID du processus du programme lancé.</value>
-    <comment>Automatically translated.</comment>
+    <value>Rend la main immédiatement une fois le programme choisi lancé, au lieu d'attendre la fin de son exécution. Sous Windows, le code de sortie correspond à l'ID du processus du programme lancé.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Fonctionne en mode hors ligne, en remplaçant le paramètre par défaut.
@@ -801,8 +800,8 @@ En mode hors ligne, aucune interface n'est actualisée, même si elle est obsol�
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>Créez une installation portable pouvant être déplacée (par exemple, sur une clé USB).</value>
-    <comment>Automatically translated.</comment>
+    <value>Crée une installation portable pouvant être déplacée (par exemple, sur une clé USB).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
     <value>Récupère les dernières versions de tous les flux utilisés.</value>
@@ -817,20 +816,20 @@ En mode hors ligne, aucune interface n'est actualisée, même si elle est obsol�
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionShow" xml:space="preserve">
-    <value>Montrer l'emplacement sur le disque où les composantes sélectionnées sont installées.</value>
+    <value>Affiche l'emplacement sur le disque où sont stockés les composants sélectionnés.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Sélectionnez le code source plutôt qu'un fichier binaire. Celui-ci est utilisé en interne par « 0compile ».</value>
-    <comment>Automatically translated.</comment>
+    <value>Sélectionne le code source plutôt qu'un binaire. Utilisé en interne par « 0compile ».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
     <value>Réinitialise les données de synchronisation. Les {MODE} valides sont "none" (fusionner les données du client et du serveur normalement), "client" (remplacer toutes les données du client par celles du serveur) et "server" (remplacer toutes les données du serveur par celles du client).</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
-    <value>Lance les versions précédemment marquées comme préférées.</value>
-    <comment>Automatically translated.</comment>
+    <value>Libère les versions précédemment marquées comme préférées.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>Sortie plus détaillée. À utiliser deux fois pour une sortie encore plus détaillée.</value>
@@ -842,7 +841,7 @@ En mode hors ligne, aucune interface n'est actualisée, même si elle est obsol�
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>Nécessite une version du programme principal comprise dans l'intervalle donné {RANGE}.
-Les plages sont séparées par des tuyaux (|).
+Les plages sont séparées par des barres verticales (|).
 Chaque plage se présente sous la forme "START..!END". L'intervalle correspond aux versions pour lesquelles START &lt;= VERSION &lt; END. Le début ou la fin peuvent être omis.
 Un numéro de version unique peut être utilisé à la place d'un intervalle pour correspondre uniquement à cette version, ou !VERSION pour correspondre à tout sauf à cette version.</value>
     <comment>Manually overriden.</comment>
@@ -852,9 +851,9 @@ Un numéro de version unique peut être utilisé à la place d'un intervalle pou
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
-    <value>Ajoutez {DIR} à la liste des caches d'implémentation à parcourir.
+    <value>Ajoute {DIR} à la liste des caches d'implémentation à parcourir.
 Toutefois, les nouveaux téléchargements ne seront pas enregistrés dans ce répertoire.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>Au lieu d'exécuter directement le programme choisi, exécutez {COMMAND} PROGRAM ARGS. Cela est utile pour exécuter des débogueurs et des outils de traçage sur le programme (plutôt que sur Zero Install !).
@@ -903,11 +902,11 @@ Peut contenir des arguments de ligne de commande. Les espaces doivent être éch
     <comment>Manually overriden.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>Remplacement de «{0} » par «{1} » à l'aide d'un alias.</value>
-    <comment>Automatically translated.</comment>
+    <value>« {0} » résolu en « {1} » à l'aide d'un alias.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
-    <value>Résolu '{0}' pour '{1}' à l'aide d'un catalogue.</value>
+    <value>'{0}' résolu en '{1}' à l'aide d'un catalogue.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
@@ -915,8 +914,8 @@ Peut contenir des arguments de ligne de commande. Les espaces doivent être éch
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
-    <value>Exemples de mise en œuvre</value>
-    <comment>Automatically translated.</comment>
+    <value>Implémentations sélectionnées</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
     <value>Cette instance de Zero Install n'est pas déployée. Il n'y a rien à supprimer.</value>
@@ -927,25 +926,25 @@ Peut contenir des arguments de ligne de commande. Les espaces doivent être éch
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Cette instance de Zero Install n'a pas été déployée. Elle ne peut donc pas se mettre à jour automatiquement.</value>
-    <comment>Automatically translated.</comment>
+    <value>Cette instance de Zero Install n'a pas été déployée. Elle ne peut donc pas se mettre à jour elle-même.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>La mise à jour automatique est désactivée.
+    <value>L'auto-mise à jour de Zero Install est désactivée.
 Exécutez la commande « 0install config self_update_uri default » pour l'activer.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
     <value>Diffusion des implémentations sur le port {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>Définir la politique de stabilité pour {0} ?</value>
+    <value>Définir la politique de stabilité pour {0} en conséquence ?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>Réinitialiser la politique de stabilité d'{0} e à ses valeurs par défaut ?</value>
-    <comment>Automatically translated.</comment>
+    <value>Réinitialiser la politique de stabilité de {0} à sa valeur par défaut ?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
     <value>La politique de stabilité requise pour sélectionner les implémentations sur {0} est «{1} ».</value>
@@ -976,8 +975,8 @@ Exécutez la commande « 0install config self_update_uri default » pour l'activ
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
-    <value>La clé de chiffrement est utilisée pour chiffrer les données en local avant de les transmettre au serveur.
-gardez cette clé secrète et ne l'utilisez pas comme mot de passe. De cette façon personne ne peut accéder à vos données, même si le serveur devient compromis.</value>
+    <value>La clé de chiffrement est utilisée pour chiffrer vos données en local avant de les transmettre au serveur.
+Gardez cette clé secrète et utilisez autre chose comme mot de passe. De cette façon, personne ne peut accéder à vos données, même si le serveur venait à être compromis.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
@@ -993,8 +992,8 @@ gardez cette clé secrète et ne l'utilisez pas comme mot de passe. De cette fa�
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>Essayer {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Essayez {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
     <value>Essayez {0} avec l'une des options suivantes :</value>

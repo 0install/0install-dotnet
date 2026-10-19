@@ -62,7 +62,7 @@
     <value>Akış: {0}
 - {1} imzası geçerli
 - {2}
-Bu anahtar '{3}' adresinden gelen akışları imzalasın mı?
+'{3}' adresinden gelen akışları imzalamak için bu anahtara güvenmek istiyor musunuz?
 </value>
     <comment>Manually overriden.</comment>
   </data>
@@ -163,11 +163,11 @@ Bu anahtar '{3}' adresinden gelen akışları imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>&lt;interface&gt; Adres özniteliği ('{0}') ('{1}') üzerinden indirilen akışın adresi ile uyuşmuyor.</value>
+    <value>&lt;interface&gt; ögesinin uri özniteliği ('{0}'), akışın indirildiği adres ('{1}') ile uyuşmuyor.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>&lt;interface&gt; Adres özniteliği eksik. '{0}' olmalı.</value>
+    <value>&lt;interface&gt; ögesinin uri özniteliği eksik. '{0}' olmalı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
@@ -199,7 +199,7 @@ Bu anahtar '{3}' adresinden gelen akışları imzalasın mı?
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>'{0}' uyarlaması için öge listesi dosyası bulunamadı.</value>
+    <value>'{0}' uyarlaması için öge listesi karması bulunamadı.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">

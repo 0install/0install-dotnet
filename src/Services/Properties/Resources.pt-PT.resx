@@ -79,8 +79,8 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>Não é possível utilizar o {0} com a opção « {1} » ({2})</value>
-    <comment>Automatically translated.</comment>
+    <value>Não é possível utilizar {0} com a seleção de {1} ({2})</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
     <value>Incompatível com a restrição: {0}</value>
@@ -107,8 +107,8 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
-    <value>Requer</value>
-    <comment>Automatically translated.</comment>
+    <value>requer</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagUnsuitable" xml:space="preserve">
     <value>Inadequado</value>
@@ -119,7 +119,7 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>Pesquisa na rede local</value>
+    <value>A pesquisar na rede local</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
@@ -135,7 +135,7 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Execução de um solucionador externo</value>
+    <value>A executar o solucionador externo</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
@@ -155,7 +155,7 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>O feed "{0}"não foi assinado com nenhuma chave de confiança.</value>
+    <value>O feed "{0}" não foi assinado com nenhuma chave de confiança.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
@@ -163,7 +163,7 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>O atributo &lt;interface&gt; uri ('{0}') não corresponde ao URL de onde o feed foi descarregado ('{1}').</value>
+    <value>O atributo &lt;interface&gt; uri ('{0}') não corresponde ao URL de onde o feed foi transferido ('{1}').</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -203,7 +203,7 @@ Quer confiar nesta chave para assinar feeds de "{3}"?
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Nenhum método de recuperação encontrado para a implementação '{0}' encontrado.</value>
+    <value>Não foi encontrado nenhum método de recuperação para a implementação '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -214,11 +214,11 @@ Carimbo temporal novo: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Falha ao descarregar {0}. A tentar obter a partir do feed mirror.</value>
+    <value>Falha ao transferir {0}. A tentar obter a partir do espelho de feeds.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Não é possível armazenar em cache o catálogo de aplicações descarregadas.</value>
+    <value>Não é possível armazenar em cache o catálogo de aplicações transferido.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">

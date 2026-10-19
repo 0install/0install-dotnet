@@ -71,16 +71,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>No se ha especificado el comando «{0} ».</value>
-    <comment>Automatically translated.</comment>
+    <value>No se ha especificado el comando para «{0}».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
     <value>No se encuentran todas las implementaciones necesarias:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>No se puede utilizar {0} con la opción de {1} ({2})</value>
-    <comment>Automatically translated.</comment>
+    <value>No se puede utilizar {0} con la selección de {1} ({2})</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
     <value>Incompatible con la restricción: {0}</value>
@@ -91,8 +91,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
-    <value>No se conoce ninguna implementación.</value>
-    <comment>Automatically translated.</comment>
+    <value>No se conoce ninguna implementación</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
     <value>No hay implementaciones viables:</value>
@@ -107,8 +107,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
-    <value>Requisitos:</value>
-    <comment>Automatically translated.</comment>
+    <value>requiere</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagUnsuitable" xml:space="preserve">
     <value>No apto</value>
@@ -119,8 +119,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>Búsqueda en la red local</value>
-    <comment>Automatically translated.</comment>
+    <value>Buscando en la red local</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>Los enlaces &lt;environment&gt; deben contener un atributo «value» o «insert».</value>
@@ -135,8 +135,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Ejecución de un solucionador externo</value>
-    <comment>Automatically translated.</comment>
+    <value>Ejecutando un solucionador externo</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
     <value>No se han encontrado versiones adecuadas de {0} y sus dependencias.</value>
@@ -163,8 +163,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>El atributo URI de &lt;interface&gt; («{0} ») no coincide con la URL desde la que se descargó el feed («{1} »).</value>
-    <comment>Automatically translated.</comment>
+    <value>El atributo uri de &lt;interface&gt; («{0}») no coincide con la URL desde la que se descargó el feed («{1}»).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
     <value>Falta el atributo uri de &lt;interface&gt;. Debería ser «{0} ».</value>
@@ -191,7 +191,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>No ha sido posible descargar {0} porque Zero Intsall está en modo sin conexión.</value>
+    <value>No ha sido posible descargar {0} porque Zero Install está en modo sin conexión.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
@@ -214,12 +214,12 @@ Nueva fecha: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>No se ha podido descargar {0}. Tratando de obtener del feed mirror en su lugar.</value>
+    <value>No se ha podido descargar {0}. Intentando obtenerlo del feed mirror en su lugar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>No se puede almacenar en caché el catálogo de aplicaciones descargadas.</value>
-    <comment>Automatically translated.</comment>
+    <value>No se puede almacenar en caché el catálogo de aplicaciones descargado.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
     <value>No ha sido posible analizar el feed descargado de {0}.</value>
@@ -238,7 +238,7 @@ Nueva fecha: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
-    <value>¡Este feed se ha firmado con claves desconocidas!</value>
+    <value>¡Este feed se ha firmado con claves que no son de confianza!</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="WaitingForDownload" xml:space="preserve">

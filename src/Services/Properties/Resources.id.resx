@@ -71,8 +71,8 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Perintah '{0}' tidak ditentukan.</value>
-    <comment>Automatically translated.</comment>
+    <value>Perintah untuk '{0}' tidak ditentukan.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
     <value>Tidak dapat menemukan semua implementasi yang diperlukan:</value>
@@ -119,8 +119,8 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>Pencarian di jaringan lokal</value>
-    <comment>Automatically translated.</comment>
+    <value>Mencari di jaringan lokal</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>&lt;environment&gt; binding harus berisi atribut 'value' atau 'insert'.</value>
@@ -131,12 +131,12 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Kesalahan dalam menyimpan trust database</value>
+    <value>Kesalahan dalam menyimpan basis data kepercayaan</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Menjalankan pemecah masalah eksternal</value>
-    <comment>Automatically translated.</comment>
+    <value>Menjalankan pemecah dependensi eksternal</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
     <value>Gagal menemukan versi yang sesuai dari {0} dan dependensinya.</value>
@@ -199,8 +199,8 @@ Apakah Anda ingin mempercayai kunci ini untuk menandatangani feed dari '{3}'?
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Tidak ditemukan ringkasan manifes untuk implementasi '{0}'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Tidak ditemukan intisari manifes untuk implementasi '{0}'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Tidak ditemukan metode pengambilan untuk implementasi '{0}'.</value>

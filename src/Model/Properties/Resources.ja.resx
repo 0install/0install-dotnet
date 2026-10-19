@@ -111,12 +111,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>バージョン番号には、ドットで区切られた小数と修飾文字列のみを含めることができます。</value>
-    <comment>Automatically translated.</comment>
+    <value>バージョン番号には、ドットで区切られた10進数と修飾文字列のみを含めることができます。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>バージョン番号は、ドットで区切られた小数点のリストで始まる必要があります。</value>
-    <comment>Automatically translated.</comment>
+    <value>バージョン番号は、ドットで区切られた10進数のリストで始まる必要があります。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>既知のダイジェスト方式は指定されていません。</value>
@@ -151,8 +151,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>キャッシュ外での実装（現在はオフラインモード）</value>
-    <comment>Automatically translated.</comment>
+    <value>実装がキャッシュにありません（現在オフラインモード）</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
     <value>実行不能なソースコードによる実装</value>

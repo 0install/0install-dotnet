@@ -87,8 +87,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>선택한 항목에서 '{0}' 인터페이스의 구현체를 찾을 수 없습니다.</value>
-    <comment>Automatically translated.</comment>
+    <value>선택 항목에서 '{0}' 인터페이스의 구현을 찾을 수 없습니다.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>'{0}'은 유효한 'http(s):' URI가 아니며, 유효한 로컬 경로도 아닙니다.</value>
@@ -107,16 +107,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
-    <value>점(.)으로 구분된 목록에는 소수점 숫자만 포함될 수 있습니다.</value>
-    <comment>Automatically translated.</comment>
+    <value>점(.)으로 구분된 목록에는 10진수만 포함될 수 있습니다.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>버전 번호에는 점(.)으로 구분된 소수점과 수정자 문자열만 포함될 수 있습니다.</value>
-    <comment>Automatically translated.</comment>
+    <value>버전 번호에는 점(.)으로 구분된 10진수와 수정자 문자열만 포함될 수 있습니다.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>버전 번호는 점으로 구분된 소수점 숫자 목록으로 시작해야 합니다.</value>
-    <comment>Automatically translated.</comment>
+    <value>버전 번호는 점으로 구분된 10진수 목록으로 시작해야 합니다.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>알려진 다이제스트 방식이 지정되지 않았습니다.</value>
@@ -135,8 +135,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>버그가 많은 구현</value>
-    <comment>Automatically translated.</comment>
+    <value>버그가 있는 구현</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
     <value>'{0}' 명령을 지원하지 않습니다.</value>
@@ -151,8 +151,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>캐시에 저장되지 않은 상태(현재 오프라인 모드)에서 실행</value>
-    <comment>Automatically translated.</comment>
+    <value>캐시에 없는 구현(현재 오프라인 모드)</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
     <value>실행 불가능한 소스 구현</value>

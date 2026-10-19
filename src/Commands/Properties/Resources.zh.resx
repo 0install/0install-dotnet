@@ -112,8 +112,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
-    <value>您现在想试用一下吗？</value>
-    <comment>Automatically translated.</comment>
+    <value>您现在要尝试执行此操作吗？</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
     <value>您是否希望更新任何现有的桌面集成以反映此变更？
@@ -190,8 +190,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>您是否要从缓存中删除已勾选的{0} 元素？</value>
-    <comment>Automatically translated.</comment>
+    <value>您是否要从缓存中删除 {0} 个已勾选的元素？</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>您要从缓存中删除此条目吗？</value>
@@ -273,8 +273,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionExport" xml:space="preserve">
-    <value>将启动由 URI 指定的程序所需的所有源和实现导出到一个目录中。</value>
-    <comment>Automatically translated.</comment>
+    <value>将启动由 URI 指定的程序所需的所有 feed 和实现导出到 DIRECTORY 中。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>从本地文件导入 feed，就像从网络下载一样。这在测试 feed 文件时非常有用，可避免将其上传到远程服务器以便再次下载。
@@ -290,16 +290,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>列出所有已知的本地订阅源URI。如果提供了搜索词，则仅显示包含该字符串的URI（不区分大小写）。</value>
-    <comment>Automatically translated.</comment>
+    <value>列出本地已知的所有 feed URI。如果提供了搜索词，则仅显示包含该字符串的 URI（不区分大小写）。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>列出当前应用程序列表中的所有应用程序。如果提供了 URI，则仅显示具有该源 URI 的应用程序。如果提供了 PATTERN，则仅显示名称中包含该字符串的应用程序（不区分大小写）。</value>
-    <comment>Automatically translated.</comment>
+    <value>列出当前应用程序列表中的所有应用程序。如果提供了 URI，则仅显示具有该 feed URI 的应用程序。如果提供了 PATTERN，则仅显示名称中包含该字符串的应用程序（不区分大小写）。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>列出所有通过“0install add-feed”命令添加到 URI 的额外源。</value>
-    <comment>Automatically translated.</comment>
+    <value>列出所有通过“0install add-feed”命令添加到 URI 的额外 feed。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
     <value>将 Zero Install 部署到指定的 TARGET 目录或程序的默认目录，并将其集成到系统中。</value>
@@ -318,8 +318,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
-    <value>注销订阅源，撤销“0install add-feed”命令的效果。</value>
-    <comment>Automatically translated.</comment>
+    <value>注销 feed，撤销“0install add-feed”命令的效果。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRepairApps" xml:space="preserve">
     <value>重新应用应用程序列表中所有应用程序的桌面集成设置。</value>
@@ -331,8 +331,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>搜索由镜像服务器索引且与指定关键词匹配的订阅源。请注意，默认镜像服务器会索引所有已知的订阅源，无论其质量如何；在运行程序之前，您必须自行判断是否信任这些程序。</value>
-    <comment>Automatically translated.</comment>
+    <value>搜索由镜像服务器索引且与指定关键词匹配的 feed。请注意，默认镜像服务器会索引所有已知的 feed，无论其质量如何；在运行程序之前，您必须自行判断是否信任这些程序。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
     <value>根据 URI 选择程序版本，并选择其所有依赖项的兼容版本。
@@ -374,8 +374,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreListImplementations" xml:space="preserve">
-    <value>列出所有缓存的实现。如果指定了源 URI，则仅列出该特定源的实现。</value>
-    <comment>Automatically translated.</comment>
+    <value>列出所有缓存的实现。如果指定了 feed URI，则仅列出该特定 feed 的实现。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreManage" xml:space="preserve">
     <value>显示图形用户界面，用于管理缓存中的实现。显示与已缓存 feed 的关联。</value>
@@ -416,12 +416,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>列出用于对源进行签名的受信任密钥。如果指定了特定的“指纹”，则仅列出该“指纹”所对应的受信任域名。</value>
-    <comment>Automatically translated.</comment>
+    <value>列出用于对 feed 进行签名的受信任密钥。如果指定了 FINGERPRINT，则仅列出信任该特定 FINGERPRINT 的域名。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>停止信任使用特定“指纹”签名的源。仅当指定了特定“域名”时，才停止信任该域名下的源。</value>
-    <comment>Automatically translated.</comment>
+    <value>停止信任使用特定 FINGERPRINT 签名的 feed。如果指定了 DOMAIN，则仅停止对该特定 DOMAIN 的信任。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>检查程序更新，若发现更新则进行下载。
@@ -457,8 +457,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="EnterCatalogUrl" xml:space="preserve">
-    <value>请输入要添加的源目录的 URL 或本地文件路径：</value>
-    <comment>Automatically translated.</comment>
+    <value>请输入要添加的 feed 目录的 URL 或本地文件路径：</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnterFeedUrl" xml:space="preserve">
     <value>请输入此接口新实现源的URL：</value>
@@ -477,7 +477,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedAlreadyRegistered" xml:space="preserve">
-    <value>已为所有相应的界面注册了 feed。</value>
+    <value>已为所有相应的接口注册了 feed。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedManagement" xml:space="preserve">
@@ -485,20 +485,20 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotRegistered" xml:space="preserve">
-    <value>该 feed 未注册任何界面。</value>
+    <value>该 feed 未为任何接口注册。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedRegistered" xml:space="preserve">
-    <value>该源已成功注册到以下接口：</value>
-    <comment>Automatically translated.</comment>
+    <value>已成功为以下接口注册该 feed：</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedReplaced" xml:space="preserve">
     <value>“{0} ”已被“{1} ”取代。请考虑更新。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedReplacedAsk" xml:space="preserve">
-    <value>“{0} ”（{1} ）的订阅源已被“{2} ”取代。您是否要改用新的订阅源？</value>
-    <comment>Automatically translated.</comment>
+    <value>“{0}”（{1}）的 feed 已被“{2}”取代。您是否要改用新的 feed？</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedsCached" xml:space="preserve">
     <value>已缓存的 feed</value>
@@ -509,8 +509,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
-    <value>已成功取消以下接口的订阅：</value>
-    <comment>Automatically translated.</comment>
+    <value>已成功为以下接口注销该 feed：</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileCheckComplete" xml:space="preserve">
     <value>文件校验完成</value>
@@ -529,9 +529,9 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="IgnoreMissingFeedFor" xml:space="preserve">
-    <value>该源似乎并非针对同一应用程序。是否仍要添加？
-&lt;feed-for&gt; 标签表示源的兼容性。</value>
-    <comment>Automatically translated.</comment>
+    <value>该 feed 似乎并非针对同一应用程序。是否仍要添加？
+&lt;feed-for&gt; 标签表示 feed 的兼容性。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InstallService" xml:space="preserve">
     <value>安装 Zero Install Store Service</value>
@@ -575,16 +575,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="LocalPathOf" xml:space="preserve">
-    <value>本地路径为{0}</value>
-    <comment>Automatically translated.</comment>
+    <value>{0} 的本地路径</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingArguments" xml:space="preserve">
     <value>缺少参数。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingFeedFor" xml:space="preserve">
-    <value>“{0} ”中缺少&lt;feed-for&gt;元素；因此无法将其用作其他接口的源。</value>
-    <comment>Automatically translated.</comment>
+    <value>“{0}”中缺少 &lt;feed-for&gt; 元素；因此无法将其用作其他接口的 feed。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingOptionValue" xml:space="preserve">
     <value>选项{0} 缺少必需的值。</value>
@@ -632,8 +632,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>只能通过 Feed URI 进行更新，无法通过选定文档进行更新。</value>
-    <comment>Automatically translated.</comment>
+    <value>只能通过 feed URI 进行更新，不能通过选择文档进行更新。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
     <value>此操作在便携模式下不可用。</value>
@@ -664,8 +664,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasResolve" xml:space="preserve">
-    <value>打印给定别名的界面 URI。</value>
-    <comment>Automatically translated.</comment>
+    <value>输出给定别名对应的接口 URI。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
     <value>隐藏图形用户界面，转而使用系统托盘图标等替代方案。</value>
@@ -680,17 +680,17 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
-    <value>在将目录添加到列表之前，跳过下载步骤，直接验证其有效性。</value>
-    <comment>Automatically translated.</comment>
+    <value>跳过在将目录添加到列表之前下载目录以验证其有效性的步骤。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionClean" xml:space="preserve">
     <value>删除更新后不再需要的实现。</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCommand" xml:space="preserve">
-    <value>请勿执行默认命令，而应使用{COMMAND} 。有效的命令名称在程序的配置文件中指定。
+    <value>不执行默认命令，而是使用 {COMMAND}。有效的命令名称在程序的 feed 中指定。
 设置为空字符串（""）可在选择时忽略该命令。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
     <value>在配置图形用户界面中切换到特定选项卡。</value>
@@ -749,9 +749,9 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLanguage" xml:space="preserve">
-    <value>指定实现时首选的语言。请使用 ISO 短语言代码（例如 en 或 en-US）。
+    <value>指定实现的首选语言。请使用 ISO 短语言代码（例如 en 或 en-US）。
 您可以多次使用此选项来指定多个可接受的语言。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionLibrary" xml:space="preserve">
     <value>将 Zero Install 作为库进行部署，供其他应用程序使用，而无需其自身的桌面集成功能。</value>
@@ -788,12 +788,12 @@
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>以离线模式运行，覆盖默认设置。
-在离线模式下，即使界面已过时，也不会进行刷新；即使注入器已知晓新版本程序（例如来自之前的刷新），也不会下载这些新版本。</value>
-    <comment>Automatically translated.</comment>
+在离线模式下，即使接口已过时，也不会进行刷新；即使注入器已知晓新版本程序（例如来自之前的刷新），也不会下载这些新版本。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
-    <value>强制求解器针对{OS} 操作系统进行优化。</value>
-    <comment>Automatically translated.</comment>
+    <value>强制求解器以 {OS} 操作系统为目标。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionPin" xml:space="preserve">
     <value>将所选版本标记为首选，以便今后运行时使用。</value>
@@ -808,8 +808,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionRestartCentral" xml:space="preserve">
-    <value>更新完成后，请重新启动“0install central”图形用户界面。</value>
-    <comment>Automatically translated.</comment>
+    <value>更新完成后重新启动“0install central”图形用户界面。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="Options" xml:space="preserve">
     <value>选项：</value>
@@ -820,16 +820,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>请选择源代码而非二进制文件。这是由“0compile”在内部使用的。</value>
-    <comment>Automatically translated.</comment>
+    <value>选择源代码而非二进制文件。此选项由“0compile”在内部使用。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
     <value>重置同步数据。有效的{MODE}值为“none”（正常合并客户端和服务器上的数据）、“client”（用服务器上的数据替换客户端上的所有数据）和“server”（用客户端上的数据替换服务器上的所有数据）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
-    <value>发布先前标记为“首选”的版本。</value>
-    <comment>Automatically translated.</comment>
+    <value>取消先前对版本所做的首选标记。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
     <value>显示更详细的输出信息。若需显示更详细的输出信息，请连续使用两次。</value>
@@ -847,8 +847,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>对于任何具有指定{0:URI} 的库或子组件，该命令会显示其版本{1:RANGE} （与--version选项相同）。</value>
-    <comment>Automatically translated.</comment>
+    <value>对于具有给定 {0:URI} 的任何库或子组件，指定其版本 {1:RANGE}（与 --version 相同）。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
     <value>将 {DIR} 添加到要搜索的实现缓存列表中。
@@ -878,12 +878,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>您是否要从列表中移除已勾选的“{0} ”选项？</value>
-    <comment>Automatically translated.</comment>
+    <value>您是否要从列表中移除 {0} 个已勾选的密钥？</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>您是否要从列表中删除所选的{0} 条目？</value>
-    <comment>Automatically translated.</comment>
+    <value>您是否要从列表中删除所选的 {0} 个条目？</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
     <value>卸载应用程序</value>
@@ -930,9 +930,9 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">
-    <value>自动更新功能已禁用。
+    <value>自我更新功能已禁用。
 运行 '0install config self_update_uri default' 即可启用该功能。</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ServingImplementations" xml:space="preserve">
     <value>正在通过端口 {0} 提供实现</value>
@@ -959,8 +959,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
-    <value>{0} 已回收的存储空间。</value>
-    <comment>Automatically translated.</comment>
+    <value>已回收 {0} 的存储空间。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>缓存审核</value>
@@ -976,8 +976,8 @@
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>加密密钥用于在将数据传输至服务器之前对其进行本地加密。
-请妥善保管此密钥，并使用不同的密码。这样即使服务器遭到入侵，任何人都无法访问您的数据。</value>
-    <comment>Automatically translated.</comment>
+请妥善保管此密钥，并使用与此密钥不同的内容作为您的密码。这样即使服务器遭到入侵，任何人都无法访问您的数据。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">
     <value>参数过多或选项未知。</value>
@@ -992,12 +992,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="TryHelp" xml:space="preserve">
-    <value>试用{0}</value>
-    <comment>Automatically translated.</comment>
+    <value>请尝试 {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TryHelpWith" xml:space="preserve">
-    <value>请尝试使用以下任一链接访问{0} ：</value>
-    <comment>Automatically translated.</comment>
+    <value>请尝试将 {0} 与以下任一项一起使用：</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TryRunAgain" xml:space="preserve">
     <value>请尝试再次运行{0} 。</value>

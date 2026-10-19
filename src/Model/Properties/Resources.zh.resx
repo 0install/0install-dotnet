@@ -71,24 +71,24 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
-    <value>加载“{0} ”的界面首选项时发生错误。将恢复为默认值。</value>
-    <comment>Automatically translated.</comment>
+    <value>加载“{0}”的接口首选项时发生错误。将恢复为默认值。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingTrustDB" xml:space="preserve">
     <value>加载信任数据库时出错。将恢复为默认值。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>无法在目录中找到源“{0} ”。</value>
-    <comment>Automatically translated.</comment>
+    <value>无法在目录中找到 feed“{0}”。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
     <value>找到的替代：</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>无法在选项中找到接口“{0} ”的实现。</value>
-    <comment>Automatically translated.</comment>
+    <value>无法在选择结果中找到接口“{0}”的实现。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>“{0} ”既不是有效的“http(s):” URI，也不是有效的本地路径。</value>
@@ -99,44 +99,44 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>{1} 页面缺少“{0} ”属性。</value>
-    <comment>Automatically translated.</comment>
+    <value>{1} 上缺少 '{0}' 属性。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>{1} 文件中缺少 `{0} ` 标签。</value>
-    <comment>Automatically translated.</comment>
+    <value>{1} 中缺少 {0} 标签。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>以点分隔的列表中只能包含十进制数。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>版本号只能包含以点分隔的小数和修饰符字符串。</value>
-    <comment>Automatically translated.</comment>
+    <value>版本号只能包含以点分隔的十进制数和修饰符字符串。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>版本号必须以一串用点分隔的小数开头。</value>
-    <comment>Automatically translated.</comment>
+    <value>版本号必须以一串用点分隔的十进制数开头。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>未指定任何已知的摘要计算方法。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>无法解析相对路径“{0} ”。只有保存为本地文件的订阅源才可包含相对路径。</value>
-    <comment>Automatically translated.</comment>
+    <value>无法解析相对路径“{0}”。只有保存为本地文件的 feed 才可包含相对路径。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>无法解析相对 URI “{0} ”。只有保存为本地文件的订阅源才可包含相对 URI。</value>
-    <comment>Automatically translated.</comment>
+    <value>无法解析相对 URI“{0}”。只有保存为本地文件的 feed 才可包含相对 URI。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
     <value>{0} 上的 'rollout-percentage' 属性仅在 'stability' 设置为 'testing' 或未设置时才可设置。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
-    <value>实现存在诸多缺陷</value>
-    <comment>Automatically translated.</comment>
+    <value>有缺陷的实现</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteCommand" xml:space="preserve">
     <value>不提供“{0} ”命令。</value>
@@ -147,12 +147,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteInsecure" xml:space="preserve">
-    <value>不安全的实现方式</value>
-    <comment>Automatically translated.</comment>
+    <value>不安全的实现</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>未在缓存中实现（当前处于离线模式）</value>
-    <comment>Automatically translated.</comment>
+    <value>实现不在缓存中（当前处于离线模式）</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
     <value>非可执行源代码实现</value>
@@ -167,8 +167,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>ID 应确保安全。仅可包含字母数字、空格 ( )、句点 (.)、下划线 (_)、连字符 (-) 和加号 (+)。</value>
-    <comment>Automatically translated.</comment>
+    <value>应为安全 ID。仅可包含字母数字、空格 ( )、句点 (.)、下划线 (_)、连字符 (-) 和加号 (+)。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
     <value>在实现“{1} ”中的配方步骤“{0} ”中，存在一个无效的实现引用。</value>
@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>版本范围的末尾必须是独占的。使用 '..!{0}'，而不是 '..{0}'。</value>
+    <value>版本范围的结束值必须是排他的（不包含在范围内）。请使用 '..!{0}'，而不是 '..{0}'。</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

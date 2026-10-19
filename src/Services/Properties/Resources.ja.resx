@@ -62,13 +62,13 @@
     <value>フィード：{0}
 - {1}の有効な署名
 - {2}
-このキーを信頼して「{3}」からのフィードに署名しますか？
+「{3}」からのフィードの署名者としてこのキーを信頼しますか？
 </value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineEmpty" xml:space="preserve">
-    <value>その結果、コマンドラインは空になります。</value>
-    <comment>Automatically translated.</comment>
+    <value>生成されたコマンドラインが空です。</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
     <value>「{0} 」のコマンドが指定されていません。</value>
@@ -87,24 +87,24 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
-    <value>「{0} 」コマンドは使用しません。</value>
-    <comment>Automatically translated.</comment>
+    <value>「{0}」コマンドがありません</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
     <value>既知の実装は一切ない</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
-    <value>実用可能な実装例はありません：</value>
-    <comment>Automatically translated.</comment>
+    <value>使用可能な実装がありません：</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagProblem" xml:space="preserve">
     <value>(問題)</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagRejectedCandidates" xml:space="preserve">
-    <value>不採用となった候補者：</value>
-    <comment>Automatically translated.</comment>
+    <value>除外された候補：</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagRequires" xml:space="preserve">
     <value>必要条件</value>
@@ -119,8 +119,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
-    <value>ローカルネットワーク内での検索</value>
-    <comment>Automatically translated.</comment>
+    <value>ローカルネットワーク内を検索中</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
     <value>&lt;environment&gt;のバインディングには、'value'属性または'insert'属性のいずれかが含まれている必要があります。</value>
@@ -135,8 +135,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>外部ソルバーの実行</value>
-    <comment>Automatically translated.</comment>
+    <value>外部ソルバーを実行中</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
     <value>{0} およびその依存関係の適切なバージョンが見つかりませんでした。</value>

@@ -96,8 +96,8 @@ Puoi utilizzare lo script di importazione o il file Bootstrap eseguibile in '{1}
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>È possibile configurare Zero Install per tutti gli utenti (a livello di sistema) anziché solo per l'utente corrente?</value>
-    <comment>Automatically translated.</comment>
+    <value>Configurare Zero Install per tutti gli utenti (a livello di sistema) anziché solo per l'utente corrente?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
     <value>Sei sicuro di voler distribuire una nuova copia di Zero Install su '{0}'?</value>
@@ -142,7 +142,7 @@ Se selezioni "No", Zero Install continuerà a utilizzare le vecchie funzionalit�
     <comment>Automatically translated.</comment>
   </data>
   <data name="CatalogSources" xml:space="preserve">
-    <value>Catalogo fonti</value>
+    <value>Fonti del catalogo</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Change" xml:space="preserve">
@@ -190,17 +190,17 @@ Deselezionare una casella di controllo per rimuovere lo stato predefinito di una
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
-    <value>Vuoi eliminare dalla cache gli elementi selezionati {0}?</value>
-    <comment>Automatically translated.</comment>
+    <value>Vuoi eliminare dalla cache i {0} elementi selezionati?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
     <value>Vuoi eliminare questa voce dalla cache?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
-    <value>Una versione portatile di Zero Install è stata resa disponibile all'indirizzo '{0}'.
+    <value>Una versione portatile di Zero Install è stata distribuita in '{0}'.
 È possibile utilizzarla eseguendo il file ZeroInstall.exe presente nella directory.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
     <value>Quando si utilizza l'opzione {0}, è necessario specificare esplicitamente la directory di destinazione.</value>
@@ -298,8 +298,8 @@ Il file deve avere una firma digitale attendibile, come quando viene recuperato 
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>Elenca tutti i feed aggiuntivi inseriti nell'URI tramite il comando '0install add-feed'.</value>
-    <comment>Automatically translated.</comment>
+    <value>Elenca tutti i feed aggiuntivi registrati per URI tramite '0install add-feed'.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
     <value>Distribuisce Zero Install nella directory TARGET specificata o nella directory predefinita per i programmi e lo integra nel sistema.</value>
@@ -335,9 +335,9 @@ Restituisce uno stato di uscita pari a 1 se la fase di download non è andata a 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>Seleziona una versione del programma identificata dall'URI e le versioni compatibili di tutte le sue dipendenze.
+    <value>Seleziona una versione del programma identificato da URI e le versioni compatibili di tutte le sue dipendenze.
 Restituisce uno stato di uscita pari a 0 se ha selezionato un insieme di versioni e uno stato pari a 1 se non è riuscito a trovare un insieme coerente.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
     <value>Aggiorna Zero Install alla versione più recente.</value>
@@ -412,15 +412,15 @@ Argomenti aggiuntivi specificano percorsi personalizzati per la cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionTrustAdd" xml:space="preserve">
-    <value>Si fida dei feed provenienti da un DOMINIO specifico quando vengono firmati con una specifica FINGERPRINT.</value>
+    <value>Si fida dei feed provenienti da un DOMAIN specifico quando vengono firmati con una specifica FINGERPRINT.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustList" xml:space="preserve">
-    <value>Elenca le chiavi considerate attendibili per la firma dei feed. Se specificato, elenca solo i domini per i quali una specifica IMPRONTA è considerata attendibile.</value>
-    <comment>Automatically translated.</comment>
+    <value>Elenca le chiavi considerate attendibili per la firma dei feed. Se specificato, elenca solo i domini per i quali una specifica FINGERPRINT è considerata attendibile.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionTrustRemove" xml:space="preserve">
-    <value>Interrompe l'attendibilità dei feed firmati con una specifica FINGERPRINT. Interrompe l'attendibilità solo per un DOMINIO specifico, se specificato.</value>
+    <value>Interrompe l'attendibilità dei feed firmati con una specifica FINGERPRINT. Interrompe l'attendibilità solo per un DOMAIN specifico, se specificato.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
@@ -509,8 +509,8 @@ Argomenti aggiuntivi specificano percorsi personalizzati per la cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
-    <value>La disregistrazione del feed è stata completata con successo per le seguenti interfacce:</value>
-    <comment>Automatically translated.</comment>
+    <value>La registrazione del feed è stata annullata correttamente per le seguenti interfacce:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileCheckComplete" xml:space="preserve">
     <value>Verifica dei file completata</value>
@@ -538,8 +538,8 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="Integrate" xml:space="preserve">
-    <value>Integrazione {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Integrazione di {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IntegrateAppInvalid" xml:space="preserve">
     <value>Non è possibile applicare le opzioni di integrazione con il desktop selezionate.</value>
@@ -599,7 +599,7 @@ Un tag &lt;feed-for&gt; indica la compatibilità del feed.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MyApps" xml:space="preserve">
-    <value>Mie applicazioni</value>
+    <value>Le mie applicazioni</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NeedsGui" xml:space="preserve">
@@ -697,8 +697,8 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
-    <value>Costringe il risolutore a utilizzare una versione specifica di {CPU}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Forza il solutore a selezionare implementazioni per una {CPU} specifica.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionCustomize" xml:space="preserve">
     <value>Visualizza l'editor grafico delle politiche. Ciò consente di personalizzare la versione di un programma o di una libreria da utilizzare.</value>
@@ -763,8 +763,8 @@ Impostare su vuoto ("") per ignorare il comando durante la selezione.</value>
   </data>
   <data name="OptionMain" xml:space="preserve">
     <value>Esegue il file eseguibile specificato {MAIN} al posto di quello predefinito. Se inizia con '/' o '\', il percorso è relativo alla directory di primo livello dell'implementazione, mentre in caso contrario è relativo alla directory contenente il programma principale predefinito.
-Non può contenere argomenti della riga di comando! Non è necessario escapare gli spazi bianchi.</value>
-    <comment>Automatically translated.</comment>
+Non può contenere argomenti della riga di comando! Non è necessario applicare l'escape agli spazi.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
     <value>Visualizza il manifesto stesso (una riga per ogni file o directory).</value>
@@ -792,8 +792,8 @@ In modalità offline, nessuna interfaccia viene aggiornata anche se non è più 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
-    <value>Imposta il solver in modo che utilizzi il sistema operativo {OS}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Forza il solutore a selezionare implementazioni per il sistema operativo {OS}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionPin" xml:space="preserve">
     <value>Contrassegna la versione selezionata come preferita per le esecuzioni future.</value>
@@ -824,8 +824,8 @@ In modalità offline, nessuna interfaccia viene aggiornata anche se non è più 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
-    <value>Reimposta i dati di sincronizzazione. I valori validi per l'{MODE}e sono "none" (unisce normalmente i dati del client e del server), "client" (sostituisce tutti i dati sul client con quelli del server) e "server" (sostituisce tutti i dati sul server con quelli del client).</value>
-    <comment>Automatically translated.</comment>
+    <value>Reimposta i dati di sincronizzazione. I valori validi per {MODE} sono "none" (unisce normalmente i dati del client e del server), "client" (sostituisce tutti i dati sul client con quelli del server) e "server" (sostituisce tutti i dati sul server con quelli del client).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionUnpin" xml:space="preserve">
     <value>Rilascia le versioni precedentemente contrassegnate come preferite.</value>
@@ -840,15 +840,15 @@ In modalità offline, nessuna interfaccia viene aggiornata anche se non è più 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Richiede una versione del programma principale compresa nell'{RANGE} e specificata.
+    <value>Richiede una versione del programma principale compresa nell'intervallo {RANGE} specificato.
 Gli intervalli sono separati da barre verticali (|).
 Ogni intervallo ha il formato "START..!END". L'intervallo corrisponde alle versioni in cui START &lt;= VERSION &lt; END. È possibile omettere il valore iniziale o finale.
 È possibile utilizzare un singolo numero di versione al posto di un intervallo per selezionare solo quella versione, oppure !VERSION per selezionare tutte le versioni tranne quella specificata.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Per qualsiasi libreria o sottocomponente con l'{0:URI} e specificata, indica la versione {1:RANGE} (come per --version).</value>
-    <comment>Automatically translated.</comment>
+    <value>Per qualsiasi libreria o sottocomponente con l'{0:URI} specificato, indica la versione {1:RANGE} (come per --version).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">
     <value>Aggiungi {DIR} all'elenco delle cache di implementazione da cercare.
@@ -878,12 +878,12 @@ Può contenere argomenti della riga di comando. Gli spazi bianchi devono essere 
     <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveCheckedKeys" xml:space="preserve">
-    <value>Vuoi rimuovere dall’elenco le voci selezionate con l’ {0}?</value>
-    <comment>Automatically translated.</comment>
+    <value>Vuoi rimuovere dall'elenco le {0} chiavi selezionate?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemoveSelectedEntries" xml:space="preserve">
-    <value>Vuoi rimuovere le voci selezionate dall'elenco " {0} "?</value>
-    <comment>Automatically translated.</comment>
+    <value>Vuoi rimuovere dall'elenco le {0} voci selezionate?</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RemovingApplications" xml:space="preserve">
     <value>Rimozione delle applicazioni</value>
@@ -902,20 +902,20 @@ Può contenere argomenti della riga di comando. Gli spazi bianchi devono essere 
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
-    <value>Ho risolto il problema "{0}" sostituendolo con "{1}" utilizzando un alias.</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}' risolto in '{1}' tramite un alias.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
-    <value>Ha risolto il problema "{0}" sostituendolo con "{1}" utilizzando un catalogo.</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}' risolto in '{1}' tramite un catalogo.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
-    <value>Precompilazione degli assembly .NET per una configurazione più rapida dell'applicazione</value>
+    <value>Precompilazione degli assembly .NET per un avvio più rapido delle applicazioni</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelectedImplementations" xml:space="preserve">
-    <value>Esempi di implementazione</value>
-    <comment>Automatically translated.</comment>
+    <value>Implementazioni selezionate</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
     <value>Questa istanza di Zero Install non è stata distribuita. Non c'è nulla da rimuovere.</value>
@@ -959,8 +959,8 @@ Eseguire il comando '0install config self_update_uri default' per abilitarlo.</v
     <comment>Manually overriden.</comment>
   </data>
   <data name="StorageReclaimed" xml:space="preserve">
-    <value>{0} Spazio di archiviazione recuperato.</value>
-    <comment>Automatically translated.</comment>
+    <value>Spazio di archiviazione recuperato: {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="StoreAudit" xml:space="preserve">
     <value>Verifica dell'archivio</value>
@@ -984,8 +984,8 @@ Mantieni segreta questa chiave e utilizza una password diversa. In questo modo n
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
-    <value>{0} affidabile per i domini</value>
-    <comment>Automatically translated.</comment>
+    <value>{0} attendibile per i domini</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">
     <value>Chiavi attendibili</value>

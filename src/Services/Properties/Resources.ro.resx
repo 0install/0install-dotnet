@@ -71,16 +71,16 @@ Doriți să aveți încredere în această cheie pentru semnarea feed-urilor de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Comanda „{0} ” nu a fost specificată.</value>
-    <comment>Automatically translated.</comment>
+    <value>Comanda pentru „{0}” nu a fost specificată.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
     <value>Nu se găsesc toate implementările necesare:</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>Nu se poate utiliza {0} cu opțiunea {1} ({2})</value>
-    <comment>Automatically translated.</comment>
+    <value>Nu se poate utiliza {0} cu selecția pentru {1} ({2})</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
     <value>Incompatibil cu restricția: {0}</value>
@@ -95,8 +95,8 @@ Doriți să aveți încredere în această cheie pentru semnarea feed-urilor de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
-    <value>Nu există implementări funcționale:</value>
-    <comment>Automatically translated.</comment>
+    <value>Nu există implementări utilizabile:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagProblem" xml:space="preserve">
     <value>(problemă)</value>
@@ -131,8 +131,8 @@ Doriți să aveți încredere în această cheie pentru semnarea feed-urilor de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Eroare la salvarea bazei de date de încredere</value>
-    <comment>Automatically translated.</comment>
+    <value>Eroare la salvarea bazei de date a cheilor de încredere</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
     <value>Rularea unui solver extern</value>
@@ -147,36 +147,36 @@ Doriți să aveți încredere în această cheie pentru semnarea feed-urilor de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotCachedOffline" xml:space="preserve">
-    <value>Fluxul „{0} ” nu este stocat în cache, iar Zero Install se află în prezent în modul offline.</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed-ul „{0}” nu este stocat în cache, iar Zero Install se află în prezent în modul offline.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>„{0} ” nu a putut fi localizat în memoria cache a fluxului.</value>
-    <comment>Automatically translated.</comment>
+    <value>„{0}” nu a putut fi localizat în cache-ul de feed-uri.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
-    <value>Fluxul „{0} ” nu a fost semnat cu nicio cheie de încredere.</value>
-    <comment>Automatically translated.</comment>
+    <value>Feed-ul „{0}” nu a fost semnat cu nicio cheie de încredere.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
     <value>„{0} ” este un fișier local. Ar trebui să fie o adresă URL HTTP(S).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Atributul URI al elementului &lt;interface&gt; („{0} ”) nu corespunde cu adresa URL de la care a fost descărcat fluxul („{1} ”).</value>
-    <comment>Automatically translated.</comment>
+    <value>Atributul uri al elementului &lt;interface&gt; („{0}”) nu corespunde cu adresa URL de la care a fost descărcat feed-ul („{1}”).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Lipsește atributul URI al elementului &lt;interface&gt;. Ar trebui să fie „{0} ”.</value>
-    <comment>Automatically translated.</comment>
+    <value>Lipsește atributul uri al elementului &lt;interface&gt;. Ar trebui să fie „{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problemă la preluarea fișierului „{0} ”.</value>
-    <comment>Automatically translated.</comment>
+    <value>Problemă la preluarea „{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Caracter nevalid în numele de legătură d {0}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Caracter nevalid în numele legăturii {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
     <value>Pentru a putea fi importate, feed-urile trebuie să specifice URI-ul din care provin.</value>
@@ -199,8 +199,8 @@ Doriți să aveți încredere în această cheie pentru semnarea feed-urilor de 
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Nu s-a găsit niciun rezumat al manifestului pentru implementarea „{0} ”.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nu s-a găsit niciun digest al manifestului pentru implementarea „{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
     <value>Nu s-a găsit nicio metodă de recuperare pentru implementarea „{0} ”.</value>
@@ -218,20 +218,20 @@ Ora nouă: {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Nu se poate stoca în cache catalogul de aplicații descărcate.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nu se poate stoca în cache catalogul de aplicații descărcat.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>Nu se poate analiza fluxul descărcat de pe {0}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nu se poate analiza feed-ul descărcat de pe {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Nu se pot analiza informațiile cheie pentru „{0} ”.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nu se pot analiza informațiile despre cheie pentru „{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>Nu se pot prelua informațiile cheie pentru „{0} ”.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nu se pot prelua informațiile despre cheie pentru „{0}”.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
     <value>„{0} ” nu este un ID cunoscut în managerul de pachete {1}.</value>

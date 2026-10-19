@@ -79,8 +79,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DuplicateImplementationID" xml:space="preserve">
-    <value>Feed již obsahuje implementaci s ID „{0} “.</value>
-    <comment>Automatically translated.</comment>
+    <value>Kanál již obsahuje implementaci s ID „{0}“.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Pro prázdný adresář byl vypočten digest manifestu. Zkontrolujte, zda jste pro archiv nastavili správnou hodnotu "{0}".</value>
@@ -112,8 +112,8 @@ Zkuste jej zadat ručně.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
-    <value>Zdroje obsahují více prvků typu „ {0} “. To zde není podporováno.</value>
-    <comment>Automatically translated.</comment>
+    <value>Kanál obsahuje více prvků {0}. To zde není podporováno.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
     <value>Bylo zjištěno více instalačních adresářů. Výběr prvního ve výchozím nastavení.</value>
@@ -128,28 +128,28 @@ Zkuste jej zadat ručně.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Existuje několik testovacích verzí. Označení implementací {0} a {1} s verzí {2} jako stabilní.</value>
-    <comment>Automatically translated.</comment>
+    <value>Existuje několik testovacích verzí. Jako stabilní se označuje {0} z {1} implementací s verzí {2}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>Existuje několik implementací bez data vydání. Vyberte místo toho konkrétní verzi.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>Žádná implementace verze {0} není uložena v mezipaměti. Nelze vypočítat další kontrolní součet.</value>
-    <comment>Automatically translated.</comment>
+    <value>Žádná implementace verze {0} není uložena v mezipaměti. Nelze vypočítat další digest.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
-    <value>Zdroje neobsahují prvek {0}. Nelze jej použít jako lokální zdroj.</value>
-    <comment>Automatically translated.</comment>
+    <value>Kanál neobsahuje prvek {0}. Nelze jej použít jako lokální kanál.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
-    <value>Feed neobsahuje žádné implementace.</value>
-    <comment>Automatically translated.</comment>
+    <value>Kanál neobsahuje žádné implementace.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>Feed neobsahuje žádnou implementaci s verzí {0}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Kanál neobsahuje žádnou implementaci s verzí {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Nebyl zjištěn žádný instalační adresář.

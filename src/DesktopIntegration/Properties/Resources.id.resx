@@ -116,7 +116,7 @@
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
     <value>Kunci kripto yang Anda masukkan untuk Sinkronisasi salah. Periksa Opsi Sinkronisasi Anda.
-Anda dapat mengubah kunci kripto yang digunakan di server dengan menjalankan wizard pemecahan masalah (klik kanan pada Tombol "Sinkronisasi" untuk sampai ke sana) atau dengan mengeksekusi '0install sync - reset = server'.</value>
+Anda dapat mengubah kunci kripto yang digunakan di server dengan menjalankan wizard pemecahan masalah (klik kanan pada Tombol "Sinkronisasi" untuk sampai ke sana) atau dengan mengeksekusi '0install sync --reset=server'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
@@ -125,7 +125,7 @@ Anda dapat mengubah kunci kripto yang digunakan di server dengan menjalankan wiz
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Data yang saat ini disimpan di server Sync rusak.
-Anda dapat mengganti data yang tersimpan di server dengan menjalankan wizard pemecahan masalah (klik kanan pada tombol "Sinkronisasi" untuk menuju ke sana) atau dengan menjalankan '0install sync --reset = server'.</value>
+Anda dapat mengganti data yang tersimpan di server dengan menjalankan wizard pemecahan masalah (klik kanan pada tombol "Sinkronisasi" untuk menuju ke sana) atau dengan menjalankan '0install sync --reset=server'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">

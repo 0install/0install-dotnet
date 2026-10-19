@@ -186,7 +186,7 @@ Tüm satırı seçmek için ilk sütuna tıklayın ve sonra bir kaydı silmek i�
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
     <value>Bir özelliği varsayılan olarak ayarlamak için ilgili onay kutusunu işaretleyin.
-Varsayılan olmasını istemediğiniz özelliğin ilgili onay kutusunu işaretlemeyin (özellikler varsayılan durumda kapalıdır).</value>
+Bir özelliğin varsayılan durumunu kaldırmak için ilgili onay kutusunun işaretini kaldırın (özellik kullanılabilir olmaya devam eder).</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteCheckedEntries" xml:space="preserve">
@@ -194,7 +194,7 @@ Varsayılan olmasını istemediğiniz özelliğin ilgili onay kutusunu işaretle
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteEntry" xml:space="preserve">
-    <value>Bu kayıtları ön bellekten silmek istiyor musunuz?</value>
+    <value>Bu kaydı ön bellekten silmek istiyor musunuz?</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeployedPortable" xml:space="preserve">
@@ -264,7 +264,7 @@ Bir değişken yoksa, tüm ayarlar ve geçerli olan değerler görüntülenir. B
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
-    <value>Bir klasör ya da arşiv için öge listesi dosyasını hazırlar.</value>
+    <value>Bir klasör ya da arşivin öge listesi karmasını hesaplar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionDownload" xml:space="preserve">
@@ -277,8 +277,8 @@ Seçilmiş sürümler uygun ve ön belleğe indirilmiş ise çıkış durumu 0 o
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Akışı ağdan indirilmiş yerel bir dosyadan içe aktarır. Bu özellik bir akış dosyası sınanırken, aynı dosyanın uzak sunucuya yüklenip yeniden indirilmesinden kaçınmak için kullanışlıdır.
-Dosya ağ üzerinden alınırken, güvenilen bir sayısal imza ile imzalanmış olmalıdır.</value>
+    <value>Bir akışı, ağdan indirilmiş gibi yerel bir dosyadan içe aktarır. Bu özellik bir akış dosyası sınanırken, aynı dosyanın uzak sunucuya yüklenip yeniden indirilmesinden kaçınmak için kullanışlıdır.
+Ağdan alınırken olduğu gibi, dosya güvenilen bir sayısal imza ile imzalanmış olmalıdır.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
@@ -290,11 +290,11 @@ Dosya ağ üzerinden alınırken, güvenilen bir sayısal imza ile imzalanmış 
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>Yerel olarak bilinen tüm akış adreslerini listeler. Bir arama ifadesi belirtilmiş ise yalnızca içinde bu dizge geçen adresler görüntülenir (büyük küçük harfe duyarlı).</value>
+    <value>Yerel olarak bilinen tüm akış adreslerini listeler. Bir arama ifadesi belirtilmiş ise yalnızca içinde bu dizge geçen adresler görüntülenir (büyük/küçük harfe duyarlı değildir).</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
-    <value>Uygulama listenizdeki tüm uygulamaları listeler. Bir adres yazdıysanız, yalnızca bu akış adresini kullanan uygulama görüntülenir. Bir model yazdıysanız, yalnızca adında bu dizge bulunan uygulamalar görüntülenir (büyük-küçük harfe duyarlıdır).</value>
+    <value>Uygulama listenizdeki tüm uygulamaları listeler. Bir adres yazdıysanız, yalnızca bu akış adresini kullanan uygulama görüntülenir. Bir model yazdıysanız, yalnızca adında bu dizge bulunan uygulamalar görüntülenir (büyük/küçük harfe duyarlı değildir).</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
@@ -335,7 +335,7 @@ Dosya ağ üzerinden alınırken, güvenilen bir sayısal imza ile imzalanmış 
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>Adreste belirtilen uygulamayı ve tüm bağımlılıklar ile uyumlu olan bir sürümünü seçer.
+    <value>Adres ile belirtilen uygulamanın bir sürümünü ve tüm bağımlılıklarının uyumlu sürümlerini seçer.
 Bir sürüm kümesi seçildiğinde çıkış durumu 0 olur. Uygun bir küme bulunamazsa çıkış durumu 1 olur.</value>
     <comment>Manually overriden.</comment>
   </data>
@@ -357,8 +357,8 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>Bir uyarlamayı ön belleğe kopyalar. '0install store add' komutuna benzer ancak öge listesi klasör adından ayıklanır.
-Ek bir değişken ile özel hedef ön bellek konumu olarak belirtilebilir.</value>
+    <value>Bir uyarlamayı ön belleğe kopyalar. '0install store add' komutuna benzer ancak öge listesi karması klasör adından alınır.
+Ek bir değişken ile özel bir hedef ön bellek konumu belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
@@ -404,7 +404,7 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>Bir uyarlamanın sağlamlığını denetler (yani öge listesi dosyasının değişmemiş olduğunu).</value>
+    <value>Bir uyarlamanın sağlamlığını denetler (yani öge listesi karmasının değişmemiş olduğunu).</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -505,7 +505,7 @@ Ek değişkenler ile özel ön bellek konumları belirtilebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedsRegistered" xml:space="preserve">
-    <value>'{0}' için akış kaydedildi</value>
+    <value>'{0}' için kaydedilmiş akışlar</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
@@ -632,7 +632,7 @@ Bunu '{0}' kullanarak yapabilirsiniz. Bu, taşınabilir kopyanızdan tamamen ba�
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Belge seçimleri yerine, yalnızca akış adresleri kullanılarak güncellenebilir.</value>
+    <value>Seçim belgeleri ile değil, yalnızca akış adresleri ile güncellenebilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -705,7 +705,7 @@ Seçim sırasında komut kullanılmaması için boş ("") bırakın.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDigest" xml:space="preserve">
-    <value>Öge listesi dosyasını görüntüler (--manifest belirtilmemiş ise varsayılan olarak açık).</value>
+    <value>Öge listesi karmasını görüntüler (--manifest belirtilmemiş ise varsayılan olarak açık).</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionDiscover" xml:space="preserve">
@@ -762,7 +762,7 @@ Birden çok dil için bu seçenek birden çok kez kullanılabilir.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>Varsayılan yerine belirtilen dosya {MAIN} çalıştırılır. '/' ya da '\' ile başlıyorsa yol uygulamanın kök klasörüne göreli olarak alınır. Bunun dışında yol varsayılan ana uyarlamanın bulunduğu klasöre göreli olarak alınır.
+    <value>Varsayılan yerine belirtilen dosya {MAIN} çalıştırılır. '/' ya da '\' ile başlıyorsa yol uyarlamanın kök klasörüne göreli olarak alınır. Bunun dışında yol varsayılan ana programın bulunduğu klasöre göreli olarak alınır.
 Komut satırı değişkenleri içeremez! Boşlukların tırnak ve bölü simgeleri ile belirtilmesi gerekmez.</value>
     <comment>Manually overriden.</comment>
   </data>
@@ -906,7 +906,7 @@ Komut satırı değişkenleri eklenebilir. Boşluklar tırnak ve bölü simgeler
     <comment>Manually overriden.</comment>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
-    <value>Bir katalog kullanılarak '{0}' yerine '{1}' olarak çözümlendi.</value>
+    <value>'{0}' bir katalog kullanılarak '{1}' olarak çözümlendi.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="RunNgen" xml:space="preserve">
@@ -918,7 +918,7 @@ Komut satırı değişkenleri eklenebilir. Boşluklar tırnak ve bölü simgeler
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfRemoveNotDeployed" xml:space="preserve">
-    <value>Zero Install kopyası çalıştırılmamış. Kaldırılacak bir şey yok.</value>
+    <value>Bu Zero Install kopyası sisteme kurulmamış. Kaldırılacak bir şey yok.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateAvailable" xml:space="preserve">
@@ -926,7 +926,7 @@ Komut satırı değişkenleri eklenebilir. Boşluklar tırnak ve bölü simgeler
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateBlocked" xml:space="preserve">
-    <value>Zero Install kopyası çalıştırılmamış. Bu nedenle kendisini güncelleyemez.</value>
+    <value>Bu Zero Install kopyası sisteme kurulmamış. Bu nedenle kendisini güncelleyemez.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SelfUpdateDisabled" xml:space="preserve">

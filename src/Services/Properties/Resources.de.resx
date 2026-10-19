@@ -87,7 +87,7 @@ Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiagNoCommand" xml:space="preserve">
-    <value>Kein '{0}' Befehl</value>
+    <value>Kein '{0}'-Befehl</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiagNoKnownImplementations" xml:space="preserve">
@@ -115,7 +115,7 @@ Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiagUserRequestedVersion" xml:space="preserve">
-    <value>Benutzer hat Version {0}angefordert</value>
+    <value>Benutzer hat Version {0} angefordert</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
@@ -123,7 +123,7 @@ Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt; Bindings müssen entweder ein 'value' oder ein 'insert' Attribut enthalten.</value>
+    <value>&lt;environment&gt;-Bindings müssen entweder ein 'value'- oder ein 'insert'-Attribut enthalten.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -131,7 +131,7 @@ Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Fehler beim Speichern der Trust Datenbank</value>
+    <value>Fehler beim Speichern der Trust-Datenbank</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -163,19 +163,19 @@ Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Das &lt;interface&gt; uri Attribut ('{0}') stimmt nicht mit der URL überein, von der der Feed heruntergeladen wurde ('{1}').</value>
+    <value>Das uri-Attribut von &lt;interface&gt; ('{0}') stimmt nicht mit der URL überein, von der der Feed heruntergeladen wurde ('{1}').</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Das &lt;interface&gt; uri Attribut fehlt. Sollte '{0}' sein.</value>
+    <value>Das uri-Attribut von &lt;interface&gt; fehlt. Sollte '{0}' sein.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
-    <value>Problem beim Runterladen von '{0}'.</value>
+    <value>Problem beim Herunterladen von '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalCharInBindingName" xml:space="preserve">
-    <value>Unzulässiges Zeichen im {0} Binding Namen.</value>
+    <value>Unzulässiges Zeichen im Namen des {0}-Bindings.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
@@ -183,7 +183,7 @@ Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Fehlender Name in {0} Binding.</value>
+    <value>Fehlender Name im {0}-Binding.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -199,11 +199,11 @@ Soll dieser Schlüssel Feeds von '{3}' signieren dürfen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
-    <value>Kein Manifest Digest für die Implementierung '{0}' gefunden.</value>
+    <value>Kein Manifest-Digest für die Implementierung '{0}' gefunden.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Keine Downloadmethoden für die Implementierung '{0}' gefunden.</value>
+    <value>Keine Downloadmethode für die Implementierung '{0}' gefunden.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
@@ -234,7 +234,7 @@ Neuer Zeitpunkt: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' ist keine bekannte ID im {1} Paketmanager.</value>
+    <value>'{0}' ist keine bekannte ID im Paketmanager {1}.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">

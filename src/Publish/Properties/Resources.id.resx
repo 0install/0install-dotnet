@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>Arsip hanya berisi satu direktori tingkat atas '{0}'. Anda mungkin harus mengatur atribut '{1}' ke '{0}' untuk menghindari tingkat penelusuran tambahan.</value>
+    <value>Arsip hanya berisi satu direktori tingkat atas '{0}'. Anda mungkin harus mengatur atribut '{1}' ke '{0}' untuk menghindari tingkat direktori bersarang tambahan.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
@@ -128,16 +128,16 @@ Coba tentukan secara manual.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Tersedia beberapa versi uji coba. Menandai implementasi {0} dari {1} dengan versi {2} sebagai versi stabil.</value>
-    <comment>Automatically translated.</comment>
+    <value>Terdapat beberapa versi uji coba. Menandai {0} dari {1} implementasi dengan versi {2} sebagai stabil.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>Terdapat beberapa implementasi yang belum memiliki tanggal rilis. Silakan pilih versi tertentu.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>Tidak ada implementasi dari versi {0} yang disimpan dalam cache. Tidak dapat menghitung ringkasan tambahan.</value>
-    <comment>Automatically translated.</comment>
+    <value>Tidak ada implementasi dari versi {0} yang disimpan dalam cache. Tidak dapat menghitung intisari tambahan.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
     <value>Feed tersebut tidak memiliki elemen {0}. Tidak dapat digunakan sebagai feed lokal.</value>
@@ -169,7 +169,7 @@ Coba tentukan secara manual.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SecretKeyNotInKeyring" xml:space="preserve">
-    <value>Kunci rahasia tidak ada di dalam kunci pengguna.</value>
+    <value>Kunci rahasia tidak ada di dalam keyring pengguna.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">

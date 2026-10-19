@@ -67,7 +67,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Erro ao carregar as preferências de fluxo para '{0}'. Reverter para os valores predefinidos.</value>
+    <value>Erro ao carregar as preferências do feed para '{0}'. A repor os valores predefinidos.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
@@ -151,8 +151,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SelectionCandidateNoteNotCached" xml:space="preserve">
-    <value>Implementação não em cache (atualmente em modo offline)</value>
-    <comment>Automatically translated.</comment>
+    <value>Implementação não armazenada em cache (atualmente em modo offline)</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteSource" xml:space="preserve">
     <value>Implementação em código-fonte não executável</value>

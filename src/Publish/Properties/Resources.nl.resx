@@ -100,7 +100,7 @@ Probeer het handmatig op te geven.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>Gedetecteerd '{0}' als installatiedirectory.</value>
+    <value>'{0}' gedetecteerd als installatiemap.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
@@ -128,16 +128,16 @@ Probeer het handmatig op te geven.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Er zijn meerdere testversies. De implementaties van {0} en {1} met versie {2} worden als stabiel aangemerkt.</value>
-    <comment>Automatically translated.</comment>
+    <value>Er zijn meerdere testversies. {0} van {1} implementaties met versie {2} worden als stabiel gemarkeerd.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>Er zijn meerdere implementaties zonder releasedatum. Kies in plaats daarvan een specifieke versie.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>Er is geen implementatie van de versie- {0} e in de cache opgeslagen. Het is niet mogelijk om een extra digest te berekenen.</value>
-    <comment>Automatically translated.</comment>
+    <value>Er is geen implementatie van versie {0} in de cache. Kan geen extra digest berekenen.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
     <value>De feed bevat geen {0} -element. Kan niet als lokale feed worden gebruikt.</value>
@@ -148,8 +148,8 @@ Probeer het handmatig op te geven.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>De feed bevat geen implementatie met versie- {0}.</value>
-    <comment>Automatically translated.</comment>
+    <value>De feed bevat geen implementatie met versie {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Er is geen installatiedirectory gedetecteerd.

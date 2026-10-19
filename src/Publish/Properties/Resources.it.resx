@@ -92,7 +92,7 @@ Provare a specificarlo manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
-    <value>Scaricare '{0}' con Zero Install</value>
+    <value>Download di '{0}' tramite Zero Install in corso</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
@@ -100,7 +100,7 @@ Provare a specificarlo manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
-    <value>Ha rilevato '{0}' come directory di installazione.</value>
+    <value>'{0}' rilevata come directory di installazione.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
@@ -108,7 +108,7 @@ Provare a specificarlo manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>Sono stati rilevati diversi nuovi programmi predefiniti nel registro di sistema. Li gestisce tutti, ma l'ultimo potrebbe avere la precedenza in alcuni casi.</value>
+    <value>Sono stati rilevati diversi nuovi programmi predefiniti nel registro di sistema. Verranno gestiti tutti, ma in alcuni casi l'ultimo potrebbe avere la precedenza.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
@@ -116,7 +116,7 @@ Provare a specificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Sono state rilevate più directory di installazione. Sceglie la prima per impostazione predefinita.</value>
+    <value>Sono state rilevate più directory di installazione. Per impostazione predefinita verrà scelta la prima.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
@@ -124,12 +124,12 @@ Provare a specificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Sono state rilevate più registrazioni di nuove applicazioni nel registro. Scegliere la prima per impostazione predefinita.</value>
+    <value>Sono state rilevate più registrazioni di nuove applicazioni nel registro. Per impostazione predefinita verrà scelta la prima.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Sono disponibili diverse versioni di prova. Contrassegnare {0} delle implementazioni {1} con versione {2} come stabile.</value>
-    <comment>Automatically translated.</comment>
+    <value>Sono presenti più versioni in fase di test. {0} delle {1} implementazioni, con versione {2}, vengono contrassegnate come stabili.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>Sono disponibili diverse implementazioni senza una data di rilascio. Seleziona invece una versione specifica.</value>
@@ -173,7 +173,7 @@ Provare a specificarla manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SizeMissing" xml:space="preserve">
-    <value>Le dimensioni dei file non sono ancora state determinate.</value>
+    <value>La dimensione del file non è ancora stata determinata.</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

@@ -59,8 +59,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllImplementationsReleased" xml:space="preserve">
-    <value>Όλες οι εκδόσεις έχουν ήδη κυκλοφορήσει. Επιλέξτε μια συγκεκριμένη έκδοση.</value>
-    <comment>Automatically translated.</comment>
+    <value>Όλες οι υλοποιήσεις έχουν ήδη κυκλοφορήσει. Επιλέξτε μια συγκεκριμένη έκδοση.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
     <value>Το αρχείο περιέχει μόνο έναν κατάλογο κορυφαίου επιπέδου, τον «{0} ». Καλό θα ήταν να ορίσετε το χαρακτηριστικό «{1} » ως «{0} », ώστε να αποφύγετε ένα επιπλέον επίπεδο ένθεσης.</value>
@@ -79,16 +79,16 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DuplicateImplementationID" xml:space="preserve">
-    <value>Η ροή περιέχει ήδη μια υλοποίηση με το αναγνωριστικό «{0} ».</value>
-    <comment>Automatically translated.</comment>
+    <value>Η τροφοδοσία περιέχει ήδη μια υλοποίηση με το αναγνωριστικό «{0}».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
-    <value>Δηλωτικό υπολογίστηκε για ένα άδειο κατάλογο. Βεβαιωθείτε ότι έχετε ορίσει το σωστό "{0}" αξίας για το αρχείο.</value>
+    <value>Υπολογίστηκε κατακερματισμός manifest για έναν κενό κατάλογο. Βεβαιωθείτε ότι έχετε ορίσει τη σωστή τιμή "{0}" για το αρχείο.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="EntryPointNotFound" xml:space="preserve">
     <value>Το σημείο εισόδου της εφαρμογής δεν βρέθηκε.
-Δοκιμάστε προσδιορίζοντας με μη αυτόματο τρόπο.</value>
+Δοκιμάστε να το καθορίσετε χειροκίνητα.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FetchingExternal" xml:space="preserve">
@@ -96,7 +96,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileNotFound" xml:space="preserve">
-    <value>Το αρχείο '{0}' δεν θα μπορεσε να βρεθεί.</value>
+    <value>Το αρχείο '{0}' δεν ήταν δυνατό να βρεθεί.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InstallationDirDetected" xml:space="preserve">
@@ -104,7 +104,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingProgramFiles32Bit" xml:space="preserve">
-    <value>Δεν βρέθηκε κανενας 32-bit %Program Files% Κατάλογος.</value>
+    <value>Δεν βρέθηκε κατάλογος %ProgramFiles% 32-bit.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
@@ -112,47 +112,48 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
-    <value>Η ροή περιέχει πολλά στοιχεία τύπου « {0} ». Αυτό δεν υποστηρίζεται εδώ.</value>
-    <comment>Automatically translated.</comment>
+    <value>Η τροφοδοσία περιέχει πολλά στοιχεία {0}. Αυτό δεν υποστηρίζεται εδώ.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">
-    <value>Πολλαπλή κατάλογοι εγκατάστασης εντοπίστηκαν. Επιλέγοντας πρώτο από προεπιλογή.</value>
+    <value>Εντοπίστηκαν πολλαπλοί κατάλογοι εγκατάστασης. Επιλέγεται ο πρώτος από προεπιλογή.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleLocalImplementations" xml:space="preserve">
-    <value>Δεν υπάρχει υλοποίηση με τον αναγνωριστικό «{0} » και υπάρχουν πολλές τοπικές υλοποιήσεις από τις οποίες μπορείτε να επιλέξετε.</value>
-    <comment>Automatically translated.</comment>
+    <value>Δεν υπάρχει υλοποίηση με το αναγνωριστικό «{0}» και υπάρχουν πολλές τοπικές υλοποιήσεις από τις οποίες μπορείτε να επιλέξετε.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Πολλαπλές νέες εγγραφές εφαρμογής εντοπίστηκαν στο μητρώο. Επιλέγοντας πρώτο από προεπιλογή.</value>
+    <value>Εντοπίστηκαν πολλαπλές νέες εγγραφές εφαρμογών στο μητρώο. Επιλέγεται η πρώτη από προεπιλογή.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Υπάρχουν πολλές δοκιμαστικές εκδόσεις. Χαρακτηρίζονται ως σταθερές οι υλοποιήσεις {0} του {1} με έκδοση {2}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Υπάρχουν πολλές δοκιμαστικές εκδόσεις. Επισημαίνονται ως σταθερές {0} από τις {1} υλοποιήσεις με έκδοση {2}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>Υπάρχουν πολλές υλοποιήσεις χωρίς ημερομηνία κυκλοφορίας. Επιλέξτε μια συγκεκριμένη έκδοση.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>Δεν υπάρχει αποθηκευμένη στην προσωρινή μνήμη υλοποίηση της έκδοσης {0}. Δεν είναι δυνατός ο υπολογισμός ενός επιπλέον αθροίσματος.</value>
-    <comment>Automatically translated.</comment>
+    <value>Δεν υπάρχει αποθηκευμένη στην προσωρινή μνήμη υλοποίηση της έκδοσης {0}. Δεν είναι δυνατός ο υπολογισμός ενός επιπλέον κατακερματισμού.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
-    <value>Η ροή δεν περιέχει το στοιχείο {0}. Δεν είναι δυνατή η χρήση της ως τοπικής ροής.</value>
-    <comment>Automatically translated.</comment>
+    <value>Η τροφοδοσία δεν περιέχει το στοιχείο {0}. Δεν είναι δυνατή η χρήση της ως τοπικής τροφοδοσίας.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
-    <value>Η ροή δεν περιέχει υλοποιήσεις.</value>
-    <comment>Automatically translated.</comment>
+    <value>Η τροφοδοσία δεν περιέχει υλοποιήσεις.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementationWithVersion" xml:space="preserve">
-    <value>Η ροή δεν περιέχει καμία υλοποίηση με έκδοση {0}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Η τροφοδοσία δεν περιέχει καμία υλοποίηση με έκδοση {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
-    <value>Δεν εντοπίστηκε κατάλογος εγκατάστασης.</value>
+    <value>Δεν εντοπίστηκε κατάλογος εγκατάστασης.
+Δοκιμάστε να τον καθορίσετε χειροκίνητα.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">

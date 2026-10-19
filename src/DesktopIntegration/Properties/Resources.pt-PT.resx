@@ -75,7 +75,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
-    <value>Aplicação de alterações</value>
+    <value>A aplicar alterações</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>Reparação da integração do ambiente de trabalho</value>
+    <value>A reparar a integração com o ambiente de trabalho</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
@@ -111,16 +111,16 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>O nome de utilizador e/ou a palavra-passe que introduziu para o servidor Sync estão incorrectos. Verifique as suas opções de sincronização.</value>
+    <value>O nome de utilizador e/ou a palavra-passe que introduziu para o servidor Sync estão incorretos. Verifique as suas opções de sincronização.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
-    <value>A chave criptográfica que introduziu para a Sincronização está incorrecta. Verifique as suas Opções de sincronização.
+    <value>A chave criptográfica que introduziu para a Sincronização está incorreta. Verifique as suas Opções de sincronização.
 Pode alterar a chave criptográfica utilizada no servidor executando o assistente de resolução de problemas (clique com o botão direito do rato no botão "Sync" para aceder ao mesmo) ou executando '0install sync --reset=server'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
-    <value>Descarregar dados de sincronização</value>
+    <value>A transferir dados de sincronização</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
@@ -129,7 +129,7 @@ Pode substituir os dados armazenados no servidor executando o assistente de reso
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
-    <value>Carregamento de dados de sincronização</value>
+    <value>A carregar dados de sincronização</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">

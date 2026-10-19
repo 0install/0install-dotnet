@@ -95,7 +95,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
-    <value>S'il vous plaît utilisez '0install centrale' ou '0install config' pour configurer la synchronisation.</value>
+    <value>Veuillez utiliser '0install central' ou '0install config' pour configurer la synchronisation.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">
@@ -111,7 +111,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCredentialsInvalid" xml:space="preserve">
-    <value>Le nom d'utilisateur et/ou le mot de passe entrés pour le serveur de synchronisation sont incorrectes. Merci de vérifier vos options de synchronisation.</value>
+    <value>Le nom d'utilisateur et/ou le mot de passe entrés pour le serveur de synchronisation sont incorrects. Merci de vérifier vos options de synchronisation.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncCryptoKeyInvalid" xml:space="preserve">
@@ -124,12 +124,12 @@ Vous pouvez modifier la clé de chiffrement utilisée sur le serveur en exécuta
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
-    <value>Les données actuellement sauvegardées sur le serveur de synchronisation son endommagées.
+    <value>Les données actuellement sauvegardées sur le serveur de synchronisation sont endommagées.
 Vous pouvez remplacer les données sauvegardées sur le serveur en exécutant l'assistant de dépannage (via un clic-droit sur le bouton "Sync") ou en exécutant '0install sync --reset=server'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
-    <value>Téléchargement de données de synchronisation</value>
+    <value>Envoi des données de synchronisation</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
@@ -137,7 +137,7 @@ Vous pouvez remplacer les données sauvegardées sur le serveur en exécutant l'
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Impossible de remplacer le stub d'exécutable '{0}'.</value>
+    <value>Impossible de remplacer l'exécutable stub obsolète '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

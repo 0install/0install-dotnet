@@ -60,9 +60,9 @@
   </resheader>
   <data name="AskKeyTrust" xml:space="preserve">
     <value>Τροφοδοσία: {0}
-- Ισχύει υπογραφή από {1}
+- Έγκυρη υπογραφή από {1}
 - {2}
-Θέλετε να εμπιστευόμαστε αυτό το κλειδί για να υπογράψει τροφοδοσίες από '{3}';
+Θέλετε να εμπιστευτείτε αυτό το κλειδί για την υπογραφή τροφοδοσιών από '{3}';
 </value>
     <comment>Manually overriden.</comment>
   </data>
@@ -135,7 +135,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
-    <value>Εκτέλεση εξωτερικής επιλυτής</value>
+    <value>Εκτέλεση εξωτερικού επιλυτή</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToSolve" xml:space="preserve">
@@ -163,7 +163,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Το &lt;interface&gt; uri χαρακτηριστικό ('{0}') δεν ταιριάζει με τη διεύθυνση URL της τροφοδοσίας έχετε κατεβάσει από ('{1}').</value>
+    <value>Το χαρακτηριστικό uri του &lt;interface&gt; ('{0}') δεν ταιριάζει με τη διεύθυνση URL από την οποία λήφθηκε η τροφοδοσία ('{1}').</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
@@ -183,7 +183,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
-    <value>Όνομα στην {0} δεσμευτική λείπει.</value>
+    <value>Λείπει το όνομα στη σύνδεση {0}.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MissingInterfaceUri" xml:space="preserve">
@@ -195,7 +195,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoKeyInfoServerData" xml:space="preserve">
-    <value>Το κλειδί του διακομιστή πληροφοριών δεν ήταν σε θέση να παράσχει οποιαδήποτε επιπλέον πληροφορία σχετικά με αυτό το κλειδί.</value>
+    <value>Ο διακομιστής πληροφοριών κλειδιών δεν ήταν σε θέση να παράσχει επιπλέον πληροφορίες σχετικά με αυτό το κλειδί.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoManifestDigest" xml:space="preserve">
@@ -214,23 +214,23 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Αποτυχία λήψης του αρχείου {0}. Προσπαθώ να το λάβω από τον εναλλακτικό καθρέφτη τροφοδοσίας.</value>
-    <comment>Automatically translated.</comment>
+    <value>Αποτυχία λήψης του {0}. Γίνεται προσπάθεια λήψης από τον καθρέφτη τροφοδοσιών.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Δεν είναι δυνατή η προσωρινή αποθήκευση του κατάλογου της εφαρμογής.</value>
+    <value>Δεν είναι δυνατή η προσωρινή αποθήκευση του ληφθέντος καταλόγου εφαρμογών.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
-    <value>Δεν είναι δυνατή η ανάλυση της ροής που κατεβάστηκε από τη διεύθυνση {0}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Δεν είναι δυνατή η ανάλυση της τροφοδοσίας που λήφθηκε από τη διεύθυνση {0}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseKeyInfo" xml:space="preserve">
-    <value>Αδυναμία αναλύσης βασικών πληροφοριών για '{0}'.</value>
+    <value>Αδυναμία ανάλυσης πληροφοριών κλειδιού για '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToRetrieveKeyInfo" xml:space="preserve">
-    <value>Αδύνατη η ανάκτηση βασικών πληροφοριών για '{0}'.</value>
+    <value>Αδύνατη η ανάκτηση πληροφοριών κλειδιού για '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">

@@ -67,8 +67,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingFeedPrefs" xml:space="preserve">
-    <value>Ошибка при загрузке настроек канала «{0} ». Восстановление значений по умолчанию.</value>
-    <comment>Automatically translated.</comment>
+    <value>Ошибка при загрузке настроек фида «{0}». Восстановление значений по умолчанию.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingInterfacePrefs" xml:space="preserve">
     <value>Ошибка при загрузке настроек интерфейса для «{0} ». Восстановление значений по умолчанию.</value>
@@ -87,20 +87,20 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationNotInSelection" xml:space="preserve">
-    <value>Не удалось найти реализацию интерфейса «{0} » в списке.</value>
-    <comment>Automatically translated.</comment>
+    <value>Не удалось найти реализацию интерфейса «{0}» в выборке.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
     <value>«{0} » не является допустимым URI в формате «http(s):», а также не является допустимым локальным путем.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
-    <value>Недопустимый атрибут «{0} » на странице {1}.</value>
-    <comment>Automatically translated.</comment>
+    <value>Недопустимый атрибут «{0}» в {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingXmlAttributeOnTag" xml:space="preserve">
-    <value>На странице {1} отсутствует атрибут «{0} ».</value>
-    <comment>Automatically translated.</comment>
+    <value>В {1} отсутствует атрибут «{0}».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
     <value>В теге {1} отсутствует тег {0}.</value>
@@ -127,12 +127,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">
-    <value>Не удалось разрешить относительный URI «{0} ». Только каналы, сохраненные в виде локальных файлов, могут содержать относительные URI.</value>
-    <comment>Automatically translated.</comment>
+    <value>Не удалось разрешить относительный URI «{0}». Только фиды, сохранённые в виде локальных файлов, могут содержать относительные URI.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="RolloutPercentageOnlyValidWhenStabilityTesting" xml:space="preserve">
-    <value>Атрибут «rollout-percentage» на странице {0} можно установить только в том случае, если атрибут «stability» имеет значение «testing» или не задан.</value>
-    <comment>Automatically translated.</comment>
+    <value>Атрибут «rollout-percentage» в {0} можно установить, только если атрибут «stability» имеет значение «testing» или не задан.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SelectionCandidateNoteBuggy" xml:space="preserve">
     <value>Ошибочная реализация</value>

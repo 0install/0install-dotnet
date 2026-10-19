@@ -59,23 +59,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>Verificação de ficheiros danificados</value>
-    <comment>Automatically translated.</comment>
+    <value>A verificar ficheiros danificados</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>A copiar ficheiros</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Este diretório é um cache de implementação. Foram utilizadas permissões do sistema de ficheiros para que os ficheiros aqui contidos sejam apenas de leitura. Isto não permite que sejam eliminados da forma habitual.
+    <value>Este diretório é uma cache de implementações. Foram utilizadas permissões do sistema de ficheiros para que os ficheiros aqui contidos sejam apenas de leitura. Isto não permite que sejam eliminados da forma habitual.
 
-Se pretende eliminar uma única implementação, pode fazê-lo utilizando a seguinte linha de comando:
+Se pretende eliminar uma única implementação, pode fazê-lo utilizando a seguinte linha de comandos:
 {0}
 
-Se pretende eliminar todo o diretório, pode fazê-lo utilizando a seguinte linha de comando:
+Se pretende eliminar todo o diretório, pode fazê-lo utilizando a seguinte linha de comandos:
 {1}
 
-Se pretende eliminar todo o diretório sem utilizar o Zero Install, pode fazê-lo utilizando a seguinte linha de comando:
+Se pretende eliminar todo o diretório sem utilizar o Zero Install, pode fazê-lo utilizando a seguinte linha de comandos:
 {2}</value>
     <comment>Manually overriden.</comment>
   </data>
@@ -145,8 +145,8 @@ Execute «0install config feed_mirror default» para a ativar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Encontrar ficheiros duplicados no «{0} »</value>
-    <comment>Automatically translated.</comment>
+    <value>A procurar ficheiros duplicados em «{0}»</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>O ficheiro «{0} » não é nem um link simbólico nem um ficheiro normal.</value>
@@ -161,12 +161,12 @@ Execute «0install config feed_mirror default» para a ativar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Pretende remover a implementação? Quando necessário, será automaticamente descarregada uma nova cópia.</value>
+    <value>Pretende remover a implementação? Quando necessário, será automaticamente transferida uma nova cópia.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>A implementação foi removida. Uma nova cópia será descarregada automaticamente quando necessário.</value>
-    <comment>Automatically translated.</comment>
+    <value>A implementação foi removida. Uma nova cópia será transferida automaticamente quando necessário.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
     <value>Não foi possível localizar a implementação «{0} ».</value>
@@ -182,16 +182,16 @@ Se estiver a utilizar um disco formatado para FAT, converta-o para NTFS.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Não é possível descarregar o ícone de {0}, uma vez que apenas são suportados URLs HTTP e HTTPS.</value>
-    <comment>Automatically translated.</comment>
+    <value>Não é possível transferir o ícone de {0}, uma vez que apenas são suportados URLs HTTP e HTTPS.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>O ficheiro de manifesto contém linhas inválidas.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Número inválido de peças na linha.</value>
-    <comment>Automatically translated.</comment>
+    <value>Número inválido de partes na linha.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>O arquivo contém um caminho inválido (potencialmente um risco de segurança): {0}</value>

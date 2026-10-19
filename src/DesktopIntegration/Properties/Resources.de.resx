@@ -59,11 +59,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccessPointExistingConflict" xml:space="preserve">
-    <value>Die folgenden bestehenden Access Points stehen im Widerspruch zueinander:</value>
+    <value>Die folgenden bestehenden Access Points stehen miteinander in Konflikt:</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AccessPointInnerConflict" xml:space="preserve">
-    <value>Die folgenden Access Points für die Anwendung {0} stehen im Widerspruch zueinander:</value>
+    <value>Die folgenden Access Points für die Anwendung {0} stehen miteinander in Konflikt:</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="AccessPointNewConflict" xml:space="preserve">
@@ -103,7 +103,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="RepairingIntegration" xml:space="preserve">
-    <value>Reparieren der Desktop-Integration</value>
+    <value>Desktopintegration wird repariert</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ShortcutNameInvalidChars" xml:space="preserve">
@@ -137,7 +137,7 @@ Sie können die auf dem Server gespeicherten Daten ersetzen, indem Sie den Probl
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>Die veraltete Stub-Executable '{0}' konnte nicht ersetzt werden.</value>
+    <value>Die veraltete ausführbare Stub-Datei '{0}' konnte nicht ersetzt werden.</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

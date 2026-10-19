@@ -67,9 +67,9 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Bu klasör bir uygulama ön belleğidir. Buradaki dosyalar dosya sistemi izinleri kullanılarak salt okunur hale getirilir. Böylece normal şekilde silinmeleri engellenir.
+    <value>Bu klasör bir uyarlama ön belleğidir. Buradaki dosyalar dosya sistemi izinleri kullanılarak salt okunur hale getirilir. Böylece normal şekilde silinmeleri engellenir.
 
-Tek bir uygulamayı silmek isterseniz şu komut satırını kullanabilirsiniz:
+Tek bir uyarlamayı silmek isterseniz şu komut satırını kullanabilirsiniz:
 {0}
 
 Bu klasörü tümüyle silmek isterseniz şu komut satırını kullanabilirsiniz:
@@ -88,7 +88,7 @@ Zero Install kullanmadan bu klasörün tümünü silmek isterseniz şu komut sat
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>{0} uygulaması siliniyor</value>
+    <value>{0} uyarlaması siliniyor</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
@@ -96,7 +96,7 @@ Zero Install kullanmadan bu klasörün tümünü silmek isterseniz şu komut sat
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatch" xml:space="preserve">
-    <value>Bir uygulamanın öge listesi karması beklenen değerle eşleşmiyor.</value>
+    <value>Bir uyarlamanın öge listesi karması beklenen değerle eşleşmiyor.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DigestMismatchActualDigest" xml:space="preserve">
@@ -247,7 +247,7 @@ FAT biçimindeki bir sürücü kullanıyorsanız lütfen bunu NTFS biçimine dö
     <comment>Manually overriden.</comment>
   </data>
   <data name="PathCaseCollision" xml:space="preserve">
-    <value>'{0}' yolu var olan bir dosyayı veya klasörü ifade eder '{1}'. Windows üzerinde yalnızca büyük/küçük harf farklılığı olan adlar desteklenmez.</value>
+    <value>'{0}' yolu, var olan '{1}' dosyasını ya da klasörünü gösteriyor. Windows üzerinde yalnızca büyük/küçük harf farklılığı olan adlar desteklenmez.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">

@@ -116,17 +116,17 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Ошибка при загрузке набора ключей OpenPGP с сайта «{0} »</value>
-    <comment>Automatically translated.</comment>
+    <value>Ошибка при загрузке набора ключей OpenPGP из «{0}»</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>Не удалось разблокировать используемые файлы в '{0}'</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Использование зеркала каналов, необходимого для поиска, отключено.
+    <value>Использование зеркала фидов, необходимого для поиска, отключено.
 Чтобы включить его, выполните команду «0install config feed_mirror default».</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Не удалось найти файл или каталог '{0}'.</value>
@@ -190,8 +190,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Недопустимое количество деталей в линии.</value>
-    <comment>Automatically translated.</comment>
+    <value>Недопустимое количество частей в строке.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>Архив содержит недопустимый путь (потенциальная угроза безопасности): {0}</value>
@@ -202,8 +202,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidSymlinkTarget" xml:space="preserve">
-    <value>Не удалось преобразовать «{0} » в символическую ссылку, поскольку она не содержит допустимого адреса назначения.</value>
-    <comment>Automatically translated.</comment>
+    <value>Не удалось преобразовать «{0}» в символическую ссылку, поскольку файл не содержит допустимой цели ссылки.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
     <value>Оптимизировать общее хранилище могут только администраторы.</value>
@@ -226,9 +226,9 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NonRootedPathInConfig" xml:space="preserve">
-    <value>Путь «{0} » не является абсолютным. Относительные пути допускаются только в переносимом режиме.
-Указывается в конфигурационном файле «{1} ».</value>
-    <comment>Automatically translated.</comment>
+    <value>Путь «{0}» не является абсолютным. Относительные пути допускаются только в портативном режиме.
+Указан в файле конфигурации «{1}».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoSelectedVersion" xml:space="preserve">
     <value>Версия не выбрана</value>
@@ -294,8 +294,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Введенный вами пароль неверный.</value>
-    <comment>Automatically translated.</comment>
+    <value>Введённая вами парольная фраза неверна.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
     <value>Последняя строка файла не является концом блока подписи.</value>

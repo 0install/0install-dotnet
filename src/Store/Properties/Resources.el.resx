@@ -88,7 +88,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingImplementation" xml:space="preserve">
-    <value>Διαγραφή εφαρμογής {0}</value>
+    <value>Διαγραφή υλοποίησης {0}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeletingObsoleteFiles" xml:space="preserve">
@@ -124,16 +124,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>Η χρήση του feed mirror, η οποία απαιτείται για την αναζήτηση, είναι απενεργοποιημένη.
+    <value>Η χρήση του καθρέφτη τροφοδοσιών, ο οποίος απαιτείται για την αναζήτηση, είναι απενεργοποιημένη.
 Εκτελέστε την εντολή «0install config feed_mirror default» για να την ενεργοποιήσετε.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Δεν είναι δυνατή η εύρεση του αρχείου ή του καταλόγου '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUse" xml:space="preserve">
-    <value>Τα αρχεία που θέλετε να διαγραφούν χρησιμοποιούνται σήμερα.</value>
+    <value>Τα αρχεία που θέλετε να διαγράψετε χρησιμοποιούνται αυτή τη στιγμή.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FilesInUseAskClose" xml:space="preserve">
@@ -157,19 +157,19 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>Η εφαρμογή '{0}' έχει καταστραφεί.</value>
+    <value>Η υλοποίηση '{0}' έχει καταστραφεί.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Θέλετε να καταργήσετε την εφαρμογή; Ένα νέο αντίγραφο θα μεταφορτωθεί αυτόματα ξανά όταν χρειαστεί.</value>
+    <value>Θέλετε να αφαιρέσετε την υλοποίηση; Ένα νέο αντίγραφο θα ληφθεί ξανά αυτόματα όταν χρειαστεί.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
-    <value>Η εφαρμογή έχει καταργηθεί. Ένα νέο αντίγραφο θα μεταφορτωθεί αυτόματα ξανά όταν χρειαστεί.</value>
+    <value>Η υλοποίηση έχει αφαιρεθεί. Ένα νέο αντίγραφο θα ληφθεί ξανά αυτόματα όταν χρειαστεί.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationNotFound" xml:space="preserve">
-    <value>Η εφαρμογή '{0}' δεν μπορεσε να βρεθεί.</value>
+    <value>Δεν ήταν δυνατός ο εντοπισμός της υλοποίησης '{0}'.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="InsufficientFSTimeAccuracy" xml:space="preserve">
@@ -235,8 +235,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoStoreSelfRemove" xml:space="preserve">
-    <value>Το Zero Install δεν μπορεί να αφαιρεθεί από την προσωρινή μνήμη μιας εγκατάστασης.</value>
-    <comment>Automatically translated.</comment>
+    <value>Το Zero Install δεν μπορεί να αφαιρέσει τον εαυτό του από μια προσωρινή μνήμη υλοποιήσεων.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NumberTooLarge" xml:space="preserve">
     <value>Η αριθμητική τιμή είναι πολύ μεγάλη.</value>
@@ -270,7 +270,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="SignatureAlreadyExists" xml:space="preserve">
-    <value>Η υπογραφή αρχείου υπάρχει ήδη.</value>
+    <value>Το αρχείο υπογραφής υπάρχει ήδη.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StoreServiceCommunicationProblem" xml:space="preserve">
@@ -278,7 +278,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TemporaryDirectories" xml:space="preserve">
-    <value>Προσωρινή κατάλογοι</value>
+    <value>Προσωρινοί κατάλογοι</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
@@ -306,7 +306,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureNotBase64" xml:space="preserve">
-    <value>Για την υπογραφή δεν ισχύει η βάση 64:</value>
+    <value>Η υπογραφή δεν είναι έγκυρο base 64:</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

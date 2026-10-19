@@ -131,7 +131,7 @@ Wilt u deze sleutel vertrouwen om feeds van "{3}" te ondertekenen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Fout bij het opslaan van de trust database</value>
+    <value>Fout bij het opslaan van de vertrouwensdatabase</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -151,7 +151,7 @@ Wilt u deze sleutel vertrouwen om feeds van "{3}" te ondertekenen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>{0}' kon niet worden gevonden in de feed cache.</value>
+    <value>'{0}' kon niet worden gevonden in de feedcache.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
@@ -159,7 +159,7 @@ Wilt u deze sleutel vertrouwen om feeds van "{3}" te ondertekenen?
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>{0}' is een lokaal bestand. Het zou een HTTP(S) URL moeten zijn.</value>
+    <value>'{0}' is een lokaal bestand. Het zou een HTTP(S)-URL moeten zijn.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -234,7 +234,7 @@ Nieuwe tijd: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>{0}' is geen bekende ID in de {1} pakketbeheerder.</value>
+    <value>'{0}' is geen bekende ID in de {1} pakketbeheerder.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">

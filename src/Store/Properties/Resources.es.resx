@@ -59,8 +59,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>Comprobación de archivos dañados</value>
-    <comment>Automatically translated.</comment>
+    <value>Comprobando si hay archivos dañados</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Copiando archivos</value>
@@ -124,9 +124,9 @@ Para eliminar el directorio completo sin usar Zero Install, ejecuta esta línea 
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedMirrorDisabled" xml:space="preserve">
-    <value>El uso del espejo de fuentes, necesario para la búsqueda, está desactivado.
+    <value>El uso del espejo de feeds, necesario para la búsqueda, está desactivado.
 Ejecuta «0install config feed_mirror default» para activarlo.</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>No ha sido posible encontrar el archivo o directorio «{0}».</value>
@@ -145,8 +145,8 @@ Ejecuta «0install config feed_mirror default» para activarlo.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Búsqueda de archivos duplicados en «{0} »</value>
-    <comment>Automatically translated.</comment>
+    <value>Buscando archivos duplicados en «{0}»</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>El archivo «{0} » no es ni un enlace simbólico ni un archivo normal.</value>
@@ -190,8 +190,8 @@ Si estás utilizando una unidad con formato FAT, conviértela a NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Número de piezas en la línea no válido.</value>
-    <comment>Automatically translated.</comment>
+    <value>Número de partes de la línea no válido.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>El archivo contiene una ruta no válida (lo que podría suponer un riesgo de seguridad): {0}</value>
@@ -218,7 +218,7 @@ Si estás utilizando una unidad con formato FAT, conviértela a NTFS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoDownloadInOfflineMode" xml:space="preserve">
-    <value>No ha sido posible descargar {0} porque Zero Intsall está en modo sin conexión.</value>
+    <value>No ha sido posible descargar {0} porque Zero Install está en modo sin conexión.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
@@ -251,8 +251,8 @@ Se especifica en el archivo de configuración «{1} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>No ha sido posible acceder a la memoria de implementación «{0}».
-Ejecuta «{1}» para eliminarlo de la lista de directorios de archivos registrados.</value>
+    <value>Ha habido un problema al acceder a la caché de implementaciones «{0}».
+Ejecuta «{1}» para eliminarla de la lista de directorios registrados.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">

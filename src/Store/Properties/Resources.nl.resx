@@ -59,8 +59,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>Controleert op beschadigde bestanden</value>
-    <comment>Automatically translated.</comment>
+    <value>Controleren op beschadigde bestanden</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Bestanden worden gekopieerd</value>
@@ -161,8 +161,8 @@ Voer '0install config feed_mirror default' uit om deze in te schakelen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Wilt u de installatie verwijderen? Er wordt automatisch een nieuwe kopie gedownload wanneer dat nodig is.</value>
-    <comment>Automatically translated.</comment>
+    <value>Wilt u de implementatie verwijderen? Er wordt automatisch een nieuwe kopie gedownload wanneer dat nodig is.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
     <value>De implementatie is verwijderd. Indien nodig wordt er automatisch weer een nieuwe kopie gedownload.</value>
@@ -251,8 +251,8 @@ Gespecificeerd in het configuratiebestand '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Er is een probleem opgetreden bij de toegang tot de implementation store "{0}".
-Voer '{1}' uit om het te verwijderen uit de lijst met geregistreerde bestandsmappen.</value>
+    <value>Er is een probleem opgetreden bij de toegang tot de implementatieopslag "{0}".
+Voer '{1}' uit om deze te verwijderen uit de lijst met geregistreerde mappen.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
@@ -298,7 +298,7 @@ U kunt het bestand "{1}" verwijderen om het probleem op te lossen. Andere instel
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
-    <value>De laatste regel van het bestand is niet het einde van de signature block.</value>
+    <value>De laatste regel van het bestand is niet het einde van het handtekeningblok.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureMissingNewLine" xml:space="preserve">

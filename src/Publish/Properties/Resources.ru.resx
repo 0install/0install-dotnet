@@ -79,8 +79,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DuplicateImplementationID" xml:space="preserve">
-    <value>В ленте уже есть реализация с ID «{0} ».</value>
-    <comment>Automatically translated.</comment>
+    <value>В фиде уже есть реализация с ID «{0}».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="EmptyImplementation" xml:space="preserve">
     <value>Дайджест манифеста был рассчитан для пустой директории. Проверьте, что вы установили правильное значение "{0}" для архива.</value>
@@ -108,7 +108,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleDefaultProgramsDetected" xml:space="preserve">
-    <value>В реестре обнаружено несколько новых программ по умолчанию. Обработайте их все, но последняя может иметь приоритет в некоторых случаях.</value>
+    <value>В реестре обнаружено несколько новых программ по умолчанию. Обрабатываются все, но в некоторых случаях приоритет может иметь последняя.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
@@ -128,20 +128,20 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">
-    <value>Существует несколько тестовых версий. Помечаем реализацию {0} из {1} с версией {2} как стабильную.</value>
-    <comment>Automatically translated.</comment>
+    <value>Существует несколько тестовых версий. {0} из {1} реализаций с версией {2} помечаются как стабильные.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
     <value>Существует несколько реализаций без даты выпуска. Вместо этого выберите конкретную версию.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>Ни одна реализация версии {0} не кэшируется. Не удается вычислить дополнительный дайджест.</value>
-    <comment>Automatically translated.</comment>
+    <value>Ни одной реализации версии {0} нет в кэше. Не удаётся вычислить дополнительный дайджест.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">
-    <value>В кане не содержится элемент {0}. Невозможно использовать его в качестве локальной кане.</value>
-    <comment>Automatically translated.</comment>
+    <value>В фиде отсутствует элемент {0}. Невозможно использовать его в качестве локального фида.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoImplementations" xml:space="preserve">
     <value>В этом фиде нет реализаций.</value>
@@ -153,7 +153,7 @@
   </data>
   <data name="NoInstallationDirDetected" xml:space="preserve">
     <value>Не обнаружен каталог установки.
-Попробуйте указать ее вручную.</value>
+Попробуйте указать его вручную.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">

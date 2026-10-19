@@ -59,8 +59,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>Vérification des fichiers endommagés</value>
-    <comment>Automatically translated.</comment>
+    <value>Recherche de fichiers endommagés</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>Copie de fichiers</value>
@@ -116,8 +116,8 @@ Pour supprimer l'intégralité du répertoire sans passer par Zero Install, veui
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Erreur lors du chargement du faisceau de clés OpenPGP depuis «{0} »</value>
-    <comment>Automatically translated.</comment>
+    <value>Erreur lors du chargement du trousseau de clés OpenPGP depuis « {0} »</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>Échec du déverrouillage des fichiers en cours d'utilisation dans '{0}'</value>
@@ -190,8 +190,8 @@ Si vous utilisez un disque formaté en FAT, veuillez le convertir en NTFS.</valu
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>Nombre de pièces non valide dans la ligne.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nombre de parties non valide dans la ligne.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>L'archive contient un chemin d'accès non valide (ce qui peut constituer un risque pour la sécurité) : {0}</value>
@@ -282,7 +282,7 @@ Vous pouvez supprimer le fichier '{1}' pour résoudre le problème. D'autres par
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindSecretKey" xml:space="preserve">
-    <value>Impossible de trouver la clé avec ce nom.</value>
+    <value>Impossible de trouver une clé secrète portant le nom spécifié.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">

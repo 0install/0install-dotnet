@@ -79,7 +79,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedNotInCatalog" xml:space="preserve">
-    <value>Impossible de trouver le flux '{0}' dans catalogue.</value>
+    <value>Impossible de trouver le flux '{0}' dans le catalogue.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="FoundInstead" xml:space="preserve">
@@ -103,20 +103,20 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingXmlTagInsideTag" xml:space="preserve">
-    <value>Balise ` {0} ` manquante à l'intérieur de ` {1}`.</value>
-    <comment>Automatically translated.</comment>
+    <value>Balise {0} manquante à l'intérieur de {1}.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeDottedList" xml:space="preserve">
     <value>La liste séparée par des points ne peut contenir que des nombres décimaux.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeValidVersionPart" xml:space="preserve">
-    <value>Le numéro de version ne peut contenir que des décimales séparées par des points et des chaînes de caractères modificatrices.</value>
-    <comment>Automatically translated.</comment>
+    <value>Le numéro de version ne peut contenir que des nombres décimaux séparés par des points et des chaînes de modificateurs.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustStartWithDottedList" xml:space="preserve">
-    <value>Le numéro de version doit commencer par une liste de décimales séparées par des points.</value>
-    <comment>Automatically translated.</comment>
+    <value>Le numéro de version doit commencer par une liste de nombres décimaux séparés par des points.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NoKnownDigestMethod" xml:space="preserve">
     <value>Aucune méthode de hachage connue n'a été spécifiée.</value>
@@ -167,8 +167,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>L'identifiant doit être sécurisé. Il ne peut contenir que des caractères alphanumériques, des espaces ( ), des points (.), des traits de soulignement (_), des tirets (-) et des signes plus (+).</value>
-    <comment>Automatically translated.</comment>
+    <value>Doit être un identifiant sûr. Ne peut contenir que des caractères alphanumériques, des espaces ( ), des points (.), des traits de soulignement (_), des tirets (-) et des signes plus (+).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
     <value>L'étape de recette «{0} » de l'implémentation «{1} » comporte une référence d'implémentation non valide.</value>

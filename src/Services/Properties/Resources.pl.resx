@@ -79,8 +79,8 @@ Czy chcesz zezwolić temu kluczowi na podpisywanie kanałów z „{3}”?
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagCpuMismatch" xml:space="preserve">
-    <value>Nie można korzystać z {0} przy wybranej opcji {1} ({2})</value>
-    <comment>Automatically translated.</comment>
+    <value>Nie można użyć {0} przy wyborze {1} ({2})</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagIncompatibleWithRestriction" xml:space="preserve">
     <value>Niezgodny z ograniczeniem: {0}</value>
@@ -131,7 +131,7 @@ Czy chcesz zezwolić temu kluczowi na podpisywanie kanałów z „{3}”?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorSavingTrustDB" xml:space="preserve">
-    <value>Błąd podczas zapisywania zaufanej bazy danych</value>
+    <value>Błąd podczas zapisywania bazy danych zaufanych kluczy</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="ExternalSolverRunning" xml:space="preserve">
@@ -207,14 +207,14 @@ Czy chcesz zezwolić temu kluczowi na podpisywanie kanałów z „{3}”?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
-    <value>Pobrany kanał jest starszy niż wersja już zapisana w pamięci podręcznej. Będziemy nadal korzystać z nowszej wersji.
+    <value>Pobrany kanał jest starszy niż wersja już zapisana w pamięci podręcznej. Nadal używana będzie nowsza wersja.
 URI kanału: {0}
 Poprzedni znacznik czasu: {1}
 Nowy znacznik czasu: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Nie udało się pobrać {0}. Próba pobrania z pliku lustrzanego.</value>
+    <value>Nie udało się pobrać {0}. Próba pobrania z serwera lustrzanego kanałów.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">

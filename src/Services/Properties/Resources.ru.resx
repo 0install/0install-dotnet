@@ -71,8 +71,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="CommandNotSpecified" xml:space="preserve">
-    <value>Команда «{0} » не указана.</value>
-    <comment>Automatically translated.</comment>
+    <value>Не указана команда для «{0}».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagCantFindImplementations" xml:space="preserve">
     <value>Не удается найти все необходимые реализации:</value>
@@ -95,12 +95,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagNoUsableImplementations" xml:space="preserve">
-    <value>Нет рабочих реализаций:</value>
-    <comment>Automatically translated.</comment>
+    <value>Нет пригодных реализаций:</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagProblem" xml:space="preserve">
-    <value>(задача)</value>
-    <comment>Automatically translated.</comment>
+    <value>(проблема)</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiagRejectedCandidates" xml:space="preserve">
     <value>Отклоненные кандидаты:</value>
@@ -115,16 +115,16 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DiagUserRequestedVersion" xml:space="preserve">
-    <value>Версия, запрошенная пользователем {0}</value>
-    <comment>Automatically translated.</comment>
+    <value>Пользователь запросил версию {0}</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DiscoveringImplementation" xml:space="preserve">
     <value>Поиск в локальной сети</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>Связки &lt;environment&gt; должны содержать либо атрибут «value», либо атрибут «insert».</value>
-    <comment>Automatically translated.</comment>
+    <value>Привязки &lt;environment&gt; должны содержать либо атрибут «value», либо атрибут «insert».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
     <value>Ошибка при загрузке каталога</value>
@@ -151,8 +151,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNotInCache" xml:space="preserve">
-    <value>Файл «{0} » не найден в кэше каналов.</value>
-    <comment>Automatically translated.</comment>
+    <value>«{0}» не найден в кэше фидов.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedNoTrustedSignatures" xml:space="preserve">
     <value>Фид '{0}' не был подписан надёжными ключами.</value>
@@ -163,12 +163,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
-    <value>Атрибут URI &lt;interface&gt; («{0} ») не совпадает с URL-адресом, с которого был загружен канал («{1} »).</value>
-    <comment>Automatically translated.</comment>
+    <value>Атрибут uri элемента &lt;interface&gt; («{0}») не совпадает с URL-адресом, с которого был загружен фид («{1}»).</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriMissing" xml:space="preserve">
-    <value>Отсутствует атрибут URI &lt;interface&gt;. Должно быть «{0} ».</value>
-    <comment>Automatically translated.</comment>
+    <value>Отсутствует атрибут uri элемента &lt;interface&gt;. Ожидается «{0}».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FetcherProblem" xml:space="preserve">
     <value>Не удалось загрузить '{0}'.</value>
@@ -203,8 +203,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRetrievalMethod" xml:space="preserve">
-    <value>Не найден способ извлечения для реализации «{0} ».</value>
-    <comment>Automatically translated.</comment>
+    <value>Не найден способ получения для реализации «{0}».</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ReplayAttack" xml:space="preserve">
     <value>Загруженный фид старее версии, уже находящейся в кэше. Мы будем использовать более новую версию.
@@ -218,8 +218,8 @@ URI фида: {0}
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
-    <value>Не удается кэшировать каталог загруженных приложений.</value>
-    <comment>Automatically translated.</comment>
+    <value>Не удаётся кэшировать загруженный каталог приложений.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToParseFeed" xml:space="preserve">
     <value>Не удалось разобрать фид, загруженный с {0}.</value>

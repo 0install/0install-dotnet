@@ -69,7 +69,7 @@
   <data name="DeleteInfoFileContent" xml:space="preserve">
     <value>Ten katalog stanowi pamięć podręczną implementacji. Uprawnienia systemu plików zostały zmienione tak, aby znajdujące się tutaj pliki były tylko do odczytu. Uniemożliwia to ich normalne usunięcie.
 
-Jeśli chcesz usunąć pojedynczy katalog, możesz użyć tego wiersza poleceń:
+Jeśli chcesz usunąć pojedynczą implementację, możesz użyć tego wiersza poleceń:
 {0}
 
 Jeśli chcesz usunąć cały katalog, możesz użyć tego wiersza poleceń:
@@ -116,8 +116,8 @@ Jeśli chcesz usunąć cały katalog bez użycia Zero Install, możesz użyć te
     <comment>Manually overriden.</comment>
   </data>
   <data name="ErrorLoadingKeyBundle" xml:space="preserve">
-    <value>Wystąpił błąd podczas wczytywania pakietu kluczy OpenPGP z adresu „{0} ”</value>
-    <comment>Automatically translated.</comment>
+    <value>Wystąpił błąd podczas wczytywania pakietu kluczy OpenPGP z „{0}”</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="FailedToUnlockFiles" xml:space="preserve">
     <value>Nie udało się odblokować używanych plików w „{0}”</value>
@@ -145,8 +145,8 @@ Aby je włączyć, uruchom polecenie „0install config feed_mirror default”.<
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>Wyszukiwanie zduplikowanych plików w programie „{0} ”</value>
-    <comment>Automatically translated.</comment>
+    <value>Wyszukiwanie zduplikowanych plików w „{0}”</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>Plik „{0} ” nie jest ani dowiązaniem symbolicznym, ani zwykłym plikiem.</value>
@@ -161,8 +161,8 @@ Aby je włączyć, uruchom polecenie „0install config feed_mirror default”.<
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
-    <value>Czy chcesz usunąć tę wersję? W razie potrzeby nowa kopia zostanie automatycznie pobrana ponownie.</value>
-    <comment>Automatically translated.</comment>
+    <value>Czy chcesz usunąć tę implementację? W razie potrzeby nowa kopia zostanie automatycznie pobrana ponownie.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedBatchInformation" xml:space="preserve">
     <value>Implementacja została usunięta. W razie potrzeby nowa kopia zostanie automatycznie pobrana ponownie.</value>
@@ -182,8 +182,8 @@ Jeśli używasz dysku sformatowanego w systemie FAT, przekonwertuj go na NTFS.</
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Nie można pobrać ikony ze strony {0}, ponieważ obsługiwane są wyłącznie adresy URL w protokołach HTTP i HTTPS.</value>
-    <comment>Automatically translated.</comment>
+    <value>Nie można pobrać ikony z {0}, ponieważ obsługiwane są wyłącznie adresy URL HTTP i HTTPS.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
     <value>Plik manifestu zawiera nieprawidłowe wiersze.</value>
@@ -251,9 +251,9 @@ Określone w pliku konfiguracyjnym „{1} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>Wystąpił problem z dostępem do magazynu implementacji „{0} ”.
-Uruchom „{1} ”, aby usunąć go z listy zarejestrowanych katalogów.</value>
-    <comment>Automatically translated.</comment>
+    <value>Wystąpił problem z dostępem do pamięci podręcznej implementacji „{0}”.
+Uruchom „{1}”, aby usunąć ją z listy zarejestrowanych katalogów.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>Wystąpił problem z załadowaniem pliku konfiguracyjnego.
@@ -294,8 +294,8 @@ Aby rozwiązać ten problem, usuń plik „{1}”. Inne ustawienia mogą równie
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Wprowadzona hasło jest nieprawidłowe.</value>
-    <comment>Automatically translated.</comment>
+    <value>Wprowadzone hasło jest nieprawidłowe.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">
     <value>Ostatnia linia pliku nie stanowi końca bloku podpisu.</value>

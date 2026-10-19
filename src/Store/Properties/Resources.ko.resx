@@ -59,8 +59,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CheckingForDamagedFiles" xml:space="preserve">
-    <value>손상된 파일 확인</value>
-    <comment>Automatically translated.</comment>
+    <value>손상된 파일 확인 중</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
     <value>파일 복사 중</value>
@@ -145,20 +145,20 @@ Zero Install을 사용하지 않고 이 디렉토리 전체를 삭제하려면 �
     <comment>Manually overriden.</comment>
   </data>
   <data name="FindingDuplicateFiles" xml:space="preserve">
-    <value>'{0}'에서 중복 파일 찾기</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}'에서 중복 파일 찾는 중</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="IllegalFileType" xml:space="preserve">
     <value>'{0}' 파일은 심볼릭 링크도 아니고 일반 파일도 아닙니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ImplementationAlreadyInStore" xml:space="preserve">
-    <value>'{0}'이라는 구현본이 이미 스토어에 등록되어 있습니다.</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}' 구현이 이미 캐시에 있습니다.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamaged" xml:space="preserve">
-    <value>'{0}' 구현에 오류가 있습니다.</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}' 구현이 손상되었습니다.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ImplementationDamagedAskRemove" xml:space="preserve">
     <value>이 구현을 제거하시겠습니까? 필요할 때 새로운 사본이 자동으로 다시 다운로드됩니다.</value>
@@ -190,8 +190,8 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidNumberOfLineParts" xml:space="preserve">
-    <value>줄에 포함된 부품 수가 유효하지 않습니다.</value>
-    <comment>Automatically translated.</comment>
+    <value>줄의 항목 수가 올바르지 않습니다.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
     <value>아카이브에 유효하지 않은 경로가 포함되어 있습니다(보안 위험이 있을 수 있음): {0}</value>
@@ -206,12 +206,12 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminToOptimise" xml:space="preserve">
-    <value>관리자만 공유 저장소를 최적화할 수 있습니다.</value>
-    <comment>Automatically translated.</comment>
+    <value>관리자만 공유 캐시를 최적화할 수 있습니다.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="MustBeAdminToRemove" xml:space="preserve">
-    <value>관리자만 공유 저장소에서 항목을 제거할 수 있습니다.</value>
-    <comment>Automatically translated.</comment>
+    <value>관리자만 공유 캐시에서 항목을 제거할 수 있습니다.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="NewlineInName" xml:space="preserve">
     <value>파일 또는 디렉터리 이름에는 줄바꿈 문자가 포함되어서는 안 됩니다.</value>
@@ -251,9 +251,9 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemAccessingStore" xml:space="preserve">
-    <value>'{0}' 구현 저장소에 액세스하는 데 문제가 발생했습니다.
-'{1}'를 실행하여 등록된 디렉터리 목록에서 해당 항목을 제거하십시오.</value>
-    <comment>Automatically translated.</comment>
+    <value>'{0}' 구현 캐시에 액세스하는 중 문제가 발생했습니다.
+'{1}'을(를) 실행하여 등록된 디렉터리 목록에서 제거하십시오.</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ProblemLoadingConfigFile" xml:space="preserve">
     <value>구성 파일 로드 중에 문제가 발생했습니다.
@@ -286,7 +286,7 @@ FAT 형식의 드라이브를 사용 중인 경우 NTFS로 변환하세요.</val
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToWriteProtect" xml:space="preserve">
-    <value>'{0}'에 대한 기록 보호를 활성화할 수 없습니다.</value>
+    <value>'{0}'에 대한 쓰기 보호를 활성화할 수 없습니다.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownInterface" xml:space="preserve">

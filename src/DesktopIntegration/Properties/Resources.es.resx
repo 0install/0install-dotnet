@@ -75,8 +75,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ApplyingChanges" xml:space="preserve">
-    <value>Aplicar cambios</value>
-    <comment>Automatically translated.</comment>
+    <value>Aplicando cambios</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="ApplyingIntegration" xml:space="preserve">
     <value>Creando integración en el escritorio para {0}</value>
@@ -120,8 +120,8 @@ Puedes cambiar la clave de cifrado utilizada en el servidor ejecutando el asiste
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncDownloading" xml:space="preserve">
-    <value>Descarga de datos de sincronización</value>
-    <comment>Automatically translated.</comment>
+    <value>Descargando datos de sincronización</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="SyncServerDataDamaged" xml:space="preserve">
     <value>Los datos almacenados actualmente en el servidor Sync están dañados.
@@ -129,15 +129,15 @@ Puedes sustituir los datos almacenados en el servidor ejecutando el asistente de
     <comment>Automatically translated.</comment>
   </data>
   <data name="SyncUploading" xml:space="preserve">
-    <value>Carga de datos de sincronización</value>
-    <comment>Automatically translated.</comment>
+    <value>Subiendo datos de sincronización</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="UnableToFindTypeID" xml:space="preserve">
     <value>No se ha podido encontrar {0} con el ID «{1} ».</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToReplaceStub" xml:space="preserve">
-    <value>No se puede sustituir el ejecutable obsoleto «{0} ».</value>
-    <comment>Automatically translated.</comment>
+    <value>No se puede sustituir el ejecutable stub obsoleto «{0}».</value>
+    <comment>Manually overriden.</comment>
   </data>
 </root>
