@@ -72,6 +72,8 @@ public class CaptureSession
         if (_diff == null || InstallationDir == null) throw new InvalidOperationException($"{nameof(Diff)}() must be called first.");
 
         _feedBuilder.GenerateCommands();
+        foreach (var command in _feedBuilder.Commands)
+            command.Path = command.Path.ToUnixPath();
 
         var commandMapper = new CommandMapper(InstallationDir, _feedBuilder.Commands);
         _feedBuilder.CapabilityList = GetCapabilityList(commandMapper, _diff);

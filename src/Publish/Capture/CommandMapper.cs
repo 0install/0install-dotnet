@@ -35,7 +35,7 @@ public class CommandMapper
         {
             if (string.IsNullOrEmpty(command.Path)) continue;
 
-            string path = Paths.Combine(installationDir, command.Path.Replace('/', Path.DirectorySeparatorChar));
+            string path = Paths.Combine(installationDir, command.Path.ToNativePath());
             string arguments = command.Arguments.Select(arg => arg.ToString()!).JoinEscapeArguments();
 
             _commands.Add(((path.EscapeArgument() + " " + arguments).Trim(), command));
