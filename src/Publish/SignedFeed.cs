@@ -80,6 +80,7 @@ public class SignedFeed
         using (var stream = new MemoryStream())
         {
             Feed.SaveXml(stream, stylesheet: "feed.xsl");
+            FeedUtils.AddXsltPolyfill(stream);
             stream.Position = 0;
 
             FeedUtils.SignFeed(stream, SecretKey, passphrase, _openPgp);

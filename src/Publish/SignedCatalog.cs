@@ -80,6 +80,7 @@ public class SignedCatalog
         using (var stream = new MemoryStream())
         {
             Catalog.SaveXml(stream, stylesheet: "catalog.xsl");
+            FeedUtils.AddXsltPolyfill(stream);
             stream.Position = 0;
 
             FeedUtils.SignFeed(stream, SecretKey, passphrase, _openPgp);

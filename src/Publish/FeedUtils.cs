@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Xml;
 using NanoByte.Common.Streams;
 using ZeroInstall.Store.Trust;
 using StoreFeedUtils = ZeroInstall.Store.Feeds.FeedUtils;
@@ -40,6 +41,49 @@ public static class FeedUtils
 
     private static void DeployEmbeddedFile(string fileName, string targetDir)
         => typeof(FeedUtils).CopyEmbeddedToFile(fileName, Paths.Combine(targetDir, fileName));
+
+    private const string XhtmlNamespace = "http://www.w3.org/1999/xhtml";
+
+    /// <summary>
+    /// The URL of a JavaScript polyfill that applies XSL stylesheets in browsers without native XSLT support.
+    /// </summary>
+    public const string XsltPolyfillUrl = "https://cdn.jsdelivr.net/npm/xslt-polyfill@1.0.31/xslt-polyfill.min.js";
+
+    /// <summary>
+    /// Adds a <c>&lt;script&gt;</c> element to the root of a feed or catalog stream that loads <see cref="XsltPolyfillUrl"/>.
+    /// Replaces any existing <c>&lt;script&gt;</c> elements on the root.
+    /// </summary>
+    /// <param name="stream">The seekable stream containing the feed or catalog. Is rewritten in place.</param>
+    /// <exception cref="XmlException">The stream does not contain valid XML.</exception>
+    public static void AddXsltPolyfill(Stream stream)
+    {
+        #region Sanity checks
+        if (stream == null) throw new ArgumentNullException(nameof(stream));
+        #endregion
+
+        var doc = new XmlDocument {PreserveWhitespace = true};
+        stream.Position = 0;
+        doc.Load(stream);
+
+        var root = doc.DocumentElement!;
+        foreach (var existing in root.ChildNodes.OfType<XmlElement>().Where(x => x is {NamespaceURI: XhtmlNamespace, LocalName: "script"}).ToList())
+        {
+            if (existing.PreviousSibling is XmlWhitespace whitespace) root.RemoveChild(whitespace);
+            root.RemoveChild(existing);
+        }
+
+        var script = doc.CreateElement("script", XhtmlNamespace);
+        script.SetAttribute("src", XsltPolyfillUrl);
+        var firstChild = root.FirstChild;
+        root.InsertBefore(script, firstChild);
+        if (firstChild is XmlWhitespace indentation)
+            root.InsertBefore(doc.CreateWhitespace(indentation.Value), script); // Keep the existing indentation
+
+        stream.Position = 0;
+        stream.SetLength(0);
+        using (var writer = XmlWriter.Create(stream, new() {CloseOutput = false, Encoding = EncodingUtils.Utf8, NewLineChars = "\n"}))
+            doc.Save(writer);
+    }
 
     /// <summary>
     /// Adds a Base64 signature to a feed or catalog stream.

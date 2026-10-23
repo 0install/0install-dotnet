@@ -43,4 +43,22 @@ public class FeedUtilsTest : TestWithMocks
 
         signedFeed.Should().Be(expectedFeed, because: "Feed should remain unchanged except for appended XML signatre");
     }
+
+    [Fact]
+    public void AddXsltPolyfill()
+    {
+        var feed = new Feed {Name = "Test", Summaries = {"Summary"}};
+
+        string result;
+        using (var stream = new MemoryStream())
+        {
+            feed.SaveXml(stream, stylesheet: "feed.xsl");
+            FeedUtils.AddXsltPolyfill(stream);
+            FeedUtils.AddXsltPolyfill(stream); // Idempotent
+            result = stream.ReadToString();
+        }
+
+        result.Should().Be(feed.ToXmlString(stylesheet: "feed.xsl")
+                               .Replace("<?xml version=\"1.0\"?>", "<?xml version=\"1.0\" encoding=\"utf-8\"?>")
+                               .Replace("\n  <name>", $"\n  <script src=\"{FeedUtils.XsltPolyfillUrl}\" xmlns=\"http://www.w3.org/1999/xhtml\" />\n  <name>"));    }
 }
