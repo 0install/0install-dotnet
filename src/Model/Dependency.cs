@@ -77,15 +77,9 @@ public partial class Dependency : Restriction, IInterfaceUriBindingContainer, IC
 
     #region Conversion
     /// <summary>
-    /// Returns the dependency in the form "Interface (Use)". Not safe for parsing!
+    /// Returns the dependency in the form "Interface, Use" (omitting unset values). Not safe for parsing!
     /// </summary>
     public override string ToString()
-        => string.Join(", ", new object?[]
-            {
-                InterfaceUri,
-                Use
-            }.Where(x => x is not 0)
-             .Select(x => x?.ToString())
-             .WhereNotNull());
+        => ModelUtils.JoinSetValues(InterfaceUri?.ToString(), Use);
     #endregion
 }

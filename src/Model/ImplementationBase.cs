@@ -95,19 +95,6 @@ public abstract partial class ImplementationBase : Element
     /// Returns the implementation in the form "Comma-separated list of set values". Not safe for parsing!
     /// </summary>
     public override string ToString()
-        => string.Join(", ", new object?[]
-            {
-                ID,
-                Architecture,
-                Version,
-                Released.ToString("d", CultureInfo.InvariantCulture),
-                ReleasedVerbatim,
-                Stability,
-                RolloutPercentage == 0 ? null : $"{RolloutPercentage}%",
-                License,
-                Main
-            }.Where(x => x is not 0)
-             .Select(x => x?.ToString())
-             .WhereNotNull());
+        => ModelUtils.JoinSetValues([ID, ..GetDisplayValues()]);
     #endregion
 }

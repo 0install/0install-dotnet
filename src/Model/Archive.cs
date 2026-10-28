@@ -138,11 +138,16 @@ public sealed partial class Archive : DownloadRetrievalMethod
 
     #region Conversion
     /// <summary>
-    /// Returns the archive in the form "Location (MimeType, Size + StartOffset, Extract) => Destination". Not safe for parsing!
+    /// Returns the archive in the form "Location (MimeType, Size + StartOffset, Extract) => Destination", omitting unset values. Not safe for parsing!
     /// </summary>
     public override string ToString()
     {
-        string result = $"{Href} ({MimeType}, {Size} + {StartOffset}, {Extract})";
+        string result = $"{Href}";
+        string details = ModelUtils.JoinSetValues(
+            MimeType,
+            StartOffset == 0 ? (Size == 0 ? null : $"{Size}") : $"{Size} + {StartOffset}",
+            Extract);
+        if (details.Length != 0) result += $" ({details})";
         if (!string.IsNullOrEmpty(Destination)) result += $" => {Destination}";
         return result;
     }

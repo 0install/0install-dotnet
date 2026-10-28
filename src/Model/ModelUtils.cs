@@ -104,4 +104,10 @@ public static class ModelUtils
         if (string.IsNullOrEmpty(source)) throw new UriFormatException(string.Format(Resources.RelativeUriUnresolvable, href));
         return new(new(Paths.Absolute(source), UriKind.Absolute), href);
     }
+
+    /// <summary>
+    /// Joins all values that have been set (skipping <c>null</c> and empty strings) into a comma-separated list.
+    /// </summary>
+    internal static string JoinSetValues(params string?[] values)
+        => string.Join(", ", values.Where(x => !string.IsNullOrEmpty(x)));
 }

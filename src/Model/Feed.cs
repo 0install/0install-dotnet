@@ -390,8 +390,8 @@ public partial class Feed : XmlUnknown, IElementContainer, ISummaryContainer, II
 
     #region Conversion
     /// <summary>
-    /// Returns the feed/interface in the form "Name (Uri)". Not safe for parsing!
+    /// Returns the feed/interface in the form "Name (Uri)", omitting the URI if it is unset. Not safe for parsing!
     /// </summary>
-    public override string ToString() => $"{Name} ({Uri})";
+    public override string ToString() => Uri == null ? $"{Name}" : $"{Name} ({Uri})";
     #endregion
 }

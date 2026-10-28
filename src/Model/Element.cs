@@ -333,4 +333,21 @@ public abstract partial class Element : TargetBase, IBindingContainer, IDependen
         UnknownElements = (UnknownElements ?? []).Concat(parent.UnknownElements ?? []);
     }
     #endregion
+
+    #region Conversion
+    /// <summary>
+    /// Returns the string representations of the release-related values in the order used by <see cref="object.ToString"/>. Values that have not been set are returned as <c>null</c>.
+    /// </summary>
+    private protected string?[] GetDisplayValues() =>
+    [
+        Architecture == default ? null : Architecture.ToString(),
+        Version?.ToString(),
+        Released == default ? null : Released.ToString("d", CultureInfo.InvariantCulture),
+        ReleasedVerbatim,
+        Stability == Stability.Unset ? null : Stability.ToString(),
+        RolloutPercentage == 0 ? null : $"{RolloutPercentage}%",
+        License,
+        Main
+    ];
+    #endregion
 }

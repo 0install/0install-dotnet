@@ -37,8 +37,8 @@ public sealed partial class SingleFile : DownloadRetrievalMethod
 
     #region Conversion
     /// <summary>
-    /// Returns the file in the form "Location (Size) => Destination". Not safe for parsing!
+    /// Returns the file in the form "Location (Size) => Destination", omitting the size if it is unset. Not safe for parsing!
     /// </summary>
-    public override string ToString() => $"{Href} ({Size}) => {Destination}";
+    public override string ToString() => Size == 0 ? $"{Href} => {Destination}" : $"{Href} ({Size}) => {Destination}";
     #endregion
 }

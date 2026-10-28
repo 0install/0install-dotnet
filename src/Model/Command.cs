@@ -123,8 +123,8 @@ public partial class Command : FeedElement, IArgBaseContainer, IBindingContainer
 
     #region Conversion
     /// <summary>
-    /// Returns the Command in the form "Name (Path)". Not safe for parsing!
+    /// Returns the Command in the form "Name (Path)", omitting the path if it is unset. Not safe for parsing!
     /// </summary>
-    public override string ToString() => $"{Name} ({Path})";
+    public override string ToString() => string.IsNullOrEmpty(Path) ? $"{Name}" : $"{Name} ({Path})";
     #endregion
 }

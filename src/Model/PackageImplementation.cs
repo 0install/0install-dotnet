@@ -106,8 +106,8 @@ public sealed partial class PackageImplementation : Element
 
     #region Conversion
     /// <summary>
-    /// Returns the implementation in the form "Package (Distributions)". Not safe for parsing!
+    /// Returns the implementation in the form "Package (Distributions)", omitting the distributions if there are none. Not safe for parsing!
     /// </summary>
-    public override string ToString() => $"{Package} ({DistributionsString})";
+    public override string ToString() => Distributions.Count == 0 ? $"{Package}" : $"{Package} ({DistributionsString})";
     #endregion
 }

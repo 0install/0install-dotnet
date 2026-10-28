@@ -57,17 +57,6 @@ public sealed partial class Group : Element, IElementContainer
     /// Returns the group in the form "Comma-separated list of set values". Not safe for parsing!
     /// </summary>
     public override string ToString()
-        => string.Join(", ", new object?[]
-            {
-                Architecture,
-                Version,
-                Released.ToString("d", CultureInfo.InvariantCulture),
-                ReleasedVerbatim,
-                Stability,
-                RolloutPercentage == 0 ? null : $"{RolloutPercentage}%",
-                License,
-                Main
-            }.Where(x => x is not 0)
-             .Select(x => x?.ToString()).WhereNotNull());
+        => ModelUtils.JoinSetValues(GetDisplayValues());
     #endregion
 }
