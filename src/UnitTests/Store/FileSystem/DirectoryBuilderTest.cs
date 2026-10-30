@@ -114,13 +114,15 @@ public class DirectoryBuilderTest : IDisposable
         _manifestBuilder.Manifest[""].Keys.Should().Equal("._file");
     }
 
-    [Fact]
-    public void KeepsFileNamedLikeAppleDoubleWithDifferentCase()
+    [Theory]
+    [InlineData(false)]
+    [InlineData(true)]
+    public void KeepsFileNamedLikeAppleDoubleWithDifferentCase(bool forcePortable)
     {
-        Assert.SkipUnless(WindowsUtils.IsWindows, "Case-insensitive name resolution is Windows-specific");
+        var builder = CreateBuilder(forcePortable);
 
-        _builder.AddFile("file", DataStream, modifiedTime: 1337);
-        _builder.AddFile("._FILE", "metadata".ToStream(), modifiedTime: 1337);
+        builder.AddFile("file", DataStream, modifiedTime: 1337);
+        builder.AddFile("._FILE", "metadata".ToStream(), modifiedTime: 1337);
 
         Directory.GetFiles(_tempDir).Select(Path.GetFileName).Should().BeEquivalentTo("file", "._FILE");
         _manifestBuilder.Manifest[""].Keys.Should().BeEquivalentTo("file", "._FILE");
@@ -504,25 +506,28 @@ public class DirectoryBuilderTest : IDisposable
                 .Should().Throw<IOException>();
     }
 
-    [Fact]
-    public void RejectsCaseCollisions()
+    [Theory]
+    [InlineData(false)]
+    [InlineData(true)]
+    public void RejectsCaseCollisions(bool forcePortable)
     {
-        Assert.SkipUnless(WindowsUtils.IsWindows, "Case-insensitive name resolution is Windows-specific");
+        Assert.SkipUnless(forcePortable || WindowsUtils.IsWindows, "Only Windows is known to resolve names case-insensitively on all test machines");
+        var builder = CreateBuilder(forcePortable);
 
-        _builder.AddDirectory("dir");
-        _builder.AddFile(Path.Combine("dir", "file"), DataStream, modifiedTime: 1337);
+        builder.AddDirectory("dir");
+        builder.AddFile(Path.Combine("dir", "file"), DataStream, modifiedTime: 1337);
 
-        _builder.Invoking(x => x.AddDirectory("DIR")).Should().Throw<IOException>();
-        _builder.Invoking(x => x.AddFile(Path.Combine("DIR", "new"), DataStream, modifiedTime: 0)).Should().Throw<IOException>();
-        _builder.Invoking(x => x.AddFile(Path.Combine("dir", "FILE"), "other".ToStream(), modifiedTime: 0)).Should().Throw<IOException>();
-        _builder.Invoking(x => x.AddSymlink(Path.Combine("dir", "FILE"), "target")).Should().Throw<IOException>();
-        _builder.Invoking(x => x.AddHardlink(Path.Combine("dir", "FILE"), Path.Combine("dir", "file"))).Should().Throw<IOException>();
-        _builder.Invoking(x => x.AddHardlink("link", Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
-        _builder.Invoking(x => x.Rename("DIR", "dir2")).Should().Throw<IOException>();
-        _builder.Invoking(x => x.Rename(Path.Combine("dir", "file"), Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
-        _builder.Invoking(x => x.Remove(Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
-        _builder.Invoking(x => x.MarkAsExecutable(Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
-        _builder.Invoking(x => x.TurnIntoSymlink(Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
+        builder.Invoking(x => x.AddDirectory("DIR")).Should().Throw<IOException>();
+        builder.Invoking(x => x.AddFile(Path.Combine("DIR", "new"), DataStream, modifiedTime: 0)).Should().Throw<IOException>();
+        builder.Invoking(x => x.AddFile(Path.Combine("dir", "FILE"), "other".ToStream(), modifiedTime: 0)).Should().Throw<IOException>();
+        builder.Invoking(x => x.AddSymlink(Path.Combine("dir", "FILE"), "target")).Should().Throw<IOException>();
+        builder.Invoking(x => x.AddHardlink(Path.Combine("dir", "FILE"), Path.Combine("dir", "file"))).Should().Throw<IOException>();
+        builder.Invoking(x => x.AddHardlink("link", Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
+        builder.Invoking(x => x.Rename("DIR", "dir2")).Should().Throw<IOException>();
+        builder.Invoking(x => x.Rename(Path.Combine("dir", "file"), Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
+        builder.Invoking(x => x.Remove(Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
+        builder.Invoking(x => x.MarkAsExecutable(Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
+        builder.Invoking(x => x.TurnIntoSymlink(Path.Combine("dir", "FILE"))).Should().Throw<IOException>();
 
         Verify([
             new TestDirectory("dir")
@@ -532,19 +537,84 @@ public class DirectoryBuilderTest : IDisposable
         ]);
     }
 
-    [Fact]
-    public void RejectsShortNameAliases()
+    [Theory]
+    [InlineData(false)]
+    [InlineData(true)]
+    public void RejectsShortNameAliases(bool forcePortable)
     {
         Assert.SkipUnless(WindowsUtils.IsWindows, "8.3 short names are Windows-specific");
+        var builder = CreateBuilder(forcePortable);
 
-        _builder.AddFile("longfilename.txt", DataStream, modifiedTime: 1337);
+        builder.AddFile("longfilename.txt", DataStream, modifiedTime: 1337);
         Assert.SkipUnless(File.Exists(Path.Combine(_tempDir, "LONGFI~1.TXT")), "8.3 short name generation is disabled on this volume");
 
-        _builder.Invoking(x => x.AddFile("LONGFI~1.TXT", "other".ToStream(), modifiedTime: 0)).Should().Throw<IOException>();
-        _builder.Invoking(x => x.Remove("LONGFI~1.TXT")).Should().Throw<IOException>();
+        builder.Invoking(x => x.AddFile("LONGFI~1.TXT", "other".ToStream(), modifiedTime: 0)).Should().Throw<IOException>();
+        builder.Invoking(x => x.Remove("LONGFI~1.TXT")).Should().Throw<IOException>();
 
         Verify([
             new TestFile("longfilename.txt") { Contents = Data, LastWrite = 1337 }
+        ]);
+    }
+
+    [Theory]
+    [InlineData("t", "T", false)]
+    [InlineData("t", "T", true)]
+    [InlineData("é", "é", false)]
+    [InlineData("é", "é", true)]
+    public void DiskMatchesManifestDespiteAliases(string name, string alias, bool forcePortable)
+    {
+        var builder = CreateBuilder(forcePortable);
+
+        // Would leave "evil" in A/f on disk while the manifest says "good" if the file system resolved the alias to the same entry
+        var rejected = new List<int>();
+        Action[] steps =
+        [
+            () => builder.AddDirectory(name),
+            () => builder.AddDirectory(alias),
+            () => builder.AddFile(Path.Combine(alias, "f"), "good".ToStream(), modifiedTime: 0),
+            () => builder.AddFile(Path.Combine(name, "f"), "evil".ToStream(), modifiedTime: 0),
+            () => builder.Rename(alias, "A"),
+            () => builder.AddDirectory(name),
+            () => builder.Remove(name)
+        ];
+        for (int i = 0; i < steps.Length; i++)
+        {
+            try
+            {
+                steps[i]();
+            }
+            catch (IOException)
+            {
+                rejected.Add(i);
+            }
+        }
+
+        if (forcePortable) rejected.Should().Contain(1, because: "the alias of an existing entry should be rejected");
+        var diskManifest = new ManifestBuilder(ManifestFormat.Sha1New);
+        new ReadDirectory(_tempDir, diskManifest).Run(TestContext.Current.CancellationToken);
+        diskManifest.Manifest.ToString().Should().Be(_manifestBuilder.Manifest.ToString());
+    }
+
+    [Fact]
+    public void ListingCacheStaysCorrect()
+    {
+        var builder = CreateBuilder(forcePortable: true);
+
+        builder.AddFile(Path.Combine("dir", "a"), DataStream, modifiedTime: 1337);
+        builder.Rename(Path.Combine("dir", "a"), Path.Combine("dir", "b"));
+        builder.AddFile(Path.Combine("dir", "A"), DataStream, modifiedTime: 1337); // "a" no longer exists
+        builder.Invoking(x => x.AddFile(Path.Combine("dir", "B"), DataStream, modifiedTime: 0)).Should().Throw<IOException>();
+
+        builder.Remove("dir");
+        builder.AddFile(Path.Combine("DIR", "b"), DataStream, modifiedTime: 1337); // "dir" no longer exists
+        builder.Invoking(x => x.AddFile(Path.Combine("dir", "c"), DataStream, modifiedTime: 0)).Should().Throw<IOException>();
+        builder.Invoking(x => x.AddFile(Path.Combine("DIR", "B"), DataStream, modifiedTime: 0)).Should().Throw<IOException>();
+
+        Verify([
+            new TestDirectory("DIR")
+            {
+                new TestFile("b") { Contents = Data, LastWrite = 1337 }
+            }
         ]);
     }
 
@@ -602,6 +672,13 @@ public class DirectoryBuilderTest : IDisposable
         }
         else FileUtils.CreateSymlink(link, target);
     }
+
+    /// <summary>
+    /// Creates a builder for <see cref="_tempDir"/> that feeds <see cref="_manifestBuilder"/>.
+    /// </summary>
+    /// <param name="forcePortable">Enable exact-name checks using the portable lookup, even if the file system resolves names exactly.</param>
+    private DirectoryBuilder CreateBuilder(bool forcePortable)
+        => forcePortable ? new(_tempDir, _manifestBuilder) { ForcePortableNameChecks = true } : _builder;
 
     [MustUseReturnValue]
     private static TemporaryDirectory Build(TestRoot directory)

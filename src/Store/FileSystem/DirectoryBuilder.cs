@@ -33,12 +33,50 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     /// <remarks>Matches <c>PATH_MAX</c> on Linux. Longer symlink targets would not be usable on most platforms anyway.</remarks>
     internal const int MaxSymlinkTargetSize = 4096;
 
+    /// <summary>
+    /// Enables the exact-name checks and uses <see cref="DirectoryListingCache"/> for them on any platform and file system. For unit tests.
+    /// </summary>
+    internal bool ForcePortableNameChecks { get; init; }
+
+    private bool? _checkNames;
+
+    /// <summary>
+    /// Indicates whether the file system may resolve different names to the same entry, so exact-name checks are required.
+    /// Detected lazily for <see cref="Path"/> on first use.
+    /// </summary>
+    private bool CheckNames
+        => _checkNames ??= ForcePortableNameChecks || WindowsUtils.IsWindows || DetectNameAliasing() != NameAliasing.None;
+
+    private NameAliasing DetectNameAliasing()
+    {
+        try
+        {
+            Directory.CreateDirectory(Path);
+            var aliasing = FileUtils.DetectNameAliasing(Path);
+            Log.Debug($"Name aliasing in '{Path}': {aliasing}");
+            return aliasing;
+        }
+        #region Error handling
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            Log.Warn($"Unable to detect name aliasing in '{Path}'. Assuming names are resolved case- and normalization-insensitively.", ex);
+            return NameAliasing.Case | NameAliasing.Normalization;
+        }
+        #endregion
+    }
+
+    /// <summary>
+    /// Used for exact-name checks unless <see cref="WindowsUtils.TryGetDirectoryEntry"/> can be used instead.
+    /// </summary>
+    private readonly DirectoryListingCache _listingCache = new();
+
     /// <inheritdoc/>
     public void AddDirectory(string path)
     {
         string fullPath = GetFullPath(path);
         if (IsLink(fullPath)) throw new IOException(string.Format(Resources.InvalidPath, path));
         Directory.CreateDirectory(fullPath);
+        _listingCache.Added(fullPath, Path);
 
         innerBuilder?.AddDirectory(path);
     }
@@ -66,6 +104,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
 
         using (var fileStream = FileUtils.Create(fullPath, Math.Max(0, stream.Length)))
         {
+            _listingCache.Added(fullPath, Path);
             if (innerBuilder == null)
                 stream.CopyToEx(fileStream);
             else
@@ -88,6 +127,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         executable = ImplFileUtils.IsExecutable(targetAbsolute);
 
         FileUtils.CreateHardlink(sourceAbsolute, targetAbsolute);
+        _listingCache.Added(sourceAbsolute, Path);
         if (executable) ImplFileUtils.SetExecutable(targetAbsolute);
 
         innerBuilder?.AddHardlink(path, target, executable);
@@ -112,6 +152,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         {
             return false;
         }
+        _listingCache.Added(sourceAbsolute, Path);
 
         if (executable) ImplFileUtils.SetExecutable(target.FullName);
 
@@ -134,6 +175,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         ImplFileUtils.DeleteFileOrLink(sourceAbsolute);
 
         ImplFileUtils.CreateSymlink(sourceAbsolute, target, Path);
+        _listingCache.Added(sourceAbsolute, Path);
 
         innerBuilder?.AddSymlink(path, target);
     }
@@ -150,6 +192,8 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         else if (Directory.Exists(fullSourcePath))
             Directory.Move(fullSourcePath, fullTargetPath);
         else throw new IOException(string.Format(Resources.FileOrDirNotFound, path));
+        _listingCache.Removed(fullSourcePath);
+        _listingCache.Added(fullTargetPath, Path);
 
         innerBuilder?.Rename(path, target);
     }
@@ -165,6 +209,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         else if (Directory.Exists(fullPath))
             Directory.Delete(fullPath, recursive: true);
         else throw new IOException(string.Format(Resources.FileOrDirNotFound, path));
+        _listingCache.Removed(fullPath);
 
         innerBuilder?.Remove(path);
     }
@@ -207,7 +252,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     /// </summary>
     /// <param name="relativePath">The relative path to resolve.</param>
     /// <param name="allowedRoot">A directory the resulting path must be a child of.</param>
-    /// <exception cref="IOException"><paramref name="relativePath"/> is invalid (e.g. is absolute, lies outside of <paramref name="allowedRoot"/>, contains invalid characters, passes through a link, differs only in case from an existing entry on Windows).</exception>
+    /// <exception cref="IOException"><paramref name="relativePath"/> is invalid (e.g. is absolute, lies outside of <paramref name="allowedRoot"/>, contains invalid characters, passes through a link, differs only in case or Unicode normalization from an existing entry on a file system that resolves names loosely).</exception>
     private string GetFullPath(string relativePath, string allowedRoot)
     {
         if (Manifest.RejectPath(relativePath)) throw new IOException(string.Format(Resources.InvalidPath, relativePath));
@@ -236,13 +281,13 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     /// <param name="fullPath">The path to check.</param>
     /// <param name="root">The directory to start checking at.</param>
     /// <param name="checkNames">
-    /// <c>true</c> to also ensure on Windows that every existing entry below <see cref="Path"/> (including <paramref name="fullPath"/> itself) has exactly the requested name.
-    /// Windows resolves names case-insensitively and via 8.3 short names, which would otherwise let the directory on disk diverge from the manifest calculated by the inner builder.
+    /// <c>true</c> to also ensure, if <see cref="CheckNames"/> is set, that every existing entry below <see cref="Path"/> (including <paramref name="fullPath"/> itself) has exactly the requested name.
+    /// Windows and some other file systems resolve names case-insensitively or normalization-insensitively, which would otherwise let the directory on disk diverge from the manifest calculated by the inner builder.
     /// </param>
     /// <exception cref="IOException">A parent directory of <paramref name="fullPath"/> is a link or a file, or an existing entry has a different name.</exception>
     private void EnsureNoLinksInParents(string fullPath, string root, bool checkNames)
     {
-        checkNames &= WindowsUtils.IsWindows;
+        checkNames = checkNames && CheckNames;
 
         string[] parts = fullPath[(root.Length + 1)..].Split(System.IO.Path.DirectorySeparatorChar);
         string current = root;
@@ -250,9 +295,9 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         {
             current = System.IO.Path.Combine(current, parts[i]);
             FileAttributes attributes;
-            if (checkNames && WindowsUtils.IsWindows && current.StartsWith(Path + System.IO.Path.DirectorySeparatorChar))
+            if (checkNames && current.StartsWith(Path + System.IO.Path.DirectorySeparatorChar))
             {
-                if (WindowsUtils.TryGetDirectoryEntry(current) is not {} entry) return; // Remaining entries do not exist yet and will be created as needed
+                if (TryGetDirectoryEntry(current) is not {} entry) return; // Remaining entries do not exist yet and will be created as needed
                 if (entry.Name != parts[i])
                 {
                     string relative = current[(Path.Length + 1)..];
@@ -289,7 +334,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     /// Determines whether <paramref name="fullPath"/> is an AppleDouble file (<c>._name</c>) for an existing file or link (<c>name</c>).
     /// Matches the rule <see cref="ManifestBuilder"/> uses to leave AppleDouble files out of the manifest.
     /// </summary>
-    private static bool IsAppleDoubleFile(string fullPath)
+    private bool IsAppleDoubleFile(string fullPath)
         => System.IO.Path.GetFileName(fullPath).StartsWith(ManifestBuilder.AppleDoublePrefix, out string? name)
         && name.Length != 0
         && IsFileOrLink(Paths.Combine(Paths.Parent(fullPath), name));
@@ -298,49 +343,59 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     /// Deletes the AppleDouble file (<c>._name</c>) for <paramref name="fullPath"/> (<c>name</c>) if there is one.
     /// Matches the rule <see cref="ManifestBuilder"/> uses to remove AppleDouble files from the manifest.
     /// </summary>
-    private static void DeleteAppleDoubleFile(string fullPath)
+    private void DeleteAppleDoubleFile(string fullPath)
     {
         string appleDoublePath = Paths.Combine(Paths.Parent(fullPath), ManifestBuilder.AppleDoublePrefix + System.IO.Path.GetFileName(fullPath));
         if (IsFileOrLink(appleDoublePath))
         {
             Log.Debug($"Deleting AppleDouble file '{appleDoublePath}'");
             ImplFileUtils.DeleteFileOrLink(appleDoublePath);
+            _listingCache.Removed(appleDoublePath);
         }
     }
 
     /// <summary>
     /// Determines whether <paramref name="fullPath"/> is an existing file or link (but not a regular directory) with exactly the requested name, without following links.
     /// </summary>
-    private static bool IsFileOrLink(string fullPath)
+    private bool IsFileOrLink(string fullPath)
     {
         FileAttributes attributes;
-        if (WindowsUtils.IsWindows)
+        try
         {
-            string name = System.IO.Path.GetFileName(fullPath);
-            if (name.Length > MaxWindowsNameLength) return false; // Cannot exist and would make the lookup fail
-            if (WindowsUtils.TryGetDirectoryEntry(fullPath) is not {} entry || entry.Name != name) return false; // Windows resolves names case-insensitively and via 8.3 short names
-            attributes = entry.Attributes;
-        }
-        else
-        {
-            try
+            if (CheckNames)
+            {
+                string name = System.IO.Path.GetFileName(fullPath);
+                if (name.Length > MaxNameLength) return false; // Cannot exist and would make the lookup fail
+                if (TryGetDirectoryEntry(fullPath) is not {} entry || entry.Name != name) return false; // The file system resolves names loosely
+                attributes = entry.Attributes;
+            }
+            else
             {
                 if (TryGetAttributes(fullPath) is not {} existing) return false;
                 attributes = existing;
             }
-            catch (PathTooLongException)
-            {
-                return false;
-            }
+        }
+        catch (PathTooLongException)
+        {
+            return false;
         }
 
         return attributes.HasFlag(FileAttributes.ReparsePoint) || !attributes.HasFlag(FileAttributes.Directory);
     }
 
     /// <summary>
-    /// The maximum length of a file or directory name on Windows.
+    /// The maximum length of a file or directory name on Windows and most Unix file systems.
     /// </summary>
-    private const int MaxWindowsNameLength = 255;
+    private const int MaxNameLength = 255;
+
+    /// <summary>
+    /// Looks up a directory entry the way the file system resolves names, without following links.
+    /// </summary>
+    /// <returns>The name as stored on disk and the attributes; <c>null</c> if the entry does not exist.</returns>
+    private (string Name, FileAttributes Attributes)? TryGetDirectoryEntry(string fullPath)
+        => WindowsUtils.IsWindows && !ForcePortableNameChecks
+            ? WindowsUtils.TryGetDirectoryEntry(fullPath)
+            : _listingCache.TryGetDirectoryEntry(fullPath);
 
     /// <summary>
     /// Gets the attributes of a file system entry without following links.
