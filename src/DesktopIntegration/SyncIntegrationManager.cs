@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Net.Http.Headers;
 using ICSharpCode.SharpZipLib.Zip;
 using NanoByte.Common.Dispatch;
 using NanoByte.Common.Net;
@@ -111,7 +112,7 @@ public class SyncIntegrationManager : IntegrationManager
             HandleDownloadedAppList(data ?? [], resetClient: resetMode == SyncResetMode.Client);
 
             if (resetMode != SyncResetMode.Client)
-                UploadAppList(uri, etag);
+                UploadAppList(uri, etag, overwrite: resetMode == SyncResetMode.Server);
         }, maxRetries: 3);
 
         // Save reference point for future syncs
@@ -158,7 +159,10 @@ public class SyncIntegrationManager : IntegrationManager
     /// <summary>
     /// Upload the encrypted AppList back to the server (unless the client was reset)
     /// </summary>
-    private void UploadAppList(Uri uri, string? lastEtag)
+    /// <param name="uri">The URI to upload to.</param>
+    /// <param name="lastEtag">The ETag of the data previously downloaded from the server; <c>null</c> if there was none.</param>
+    /// <param name="overwrite">Set to <c>true</c> to replace any existing data on the server, even if it was created by another client in the meantime.</param>
+    private void UploadAppList(Uri uri, string? lastEtag, bool overwrite)
     {
         var memoryStream = new MemoryStream();
         AppList.SaveXmlZip(memoryStream, Config.SyncCryptoKey);
@@ -176,6 +180,7 @@ public class SyncIntegrationManager : IntegrationManager
                 memoryStream.Position = 0;
                 var request = new HttpRequestMessage(HttpMethod.Put, uri) {Content = new StreamContent(memoryStream)};
                 if (!string.IsNullOrEmpty(lastEtag)) request.Headers.IfMatch.Add(new(lastEtag));
+                else if (!overwrite) request.Headers.IfNoneMatch.Add(EntityTagHeaderValue.Any); // Detect data created by another client in the meantime
 
                 using var response = _httpClient.Send(request, Handler.CancellationToken);
                 if (response.StatusCode == HttpStatusCode.PreconditionFailed) throw new SyncRaceException();
