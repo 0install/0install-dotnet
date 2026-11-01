@@ -1,6 +1,13 @@
 name: Build
 on: [push, pull_request]
 
+permissions:
+  contents: write
+  packages: write
+  checks: write
+  actions: read
+  id-token: write
+
 jobs:
   build:
     strategy:
@@ -117,9 +124,14 @@ jobs:
       - name: Publish packages (GitHub)
         if: runner.os == 'Windows' && github.event_name == 'push' && !startsWith(github.ref_name, 'renovate/')
         run: dotnet nuget push artifacts\Release\*.nupkg --source https://nuget.pkg.github.com/${{github.repository_owner}}/index.json --api-key ${{github.token}} --no-symbols --skip-duplicate
+      - uses: NuGet/login@v1
+        if: runner.os == 'Windows' && github.ref_type == 'tag'
+        id: nuget_login
+        with:
+          user: ${{secrets.NUGET_USER}}
       - name: Publish packages (NuGet.org)
         if: runner.os == 'Windows' && github.ref_type == 'tag'
-        run: dotnet nuget push artifacts\Release\*.nupkg --source nuget.org --api-key ${{secrets.NUGET_API_KEY}}
+        run: dotnet nuget push artifacts\Release\*.nupkg --source nuget.org --api-key ${{steps.nuget_login.outputs.NUGET_API_KEY}}
       - uses: 0install/github-actions/0repo-submit@v1
         if: runner.os == 'Windows' && github.ref_type == 'tag'
         with:
