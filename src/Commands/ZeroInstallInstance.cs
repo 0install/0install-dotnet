@@ -24,7 +24,7 @@ public static class ZeroInstallInstance
     /// </summary>
     public static ImplementationVersion Version { get; }
         = GetZeroInstallForWindowsVersion()
-       ?? new(AppInfo.CurrentLibrary.Version ?? "1.0.0-pre");
+       ?? new(AppInfo.Load(typeof(ZeroInstallInstance).Assembly).Version ?? "1.0.0-pre");
 
     private static ImplementationVersion? GetZeroInstallForWindowsVersion()
     {
