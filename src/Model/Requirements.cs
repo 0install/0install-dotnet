@@ -4,7 +4,9 @@
 using NanoByte.Common.Values;
 using ZeroInstall.Model.Design;
 
-#if !MINIMAL
+#if NET
+using System.Text.Json.Serialization;
+#elif !MINIMAL
 using Newtonsoft.Json;
 #endif
 
@@ -22,7 +24,9 @@ public partial record Requirements
     /// </summary>
     [Description("The URI or local path (must be absolute) to the interface to solve the dependencies for.")]
     [XmlIgnore]
-#if !MINIMAL
+#if NET
+    [JsonPropertyName("interface")]
+#elif !MINIMAL
     [JsonProperty("interface")]
 #endif
     public required FeedUri InterfaceUri { get; set; }
@@ -33,7 +37,9 @@ public partial record Requirements
     [Description("The name of the command in the implementation to execute. Will default to 'run' or 'compile' if null. Will not try to find any command if set to ''.")]
     [TypeConverter(typeof(CommandNameConverter))]
     [XmlAttribute("command")]
-#if !MINIMAL
+#if NET
+    [JsonPropertyName("command")]
+#elif !MINIMAL
     [JsonProperty("command")]
 #endif
     public string? Command { get; set; }
@@ -68,7 +74,9 @@ public partial record Requirements
     /// </summary>
     [Description("Message to display when interacting with user.")]
     [XmlElement("message")]
-#if !MINIMAL
+#if NET
+    [JsonPropertyName("message"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+#elif !MINIMAL
     [JsonProperty("message", DefaultValueHandling = DefaultValueHandling.Ignore)]
 #endif
     public string? Message { get; set; }
@@ -89,17 +97,20 @@ public partial record Requirements
     /// <summary>Used for XML and JSON serialization.</summary>
     /// <seealso cref="Languages"/>
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), EditorBrowsable(EditorBrowsableState.Never), IgnoreEquality]
-    [DefaultValue("")]
-#if !MINIMAL
+#if NET
+    [JsonPropertyName("langs"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+#elif !MINIMAL
     [JsonProperty("langs", DefaultValueHandling = DefaultValueHandling.Ignore)]
 #endif
-    public string LanguagesString { get => Languages.ToString(); set => Languages = new LanguageSet(value); }
+    public string? LanguagesString { get => Languages.Count == 0 ? null : Languages.ToString(); set => Languages = new LanguageSet(value ?? ""); }
 
     /// <summary>Used for XML and JSON serialization.</summary>
     /// <seealso cref="Architecture"/>
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     [DefaultValue(false), XmlAttribute("source")]
-#if !MINIMAL
+#if NET
+    [JsonPropertyName("source")]
+#elif !MINIMAL
     [JsonProperty("source")]
 #endif
     public bool Source
@@ -111,20 +122,24 @@ public partial record Requirements
     /// <summary>Used for XML and JSON serialization.</summary>
     /// <seealso cref="Architecture"/>
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    [DefaultValue("*"), XmlAttribute("os")]
-#if !MINIMAL
+    [XmlAttribute("os")]
+#if NET
+    [JsonPropertyName("os"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+#elif !MINIMAL
     [JsonProperty("os", DefaultValueHandling = DefaultValueHandling.Ignore)]
 #endif
-    public string OSString { get => Architecture.OS.ConvertToString(); set => Architecture = Architecture with {OS = value.ConvertFromString<OS>()}; }
+    public string? OSString { get => Architecture.OS == OS.All ? null : Architecture.OS.ConvertToString(); set => Architecture = Architecture with {OS = value?.ConvertFromString<OS>() ?? OS.All}; }
 
     /// <summary>Used for XML and JSON serialization.</summary>
     /// <seealso cref="Architecture"/>
     [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    [DefaultValue("*"), XmlAttribute("machine")]
-#if !MINIMAL
+    [XmlAttribute("machine")]
+#if NET
+    [JsonPropertyName("cpu"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+#elif !MINIMAL
     [JsonProperty("cpu", DefaultValueHandling = DefaultValueHandling.Ignore)]
 #endif
-    public string CpuString { get => Architecture.Cpu.ConvertToString(); set => Architecture = Architecture with {Cpu = value.ConvertFromString<Cpu>()}; }
+    public string? CpuString { get => Architecture.Cpu == Cpu.All ? null : Architecture.Cpu.ConvertToString(); set => Architecture = Architecture with {Cpu = value?.ConvertFromString<Cpu>() ?? Cpu.All}; }
     #endregion
 
     /// <summary>
@@ -132,7 +147,9 @@ public partial record Requirements
     /// </summary>
     [Description("The ranges of versions of specific sub-implementations that can be chosen.")]
     [XmlIgnore]
-#if !MINIMAL
+#if NET
+    [JsonPropertyName("extra_restrictions")]
+#elif !MINIMAL
     [JsonProperty("extra_restrictions")]
 #endif
     [UnorderedEquality]
