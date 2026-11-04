@@ -1,6 +1,8 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.Text.RegularExpressions;
+
 namespace ZeroInstall.DesktopIntegration.ViewModel;
 
 /// <summary>
@@ -51,12 +53,48 @@ public partial class IntegrationState
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
     public void ApplyChanges()
     {
+        var (toAdd, toRemove) = CollectChanges();
+
+        if (toRemove.Any()) _integrationManager.RemoveAccessPoints(AppEntry, toRemove);
+        if (toAdd.Any()) _integrationManager.AddAccessPoints(AppEntry, Feed, toAdd);
+    }
+
+    /// <summary>
+    /// Checks whether <see cref="ApplyChanges"/> would run into a conflict, without changing anything on the system.
+    /// </summary>
+    /// <exception cref="ConflictException">One or more of the new <see cref="AccessPoints.AccessPoint"/>s would cause a conflict with the existing <see cref="AccessPoints.AccessPoint"/>s in <see cref="IIntegrationManager.AppList"/>.</exception>
+    /// <exception cref="InvalidDataException">An <see cref="AccessPoints.AccessPoint"/> reference to a <see cref="Capability"/> is invalid.</exception>
+    public void CheckForConflicts()
+    {
+        var (toAdd, toRemove) = CollectChanges();
+
+        // Same condition under which IntegrationManager skips applying access points
+        if (AppEntry.Hostname != null && !Regex.IsMatch(Environment.MachineName, AppEntry.Hostname)) return;
+
+        try
+        {
+            // ApplyChanges() performs removals first, so changing an access point does not conflict with its own old version
+            var appList = _integrationManager.AppList.Clone();
+            var appEntry = appList[AppEntry.InterfaceUri];
+            appEntry.AccessPoints?.Entries.Remove(toRemove);
+
+            appList.CheckForConflicts(toAdd, appEntry);
+        }
+        #region Error handling
+        catch (KeyNotFoundException ex)
+        {
+            // Wrap exception since only certain exception types are allowed
+            throw new InvalidDataException(ex.Message, ex);
+        }
+        #endregion
+    }
+
+    private (List<AccessPoints.AccessPoint> toAdd, List<AccessPoints.AccessPoint> toRemove) CollectChanges()
+    {
         List<AccessPoints.AccessPoint> toAdd = [], toRemove = [];
         (CapabilityRegistration ? toAdd : toRemove).Add(new AccessPoints.CapabilityRegistration());
         CollectCommandAccessPointChanges(toAdd, toRemove);
         CollectDefaultAccessPointChanges(toAdd, toRemove);
-
-        if (toRemove.Any()) _integrationManager.RemoveAccessPoints(AppEntry, toRemove);
-        if (toAdd.Any()) _integrationManager.AddAccessPoints(AppEntry, Feed, toAdd);
+        return (toAdd, toRemove);
     }
 }
