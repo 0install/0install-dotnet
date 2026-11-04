@@ -68,8 +68,7 @@ public abstract partial class CliCommand : ScopedOperation
     {
         get
         {
-            using var buffer = new MemoryStream();
-            var writer = new StreamWriter(buffer);
+            using var writer = new StringWriter();
             writer.WriteLine($"{Resources.Usage} 0install {FullName} {Usage}");
             writer.WriteLine();
             writer.WriteLine(Description);
@@ -81,7 +80,7 @@ public abstract partial class CliCommand : ScopedOperation
             }
             writer.Flush();
 
-            return buffer.ReadToString();
+            return writer.ToString();
         }
     }
 
