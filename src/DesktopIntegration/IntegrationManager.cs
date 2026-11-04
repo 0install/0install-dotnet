@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using NanoByte.Common.Native;
@@ -305,7 +306,17 @@ public class IntegrationManager : IntegrationManagerBase
             if (Handler.Verbosity != Verbosity.Batch && appEntry.CapabilityLists.CompatibleCapabilities().OfType<AppRegistration>().FirstOrDefault()?.ID is {} appId)
             {
                 Log.Info("Asking user to set Default App manually using Windows Settings UI", windowsDefaultAppError);
-                new ProcessStartInfo($"ms-settings:defaultapps?registeredAppUser={Uri.EscapeDataString(appId)}") {UseShellExecute = true}.Start();
+                try
+                {
+                    // Not using ProcessUtils.Start(), because it treats null as a failure but activating a URI usually returns no process handle
+                    Process.Start(new ProcessStartInfo($"ms-settings:defaultapps?registeredAppUser={Uri.EscapeDataString(appId)}") {UseShellExecute = true});
+                }
+                #region Error handling
+                catch (Win32Exception ex)
+                {
+                    Log.Warn("Failed to open Windows Settings UI", ex);
+                }
+                #endregion
             }
             else
                 Log.Error(windowsDefaultAppError);
