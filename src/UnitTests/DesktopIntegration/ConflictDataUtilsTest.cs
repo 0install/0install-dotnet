@@ -55,7 +55,8 @@ public sealed class ConflictDataUtilsTest
         var appEntry2 = new AppEntry {Name = "App2", InterfaceUri = FeedTest.Test2Uri};
 
         var appList = new AppList {Entries = {appEntry1}};
-        Assert.Throws<ConflictException>(() => appList.CheckForConflicts([accessPointA], appEntry2));
+        Assert.Throws<ConflictException>(() => appList.CheckForConflicts([accessPointA], appEntry2))
+              .Message.Should().Contain($"{accessPointA} in App1").And.Contain($"{accessPointA} in App2");
     }
 
     [Fact]

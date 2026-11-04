@@ -10,4 +10,10 @@ namespace ZeroInstall.DesktopIntegration;
 /// </summary>
 /// <param name="AccessPoint">The <see cref="AccessPoints.AccessPoint"/> causing the conflict.</param>
 /// <param name="AppEntry">The application containing the <paramref name="AccessPoint"/>.</param>
-public sealed record ConflictData(AccessPoint AccessPoint, AppEntry AppEntry);
+public sealed record ConflictData(AccessPoint AccessPoint, AppEntry AppEntry)
+{
+    /// <summary>
+    /// Returns the entry in the form "AccessPoint in AppName". Safe for displaying to the user.
+    /// </summary>
+    public override string ToString() => $"{AccessPoint} in {AppEntry.Name}";
+}
