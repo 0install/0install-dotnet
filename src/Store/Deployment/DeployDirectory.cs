@@ -4,6 +4,10 @@
 using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Manifests;
 
+#if NET
+using NanoByte.Common.Native;
+#endif
+
 namespace ZeroInstall.Store.Deployment;
 
 /// <summary>
@@ -21,6 +25,11 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
     /// The path of the destination directory. May already exist.
     /// </summary>
     public string DestinationPath { get; } = destinationPath;
+
+    /// <summary>
+    /// Makes the deployed files and directories accessible to all users on Unixoid systems, regardless of the permissions of the source files and the current umask.
+    /// </summary>
+    public bool SharedAccess { get; init; }
 
     private readonly Stack<string> _createdDirectories = [];
     private readonly Stack<(string source, string destination)> _pendingFileRenames = [];
@@ -43,6 +52,7 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
         string tempManifestPath = Randomize(manifestPath);
         _pendingFileRenames.Push((tempManifestPath, manifestPath));
         Manifest.Save(tempManifestPath);
+        ApplySharedMode(tempManifestPath, executable: false);
 
         try
         {
@@ -72,6 +82,7 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
                 Directory.CreateDirectory(destinationDir);
                 _createdDirectories.Push(destinationDir);
             }
+            ApplySharedMode(destinationDir, executable: true);
 
             foreach ((string path, var element) in directory)
             {
@@ -88,6 +99,7 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
                         File.SetLastWriteTimeUtc(tempPath, file.ModifiedTime);
 
                         if (file is ManifestExecutableFile) ImplFileUtils.SetExecutable(tempPath);
+                        ApplySharedMode(tempPath, file is ManifestExecutableFile);
                         break;
 
                     case ManifestSymlink:
@@ -102,6 +114,23 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
             if (ImplFileUtils.IsSymlink(sourcePath, out string? symlinkTarget))
                 ImplFileUtils.CreateSymlink(tempPath, symlinkTarget, DestinationPath);
         }
+    }
+
+    /// <summary>
+    /// Applies a fixed Unix mode to a file or directory if <see cref="SharedAccess"/> is enabled.
+    /// </summary>
+    /// <param name="path">The path of the file or directory. Must not be a symlink.</param>
+    /// <param name="executable"><c>true</c> for directories and executable files; <c>false</c> for other files.</param>
+    private void ApplySharedMode(string path, bool executable)
+    {
+#if NET
+        if (SharedAccess && UnixUtils.IsUnix)
+        {
+            const UnixFileMode readWrite = UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.GroupRead | UnixFileMode.OtherRead;
+            const UnixFileMode execute = UnixFileMode.UserExecute | UnixFileMode.GroupExecute | UnixFileMode.OtherExecute;
+            File.SetUnixFileMode(path, executable ? readWrite | execute : readWrite);
+        }
+#endif
     }
 
     /// <inheritdoc/>

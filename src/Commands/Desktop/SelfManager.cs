@@ -82,7 +82,7 @@ public partial class SelfManager : ManagerBase
                     ServiceStop();
 
                 using var clearDir = new ClearDirectory(TargetDir, oldManifest, Handler);
-                using var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler);
+                using var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler) {SharedAccess = MachineWide};
                 deployDir.Stage();
                 clearDir.Stage();
                 if (Portable) FileUtils.Touch(Paths.Combine(TargetDir, Locations.PortableFlagName));
