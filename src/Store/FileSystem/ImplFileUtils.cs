@@ -198,6 +198,22 @@ public static class ImplFileUtils
     }
 
     /// <summary>
+    /// Determines whether a file or a link (even a dangling one) exists at a path. Unlike <see cref="File.Exists"/>, this also handles directory links.
+    /// </summary>
+    internal static bool IsFileOrLink(string fullPath)
+    {
+        try
+        {
+            var attributes = File.GetAttributes(fullPath);
+            return !attributes.HasFlag(FileAttributes.Directory) || attributes.HasFlag(FileAttributes.ReparsePoint);
+        }
+        catch (Exception ex) when (ex is FileNotFoundException or DirectoryNotFoundException)
+        {
+            return false;
+        }
+    }
+
+    /// <summary>
     /// Deletes a file or a link (without following it) if it exists. Does not delete regular directories.
     /// </summary>
     internal static void DeleteFileOrLink(string fullPath)
