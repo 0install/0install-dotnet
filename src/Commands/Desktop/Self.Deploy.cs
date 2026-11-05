@@ -92,10 +92,10 @@ partial class Self
             else if (UnixUtils.IsMacOSX)
             {
                 string applications = _machineWide ? "/Applications" : Paths.Combine(Locations.HomeDir, "Applications");
-                return Paths.Combine(applications, "Zero Install");
+                return Paths.Combine(applications, "Zero Install.app");
             }
             else if (UnixUtils.IsUnix)
-                return _machineWide ? "/usr/share/zero-install" : Paths.Combine(Locations.HomeDir, ".zero-install");
+                return _machineWide ? "/usr/local/lib/zero-install" : Paths.Combine(Locations.HomeDir, ".zero-install");
             else throw new PlatformNotSupportedException();
         }
 
