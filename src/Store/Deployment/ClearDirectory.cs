@@ -1,6 +1,7 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using ZeroInstall.Store.FileSystem;
 using ZeroInstall.Store.Manifests;
 
 namespace ZeroInstall.Store.Deployment;
@@ -31,12 +32,12 @@ public class ClearDirectory(string path, Manifest manifest, ITaskHandler handler
             var filesToDelete = GetFilesToDelete().ToList();
             if (filesToDelete.Count == 0) return;
 
-            UnlockFiles(filesToDelete);
+            UnlockFiles(filesToDelete.Where(File.Exists));
 
             Handler.RunTask(ForEachTask.Create(Resources.DeletingObsoleteFiles, filesToDelete, path =>
             {
                 string tempPath = Randomize(path);
-                File.Move(path, tempPath);
+                ImplFileUtils.MoveFileOrLink(path, tempPath);
                 _pendingFilesDeletes.Push((path, tempPath));
             }));
         }
@@ -64,7 +65,7 @@ public class ClearDirectory(string path, Manifest manifest, ITaskHandler handler
             foreach (string elementName in directory.Keys)
             {
                 string path = Paths.Combine(fullDirectoryPath, elementName);
-                if (File.Exists(path)) yield return path;
+                if (ImplFileUtils.IsFileOrLink(path)) yield return path;
             }
         }
     }
@@ -74,7 +75,7 @@ public class ClearDirectory(string path, Manifest manifest, ITaskHandler handler
     {
         Log.Debug($"Committing atomic clearing of directory {Path}");
 
-        _pendingFilesDeletes.PopEach(x => File.Delete(x.backupPath));
+        _pendingFilesDeletes.PopEach(x => ImplFileUtils.DeleteFileOrLink(x.backupPath));
         _pendingDirectoryDeletes.PopEach(path =>
         {
             if (Directory.Exists(path) && Directory.GetFileSystemEntries(path).Length == 0)
@@ -91,7 +92,7 @@ public class ClearDirectory(string path, Manifest manifest, ITaskHandler handler
         {
             try
             {
-                File.Move(x.backupPath, x.path);
+                ImplFileUtils.MoveFileOrLink(x.backupPath, x.path);
             }
             #region Error handling
             catch (Exception ex)
