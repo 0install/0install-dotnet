@@ -130,8 +130,8 @@ public class EnvironmentBuilderTest : TestWithRedirect
         }
         else
         {
-            startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_exec-in-var"].Should().Be(execArgs.Prepend(execFile).JoinEscapeArguments());
-            startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_exec-in-path"].Should().Be(execArgs.Prepend(execFile).JoinEscapeArguments());
+            startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_exec_in_var"].Should().Be(EnvironmentBuilder.ToPosixCommandLine(execArgs.Prepend(execFile)));
+            startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_exec_in_path"].Should().Be(EnvironmentBuilder.ToPosixCommandLine(execArgs.Prepend(execFile)));
         }
         startInfo.EnvironmentVariables["PATH"].Should().Be(Locations.GetCacheDirPath("0install.net", false, "injector", "executables", "exec-in-path") + Path.PathSeparator + new ProcessStartInfo().EnvironmentVariables["PATH"]);
     }
@@ -330,5 +330,137 @@ public class EnvironmentBuilderTest : TestWithRedirect
             because: "Should combine core and additional runner arguments with application implementation directory and command path");
 
         VerifyEnvironment(startInfo, selections);
+    }
+
+    [Fact]
+    public void PosixCommandLine()
+    {
+        EnvironmentBuilder.ToPosixCommandLine(["/path/to/app", "--arg", "a,b", "1.0+x@y:z%"])
+                          .Should().Be("/path/to/app --arg a,b 1.0+x@y:z%", because: "Should not quote when not needed, for compatibility with older scripts");
+        EnvironmentBuilder.ToPosixCommandLine(["/home/müller/app", "田中", "\U0001F600"])
+                          .Should().Be("/home/müller/app 田中 \U0001F600", because: "Non-ASCII characters have no special meaning for a shell");
+        EnvironmentBuilder.ToPosixCommandLine(["/my dir/app", ""])
+                          .Should().Be("'/my dir/app' ''");
+        EnvironmentBuilder.ToPosixCommandLine(["a b", "a　b", "a\u0085b"])
+                          .Should().Be("'a b' 'a　b' 'a\u0085b'", because: "Non-ASCII whitespace should stay quoted");
+        EnvironmentBuilder.ToPosixCommandLine(["it's", @"back\slash", "$HOME", "\"quoted\"", "a=b", "*", "#", "~", "`x`", "line\nbreak"])
+                          .Should().Be("""'it'\''s' 'back\slash' '$HOME' '"quoted"' 'a=b' '*' '#' '~' '`x`' """ + "'line\nbreak'");
+    }
+
+    private const string RunEnvName = "my-tool";
+    private const string RunEnvSpecialChars = """a'b "c" \d $HOME $(false) `false` * #e ~ ;f""";
+
+    /// <summary>
+    /// Launches a run-environment executable for an implementation located in a path that needs quoting.
+    /// </summary>
+    /// <returns>The arguments received by the implementation's executable.</returns>
+    /// <param name="tempDir">The directory to place the implementation in.</param>
+    /// <param name="binding">The binding that provides the run-environment executable.</param>
+    /// <param name="shellCommand">The command to launch the executable with. Uses sh, since some implementations of it (e.g. dash) remove variables with names that are not valid in a shell from the environment.</param>
+    private static string[] RunRunEnvExecutable(string tempDir, Binding binding, string shellCommand)
+    {
+        string implementationPath = Path.Combine(tempDir, "it's my dir");
+        Directory.CreateDirectory(implementationPath);
+        string appPath = Path.Combine(implementationPath, "app");
+        File.WriteAllText(appPath, "#!/bin/sh\nprintf '%s\\n' \"$@\"\n");
+        FileUtils.SetExecutable(appPath, true);
+
+        var selections = new Selections
+        {
+            InterfaceUri = FeedTest.Test1Uri,
+            Command = Command.NameRun,
+            Implementations =
+            {
+                new()
+                {
+                    InterfaceUri = FeedTest.Test1Uri,
+                    ID = "test",
+                    Version = new("1.0"),
+                    ManifestDigest = new(Sha256New: "123"),
+                    Bindings = {new EnvironmentBinding {Name = "TEST_SPECIAL", Value = RunEnvSpecialChars}, binding},
+                    Commands = {new() {Name = Command.NameRun, Path = "app", Arguments = {"arg with space", "", "$TEST_SPECIAL"}}}
+                }
+            }
+        };
+        var storeMock = new Mock<IImplementationStore>(MockBehavior.Loose);
+        storeMock.Setup(x => x.GetPath(It.IsAny<ManifestDigest>())).Returns(implementationPath);
+
+        var startInfo = new EnvironmentBuilder(storeMock.Object).Inject(selections).ToStartInfo();
+        startInfo.FileName = "sh";
+        startInfo.Arguments = new[] {"-c", shellCommand}.JoinEscapeArguments();
+        startInfo.RedirectStandardOutput = true;
+        startInfo.UseShellExecute = false;
+
+        using var process = Process.Start(startInfo)!;
+        string output = process.StandardOutput.ReadToEnd();
+        process.WaitForExit();
+        process.ExitCode.Should().Be(0);
+
+        return output.TrimEnd('\n').Split('\n');
+    }
+
+    private static string[] ExpectedRunEnvArgs => ["arg with space", "", RunEnvSpecialChars, "extra arg"];
+
+    private static string GetRunEnvPath(string name)
+        => Path.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables", name), name);
+
+    [Fact]
+    public void RunEnvExecutableInPath()
+    {
+        Assert.SkipUnless(UnixUtils.IsUnix, "Tests the run-environment script used on Unix");
+
+        using var tempDir = new TemporaryDirectory("0install-test-runenv");
+        RunRunEnvExecutable(tempDir, new ExecutableInPath {Name = RunEnvName}, $"{RunEnvName} 'extra arg'")
+           .Should().Equal(ExpectedRunEnvArgs);
+    }
+
+    [Fact]
+    public void RunEnvExecutableInPathSpecialName()
+    {
+        Assert.SkipUnless(UnixUtils.IsUnix, "Tests the run-environment script used on Unix");
+
+        using var tempDir = new TemporaryDirectory("0install-test-runenv");
+        RunRunEnvExecutable(tempDir, new ExecutableInPath {Name = "my töol's"}, "\"my töol's\" 'extra arg'")
+           .Should().Equal(ExpectedRunEnvArgs);
+    }
+
+    [Fact]
+    public void RunEnvVarName()
+    {
+        EnvironmentBuilder.GetRunEnvVarName("my_Tool2").Should().Be("ZEROINSTALL_RUNENV_my_Tool2");
+        EnvironmentBuilder.GetRunEnvVarName("my-tool").Should().Be("ZEROINSTALL_RUNENV_my_tool");
+        EnvironmentBuilder.GetRunEnvVarName("my töol's").Should().Be("ZEROINSTALL_RUNENV_my_t__ol_s", because: "Should replace each UTF-8 byte individually");
+    }
+
+    [Fact]
+    public void RunEnvExecutableInVar()
+    {
+        Assert.SkipUnless(UnixUtils.IsUnix, "Tests the run-environment script used on Unix");
+
+        using var tempDir = new TemporaryDirectory("0install-test-runenv");
+        RunRunEnvExecutable(tempDir, new ExecutableInVar {Name = "MY_TOOL"}, "\"$MY_TOOL\" 'extra arg'")
+           .Should().Equal(ExpectedRunEnvArgs);
+    }
+
+    /// <summary>
+    /// Ensures scripts left behind by older versions are replaced when deploying but not modified while they might be running.
+    /// </summary>
+    [Fact]
+    public void RunEnvReplacesOlderScripts()
+    {
+        Assert.SkipUnless(UnixUtils.IsUnix, "Tests the run-environment script used on Unix");
+
+        string[] oldScript = ["#!/bin/bash", "env_var_name=ZEROINSTALL_RUNENV_$(basename $0)", "${!env_var_name} \"$@\""];
+        string templatePath = Path.Combine(Locations.GetCacheDirPath("0install.net", false, "injector", "executables"), "runenv.sh.template");
+        File.WriteAllLines(templatePath, oldScript);
+        string otherPath = GetRunEnvPath("other-tool");
+        FileUtils.CreateHardlink(GetRunEnvPath(RunEnvName), templatePath);
+        FileUtils.CreateHardlink(otherPath, templatePath);
+
+        using var tempDir = new TemporaryDirectory("0install-test-runenv");
+        RunRunEnvExecutable(tempDir, new ExecutableInPath {Name = RunEnvName}, $"{RunEnvName} 'extra arg'")
+           .Should().Equal(ExpectedRunEnvArgs);
+
+        File.ReadAllLines(otherPath).Should().Equal(oldScript, because: "Scripts not being deployed may be in use and must not be overwritten in-place");
     }
 }

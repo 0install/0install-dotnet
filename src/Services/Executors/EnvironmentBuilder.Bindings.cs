@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Diagnostics;
+using System.Text;
 using NanoByte.Common.Native;
 using NanoByte.Common.Streams;
 using ZeroInstall.Model.Selection;
@@ -249,7 +250,16 @@ public partial class EnvironmentBuilder
             if (WindowsUtils.IsWindows)
                 typeof(Executor).CopyEmbeddedToFile("runenv.exe.template", path);
             else
-                File.WriteAllLines(path, ["#!/bin/bash", "env_var_name=ZEROINSTALL_RUNENV_$(basename $0)", "${!env_var_name} \"$@\""]);
+            {
+                using var atomic = new AtomicWrite(path);
+                File.WriteAllLines(atomic.WritePath, [
+                    "#!/bin/bash",
+                    // Must match GetRunEnvVarName()
+                    "env_var_name=ZEROINSTALL_RUNENV_$(basename \"$0\" | LC_ALL=C tr -c 'a-zA-Z0-9_\\n' _)",
+                    "eval \"${!env_var_name} \\\"\\$@\\\"\""
+                ]);
+                atomic.Commit();
+            }
         }
         #region Error handling
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException && File.Exists(path))
@@ -276,10 +286,31 @@ public partial class EnvironmentBuilder
                 EnvironmentVariables[$"ZEROINSTALL_RUNENV_FILE_{exeName}"] = fileName;
                 EnvironmentVariables[$"ZEROINSTALL_RUNENV_ARGS_{exeName}"] = arguments;
             }
-            else EnvironmentVariables[$"ZEROINSTALL_RUNENV_{exeName}"] = commandLine.JoinEscapeArguments();
+            else EnvironmentVariables[GetRunEnvVarName(exeName)] = ToPosixCommandLine(commandLine);
         }
         _pendingRunEnvs.Clear();
     }
+
+    /// <summary>
+    /// Gets the name of the environment variable holding the command-line for a run-environment script on Unix.
+    /// </summary>
+    internal static string GetRunEnvVarName(string exeName)
+        => "ZEROINSTALL_RUNENV_" + new string(Encoding.UTF8.GetBytes(exeName)
+                                                      .Select(b => (char)b is >= 'a' and <= 'z' or >= 'A' and <= 'Z' or >= '0' and <= '9' or '_' ? (char)b : '_')
+                                                      .ToArray());
+
+    /// <summary>
+    /// Joins a command-line into a string that a POSIX shell can <c>eval</c> to get the same arguments back.
+    /// </summary>
+    /// <remarks>Arguments that do not need quoting are kept as they are, so that simple command-lines also work with run-environment scripts written by older versions, which only split at whitespace.</remarks>
+    internal static string ToPosixCommandLine(IEnumerable<string> commandLine)
+        => string.Join(" ", commandLine.Select(arg => arg.Length != 0 && arg.All(IsPosixShellSafe)
+            ? arg
+            : "'" + arg.Replace("'", @"'\''") + "'"));
+
+    private static bool IsPosixShellSafe(char c)
+        => c is >= 'a' and <= 'z' or >= 'A' and <= 'Z' or >= '0' and <= '9' or '_' or '-' or '.' or '/' or ':' or ',' or '+' or '@' or '%'
+        || (c > '\x7F' && !char.IsWhiteSpace(c));
 
     /// <summary>
     /// Applies a <see cref="WorkingDir"/> change to the <see cref="ProcessStartInfo"/>.
