@@ -69,7 +69,7 @@ public static class ZeroInstallEnvironment
     /// <param name="path">The directory where the Zero Install instance is located. Leave <c>null</c> for the currently running instance.</param>
     /// <remarks>Usually (but not guaranteed to be) different for multiple instances deployed in different <paramref name="path"/>s.</remarks>
     public static string MutexName(string? path = null)
-        => "0install-" + (path ?? Locations.InstallBase).ToLowerInvariant().GetHashCode();
+        => "0install-" + (path ?? Locations.InstallBase).ToLowerInvariant().GetStableHashCode();
 
     /// <summary>
     /// Name for an <see cref="AppMutex"/> to block instances of Zero Install from starting during an update.
@@ -85,7 +85,7 @@ public static class ZeroInstallEnvironment
     /// <param name="path">The directory where the Zero Install instance is located. Leave <c>null</c> for the currently running instance.</param>
     /// <remarks>Usually (but not guaranteed to be) different for multiple instances deployed in different <paramref name="path"/>s.</remarks>
     public static string LegacyMutexName(string? path = null)
-        => "mutex-" + (path ?? Locations.InstallBase).GetHashCode();
+        => "mutex-" + (path ?? Locations.InstallBase).GetStableHashCode();
 
     /// <summary>
     /// Old name for an <see cref="AppMutex"/> to block instances of Zero Install from starting during an update.
