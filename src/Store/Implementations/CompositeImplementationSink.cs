@@ -4,10 +4,6 @@
 using NanoByte.Common.Threading;
 using ZeroInstall.Store.FileSystem;
 
-#if NETFRAMEWORK
-using System.Runtime.Remoting;
-#endif
-
 namespace ZeroInstall.Store.Implementations;
 
 /// <summary>
@@ -54,12 +50,6 @@ public class CompositeImplementationSink(IReadOnlyList<IImplementationSink> sink
             {
                 innerException = ex; // Remember the last error
             }
-#if NETFRAMEWORK
-            catch (RemotingException ex)
-            {
-                innerException = ex; // Remember the last error
-            }
-#endif
             #endregion
         }
 
