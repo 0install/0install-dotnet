@@ -28,6 +28,7 @@
     <ProjectReference Include="..\DesktopIntegration\DesktopIntegration.csproj" />
     <ProjectReference Include="..\Commands\Commands.csproj" />
     <ProjectReference Include="..\Publish\Publish.csproj" />
+    <ProjectReference Include="..\Bootstrap\Bootstrap.csproj" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='net48'">
     <Reference Include="System.Net.Http" />
