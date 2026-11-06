@@ -27,7 +27,7 @@ public class Central : CliCommand
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
-        if (_machineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
+        if (_machineWide && !OSUtils.IsAdmin)
             throw new NotAdminException(Resources.MustBeAdminForMachineWide);
 
         var startInfo = ProcessUtils.Assembly(

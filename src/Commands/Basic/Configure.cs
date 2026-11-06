@@ -44,7 +44,7 @@ public class Configure : CliCommand
                 break;
 
             case [var key, var value]:
-                if (_machineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
+                if (_machineWide && !OSUtils.IsAdmin)
                     throw new NotAdminException(Resources.MustBeAdminForMachineWide);
 
                 SetOption(config, key, value);

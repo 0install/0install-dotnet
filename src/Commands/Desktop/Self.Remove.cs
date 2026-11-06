@@ -47,7 +47,7 @@ partial class Self
                 return ExitCode.NoChanges;
             }
 
-            if (MachineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
+            if (MachineWide && !OSUtils.IsAdmin)
                 throw new NotAdminException(Resources.MustBeAdminForMachineWide);
 
             if (!Handler.Ask(Resources.AskRemoveZeroInstall, defaultAnswer: true))
