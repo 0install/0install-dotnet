@@ -47,6 +47,9 @@ Integrating applications with [desktop environments](https://docs.0install.net/d
 Command-line interface for Zero Install.  
 The binary in this package serves both as an actual CLI and a library for building other clients.
 
+[![ZeroInstall.Bootstrap](https://img.shields.io/nuget/v/ZeroInstall.Bootstrap.svg?label=ZeroInstall.Bootstrap)](https://www.nuget.org/packages/ZeroInstall.Bootstrap/)  
+Library for building bootstrappers that download and run Zero Install or an application using Zero Install.
+
 [![ZeroInstall.Publish](https://img.shields.io/nuget/v/ZeroInstall.Publish.svg?label=ZeroInstall.Publish)](https://www.nuget.org/packages/ZeroInstall.Publish/)  
 Utilities for creating and modifying feed files.  
 The [Zero Install Publishing Tools](https://github.com/0install/0publish-win) (including the Feed Editor) are built upon this library. You can use this to automate complex feed creation/update tasks.
