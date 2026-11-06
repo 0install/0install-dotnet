@@ -23,12 +23,13 @@ public sealed partial class BootstrapProcess : ServiceProvider
     /// <returns>The exit status code to end the process with.</returns>
     public ExitCode Execute(IEnumerable<string> args)
     {
-        LoadConfig();
         _userArgs.Add(_options.Parse(args));
         if (_machineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator) throw new NotAdminException();
 
+        // May switch to machine-wide mode, so this needs to happen before handling config
         if (BootstrapConfig.Instance.CustomizableStorePath && !_prepareOffline) CustomizeStorePath();
 
+        LoadConfig();
         SaveConfig();
         TrustKeys();
 
@@ -45,7 +46,7 @@ public sealed partial class BootstrapProcess : ServiceProvider
         }
         #endregion
 
-        if (BootstrapConfig.Instance.AppUri == null) ApplySharedOptions();
+        if (_appUri == null) ApplySharedOptions();
         if (_offline) Config.NetworkUse = NetworkLevel.Offline;
 
         if (_prepareOffline) return ExecuteExport();
@@ -60,9 +61,9 @@ public sealed partial class BootstrapProcess : ServiceProvider
     {
         var args = new List<string> {"export", "--refresh"};
 
-        if (BootstrapConfig.Instance.AppUri is {} appUri)
+        if (_appUri != null)
         {
-            args.Add(appUri.ToStringRfc());
+            args.Add(_appUri.ToStringRfc());
             if (_appVersion != null) args.Add($"--version={_appVersion}");
             args.Add("--include-zero-install");
         }
@@ -81,9 +82,9 @@ public sealed partial class BootstrapProcess : ServiceProvider
     /// </summary>
     private ExitCode ExecuteIntegrate()
     {
-        if (BootstrapConfig.Instance is {AppUri: {} appUri, IntegrateArgs: {} integrateArgs} && !_noIntegrate)
+        if (_appUri != null && BootstrapConfig.Instance.IntegrateArgs is {} integrateArgs && !_noIntegrate)
         {
-            var args = new List<string> { "integrate", appUri.ToStringRfc(), "--no-download" };
+            var args = new List<string> {"integrate", _appUri.ToStringRfc(), "--no-download"};
             if (_machineWide) args.Add("--machine");
             args.Add(ProcessUtils.SplitArguments(_integrateArgs ?? integrateArgs));
 
@@ -125,13 +126,13 @@ public sealed partial class BootstrapProcess : ServiceProvider
     {
         var args = new List<string>();
 
-        if (BootstrapConfig.Instance is {AppUri: {} appUri, AppArgs: var appArgs})
+        if (_appUri != null)
         {
             args.Add(_noRun ? "download" : "run");
             if (_appVersion != null) args.AddRange(["--version", _appVersion.ToString()]);
             if (!_noRun && _handler.IsGui && !_wait) args.Add("--no-wait");
-            args.Add(appUri.ToStringRfc());
-            if (!_noRun) args.Add(ProcessUtils.SplitArguments(appArgs));
+            args.Add(_appUri.ToStringRfc());
+            if (!_noRun) args.Add(ProcessUtils.SplitArguments(BootstrapConfig.Instance.AppArgs));
         }
 
         args.Add(_userArgs);

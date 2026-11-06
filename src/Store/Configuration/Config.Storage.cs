@@ -74,6 +74,18 @@ partial class Config
     }
 
     /// <summary>
+    /// Reads options from the config file in the user-specific location.
+    /// </summary>
+    /// <exception cref="IOException">A problem occurred while reading the file.</exception>
+    /// <exception cref="UnauthorizedAccessException">Read access to the file is not permitted.</exception>
+    /// <exception cref="InvalidDataException">The file contains invalid config values.</exception>
+    public void ReadFromFilesUserOnly()
+    {
+        string path = Locations.GetSaveConfigPath(AppName, isFile: true, Resource);
+        if (File.Exists(path)) ReadFromFile(path);
+    }
+
+    /// <summary>
     /// Stores the last INI data loaded by <see cref="ReadFromFile"/>, so that unknown values can be preserved on re-saving.
     /// </summary>
     [NonSerialized]
