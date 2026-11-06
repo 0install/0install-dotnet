@@ -131,6 +131,21 @@ public class ClearDirectoryTest : DirectoryOperationTestBase
     }
 
     [Fact]
+    public void PendingDeletes()
+    {
+        using var operation = new ClearDirectory(TempDir, Manifest, new SilentTaskHandler());
+        operation.Stage();
+
+        var pendingDeletes = operation.PendingDeletes.ToList();
+        pendingDeletes.Take(2).Should().OnlyContain(path => File.Exists(path), because: "Backup files should be listed first.");
+
+        var directories = pendingDeletes.Skip(2).ToList();
+        directories.Should().OnlyContain(path => Directory.Exists(path));
+        directories[0].Should().Be(SubdirPath, because: "Deepest directories should be listed first.");
+        directories[directories.Count - 1].Should().Be(TempDir);
+    }
+
+    [Fact]
     public void MissingFiles()
     {
         TempDir.Dispose();

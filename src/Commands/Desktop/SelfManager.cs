@@ -4,6 +4,11 @@
 using ZeroInstall.Store;
 using ZeroInstall.Store.Deployment;
 
+#if NET
+using System.Runtime.Versioning;
+using NanoByte.Common.Native;
+#endif
+
 namespace ZeroInstall.Commands.Desktop;
 
 /// <summary>
@@ -142,6 +147,9 @@ public partial class SelfManager : ManagerBase
                 clearDir.Stage();
                 DeleteServiceLogFiles();
                 if (Portable) File.Delete(Paths.Combine(TargetDir, Locations.PortableFlagName));
+#if NET
+                if (UnixUtils.IsUnix && FileUtils.PathEquals(TargetDir, Locations.InstallBase)) ExecCommit(clearDir);
+#endif
                 clearDir.Commit();
             }
 
@@ -156,6 +164,44 @@ public partial class SelfManager : ManagerBase
            MutexRelease();
         }
     }
+
+#if NET
+    /// <summary>
+    /// Replaces the current process with a shell that deletes the files <paramref name="clearDir"/> has staged for deletion.
+    /// This avoids running any more managed code after the assemblies have been deleted.
+    /// </summary>
+    /// <exception cref="IOException">The shell could not be started. The staged changes can still be rolled back.</exception>
+    /// <exception cref="UnauthorizedAccessException">The shell could not be started. The staged changes can still be rolled back.</exception>
+    [SupportedOSPlatform("linux"), SupportedOSPlatform("freebsd"), SupportedOSPlatform("macos")]
+    [DoesNotReturn]
+    private void ExecCommit(ClearDirectory clearDir)
+    {
+        (Handler as ICommandHandler)?.CloseUI();
+
+        string[] commandLine = GetDeleteCommandLine(clearDir.PendingDeletes);
+        Log.Debug($"Replacing current process with shell to delete: {TargetDir}");
+        UnixUtils.Exec(commandLine[0], commandLine[1..]);
+    }
+
+    /// <summary>
+    /// Gets a Unix command-line that deletes files and links, and directories if they are empty.
+    /// </summary>
+    /// <param name="paths">The paths to delete in the order in which to delete them.</param>
+    /// <returns>The command-line. Exits with <see cref="ExitCode.IOError"/> if it is unable to delete a file.</returns>
+    internal static string[] GetDeleteCommandLine(IEnumerable<string> paths)
+        => [
+            "/bin/sh",
+            "-c",
+            // Not a multi-line string, because that would pick up the line endings of this source file
+            "trap '' HUP INT TERM TTOU; stty echo icanon iexten isig 2>/dev/null; status=0; "
+          + "for path in \"$@\"; do "
+          + "if [ -d \"$path\" ] && [ ! -L \"$path\" ]; then rmdir -- \"$path\" 2>/dev/null; "
+          + $"else rm -f -- \"$path\" || status={(int)ExitCode.IOError}; fi; "
+          + "done; exit $status",
+            "0install", // $0
+            ..paths
+        ];
+#endif
 
 #if NETFRAMEWORK
     /// <summary>
