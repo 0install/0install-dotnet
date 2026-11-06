@@ -1,6 +1,7 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using IniParser.Model;
 using NanoByte.Common.Native;
 using ZeroInstall.Model.Trust;
 using ZeroInstall.Store.Configuration;
@@ -16,41 +17,51 @@ partial class BootstrapProcess
     private FeedUri SelfUpdateUri => Config.SelfUpdateUri ?? new(Config.DefaultSelfUpdateUri);
 
     /// <summary>
-    /// Loads configuration, applying bundled defaults.
+    /// Applies bundled defaults and command-line options to the configuration for this process.
     /// </summary>
     private void LoadConfig()
     {
-        Config.ReadFromFiles();
-
-        if (ApplyBootstrapConfig) Config.ReadFromBootstrapConfig();
+        if (ApplyBootstrapConfig)
+        {
+            Config.ReadFrom(BootstrapConfig.Instance.IniData);
+            Config.ReadFromGroupPolicy(); // Policies take precedence over the bootstrap config
+        }
         else Log.Info("Ignoring bootstrap config due to existing Zero Install deployment");
 
-        Config.ReadFromGroupPolicy();
+        if (_selfUpdateUri != null) Config.SelfUpdateUri = _selfUpdateUri;
+        if (_refresh) FeedManager.Refresh = true;
     }
 
     /// <summary>
-    /// Persists potentially customized Zero Install configuration.
+    /// Persists options from the <see cref="BootstrapConfig"/> and <see cref="_selfUpdateUri"/> in the config file for the current scope if applicable.
     /// </summary>
     private void SaveConfig()
     {
-        Config.Save();
+        if (!ApplyBootstrapConfig) return;
 
-        if (_machineWide)
-        {
-            Log.Info("Saving config in machine-wide location");
-            var machineConfig = new Config();
-            machineConfig.ReadFromBootstrapConfig();
-            machineConfig.ReadFromFilesMachineWideOnly();
-            if (ApplyBootstrapConfig) machineConfig.ReadFromBootstrapConfig();
-            machineConfig.SelfUpdateUri = Config.SelfUpdateUri;
-            machineConfig.Save(machineWide: true);
-        }
+        SaveBootstrapConfig(BootstrapConfig.Instance.IniData, _selfUpdateUri, _machineWide);
 
-        if (ApplyBootstrapConfig && BootstrapConfig.Instance.CatalogUri is {} catalogUri)
+        if (BootstrapConfig.Instance.CatalogUri is {} catalogUri)
         {
             Log.Info($"Setting custom catalog source: {catalogUri}");
             Services.Feeds.CatalogManager.SetSources([catalogUri], _machineWide);
         }
+    }
+
+    /// <summary>
+    /// Merges options from the <see cref="BootstrapConfig"/> into a single config file, keeping options from other sources out of it.
+    /// </summary>
+    /// <param name="iniData">The options from the <see cref="BootstrapConfig"/>.</param>
+    /// <param name="selfUpdateUri">An alternative feed URI for Zero Install that takes precedence over <paramref name="iniData"/>.</param>
+    /// <param name="machineWide"><c>true</c> to use the machine-wide config file; <c>false</c> to use the user-specific config file.</param>
+    internal static void SaveBootstrapConfig(IniData iniData, FeedUri? selfUpdateUri, bool machineWide)
+    {
+        var config = new Config();
+        if (machineWide) config.ReadFromFilesMachineWideOnly();
+        else config.ReadFromFilesUserOnly();
+        config.ReadFrom(iniData);
+        if (selfUpdateUri != null) config.SelfUpdateUri = selfUpdateUri;
+        config.Save(machineWide);
     }
 
     /// <summary>
@@ -128,8 +139,8 @@ partial class BootstrapProcess
             trust.TrustKey("88C8A1F375928691D7365C0259AA3927C24E4E1E", new("apps.0install.net"));
             if (BootstrapConfig.Instance.KeyFingerprint is {} fingerprint)
             {
-                if (BootstrapConfig.Instance.AppUri is {} appUri)
-                    trust.TrustKey(fingerprint, new(appUri.Host));
+                if (_appUri != null)
+                    trust.TrustKey(fingerprint, new(_appUri.Host));
                 else if (Config.SelfUpdateUri is {} selfUpdateUri)
                     trust.TrustKey(fingerprint, new(selfUpdateUri.Host));
             }
