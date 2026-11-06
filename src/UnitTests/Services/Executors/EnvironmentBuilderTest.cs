@@ -180,8 +180,6 @@ public class EnvironmentBuilderTest : TestWithRedirect
     [Fact]
     public void TestWrapper()
     {
-        Assert.SkipUnless(WindowsUtils.IsWindows, "Wrapper command-line parsing relies on a Win32 API and therefore will not work on non-Windows platforms");
-
         var selections = SelectionsTest.CreateTestSelections();
         AddDummyImplementation(selections);
 
