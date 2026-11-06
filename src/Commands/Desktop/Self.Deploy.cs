@@ -42,7 +42,7 @@ partial class Self
         public override ExitCode Execute()
         {
             string targetDir = GetTargetDir();
-            if (_machineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
+            if (_machineWide && !OSUtils.IsAdmin)
                 throw new NotAdminException(Resources.MustBeAdminForMachineWide);
             if (!_portable && !_library)
             {

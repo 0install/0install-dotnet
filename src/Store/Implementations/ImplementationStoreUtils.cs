@@ -70,8 +70,7 @@ public static class ImplementationStoreUtils
                CompositeImplementationStore composite => composite.Stores.Any(NeedsAdminToRemove),
                _ => store.Kind == ImplementationStoreKind.ReadOnly && store.ListAll().Any()
            }
-        && WindowsUtils.IsWindows
-        && !WindowsUtils.IsAdministrator;
+        && !OSUtils.IsAdmin;
 
     /// <summary>
     /// Checks whether an implementation directory matches the expected digest.

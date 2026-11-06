@@ -90,7 +90,7 @@ partial class BootstrapProcess
 
         if (newPath != null && IsMachineWidePath(newPath))
         {
-            if (WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator) throw new NotAdminException();
+            if (!OSUtils.IsAdmin) throw new NotAdminException();
             _machineWide = true;
         }
 

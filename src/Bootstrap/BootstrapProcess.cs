@@ -24,7 +24,7 @@ public sealed partial class BootstrapProcess : ServiceProvider
     public ExitCode Execute(IEnumerable<string> args)
     {
         _userArgs.Add(_options.Parse(args));
-        if (_machineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator) throw new NotAdminException();
+        if (_machineWide && !OSUtils.IsAdmin) throw new NotAdminException();
 
         // May switch to machine-wide mode, so this needs to happen before handling config
         if (BootstrapConfig.Instance.CustomizableStorePath && !_prepareOffline) CustomizeStorePath();
