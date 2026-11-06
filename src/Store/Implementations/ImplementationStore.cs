@@ -217,7 +217,7 @@ public partial class ImplementationStore(string path, ITaskHandler handler, bool
         return run.SavedBytes;
     }
 
-    private bool MissingAdminRights => ReadOnly && WindowsUtils.IsWindowsNT && !WindowsUtils.IsAdministrator;
+    private bool MissingAdminRights => ReadOnly && !OSUtils.IsAdmin;
 
     /// <summary>
     /// Creates string representation suitable for console output.

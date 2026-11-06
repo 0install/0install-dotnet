@@ -36,7 +36,7 @@ public abstract class IntegrationCommand : CliCommand
     {
         base.Parse(args);
 
-        if (MachineWide && WindowsUtils.IsWindows && !WindowsUtils.IsAdministrator)
+        if (MachineWide && !OSUtils.IsAdmin)
             throw new NotAdminException(Resources.MustBeAdminForMachineWide);
     }
 
