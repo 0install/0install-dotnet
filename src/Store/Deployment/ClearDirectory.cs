@@ -83,6 +83,13 @@ public class ClearDirectory(string path, Manifest manifest, ITaskHandler handler
         });
     }
 
+    /// <summary>
+    /// The paths that <see cref="StagedOperation.Commit"/> would delete after <see cref="StagedOperation.Stage"/>: files and links, followed by directories with the deepest ones first.
+    /// Directories are only to be deleted if they are empty.
+    /// </summary>
+    public IEnumerable<string> PendingDeletes
+        => _pendingFilesDeletes.Select(x => x.backupPath).Concat(_pendingDirectoryDeletes);
+
     /// <inheritdoc/>
     protected override void OnRollback()
     {
