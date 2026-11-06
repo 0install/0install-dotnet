@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Project properties -->
+  <PropertyGroup>
+    <AssemblyName>ZeroInstall.Bootstrap</AssemblyName>
+    <RootNamespace>ZeroInstall.Bootstrap</RootNamespace>
+    <Description>Library for building bootstrappers that download and run Zero Install or an application using Zero Install</Description>
+    <PackageProjectUrl>https://dotnet.0install.net/namespace_zero_install_1_1_bootstrap.html</PackageProjectUrl>
+    <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
+    <Configurations>$(Configurations);Minimal</Configurations>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0' Or '$(TargetFramework)'=='net9.0' Or '$(TargetFramework)'=='net10.0'">
+    <Nullable>enable</Nullable>
+    <EnableSingleFileAnalyzer>True</EnableSingleFileAnalyzer>
+    <IsTrimmable>True</IsTrimmable>
+  </PropertyGroup>
+
+  <!-- Dependencies -->
+  <ItemGroup>
+    <ProjectReference Include="..\Services\Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NDesk.Options.Patched" Version="0.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="BootstrapProcess.*.cs" DependentUpon="BootstrapProcess.cs" />
+    <EmbeddedResource Include="BootstrapConfig.ini" LogicalName="ZeroInstall.BootstrapConfig.ini" DependentUpon="BootstrapConfig.cs" Pack="True" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
