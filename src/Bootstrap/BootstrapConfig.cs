@@ -34,11 +34,6 @@ public record BootstrapConfig(
     long? EstimatedRequiredSpace)
 {
     /// <summary>
-    /// The feed URI of the target application to bootstrap.
-    /// </summary>
-    public FeedUri? AppUri { get; set; } = AppUri;
-
-    /// <summary>
     /// Provides a single instance of the <see cref="BootstrapConfig"/> loaded from an embedded or bundled file.
     /// </summary>
     /// <exception cref="IOException">A problem occurred while reading the file.</exception>

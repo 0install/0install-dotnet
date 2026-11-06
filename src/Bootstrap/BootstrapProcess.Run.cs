@@ -48,7 +48,7 @@ partial class BootstrapProcess
     /// </summary>
     private ProcessStartInfo? ZeroInstallDeployed(IEnumerable<string> args)
     {
-        if (_version != null || ZeroInstallDeployment.FindOther(_machineWide) is not {} deployedInstance) return null;
+        if (_version != null || _selfUpdateUri != null || ZeroInstallDeployment.FindOther(_machineWide) is not {} deployedInstance) return null;
 
         // Deployments are only discovered on Windows, where they are always launched via their .exe
         string path = Path.Combine(deployedInstance, (_handler.IsGui ? "0install-win" : "0install") + ".exe");

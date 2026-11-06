@@ -10,11 +10,20 @@ partial class BootstrapProcess
     /// <summary>The command-line argument parser used to evaluate user input.</summary>
     private readonly OptionSet _options;
 
+    /// <summary>The feed URI of the target application to bootstrap.</summary>
+    private FeedUri? _appUri = BootstrapConfig.Instance.AppUri;
+
+    /// <summary>An alternative feed URI for Zero Install. Always applies to this run, but is only persisted if the <see cref="BootstrapConfig"/> applies.</summary>
+    private FeedUri? _selfUpdateUri;
+
     /// <summary>A specific version of Zero Install to download.</summary>
     private VersionRange? _version;
 
     /// <summary>A specific version of the target application to download.</summary>
     private VersionRange? _appVersion;
+
+    /// <summary>Fetch fresh copies of all used feeds.</summary>
+    private bool _refresh;
 
     /// <summary>Arguments passed through to the target process.</summary>
     private readonly List<string> _userArgs = [];
@@ -122,7 +131,7 @@ partial class BootstrapProcess
                 }
             },
             {"o|offline", () => "Run in off-line mode, not downloading anything.", _ => _offline = true},
-            {"r|refresh", () => "Fetch fresh copies of all used feeds.", _ => FeedManager.Refresh = true},
+            {"r|refresh", () => "Fetch fresh copies of all used feeds.", _ => _refresh = true},
             {"prepare-offline", () => "Download all files required to run off-line later.", _ => _prepareOffline = true}
         };
         if (handler.IsGui)
@@ -134,9 +143,9 @@ partial class BootstrapProcess
         if (BootstrapConfig.Instance is {AppUri: not null, AppName: {} appName})
         {
             _options.Add("0install-version=", () => "Use a specific {VERSION} of Zero Install.", range => _version = new(range));
-            _options.Add("0install-feed=", () => "Specify an alternative {FEED} for Zero Install.", feed => Config.SelfUpdateUri = new(feed));
+            _options.Add("0install-feed=", () => "Specify an alternative {FEED} for Zero Install.", feed => _selfUpdateUri = new(feed));
             _options.Add("version=", () => $"Use a specific {{VERSION}} of {appName}.", range => _appVersion = new(range));
-            _options.Add("feed=", () => $"Specify an alternative {{FEED}} for {appName}.", feed => BootstrapConfig.Instance.AppUri = new(feed));
+            _options.Add("feed=", () => $"Specify an alternative {{FEED}} for {appName}.", feed => _appUri = new(feed));
             _options.Add("no-run", () => $"Do not run {appName} after downloading it.", _ => _noRun = true);
             _options.Add("s|silent", () => "Equivalent to --no-run --batch.", _ =>
             {
@@ -163,7 +172,7 @@ partial class BootstrapProcess
         else
         {
             _options.Add("version=", () => "Use a specific {VERSION} of Zero Install.", range => _version = new(range));
-            _options.Add("feed=", () => "Specify an alternative {FEED} for Zero Install.", feed => Config.SelfUpdateUri = new(feed));
+            _options.Add("feed=", () => "Specify an alternative {FEED} for Zero Install.", feed => _selfUpdateUri = new(feed));
         }
 
         // Work-around to disable interspersed arguments (needed for passing arguments through to sub-processes)
