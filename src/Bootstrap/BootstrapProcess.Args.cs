@@ -181,7 +181,7 @@ partial class BootstrapProcess
     /// </summary>
     private void ApplySharedOptions()
     {
-        foreach (string arg in _userArgs)
+        foreach (string arg in GetLeadingOptions(_userArgs))
         {
             switch (arg)
             {
@@ -209,33 +209,61 @@ partial class BootstrapProcess
     /// </summary>
     private void AddSharedOptions(IList<string> args)
     {
+        string? command = GetCommand(args);
+        var options = GetLeadingOptions(args).ToList();
+
         void AddArg(string arg, bool allowDuplicate = false)
         {
-            if (allowDuplicate || !args.Contains(arg))
+            if (allowDuplicate || !options.Contains(arg))
                 args.Insert(0, arg);
         }
 
         switch (_handler.Verbosity)
         {
-            case Verbosity.Batch when !args.Contains("-v") && !args.Contains("--verbose"):
+            case Verbosity.Batch when !options.Contains("-v") && !options.Contains("--verbose"):
                 AddArg("--batch");
                 break;
-            case Verbosity.Verbose when !args.Contains("--batch"):
+            case Verbosity.Verbose when !options.Contains("--batch"):
                 AddArg("--verbose");
                 break;
-            case Verbosity.Debug when !args.Contains("--batch"):
+            case Verbosity.Debug when !options.Contains("--batch"):
                 AddArg("--verbose");
                 AddArg("--verbose", allowDuplicate: true);
                 break;
         }
 
-        if (_handler.Background && !args.Contains("central"))
+        if (_handler.Background && command != "central")
             AddArg("--background");
 
-        if (args.Intersect(["select", "download", "run", "add", "integrate"]).Any())
+        if (command is "select" or "download" or "run" or "add" or "integrate")
         {
             if (_offline) AddArg("--offline");
             if (FeedManager.Refresh) AddArg("--refresh");
+        }
+    }
+
+    /// <summary>
+    /// Returns the 0install command in a list of arguments for 0install.
+    /// </summary>
+    internal static string? GetCommand(IEnumerable<string> args)
+        => args.FirstOrDefault(x => !x.StartsWith("-", StringComparison.Ordinal));
+
+    /// <summary>
+    /// Returns the options in a list of arguments for 0install that are intended for 0install itself, as opposed to the target application.
+    /// </summary>
+    /// <remarks>
+    /// Stops at the first non-option argument after the 0install command, usually the target application.
+    /// The value of an option specified as a separate argument (e.g., <c>--version 1.0</c>) also stops the search. This can cause options to be missed, but not misattributed.
+    /// </remarks>
+    internal static IEnumerable<string> GetLeadingOptions(IEnumerable<string> args)
+    {
+        bool foundCommand = false;
+        foreach (string arg in args)
+        {
+            if (arg == "--") yield break;
+            if (arg.StartsWith("-", StringComparison.Ordinal)) yield return arg;
+            else if (foundCommand) yield break;
+            else foundCommand = true;
         }
     }
 }

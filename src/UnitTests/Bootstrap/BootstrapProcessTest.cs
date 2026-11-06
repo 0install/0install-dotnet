@@ -19,4 +19,19 @@ public class BootstrapProcessTest
     [InlineData("88C8A1F375928691.gpg", false)]
     public void TryParseDigestDetectsDigests(string fileName, bool expected)
         => (BootstrapProcess.TryParseDigest(fileName) != null).Should().Be(expected);
+
+    [Theory]
+    [InlineData(new[] {"--batch", "run", "--offline", "vlc", "--refresh", "-v"}, new[] {"--batch", "--offline"})]
+    [InlineData(new[] {"run", "vlc", "--offline"}, new string[0])]
+    [InlineData(new[] {"--offline", "--", "--batch"}, new[] {"--offline"})]
+    [InlineData(new string[0], new string[0])]
+    public void GetLeadingOptionsIgnoresAppArguments(string[] args, string[] expected)
+        => BootstrapProcess.GetLeadingOptions(args).Should().Equal(expected);
+
+    [Theory]
+    [InlineData(new[] {"--batch", "run", "central"}, "run")]
+    [InlineData(new[] {"central"}, "central")]
+    [InlineData(new[] {"--help"}, null)]
+    public void GetCommandReturnsFirstNonOption(string[] args, string? expected)
+        => BootstrapProcess.GetCommand(args).Should().Be(expected);
 }
