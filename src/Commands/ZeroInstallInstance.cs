@@ -24,7 +24,7 @@ public static class ZeroInstallInstance
     /// </summary>
     public static ImplementationVersion Version { get; }
         = GetZeroInstallForWindowsVersion()
-       ?? new(AppInfo.Load(typeof(ZeroInstallInstance).Assembly).Version ?? "1.0.0-pre");
+       ?? ImplementationVersion.FromSemVer(AppInfo.Load(typeof(ZeroInstallInstance).Assembly).Version ?? "1.0.0-pre");
 
     private static ImplementationVersion? GetZeroInstallForWindowsVersion()
     {
@@ -34,7 +34,7 @@ public static class ZeroInstallInstance
 
         try
         {
-            return new(FileVersionInfo.GetVersionInfo(path).ProductVersion.GetLeftPartAtFirstOccurrence('+'));
+            return ImplementationVersion.FromSemVer(FileVersionInfo.GetVersionInfo(path).ProductVersion);
         }
         catch
 #endif
