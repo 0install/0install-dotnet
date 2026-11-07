@@ -25,9 +25,9 @@ public partial record Requirements
     [Description("The URI or local path (must be absolute) to the interface to solve the dependencies for.")]
     [XmlIgnore]
 #if NET
-    [JsonPropertyName("interface")]
+    [JsonPropertyName("interface_uri")]
 #elif !MINIMAL
-    [JsonProperty("interface")]
+    [JsonProperty("interface_uri")]
 #endif
     public required FeedUri InterfaceUri { get; set; }
 
@@ -75,7 +75,7 @@ public partial record Requirements
     [Description("Message to display when interacting with user.")]
     [XmlElement("message")]
 #if NET
-    [JsonPropertyName("message"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    [JsonPropertyName("message"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 #elif !MINIMAL
     [JsonProperty("message", DefaultValueHandling = DefaultValueHandling.Ignore)]
 #endif
