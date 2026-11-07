@@ -79,6 +79,8 @@ public class Selection : CliCommand
             (FeedUri interfaceUri, VersionRange range) => Requirements.ExtraRestrictions[interfaceUri] = range);
         Options.Add("language=", () => Resources.OptionLanguage,
             (CultureInfo lang) => Requirements.Languages.Add(lang));
+        Options.Add("no-packages", () => Resources.OptionNoPackages,
+            _ => Requirements.NoPackages = true);
 
         if (customizeOptions)
         {

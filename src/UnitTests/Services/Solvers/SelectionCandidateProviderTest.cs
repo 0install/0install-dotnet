@@ -155,6 +155,20 @@ public class SelectionCandidateProviderTest : TestWithMocksAndRedirect
     }
 
     [Fact]
+    public void ExcludeNativePackages()
+    {
+        var mainFeed = FeedTest.CreateTestFeed();
+        mainFeed.Feeds.Clear();
+        _feedManagerMock.Setup(x => x[FeedTest.Test1Uri]).Returns(mainFeed);
+
+        var requirements = new Requirements(FeedTest.Test1Uri, Command.NameRun) {NoPackages = true};
+
+        _provider.GetSortedCandidates(requirements).Should().Equal(
+            new SelectionCandidate(FeedTest.Test1Uri, new FeedPreferences(), (Implementation)mainFeed.Elements[0], requirements));
+        _packageManagerMock.Verify(x => x.Query(It.IsAny<PackageImplementation>(), It.IsAny<string[]>()), Times.Never(), "Package manager should not be queried");
+    }
+
+    [Fact]
     public void LookupOriginalImplementation()
     {
         var mainFeed = FeedTest.CreateTestFeed();

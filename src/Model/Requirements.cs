@@ -183,7 +183,17 @@ public partial record Requirements
             ? existingVersions.Intersect(versions)
             : versions;
 
-    // Order is not important (but is preserved), duplicate entries are not allowed (but not enforced)
+    /// <summary>
+    /// Do not select any <see cref="PackageImplementation"/>s.
+    /// </summary>
+    [Description("Do not select any native packages (implementations provided by the operating system's package manager).")]
+    [DefaultValue(false), XmlAttribute("no-packages")]
+#if NET
+    [JsonPropertyName("no_packages"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+#elif !MINIMAL
+    [JsonProperty("no_packages", DefaultValueHandling = DefaultValueHandling.Ignore)]
+#endif
+    public bool NoPackages { get; set; }
 
     /// <summary>
     /// Specifies that the selected implementations must be from one of the given distributions (e.g. Debian, RPM).
@@ -234,6 +244,7 @@ public partial record Requirements
     {
         Languages = {Languages.DefaultIfEmpty(CultureInfo.CurrentUICulture)},
         ExtraRestrictions = {ExtraRestrictions},
+        NoPackages = NoPackages,
         Distributions = {Distributions}
     };
 
@@ -265,6 +276,7 @@ public partial record Requirements
             args.AddRange(["--language", language.ToString()]);
         foreach (var (uri, range) in ExtraRestrictions)
             args.AddRange(["--version-for", uri.ToStringRfc(), range.ToString()]);
+        if (NoPackages) args.Add("--no-packages");
         args.Add(InterfaceUri.ToStringRfc());
 
         return args;
