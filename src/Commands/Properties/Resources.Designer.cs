@@ -307,7 +307,7 @@ namespace ZeroInstall.Commands.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Do you wish to remove all application files from the Zero Install cache?
-        ///These files can downloaded again if needed..
+        ///These files can be downloaded again if needed..
         /// </summary>
         public static string ConfirmPurge {
             get {
@@ -437,7 +437,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Adds an URI to the list of catalogs..
+        ///   Looks up a localized string similar to Adds a URI to the list of catalogs..
         /// </summary>
         public static string DescriptionCatalogAdd {
             get {
@@ -464,7 +464,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Removes an URI from the list of catalogs..
+        ///   Looks up a localized string similar to Removes a URI from the list of catalogs..
         /// </summary>
         public static string DescriptionCatalogRemove {
             get {
@@ -557,7 +557,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Adds an application to the application list (if missing) and integrate it into the desktop environment..
+        ///   Looks up a localized string similar to Adds an application to the application list (if missing) and integrates it into the desktop environment..
         /// </summary>
         public static string DescriptionIntegrateApp {
             get {
@@ -575,7 +575,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lists all applications currently in your application list. If an URI is given, only the application with that feed URI is shown. If a PATTERN is given, only applications containing that string in their name are shown (case insensitive)..
+        ///   Looks up a localized string similar to Lists all applications currently in your application list. If a URI is given, only the application with that feed URI is shown. If a PATTERN is given, only applications containing that string in their name are shown (case insensitive)..
         /// </summary>
         public static string DescriptionListApps {
             get {
@@ -714,7 +714,7 @@ namespace ZeroInstall.Commands.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Copies an implementation into the cache. Similar to &apos;0install store add&apos;, but the digest is extracted from the directory name.
-        ///An additional arguments specifies a custom target cache location..
+        ///An additional argument specifies a custom target cache location..
         /// </summary>
         public static string DescriptionStoreCopy {
             get {
@@ -815,7 +815,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Makes sure an implementation has not been damaged (i.e. it manifest digest has not changed)..
+        ///   Looks up a localized string similar to Makes sure an implementation has not been damaged (i.e. its manifest digest has not changed)..
         /// </summary>
         public static string DescriptionStoreVerify {
             get {
@@ -860,7 +860,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Checks for updates to the program and download them if found.
+        ///   Looks up a localized string similar to Checks for updates to the program and downloads them if found.
         ///This is similar to &apos;0install download --refresh&apos;, except that it prints information about whether any changes were found..
         /// </summary>
         public static string DescriptionUpdate {
@@ -1422,7 +1422,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Require a version of the main program earlier than {VERSION}. i.e., force the use of an old version the program..
+        ///   Looks up a localized string similar to Require a version of the main program earlier than {VERSION}. i.e., force the use of an old version of the program..
         /// </summary>
         public static string OptionBefore {
             get {
@@ -1657,7 +1657,7 @@ namespace ZeroInstall.Commands.Properties {
                 return ResourceManager.GetString("OptionNoPackages", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Require a version of the main program not earlier than {VERSION}. E.g., if you want to run version 2.0 or later, use --not-before=2.0..
         /// </summary>
