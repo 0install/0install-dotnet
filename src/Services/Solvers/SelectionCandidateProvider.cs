@@ -159,6 +159,8 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
         {
             if (element is PackageImplementation packageImplementation)
             { // Each <package-implementation> provides 0..n selection candidates
+                if (requirements.NoPackages) continue;
+
                 var externalImplementations = _packageManager.Query(packageImplementation, requirements.Distributions.ToArray());
                 foreach (var externalImplementation in externalImplementations)
                 {

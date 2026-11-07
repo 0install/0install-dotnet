@@ -151,7 +151,8 @@ public abstract class SolverRunBase(Requirements requirements, ISelectionCandida
     {
         var requirements = new Requirements(interfaceUri, command ?? Command.NameRun, _requirements.Architecture)
         {
-            Languages = {_requirements.Languages}
+            Languages = {_requirements.Languages},
+            NoPackages = _requirements.NoPackages
         };
         requirements.AddRestrictions(_requirements);
         return requirements;

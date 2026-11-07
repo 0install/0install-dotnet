@@ -1650,6 +1650,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do not select any native packages (implementations provided by the operating system&apos;s package manager)..
+        /// </summary>
+        public static string OptionNoPackages {
+            get {
+                return ResourceManager.GetString("OptionNoPackages", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Require a version of the main program not earlier than {VERSION}. E.g., if you want to run version 2.0 or later, use --not-before=2.0..
         /// </summary>
         public static string OptionNotBefore {
