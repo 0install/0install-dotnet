@@ -108,7 +108,7 @@ public sealed partial class BootstrapProcess : ServiceProvider
         if (_version == null) return;
 
         string versionFile = Path.Combine(path, "0install.exe");
-        var deployedVersion = new ImplementationVersion(FileVersionInfo.GetVersionInfo(versionFile).ProductVersion!.GetLeftPartAtFirstOccurrence('+'));
+        var deployedVersion = ImplementationVersion.FromSemVer(FileVersionInfo.GetVersionInfo(versionFile).ProductVersion!);
         if (!_version.Match(deployedVersion))
         {
             Log.Info($"Zero Install instance deployed at {path} has version {deployedVersion} that does not match desired version {_version}");
