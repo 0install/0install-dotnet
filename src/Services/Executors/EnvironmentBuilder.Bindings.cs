@@ -116,9 +116,19 @@ public partial class EnvironmentBuilder
             // Static value
             {Value: not null} => binding.Value,
             // Path inside the implementation
-            _ => Paths.Combine(implementationStore.GetPath(implementation), binding.Insert.ToNativePath() ?? "")
+            _ => GetPathInImplementation(implementation, binding.Insert)
         };
 
+        ApplyEnvironmentValue(binding, newValue);
+    }
+
+    /// <summary>
+    /// Modifies an environment variable as specified by an <see cref="EnvironmentBinding"/>.
+    /// </summary>
+    /// <param name="binding">The binding specifying the variable name, the <see cref="EnvironmentMode"/>, separator and default value.</param>
+    /// <param name="newValue">The value to set, prepend or append.</param>
+    private protected virtual void ApplyEnvironmentValue(EnvironmentBinding binding, string newValue)
+    {
         // Set the default value if the variable is not already set on the system
         if (!EnvironmentVariables.ContainsKey(binding.Name)) EnvironmentVariables.Add(binding.Name, binding.Default);
 
@@ -158,11 +168,8 @@ public partial class EnvironmentBuilder
         if (Path.GetInvalidFileNameChars().Any(invalidChar => binding.Name.Contains(invalidChar.ToString(CultureInfo.InvariantCulture))))
             throw new ExecutorException(string.Format(Resources.IllegalCharInBindingName, @"<executable-in-var>"));
 
-        string exePath = DeployRunEnvExecutable(binding.Name);
-
-        // Point variable directly to executable
-        if (EnvironmentVariables.ContainsKey(binding.Name)) Log.Warn($"Overwriting existing environment variable with <executable-in-var>: {binding.Name}");
-        EnvironmentVariables[binding.Name] = exePath;
+        string exePath = DeployExecutable(binding.Name);
+        SetExecutableVariable(binding.Name, exePath);
 
         // Tell the executable what command-line to run
         _pendingRunEnvs.Add((binding.Name, GetCommandLine(implementation, binding.Command ?? Command.NameRun)));
@@ -186,15 +193,44 @@ public partial class EnvironmentBuilder
         if (Path.GetInvalidFileNameChars().Any(invalidChar => binding.Name.Contains(invalidChar.ToString(CultureInfo.InvariantCulture))))
             throw new ExecutorException(string.Format(Resources.IllegalCharInBindingName, @"<executable-in-path>"));
 
-        string exePath = DeployRunEnvExecutable(binding.Name);
-
-        // Add executable directory to PATH variable
-        EnvironmentVariables[WindowsUtils.IsWindows ? "Path" : "PATH"] =
-            Paths.Parent(exePath) + Path.PathSeparator +
-            EnvironmentVariables[WindowsUtils.IsWindows ? "Path" : "PATH"];
+        string exePath = DeployExecutable(binding.Name);
+        AddExecutableToSearchPath(exePath);
 
         // Tell the executable what command-line to run
         _pendingRunEnvs.Add((binding.Name, GetCommandLine(implementation, binding.Command ?? Command.NameRun)));
+    }
+
+    /// <summary>
+    /// The command-lines for executables created by <see cref="ExecutableInVar"/> and <see cref="ExecutableInPath"/> bindings, with variables not yet expanded.
+    /// </summary>
+    private protected IEnumerable<(string exeName, IEnumerable<ArgBase> commandLine)> PendingRunEnvs => _pendingRunEnvs;
+
+    /// <summary>
+    /// Provides an executable for <see cref="ExecutableInVar"/> or <see cref="ExecutableInPath"/> bindings.
+    /// </summary>
+    /// <param name="name">The name of the executable (without file extensions).</param>
+    /// <returns>The fully qualified path of the executable.</returns>
+    /// <exception cref="IOException">A problem occurred while writing the file.</exception>
+    /// <exception cref="UnauthorizedAccessException">Write access to the file is not permitted.</exception>
+    private protected virtual string DeployExecutable(string name)
+        => DeployRunEnvExecutable(name);
+
+    /// <summary>
+    /// Points an environment variable to an executable for an <see cref="ExecutableInVar"/> binding.
+    /// </summary>
+    private protected virtual void SetExecutableVariable(string name, string exePath)
+    {
+        if (EnvironmentVariables.ContainsKey(name)) Log.Warn($"Overwriting existing environment variable with <executable-in-var>: {name}");
+        EnvironmentVariables[name] = exePath;
+    }
+
+    /// <summary>
+    /// Adds the directory containing an executable to the front of the search path for an <see cref="ExecutableInPath"/> binding.
+    /// </summary>
+    private protected virtual void AddExecutableToSearchPath(string exePath)
+    {
+        string name = WindowsUtils.IsWindows ? "Path" : "PATH";
+        EnvironmentVariables[name] = Paths.Parent(exePath) + Path.PathSeparator + EnvironmentVariables[name];
     }
 
     /// <summary>
@@ -286,7 +322,7 @@ public partial class EnvironmentBuilder
                 EnvironmentVariables[$"ZEROINSTALL_RUNENV_FILE_{exeName}"] = fileName;
                 EnvironmentVariables[$"ZEROINSTALL_RUNENV_ARGS_{exeName}"] = arguments;
             }
-            else EnvironmentVariables[GetRunEnvVarName(exeName)] = ToPosixCommandLine(commandLine);
+            else EnvironmentVariables[GetRunEnvVarName(exeName)] = commandLine.JoinEscapeArgumentsPosix(); // Keeps simple arguments unquoted, for run-environment scripts written by older versions, which only split at whitespace
         }
         _pendingRunEnvs.Clear();
     }
@@ -298,19 +334,6 @@ public partial class EnvironmentBuilder
         => "ZEROINSTALL_RUNENV_" + new string(Encoding.UTF8.GetBytes(exeName)
                                                       .Select(b => (char)b is >= 'a' and <= 'z' or >= 'A' and <= 'Z' or >= '0' and <= '9' or '_' ? (char)b : '_')
                                                       .ToArray());
-
-    /// <summary>
-    /// Joins a command-line into a string that a POSIX shell can <c>eval</c> to get the same arguments back.
-    /// </summary>
-    /// <remarks>Arguments that do not need quoting are kept as they are, so that simple command-lines also work with run-environment scripts written by older versions, which only split at whitespace.</remarks>
-    internal static string ToPosixCommandLine(IEnumerable<string> commandLine)
-        => string.Join(" ", commandLine.Select(arg => arg.Length != 0 && arg.All(IsPosixShellSafe)
-            ? arg
-            : "'" + arg.Replace("'", @"'\''") + "'"));
-
-    private static bool IsPosixShellSafe(char c)
-        => c is >= 'a' and <= 'z' or >= 'A' and <= 'Z' or >= '0' and <= '9' or '_' or '-' or '.' or '/' or ':' or ',' or '+' or '@' or '%'
-        || (c > '\x7F' && !char.IsWhiteSpace(c));
 
     /// <summary>
     /// Applies a <see cref="WorkingDir"/> change to the <see cref="ProcessStartInfo"/>.
@@ -329,6 +352,6 @@ public partial class EnvironmentBuilder
         // Only allow working directory to be changed once
         if (!string.IsNullOrEmpty(_startInfo.WorkingDirectory)) throw new ExecutorException(Resources.WorkingDirAlreadyChanged);
 
-        _startInfo.WorkingDirectory = Paths.Combine(implementationStore.GetPath(implementation), source);
+        _startInfo.WorkingDirectory = GetPathInImplementation(implementation, binding.Source);
     }
 }

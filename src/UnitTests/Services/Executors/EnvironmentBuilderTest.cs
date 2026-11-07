@@ -130,8 +130,8 @@ public class EnvironmentBuilderTest : TestWithRedirect
         }
         else
         {
-            startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_exec_in_var"].Should().Be(EnvironmentBuilder.ToPosixCommandLine(execArgs.Prepend(execFile)));
-            startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_exec_in_path"].Should().Be(EnvironmentBuilder.ToPosixCommandLine(execArgs.Prepend(execFile)));
+            startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_exec_in_var"].Should().Be(execArgs.Prepend(execFile).JoinEscapeArgumentsPosix());
+            startInfo.EnvironmentVariables["ZEROINSTALL_RUNENV_exec_in_path"].Should().Be(execArgs.Prepend(execFile).JoinEscapeArgumentsPosix());
         }
         startInfo.EnvironmentVariables["PATH"].Should().Be(Locations.GetCacheDirPath("0install.net", false, "injector", "executables", "exec-in-path") + Path.PathSeparator + new ProcessStartInfo().EnvironmentVariables["PATH"]);
     }
@@ -328,21 +328,6 @@ public class EnvironmentBuilderTest : TestWithRedirect
             because: "Should combine core and additional runner arguments with application implementation directory and command path");
 
         VerifyEnvironment(startInfo, selections);
-    }
-
-    [Fact]
-    public void PosixCommandLine()
-    {
-        EnvironmentBuilder.ToPosixCommandLine(["/path/to/app", "--arg", "a,b", "1.0+x@y:z%"])
-                          .Should().Be("/path/to/app --arg a,b 1.0+x@y:z%", because: "Should not quote when not needed, for compatibility with older scripts");
-        EnvironmentBuilder.ToPosixCommandLine(["/home/müller/app", "田中", "\U0001F600"])
-                          .Should().Be("/home/müller/app 田中 \U0001F600", because: "Non-ASCII characters have no special meaning for a shell");
-        EnvironmentBuilder.ToPosixCommandLine(["/my dir/app", ""])
-                          .Should().Be("'/my dir/app' ''");
-        EnvironmentBuilder.ToPosixCommandLine(["a b", "a　b", "a\u0085b"])
-                          .Should().Be("'a b' 'a　b' 'a\u0085b'", because: "Non-ASCII whitespace should stay quoted");
-        EnvironmentBuilder.ToPosixCommandLine(["it's", @"back\slash", "$HOME", "\"quoted\"", "a=b", "*", "#", "~", "`x`", "line\nbreak"])
-                          .Should().Be("""'it'\''s' 'back\slash' '$HOME' '"quoted"' 'a=b' '*' '#' '~' '`x`' """ + "'line\nbreak'");
     }
 
     private const string RunEnvName = "my-tool";

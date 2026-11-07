@@ -32,9 +32,35 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
     private List<ArgBase>? _mainCommandLine;
 
     /// <summary>
+    /// The command-line of the main implementation, with variables not yet expanded. <c>null</c> until <see cref="Inject"/> has been called.
+    /// </summary>
+    private protected IReadOnlyList<ArgBase>? MainCommandLine => _mainCommandLine;
+
+    /// <summary>
+    /// The working directory set by a <see cref="WorkingDir"/> binding, if any.
+    /// </summary>
+    private protected string? WorkingDirectory => _startInfo.WorkingDirectory.EmptyAsNull();
+
+    /// <summary>
     /// The set of <see cref="Implementation"/>s be injected into the execution environment.
     /// </summary>
     private Selections? _selections;
+
+    /// <summary>
+    /// Determines the path of a file or directory inside an implementation.
+    /// </summary>
+    /// <param name="implementation">The implementation containing the file or directory.</param>
+    /// <param name="relativePath">The path relative to the implementation's root directory, using Unix-style separators as in feeds. <c>null</c> or empty for the root directory itself.</param>
+    /// <exception cref="ImplementationNotFoundException">The <paramref name="implementation"/> is not cached yet.</exception>
+    private protected virtual string GetPathInImplementation(ImplementationSelection implementation, string? relativePath)
+        => Paths.Combine(implementationStore.GetPath(implementation), relativePath.ToNativePath() ?? "");
+
+    /// <summary>
+    /// Determines the path of a file provided by a native package manager.
+    /// </summary>
+    /// <param name="path">The absolute path as specified in the feed, using Unix-style separators.</param>
+    private protected virtual string GetPathInPackage(string path)
+        => path.ToNativePath();
 
     /// <summary>
     /// Sets the <see cref="Selections"/> to be injected.
@@ -262,10 +288,9 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
 
         if (!string.IsNullOrEmpty(command.Path))
         {
-            string path = command.Path.ToNativePath();
-            if (!implementation.ID.StartsWith(ExternalImplementation.PackagePrefix))
-                path = Paths.Combine(implementationStore.GetPath(implementation), path);
-            commandLine.Add(path);
+            commandLine.Add(implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)
+                ? GetPathInPackage(command.Path)
+                : GetPathInImplementation(implementation, command.Path));
         }
         commandLine.Add(command.Arguments);
 
