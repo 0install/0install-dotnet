@@ -39,6 +39,7 @@
     <Authors>Bastian Eicher</Authors>
     <Copyright>Copyright Bastian Eicher et al.</Copyright>
     <RepositoryUrl>https://github.com/0install/0install-dotnet</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/0install/0install-dotnet/releases/tag/$(Version)</PackageReleaseNotes>
     <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
