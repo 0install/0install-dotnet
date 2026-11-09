@@ -136,6 +136,10 @@
     <value>All components required to run {0} have been exported to '{1}'.
 You can use the import script or Bootstrap executable in '{1}' to import these files on another computer.</value>
   </data>
+  <data name="AllComponentsMaterialized" xml:space="preserve">
+    <value>All components required to run {0} have been copied to '{1}'.
+You can run '{2}' to start the program without Zero Install, also after moving the directory.</value>
+  </data>
   <data name="AlreadyInImplDirs" xml:space="preserve">
     <value>'{0}' is already in the list of custom implementation caches.</value>
   </data>
@@ -307,6 +311,10 @@ The file must have a trusted digital signature, as when fetching from the networ
   </data>
   <data name="DescriptionMaintenanceRemove" xml:space="preserve">
     <value>Removes the current instance of Zero Install from the system.</value>
+  </data>
+  <data name="DescriptionMaterialize" xml:space="preserve">
+    <value>Copies the program specified by a URI and all its dependencies into a DIRECTORY, along with a launcher script that starts the program without Zero Install.
+Running this command again with the same DIRECTORY updates its contents.</value>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
     <value>Removes all applications from the application list and undoes any desktop environment integration. Use this command to clean up the system before removing Zero Install.</value>
@@ -511,6 +519,9 @@ You may redistribute copies of this program under the terms of the GNU Lesser Ge
   </data>
   <data name="LocalPathOf" xml:space="preserve">
     <value>Local path of {0}</value>
+  </data>
+  <data name="MaterializeComplete" xml:space="preserve">
+    <value>Materialization complete.</value>
   </data>
   <data name="MissingArguments" xml:space="preserve">
     <value>Missing arguments.</value>

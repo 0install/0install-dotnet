@@ -1,0 +1,94 @@
+// Copyright Bastian Eicher et al.
+// Licensed under the GNU Lesser Public License
+
+using NDesk.Options;
+using ZeroInstall.Commands.Properties;
+using ZeroInstall.Model.Selection;
+using ZeroInstall.Services.Solvers;
+using ZeroInstall.Store.Feeds;
+using ZeroInstall.Store.FileSystem;
+using ZeroInstall.Store.Implementations;
+using ZeroInstall.Store.Manifests;
+
+namespace ZeroInstall.Commands.Basic;
+
+/// <summary>
+/// Contains integration tests for <see cref="Materialize"/>.
+/// </summary>
+public class MaterializeTest : SelectionTestBase<Materialize>
+{
+    [Fact]
+    public override void ShouldRejectTooManyArgs()
+        => Assert.Throws<OptionException>(() => Sut.Parse(["http://example.com/test1.xml", "dir", "arg1"]));
+
+    [Theory]
+    [InlineData("Linux", "my-app")]
+    [InlineData("Windows", "my-app.cmd")]
+    public void ShouldMaterialize(string os, string launcherName)
+    {
+        using var tempDir = new TemporaryDirectory("0install-test-materialize");
+        string targetDir = Path.Combine(tempDir, "target");
+        var interfaceUri = new FeedUri("http://example.com/my-app.xml");
+
+        var implementation = CreateImplementation(Path.Combine(tempDir, "store"), interfaceUri);
+        var selections = new Selections
+        {
+            InterfaceUri = interfaceUri,
+            Command = Command.NameRun,
+            Implementations = {implementation}
+        };
+
+        Requirements? actualRequirements = null;
+        GetMock<ISolver>().Setup(x => x.Solve(It.IsAny<Requirements>()))
+                          .Callback((Requirements requirements) => actualRequirements = requirements)
+                          .Returns(selections);
+        var feed = new Feed {Uri = interfaceUri, Name = "My App"};
+        GetMock<IFeedCache>().Setup(x => x.GetFeed(interfaceUri)).Returns(feed);
+        ExpectListUncached(selections);
+
+        RunAndAssert(
+            string.Format(Resources.AllComponentsMaterialized, feed.Name, targetDir, Path.Combine(targetDir, launcherName)), ExitCode.OK,
+            interfaceUri.ToStringRfc(), targetDir, $"--os={os}");
+
+        actualRequirements!.NoPackages.Should().BeFalse(because: "native packages are only excluded when requested");
+        File.Exists(Path.Combine(targetDir, launcherName)).Should().BeTrue();
+        File.Exists(Path.Combine(targetDir, implementation.ID, "app.sh")).Should().BeTrue();
+    }
+
+    /// <summary>
+    /// Creates an implementation in a store directory, named after its manifest digest, and registers it with the <see cref="IImplementationStore"/> mock.
+    /// </summary>
+    private ImplementationSelection CreateImplementation(string storeDir, FeedUri interfaceUri)
+    {
+        string buildDir = Path.Combine(storeDir, "build");
+        Directory.CreateDirectory(buildDir);
+        File.WriteAllText(Path.Combine(buildDir, "app.sh"), "#!/bin/sh\necho hello\n");
+        ImplFileUtils.SetExecutable(Path.Combine(buildDir, "app.sh"));
+
+        var builder = new ManifestBuilder(ManifestFormat.Sha256New);
+        new SilentTaskHandler().RunTask(new ReadDirectory(buildDir, builder));
+        string digest = builder.Manifest.CalculateDigest();
+        string implementationDir = Path.Combine(storeDir, digest);
+        Directory.Move(buildDir, implementationDir);
+        builder.Manifest.Save(Path.Combine(implementationDir, Manifest.ManifestFile));
+
+        var implementation = new ImplementationSelection
+        {
+            InterfaceUri = interfaceUri,
+            ID = digest,
+            Version = new("1.0"),
+            ManifestDigest = new(digest),
+            Commands = {new() {Name = Command.NameRun, Path = "app.sh"}}
+        };
+        GetMock<IImplementationStore>().Setup(x => x.GetPath(implementation.ManifestDigest)).Returns(implementationDir);
+        return implementation;
+    }
+
+    [Theory]
+    [InlineData("https://apps.0install.net/gnu/hello.xml", "hello")]
+    [InlineData("https://example.com/my%20app/feed", "feed")]
+    [InlineData("https://example.com/my%20app.xml", "my app")]
+    [InlineData("https://example.com/", "run")]
+    public void GetLauncherName(string uri, string expected)
+        => Materialize.GetLauncherName(new(uri)).Should().Be(expected);
+}

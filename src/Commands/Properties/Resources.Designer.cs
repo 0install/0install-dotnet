@@ -115,6 +115,16 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All components required to run {0} have been copied to &apos;{1}&apos;.
+        ///You can run &apos;{2}&apos; to start the program without Zero Install, also after moving the directory..
+        /// </summary>
+        public static string AllComponentsMaterialized {
+            get {
+                return ResourceManager.GetString("AllComponentsMaterialized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; is already in the list of custom implementation caches..
         /// </summary>
         public static string AlreadyInImplDirs {
@@ -607,6 +617,16 @@ namespace ZeroInstall.Commands.Properties {
         public static string DescriptionMaintenanceRemove {
             get {
                 return ResourceManager.GetString("DescriptionMaintenanceRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copies the program specified by a URI and all its dependencies into a DIRECTORY, along with a launcher script that starts the program without Zero Install.
+        ///Running this command again with the same DIRECTORY updates its contents..
+        /// </summary>
+        public static string DescriptionMaterialize {
+            get {
+                return ResourceManager.GetString("DescriptionMaterialize", resourceCulture);
             }
         }
         
@@ -1201,6 +1221,15 @@ namespace ZeroInstall.Commands.Properties {
         public static string LocalPathOf {
             get {
                 return ResourceManager.GetString("LocalPathOf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Materialization complete..
+        /// </summary>
+        public static string MaterializeComplete {
+            get {
+                return ResourceManager.GetString("MaterializeComplete", resourceCulture);
             }
         }
         
