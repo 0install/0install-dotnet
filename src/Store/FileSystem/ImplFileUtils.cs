@@ -165,7 +165,7 @@ public static class ImplFileUtils
         {
             FileUtils.CreateSymlink(sourcePath, targetPath);
         }
-        catch (IOException) when (WindowsUtils.IsWindows)
+        catch (NotAdminException) when (WindowsUtils.IsWindows)
         {
             Log.Debug($"Creating Cygwin symlink instead of NTFS symlink due to insufficient permissions: {sourcePath}");
             CygwinUtils.CreateSymlink(sourcePath, targetPath);

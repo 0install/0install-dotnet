@@ -1,7 +1,6 @@
 ﻿// Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.Diagnostics;
 using NanoByte.Common.Native;
 using NanoByte.Common.Streams;
 using ZeroInstall.FileSystem;
@@ -623,7 +622,7 @@ public class DirectoryBuilderTest : IDisposable
     {
         using var outsideDir = new TemporaryDirectory("0install-unit-test-outside");
         File.WriteAllText(Path.Combine(outsideDir, "victim"), Data);
-        CreateDirectoryLink(Path.Combine(_tempDir, "link"), outsideDir);
+        FileUtils.CreateDirectoryLink(Path.Combine(_tempDir, "link"), outsideDir);
 
         string Inside(string name) => Path.Combine("link", name);
 
@@ -650,27 +649,12 @@ public class DirectoryBuilderTest : IDisposable
     {
         using var outsideDir = new TemporaryDirectory("0install-unit-test-outside");
         File.WriteAllText(Path.Combine(outsideDir, "victim"), Data);
-        CreateDirectoryLink(Path.Combine(_tempDir, "link"), outsideDir);
+        FileUtils.CreateDirectoryLink(Path.Combine(_tempDir, "link"), outsideDir);
 
         new DirectoryBuilder(_tempDir).Remove("link");
 
         Directory.Exists(Path.Combine(_tempDir, "link")).Should().BeFalse();
         File.ReadAllText(Path.Combine(outsideDir, "victim")).Should().Be(Data);
-    }
-
-    /// <summary>
-    /// Creates a directory junction (Windows) or symlink (Unix). Simulates a link planted by a previous build step.
-    /// </summary>
-    private static void CreateDirectoryLink(string link, string target)
-    {
-        if (WindowsUtils.IsWindows)
-        {
-            var process = Process.Start(new ProcessStartInfo("cmd.exe", $"/c mklink /J \"{link}\" \"{target}\"") {UseShellExecute = false, CreateNoWindow = true, RedirectStandardOutput = true})!;
-            process.StandardOutput.ReadToEnd();
-            process.WaitForExit();
-            process.ExitCode.Should().Be(0);
-        }
-        else FileUtils.CreateSymlink(link, target);
     }
 
     /// <summary>
