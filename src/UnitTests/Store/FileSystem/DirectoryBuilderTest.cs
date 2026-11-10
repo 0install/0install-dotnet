@@ -622,26 +622,35 @@ public class DirectoryBuilderTest : IDisposable
     {
         using var outsideDir = new TemporaryDirectory("0install-unit-test-outside");
         File.WriteAllText(Path.Combine(outsideDir, "victim"), Data);
-        FileUtils.CreateDirectoryLink(Path.Combine(_tempDir, "link"), outsideDir);
+        string linkPath = Path.Combine(_tempDir, "link");
+        FileUtils.CreateDirectoryLink(linkPath, outsideDir);
 
-        string Inside(string name) => Path.Combine("link", name);
+        try
+        {
+            string Inside(string name) => Path.Combine("link", name);
 
-        _builder.Invoking(x => x.AddFile(Inside("new"), DataStream, modifiedTime: 0)).Should().Throw<IOException>();
-        _builder.Invoking(x => x.AddFile(Inside("victim"), DataStream, modifiedTime: 0)).Should().Throw<IOException>();
-        _builder.Invoking(x => x.AddDirectory(Inside("dir"))).Should().Throw<IOException>();
-        _builder.Invoking(x => x.AddSymlink(Inside("symlink"), "target")).Should().Throw<IOException>();
-        _builder.Invoking(x => x.Remove(Inside("victim"))).Should().Throw<IOException>();
-        _builder.Invoking(x => x.Rename(Inside("victim"), "stolen")).Should().Throw<IOException>();
-        _builder.Invoking(x => x.MarkAsExecutable(Inside("victim"))).Should().Throw<IOException>();
-        _builder.Invoking(x => x.TurnIntoSymlink(Inside("victim"))).Should().Throw<IOException>();
-        _builder.Invoking(x => x.AddHardlink("hardlink", Inside("victim"))).Should().Throw<IOException>();
-        _builder.AddFile("file", DataStream, modifiedTime: 0);
-        _builder.Invoking(x => x.Rename("file", Inside("planted"))).Should().Throw<IOException>();
-        _builder.Invoking(x => x.AddHardlink(Inside("planted"), "file")).Should().Throw<IOException>();
+            _builder.Invoking(x => x.AddFile(Inside("new"), DataStream, modifiedTime: 0)).Should().Throw<IOException>();
+            _builder.Invoking(x => x.AddFile(Inside("victim"), DataStream, modifiedTime: 0)).Should().Throw<IOException>();
+            _builder.Invoking(x => x.AddDirectory(Inside("dir"))).Should().Throw<IOException>();
+            _builder.Invoking(x => x.AddSymlink(Inside("symlink"), "target")).Should().Throw<IOException>();
+            _builder.Invoking(x => x.Remove(Inside("victim"))).Should().Throw<IOException>();
+            _builder.Invoking(x => x.Rename(Inside("victim"), "stolen")).Should().Throw<IOException>();
+            _builder.Invoking(x => x.MarkAsExecutable(Inside("victim"))).Should().Throw<IOException>();
+            _builder.Invoking(x => x.TurnIntoSymlink(Inside("victim"))).Should().Throw<IOException>();
+            _builder.Invoking(x => x.AddHardlink("hardlink", Inside("victim"))).Should().Throw<IOException>();
+            _builder.AddFile("file", DataStream, modifiedTime: 0);
+            _builder.Invoking(x => x.Rename("file", Inside("planted"))).Should().Throw<IOException>();
+            _builder.Invoking(x => x.AddHardlink(Inside("planted"), "file")).Should().Throw<IOException>();
 
-        Directory.GetFileSystemEntries(outsideDir).Should().Equal(Path.Combine(outsideDir, "victim"));
-        File.ReadAllText(Path.Combine(outsideDir, "victim")).Should().Be(Data);
-        ImplFileUtils.IsExecutable(Path.Combine(outsideDir, "victim")).Should().BeFalse();
+            Directory.GetFileSystemEntries(outsideDir).Should().Equal(Path.Combine(outsideDir, "victim"));
+            File.ReadAllText(Path.Combine(outsideDir, "victim")).Should().Be(Data);
+            ImplFileUtils.IsExecutable(Path.Combine(outsideDir, "victim")).Should().BeFalse();
+        }
+        finally
+        {
+            // Recursive deletion may fail on directory links
+            Directory.Delete(linkPath);
+        }
     }
 
     [Fact]

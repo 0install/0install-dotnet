@@ -35,7 +35,7 @@ public class StoreServiceTest : IDisposable
     /// </summary>
     internal static TemporaryDirectory CreateSecureDirectory()
     {
-        var directory = new TemporaryDirectory("0install-unit-test-store");
+        var directory = new TestStoreDirectory();
         if (WindowsUtils.IsWindowsNT)
         {
             var acl = new DirectorySecurity();
@@ -45,6 +45,19 @@ public class StoreServiceTest : IDisposable
             new DirectoryInfo(directory).SetAccessControl(acl);
         }
         return directory;
+    }
+
+    /// <summary>
+    /// A temporary store directory that purges its contents before deletion, since write-protected implementation directories would otherwise prevent the deletion.
+    /// </summary>
+    private sealed class TestStoreDirectory() : TemporaryDirectory("0install-unit-test-store")
+    {
+        public override void Dispose()
+        {
+            if (Directory.Exists(Path))
+                new ImplementationStore(Path, new SilentTaskHandler()).Purge();
+            base.Dispose();
+        }
     }
 
     public void Dispose()
