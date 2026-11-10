@@ -115,6 +115,16 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All components required to run {0} have been copied to &apos;{1}&apos;.
+        ///You can run &apos;{2}&apos; to start the program without Zero Install, also after moving the directory..
+        /// </summary>
+        public static string AllComponentsMaterialized {
+            get {
+                return ResourceManager.GetString("AllComponentsMaterialized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; is already in the list of custom implementation caches..
         /// </summary>
         public static string AlreadyInImplDirs {
@@ -607,6 +617,16 @@ namespace ZeroInstall.Commands.Properties {
         public static string DescriptionMaintenanceRemove {
             get {
                 return ResourceManager.GetString("DescriptionMaintenanceRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copies the program specified by a URI and all its dependencies into a DIRECTORY, along with a launcher script that starts the program without Zero Install.
+        ///Running this command again with the same DIRECTORY updates its contents..
+        /// </summary>
+        public static string DescriptionMaterialize {
+            get {
+                return ResourceManager.GetString("DescriptionMaterialize", resourceCulture);
             }
         }
         
@@ -1205,6 +1225,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Materialization complete..
+        /// </summary>
+        public static string MaterializeComplete {
+            get {
+                return ResourceManager.GetString("MaterializeComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Missing arguments..
         /// </summary>
         public static string MissingArguments {
@@ -1600,6 +1629,16 @@ namespace ZeroInstall.Commands.Properties {
         public static string OptionLibrary {
             get {
                 return ResourceManager.GetString("OptionLibrary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create links to the components in the implementation cache instead of copying them.
+        ///This is faster and saves disk space, but the program stops working when the components are removed from the cache..
+        /// </summary>
+        public static string OptionLink {
+            get {
+                return ResourceManager.GetString("OptionLink", resourceCulture);
             }
         }
         

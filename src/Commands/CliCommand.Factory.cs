@@ -13,7 +13,7 @@ partial class CliCommand
     /// </summary>
     internal static readonly string[] Names =
     [
-        Selection.Name, Download.Name, Update.Name, Run.Name, Import.Name, Export.Name, Search.Name, List.Name, CatalogMan.Name, Configure.Name, TrustMan.Name, AddFeed.Name, RemoveFeed.Name, ListFeeds.Name, Digest.Name, StoreMan.Name,
+        Selection.Name, Download.Name, Update.Name, Run.Name, Import.Name, Export.Name, Materialize.Name, Search.Name, List.Name, CatalogMan.Name, Configure.Name, TrustMan.Name, AddFeed.Name, RemoveFeed.Name, ListFeeds.Name, Digest.Name, StoreMan.Name,
         Central.Name, AddApp.Name, RemoveApp.Name, RemoveAllApps.Name, IntegrateApp.Name, AddAlias.Name, ListApps.Name, UpdateApps.Name, RepairApps.Name, SyncApps.Name, ImportApps.Name, Self.Name
     ];
 
@@ -39,6 +39,7 @@ partial class CliCommand
             Run.Name => new Run(handler),
             Import.Name => new Import(handler),
             Export.Name => new Export(handler),
+            Materialize.Name => new Materialize(handler),
             Search.Name => new Search(handler),
             List.Name => new List(handler),
             CatalogMan.Name => new CatalogMan(handler),
