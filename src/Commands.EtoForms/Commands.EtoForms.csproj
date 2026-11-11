@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Project properties -->
+  <PropertyGroup>
+    <AssemblyName>ZeroInstall.Commands.EtoForms</AssemblyName>
+    <PackageId>ZeroInstall.Commands.EtoForms</PackageId>
+    <RootNamespace>ZeroInstall.Commands.EtoForms</RootNamespace>
+    <Description>Cross-platform Eto.Forms-based GUI for Zero Install, for installing and launching applications, managing caches, etc.</Description>
+    <OutputPath>..\..\artifacts\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net10.0'">
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <Import Project="..\Resources.Designer.props" />
+
+  <!-- Global usings -->
+  <ItemGroup>
+    <Using Include="Eto.Drawing" />
+    <Using Include="Eto.Forms" />
+    <Using Include="NanoByte.Common.EtoControls" />
+    <Using Include="ZeroInstall.Commands.EtoForms.Properties" />
+  </ItemGroup>
+
+  <!-- Dependencies -->
+  <ItemGroup>
+    <ProjectReference Include="..\Commands\Commands.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NanoByte.Common.EtoForms" Version="3.4.0" />
+  </ItemGroup>
+
+  <!-- Embedded resources -->
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx" Generator="PublicResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
+    <EmbeddedResource Include="..\..\icon.ico" LogicalName="ZeroInstall.Commands.EtoForms.icon.ico" />
+  </ItemGroup>
+
+</Project>
