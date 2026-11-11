@@ -19,6 +19,9 @@ public class Materialize : Download
     /// <summary>Indicates the user wants links to the implementations instead of copies.</summary>
     private bool _link;
 
+    /// <summary>Indicates the user wants content from earlier runs that is no longer needed to be removed.</summary>
+    private bool _clean;
+
     /// <summary>
     /// Creates a new materialize command.
     /// </summary>
@@ -27,6 +30,7 @@ public class Materialize : Download
         : base(handler, outputOptions: false)
     {
         Options.Add("link", () => Resources.OptionLink, _ => _link = true);
+        Options.Add("clean", () => Resources.OptionMaterializeClean, _ => _clean = true);
     }
 
     private string? _outputPath;
@@ -49,7 +53,8 @@ public class Materialize : Download
         var materializer = new Materializer(ImplementationStore, Handler)
         {
             TargetOS = Requirements.ForCurrentSystem().Architecture.OS,
-            UseLinks = _link
+            UseLinks = _link,
+            Clean = _clean
         };
         string launcherPath = materializer.Materialize(Selections, outputPath, GetLauncherName(Requirements.InterfaceUri));
 

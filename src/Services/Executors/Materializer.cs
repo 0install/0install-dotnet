@@ -31,6 +31,13 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
     public bool UseLinks { get; init; }
 
     /// <summary>
+    /// Remove content from earlier runs that is no longer needed: implementations that are no longer selected and unneeded files in <see cref="LauncherScriptBuilder.BinDir"/>.
+    /// Also replace existing copies with links or vice versa to match <see cref="UseLinks"/>.
+    /// </summary>
+    /// <remarks>Without this, existing files are left as-is, apart from the ones being regenerated.</remarks>
+    public bool Clean { get; init; }
+
+    /// <summary>
     /// Materializes a set of selections into a directory.
     /// </summary>
     /// <param name="selections">The selections to materialize. All implementations must already be cached.</param>
@@ -72,8 +79,13 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
             launcherPath = Paths.Combine(targetDir, launcherName + wrapper.extension);
             WriteExecutable(launcherPath, wrapper.content);
         }
-        WriteExecutables(executables, Paths.Combine(targetDir, LauncherScriptBuilder.BinDir));
-        RemoveStaleImplementations(targetDir, keep: implementations.Values.Select(x => x.DirName));
+        string binDir = Paths.Combine(targetDir, LauncherScriptBuilder.BinDir);
+        WriteExecutables(executables, binDir);
+        if (Clean)
+        {
+            RemoveStaleExecutables(binDir, keep: executables.Select(x => x.name));
+            RemoveStaleImplementations(targetDir, keep: implementations.Values.Select(x => x.DirName));
+        }
         return launcherPath;
     }
 
@@ -159,6 +171,12 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
 
                 if (IsLink(destinationPath))
                 {
+                    if (!Clean)
+                    {
+                        Log.Info($"Keeping existing link instead of replacing it with a copy: {destinationPath}");
+                        continue;
+                    }
+
                     Log.Debug($"Replacing link with copy: {destinationPath}");
                     DeleteLink(destinationPath);
                 }
@@ -194,6 +212,12 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
         }
         else if (Directory.Exists(destinationPath))
         {
+            if (!Clean)
+            {
+                Log.Info($"Keeping existing copy instead of replacing it with a link: {destinationPath}");
+                return;
+            }
+
             Log.Debug($"Replacing copy with link: {destinationPath}");
             using (var operation = new ClearDirectory(destinationPath, implementation.Manifest, handler))
             {
@@ -237,16 +261,20 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
 
         foreach ((string name, byte[] content) in executables)
             WriteExecutable(Paths.Combine(binDir, name), content);
+    }
 
-        // Remove executables from earlier runs that are no longer needed. The directory is reserved for generated executables, so any other files in it are removed too.
-        if (Directory.Exists(binDir))
-        {
-            var names = executables.Select(x => x.name).ToHashSet();
-            foreach (string path in Directory.GetFiles(binDir).Where(x => !names.Contains(Path.GetFileName(x))))
-                File.Delete(path);
-            if (Directory.GetFileSystemEntries(binDir).Length == 0)
-                Directory.Delete(binDir);
-        }
+    /// <summary>
+    /// Removes executables from earlier runs that are no longer needed. The directory is reserved for generated executables, so any other files in it are removed too.
+    /// </summary>
+    private static void RemoveStaleExecutables(string binDir, IEnumerable<string> keep)
+    {
+        if (!Directory.Exists(binDir)) return;
+
+        var keepSet = keep.ToHashSet();
+        foreach (string path in Directory.GetFiles(binDir).Where(x => !keepSet.Contains(Path.GetFileName(x))))
+            File.Delete(path);
+        if (Directory.GetFileSystemEntries(binDir).Length == 0)
+            Directory.Delete(binDir);
     }
 
     private static void WriteExecutable(string path, byte[] content)

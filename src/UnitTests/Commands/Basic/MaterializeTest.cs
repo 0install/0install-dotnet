@@ -22,13 +22,17 @@ public class MaterializeTest : SelectionTestBase<Materialize>
         => Assert.Throws<OptionException>(() => Sut.Parse(["http://example.com/test1.xml", "dir", "arg1"]));
 
     [Theory]
-    [InlineData("Linux", "my-app", false)]
-    [InlineData("Windows", "my-app.cmd", false)]
-    [InlineData("Linux", "my-app", true)]
-    public void ShouldMaterialize(string os, string launcherName, bool link)
+    [InlineData("Linux", "my-app", false, false)]
+    [InlineData("Windows", "my-app.cmd", false, false)]
+    [InlineData("Linux", "my-app", true, false)]
+    [InlineData("Linux", "my-app", false, true)]
+    public void ShouldMaterialize(string os, string launcherName, bool link, bool clean)
     {
         using var tempDir = new TemporaryDirectory("0install-test-materialize");
         string targetDir = Path.Combine(tempDir, "target");
+        string staleFile = Path.Combine(targetDir, "bin", "stale");
+        Directory.CreateDirectory(Path.GetDirectoryName(staleFile)!);
+        File.WriteAllText(staleFile, "from an earlier run");
         var interfaceUri = new FeedUri("http://example.com/my-app.xml");
 
         var implementation = CreateImplementation(Path.Combine(tempDir, "store"), interfaceUri);
@@ -47,15 +51,16 @@ public class MaterializeTest : SelectionTestBase<Materialize>
         GetMock<IFeedCache>().Setup(x => x.GetFeed(interfaceUri)).Returns(feed);
         ExpectListUncached(selections);
 
-        string[] args = [interfaceUri.ToStringRfc(), targetDir, $"--os={os}"];
+        string[] args = [interfaceUri.ToStringRfc(), targetDir, $"--os={os}", ..link ? ["--link"] : Array.Empty<string>(), ..clean ? ["--clean"] : Array.Empty<string>()];
         RunAndAssert(
             string.Format(Resources.AllComponentsMaterialized, feed.Name, targetDir, Path.Combine(targetDir, launcherName)), ExitCode.OK,
-            link ? [..args, "--link"] : args);
+            args);
 
         actualRequirements!.NoPackages.Should().BeFalse(because: "native packages are only excluded when requested");
         File.Exists(Path.Combine(targetDir, launcherName)).Should().BeTrue();
         File.Exists(Path.Combine(targetDir, implementation.ID, "app.sh")).Should().BeTrue();
         new DirectoryInfo(Path.Combine(targetDir, implementation.ID)).IsDirectoryLink().Should().Be(link);
+        File.Exists(staleFile).Should().Be(!clean, because: "content from earlier runs is only removed with --clean");
     }
 
     /// <summary>

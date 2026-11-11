@@ -42,7 +42,7 @@ public sealed class MaterializerTest : IDisposable
 
     public void Dispose() => _tempDir.Dispose();
 
-    private Materializer Materializer(OS os, bool useLinks = false) => new(_store, new SilentTaskHandler()) {TargetOS = os, UseLinks = useLinks};
+    private Materializer Materializer(OS os, bool useLinks = false, bool clean = false) => new(_store, new SilentTaskHandler()) {TargetOS = os, UseLinks = useLinks, Clean = clean};
 
     #region POSIX
     [Fact]
@@ -163,6 +163,24 @@ public sealed class MaterializerTest : IDisposable
 #endif
 
     [Fact]
+    public void UpdateKeepsStaleContentWithoutClean()
+    {
+        var oldSelections = CreateSelections();
+        Materializer(OS.Linux).Materialize(oldSelections, _targetDir, "my app");
+
+        var newSelections = CreateSelections(runnerVersion: "2", withTool: false);
+        Materializer(OS.Linux).Materialize(newSelections, _targetDir, "my app");
+
+        Directory.Exists(Path.Combine(_targetDir, oldSelections[RunnerUri].ID)).Should().BeTrue();
+        Directory.Exists(Path.Combine(_targetDir, oldSelections[ToolUri].ID)).Should().BeTrue();
+        File.Exists(Path.Combine(_targetDir, LauncherScriptBuilder.BinDir, "my-tool")).Should().BeTrue();
+        Directory.Exists(Path.Combine(_targetDir, newSelections[RunnerUri].ID)).Should().BeTrue();
+
+        if (UnixUtils.IsUnix)
+            Run(Path.Combine(_targetDir, "my app")).Should().Contain("runner=runner arg v2");
+    }
+
+    [Fact]
     public void UpdateRemovesStaleImplementations()
     {
         var oldSelections = CreateSelections();
@@ -170,7 +188,7 @@ public sealed class MaterializerTest : IDisposable
         File.WriteAllText(Path.Combine(_targetDir, "user file.txt"), "keep me");
 
         var newSelections = CreateSelections(runnerVersion: "2", withTool: false);
-        Materializer(OS.Linux).Materialize(newSelections, _targetDir, "my app");
+        Materializer(OS.Linux, clean: true).Materialize(newSelections, _targetDir, "my app");
 
         Directory.Exists(Path.Combine(_targetDir, oldSelections[RunnerUri].ID)).Should().BeFalse(because: "old runner is no longer selected");
         Directory.Exists(Path.Combine(_targetDir, oldSelections[ToolUri].ID)).Should().BeFalse(because: "tool is no longer selected");
@@ -191,7 +209,7 @@ public sealed class MaterializerTest : IDisposable
         string backupDir = Path.Combine(_targetDir, oldSelections[RunnerUri].ID + "-backup");
         Directory.Move(Path.Combine(_targetDir, oldSelections[RunnerUri].ID), backupDir);
 
-        Materializer(OS.Linux).Materialize(CreateSelections(runnerVersion: "2"), _targetDir, "my app");
+        Materializer(OS.Linux, clean: true).Materialize(CreateSelections(runnerVersion: "2"), _targetDir, "my app");
 
         File.Exists(Path.Combine(backupDir, "run.sh")).Should().BeTrue(because: "directories with a digest prefix but a different name were not created by the materializer");
     }
@@ -205,12 +223,16 @@ public sealed class MaterializerTest : IDisposable
 
         Materializer(OS.Windows).Materialize(CreateSelections(), _targetDir, "my app");
         Materializer(OS.Linux).Materialize(CreateSelections(), _targetDir, "my app");
+        File.Exists(Path.Combine(binDir, "my-tool.exe")).Should().BeTrue(because: "nothing is removed without clean");
+        File.Exists(Path.Combine(binDir, "other-file")).Should().BeTrue(because: "nothing is removed without clean");
+
+        Materializer(OS.Linux, clean: true).Materialize(CreateSelections(), _targetDir, "my app");
 
         File.Exists(Path.Combine(binDir, "my-tool")).Should().BeTrue();
         File.Exists(Path.Combine(binDir, "my-tool.exe")).Should().BeFalse(because: "executables generated for a different operating system should be removed");
         File.Exists(Path.Combine(binDir, "other-file")).Should().BeFalse(because: "the directory is reserved for generated executables");
 
-        Materializer(OS.Linux).Materialize(CreateSelections(withTool: false), _targetDir, "my app");
+        Materializer(OS.Linux, clean: true).Materialize(CreateSelections(withTool: false), _targetDir, "my app");
 
         Directory.Exists(binDir).Should().BeFalse(because: "no executable bindings are left");
     }
@@ -237,7 +259,7 @@ public sealed class MaterializerTest : IDisposable
         Materializer(OS.Linux, useLinks: true).Materialize(oldSelections, _targetDir, "my app");
 
         var newSelections = CreateSelections(runnerVersion: "2", withTool: false);
-        Materializer(OS.Linux, useLinks: true).Materialize(newSelections, _targetDir, "my app");
+        Materializer(OS.Linux, useLinks: true, clean: true).Materialize(newSelections, _targetDir, "my app");
 
         Directory.Exists(Path.Combine(_targetDir, oldSelections[RunnerUri].ID)).Should().BeFalse(because: "old runner is no longer selected");
         Directory.Exists(Path.Combine(_targetDir, oldSelections[ToolUri].ID)).Should().BeFalse(because: "tool is no longer selected");
@@ -255,9 +277,15 @@ public sealed class MaterializerTest : IDisposable
         new DirectoryInfo(appDir).IsDirectoryLink().Should().BeFalse();
 
         Materializer(OS.Linux, useLinks: true).Materialize(selections, _targetDir, "my app");
+        new DirectoryInfo(appDir).IsDirectoryLink().Should().BeFalse(because: "existing copies are kept without clean");
+
+        Materializer(OS.Linux, useLinks: true, clean: true).Materialize(selections, _targetDir, "my app");
         new DirectoryInfo(appDir).IsDirectoryLink().Should().BeTrue();
 
         Materializer(OS.Linux).Materialize(selections, _targetDir, "my app");
+        new DirectoryInfo(appDir).IsDirectoryLink().Should().BeTrue(because: "existing links are kept without clean");
+
+        Materializer(OS.Linux, clean: true).Materialize(selections, _targetDir, "my app");
         new DirectoryInfo(appDir).IsDirectoryLink().Should().BeFalse();
         File.Exists(Path.Combine(appDir, "app.sh")).Should().BeTrue();
 
@@ -397,7 +425,7 @@ public sealed class MaterializerTest : IDisposable
         Materializer(OS.Windows).Materialize(CreateSelections(), _targetDir, "my app");
         File.Exists(Path.Combine(_targetDir, LauncherScriptBuilder.BinDir, "my-tool.exe")).Should().BeTrue();
 
-        Materializer(OS.Windows).Materialize(CreateSelections(withTool: false), _targetDir, "my app");
+        Materializer(OS.Windows, clean: true).Materialize(CreateSelections(withTool: false), _targetDir, "my app");
         Directory.Exists(Path.Combine(_targetDir, LauncherScriptBuilder.BinDir)).Should().BeFalse(because: "no executable bindings are left");
     }
 

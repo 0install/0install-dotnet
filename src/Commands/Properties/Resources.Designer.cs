@@ -1671,6 +1671,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove implementations from earlier runs that are no longer required..
+        /// </summary>
+        public static string OptionMaterializeClean {
+            get {
+                return ResourceManager.GetString("OptionMaterializeClean", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Message to display when interacting with user..
         /// </summary>
         public static string OptionMessage {
