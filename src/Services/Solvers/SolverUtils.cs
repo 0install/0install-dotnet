@@ -112,32 +112,35 @@ public static class SolverUtils
         return newCommand;
     }
 
-    /// <summary>
-    /// Adds the version restriction from <paramref name="source"/> to the <paramref name="requirements"/>.
-    /// </summary>
-    public static void AddRestriction(this Requirements requirements, Restriction source)
+    extension(Requirements requirements)
     {
-        #region Sanity checks
-        if (requirements == null) throw new ArgumentNullException(nameof(requirements));
-        if (source == null) throw new ArgumentNullException(nameof(source));
-        #endregion
+        /// <summary>
+        /// Adds the version restriction from <paramref name="source"/> to the <paramref name="requirements"/>.
+        /// </summary>
+        public void AddRestriction(Restriction source)
+        {
+            #region Sanity checks
+            if (requirements == null) throw new ArgumentNullException(nameof(requirements));
+            if (source == null) throw new ArgumentNullException(nameof(source));
+            #endregion
 
-        if (source.Versions != null)
-            requirements.AddRestriction(source.InterfaceUri, source.Versions);
-    }
+            if (source.Versions != null)
+                requirements.AddRestriction(source.InterfaceUri, source.Versions);
+        }
 
-    /// <summary>
-    /// Adds the version restrictions from <paramref name="source"/> to the <paramref name="requirements"/>.
-    /// </summary>
-    public static void AddRestrictions(this Requirements requirements, Requirements source)
-    {
-        #region Sanity checks
-        if (requirements == null) throw new ArgumentNullException(nameof(requirements));
-        if (source == null) throw new ArgumentNullException(nameof(source));
-        #endregion
+        /// <summary>
+        /// Adds the version restrictions from <paramref name="source"/> to the <paramref name="requirements"/>.
+        /// </summary>
+        public void AddRestrictions(Requirements source)
+        {
+            #region Sanity checks
+            if (requirements == null) throw new ArgumentNullException(nameof(requirements));
+            if (source == null) throw new ArgumentNullException(nameof(source));
+            #endregion
 
-        foreach (var restriction in source.ExtraRestrictions)
-            requirements.AddRestriction(restriction.Key, restriction.Value);
+            foreach (var restriction in source.ExtraRestrictions)
+                requirements.AddRestriction(restriction.Key, restriction.Value);
+        }
     }
 
     /// <summary>

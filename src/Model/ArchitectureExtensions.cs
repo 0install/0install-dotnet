@@ -38,40 +38,43 @@ public static class ArchitectureExtensions
             _ => false
         };
 
-    /// <summary>
-    /// Determines whether an implementation for <paramref name="cpu"/> can run on <paramref name="target"/>.
-    /// </summary>
-    public static bool RunsOn(this Cpu cpu, Cpu target)
-        => cpu switch
-        {
-            Cpu.Unknown => false,
+    extension(Cpu cpu)
+    {
+        /// <summary>
+        /// Determines whether an implementation for <paramref name="cpu"/> can run on <paramref name="target"/>.
+        /// </summary>
+        public bool RunsOn(Cpu target)
+            => cpu switch
+            {
+                Cpu.Unknown => false,
 
-            // Exact match
-            _ when cpu == target => true,
+                // Exact match
+                _ when cpu == target => true,
 
-            // Platform-neutral implementation
-            Cpu.All => true,
-            _ when target == Cpu.All => true,
+                // Platform-neutral implementation
+                Cpu.All => true,
+                _ when target == Cpu.All => true,
 
-            // Compatible supersets
-            >= Cpu.I386 and <= Cpu.X64 when target >= cpu && target <= Cpu.X64 => true,
-            >= Cpu.Ppc and <= Cpu.Ppc64 when target >= cpu && target <= Cpu.Ppc64 => true,
-            >= Cpu.ArmV6L and <= Cpu.AArch64 when target >= cpu && target <= Cpu.AArch64 => true,
-            Cpu.Arm64EC when target == Cpu.AArch64 => true,
+                // Compatible supersets
+                >= Cpu.I386 and <= Cpu.X64 when target >= cpu && target <= Cpu.X64 => true,
+                >= Cpu.Ppc and <= Cpu.Ppc64 when target >= cpu && target <= Cpu.Ppc64 => true,
+                >= Cpu.ArmV6L and <= Cpu.AArch64 when target >= cpu && target <= Cpu.AArch64 => true,
+                Cpu.Arm64EC when target == Cpu.AArch64 => true,
 
-            _ => false
-        };
+                _ => false
+            };
 
-    /// <summary>
-    /// Gets the group of CPU architectures that this CPU architecture can be combined with, within a single process.
-    /// </summary>
-    public static CpuGroup? GetGroup(this Cpu cpu)
-        => cpu switch
-        {
-            >= Cpu.I386 and <= Cpu.I686 => CpuGroup.X86,
-            Cpu.X64 or Cpu.Arm64EC => CpuGroup.X64,
-            Cpu.ArmV6L or Cpu.ArmV7L => CpuGroup.Arm32,
-            Cpu.AArch64 => CpuGroup.Arm64,
-            _ => null
-        };
+        /// <summary>
+        /// Gets the group of CPU architectures that this CPU architecture can be combined with, within a single process.
+        /// </summary>
+        public CpuGroup? GetGroup()
+            => cpu switch
+            {
+                >= Cpu.I386 and <= Cpu.I686 => CpuGroup.X86,
+                Cpu.X64 or Cpu.Arm64EC => CpuGroup.X64,
+                Cpu.ArmV6L or Cpu.ArmV7L => CpuGroup.Arm32,
+                Cpu.AArch64 => CpuGroup.Arm64,
+                _ => null
+            };
+    }
 }

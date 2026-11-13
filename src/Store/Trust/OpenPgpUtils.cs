@@ -77,8 +77,8 @@ public static class OpenPgpUtils
         // Extract lower 64 bits and treat as Big Endian
         unchecked
         {
-            int i1 = (fingerprint[fingerprint.Length - 8] << 24) | (fingerprint[fingerprint.Length - 7] << 16) | (fingerprint[fingerprint.Length - 6] << 8) | fingerprint[fingerprint.Length - 5];
-            int i2 = (fingerprint[fingerprint.Length - 4] << 24) | (fingerprint[fingerprint.Length - 3] << 16) | (fingerprint[fingerprint.Length - 2] << 8) | fingerprint[fingerprint.Length - 1];
+            int i1 = (fingerprint[^8] << 24) | (fingerprint[^7] << 16) | (fingerprint[^6] << 8) | fingerprint[^5];
+            int i2 = (fingerprint[^4] << 24) | (fingerprint[^3] << 16) | (fingerprint[^2] << 8) | fingerprint[^1];
             return ((long)i1 << 32) | (uint)i2;
         }
     }
