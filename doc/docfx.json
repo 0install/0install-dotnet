@@ -3,14 +3,17 @@
     {
       "src": [
         {
-          "src": "../src",
-          "files": ["*/*.csproj"],
-          "exclude": ["UnitTests/*", "Bootstrap.Cli/*"]
+          "src": "../artifacts/Release/net10.0",
+          "files": ["ZeroInstall.*.dll", "0install.dll"],
+          "exclude": ["*.XmlSerializers.dll"]
         }
       ],
-      "properties": {
-        "TargetFramework": "net10.0"
-      },
+      "references": [
+        {
+          "src": "../artifacts/Release/net10.0/runtimes/linux-x64/lib/netstandard2.0",
+          "files": ["Tmds.LibC.dll"]
+        }
+      ],
       "namespaceLayout": "nested",
       "dest": "api",
       "filter": "filterConfig.yml"
