@@ -24,38 +24,40 @@ namespace ZeroInstall.Services;
 /// </summary>
 public static class ServiceCollectionExtensions
 {
-    /// <summary>
-    /// Registers a set of scoped services for using Zero Install functionality.
-    /// </summary>
-    /// <typeparam name="TTaskHandler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</typeparam>
     /// <param name="services">The service collection to add the services to.</param>
-    /// <param name="configuration">An optional configuration source for building <see cref="Config"/> instead of the default config files.</param>
-    public static IServiceCollection AddZeroInstall<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TTaskHandler>(this IServiceCollection services, IConfiguration? configuration = null)
-        where TTaskHandler : class, ITaskHandler
-        => services.AddScoped<ITaskHandler, TTaskHandler>()
-                   .AddScoped(_ => configuration?.Get<Config>() ?? Config.Load())
-                   .AddScoped(provider => ImplementationStores.Default(provider.GetRequiredService<ITaskHandler>()))
-                   .AddScoped(_ => OpenPgp.Verifying())
-                   .AddScoped(provider => FeedCaches.Default(provider.GetRequiredService<IOpenPgp>()))
-                   .AddScoped(_ => TrustDB.LoadSafe())
-                   .AddScoped<ITrustManager, TrustManager>()
-                   .AddScoped<IFeedManager, FeedManager>()
-                   .AddScoped<ICatalogManager, CatalogManager>()
-                   .AddScoped(_ => PackageManagers.Default())
-                   .AddScoped<ISelectionsManager, SelectionsManager>()
-                   .AddScoped(provider => SolverFactory.Create(provider.GetRequiredService<Config>(), provider.GetRequiredService<ISelectionCandidateProvider>()))
-                   .AddScoped<IFetcher, Fetcher>()
-                   .AddScoped<IExecutor, Executor>()
-                   .AddScoped<ISelectionCandidateProvider, SelectionCandidateProvider>();
+    extension(IServiceCollection services)
+    {
+        /// <summary>
+        /// Registers a set of scoped services for using Zero Install functionality.
+        /// </summary>
+        /// <typeparam name="TTaskHandler">A callback object used when the user needs to be asked questions or informed about download and IO tasks.</typeparam>
+        /// <param name="configuration">An optional configuration source for building <see cref="Config"/> instead of the default config files.</param>
+        public IServiceCollection AddZeroInstall<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicConstructors)] TTaskHandler>(IConfiguration? configuration = null)
+            where TTaskHandler : class, ITaskHandler
+            => services.AddScoped<ITaskHandler, TTaskHandler>()
+                       .AddScoped(_ => configuration?.Get<Config>() ?? Config.Load())
+                       .AddScoped(provider => ImplementationStores.Default(provider.GetRequiredService<ITaskHandler>()))
+                       .AddScoped(_ => OpenPgp.Verifying())
+                       .AddScoped(provider => FeedCaches.Default(provider.GetRequiredService<IOpenPgp>()))
+                       .AddScoped(_ => TrustDB.LoadSafe())
+                       .AddScoped<ITrustManager, TrustManager>()
+                       .AddScoped<IFeedManager, FeedManager>()
+                       .AddScoped<ICatalogManager, CatalogManager>()
+                       .AddScoped(_ => PackageManagers.Default())
+                       .AddScoped<ISelectionsManager, SelectionsManager>()
+                       .AddScoped(provider => SolverFactory.Create(provider.GetRequiredService<Config>(), provider.GetRequiredService<ISelectionCandidateProvider>()))
+                       .AddScoped<IFetcher, Fetcher>()
+                       .AddScoped<IExecutor, Executor>()
+                       .AddScoped<ISelectionCandidateProvider, SelectionCandidateProvider>();
 
-    /// <summary>
-    /// Registers a set of scoped services for using Zero Install functionality.
-    /// Automatically uses <see cref="ILogger{TCategoryName}"/> and <see cref="ICredentialProvider"/> if registered in <paramref name="services"/>.
-    /// </summary>
-    /// <param name="services">The service collection to add the services to.</param>
-    /// <param name="configuration">An optional configuration source for building <see cref="Config"/> instead of the default config files.</param>
-    /// <seealso cref="ConfigurationCredentialProviderRegistration.ConfigureCredentials"/>
-    public static IServiceCollection AddZeroInstall(this IServiceCollection services, IConfiguration? configuration = null)
-        => services.AddZeroInstall<ServiceTaskHandler>(configuration);
+        /// <summary>
+        /// Registers a set of scoped services for using Zero Install functionality.
+        /// Automatically uses <see cref="ILogger{TCategoryName}"/> and <see cref="ICredentialProvider"/> if registered in <paramref name="services"/>.
+        /// </summary>
+        /// <param name="configuration">An optional configuration source for building <see cref="Config"/> instead of the default config files.</param>
+        /// <seealso cref="ConfigurationCredentialProviderRegistration.ConfigureCredentials"/>
+        public IServiceCollection AddZeroInstall(IConfiguration? configuration = null)
+            => services.AddZeroInstall<ServiceTaskHandler>(configuration);
+    }
 }
 #endif

@@ -142,7 +142,7 @@ public class ClearDirectoryTest : DirectoryOperationTestBase
         var directories = pendingDeletes.Skip(2).ToList();
         directories.Should().OnlyContain(path => Directory.Exists(path));
         directories[0].Should().Be(SubdirPath, because: "Deepest directories should be listed first.");
-        directories[directories.Count - 1].Should().Be(TempDir);
+        directories[^1].Should().Be(TempDir);
     }
 
     [Fact]
