@@ -81,6 +81,7 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
         }
         string binDir = Paths.Combine(targetDir, LauncherScriptBuilder.BinDir);
         WriteExecutables(executables, binDir);
+        selections.SaveXml(Paths.Combine(targetDir, launcherName + ".selections.xml"));
         if (Clean)
         {
             RemoveStaleExecutables(binDir, keep: executables.Select(x => x.name));
