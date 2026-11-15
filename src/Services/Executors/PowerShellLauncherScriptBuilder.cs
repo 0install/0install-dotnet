@@ -160,8 +160,7 @@ internal sealed partial class PowerShellLauncherScriptBuilder(IImplementationSto
 
             """.Replace("\r\n", "\n").Replace("\n", "\r\n")));
 
-    private static byte[] RunEnvExecutable => _runEnvExecutable ??= typeof(Executor).GetEmbeddedBytes("runenv.exe.template");
-    private static byte[]? _runEnvExecutable;
+    private static byte[] RunEnvExecutable => field ??= typeof(Executor).GetEmbeddedBytes("runenv.exe.template");
 
     /// <summary>
     /// Appends code that stores a command-line in <see cref="CmdVar"/> as an array of strings,

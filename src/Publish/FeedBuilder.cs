@@ -16,19 +16,17 @@ namespace ZeroInstall.Publish;
 public class FeedBuilder : IDisposable
 {
     #region Directories
-    private TemporaryDirectory? _temporaryDirectory;
-
     /// <summary>
     /// A temporary directory to prepare files for <see cref="ImplementationDirectory"/>. Not used by the <see cref="FeedBuilder"/> itself.
     /// </summary>
     /// <remarks>Setting a new value will automatically <see cref="IDisposable.Dispose"/> the previous one.</remarks>
     public TemporaryDirectory? TemporaryDirectory
     {
-        get => _temporaryDirectory;
+        get;
         set
         {
-            _temporaryDirectory?.Dispose();
-            _temporaryDirectory = value;
+            field?.Dispose();
+            field = value;
         }
     }
 
@@ -37,7 +35,7 @@ public class FeedBuilder : IDisposable
     /// </summary>
     public void Dispose()
     {
-        _temporaryDirectory?.Dispose();
+        TemporaryDirectory?.Dispose();
     }
 
     /// <summary>

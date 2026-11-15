@@ -33,21 +33,19 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     [DefaultValue(false), Category("Policy"), DisplayName(@"Help with testing"), Description("Always prefer the newest versions, even if they have not been marked as stable yet.")]
     public bool HelpWithTesting { get; set; }
 
-    private NetworkLevel _networkUse = NetworkLevel.Full;
-
     /// <summary>
     /// Controls how liberally network access is attempted.
     /// </summary>
     [DefaultValue(typeof(NetworkLevel), "Full"), Category("Policy"), DisplayName(@"Network use"), Description("Controls how liberally network access is attempted.")]
     public NetworkLevel NetworkUse
     {
-        get => _networkUse;
+        get;
         set
         {
             if (!Enum.IsDefined(typeof(NetworkLevel), value)) throw new ArgumentOutOfRangeException(nameof(value));
-            _networkUse = value;
+            field = value;
         }
-    }
+    } = NetworkLevel.Full;
 
     // Only query once to avoid flapping during execution
     private readonly Lazy<Connectivity> _internetConnectivity = new(NetUtils.GetInternetConnectivity);
@@ -75,17 +73,15 @@ public sealed partial class Config : IEnumerable<KeyValuePair<string, string>>, 
     /// </summary>
     public const int DefaultMaxParallelDownloads = 4;
 
-    private int _maxParallelDownloads = DefaultMaxParallelDownloads;
-
     /// <summary>
     /// Maximum number of <see cref="Implementation"/>s to download in parallel.
     /// </summary>
     [DefaultValue(DefaultMaxParallelDownloads), Range(1, 128), Category("Fetcher"), DisplayName(@"Maximum parallel downloads"), Description("Maximum number of implementations to download in parallel.")]
     public int MaxParallelDownloads
     {
-        get => _maxParallelDownloads;
-        set => _maxParallelDownloads = Math.Max(1, Math.Min(128, value));
-    }
+        get;
+        set => field = Math.Max(1, Math.Min(128, value));
+    } = DefaultMaxParallelDownloads;
 
     /// <summary>
     /// The default value for <see cref="FeedMirror"/>.
