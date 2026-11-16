@@ -3,7 +3,12 @@
 
 #if !MINIMAL
 using ZeroInstall.Store.FileSystem;
+
+#if NET11_0_OR_GREATER
+using System.IO.Compression;
+#else
 using ZstdSharp;
+#endif
 
 namespace ZeroInstall.Archives.Extractors;
 
@@ -19,11 +24,19 @@ public class TarZstandardExtractor(ITaskHandler handler) : TarExtractor(handler)
     {
         try
         {
+#if NET11_0_OR_GREATER
+            using var decompressionStream = new ZstandardStream(stream, CompressionMode.Decompress, leaveOpen: true);
+#else
             using var decompressionStream = new DecompressionStream(stream);
+#endif
             base.Extract(builder, decompressionStream, subDir);
         }
         #region Error handling
+#if NET11_0_OR_GREATER
+        catch (ArgumentException ex)
+#else
         catch (Exception ex) when (ex is ZstdException or ArgumentException)
+#endif
         {
             // Wrap exception since only certain exception types are allowed
             throw new IOException(Resources.ArchiveInvalid, ex);
