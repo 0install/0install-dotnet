@@ -10,18 +10,20 @@ namespace ZeroInstall.Services.Feeds;
 /// </summary>
 public static class SelectionsManagerExtensions
 {
-    /// <summary>
-    /// Combines <see cref="ISelectionsManager.GetUncached"/> and <see cref="ISelectionsManager.GetImplementations"/>.
-    /// </summary>
-    /// <param name="selectionsManager">The <see cref="ISelectionsManager"/>.</param>
-    /// <param name="selections">The selections to search for <see cref="ImplementationSelection"/>s that are missing.</param>
-    public static List<Implementation> GetUncachedImplementations(this ISelectionsManager selectionsManager, Selections selections)
+    extension(ISelectionsManager selectionsManager)
     {
-        #region Sanity checks
-        if (selectionsManager == null) throw new ArgumentNullException(nameof(selectionsManager));
-        if (selections == null) throw new ArgumentNullException(nameof(selections));
-        #endregion
+        /// <summary>
+        /// Combines <see cref="ISelectionsManager.GetUncached"/> and <see cref="ISelectionsManager.GetImplementations"/>.
+        /// </summary>
+        /// <param name="selections">The selections to search for <see cref="ImplementationSelection"/>s that are missing.</param>
+        public List<Implementation> GetUncachedImplementations(Selections selections)
+        {
+            #region Sanity checks
+            if (selectionsManager == null) throw new ArgumentNullException(nameof(selectionsManager));
+            if (selections == null) throw new ArgumentNullException(nameof(selections));
+            #endregion
 
-        return selectionsManager.GetImplementations(selectionsManager.GetUncached(selections.Implementations)).ToList();
+            return selectionsManager.GetImplementations(selectionsManager.GetUncached(selections.Implementations)).ToList();
+        }
     }
 }

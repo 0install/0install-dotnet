@@ -7,9 +7,12 @@ namespace ZeroInstall;
 
 public static class MockExtensions
 {
-    public static Mock<T> SetupFluent<T>(this Mock<T> mock, Expression<Func<T, T>> expression) where T : class
+    extension<T>(Mock<T> mock) where T : class
     {
-        mock.Setup(expression).Returns(mock.Object);
-        return mock;
+        public Mock<T> SetupFluent(Expression<Func<T, T>> expression)
+        {
+            mock.Setup(expression).Returns(mock.Object);
+            return mock;
+        }
     }
 }

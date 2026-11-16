@@ -11,31 +11,33 @@ namespace ZeroInstall.Services.Solvers;
 /// </summary>
 public static class SolverExtensions
 {
-    /// <summary>
-    /// Provides <see cref="Selections"/> that satisfy a set of <see cref="Requirements"/>. Catches most exceptions and <see cref="Log"/>s them.
-    /// </summary>
-    /// <param name="solver">The <see cref="ISolver"/> implementation.</param>
-    /// <param name="requirements">A set of requirements/restrictions imposed by the user on the implementation selection process.</param>
-    /// <returns>The <see cref="ImplementationSelection"/>s chosen for the feed; <c>null</c> if there was a problem.</returns>
-    /// <remarks>Feed files may be downloaded, signature validation is performed, implementations are not downloaded.</remarks>
-    /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
-    /// <exception cref="ArgumentException"><paramref name="requirements"/> is incomplete.</exception>
-    public static Selections? TrySolve(this ISolver solver, Requirements requirements)
+    extension(ISolver solver)
     {
-        #region Sanity checks
-        if (solver == null) throw new ArgumentNullException(nameof(solver));
-        #endregion
+        /// <summary>
+        /// Provides <see cref="Selections"/> that satisfy a set of <see cref="Requirements"/>. Catches most exceptions and <see cref="Log"/>s them.
+        /// </summary>
+        /// <param name="requirements">A set of requirements/restrictions imposed by the user on the implementation selection process.</param>
+        /// <returns>The <see cref="ImplementationSelection"/>s chosen for the feed; <c>null</c> if there was a problem.</returns>
+        /// <remarks>Feed files may be downloaded, signature validation is performed, implementations are not downloaded.</remarks>
+        /// <exception cref="OperationCanceledException">The user canceled the task.</exception>
+        /// <exception cref="ArgumentException"><paramref name="requirements"/> is incomplete.</exception>
+        public Selections? TrySolve(Requirements requirements)
+        {
+            #region Sanity checks
+            if (solver == null) throw new ArgumentNullException(nameof(solver));
+            #endregion
 
-        try
-        {
-            return solver.Solve(requirements);
+            try
+            {
+                return solver.Solve(requirements);
+            }
+            #region Error handling
+            catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException or SignatureException or SolverException)
+            {
+                Log.Info(ex);
+                return null;
+            }
+            #endregion
         }
-        #region Error handling
-        catch (Exception ex) when (ex is WebException or IOException or UnauthorizedAccessException or SignatureException or SolverException)
-        {
-            Log.Info(ex);
-            return null;
-        }
-        #endregion
     }
 }

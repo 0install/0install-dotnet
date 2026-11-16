@@ -8,13 +8,16 @@ namespace ZeroInstall.Model.Selection;
 /// </summary>
 public static class SelectionCandidateExtensions
 {
-    /// <summary>
-    /// Returns a deduplicated list of suitable version numbers, sorted from newest to oldest.
-    /// </summary>
-    public static IEnumerable<ImplementationVersion> GetSuitableVersions(this IEnumerable<SelectionCandidate> candidates)
-        => candidates.Where(x => x.IsSuitable)
-                     .Select(x => x.Version)
-                     .WhereNotNull()
-                     .Distinct()
-                     .OrderByDescending(x => x);
+    extension(IEnumerable<SelectionCandidate> candidates)
+    {
+        /// <summary>
+        /// Returns a deduplicated list of suitable version numbers, sorted from newest to oldest.
+        /// </summary>
+        public IEnumerable<ImplementationVersion> GetSuitableVersions()
+            => candidates.Where(x => x.IsSuitable)
+                         .Select(x => x.Version)
+                         .WhereNotNull()
+                         .Distinct()
+                         .OrderByDescending(x => x);
+    }
 }

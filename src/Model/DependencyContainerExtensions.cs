@@ -8,9 +8,12 @@ namespace ZeroInstall.Model;
 /// </summary>
 public static class DependencyContainerExtensions
 {
-    /// <summary>
-    /// A combination of <see cref="IDependencyContainer.Restrictions"/> and <see cref="IDependencyContainer.Dependencies"/>.
-    /// </summary>
-    public static IEnumerable<Restriction> GetEffectiveRestrictions(this IDependencyContainer container)
-        => [..container.Restrictions, ..container.Dependencies];
+    extension(IDependencyContainer container)
+    {
+        /// <summary>
+        /// A combination of <see cref="IDependencyContainer.Restrictions"/> and <see cref="IDependencyContainer.Dependencies"/>.
+        /// </summary>
+        public IEnumerable<Restriction> GetEffectiveRestrictions()
+            => [..container.Restrictions, ..container.Dependencies];
+    }
 }

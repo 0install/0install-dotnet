@@ -13,7 +13,6 @@ namespace ZeroInstall.Publish.Merging;
 /// </remarks>
 public static class FeedMerge
 {
-    /// <param name="master">The feed to add the implementations to.</param>
     extension(Feed master)
     {
         /// <summary>

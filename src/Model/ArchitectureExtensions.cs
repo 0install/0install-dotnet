@@ -8,35 +8,41 @@ namespace ZeroInstall.Model;
 /// </summary>
 public static class ArchitectureExtensions
 {
-    /// <summary>
-    /// Determines whether an implementation for <paramref name="architecture"/> can run on <paramref name="target"/>.
-    /// </summary>
-    public static bool RunsOn(this Architecture architecture, Architecture target)
-        => architecture.OS.RunsOn(target.OS) && architecture.Cpu.RunsOn(target.Cpu)
-        || architecture is {Cpu: >= Cpu.I386 and <= Cpu.X64} && target is {Cpu: Cpu.AArch64, OS: OS.Windows or OS.MacOSX}; // x86/64 emulation on ARM
+    extension(Architecture architecture)
+    {
+        /// <summary>
+        /// Determines whether an implementation for <paramref name="architecture"/> can run on <paramref name="target"/>.
+        /// </summary>
+        public bool RunsOn(Architecture target)
+            => architecture.OS.RunsOn(target.OS) && architecture.Cpu.RunsOn(target.Cpu)
+            || architecture is {Cpu: >= Cpu.I386 and <= Cpu.X64} && target is {Cpu: Cpu.AArch64, OS: OS.Windows or OS.MacOSX}; // x86/64 emulation on ARM
+    }
 
-    /// <summary>
-    /// Determines whether an implementation for <paramref name="os"/> can run on <paramref name="target"/>.
-    /// </summary>
-    public static bool RunsOn(this OS os, OS target)
-        => os switch
-        {
-            OS.Unknown => false,
+    extension(OS os)
+    {
+        /// <summary>
+        /// Determines whether an implementation for <paramref name="os"/> can run on <paramref name="target"/>.
+        /// </summary>
+        public bool RunsOn(OS target)
+            => os switch
+            {
+                OS.Unknown => false,
 
-            // Exact match
-            _ when os == target => true,
+                // Exact match
+                _ when os == target => true,
 
-            // Platform-neutral implementation
-            OS.All => true,
-            _ when target == OS.All => true,
+                // Platform-neutral implementation
+                OS.All => true,
+                _ when target == OS.All => true,
 
-            // Compatible supersets
-            OS.Windows when target == OS.Cygwin => true,
-            OS.Darwin when target == OS.MacOSX => true,
-            OS.Posix when target <= OS.Cygwin => true,
+                // Compatible supersets
+                OS.Windows when target == OS.Cygwin => true,
+                OS.Darwin when target == OS.MacOSX => true,
+                OS.Posix when target <= OS.Cygwin => true,
 
-            _ => false
-        };
+                _ => false
+            };
+    }
 
     extension(Cpu cpu)
     {

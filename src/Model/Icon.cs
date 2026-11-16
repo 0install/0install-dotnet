@@ -91,12 +91,14 @@ public partial class Icon : FeedElement, ICloneable<Icon>
 /// </summary>
 public static class IconExtensions
 {
-    /// <summary>
-    /// Returns an icon with a specific mime type if available.
-    /// </summary>
-    /// <param name="icons">The list of icons to search</param>
-    /// <param name="mimeType">The <see cref="Icon.MimeType"/> to try to find. Will only return exact matches.</param>
-    /// <returns>The first matching icon that was found or <c>null</c> if no matching icon was found.</returns>
-    public static Icon? GetIcon(this IEnumerable<Icon> icons, string mimeType)
-        => icons.FirstOrDefault(icon => StringUtils.EqualsIgnoreCase(icon.MimeType, mimeType));
+    extension(IEnumerable<Icon> icons)
+    {
+        /// <summary>
+        /// Returns an icon with a specific mime type if available.
+        /// </summary>
+        /// <param name="mimeType">The <see cref="Icon.MimeType"/> to try to find. Will only return exact matches.</param>
+        /// <returns>The first matching icon that was found or <c>null</c> if no matching icon was found.</returns>
+        public Icon? GetIcon(string mimeType)
+            => icons.FirstOrDefault(icon => StringUtils.EqualsIgnoreCase(icon.MimeType, mimeType));
+    }
 }

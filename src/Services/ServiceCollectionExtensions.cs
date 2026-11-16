@@ -24,7 +24,6 @@ namespace ZeroInstall.Services;
 /// </summary>
 public static class ServiceCollectionExtensions
 {
-    /// <param name="services">The service collection to add the services to.</param>
     extension(IServiceCollection services)
     {
         /// <summary>
