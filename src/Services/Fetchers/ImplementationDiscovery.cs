@@ -60,7 +60,7 @@ public class ImplementationDiscovery : IImplementationDiscovery, IDisposable
         if (!e.ServiceInstanceName.ToString()!.EndsWith(ImplementationServer.DnsServiceName + ".local")
          || e.Message.AdditionalRecords.OfType<SRVRecord>().FirstOrDefault() is not {Port: var port}) return;
 
-        var ips = e.Message.AdditionalRecords.OfType<AddressRecord>().Select(x => x.Address);
+        var ips = e.Message.AdditionalRecords.OfType<Makaretu.Dns.AddressRecord>().Select(x => x.Address);
         if (ExcludeLocalMachine) ips = ips.Except(MulticastService.GetIPAddresses());
 
         ips = ips.ToList();

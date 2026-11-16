@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <!-- Build configuration -->
-    <LangVersion>14</LangVersion>
+    <LangVersion>15.0</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
-    <TargetFrameworks>net48;net10.0</TargetFrameworks>
+    <TargetFrameworks>net48;net10.0;net11.0</TargetFrameworks>
     <Nullable>annotations</Nullable>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <OutputType>Library</OutputType>
@@ -53,7 +53,7 @@
   <ItemGroup>
     <PackageReference Include="Generator.Equals" Version="3.3.0" PrivateAssets="All" />
     <PackageReference Include="NanoByte.CloneGenerator" Version="0.2.1" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.404" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="11.0.100" PrivateAssets="All" />
   </ItemGroup>
 
   <!-- Global usings -->
