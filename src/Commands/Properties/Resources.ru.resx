@@ -206,14 +206,6 @@
     <value>При использовании параметра « {0} » необходимо явно указать целевой каталог.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>Указанный целевой каталог ({0}) находится за пределами вашего домашнего каталога.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeprecatedOption" xml:space="preserve">
-    <value>Устаревшая опция. Вместо неё используйте «{0} ».</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Description" xml:space="preserve">
     <value>Описание</value>
     <comment>Automatically translated.</comment>
@@ -244,10 +236,6 @@
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
     <value>Удаляет URI из списка каталогов.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>Сбрасывает список каталогов к исходному значению по умолчанию.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
@@ -303,10 +291,6 @@
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
     <value>Развертывает Zero Install в указанный каталог TARGET или в каталог по умолчанию для программ и интегрирует его в систему.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Удаляет текущий экземпляр Zero Install из системы.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -512,10 +496,6 @@
     <value>Регистрация фида успешно отменена для следующих интерфейсов:</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="FileCheckComplete" xml:space="preserve">
-    <value>Проверка файлов завершена</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Не удалось найти файл или каталог '{0}'.</value>
     <comment>Manually overriden.</comment>
@@ -602,10 +582,6 @@
     <value>Мои приложения</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NeedsGui" xml:space="preserve">
-    <value>Для использования этой функции, пожалуйста, воспользуйтесь версией Zero Install с графическим интерфейсом.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
     <value>{0} может указываться только вместе с именем псевдонима.</value>
     <comment>Automatically translated.</comment>
@@ -614,17 +590,9 @@
     <value>Графический редактор политик недоступен в режиме командной строки.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Для работы интеграции с рабочим столом необходимо установить Zero Install в вашей системе.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install работает в портативном режиме. Для интеграции с рабочим столом его необходимо установить в постоянное местоположение.
 Это можно сделать с помощью команды «{0} ». Такая установка будет полностью независима от вашей портативной копии.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install запускается из каталога, привязанного к конкретному пользователю. Для обеспечения интеграции с рабочим столом на уровне всего компьютера его необходимо разместить в каталоге, доступном для всех пользователей.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -673,10 +641,6 @@
   </data>
   <data name="OptionBatch" xml:space="preserve">
     <value>По возможности автоматически отвечает на вопросы, используя значения по умолчанию, и упрощает вывод информации в консоли (без таблиц и индикаторов выполнения).</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="OptionBefore" xml:space="preserve">
-    <value>Требует версию основной программы, более раннюю, чем {VERSION}, т. е. принудительно использует старую версию программы.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -768,10 +732,6 @@
   </data>
   <data name="OptionManifest" xml:space="preserve">
     <value>Отображение самого манифеста (по одной строке для каждого файла или каталога).</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="OptionMessage" xml:space="preserve">
-    <value>Сообщение, отображаемое при взаимодействии с пользователем.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">

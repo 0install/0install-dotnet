@@ -185,7 +185,7 @@ Selectați o linie întreagă făcând clic în prima coloană, apoi apăsați t
     <comment>Automatically translated.</comment>
   </data>
   <data name="DataGridDefaultAccessPointHelp" xml:space="preserve">
-    <value>Bifați o casetă de selectare pentru a seta o funcționalitate ca handler implicit dorit.
+    <value>Bifați o casetă de selectare pentru a seta o funcționalitate ca gestionar implicit dorit.
 Debifați o casetă de selectare pentru a elimina statutul implicit al unei funcționalități (aceasta rămâne totuși disponibilă).</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -204,14 +204,6 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din directorul respectiv.</v
   </data>
   <data name="DeployMissingTargetForPortable" xml:space="preserve">
     <value>Când utilizați opțiunea „ {0} ”, trebuie să specificați în mod explicit directorul de destinație.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>Directorul țintă specificat ({0}) se află în afara directorului dvs. personal.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeprecatedOption" xml:space="preserve">
-    <value>Opțiune învechită. Vă rugăm să utilizați în schimb „{0} ”.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -244,10 +236,6 @@ O puteți utiliza rulând fișierul ZeroInstall.exe din directorul respectiv.</v
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
     <value>Elimină un URI din lista de cataloage.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>Resetează lista de cataloage la sursa implicită.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
@@ -303,10 +291,6 @@ Fișierul trebuie să aibă o semnătură digitală de încredere, la fel ca în
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
     <value>Instalează Zero Install în directorul TARGET specificat sau în directorul implicit pentru programe și îl integrează în sistem.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Elimină instanța curentă a Zero Install din sistem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -382,12 +366,12 @@ Un argument suplimentar specifică o locație personalizată pentru cache-ul de 
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
-    <value>Economisește spațiu pe disc prin combinarea fișierelor identice cu legături fizice.
+    <value>Economisește spațiu pe disc prin combinarea fișierelor identice cu legături hardlink.
 Argumentele suplimentare specifică locații personalizate pentru cache.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
-    <value>Elimină toate implementările din cache. Utilizați această comandă pentru a curăța sistemul înainte de a dezinstala Zero Install. Ștergerea manuală a directoarelor de cache poate fi dificilă din cauza listelor de control de acces (ACL) NTFS utilizate pentru a proteja implementările împotriva modificărilor.
+    <value>Elimină toate implementările din cache. Utilizați această comandă pentru a curăța sistemul înainte de a dezinstala Zero Install. Ștergerea manuală a directoarelor din cache poate fi dificilă din cauza listelor de control de acces (ACL) NTFS utilizate pentru a proteja implementările împotriva modificărilor.
 Argumentele suplimentare specifică locații personalizate pentru cache.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -512,10 +496,6 @@ Aceasta este similară cu comanda „0install download --refresh”, cu excepți
     <value>Înregistrarea feed-ului a fost anulată cu succes pentru următoarele interfețe:</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="FileCheckComplete" xml:space="preserve">
-    <value>Verificarea fișierelor s-a încheiat</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Nu s-a găsit fișierul sau directorul „{0} ”.</value>
     <comment>Automatically translated.</comment>
@@ -602,10 +582,6 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii Licen
     <value>Aplicațiile mele</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NeedsGui" xml:space="preserve">
-    <value>Vă rugăm să utilizați versiunea GUI a Zero Install pentru această funcție.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
     <value>{0} poate fi specificată numai împreună cu un nume de alias.</value>
     <comment>Automatically translated.</comment>
@@ -614,17 +590,9 @@ Puteți redistribui copii ale acestui program în conformitate cu termenii Licen
     <value>Editorul grafic de politici nu este disponibil în modul linie de comandă.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install trebuie instalat pe sistemul dvs. pentru ca integrarea cu desktopul să funcționeze.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install rulează în modul portabil. Pentru ca integrarea în desktop să funcționeze, acesta trebuie instalat într-o locație permanentă.
 Puteți face acest lucru folosind comanda „{0} ”. Aceasta va fi complet independentă de copia dvs. portabilă.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install rulează dintr-un director specific utilizatorului. Pentru ca integrarea pe desktop la nivel de sistem să funcționeze, acesta trebuie instalat într-un director accesibil tuturor utilizatorilor.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -673,10 +641,6 @@ Puteți face acest lucru folosind comanda „{0} ”. Aceasta va fi complet inde
   </data>
   <data name="OptionBatch" xml:space="preserve">
     <value>Răspunde automat la întrebări cu valorile implicite, atunci când este posibil, și simplifică afișarea în consolă (fără tabele sau bare de progres).</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="OptionBefore" xml:space="preserve">
-    <value>Necesită o versiune a programului principal mai veche decât {VERSION}, adică impune utilizarea unei versiuni mai vechi a programului.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -770,10 +734,6 @@ Nu poate conține argumente de linie de comandă! Spațiile nu trebuie să fie e
     <value>Afișează manifestul propriu-zis (o linie pentru fiecare fișier sau director).</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionMessage" xml:space="preserve">
-    <value>Mesaj care se afișează în timpul interacțiunii cu utilizatorul.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Nu descărcați încă aplicația propriu-zisă. Aceasta va fi descărcată automat la prima utilizare.</value>
     <comment>Automatically translated.</comment>
@@ -840,7 +800,7 @@ Nu poate conține argumente de linie de comandă! Spațiile nu trebuie să fie e
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
-    <value>Este necesară o versiune a programului principal din intervalul dat {RANGE}.
+    <value>Este necesară o versiune a programului principal din intervalul {RANGE}.
 Intervalele sunt separate prin bare verticale (|).
 Fiecare interval are forma „START..!END”. Intervalul corespunde versiunilor în care START &lt;= VERSION &lt; END. Valoarea de început sau de sfârșit poate fi omisă.
 Se poate utiliza un singur număr de versiune în locul unui interval pentru a corespunde doar acelei versiuni, sau !VERSION pentru a corespunde tuturor versiunilor, cu excepția acelei versiuni.</value>
@@ -857,7 +817,7 @@ Cu toate acestea, noile descărcări nu vor fi salvate în acest director.</valu
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>În loc să executați direct programul ales, rulați {COMMAND} PROGRAM ARGS. Acest lucru este util pentru rularea unor debuggere și instrumente de urmărire asupra programului (mai degrabă decât asupra Zero Install!).
-Rețineți că wrapper-ul este executat în mediul selectat de program; prin urmare, acest mecanism nu poate fi utilizat pentru izolare (sandboxing).
+Rețineți că wrapper-ul este executat în mediul selectat de program; prin urmare, acest mecanism nu poate fi utilizat pentru sandboxing.
 Poate conține argumente de linie de comandă. Spațiile trebuie să fie escapate!</value>
     <comment>Automatically translated.</comment>
   </data>

@@ -123,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="EnvironmentBindingValueInvalid" xml:space="preserve">
-    <value>&lt;environment&gt; 绑定必须包含“value”或“insert”属性之一。</value>
+    <value>&lt;environment&gt; 绑定必须包含 'value' 或 'insert' 属性之一。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ErrorLoadingCatalog" xml:space="preserve">
@@ -159,7 +159,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="FeedUriLocal" xml:space="preserve">
-    <value>“{0} ”是一个本地文件。该地址应为 HTTP(S) URL。</value>
+    <value>“{0} ”是一个本地文件。它应为 HTTP(S) URL。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FeedUriMismatch" xml:space="preserve">
@@ -234,7 +234,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>“{0} ”在{1} 包管理器中不是已知的ID。</value>
+    <value>“{0} ”在{1} 包管理器中并非已知的ID。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">

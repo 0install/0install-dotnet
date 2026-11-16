@@ -206,14 +206,6 @@ Vous pouvez l'utiliser en exécutant le fichier ZeroInstall.exe situé dans ce r
     <value>Lorsque vous utilisez l'option « {0} », vous devez spécifier explicitement le répertoire de destination.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>Le répertoire de destination spécifié ({0}) se trouve en dehors de votre répertoire personnel.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeprecatedOption" xml:space="preserve">
-    <value>Option obsolète. Veuillez utiliser «{0} » à la place.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
     <comment>Manually overriden.</comment>
@@ -245,10 +237,6 @@ Vous pouvez l'utiliser en exécutant le fichier ZeroInstall.exe situé dans ce r
   <data name="DescriptionCatalogRemove" xml:space="preserve">
     <value>Supprime une URI de la liste des catalogues.</value>
     <comment>Manually overriden.</comment>
-  </data>
-  <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>Réinitialise la liste des catalogues à la source par défaut.</value>
-    <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
     <value>Recherche des mots correspondants à la demande dans les catalogues enregistrés. Si aucune demande n'est formulée, montre toutes les applications dans les catalogues enregistrés.</value>
@@ -286,7 +274,7 @@ Le fichier doit posséder une signature digitale de confiance, comme s'il était
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>Ajoute une application à la liste des applications (si elle n'y figure pas) et l'intègre à l'environnement de bureau.</value>
+    <value>Ajoute une application à la liste des applications (si elle n'y figure pas) et l'intègre dans l'environnement de bureau.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
@@ -304,10 +292,6 @@ Le fichier doit posséder une signature digitale de confiance, comme s'il était
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
     <value>Déploie Zero Install dans le répertoire TARGET spécifié ou dans le répertoire par défaut des programmes, et l'intègre au système.</value>
     <comment>Manually overriden.</comment>
-  </data>
-  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Supprime l'instance actuelle de Zero Install du système.</value>
-    <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
     <value>Supprime toutes les applications de la liste des applications et annule toute intégration à l'environnement de bureau. Utilisez cette commande pour nettoyer le système avant de désinstaller Zero Install.</value>
@@ -512,10 +496,6 @@ Ce fonctionnement est similaire à la commande « 0install download --refresh »
     <value>Le flux a été désenregistré avec succès pour les interfaces suivantes :</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="FileCheckComplete" xml:space="preserve">
-    <value>Vérification des fichiers terminée</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Impossible de trouver le fichier ou le répertoire '{0}'.</value>
     <comment>Manually overriden.</comment>
@@ -602,10 +582,6 @@ Vous pouvez redistribuer des copies de ce programme suivant les termes de la “
     <value>Mes applications</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="NeedsGui" xml:space="preserve">
-    <value>Veuillez utiliser la version graphique de Zero Install pour cette fonctionnalité.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
     <value>{0} ne peut être spécifié qu'avec un nom d'alias.</value>
     <comment>Manually overriden.</comment>
@@ -614,17 +590,9 @@ Vous pouvez redistribuer des copies de ce programme suivant les termes de la “
     <value>L'éditeur graphique de politiques n'est pas disponible en mode ligne de commande.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install doit être installé sur votre système pour que l'intégration au bureau fonctionne.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install fonctionne en mode portable. Il doit être déployé vers un emplacement permanent pour que l'intégration au bureau fonctionne.
 Vous pouvez le faire à l'aide de la commande «{0} ». Cette installation sera totalement indépendante de votre copie portable.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install s'exécute à partir d'un répertoire propre à l'utilisateur. Il doit être déployé dans un répertoire accessible à tous les utilisateurs pour que l'intégration au bureau à l'échelle de la machine fonctionne.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -673,10 +641,6 @@ Vous pouvez le faire à l'aide de la commande «{0} ». Cette installation sera 
   </data>
   <data name="OptionBatch" xml:space="preserve">
     <value>Répond automatiquement aux questions en utilisant les valeurs par défaut lorsque cela est possible et simplifie l'affichage de la console (pas de tableaux ni de barres de progression).</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="OptionBefore" xml:space="preserve">
-    <value>Nécessite une version du programme principal antérieure à {VERSION}, c'est-à-dire qu'elle impose l'utilisation d'une ancienne version du programme.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -770,10 +734,6 @@ Ne doit pas contenir d'arguments de ligne de commande ! Les espaces n'ont pas be
     <value>Affiche le manifeste (une ligne pour chaque fichier ou répertoire).</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="OptionMessage" xml:space="preserve">
-    <value>Message à afficher lors des interactions avec l'utilisateur.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Ne télécharge pas encore l'application elle-même. Elle sera téléchargée automatiquement lors de la première utilisation.</value>
     <comment>Manually overriden.</comment>
@@ -856,7 +816,7 @@ Toutefois, les nouveaux téléchargements ne seront pas enregistrés dans ce ré
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionWrapper" xml:space="preserve">
-    <value>Au lieu d'exécuter directement le programme choisi, exécutez {COMMAND} PROGRAM ARGS. Cela est utile pour exécuter des débogueurs et des outils de traçage sur le programme (plutôt que sur Zero Install !).
+    <value>Au lieu d'exécuter directement le programme choisi, exécutez {COMMAND} PROGRAM ARGS. Cela est utile pour lancer des débogueurs et des outils de traçage sur le programme (plutôt que sur Zero Install !).
 Notez que le wrapper est exécuté dans l’environnement sélectionné par le programme ; par conséquent, ce mécanisme ne peut pas être utilisé pour le sandboxing.
 Peut contenir des arguments de ligne de commande. Les espaces doivent être échappés !</value>
     <comment>Automatically translated.</comment>
@@ -894,7 +854,7 @@ Peut contenir des arguments de ligne de commande. Les espaces doivent être éch
     <comment>Manually overriden.</comment>
   </data>
   <data name="ReopenTerminal" xml:space="preserve">
-    <value>Vous devrez peut-être fermer puis rouvrir votre terminal pour que cela prenne effet.</value>
+    <value>Il se peut que vous deviez fermer puis rouvrir votre terminal pour que cela prenne effet.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ResetList" xml:space="preserve">
@@ -984,7 +944,7 @@ Gardez cette clé secrète et utilisez autre chose comme mot de passe. De cette 
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedForDomains" xml:space="preserve">
-    <value>{0} de confiance pour les domaines</value>
+    <value>{0} fiable pour les domaines</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TrustedKeys" xml:space="preserve">

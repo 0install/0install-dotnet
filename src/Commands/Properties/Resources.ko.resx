@@ -159,7 +159,7 @@
   </data>
   <data name="Command" xml:space="preserve">
     <value>명령</value>
-    <comment>Automatically translated.</comment>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="CommandLineArguments" xml:space="preserve">
     <value>명령줄 인수</value>
@@ -206,14 +206,6 @@
     <value>{0} 옵션을 사용할 때는 대상 디렉터리를 명시적으로 지정해야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>지정된 대상 디렉터리({0})는 홈 디렉터리 외부에 위치해 있습니다.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeprecatedOption" xml:space="preserve">
-    <value>사용 중단된 옵션입니다. 대신 '{0}'를 사용해 주십시오.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Description" xml:space="preserve">
     <value>설명</value>
     <comment>Automatically translated.</comment>
@@ -244,10 +236,6 @@
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
     <value>카탈로그 목록에서 URI를 제거합니다.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>카탈로그 목록을 기본 소스로 재설정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
@@ -282,7 +270,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>기존의 app-list.xml 파일에서 일련의 애플리케이션과 데스크톱 통합 기능을 가져옵니다.</value>
+    <value>기존 app-list.xml 파일에서 일련의 애플리케이션과 데스크톱 통합 기능을 가져옵니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
@@ -303,10 +291,6 @@
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
     <value>Zero Install을 지정된 TARGET 디렉터리 또는 프로그램의 기본 디렉터리에 배포하고 시스템에 통합합니다.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>시스템에서 현재 실행 중인 Zero Install 인스턴스를 제거합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -331,7 +315,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>지정된 키워드와 일치하는 피드를 미러 서버에서 색인화된 항목 중에서 검색합니다. 기본 미러 서버는 품질에 관계없이 알려진 모든 피드를 색인화하므로, 프로그램을 실행하기 전에 신뢰할 수 있는지 여부를 직접 판단해야 합니다.</value>
+    <value>지정된 키워드와 일치하는 피드를 미러 서버에서 색인화된 항목 중에서 검색합니다. 기본 미러 서버는 품질에 관계없이 알려진 모든 피드를 색인화하므로, 프로그램을 실행하기 전에 해당 프로그램을 신뢰할지 여부를 직접 판단해야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -425,7 +409,7 @@
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>프로그램 업데이트를 확인하고, 업데이트가 발견되면 이를 다운로드합니다.
-이는 '0install download --refresh'와 유사하지만, 변경 사항이 발견되었는지 여부에 대한 정보를 출력한다는 점이 다릅니다.</value>
+이는 '0install download --refresh' 명령과 유사하지만, 변경 사항이 발견되었는지 여부에 대한 정보를 출력한다는 점이 다릅니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -510,10 +494,6 @@
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
     <value>다음 인터페이스에 대해 피드 등록이 성공적으로 해제되었습니다:</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="FileCheckComplete" xml:space="preserve">
-    <value>파일 확인 완료</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -602,10 +582,6 @@
     <value>내 애플리케이션</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NeedsGui" xml:space="preserve">
-    <value>이 기능을 사용하려면 Zero Install의 GUI 버전을 사용해 주십시오.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
     <value>{0} 옵션은 별칭 이름과 함께만 지정할 수 있습니다.</value>
     <comment>Manually overriden.</comment>
@@ -614,17 +590,9 @@
     <value>그래픽 기반 정책 편집기는 명령줄 모드에서는 사용할 수 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>데스크톱 통합 기능이 작동하려면 시스템에 Zero Install이 설치되어 있어야 합니다.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install이 휴대용 모드로 실행 중입니다. 데스크톱 통합 기능이 작동하려면 영구 저장 위치에 배포해야 합니다.
 '{0}' 명령어를 사용하여 이를 수행할 수 있습니다. 이렇게 하면 휴대용 버전과는 완전히 독립적으로 작동합니다.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install은 사용자별 디렉터리에서 실행되고 있습니다. 시스템 전체에 걸친 데스크톱 통합 기능이 작동하려면 모든 사용자가 접근할 수 있는 디렉터리에 배포해야 합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -640,7 +608,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotInImplDirs" xml:space="preserve">
-    <value>'{0}'가 사용자 정의 구현 캐시 목록에 없습니다.</value>
+    <value>'{0}'이 사용자 정의 구현 캐시 목록에 없습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoUpdatesFound" xml:space="preserve">
@@ -660,7 +628,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionAliasRemove" xml:space="preserve">
-    <value>기존 별칭을 제거합니다.</value>
+    <value>기존 별칭을 삭제합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionAliasResolve" xml:space="preserve">
@@ -673,10 +641,6 @@
   </data>
   <data name="OptionBatch" xml:space="preserve">
     <value>가능한 경우 기본값으로 질문에 자동으로 응답하고, 콘솔 출력을 간소화합니다(표나 진행률 표시줄 없음).</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="OptionBefore" xml:space="preserve">
-    <value>{VERSION} 보다 이전 버전의 메인 프로그램이 필요합니다. 즉, 프로그램의 이전 버전을 사용하도록 강제합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -770,10 +734,6 @@
     <value>매니페스트 자체를 표시합니다(파일이나 디렉터리마다 한 줄씩).</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionMessage" xml:space="preserve">
-    <value>사용자와 상호작용할 때 표시되는 메시지.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>애플리케이션 자체는 아직 다운로드하지 않습니다. 대신 처음 사용할 때 자동으로 다운로드됩니다.</value>
     <comment>Manually overriden.</comment>
@@ -832,7 +792,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>더 자세한 출력을 표시합니다. 더 자세한 출력을 보려면 이 옵션을 두 번 사용하십시오.</value>
+    <value>더 자세한 출력 정보를 표시합니다. 더 자세한 출력 정보를 보려면 이 옵션을 두 번 사용하십시오.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -847,7 +807,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>{0:URI} 가 지정된 라이브러리나 하위 구성 요소에 대해 {1:RANGE} 의 버전을 지정합니다(--version 옵션과 동일).</value>
+    <value>{0:URI} 가 지정된 라이브러리나 하위 구성 요소의 경우, {1:RANGE} (--version 옵션과 동일하게) 버전을 지정합니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">

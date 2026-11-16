@@ -206,14 +206,6 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe nesse diretório.</value>
     <value>Ao utilizar a opção « {0} », deve especificar explicitamente o diretório de destino.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>O diretório de destino especificado ({0}) está localizado fora do seu diretório pessoal.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeprecatedOption" xml:space="preserve">
-    <value>Opção obsoleta. Utilize, em vez disso, «{0} ».</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Description" xml:space="preserve">
     <value>Descrição</value>
     <comment>Automatically translated.</comment>
@@ -244,10 +236,6 @@ Pode utilizá-la executando o ficheiro ZeroInstall.exe nesse diretório.</value>
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
     <value>Remove um URI da lista de catálogos.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>Redefine a lista de catálogos para a fonte predefinida.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
@@ -305,10 +293,6 @@ O ficheiro deve possuir uma assinatura digital fiável, tal como acontece quando
     <value>Implementa o Zero Install no diretório TARGET especificado ou no diretório predefinido para programas e integra-o no sistema.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Remove a instância atual do Zero Install do sistema.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
     <value>Remove todas as aplicações da lista de aplicações e anula qualquer integração com o ambiente de trabalho. Utilize este comando para limpar o sistema antes de remover o Zero Install.</value>
     <comment>Automatically translated.</comment>
@@ -331,12 +315,12 @@ Devolve um código de saída igual a 1 se a etapa de transferência falhar. Caso
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>Procura feeds indexados pelo servidor espelho que correspondam às palavras-chave especificadas. Note que o servidor espelho predefinido indexa todos os feeds conhecidos, independentemente da qualidade; deve decidir se confia nos programas antes de os executar.</value>
+    <value>Procura feeds indexados pelo servidor espelho que correspondam às palavras-chave especificadas. Note-se que o servidor espelho predefinido indexa todos os feeds conhecidos, independentemente da qualidade; deve decidir se confia nos programas antes de os executar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
     <value>Seleciona uma versão do programa identificada por URI e versões compatíveis de todas as suas dependências.
-Devolve um estado de saída igual a 0 se tiver selecionado um conjunto de versões e um estado igual a 1 se não tiver conseguido encontrar um conjunto consistente.</value>
+Retorna um estado de saída igual a 0 se tiver selecionado um conjunto de versões e um estado igual a 1 se não tiver conseguido encontrar um conjunto consistente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
@@ -404,7 +388,7 @@ Argumentos adicionais especificam localizações personalizadas para a cache.</v
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreVerify" xml:space="preserve">
-    <value>Verifica se uma implementação não foi danificada (ou seja, se o resumo do seu manifesto não foi alterado).</value>
+    <value>Verifica se uma implementação não foi danificada (ou seja, se o resumo do seu manifesto não sofreu alterações).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSync" xml:space="preserve">
@@ -512,10 +496,6 @@ Isto é semelhante ao comando «0install download --refresh», com a diferença 
     <value>O feed foi desregistado com sucesso para as seguintes interfaces:</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="FileCheckComplete" xml:space="preserve">
-    <value>Verificação de ficheiros concluída</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Não foi possível encontrar o ficheiro ou diretório "{0}".</value>
     <comment>Manually overriden.</comment>
@@ -602,10 +582,6 @@ Pode redistribuir cópias deste programa ao abrigo dos termos da Licença Públi
     <value>As minhas aplicações</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NeedsGui" xml:space="preserve">
-    <value>Por favor, utilize a versão GUI do Zero Install para esta funcionalidade.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
     <value>{0} só pode ser especificado juntamente com um nome de alias.</value>
     <comment>Automatically translated.</comment>
@@ -614,17 +590,9 @@ Pode redistribuir cópias deste programa ao abrigo dos termos da Licença Públi
     <value>O editor gráfico de políticas não está disponível no modo de linha de comandos.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>O Zero Install tem de estar instalado no seu sistema para que a integração no ambiente de trabalho funcione.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>O Zero Install está a ser executado no modo portátil. É necessário instalá-lo num local permanente para que a integração no ambiente de trabalho funcione.
 Pode fazê-lo utilizando o comando «{0} ». Esta instalação será totalmente independente da sua cópia portátil.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>O Zero Install está a ser executado a partir de um diretório específico do utilizador. Para que a integração no ambiente de trabalho a nível do computador funcione, é necessário implementá-lo num diretório acessível a todos os utilizadores.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -675,10 +643,6 @@ Pode fazê-lo utilizando o comando «{0} ». Esta instalação será totalmente 
     <value>Responde automaticamente às perguntas com valores predefinidos, sempre que possível, e simplifica a saída da consola (sem tabelas nem barras de progresso).</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="OptionBefore" xml:space="preserve">
-    <value>Exige uma versão do programa principal anterior à {VERSION}, ou seja, obriga à utilização de uma versão antiga do programa.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
     <value>Ignora a transferência do catálogo para verificar se este é válido antes de o adicionar à lista.</value>
     <comment>Manually overriden.</comment>
@@ -693,7 +657,7 @@ Defina como vazio («») para ignorar o comando durante a seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionConfigTab" xml:space="preserve">
-    <value>Mudar para um separador específico na interface gráfica de configuração.</value>
+    <value>Alternar para um separador específico na interface gráfica de configuração.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCpu" xml:space="preserve">
@@ -717,7 +681,7 @@ Defina como vazio («») para ignorar o comando durante a seleção.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionExportNoImplementations" xml:space="preserve">
-    <value>Não inclua arquivos de implementação na exportação. Exporte apenas feeds.</value>
+    <value>Não inclua arquivos de implementação na exportação. Exporte apenas os feeds.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
@@ -768,10 +732,6 @@ Não pode conter argumentos de linha de comandos! Não é necessário escapar os
   </data>
   <data name="OptionManifest" xml:space="preserve">
     <value>Exibe o próprio manifesto (uma linha por cada ficheiro ou diretório).</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="OptionMessage" xml:space="preserve">
-    <value>Mensagem a apresentar durante a interação com o utilizador.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
@@ -939,7 +899,7 @@ Execute «0install config self_update_uri default» para a ativar.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="StabilityPolicyAutoSet" xml:space="preserve">
-    <value>Definir a política de estabilidade para o « {0} » de forma a corresponder?</value>
+    <value>Definir a política de estabilidade para « {0} » de forma a corresponder?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
@@ -976,7 +936,7 @@ Execute «0install config self_update_uri default» para a ativar.</value>
   </data>
   <data name="SyncCryptoKeyDescription" xml:space="preserve">
     <value>A chave de encriptação é utilizada para encriptar os seus dados localmente antes de os transmitir para o servidor.
-Mantenha esta chave em segredo e utilize algo diferente como palavra-passe. Desta forma, ninguém poderá aceder aos seus dados, mesmo que o servidor venha a ser comprometido.</value>
+Mantenha esta chave em segredo e utilize algo diferente para a sua palavra-passe. Desta forma, ninguém poderá aceder aos seus dados, mesmo que o servidor venha a ser comprometido.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="TooManyArguments" xml:space="preserve">

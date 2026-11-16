@@ -59,7 +59,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Added0installToPath" xml:space="preserve">
-    <value>Se ha añadido el comando «0install» a la ruta PATH de la línea de comandos.</value>
+    <value>Se ha añadido el comando «0install» a la variable PATH de la línea de comandos.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasCreated" xml:space="preserve">
@@ -206,14 +206,6 @@ Puedes utilizarla ejecutando el archivo ZeroInstall.exe que se encuentra en ese 
     <value>Al utilizar la opción « {0} », debes especificar explícitamente el directorio de destino.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>El directorio de destino especificado ({0}) se encuentra fuera de tu directorio de usuario.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeprecatedOption" xml:space="preserve">
-    <value>Opción obsoleta. Utiliza en su lugar «{0} ».</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Description" xml:space="preserve">
     <value>Descripción</value>
     <comment>Automatically translated.</comment>
@@ -244,10 +236,6 @@ Puedes utilizarla ejecutando el archivo ZeroInstall.exe que se encuentra en ese 
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
     <value>Elimina un URI de la lista de catálogos.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>Restablece la lista de catálogos a la fuente predeterminada.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
@@ -305,16 +293,12 @@ El archivo debe tener una firma digital de confianza, como cuando se obtiene de 
     <value>Instala Zero Install en el directorio TARGET especificado o en el directorio predeterminado para programas y lo integra en el sistema.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Elimina la instancia actual de Zero Install del sistema.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
     <value>Elimina todas las aplicaciones de la lista de aplicaciones y deshace cualquier integración con el entorno de escritorio. Utilice este comando para limpiar el sistema antes de eliminar Zero Install.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>Elimina una aplicación de la lista de aplicaciones y desactiva cualquier integración con el entorno de escritorio.</value>
+    <value>Elimina una aplicación de la lista de aplicaciones y deshace cualquier integración con el entorno de escritorio.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
@@ -382,7 +366,7 @@ Un argumento adicional especifica una ubicación de caché de destino personaliz
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
-    <value>Ahorra espacio en disco al fusionar archivos idénticos mediante enlaces duros.
+    <value>Ahorra espacio en disco fusionando archivos idénticos mediante enlaces duros.
 Los argumentos adicionales permiten especificar ubicaciones de caché personalizadas.</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -512,10 +496,6 @@ Esto es similar a «0install download --refresh», salvo que muestra informació
     <value>El feed se ha dado de baja correctamente para las siguientes interfaces:</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="FileCheckComplete" xml:space="preserve">
-    <value>Comprobación de archivos completada</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>No ha sido posible encontrar el archivo o directorio «{0}».</value>
     <comment>Manually overriden.</comment>
@@ -602,10 +582,6 @@ Puedes redistribuir copias de este programa bajo los términos de la Licencia P�
     <value>Mis aplicaciones</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NeedsGui" xml:space="preserve">
-    <value>Para utilizar esta función, utiliza la versión con interfaz gráfica de usuario (GUI) de Zero Install.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
     <value>{0} solo se puede especificar junto con un nombre de alias.</value>
     <comment>Manually overriden.</comment>
@@ -614,17 +590,9 @@ Puedes redistribuir copias de este programa bajo los términos de la Licencia P�
     <value>El editor gráfico de políticas no está disponible en modo de línea de comandos.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Es necesario instalar Zero Install en tu sistema para que funcione la integración en el escritorio.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install se está ejecutando en modo portátil. Es necesario instalarlo en una ubicación permanente para que funcione la integración en el escritorio.
 Puedes hacerlo utilizando «{0} ». Esta instalación será totalmente independiente de tu copia portátil.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install se ejecuta desde un directorio específico del usuario. Para que la integración en el escritorio a nivel de todo el equipo funcione, es necesario instalarlo en un directorio accesible para todos los usuarios.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -668,15 +636,11 @@ Puedes hacerlo utilizando «{0} ». Esta instalación será totalmente independi
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBackground" xml:space="preserve">
-    <value>Ocultar la interfaz gráfica de usuario y utilizar, en su lugar, algo parecido a un icono de la bandeja del sistema.</value>
+    <value>Ocultar la interfaz gráfica de usuario y utilizar, en su lugar, algo como un icono de la bandeja del sistema.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
     <value>Responde automáticamente a las preguntas con valores predeterminados siempre que sea posible y simplifica la salida de la consola (sin tablas ni barras de progreso).</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="OptionBefore" xml:space="preserve">
-    <value>Requiere una versión del programa principal anterior a {VERSION}, es decir, obliga a utilizar una versión antigua del programa.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -729,7 +693,7 @@ Déjalo en blanco («») para ignorar el comando durante la selección.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAdd" xml:space="preserve">
-    <value>Añade todos los puntos de acceso de un {CATEGORY} específico.</value>
+    <value>Añade todos los puntos de acceso de una red específica {CATEGORY}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionIntegrateAddAll" xml:space="preserve">
@@ -770,10 +734,6 @@ Puedes utilizar esta opción varias veces para especificar varios idiomas acepta
     <value>Muestra el propio manifiesto (una línea por cada archivo o directorio).</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionMessage" xml:space="preserve">
-    <value>Mensaje que se muestra al interactuar con el usuario.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>No descargues todavía la aplicación en sí. Se descargará automáticamente la primera vez que la utilices.</value>
     <comment>Automatically translated.</comment>
@@ -788,7 +748,7 @@ Puedes utilizar esta opción varias veces para especificar varios idiomas acepta
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Funciona en modo sin conexión, anulando la configuración predeterminada.
-En modo sin conexión, no se actualizan las interfaces aunque estén desactualizadas, y no se descargarán versiones más recientes de los programas aunque el inyector ya tenga constancia de ellas (por ejemplo, de una actualización anterior).</value>
+En modo sin conexión, no se actualizan las interfaces aunque estén desactualizadas, y no se descargan versiones más recientes de los programas aunque el inyector ya tenga constancia de ellas (por ejemplo, de una actualización anterior).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">

@@ -136,7 +136,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">
-    <value>Nicio implementare a versiunii {0} nu este stocată în cache. Imposibil de calculat un digest suplimentar.</value>
+    <value>Nu este stocată în cache nicio implementare a versiunii {0}. Imposibil de calculat un digest suplimentar.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoFeedFor" xml:space="preserve">

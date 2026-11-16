@@ -63,7 +63,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>Το αρχείο περιέχει μόνο έναν κατάλογο κορυφαίου επιπέδου, τον «{0} ». Καλό θα ήταν να ορίσετε το χαρακτηριστικό «{1} » ως «{0} », ώστε να αποφύγετε ένα επιπλέον επίπεδο ένθεσης.</value>
+    <value>Το αρχείο περιέχει μόνο έναν κατάλογο κορυφαίου επιπέδου, τον «{0} ». Θα πρέπει πιθανώς να ορίσετε το χαρακτηριστικό «{1} » σε «{0} », για να αποφύγετε ένα επιπλέον επίπεδο ένθεσης.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
@@ -157,7 +157,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="NoLocalImplementation" xml:space="preserve">
-    <value>Δεν υπάρχει υλοποίηση με το αναγνωριστικό «{0} » ούτε τοπική υλοποίηση στην οποία να εφαρμοστεί το αρχείο.</value>
+    <value>Δεν υπάρχει υλοποίηση με το αναγνωριστικό «{0} » και δεν υπάρχει τοπική υλοποίηση στην οποία να εφαρμοστεί το αρχείο.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoTestingImplementations" xml:space="preserve">

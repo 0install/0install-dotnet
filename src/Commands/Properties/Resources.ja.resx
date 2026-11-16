@@ -112,7 +112,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskTryNow" xml:space="preserve">
-    <value>今すぐ試してみますか？</value>
+    <value>今すぐ試してみませんか？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskUpdateCapabilities" xml:space="preserve">
@@ -206,14 +206,6 @@
     <value>「{0} 」オプションを使用する場合は、保存先ディレクトリを明示的に指定する必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>指定された保存先ディレクトリ（{0} ）は、ホームディレクトリの外側にあります。</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeprecatedOption" xml:space="preserve">
-    <value>非推奨のオプションです。代わりに「{0} 」を使用してください。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Description" xml:space="preserve">
     <value>説明</value>
     <comment>Automatically translated.</comment>
@@ -246,10 +238,6 @@
     <value>カタログ一覧からURIを削除します。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>カタログの一覧をデフォルトのソースにリセットします。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
     <value>登録されたカタログから、指定された検索条件に一致するアプリケーションを検索します。検索条件が指定されていない場合は、カタログ内のすべてのアプリケーションが一覧表示されます。</value>
     <comment>Automatically translated.</comment>
@@ -260,7 +248,7 @@
   </data>
   <data name="DescriptionConfig" xml:space="preserve">
     <value>設定を表示または変更します。
-引数を指定しない場合は、すべての設定とその現在の値を表示します。引数を1つ指定した場合は、指定された設定の現在の値を表示します。引数を2つ指定した場合は、設定を指定された値に設定します。値として「{0} 」が指定された場合は、設定をデフォルト値にリセットします。</value>
+引数を指定しない場合は、すべての設定とその現在の値を表示します。引数を1つ指定した場合は、指定された設定の現在の値を表示します。引数を2つ指定した場合は、設定を指定された値に設定します。また、「{0} 」という値が指定された場合は、設定をデフォルト値にリセットします。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionDigest" xml:space="preserve">
@@ -290,7 +278,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
-    <value>ローカルに認識されているすべてのフィードURIを一覧表示します。検索語句が指定された場合、その文字列を含むURIのみが表示されます（大文字小文字は区別されません）。</value>
+    <value>ローカルに認識されているすべてのフィードURIを一覧表示します。検索語が指定された場合、その文字列を含むURIのみが表示されます（大文字小文字は区別されません）。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListApps" xml:space="preserve">
@@ -298,15 +286,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionListFeeds" xml:space="preserve">
-    <value>「0install add-feed」コマンドを使用してURIに追加されたすべての追加フィードを一覧表示します。</value>
+    <value>「0install add-feed」を使用してURIに追加されたすべての追加フィードを一覧表示します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
     <value>Zero Installを指定されたTARGETディレクトリ、またはプログラムのデフォルトディレクトリに展開し、システムに統合します。</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>システムからZero Installの現在のインスタンスを削除します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -331,7 +315,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
-    <value>ミラーサーバーによってインデックス化されたフィードの中から、指定されたキーワードに一致するものを検索します。なお、デフォルトのミラーサーバーは品質に関係なく、すべての既知のフィードをインデックス化しています。プログラムを実行する前に、その信頼性を判断する必要があります。</value>
+    <value>ミラーサーバーによってインデックス化されたフィードの中から、指定されたキーワードに一致するものを検索します。なお、デフォルトのミラーサーバーは品質に関係なく、既知のすべてのフィードをインデックス化しています。プログラムを実行する前に、その信頼性を判断する必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
@@ -353,7 +337,7 @@
   </data>
   <data name="DescriptionStoreAudit" xml:space="preserve">
     <value>キャッシュ内のすべての実装に破損がないことを確認します。
-追加の引数で、カスタムキャッシュの保存場所を指定できます。</value>
+追加の引数により、カスタムキャッシュの保存場所を指定できます。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
@@ -512,10 +496,6 @@
     <value>以下のインターフェースについて、フィードの登録解除に成功しました：</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="FileCheckComplete" xml:space="preserve">
-    <value>ファイルの確認が完了しました</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>ファイルまたはディレクトリ「{0}」が見つかりません。</value>
     <comment>Manually overriden.</comment>
@@ -602,10 +582,6 @@
     <value>マイアプリケーション</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="NeedsGui" xml:space="preserve">
-    <value>この機能をご利用の際は、Zero InstallのGUI版をご利用ください。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
     <value>{0}はエイリアス名と組み合わせてのみ指定できます。</value>
     <comment>Manually overriden.</comment>
@@ -614,17 +590,9 @@
     <value>グラフィカルなポリシーエディタは、コマンドラインモードでは利用できません。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>デスクトップ統合機能を動作させるには、お使いのシステムにZero Installを導入する必要があります。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Installはポータブルモードで実行されています。デスクトップへの統合を機能させるには、恒久的な場所に展開する必要があります。
 これを行うには、「{0} 」を使用します。これにより、ポータブル版とは完全に独立した環境が構築されます。</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Installはユーザー固有のディレクトリから実行されています。マシン全体のデスクトップ統合を機能させるには、すべてのユーザーがアクセス可能なディレクトリに展開する必要があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -675,10 +643,6 @@
     <value>可能な場合はデフォルト値で自動的に質問に回答し、コンソール出力を簡略化する（表や進行状況バーは表示しない）。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionBefore" xml:space="preserve">
-    <value>{VERSION} より以前のメインプログラムのバージョンを必要とする。つまり、プログラムの古いバージョンの使用を強制する。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
     <value>リストに追加する前にカタログが有効かどうかを確認するためのダウンロードをスキップします。</value>
     <comment>Manually overriden.</comment>
@@ -721,7 +685,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionForceSelfUpdate" xml:space="preserve">
-    <value>現在インストールされているバージョンが同じか、それより新しい場合でも、更新を実行します。</value>
+    <value>現在インストールされているバージョンが同じ、またはそれより新しい場合でも、更新を実行します。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionHelp" xml:space="preserve">
@@ -770,10 +734,6 @@
     <value>マニフェスト自体を表示する（ファイルまたはディレクトリごとに1行ずつ）。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionMessage" xml:space="preserve">
-    <value>ユーザーとのやり取りの際に表示されるメッセージ。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>アプリケーション本体はまだダウンロードしません。代わりに初回使用時に自動的にダウンロードされます。</value>
     <comment>Manually overriden.</comment>
@@ -783,12 +743,12 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>選択したプログラムが起動されると、その実行が完了するのを待つことなく直ちに処理を終了します。Windowsでは、終了コードは起動されたプログラムのプロセスIDとなります。</value>
+    <value>選択したプログラムが起動されると、その実行が完了するのを待たずに直ちに処理を終了します。Windowsでは、終了コードは起動されたプログラムのプロセスIDとなります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>デフォルト設定を上書きして、オフラインモードで実行します。
-オフラインモードでは、インターフェースが古くなっても更新されず、インジェクターが（前回の更新などで）すでに認識しているプログラムであっても、新しいバージョンはダウンロードされません。</value>
+オフラインモードでは、インターフェースが古くなっていたとしても更新されず、インジェクターが（前回の更新などで）すでに認識しているプログラムであっても、新しいバージョンはダウンロードされません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -800,7 +760,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionPortable" xml:space="preserve">
-    <value>（USBメモリなど）持ち運び可能なポータブル版を作成する。</value>
+    <value>（USBメモリなど）持ち運び可能なポータブル版インストールを作成する。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionRefresh" xml:space="preserve">
@@ -1000,7 +960,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryRunAgain" xml:space="preserve">
-    <value>{0} をもう一度実行してみてください。</value>
+    <value>{0} を再度実行してみてください。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UninstallService" xml:space="preserve">
@@ -1024,7 +984,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="UseSystemLanguage" xml:space="preserve">
-    <value>システム言語を使用する</value>
+    <value>システムの言語を使用する</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="Verify" xml:space="preserve">

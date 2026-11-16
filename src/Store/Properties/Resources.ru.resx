@@ -182,7 +182,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidIconUrl" xml:space="preserve">
-    <value>Не удается загрузить значок с сайта {0}, поскольку поддерживаются только URL-адреса в формате HTTP и HTTPS.</value>
+    <value>Не удалось загрузить значок с сайта {0}, поскольку поддерживаются только URL-адреса в формате HTTP и HTTPS.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidLinesInManifest" xml:space="preserve">
@@ -243,7 +243,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionLockedByPolicy" xml:space="preserve">
-    <value>Этот параметр управляется групповой политикой и поэтому не может быть изменен.</value>
+    <value>Эта настройка управляется групповой политикой и поэтому не может быть изменена.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="PathCaseCollision" xml:space="preserve">

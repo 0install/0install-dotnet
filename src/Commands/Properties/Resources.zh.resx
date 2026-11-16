@@ -206,14 +206,6 @@
     <value>使用{0} 选项时，必须明确指定目标目录。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>指定的目标目录（{0} ）位于您的主目录之外。</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeprecatedOption" xml:space="preserve">
-    <value>该选项已弃用。请改用“{0} ”。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Description" xml:space="preserve">
     <value>描述</value>
     <comment>Automatically translated.</comment>
@@ -244,10 +236,6 @@
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
     <value>从目录列表中移除一个 URI。</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>将目录列表重置为默认来源。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
@@ -286,7 +274,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
-    <value>将应用程序添加到应用程序列表中（如果尚未存在），并将其集成到桌面环境中。</value>
+    <value>将应用程序添加到应用程序列表中（若尚未存在），并将其集成到桌面环境中。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionList" xml:space="preserve">
@@ -303,10 +291,6 @@
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
     <value>将 Zero Install 部署到指定的 TARGET 目录或程序的默认目录，并将其集成到系统中。</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>从系统中移除当前运行的 Zero Install 实例。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -327,7 +311,7 @@
   </data>
   <data name="DescriptionRun" xml:space="preserve">
     <value>其行为与“0install download”类似，不同之处在于它会在确认程序已存入缓存后，自动运行该程序。
-如果下载步骤失败，则返回退出状态 1。否则，退出状态将取决于所运行程序的退出状态。</value>
+如果下载步骤失败，则返回退出状态 1。否则，退出状态将与所运行程序的退出状态一致。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSearch" xml:space="preserve">
@@ -335,8 +319,8 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
-    <value>根据 URI 选择程序版本，并选择其所有依赖项的兼容版本。
-如果成功选定了一组版本，则返回退出状态 0；如果无法找到一致的版本集，则返回状态 1。</value>
+    <value>根据 URI 选择程序的某个版本，以及所有依赖项的兼容版本。
+如果选定了一组版本，则返回退出状态 0；如果无法找到一致的版本集，则返回状态 1。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
@@ -357,8 +341,8 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreCopy" xml:space="preserve">
-    <value>将一个实现复制到缓存中。类似于“0install store add”，但摘要是从目录名称中提取的。
-通过额外参数可以指定自定义的目标缓存位置。</value>
+    <value>将实现复制到缓存中。类似于“0install store add”，但摘要是从目录名称中提取的。
+通过额外参数可指定自定义的目标缓存位置。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStoreExport" xml:space="preserve">
@@ -383,7 +367,7 @@
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
     <value>通过硬链接合并重复文件，从而节省磁盘空间。
-可通过额外参数指定自定义缓存位置。</value>
+可通过附加参数指定自定义缓存位置。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
@@ -425,7 +409,7 @@
   </data>
   <data name="DescriptionUpdate" xml:space="preserve">
     <value>检查程序更新，若发现更新则进行下载。
-这与“0install download --refresh”类似，不同之处在于它会显示是否发现任何更改的相关信息。</value>
+这与“0install download --refresh”类似，不同之处在于它会显示是否检测到任何更改的信息。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionUpdateApps" xml:space="preserve">
@@ -511,10 +495,6 @@
   <data name="FeedUnregistered" xml:space="preserve">
     <value>已成功为以下接口注销该 feed：</value>
     <comment>Manually overriden.</comment>
-  </data>
-  <data name="FileCheckComplete" xml:space="preserve">
-    <value>文件校验完成</value>
-    <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>无法找到文件或目录'{0}'。</value>
@@ -602,10 +582,6 @@
     <value>我的应用程序</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NeedsGui" xml:space="preserve">
-    <value>如需使用此功能，请使用 Zero Install 的图形界面版本。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
     <value>{0} 只能与别名一起指定。</value>
     <comment>Automatically translated.</comment>
@@ -614,17 +590,9 @@
     <value>图形化策略编辑器在命令行模式下不可用。</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>为了使桌面集成功能正常工作，需要在您的系统上部署 Zero Install。</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
-    <value>Zero Install 目前处于便携模式。若要实现桌面集成，需将其部署到永久位置。
-您可以通过执行“{0} ”来完成此操作。这样部署的版本将与您的便携版完全独立。</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install 当前运行于用户专属目录中。为实现全机桌面集成，需将其部署到所有用户均可访问的目录中。</value>
+    <value>Zero Install 目前处于便携模式。若要实现桌面集成，需要将其部署到一个永久位置。
+您可以使用 '{0}' 命令完成此操作。这样部署的版本将与您的便携版完全独立。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -673,10 +641,6 @@
   </data>
   <data name="OptionBatch" xml:space="preserve">
     <value>在可能的情况下，自动使用默认值回答问题，并简化控制台输出（不显示表格或进度条）。</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="OptionBefore" xml:space="preserve">
-    <value>要求主程序版本早于{VERSION} ，即强制使用旧版本的程序。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -762,16 +726,12 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionMain" xml:space="preserve">
-    <value>运行指定的可执行文件{MAIN} 而不是默认的可执行文件。如果路径以“/”或“\”开头，则该路径相对于实现的顶级目录；否则，则相对于包含默认主程序的目录。
+    <value>运行指定的可执行文件{MAIN} 而不是默认的可执行文件。如果路径以 '/' 或 '\' 开头，则该路径相对于实现的顶级目录；否则，则相对于包含默认主程序的目录。
 不得包含命令行参数！空格无需转义。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionManifest" xml:space="preserve">
     <value>显示清单文件本身（每个文件或目录占一行）。</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="OptionMessage" xml:space="preserve">
-    <value>与用户交互时显示的消息。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
@@ -832,7 +792,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVerbose" xml:space="preserve">
-    <value>显示更详细的输出信息。若需显示更详细的输出信息，请连续使用两次。</value>
+    <value>显示更详细的输出信息。若需显示更详细的输出信息，请重复执行两次。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionVersion" xml:space="preserve">
@@ -841,7 +801,7 @@
   </data>
   <data name="OptionVersionRange" xml:space="preserve">
     <value>要求主程序的版本号在给定的{RANGE} 范围内。
-范围之间用竖线 (|) 分隔。
+范围用竖线 (|) 分隔。
 每个范围的格式为“START..!END”。该范围匹配满足 START &lt;= VERSION &lt; END 的版本。起始值或结束值可以省略。
 可以使用单个版本号代替范围，以仅匹配该版本；或者使用 !VERSION 来匹配除该版本以外的所有版本。</value>
     <comment>Automatically translated.</comment>
@@ -857,7 +817,7 @@
   </data>
   <data name="OptionWrapper" xml:space="preserve">
     <value>不要直接执行所选程序，而是运行{COMMAND} PROGRAM ARGS。这对于在程序上（而非在 Zero Install 上！）运行调试器和跟踪工具非常有用。
-请注意，该包装程序是在程序所选的环境中执行的；因此，此机制不能用于沙箱隔离。
+请注意，该包装器是在程序所选的环境中执行的；因此，此机制不能用于沙箱隔离。
 可能包含命令行参数。空格必须进行转义！</value>
     <comment>Automatically translated.</comment>
   </data>
@@ -943,11 +903,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicyReset" xml:space="preserve">
-    <value>将{0} 的稳定性策略重置为默认值吗？</value>
+    <value>将{0} 的稳定性策略重置为默认值？</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
-    <value>从{0} 选择实现时所需的稳定性策略为“{1} ”。</value>
+    <value>从{0} 选择实现所需的稳定性策略为“{1} ”。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">

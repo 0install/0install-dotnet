@@ -234,7 +234,7 @@ Tanggal baru: {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="UnknownPackageID" xml:space="preserve">
-    <value>'{0}' bukanlah ID yang dikenal dalam pengelola paket {1}.</value>
+    <value>'{0}' bukanlah ID yang dikenal di pengelola paket {1}.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UntrustedKeys" xml:space="preserve">
