@@ -8,7 +8,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [XmlType("verb-capability", Namespace = CapabilityList.XmlNamespace)]
 [Equatable, Cloneable]
-public abstract partial class VerbCapability : IconCapability
+public closed partial class VerbCapability : IconCapability
 {
     /// <summary>
     /// A list of all available operations for the element.

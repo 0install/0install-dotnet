@@ -22,7 +22,7 @@ public class SatSolver(ISelectionCandidateProvider candidateProvider) : ISolver
     }
 
     /// <summary>Discriminated key for SAT variables: an implementation candidate or a CPU group sentinel.</summary>
-    private abstract record NodeKey;
+    private closed record NodeKey;
     private sealed record ImplNode(SelectionCandidate Candidate) : NodeKey;
     private sealed record CpuGroupNode(CpuGroup Group) : NodeKey;
 

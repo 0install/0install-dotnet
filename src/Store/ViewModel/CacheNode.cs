@@ -12,7 +12,7 @@ namespace ZeroInstall.Store.ViewModel;
 /// <param name="path">The path of the directory.</param>
 /// <param name="size">The total size of the directory in bytes.</param>
 [SuppressMessage("Microsoft.Design", "CA1036:OverrideMethodsOnComparableTypes", Justification = "Comparison only used for INamed sorting")]
-public abstract class CacheNode(string path, long size) : INamed, IEquatable<CacheNode>
+public closed class CacheNode(string path, long size) : INamed, IEquatable<CacheNode>
 {
     /// <summary>
     /// The full name of the node used for tree hierarchies.

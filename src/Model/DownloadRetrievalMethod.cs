@@ -10,7 +10,7 @@ namespace ZeroInstall.Model;
 /// </summary>
 [XmlType("download-retrieval-method", Namespace = Feed.XmlNamespace)]
 [Equatable, Cloneable]
-public abstract partial class DownloadRetrievalMethod : RetrievalMethod, IRecipeStep
+public closed partial class DownloadRetrievalMethod : RetrievalMethod, IRecipeStep
 {
     /// <summary>
     /// The URL to download the file from. Relative URLs are only allowed in local feed files.

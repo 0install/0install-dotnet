@@ -11,7 +11,7 @@ namespace ZeroInstall.Model;
 [TypeConverter(typeof(ArgBaseConverter))]
 [XmlType("arg-base", Namespace = Feed.XmlNamespace)]
 [Cloneable]
-public abstract partial class ArgBase : FeedElement, ICloneable<ArgBase>
+public closed partial class ArgBase : FeedElement, ICloneable<ArgBase>
 {
     /// <summary>
     /// Converts legacy elements, sets default values, etc..
