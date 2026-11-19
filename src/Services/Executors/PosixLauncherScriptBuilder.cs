@@ -119,7 +119,7 @@ internal sealed partial class PosixLauncherScriptBuilder(IImplementationStore im
                 _zeroinstall_cmd="$_zeroinstall_cmd$_zeroinstall_rest' "
             }
 
-            """.Replace("\r\n", "\n"));
+            """.ToUnixNewLine());
 
         foreach ((string name, var commandLine) in PendingRunEnvs)
         {
@@ -137,7 +137,7 @@ internal sealed partial class PosixLauncherScriptBuilder(IImplementationStore im
                 }
                 _zeroinstall_runenv
 
-                """.Replace("\r\n", "\n"));
+                """.ToUnixNewLine());
         }
         script.Append("unset _zeroinstall_cmd _zeroinstall_arg _zeroinstall_rest _zeroinstall_head\n");
     }
@@ -172,7 +172,7 @@ internal sealed partial class PosixLauncherScriptBuilder(IImplementationStore im
             {{DirVar}}=$(CDPATH= cd -- "$_zeroinstall_self/." && pwd -P) || exit
             unset _zeroinstall_self _zeroinstall_link
 
-            """.Replace("\r\n", "\n"));
+            """.ToUnixNewLine());
 
     /// <summary>
     /// Appends code that replaces the shell with the specified command-line, followed by the arguments passed to the script.
@@ -197,7 +197,7 @@ internal sealed partial class PosixLauncherScriptBuilder(IImplementationStore im
             while [ "$_zeroinstall_argc" -gt 0 ]; do set -- "$@" "$1"; shift; _zeroinstall_argc=$((_zeroinstall_argc - 1)); done
             exec "$@"
 
-            """.Replace("\r\n", "\n"));
+            """.ToUnixNewLine());
     }
 
     /// <summary>

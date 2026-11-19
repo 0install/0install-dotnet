@@ -618,7 +618,7 @@ public sealed class MaterializerTest : IDisposable
         {
             string path = Path.Combine(buildDir, relativePath);
             Directory.CreateDirectory(Path.GetDirectoryName(path)!);
-            File.WriteAllText(path, content.Replace("\r\n", "\n") + "\n");
+            File.WriteAllText(path, content.ToUnixNewLine() + "\n");
             if (path.EndsWith(".sh")) ImplFileUtils.SetExecutable(path);
         }
 
@@ -657,7 +657,7 @@ public sealed class MaterializerTest : IDisposable
         process.WaitForExit();
         process.ExitCode.Should().Be(0, because: error);
 
-        return output.Replace("\r\n", "\n").TrimEnd('\n').Split('\n');
+        return output.SplitMultilineText().ToArray();
     }
 
     private static void VerifyOutput(string[] output, string targetDir, Selections selections)
