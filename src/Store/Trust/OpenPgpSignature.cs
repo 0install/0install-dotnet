@@ -6,7 +6,7 @@ namespace ZeroInstall.Store.Trust;
 /// <summary>
 /// Represents a signature checked by an <see cref="IOpenPgp"/> implementation.
 /// </summary>
-public abstract record OpenPgpSignature(long KeyID) : IKeyIDContainer;
+public closed record OpenPgpSignature(long KeyID) : IKeyIDContainer;
 
 /// <summary>
 /// Represents a valid signature.

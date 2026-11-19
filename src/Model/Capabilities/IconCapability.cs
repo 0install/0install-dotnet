@@ -8,7 +8,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [Serializable, XmlType("icon-capability", Namespace = CapabilityList.XmlNamespace)]
 [Equatable, Cloneable]
-public abstract partial class IconCapability : DefaultCapability, IIconContainer, IDescriptionContainer
+public closed partial class IconCapability : DefaultCapability, IIconContainer, IDescriptionContainer
 {
     /// <inheritdoc/>
     [Browsable(false)]

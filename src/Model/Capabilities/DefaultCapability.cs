@@ -8,7 +8,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [XmlType("default-capability", Namespace = CapabilityList.XmlNamespace)]
 [Equatable, Cloneable]
-public abstract partial class DefaultCapability : Capability
+public closed partial class DefaultCapability : Capability
 {
     /// <summary>
     /// When set to <c>true</c> this capability is not applied as a default handler without explicit confirmation from the user.

@@ -12,7 +12,7 @@ namespace ZeroInstall.Model;
 /// </remarks>
 [XmlType("binding-base", Namespace = Feed.XmlNamespace)]
 [Cloneable]
-public abstract partial class Binding : FeedElement, ICloneable<Binding>
+public closed partial class Binding : FeedElement, ICloneable<Binding>
 {
     /// <summary>
     /// Converts legacy elements, sets default values, etc..

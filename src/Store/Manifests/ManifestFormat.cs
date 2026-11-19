@@ -13,7 +13,7 @@ namespace ZeroInstall.Store.Manifests;
 /// Comprises: The digest method used and the format specification used to serialize and deserialize manifests.
 /// </remarks>
 [Serializable]
-public abstract class ManifestFormat
+public closed class ManifestFormat
 {
     #region Static
     /// <summary>

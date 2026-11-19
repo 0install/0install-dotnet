@@ -6,7 +6,7 @@ namespace ZeroInstall.Model;
 /// <summary>
 /// Represents an individual non-disjoint part of a <see cref="VersionRange"/>.
 /// </summary>
-public abstract record VersionRangePart
+public closed record VersionRangePart
 {
     /// <summary>
     /// Parses a string into a version range part.

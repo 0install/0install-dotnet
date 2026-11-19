@@ -9,7 +9,7 @@ namespace ZeroInstall.Store.Manifests;
 /// <param name="Digest">The digest of the content of the element calculated using the selected digest algorithm.</param>
 /// <param name="Size">The size of the element in bytes.</param>
 [Serializable]
-public abstract record ManifestElement(string Digest, long Size)
+public closed record ManifestElement(string Digest, long Size)
 {
     /// <summary>
     /// Formats the element in the <see cref="Manifest"/> line format.
@@ -38,7 +38,7 @@ public sealed record ManifestSymlink(string Digest, long Size)
 /// <param name="ModifiedTime">The time this file was last modified.</param>
 /// <param name="Size">The size of the file in bytes.</param>
 [Serializable]
-public abstract record ManifestFile(string Digest, UnixTime ModifiedTime, long Size)
+public closed record ManifestFile(string Digest, UnixTime ModifiedTime, long Size)
     : ManifestElement(Digest, Size);
 
 /// <summary>

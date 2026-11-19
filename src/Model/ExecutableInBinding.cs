@@ -10,7 +10,7 @@ namespace ZeroInstall.Model;
 /// </summary>
 [XmlType("executable-in-binding", Namespace = Feed.XmlNamespace)]
 [Equatable, Cloneable]
-public abstract partial class ExecutableInBinding : Binding
+public closed partial class ExecutableInBinding : Binding
 {
     /// <summary>
     /// The name of the <see cref="Command"/> in the <see cref="Implementation"/> to launch; leave <c>null</c> for <see cref="Model.Command.NameRun"/>.

@@ -95,7 +95,7 @@ internal abstract partial class LauncherScriptBuilder(IImplementationStore imple
     /// <summary>
     /// A part of an <see cref="Arg"/> value.
     /// </summary>
-    private protected abstract record ArgPart;
+    private protected closed record ArgPart;
 
     /// <summary>
     /// Text to be used as is, with no variables being expanded.

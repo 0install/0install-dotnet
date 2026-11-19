@@ -8,7 +8,7 @@ namespace ZeroInstall.Model.Capabilities;
 /// </summary>
 [XmlType("capability", Namespace = CapabilityList.XmlNamespace)]
 [Equatable, Cloneable]
-public abstract partial class Capability : XmlUnknown, ICloneable<Capability>
+public closed partial class Capability : XmlUnknown, ICloneable<Capability>
 {
     /// <summary>
     /// Indicates whether this capability can be registered only machine-wide and not per-user on Windows systems.

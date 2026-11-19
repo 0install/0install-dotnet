@@ -51,7 +51,7 @@ public enum Stability
 /// </summary>
 [XmlType("element", Namespace = Feed.XmlNamespace)]
 [Equatable, Cloneable]
-public abstract partial class Element : TargetBase, IBindingContainer, IDependencyContainer, ICloneable<Element>
+public closed partial class Element : TargetBase, IBindingContainer, IDependencyContainer, ICloneable<Element>
 {
     #region Constants
     /// <summary>
