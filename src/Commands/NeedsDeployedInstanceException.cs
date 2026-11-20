@@ -12,37 +12,37 @@ using System.Security.Permissions;
 namespace ZeroInstall.Commands;
 
 /// <summary>
-/// Indicates that the current <see cref="Locations.InstallBase"/> is unsuitable for the desired operation.
+/// Indicates that the current Zero Install instance is not deployed to a location suitable for the requested operation.
 /// </summary>
 [Serializable]
-public sealed class UnsuitableInstallBaseException : NotSupportedException
+public sealed class NeedsDeployedInstanceException : NotSupportedException
 {
     /// <summary>
-    /// <c>true</c> if a machine-wide install location is required; <c>false</c> if a user-specific location will also do.
+    /// <c>true</c> if a machine-wide deployment location is required; <c>false</c> if a user-specific location will also do.
     /// </summary>
     public bool NeedsMachineWide { get; }
 
     /// <inheritdoc/>
-    public UnsuitableInstallBaseException() {}
+    public NeedsDeployedInstanceException() {}
 
     /// <inheritdoc/>
-    public UnsuitableInstallBaseException(string message)
+    public NeedsDeployedInstanceException(string message)
         : base(message)
     {}
 
     /// <summary>
-    /// Creates a new unsuitable install base exception.
+    /// Creates a new needs deployed instance exception.
     /// </summary>
     /// <param name="message">A message describing why the current location in unsuitable.</param>
     /// <param name="needsMachineWide"><c>true</c> if a machine-wide location is required; <c>false</c> if a user-specific location will also do.</param>
-    public UnsuitableInstallBaseException(string message, bool needsMachineWide)
+    public NeedsDeployedInstanceException(string message, bool needsMachineWide)
         : base(message)
     {
         NeedsMachineWide = needsMachineWide;
     }
 
     /// <inheritdoc/>
-    public UnsuitableInstallBaseException(string message, Exception innerException)
+    public NeedsDeployedInstanceException(string message, Exception innerException)
         : base(message, innerException)
     {}
 
@@ -51,7 +51,7 @@ public sealed class UnsuitableInstallBaseException : NotSupportedException
     /// <summary>
     /// Deserializes an exception.
     /// </summary>
-    private UnsuitableInstallBaseException(SerializationInfo info, StreamingContext context)
+    private NeedsDeployedInstanceException(SerializationInfo info, StreamingContext context)
         : base(info, context)
     {
         #region Sanity checks

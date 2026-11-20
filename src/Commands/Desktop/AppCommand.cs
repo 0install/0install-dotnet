@@ -61,7 +61,7 @@ public abstract class AppCommand(ICommandHandler handler) : IntegrationCommand(h
         if (string.IsNullOrEmpty(aliasName)) throw new ArgumentNullException(nameof(aliasName));
         #endregion
 
-        CheckInstallBase();
+        EnsureIsDeployed();
 
         // Check this before modifying the environment
         bool needsReopenTerminal = NeedsReopenTerminal(MachineWide);

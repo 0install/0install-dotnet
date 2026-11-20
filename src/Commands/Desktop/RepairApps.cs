@@ -20,7 +20,7 @@ public class RepairApps(ICommandHandler handler) : IntegrationCommand(handler)
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
-        CheckInstallBase();
+        EnsureIsDeployed();
 
         using var integrationManager = new IntegrationManager(Config, Handler, MachineWide);
         integrationManager.Repair(FeedManager.GetFresh);

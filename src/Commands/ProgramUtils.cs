@@ -216,7 +216,7 @@ public static class ProgramUtils
             handler.Error(ex);
             return ExitCode.Conflict;
         }
-        catch (UnsuitableInstallBaseException ex) when (WindowsUtils.IsWindows && args.FirstOrDefault() != DeployedIndicatorArg)
+        catch (NeedsDeployedInstanceException ex) when (WindowsUtils.IsWindows && args.FirstOrDefault() != DeployedIndicatorArg)
         {
             Log.Info(ex.Message, ex);
 

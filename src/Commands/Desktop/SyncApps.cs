@@ -28,7 +28,7 @@ public class SyncApps : IntegrationCommand
     /// <inheritdoc/>
     public override ExitCode Execute()
     {
-        CheckInstallBase();
+        EnsureIsDeployed();
 
         try
         {

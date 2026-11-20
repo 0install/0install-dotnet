@@ -27,7 +27,7 @@ public class RemoveApp(ICommandHandler handler) : AppCommand(handler)
         }
 
         if (appEntry.AccessPoints != null)
-            CheckInstallBase();
+            EnsureIsDeployed();
 
         foreach (var hook in appEntry.CapabilityLists.CompatibleCapabilities().OfType<RemoveHook>())
             RunRemoveHook(hook);

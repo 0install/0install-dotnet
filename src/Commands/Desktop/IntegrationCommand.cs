@@ -41,18 +41,19 @@ public abstract class IntegrationCommand : CliCommand
     }
 
     /// <summary>
-    /// Checks the current <see cref="Locations.InstallBase"/> to determine whether it is suitable for operations that persist it.
+    /// Ensures that the current Zero Install instance is deployed to a location suitable for the requested operation.
     /// </summary>
     /// <remarks>
-    /// This should be called before performing any operations that persist <see cref="Locations.InstallBase"/> somewhere, e.g. in generated shortcuts or stubs.
-    /// It is not required for operations that only remove things from the system.
+    /// This should be called before performing any operations that persist <see cref="Locations.InstallBase"/>, e.g. in generated shortcuts or stubs.
+    /// Do not call this for operations that only remove things from the system.
     /// </remarks>
-    /// <exception cref="UnsuitableInstallBaseException">The current Zero Install instance is installed in a location unsuitable for the desired operation.</exception>
-    protected void CheckInstallBase()
+    /// <exception cref="NotSupportedException">Zero Install is running in portable mode.</exception>
+    /// <exception cref="NeedsDeployedInstanceException">Zero Install is either not deployed or deployed per-user while running a <see cref="MachineWide"/> operation.</exception>
+    protected void EnsureIsDeployed()
     {
         if (Locations.IsPortable) throw new NotSupportedException(string.Format(Resources.NoIntegrationFromPortable, "0install self deploy"));
-        if (!ZeroInstallInstance.IsDeployed) throw new UnsuitableInstallBaseException(Resources.NoIntegrationDeployRequired, MachineWide);
-        if (MachineWide && !ZeroInstallInstance.IsMachineWide) throw new UnsuitableInstallBaseException(Resources.NoMachineWideIntegrationFromPerUser, MachineWide);
+        if (!ZeroInstallInstance.IsDeployed) throw new NeedsDeployedInstanceException(Resources.NoIntegrationDeployRequired, MachineWide);
+        if (MachineWide && !ZeroInstallInstance.IsMachineWide) throw new NeedsDeployedInstanceException(Resources.NoMachineWideIntegrationFromPerUser, MachineWide);
     }
 
     /// <summary>

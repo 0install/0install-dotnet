@@ -67,7 +67,7 @@ public class IntegrateApp : AppCommand
         }
         else
         {
-            CheckInstallBase();
+            EnsureIsDeployed();
 
             var appEntry = GetAppEntry(IntegrationManager, ref InterfaceUri);
             var feed = FeedManager[InterfaceUri];
