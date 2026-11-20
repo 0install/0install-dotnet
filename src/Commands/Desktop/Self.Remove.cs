@@ -17,7 +17,7 @@ partial class Self
         protected bool Portable => File.Exists(Paths.Combine(TargetDir, Locations.PortableFlagName));
 
         // Auto-detect machine-wide targets by comparing path with registry entry
-        protected bool MachineWide => !Portable && TargetDir == ZeroInstallDeployment.GetPath(machineWide: true);
+        protected bool MachineWide => !Portable && FileUtils.PathEquals(TargetDir, ZeroInstallDeployment.GetPath(machineWide: true));
 
         protected void PerformRemove()
         {
