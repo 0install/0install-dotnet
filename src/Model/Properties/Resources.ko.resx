@@ -123,7 +123,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativePathUnresolvable" xml:space="preserve">
-    <value>상대 경로 '{0}'을(를) 찾을 수 없습니다. 로컬 파일로 저장된 피드에만 상대 경로를 포함할 수 있습니다.</value>
+    <value>상대 경로 '{0}'을(를) 찾을 수 없습니다. 상대 경로는 로컬 파일로 저장된 피드에만 포함될 수 있습니다.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="RelativeUriUnresolvable" xml:space="preserve">

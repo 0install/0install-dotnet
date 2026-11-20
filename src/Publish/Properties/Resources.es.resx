@@ -63,7 +63,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="ArchiveContainsSingleTopLevelDirectory" xml:space="preserve">
-    <value>El archivo contiene únicamente un único directorio de nivel superior: «{0} ». Probablemente deberías establecer el atributo «{1} » en «{0} » para evitar un nivel de anidamiento adicional.</value>
+    <value>El archivo contiene únicamente un único directorio de nivel superior: «{0} ». Probablemente deberías establecer el atributo «{1} » en «{0} » para evitar un nivel de anidación adicional.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ArchiveFileNotFound" xml:space="preserve">
@@ -124,7 +124,7 @@ Intenta especificarlo manualmente.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleRegisteredAppsDetected" xml:space="preserve">
-    <value>Se han detectado varios registros de nuevas aplicaciones en el Registro. Se selecciona la primera de forma predeterminada.</value>
+    <value>Se han detectado varios registros de nuevas aplicaciones en el Registro. Se selecciona la primera por defecto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleTestingVersions" xml:space="preserve">

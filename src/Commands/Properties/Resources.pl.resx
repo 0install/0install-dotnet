@@ -206,14 +206,6 @@ Aby z niej skorzystać, należy uruchomić plik ZeroInstall.exe znajdujący się
     <value>W przypadku korzystania z opcji „ {0} ” należy wyraźnie określić katalog docelowy.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>Określony katalog docelowy ({0}) znajduje się poza katalogiem domowym.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeprecatedOption" xml:space="preserve">
-    <value>Opcja przestarzała. Zamiast niej należy używać „{0} ”.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Description" xml:space="preserve">
     <value>Opis</value>
     <comment>Automatically translated.</comment>
@@ -246,10 +238,6 @@ Aby z niej skorzystać, należy uruchomić plik ZeroInstall.exe znajdujący się
     <value>Usuwa adres URI z listy katalogów.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>Przywraca listę katalogów do domyślnego źródła.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
     <value>Przeszukuje zarejestrowane katalogi w poszukiwaniu aplikacji pasujących do podanego zapytania. Jeśli nie podano żadnego zapytania, wyświetla listę wszystkich aplikacji znajdujących się w katalogach.</value>
     <comment>Automatically translated.</comment>
@@ -278,11 +266,11 @@ Zwraca kod zakończenia 0, jeśli wybrano odpowiedni zestaw wersji, a wszystkie 
   </data>
   <data name="DescriptionImport" xml:space="preserve">
     <value>Importuje kanał z pliku lokalnego tak, jakby został pobrany z sieci. Jest to przydatne podczas testowania pliku kanału, aby uniknąć przesyłania go na serwer zdalny w celu ponownego pobrania.
-Plik musi posiadać zaufany podpis cyfrowy, tak jak w przypadku pobierania z sieci.</value>
+Plik musi posiadać zaufany podpis cyfrowy, tak samo jak w przypadku pobierania z sieci.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
-    <value>Importuje zestaw aplikacji i integracji z pulpitem z istniejącego pliku app-list.xml.</value>
+    <value>Importuje zestaw aplikacji i integracji pulpitu z istniejącego pliku app-list.xml.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionIntegrateApp" xml:space="preserve">
@@ -305,16 +293,12 @@ Plik musi posiadać zaufany podpis cyfrowy, tak jak w przypadku pobierania z sie
     <value>Wdraża Zero Install do określonego katalogu TARGET lub domyślnego katalogu programów i integruje go z systemem.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Usuwa bieżącą instancję programu Zero Install z systemu.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
     <value>Usuwa wszystkie aplikacje z listy aplikacji i cofa wszelką integrację ze środowiskiem graficznym. Użyj tego polecenia, aby wyczyścić system przed usunięciem Zero Install.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveApp" xml:space="preserve">
-    <value>Usuwa aplikację z listy aplikacji i cofa wszelkie integracje ze środowiskiem graficznym.</value>
+    <value>Usuwa aplikację z listy aplikacji i cofa wszelką integrację ze środowiskiem graficznym.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveFeed" xml:space="preserve">
@@ -383,7 +367,7 @@ Dodatkowy argument określa niestandardową lokalizację docelową pamięci podr
   </data>
   <data name="DescriptionStoreOptimise" xml:space="preserve">
     <value>Oszczędza miejsce na dysku poprzez scalanie identycznych plików za pomocą dowiązań twardych.
-Dodatkowe argumenty określają niestandardowe lokalizacje pamięci podręcznej.</value>
+Dodatkowe argumenty pozwalają określić niestandardowe lokalizacje pamięci podręcznej.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionStorePurge" xml:space="preserve">
@@ -512,10 +496,6 @@ Działa to podobnie jak polecenie „0install download --refresh”, z tą róż
     <value>Kanał został pomyślnie wyrejestrowany dla następujących interfejsów:</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="FileCheckComplete" xml:space="preserve">
-    <value>Sprawdzanie plików zakończone</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Nie udało się znaleźć pliku ani katalogu '{0}'.</value>
     <comment>Manually overriden.</comment>
@@ -591,7 +571,7 @@ Możesz rozpowszechniać kopie tego programu na warunkach określonych w licencj
     <comment>Automatically translated.</comment>
   </data>
   <data name="MustBeAdminForMachineWide" xml:space="preserve">
-    <value>Aby wykonywać operacje obejmujące cały komputer, musisz mieć uprawnienia administratora.</value>
+    <value>Aby wykonywać operacje dotyczące całego komputera, musisz posiadać uprawnienia administratora.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MutexWait" xml:space="preserve">
@@ -602,10 +582,6 @@ Możesz rozpowszechniać kopie tego programu na warunkach określonych w licencj
     <value>Moje aplikacje</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NeedsGui" xml:space="preserve">
-    <value>Aby skorzystać z tej funkcji, należy użyć wersji Zero Install z interfejsem graficznym.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
     <value>{0} można podać wyłącznie wraz z nazwą aliasu.</value>
     <comment>Automatically translated.</comment>
@@ -614,17 +590,9 @@ Możesz rozpowszechniać kopie tego programu na warunkach określonych w licencj
     <value>Graficzny edytor zasad nie jest dostępny w trybie wiersza poleceń.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Aby integracja z pulpitem działała, w systemie musi być zainstalowany program Zero Install.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Program Zero Install działa w trybie przenośnym. Aby integracja z pulpitem działała, należy go wdrożyć w stałej lokalizacji.
 Można to zrobić za pomocą polecenia „{0} ”. Będzie to całkowicie niezależne od Twojej kopii przenośnej.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Program Zero Install działa z katalogu przypisanego do konkretnego użytkownika. Aby integracja z pulpitem na całym komputerze działała, należy go wdrożyć w katalogu dostępnym dla wszystkich użytkowników.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -632,7 +600,7 @@ Można to zrobić za pomocą polecenia „{0} ”. Będzie to całkowicie niezal
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoSelectionsDocumentUpdate" xml:space="preserve">
-    <value>Aktualizacje są możliwe wyłącznie za pomocą adresów URI kanałów, a nie za pomocą dokumentów z wyborami.</value>
+    <value>Może aktualizować wyłącznie za pomocą adresów URI kanałów, a nie za pomocą dokumentów z wyborami.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NotAvailableInPortableMode" xml:space="preserve">
@@ -672,11 +640,7 @@ Można to zrobić za pomocą polecenia „{0} ”. Będzie to całkowicie niezal
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionBatch" xml:space="preserve">
-    <value>W miarę możliwości automatycznie odpowiada na pytania, stosując wartości domyślne, oraz upraszcza wyświetlanie wyników w konsoli (bez tabel i pasków postępu).</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="OptionBefore" xml:space="preserve">
-    <value>Wymaga wersji głównego programu starszej niż {VERSION}, tj. wymusza użycie starszej wersji programu.</value>
+    <value>W miarę możliwości automatycznie odpowiada na pytania, stosując wartości domyślne, oraz upraszcza wyjście konsoli (bez tabel i pasków postępu).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -770,10 +734,6 @@ Nie może zawierać argumentów wiersza poleceń! Spacje nie wymagają znaków e
     <value>Wyświetla sam manifest (jedna linia dla każdego pliku lub katalogu).</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionMessage" xml:space="preserve">
-    <value>Komunikat wyświetlany podczas interakcji z użytkownikiem.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Nie pobieraj jeszcze samej aplikacji. Zostanie ona automatycznie pobrana przy pierwszym uruchomieniu.</value>
     <comment>Automatically translated.</comment>
@@ -816,7 +776,7 @@ W trybie offline interfejsy nie są odświeżane, nawet jeśli są nieaktualne, 
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionShow" xml:space="preserve">
-    <value>Wskazuje, gdzie na dysku przechowywane są wybrane komponenty.</value>
+    <value>Pokaż, gdzie na dysku są zapisane wybrane komponenty.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
@@ -847,7 +807,7 @@ Pojedynczy numer wersji może być użyty zamiast zakresu, aby dopasować tylko 
     <comment>Manually overriden.</comment>
   </data>
   <data name="OptionVersionRangeFor" xml:space="preserve">
-    <value>Dla każdej biblioteki lub podkomponentu z podanym {0:URI} określa wersję {1:RANGE} (tak jak w przypadku opcji --version).</value>
+    <value>Dla każdej biblioteki lub podkomponentu z podanym parametrem {0:URI} określa wersję {1:RANGE} (tak jak w przypadku opcji --version).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionWithStore" xml:space="preserve">

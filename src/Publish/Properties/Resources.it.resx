@@ -112,7 +112,7 @@ Provare a specificarlo manualmente.</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleFeedFor" xml:space="preserve">
-    <value>Il feed contiene diversi elementi {0}. Questa funzionalità non è supportata in questa sede.</value>
+    <value>Il feed contiene diversi elementi {0}. Questa funzionalità non è supportata in questo contesto.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MultipleInstallationDirsDetected" xml:space="preserve">

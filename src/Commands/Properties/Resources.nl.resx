@@ -63,7 +63,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasCreated" xml:space="preserve">
-    <value>Er is een alias met de naam '{0}' voor '{1}' aangemaakt.</value>
+    <value>Er is een alias met de naam '{0}' aangemaakt voor '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AliasNotFound" xml:space="preserve">
@@ -96,7 +96,7 @@ U kunt het importscript of het Bootstrap-bestand in "{1}" gebruiken om deze best
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
-    <value>Zero Install instellen voor alle gebruikers (op de hele computer) in plaats van alleen voor de huidige gebruiker?</value>
+    <value>Zero Install instellen voor alle gebruikers (op het hele systeem) in plaats van alleen voor de huidige gebruiker?</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="AskDeployNewTarget" xml:space="preserve">
@@ -206,14 +206,6 @@ U kunt deze gebruiken door het bestand ZeroInstall.exe in de map uit te voeren.<
     <value>Wanneer u de optie {0} gebruikt, moet u de doelmap expliciet opgeven.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>De opgegeven doelmap ({0}) bevindt zich buiten uw thuismap.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeprecatedOption" xml:space="preserve">
-    <value>Verouderde optie. Gebruik in plaats daarvan '{0}'.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Description" xml:space="preserve">
     <value>Beschrijving</value>
     <comment>Automatically translated.</comment>
@@ -246,10 +238,6 @@ U kunt deze gebruiken door het bestand ZeroInstall.exe in de map uit te voeren.<
     <value>Verwijdert een URI uit de lijst met catalogi.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>Zet de lijst met catalogi terug naar de standaardbron.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
     <value>Zoekt in geregistreerde catalogi naar applicaties die overeenkomen met de opgegeven zoekopdracht. Als er geen zoekopdracht wordt opgegeven, worden alle applicaties in de catalogi weergegeven.</value>
     <comment>Automatically translated.</comment>
@@ -277,8 +265,8 @@ Geeft een exitstatus van 0 terug als er een geschikte set versies is geselecteer
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImport" xml:space="preserve">
-    <value>Importeert een feed vanuit een lokaal bestand, alsof deze via het netwerk is gedownload. Dit is handig bij het testen van een feedbestand, om te voorkomen dat het naar een externe server moet worden geüpload om het vervolgens opnieuw te downloaden.
-Het bestand moet een betrouwbare digitale handtekening hebben, net als bij het ophalen via het netwerk.</value>
+    <value>Importeert een feed vanuit een lokaal bestand, alsof deze van het netwerk is gedownload. Dit is handig bij het testen van een feedbestand, om te voorkomen dat het naar een externe server moet worden geüpload om het vervolgens opnieuw te downloaden.
+Het bestand moet een betrouwbare digitale handtekening hebben, net als bij het ophalen vanaf het netwerk.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionImportApps" xml:space="preserve">
@@ -303,10 +291,6 @@ Het bestand moet een betrouwbare digitale handtekening hebben, net als bij het o
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
     <value>Installeert Zero Install in de opgegeven TARGET-map of de standaardmap voor programma's en integreert het in het systeem.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Verwijdert de huidige instantie van Zero Install uit het systeem.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -336,7 +320,7 @@ Geeft een exitstatus van 1 terug als de downloadstap is mislukt. Anders is de ex
   </data>
   <data name="DescriptionSelect" xml:space="preserve">
     <value>Selecteert een versie van het programma die wordt geïdentificeerd door een URI, en compatibele versies van alle bijbehorende afhankelijkheden.
-Geeft een exitstatus van 0 terug als er een set versies is geselecteerd, en een status van 1 als er geen consistente set kon worden gevonden.</value>
+Geeft een afsluitstatus van 0 terug als er een set versies is geselecteerd, en een status van 1 als er geen consistente set kon worden gevonden.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionSelfUpdate" xml:space="preserve">
@@ -465,7 +449,7 @@ Dit is vergelijkbaar met '0install download --refresh', behalve dat er informati
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExclusiveOptions" xml:space="preserve">
-    <value>De opties {0} en {1} kunnen niet samen worden gebruikt.</value>
+    <value>De opties {0} en {1} kunnen niet tegelijkertijd worden gebruikt.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExistingInstance" xml:space="preserve">
@@ -510,10 +494,6 @@ Dit is vergelijkbaar met '0install download --refresh', behalve dat er informati
   </data>
   <data name="FeedUnregistered" xml:space="preserve">
     <value>De feed is met succes verwijderd voor de volgende interfaces:</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="FileCheckComplete" xml:space="preserve">
-    <value>Bestandscontrole voltooid</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
@@ -602,10 +582,6 @@ Je mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Le
     <value>Mijn applicaties</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NeedsGui" xml:space="preserve">
-    <value>Gebruik voor deze functie de GUI-versie van Zero Install.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
     <value>{0} mag alleen in combinatie met een aliasnaam worden opgegeven.</value>
     <comment>Automatically translated.</comment>
@@ -614,18 +590,10 @@ Je mag kopieën van dit programma verspreiden onder de voorwaarden van de GNU Le
     <value>De grafische beleidseditor is niet beschikbaar in de opdrachtregelmodus.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Zero Install moet op uw systeem zijn geïnstalleerd om desktopintegratie te laten werken.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Zero Install draait momenteel in de draagbare modus. Het moet op een vaste locatie worden geïnstalleerd om desktopintegratie te laten werken.
 U kunt dit doen met '{0}'. Dit zal volledig onafhankelijk zijn van uw draagbare exemplaar.</value>
     <comment>Manually overriden.</comment>
-  </data>
-  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Zero Install wordt uitgevoerd vanuit een gebruikersspecifieke map. Het moet worden geïnstalleerd in een map die voor alle gebruikers toegankelijk is, zodat de desktopintegratie op het hele systeem kan werken.</value>
-    <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
     <value>Bij het uitvoeren van een implementatie mag het commando niet leeg zijn.</value>
@@ -673,10 +641,6 @@ U kunt dit doen met '{0}'. Dit zal volledig onafhankelijk zijn van uw draagbare 
   </data>
   <data name="OptionBatch" xml:space="preserve">
     <value>Beantwoordt vragen waar mogelijk automatisch met standaardwaarden en vereenvoudigt de console-uitvoer (geen tabellen of voortgangsbalkjes).</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="OptionBefore" xml:space="preserve">
-    <value>Vereist een versie van het hoofdprogramma die ouder is dan {VERSION}, d.w.z. het gebruik van een oudere versie van het programma afdwingen.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
@@ -770,10 +734,6 @@ Mag geen opdrachtregelargumenten bevatten! Spaties hoeven niet te worden geësca
     <value>Geef het manifest zelf weer (één regel per bestand of map).</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="OptionMessage" xml:space="preserve">
-    <value>Bericht dat wordt weergegeven bij interactie met de gebruiker.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Download de applicatie zelf nog niet. Deze wordt in plaats daarvan automatisch gedownload bij het eerste gebruik.</value>
     <comment>Automatically translated.</comment>
@@ -783,12 +743,12 @@ Mag geen opdrachtregelargumenten bevatten! Spaties hoeven niet te worden geësca
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoWait" xml:space="preserve">
-    <value>Keert onmiddellijk terug zodra het gekozen programma is gestart, in plaats van te wachten tot de uitvoering ervan is voltooid. In Windows is de exitcode het proces-ID van het gestarte programma.</value>
+    <value>Keert onmiddellijk terug zodra het gekozen programma is gestart, in plaats van te wachten tot de uitvoering ervan is voltooid. Onder Windows is de exitcode het proces-ID van het gestarte programma.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOffline" xml:space="preserve">
     <value>Werk in de offline-modus, waarbij de standaardinstelling wordt overschreven.
-In de offline-modus worden interfaces niet vernieuwd, zelfs niet als ze verouderd zijn, en worden nieuwere versies van programma's niet gedownload, zelfs niet als de injector deze al kent (bijvoorbeeld van een eerdere vernieuwing).</value>
+In de offline-modus worden interfaces niet vernieuwd, zelfs als ze verouderd zijn, en worden nieuwere versies van programma's niet gedownload, zelfs als de injector deze al kent (bijvoorbeeld van een eerdere vernieuwing).</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionOS" xml:space="preserve">
@@ -820,7 +780,7 @@ In de offline-modus worden interfaces niet vernieuwd, zelfs niet als ze verouder
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSource" xml:space="preserve">
-    <value>Kies voor broncode in plaats van een binair bestand. Dit wordt intern gebruikt door '0compile'.</value>
+    <value>Kies voor de broncode in plaats van een binair bestand. Dit wordt intern gebruikt door '0compile'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="OptionSyncReset" xml:space="preserve">
@@ -947,7 +907,7 @@ Voer '0install config self_update_uri default' uit om deze functie in te schakel
     <comment>Automatically translated.</comment>
   </data>
   <data name="StabilityPolicySuggested" xml:space="preserve">
-    <value>Het stabiliteitsbeleid dat nodig is om implementaties te selecteren van {0} is '{1}'.</value>
+    <value>Het stabiliteitsbeleid dat nodig is om implementaties te selecteren uit {0} is '{1}'.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="StartService" xml:space="preserve">

@@ -132,7 +132,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="MultipleUnreleasedImplementations" xml:space="preserve">
-    <value>目前有多个实现版本，但均无发布日期。请选择具体版本。</value>
+    <value>目前有多个实现版本，但均未公布发布日期。请选择具体版本。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoCachedImplementation" xml:space="preserve">

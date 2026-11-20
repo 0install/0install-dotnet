@@ -179,7 +179,7 @@ Souhaitez-vous faire confiance à cette clé pour signer les flux de '{3}' ?
     <comment>Manually overriden.</comment>
   </data>
   <data name="ImportNoSource" xml:space="preserve">
-    <value>Pour pouvoir être importés, les flux doivent préciser l'URI d'où ils proviennent.</value>
+    <value>Pour pouvoir être importés, les flux doivent indiquer l'URI d'où ils proviennent.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="MissingBindingName" xml:space="preserve">
@@ -214,7 +214,7 @@ Nouvelle date : {2}</value>
     <comment>Manually overriden.</comment>
   </data>
   <data name="TryingFeedMirror" xml:space="preserve">
-    <value>Échec du téléchargement de {0}. Tentative de téléchargement à partir d'un miroir du flux à la place.</value>
+    <value>Échec du téléchargement de {0}. Tentative de téléchargement à partir d'un miroir de flux à la place.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToCacheCatalog" xml:space="preserve">
@@ -250,7 +250,7 @@ Nouvelle date : {2}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="WorkingDirInvalidPath" xml:space="preserve">
-    <value>Le répertoire de travail contient un chemin d'accès non valide (ce qui peut constituer un risque de sécurité).</value>
+    <value>Le répertoire de travail contient un chemin d'accès non valide (ce qui peut constituer un risque pour la sécurité).</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

@@ -91,7 +91,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidFeedUri" xml:space="preserve">
-    <value>「{0} 」は有効な「http(s):」URIではなく、有効なローカルパスでもありません。</value>
+    <value>「{0} 」は、有効な「http(s):」URI ではなく、有効なローカルパスでもありません。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidXmlAttributeOnTag" xml:space="preserve">
@@ -167,11 +167,11 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ShouldBeSafeID" xml:space="preserve">
-    <value>安全なIDである必要があります。使用できる文字は、英数字、スペース ( )、ピリオド (.)、アンダースコア (_)、ハイフン (-)、およびプラス記号 (+) のみです。</value>
+    <value>安全なIDである必要があります。使用できる文字は、英数字、スペース ( )、ピリオド (.)、アンダースコア (_)、ハイフン (-)、プラス記号 (+) のみです。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnableToResolveRecipeReference" xml:space="preserve">
-    <value>実装「{1} 」内のレシピステップ「{0} 」には、無効な実装参照があります。</value>
+    <value>実装「{1} 」内のレシピステップ「{0} 」に、無効な実装参照があります。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnknownArchiveType" xml:space="preserve">

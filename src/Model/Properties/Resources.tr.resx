@@ -183,7 +183,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Sürüm aralığının sonu hariç tutulmalıdır. '..{0}' değil, '..!{0}' kullanın.</value>
+    <value>Sürüm aralığının sonu katılmamalıdır. '..{0}' değil, '..!{0}' kullanın.</value>
     <comment>Manually overriden.</comment>
   </data>
 </root>

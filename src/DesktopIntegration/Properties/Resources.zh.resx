@@ -95,7 +95,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="PleaseConfigSync" xml:space="preserve">
-    <value>请使用“0install central”或“0install config”来设置同步功能。</value>
+    <value>请使用“0install central”或“0install config”来配置同步功能。</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="ProblemLoading" xml:space="preserve">

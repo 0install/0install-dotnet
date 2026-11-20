@@ -63,11 +63,11 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="CopyFiles" xml:space="preserve">
-    <value>Copierea fișierelor</value>
-    <comment>Automatically translated.</comment>
+    <value>Se copiază fișierele</value>
+    <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Acest director este un cache de implementare. Fișierele de aici sunt setate ca fiind numai pentru citire prin permisiunile sistemului de fișiere. Acest lucru împiedică ștergerea lor în mod normal.
+    <value>Acest director este un cache de implementare. Fișierele de aici sunt setate ca fiind numai pentru citire prin intermediul permisiunilor sistemului de fișiere. Acest lucru împiedică ștergerea lor în mod normal.
 
 Dacă doriți să ștergeți o singură implementare, puteți utiliza această linie de comandă:
 {0}
@@ -194,7 +194,7 @@ Dacă utilizați o unitate formatată în sistemul FAT, vă rugăm să o convert
     <comment>Manually overriden.</comment>
   </data>
   <data name="InvalidPath" xml:space="preserve">
-    <value>Arhiva conține o cale nevalidă (posibil un risc de securitate): {0}</value>
+    <value>Arhiva conține o cale de acces nevalidă (ceea ce poate reprezenta un risc de securitate): {0}</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="InvalidSignature" xml:space="preserve">
@@ -294,7 +294,7 @@ Puteți șterge fișierul „{1} ” pentru a remedia problema. Este posibil ca 
     <comment>Automatically translated.</comment>
   </data>
   <data name="WrongPassphrase" xml:space="preserve">
-    <value>Fraza de acces introdusă este incorectă.</value>
+    <value>Fraza de acces pe care ați introdus-o este incorectă.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="XmlSignatureInvalidEnd" xml:space="preserve">

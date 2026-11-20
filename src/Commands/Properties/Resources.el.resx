@@ -206,14 +206,6 @@
     <value>Όταν χρησιμοποιείτε την επιλογή « {0} », πρέπει να καθορίσετε ρητά τον κατάλογο προορισμού.</value>
     <comment>Automatically translated.</comment>
   </data>
-  <data name="DeployTargetOutsideHome" xml:space="preserve">
-    <value>Ο καθορισμένος κατάλογος προορισμού ({0}) βρίσκεται εκτός του αρχικού σας καταλόγου.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DeprecatedOption" xml:space="preserve">
-    <value>Απαρχαιωμένη επιλογή. Παρακαλώ χρησιμοποιήστε αντ' αυτού το «{0} ».</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="Description" xml:space="preserve">
     <value>Περιγραφή</value>
     <comment>Manually overriden.</comment>
@@ -244,10 +236,6 @@
   </data>
   <data name="DescriptionCatalogRemove" xml:space="preserve">
     <value>Αφαιρεί ένα URI από τη λίστα των καταλόγων.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionCatalogReset" xml:space="preserve">
-    <value>Επαναφέρει τη λίστα των καταλόγων στην προεπιλεγμένη πηγή.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionCatalogSearch" xml:space="preserve">
@@ -303,10 +291,6 @@
   </data>
   <data name="DescriptionMaintenanceDeploy" xml:space="preserve">
     <value>Εγκαθιστά το Zero Install στον καθορισμένο κατάλογο TARGET ή στον προεπιλεγμένο κατάλογο για προγράμματα και το ενσωματώνει στο σύστημα.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="DescriptionMaintenanceRemove" xml:space="preserve">
-    <value>Αφαιρεί την τρέχουσα παρουσία του Zero Install από το σύστημα.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="DescriptionRemoveAllApps" xml:space="preserve">
@@ -512,10 +496,6 @@
     <value>Η τροφοδοσία αποκαταχωρηθηκε με επιτυχία για τις ακόλουθες διεπαφές:</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="FileCheckComplete" xml:space="preserve">
-    <value>Ο έλεγχος αρχείων ολοκληρώθηκε</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="FileOrDirNotFound" xml:space="preserve">
     <value>Δεν είναι δυνατή η εύρεση του αρχείου ή του καταλόγου '{0}'.</value>
     <comment>Manually overriden.</comment>
@@ -602,10 +582,6 @@
     <value>Οι εφαρμογές μου</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="NeedsGui" xml:space="preserve">
-    <value>Για αυτή τη λειτουργία, παρακαλούμε χρησιμοποιήστε την έκδοση του Zero Install με γραφικό περιβάλλον χρήστη (GUI).</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
     <value>Το {0} μπορεί να καθοριστεί μόνο σε συνδυασμό με ένα όνομα ψευδωνύμου.</value>
     <comment>Manually overriden.</comment>
@@ -614,17 +590,9 @@
     <value>Ο γραφικός επεξεργαστής πολιτικής δεν είναι διαθέσιμος σε λειτουργία γραμμής εντολών.</value>
     <comment>Manually overriden.</comment>
   </data>
-  <data name="NoIntegrationDeployRequired" xml:space="preserve">
-    <value>Για να λειτουργήσει η ενσωμάτωση στην επιφάνεια εργασίας, πρέπει να εγκατασταθεί το Zero Install στο σύστημά σας.</value>
-    <comment>Automatically translated.</comment>
-  </data>
   <data name="NoIntegrationFromPortable" xml:space="preserve">
     <value>Το Zero Install εκτελείται σε φορητή λειτουργία. Πρέπει να εγκατασταθεί σε μόνιμη θέση για να λειτουργήσει η ενσωμάτωση στην επιφάνεια εργασίας.
 Μπορείτε να το κάνετε αυτό χρησιμοποιώντας την εντολή «{0} ». Αυτή η εγκατάσταση θα είναι εντελώς ανεξάρτητη από το φορητό αντίγραφό σας.</value>
-    <comment>Automatically translated.</comment>
-  </data>
-  <data name="NoMachineWideIntegrationFromPerUser" xml:space="preserve">
-    <value>Το Zero Install εκτελείται από έναν κατάλογο συγκεκριμένου χρήστη. Πρέπει να εγκατασταθεί σε έναν κατάλογο προσβάσιμο από όλους τους χρήστες, ώστε να λειτουργήσει η ενσωμάτωση στην επιφάνεια εργασίας σε επίπεδο συστήματος.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="NoRunWithEmptyCommand" xml:space="preserve">
@@ -674,10 +642,6 @@
   <data name="OptionBatch" xml:space="preserve">
     <value>Αυτόματη απάντηση στις ερωτήσεις με τις προεπιλογές όταν είναι δυνατόν και απλοποίηση της εξόδου της κονσόλας (χωρίς πίνακες ή γραμμές προόδου).</value>
     <comment>Manually overriden.</comment>
-  </data>
-  <data name="OptionBefore" xml:space="preserve">
-    <value>Απαιτεί έκδοση του κύριου προγράμματος παλαιότερη από την έκδοση {VERSION}, δηλαδή επιβάλλει τη χρήση παλαιότερης έκδοσης του προγράμματος.</value>
-    <comment>Automatically translated.</comment>
   </data>
   <data name="OptionCatalogAddSkipVerify" xml:space="preserve">
     <value>Παράλειψη της λήψης του καταλόγου για να επαληθευτεί η εγκυρότητά του πριν από την προσθήκη του στη λίστα.</value>
@@ -769,10 +733,6 @@
   <data name="OptionManifest" xml:space="preserve">
     <value>Εμφάνιση του ίδιου του manifest (μία γραμμή για κάθε αρχείο ή κατάλογο).</value>
     <comment>Manually overriden.</comment>
-  </data>
-  <data name="OptionMessage" xml:space="preserve">
-    <value>Μήνυμα που εμφανίζεται κατά την αλληλεπίδραση με τον χρήστη.</value>
-    <comment>Automatically translated.</comment>
   </data>
   <data name="OptionNoDownload" xml:space="preserve">
     <value>Μην κάνετε λήψη της εφαρμογής ακόμη. Θα μεταφορτωθεί αυτόματα κατά την πρώτη χρήση αντ 'αυτού.</value>

@@ -75,7 +75,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="ExtractionOnlyOnWindows" xml:space="preserve">
-    <value>Rozbalení tohoto typu archivu je podporováno pouze v systému Windows.</value>
+    <value>Rozbalování tohoto typu archivu je podporováno pouze v systému Windows.</value>
     <comment>Automatically translated.</comment>
   </data>
   <data name="UnsupportedArchiveMimeType" xml:space="preserve">

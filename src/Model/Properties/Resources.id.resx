@@ -183,7 +183,7 @@
     <comment>Automatically translated.</comment>
   </data>
   <data name="VersionRangeEndNotExclusive" xml:space="preserve">
-    <value>Batas akhir rentang versi harus bersifat eksklusif. Gunakan '..!{0}', bukan '..{0}'.</value>
+    <value>Batas akhir rentang versi harus eksklusif. Gunakan '..!{0}', bukan '..{0}'.</value>
     <comment>Automatically translated.</comment>
   </data>
 </root>

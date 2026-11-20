@@ -67,7 +67,7 @@
     <comment>Manually overriden.</comment>
   </data>
   <data name="DeleteInfoFileContent" xml:space="preserve">
-    <value>Bu klasör bir uyarlama ön belleğidir. Buradaki dosyalar dosya sistemi izinleri kullanılarak salt okunur hale getirilir. Böylece normal şekilde silinmeleri engellenir.
+    <value>Bu klasör bir uyarlama ön belleğidir. Buradaki dosyalar dosya sistemi izinleri kullanılarak salt okunur yapılır. Böylece normal şekilde silinmeleri engellenir.
 
 Tek bir uyarlamayı silmek isterseniz şu komut satırını kullanabilirsiniz:
 {0}
