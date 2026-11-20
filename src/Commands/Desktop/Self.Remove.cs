@@ -37,7 +37,7 @@ partial class Self
         public override string Usage => "";
         protected override int AdditionalArgsMax => 0;
 
-        protected override string TargetDir => Locations.InstallBase;
+        protected override string TargetDir => ZeroInstallInstance.DeploymentRoot;
 
         public override ExitCode Execute()
         {
@@ -91,7 +91,7 @@ partial class Self
             string path = Paths.Combine(tempDir, "0install-win.exe");
             if (!File.Exists(path)) path =  Paths.Combine(tempDir, "0install.exe");
 
-            var args = new List<string> {Self.Name, RemoveHelper.Name, Locations.InstallBase};
+            var args = new List<string> {Self.Name, RemoveHelper.Name, TargetDir};
             if (Handler.Verbosity == Verbosity.Batch) args.Add("--batch");
             if (Handler.Background) args.Add("--background");
 

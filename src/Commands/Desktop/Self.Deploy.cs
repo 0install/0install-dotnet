@@ -134,7 +134,7 @@ partial class Self
         private void PerformDeploy(string targetDir)
         {
             using var manager = new SelfManager(targetDir, Handler, _machineWide, _portable);
-            Log.Info($"Deploying Zero Install from '{Locations.InstallBase}' to '{targetDir}'");
+            Log.Info($"Deploying Zero Install from '{ZeroInstallInstance.DeploymentRoot}' to '{targetDir}'");
             manager.Deploy(_library);
         }
 

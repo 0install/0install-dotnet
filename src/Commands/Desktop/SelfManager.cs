@@ -74,20 +74,20 @@ public partial class SelfManager : ManagerBase
     {
         if (Portable && libraryMode) throw new ArgumentException(string.Format(Resources.ExclusiveOptions, "--portable", "--library"), nameof(libraryMode));
 
-        var newManifest = LoadManifest(Locations.InstallBase);
+        var newManifest = LoadManifest(ZeroInstallInstance.DeploymentRoot);
         var oldManifest = LoadManifest(TargetDir);
 
         try
         {
             MutexAcquire();
 
-            if (!FileUtils.PathEquals(TargetDir, Locations.InstallBase))
+            if (!FileUtils.PathEquals(TargetDir, ZeroInstallInstance.DeploymentRoot))
             {
                 if (MachineWide)
                     ServiceStop();
 
                 using var clearDir = new ClearDirectory(TargetDir, oldManifest, Handler);
-                using var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler);
+                using var deployDir = new DeployDirectory(ZeroInstallInstance.DeploymentRoot, newManifest, TargetDir, Handler);
                 deployDir.Stage();
                 clearDir.Stage();
                 if (Portable) FileUtils.Touch(Paths.Combine(TargetDir, Locations.PortableFlagName));
@@ -148,7 +148,7 @@ public partial class SelfManager : ManagerBase
                 DeleteServiceLogFiles();
                 if (Portable) File.Delete(Paths.Combine(TargetDir, Locations.PortableFlagName));
 #if NET
-                if (UnixUtils.IsUnix && FileUtils.PathEquals(TargetDir, Locations.InstallBase))
+                if (UnixUtils.IsUnix && FileUtils.PathEquals(TargetDir, ZeroInstallInstance.DeploymentRoot))
                 {
                     if (!Portable) ZeroInstallDeployment.Unregister(MachineWide); // Must unregister in advance, because ExecCommit does not return
                     ExecCommit(clearDir);

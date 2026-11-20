@@ -44,27 +44,26 @@ public static class ZeroInstallInstance
     }
 
     /// <summary>
-    /// Indicates whether the current Zero Install instance is deployed to a fixed location.
+    /// The root directory of the current Zero Install deployment.
+    /// </summary>
+    /// <remarks>
+    /// Use this to get the directory containing the Zero Install deployment as a whole (e.g., in the form of an app bundle).
+    /// Use <see cref="Locations.InstallBase"/> instead to get the directory containing Zero Install's binaries.
+    /// </remarks>
+    public static string DeploymentRoot
+        => UnixUtils.IsMacOSX
+        && new DirectoryInfo(Locations.InstallBase) is { Name: "MacOS", Parent: { Name: "Contents", Parent: {} root } contentsDir }
+        && File.Exists(Path.Combine(contentsDir.FullName, "Info.plist"))
+            ? root.FullName
+            : Locations.InstallBase;
+
+    /// <summary>
+    /// Indicates whether the current Zero Install instance is deployed to a registered location.
     /// </summary>
     public static bool IsDeployed
-    {
-        get
-        {
-            if (Locations.IsPortable) return false;
-
-            if (WindowsUtils.IsWindows)
-            {
-                return FileUtils.PathEquals(ZeroInstallDeployment.GetPath(machineWide: false), Locations.InstallBase)
-                    || FileUtils.PathEquals(ZeroInstallDeployment.GetPath(machineWide: true), Locations.InstallBase);
-            }
-            else if (UnixUtils.IsUnix)
-            {
-                return !Locations.InstallBase.Contains("/tmp")
-                    && !Locations.InstallBase.Contains("/.cache");
-            }
-            else return true;
-        }
-    }
+        => !Locations.IsPortable
+        && (FileUtils.PathEquals(ZeroInstallDeployment.GetPath(machineWide: false), DeploymentRoot)
+         || FileUtils.PathEquals(ZeroInstallDeployment.GetPath(machineWide: true), DeploymentRoot));
 
     /// <summary>
     /// Indicates whether Zero Install is running from a machine-wide location.
@@ -75,8 +74,8 @@ public static class ZeroInstallInstance
         {
             if (Locations.IsPortable) return false;
             if (ZeroInstallDeployment.GetPath(machineWide: true) is {} path)
-                return FileUtils.PathEquals(path, Locations.InstallBase);
-            return !Locations.InstallBase.StartsWith(Locations.HomeDir);
+                return FileUtils.PathEquals(path, DeploymentRoot);
+            return !DeploymentRoot.StartsWith(Locations.HomeDir);
         }
     }
 
@@ -142,7 +141,7 @@ public static class ZeroInstallInstance
     {
         static string? Get(bool machineWide)
             => ZeroInstallDeployment.GetPath(machineWide) is {} path
-            && !FileUtils.PathEquals(path, Locations.InstallBase)
+            && !FileUtils.PathEquals(path, DeploymentRoot)
                 ? path
                 : null;
 
