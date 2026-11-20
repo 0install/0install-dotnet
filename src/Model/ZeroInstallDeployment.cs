@@ -49,24 +49,6 @@ public static class ZeroInstallDeployment
         && RegistryUtils.GetSoftwareString(RegKeyName, LibraryMode, machineWide) == "1";
 
     /// <summary>
-    /// Tries to find a deployment of Zero Install that is not the currently running one.
-    /// </summary>
-    /// <param name="needsMachineWide"><c>true</c> if a machine-wide deployment is required; <c>false</c> if a user-specific deployment will also do.</param>
-    /// <returns>The directory path of a deployment of Zero Install; <c>null</c> if none was found.</returns>
-    public static string? FindOther(bool needsMachineWide = false)
-    {
-        static string? Get(bool machineWide)
-            => GetPath(machineWide) is {} path
-            && !FileUtils.PathEquals(path, Locations.InstallBase)
-                ? path
-                : null;
-
-        return needsMachineWide
-            ? Get(machineWide: true)
-            : Get(machineWide: false) ?? Get(machineWide: true);
-    }
-
-    /// <summary>
     /// Registers a Zero Install deployment in the Windows registry if possible.
     /// </summary>
     /// <param name="path">The directory path of the deployment of Zero Install.</param>

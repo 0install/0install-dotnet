@@ -46,7 +46,7 @@ partial class Self
                 throw new NotAdminException(Resources.MustBeAdminForMachineWide);
             if (!_portable && !_library)
             {
-                if (ZeroInstallDeployment.FindOther(_machineWide) is {} existing && existing != targetDir)
+                if (ZeroInstallInstance.FindOtherDeployment(_machineWide) is {} existing && existing != targetDir)
                 {
                     string hint = string.Format(Resources.ExistingInstance, existing);
                     if (!Handler.Ask(string.Format(Resources.AskDeployNewTarget, targetDir) + Environment.NewLine + hint, defaultAnswer: true, alternateMessage: hint))

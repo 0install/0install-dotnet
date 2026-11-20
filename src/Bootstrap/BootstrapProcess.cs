@@ -4,7 +4,6 @@
 using System.Diagnostics;
 using NanoByte.Common.Native;
 using ZeroInstall.Services;
-using ZeroInstall.Services.Feeds;
 using ZeroInstall.Store.Configuration;
 
 namespace ZeroInstall.Bootstrap;
@@ -88,7 +87,7 @@ public sealed partial class BootstrapProcess : ServiceProvider
             if (_machineWide) args.Add("--machine");
             args.Add(ProcessUtils.SplitArguments(_integrateArgs ?? integrateArgs));
 
-            if (ZeroInstallDeployment.FindOther(_machineWide) is {} deployedInstance)
+            if (GetZeroInstallDeployment() is {} deployedInstance)
                 EnsureRequestedZeroInstallVersion(deployedInstance);
 
             var startInfo = GetStartInfo(args);
@@ -99,6 +98,15 @@ public sealed partial class BootstrapProcess : ServiceProvider
 
         return ExitCode.OK;
     }
+
+    /// <summary>
+    /// Tries to find an existing deployment of Zero Install.
+    /// </summary>
+    /// <returns>The directory path of a deployment of Zero Install; <c>null</c> if no suitable deployment was found.</returns>
+    private string? GetZeroInstallDeployment()
+        => _machineWide
+            ? ZeroInstallDeployment.GetPath(machineWide: true)
+            : ZeroInstallDeployment.GetPath(machineWide: false) ?? ZeroInstallDeployment.GetPath(machineWide: true);
 
     /// <summary>
     /// Checks if a deployed instance of Zero Install matches the requested <see cref="_version"/> and updates it if not.

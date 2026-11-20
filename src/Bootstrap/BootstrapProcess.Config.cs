@@ -69,11 +69,11 @@ partial class BootstrapProcess
     /// potentially overwriting existing configuration.
     /// </summary>
     private bool ApplyBootstrapConfig
-        => ZeroInstallDeployment.FindOther(_machineWide) is not {} deployedInstance // No existing deployment...
+        => GetZeroInstallDeployment() is not {} deployedInstance // No existing deployment...
         || IsLibraryMode(deployedInstance); // ... or existing deployment is in library-mode
 
     /// <summary>
-    /// Indicates whether a deployment found by <see cref="ZeroInstallDeployment.FindOther"/> was made in library mode.
+    /// Indicates whether a deployment found by <see cref="GetZeroInstallDeployment"/> was made in library mode.
     /// </summary>
     private bool IsLibraryMode(string deployedInstance)
         => ZeroInstallDeployment.IsLibraryMode(

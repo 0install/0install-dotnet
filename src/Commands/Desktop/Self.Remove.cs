@@ -58,7 +58,7 @@ partial class Self
             if (MachineWide && !AppList.IsEmpty(machineWide: true))
                 new RemoveAllApps(Handler) {MachineWide = true}.Execute();
 
-            bool autoPurgeStore = ZeroInstallInstance.IsLibraryMode && ZeroInstallDeployment.FindOther() == null;
+            bool autoPurgeStore = ZeroInstallInstance.IsLibraryMode && ZeroInstallInstance.FindOtherDeployment() == null;
             if (Handler.Ask(Resources.ConfirmPurge, defaultAnswer: autoPurgeStore))
             {
                 try
