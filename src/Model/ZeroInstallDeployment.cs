@@ -21,6 +21,40 @@ public static class ZeroInstallDeployment
         LibraryModeFile = "library_mode";
 
     /// <summary>
+    /// Tries to find a deployed Zero Install executable.
+    /// </summary>
+    /// <param name="machineWide"><c>true</c> to look for machine-wide deployments; <c>false</c> to look for user-specific deployments.</param>
+    /// <param name="gui">Whether to return a GUI executable instead of a command-line executable.</param>
+    /// <returns>The path of a deployed Zero Install executable; <c>null</c> if none was found.</returns>
+    public static string? GetExecutable(bool machineWide, bool gui = false)
+        => GetPath(machineWide) is {} path ? FindExecutable(path, gui) : null;
+
+    /// <summary>
+    /// Tries to find a Zero Install executable within a given deployment directory.
+    /// </summary>
+    /// <param name="deploymentPath">The directory path of a deployment of Zero Install, as returned by <see cref="GetPath"/>.</param>
+    /// <param name="gui">Whether to look for a GUI executable instead of a command-line executable.</param>
+    /// <returns>The path of the executable; <c>null</c> if none was found.</returns>
+    public static string? FindExecutable(string deploymentPath, bool gui = false)
+        => GetExecutableCandidates(deploymentPath, gui).FirstOrDefault(File.Exists);
+
+    /// <summary>
+    /// Lists the paths where a Zero Install executable may be located within a deployment, in order of preference.
+    /// </summary>
+    private static IEnumerable<string> GetExecutableCandidates(string deploymentPath, bool gui)
+    {
+        if (WindowsUtils.IsWindows)
+        {
+            yield return Paths.Combine(deploymentPath, gui ? "0install-win.exe" : "0install.exe");
+            yield break;
+        }
+
+        string fileName = gui ? "0install-gui" : "0install";
+        if (UnixUtils.IsMacOSX) yield return Paths.Combine(deploymentPath, "Contents", "MacOS", fileName); // App bundle
+        yield return Paths.Combine(deploymentPath, fileName);
+    }
+
+    /// <summary>
     /// Tries to find a deployment of Zero Install.
     /// </summary>
     /// <param name="machineWide"><c>true</c> to look for machine-wide deployments; <c>false</c> to look for user-specific deployments.</param>
@@ -31,7 +65,7 @@ public static class ZeroInstallDeployment
         {
             try
             {
-                if (ContainsExecutable(path)) return path;
+                if (FindExecutable(path) != null) return path;
             }
             #region Error handling
             catch (IOException ex)
@@ -62,11 +96,6 @@ public static class ZeroInstallDeployment
         }
         #endregion
     }
-
-    private static bool ContainsExecutable(string path)
-        => WindowsUtils.IsWindows
-            ? File.Exists(Paths.Combine(path, "0install.exe"))
-            : File.Exists(Paths.Combine(path, "0install"));
 
     /// <summary>
     /// Indicates whether a deployment of Zero Install was made in library mode.
