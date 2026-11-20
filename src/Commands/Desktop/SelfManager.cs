@@ -148,7 +148,11 @@ public partial class SelfManager : ManagerBase
                 DeleteServiceLogFiles();
                 if (Portable) File.Delete(Paths.Combine(TargetDir, Locations.PortableFlagName));
 #if NET
-                if (UnixUtils.IsUnix && FileUtils.PathEquals(TargetDir, Locations.InstallBase)) ExecCommit(clearDir);
+                if (UnixUtils.IsUnix && FileUtils.PathEquals(TargetDir, Locations.InstallBase))
+                {
+                    if (!Portable) ZeroInstallDeployment.Unregister(MachineWide); // Must unregister in advance, because ExecCommit does not return
+                    ExecCommit(clearDir);
+                }
 #endif
                 clearDir.Commit();
             }
