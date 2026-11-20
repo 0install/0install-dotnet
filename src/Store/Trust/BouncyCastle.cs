@@ -114,7 +114,7 @@ public partial class BouncyCastle(string homeDir) : IOpenPgp
         var output = new MemoryStream();
         using (var armored = new ArmoredOutputStream(output))
             publicKey.Encode(armored);
-        return output.ReadToString(Encoding.ASCII).Replace(Environment.NewLine, "\n");
+        return output.ReadToString(Encoding.ASCII).ToUnixNewLine();
     }
 
     /// <inheritdoc/>

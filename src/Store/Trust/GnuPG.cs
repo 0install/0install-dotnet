@@ -97,7 +97,7 @@ public partial class GnuPG(string homeDir) : IOpenPgp
                .RunAndCapture(data, "--passphrase", passphrase ?? "", "--local-user", secretKey.FormatKeyID(), "--detach-sign", "--armor", "--output", "-", "-")
                .GetRightPartAtFirstOccurrence(Environment.NewLine + Environment.NewLine)
                .GetLeftPartAtLastOccurrence(Environment.NewLine + "=")
-               .Replace(Environment.NewLine, "\n"));
+               .ToUnixNewLine());
     }
 
     /// <inheritdoc/>
@@ -112,7 +112,7 @@ public partial class GnuPG(string homeDir) : IOpenPgp
         #endregion
 
         string result = _gpg.RunAndCapture("--armor", "--export", keyIDContainer.FormatKeyID());
-        return result.Replace(Environment.NewLine, "\n") + "\n";
+        return result.ToUnixNewLine() + "\n";
     }
 
     /// <inheritdoc/>

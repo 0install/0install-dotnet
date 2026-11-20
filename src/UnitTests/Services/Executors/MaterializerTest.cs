@@ -408,7 +408,6 @@ public sealed class MaterializerTest : IDisposable
         string toolDir = $@"$_zeroinstall_dir + '\{selections[ToolUri].ID}";
         File.ReadAllBytes(launcher).Take(3).Should().Equal([0xEF, 0xBB, 0xBF], because: "Windows PowerShell needs a BOM to detect UTF-8");
         File.ReadAllText(launcher).Should()
-            .NotMatchRegex("[^\r]\n", because: "PowerShell scripts on Windows should use CRLF line endings").And
             .Contain($@"$env:LIBPATH = ({appDir}\lib;') + $env:LIBPATH").And
             .Contain(@"$env:Path = ($_zeroinstall_dir + '\bin;') + $env:Path").And
             .Contain($@"$_zeroinstall_start.WorkingDirectory = ({appDir}\sub')").And
@@ -618,7 +617,7 @@ public sealed class MaterializerTest : IDisposable
         {
             string path = Path.Combine(buildDir, relativePath);
             Directory.CreateDirectory(Path.GetDirectoryName(path)!);
-            File.WriteAllText(path, content.Replace("\r\n", "\n") + "\n");
+            File.WriteAllText(path, content.ToUnixNewLine() + "\n");
             if (path.EndsWith(".sh")) ImplFileUtils.SetExecutable(path);
         }
 

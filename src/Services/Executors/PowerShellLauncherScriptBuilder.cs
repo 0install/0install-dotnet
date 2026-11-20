@@ -133,7 +133,7 @@ internal sealed partial class PowerShellLauncherScriptBuilder(IImplementationSto
             exit $_zeroinstall_process.ExitCode
             """);
 
-        return script.ToString().Replace("\r\n", "\n").Replace("\n", "\r\n");
+        return script.ToString().ToNativeNewLine();
     }
 
     /// <inheritdoc/>
@@ -158,7 +158,7 @@ internal sealed partial class PowerShellLauncherScriptBuilder(IImplementationSto
             "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -ExecutionPolicy Bypass -File "%~dpn0.ps1" %*
             exit /b %ERRORLEVEL%
 
-            """.Replace("\r\n", "\n").Replace("\n", "\r\n")));
+            """.ToNativeNewLine()));
 
     private static byte[] RunEnvExecutable => field ??= typeof(Executor).GetEmbeddedBytes("runenv.exe.template");
 
