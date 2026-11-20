@@ -103,7 +103,10 @@ public sealed class StoreServiceServer : IDisposable
             try
             {
                 listening ??= CreatePipe();
-                listening.WaitForConnectionAsync(token).GetAwaiter().GetResult();
+
+                // Not passing the cancellation token, because on .NET Framework its callback may outlive the wait and then fail on the already closed pipe during Dispose()
+                // Dispose() closes all pipes instead, which aborts the wait
+                listening.WaitForConnection();
                 connected = listening;
                 listening = null;
                 listening = CreatePipe();
@@ -143,6 +146,8 @@ public sealed class StoreServiceServer : IDisposable
                     listening = CreatePipe();
                 }
                 #region Error handling
+                catch (OperationCanceledException)
+                {}
                 catch (Exception createException) when (createException is IOException or UnauthorizedAccessException)
                 {
                     Log.Error("Store Service failed to create named pipe", createException);
@@ -192,6 +197,14 @@ public sealed class StoreServiceServer : IDisposable
         #endregion
 
         _activePipes[pipe] = true;
+
+        // Dispose() may have already closed all pipes it knew about before this one was added
+        if (_cancellation.IsCancellationRequested)
+        {
+            ClosePipe(pipe);
+            throw new OperationCanceledException();
+        }
+
         return pipe;
     }
 
