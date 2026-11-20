@@ -16,6 +16,12 @@ namespace ZeroInstall.Archives.Extractors;
 /// <remarks>This class is immutable and thread-safe.</remarks>
 public class TarLzmaExtractor(ITaskHandler handler) : TarExtractor(handler)
 {
+    static TarLzmaExtractor()
+    {
+        // Support large LZMA dictionaries
+        DictionarySizeLimits.Lzma2 = 256L << 20;
+    }
+
     /// <inheritdoc/>
     public override void Extract(IBuilder builder, Stream stream, string? subDir = null)
     {
