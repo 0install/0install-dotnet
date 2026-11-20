@@ -5,6 +5,7 @@ using System.Runtime.Versioning;
 using NanoByte.Common.Info;
 using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration.Windows;
+using Unix = ZeroInstall.DesktopIntegration.Unix;
 
 namespace ZeroInstall.Commands.Desktop;
 
@@ -20,6 +21,7 @@ partial class SelfManager
     private void DesktopIntegrationApply(long size, bool libraryMode)
     {
         if (WindowsUtils.IsWindows) DesktopIntegrationApplyWindows(size, libraryMode);
+        else if (UnixUtils.IsUnix) DesktopIntegrationApplyUnix();
     }
 
     [SupportedOSPlatform("windows")]
@@ -53,12 +55,24 @@ partial class SelfManager
         }));
     }
 
+    private void DesktopIntegrationApplyUnix()
+    {
+        Handler.RunTask(new ActionTask(Resources.DesktopIntegrationApply, () =>
+        {
+            if (ZeroInstallDeployment.FindExecutable(TargetDir) is {} exec)
+                Unix.AppAlias.Create(exec, "0install", MachineWide);
+            if (ZeroInstallDeployment.FindExecutable(TargetDir, gui: true) is {} guiExec)
+                Unix.AppAlias.Create(guiExec, "0install-gui", MachineWide);
+        }));
+    }
+
     /// <summary>
     /// Removes Zero Install from the start menu and the PATH environment variable.
     /// </summary>
     private void DesktopIntegrationRemove()
     {
         if (WindowsUtils.IsWindows) DesktopIntegrationRemoveWindows();
+        else if (UnixUtils.IsUnix) DesktopIntegrationRemoveUnix();
     }
 
     [SupportedOSPlatform("windows")]
@@ -72,6 +86,15 @@ partial class SelfManager
             if (File.Exists(path)) File.Delete(path);
 
             UninstallEntry.Unregister(UninstallID, MachineWide);
+        }));
+    }
+
+    private void DesktopIntegrationRemoveUnix()
+    {
+        Handler.RunTask(new ActionTask(Resources.DesktopIntegrationRemove, () =>
+        {
+            Unix.AppAlias.Remove("0install", MachineWide);
+            Unix.AppAlias.Remove("0install-gui", MachineWide);
         }));
     }
 }

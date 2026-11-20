@@ -150,7 +150,11 @@ public partial class SelfManager : ManagerBase
 #if NET
                 if (UnixUtils.IsUnix && FileUtils.PathEquals(TargetDir, ZeroInstallInstance.DeploymentRoot))
                 {
-                    if (!Portable) ZeroInstallDeployment.Unregister(MachineWide); // Must unregister in advance, because ExecCommit does not return
+                    if (!Portable)
+                    { // Must unregister in advance, because ExecCommit does not return
+                        DesktopIntegrationRemove();
+                        ZeroInstallDeployment.Unregister(MachineWide);
+                    }
                     ExecCommit(clearDir);
                 }
 #endif
