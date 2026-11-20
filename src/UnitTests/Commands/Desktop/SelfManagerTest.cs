@@ -45,7 +45,18 @@ public class SelfManagerTest : DirectoryOperationTestBase
         => Path.Combine([_targetDir, ..relativePath]);
 
     private SelfManager CreateManager(bool machineWide = false, bool portable = true)
-        => new(_targetDir, new SilentTaskHandler(), machineWide, portable);
+        => new TestSelfManager(_targetDir, new SilentTaskHandler(), machineWide, portable);
+
+    /// <summary>
+    /// Uses a mutex name unique to this test process, so that test runs for other target frameworks or real Zero Install instances do not block each other.
+    /// </summary>
+    private sealed class TestSelfManager(string targetDir, ITaskHandler handler, bool machineWide = false, bool portable = false)
+        : SelfManager(targetDir, handler, machineWide, portable)
+    {
+        private static readonly string _mutexSuffix = Guid.NewGuid().ToString("N");
+
+        protected override string MutexName => $"{base.MutexName}-test-{_mutexSuffix}";
+    }
 
     private void Deploy(bool machineWide = false, bool portable = true)
     {
@@ -80,7 +91,7 @@ public class SelfManagerTest : DirectoryOperationTestBase
     private void ShouldWaitForRunningInstance(Action<SelfManager> action)
     {
         using var cancellation = new CancellationTokenSource();
-        using var manager = new SelfManager(_targetDir, new CancelableTaskHandler(cancellation.Token), portable: true);
+        using var manager = new TestSelfManager(_targetDir, new CancelableTaskHandler(cancellation.Token), portable: true);
         using var runningInstance = AppMutex.Create(ZeroInstallEnvironment.MutexName(_targetDir));
         Assert.SkipUnless(AppMutex.Probe(ZeroInstallEnvironment.MutexName(_targetDir)), "AppMutex is not supported on this platform by this version of NanoByte.Common");
 
@@ -95,7 +106,7 @@ public class SelfManagerTest : DirectoryOperationTestBase
 
     [Fact]
     public void PortableAndMachineWideAreExclusive()
-        => Assert.Throws<ArgumentException>(() => new SelfManager(_targetDir, new SilentTaskHandler(), machineWide: true, portable: true));
+        => Assert.Throws<ArgumentException>(() => new TestSelfManager(_targetDir, new SilentTaskHandler(), machineWide: true, portable: true));
 
     [Fact]
     public void OnlyOneOperationAtATime()
@@ -180,7 +191,7 @@ public class SelfManagerTest : DirectoryOperationTestBase
     {
         var entries = Directory.GetFileSystemEntries(TempDir);
 
-        using (var manager = new SelfManager(TempDir, new SilentTaskHandler(), portable: true))
+        using (var manager = new TestSelfManager(TempDir, new SilentTaskHandler(), portable: true))
             manager.Deploy();
 
         Directory.GetFileSystemEntries(TempDir).Should().BeEquivalentTo(entries);
