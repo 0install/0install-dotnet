@@ -5,6 +5,7 @@ using System.Runtime.Versioning;
 using NanoByte.Common.Info;
 using NanoByte.Common.Native;
 using ZeroInstall.DesktopIntegration.Windows;
+using Unix = ZeroInstall.DesktopIntegration.Unix;
 
 namespace ZeroInstall.Commands.Desktop;
 
@@ -20,6 +21,7 @@ partial class SelfManager
     private void DesktopIntegrationApply(long size, bool libraryMode)
     {
         if (WindowsUtils.IsWindows) DesktopIntegrationApplyWindows(size, libraryMode);
+        else if (UnixUtils.IsUnix) DesktopIntegrationApplyUnix();
     }
 
     [SupportedOSPlatform("windows")]
@@ -53,12 +55,38 @@ partial class SelfManager
         }));
     }
 
+    private void DesktopIntegrationApplyUnix()
+    {
+        Handler.RunTask(new ActionTask(Resources.DesktopIntegrationApply, () =>
+        {
+            if (ZeroInstallDeployment.FindExecutable(TargetDir) is {} exec)
+                CreateAlias(exec, "0install");
+            if (ZeroInstallDeployment.FindExecutable(TargetDir, gui: true) is {} guiExec)
+                CreateAlias(guiExec, "0install-gui");
+        }));
+
+        void CreateAlias(string executablePath, string aliasName)
+        {
+            try
+            {
+                Unix.AppAlias.Create(executablePath, aliasName, MachineWide);
+            }
+            #region Error handling
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                Log.Warn($"Unable to create '{aliasName}' alias for {executablePath}", ex);
+            }
+            #endregion
+        }
+    }
+
     /// <summary>
     /// Removes Zero Install from the start menu and the PATH environment variable.
     /// </summary>
     private void DesktopIntegrationRemove()
     {
         if (WindowsUtils.IsWindows) DesktopIntegrationRemoveWindows();
+        else if (UnixUtils.IsUnix) DesktopIntegrationRemoveUnix();
     }
 
     [SupportedOSPlatform("windows")]
@@ -73,5 +101,28 @@ partial class SelfManager
 
             UninstallEntry.Unregister(UninstallID, MachineWide);
         }));
+    }
+
+    private void DesktopIntegrationRemoveUnix()
+    {
+        Handler.RunTask(new ActionTask(Resources.DesktopIntegrationRemove, () =>
+        {
+            RemoveAlias("0install");
+            RemoveAlias("0install-gui");
+        }));
+
+        void RemoveAlias(string aliasName)
+        {
+            try
+            {
+                Unix.AppAlias.Remove(aliasName, MachineWide);
+            }
+            #region Error handling
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                Log.Warn($"Unable to remove '{aliasName}' alias", ex);
+            }
+            #endregion
+        }
     }
 }
