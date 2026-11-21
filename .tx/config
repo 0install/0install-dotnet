@@ -28,6 +28,10 @@ file_filter = src/DesktopIntegration/Properties/Resources.<lang>.o.resx
 source_file = src/Commands/Properties/Resources.resx
 file_filter = src/Commands/Properties/Resources.<lang>.o.resx
 
+[o:eicher:p:0install-win:r:commands-etoforms]
+source_file = src/Commands.EtoForms/Properties/Resources.resx
+file_filter = src/Commands.EtoForms/Properties/Resources.<lang>.o.resx
+
 [o:eicher:p:0install-win:r:publish]
 source_file = src/Publish/Properties/Resources.resx
 file_filter = src/Publish/Properties/Resources.<lang>.o.resx

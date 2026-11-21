@@ -47,6 +47,9 @@ Integrating applications with [desktop environments](https://docs.0install.net/d
 Command-line interface for Zero Install.  
 The binary in this package serves both as an actual CLI and a library for building other clients.
 
+[![ZeroInstall.Commands.EtoForms](https://img.shields.io/nuget/v/ZeroInstall.Commands.EtoForms.svg?label=ZeroInstall.Commands.EtoForms)](https://www.nuget.org/packages/ZeroInstall.Commands.EtoForms/)  
+Cross-platform [Eto.Forms](https://github.com/picoe/Eto)-based graphical user interface for Zero Install commands.
+
 [![ZeroInstall.Bootstrap](https://img.shields.io/nuget/v/ZeroInstall.Bootstrap.svg?label=ZeroInstall.Bootstrap)](https://www.nuget.org/packages/ZeroInstall.Bootstrap/)  
 Library for building bootstrappers that download and run Zero Install or an application using Zero Install.
 
