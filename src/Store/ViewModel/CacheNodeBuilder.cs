@@ -30,13 +30,18 @@ public sealed class CacheNodeBuilder
     }
 
     /// <summary>
+    /// An entry in a cache.
+    /// </summary>
+    private union CacheEntry(FeedUri, ManifestDigest, string);
+
+    /// <summary>
     /// Builds a list of <see cref="CacheNode"/>s for <see cref="Feed"/>s and <see cref="Implementation"/>s.
     /// </summary>
     /// <exception cref="IOException">A problem occurred while reading from a cache.</exception>
     /// <exception cref="UnauthorizedAccessException">Read access to a cache is not permitted.</exception>
     public NamedCollection<CacheNode> Build()
     {
-        List<object> input = [
+        List<CacheEntry> input = [
             .._feedCache.ListAll(),
             .._implementationStore?.ListAll() ?? [],
             .._implementationStore?.ListTemp() ?? []];
@@ -49,8 +54,7 @@ public sealed class CacheNodeBuilder
                 {
                     FeedUri uri => GetFeedNode(uri),
                     ManifestDigest digest => GetImplementationNode(digest, nodes.OfType<FeedNode>()),
-                    string path => GetTempNode(path),
-                    _ => null
+                    string path => GetTempNode(path)
                 } is {} node)
             {
                 while (nodes.Contains(node.Name)) node.SuffixCounter++; // Avoid name collisions by incrementing suffix

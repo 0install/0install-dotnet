@@ -184,18 +184,30 @@ public partial class ImplementationStore(string path, ITaskHandler handler, bool
     /// <summary>Used to indicate if a <see cref="Purge"/> operation is currently running.</summary>
     private readonly ThreadLocal<bool> _purging = new();
 
+    /// <summary>
+    /// An entry to remove when purging.
+    /// </summary>
+    private union PurgeEntry(string, ManifestDigest);
+
     /// <inheritdoc/>
     public void Purge()
     {
         _purging.Value = true;
         try
         {
-            handler.RunTask(ForEachTask.Create(string.Format(Resources.DeletingDirectory, Path),
-                ListTemp().Concat(ListAll().Cast<object>()).ToList(),
+            handler.RunTask(ForEachTask.Create<PurgeEntry>(string.Format(Resources.DeletingDirectory, Path),
+                [..ListTemp(), ..ListAll()],
                 toRemove =>
                 {
-                    if (toRemove is string path) RemoveTemp(path);
-                    else if (toRemove is ManifestDigest digest) Remove(digest);
+                    switch (toRemove)
+                    {
+                        case string path:
+                            RemoveTemp(path);
+                            break;
+                        case ManifestDigest digest:
+                            Remove(digest);
+                            break;
+                    }
                 }));
         }
         finally
