@@ -33,13 +33,7 @@ public class AddApp : AppCommand
     /// <summary>
     /// The window message ID (for use with <see cref="WindowsUtils.BroadcastMessage"/>) that signals that an application that is not listed in the <see cref="Catalog"/> was added.
     /// </summary>
-    public static readonly int AddedNonCatalogAppWindowMessageID;
-
-    static AddApp()
-    {
-        if (WindowsUtils.IsWindows)
-            AddedNonCatalogAppWindowMessageID = WindowsUtils.RegisterWindowMessage("ZeroInstall.Commands.AddedNonCatalogApp");
-    }
+    public static int AddedNonCatalogAppWindowMessageID { get; } = WindowsUtils.IsWindows ? WindowsUtils.RegisterWindowMessage("ZeroInstall.Commands.AddedNonCatalogApp") : 0;
 
     /// <inheritdoc/>
     public override void Parse(IReadOnlyList<string> args)
