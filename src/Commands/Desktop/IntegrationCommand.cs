@@ -102,6 +102,7 @@ public abstract class IntegrationCommand : CliCommand
          && Handler.Ask(string.Format(Resources.FeedReplacedAsk, feed.Name, feed.Uri, feed.ReplacedBy.Target), defaultAnswer: false, alternateMessage: Resources.FeedReplaced))
         {
             interfaceUri = feed.ReplacedBy.Target;
+            EnsureAllowed(interfaceUri);
             feed = FeedManager.GetFresh(interfaceUri);
             replaced = true;
         }
