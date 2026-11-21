@@ -51,14 +51,14 @@ internal sealed record ElementAttribute(string Name, Func<Element, object?> Get,
     {
         foreach (var attribute in _all)
         {
-            if (attribute.Get(element) is {} value && !attributes.ContainsKey(attribute.Name))
-                attributes[attribute.Name] = value;
+            if (attribute.Get(element) is {} value)
+                attributes.TryAdd(attribute.Name, value);
         }
 
         foreach (var unknown in element.UnknownAttributes ?? [])
         {
             string name = NameOf(unknown);
-            if (!attributes.ContainsKey(name)) attributes[name] = unknown;
+            attributes.TryAdd(name, unknown);
         }
     }
 

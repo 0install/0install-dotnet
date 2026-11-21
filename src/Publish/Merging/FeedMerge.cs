@@ -172,7 +172,7 @@ public static class FeedMerge
                 {
                     var name = new CommandKey(command.Name, command.IfZeroInstallVersionString);
                     // The definition closest to the implementation wins
-                    if (!context.Commands.ContainsKey(name)) context.Commands[name] = command;
+                    context.Commands.TryAdd(name, command);
                 }
             }
         }
