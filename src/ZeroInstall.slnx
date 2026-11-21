@@ -21,6 +21,10 @@
     <BuildType Solution="Minimal|*" Project="Release" />
     <Build Solution="Minimal|*" Project="false" />
   </Project>
+  <Project Path="Commands.EtoForms/Commands.EtoForms.csproj">
+    <BuildType Solution="Minimal|*" Project="Release" />
+    <Build Solution="Minimal|*" Project="false" />
+  </Project>
   <Project Path="Publish/Publish.csproj">
     <BuildType Solution="Minimal|*" Project="Release" />
     <Build Solution="Minimal|*" Project="false" />
