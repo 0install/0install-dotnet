@@ -4,7 +4,6 @@
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
-using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Store.Implementations;
 
@@ -42,7 +41,7 @@ internal static class StoreServicePaths
         if (component.EndsWith(".") || component.EndsWith(" ")) return false; // Windows silently strips these, causing aliasing
         if (component.Any(c => c < 0x20 || c == 0x7F)) return false;
         if (component.IndexOfAny(_invalidChars) >= 0) return false;
-        return !WindowsDeviceNames.IsReserved(component);
+        return !Paths.IsReservedDeviceName(component);
     }
 
     /// <summary>

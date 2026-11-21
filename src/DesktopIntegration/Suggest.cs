@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.DesktopIntegration.AccessPoints;
-using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.DesktopIntegration;
 
@@ -132,7 +131,7 @@ public static class Suggest
         /// Replaces all characters in a string that are not safe for file names with hyphens and trims characters not allowed at the start or end.
         /// </summary>
         private string SanitizeFileName()
-            => new string(value.Select(c => PortableFileName.IsInvalidChar(c) ? '-' : c).ToArray())
+            => new string(value.Select(c => SafeName.IsInvalidChar(c) ? '-' : c).ToArray())
               .Trim().TrimStart('.', '-', ' ').TrimEnd('.', ' ');
     }
 }
