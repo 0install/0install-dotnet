@@ -4,6 +4,7 @@
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
+using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.Store.Implementations;
 
@@ -13,13 +14,6 @@ namespace ZeroInstall.Store.Implementations;
 internal static class StoreServicePaths
 {
     private static readonly char[] _invalidChars = ['<', '>', ':', '"', '|', '?', '*', '\\'];
-
-    private static readonly HashSet<string> _reservedNames = new(StringComparer.OrdinalIgnoreCase)
-    {
-        "CON", "PRN", "AUX", "NUL", "CONIN$", "CONOUT$", "CLOCK$",
-        "COM0", "COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9", "COM¹", "COM²", "COM³",
-        "LPT0", "LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9", "LPT¹", "LPT²", "LPT³"
-    };
 
     /// <summary>
     /// Validates a relative path received on the wire and converts it to a native path.
@@ -48,10 +42,7 @@ internal static class StoreServicePaths
         if (component.EndsWith(".") || component.EndsWith(" ")) return false; // Windows silently strips these, causing aliasing
         if (component.Any(c => c < 0x20 || c == 0x7F)) return false;
         if (component.IndexOfAny(_invalidChars) >= 0) return false;
-
-        // Device names are reserved even with an extension (e.g., "NUL.txt")
-        string baseName = component.Split('.')[0].TrimEnd(' ');
-        return !_reservedNames.Contains(baseName);
+        return !WindowsDeviceNames.IsReserved(component);
     }
 
     /// <summary>
