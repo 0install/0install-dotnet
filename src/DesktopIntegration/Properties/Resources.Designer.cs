@@ -158,7 +158,25 @@ namespace ZeroInstall.DesktopIntegration.Properties {
                 return ResourceManager.GetString("NameReserved", resourceCulture);
             }
         }
-                
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The name &apos;{0}&apos; is already used by an alias for the application &apos;{1}&apos;..
+        /// </summary>
+        internal static string NameUsedByAlias {
+            get {
+                return ResourceManager.GetString("NameUsedByAlias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The name &apos;{0}&apos; is already used by the application &apos;{1}&apos;..
+        /// </summary>
+        internal static string NameUsedByApp {
+            get {
+                return ResourceManager.GetString("NameUsedByApp", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Added &apos;{0}&apos; to the search PATH in &apos;{1}&apos;. Log out and back in for this to take effect..
         /// </summary>

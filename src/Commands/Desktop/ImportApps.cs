@@ -28,19 +28,53 @@ public class ImportApps : IntegrationCommand
     {
         var importList = XmlStorage.LoadXml<AppList>(AdditionalArgs[0]);
 
+        var exitCode = ExitCode.OK;
         using var integrationManager = new IntegrationManager(Config, Handler, MachineWide);
         foreach (var importEntry in importList.Entries)
         {
-            var interfaceUri = importEntry.InterfaceUri;
-            var appEntry = GetAppEntry(integrationManager, ref interfaceUri);
-
-            if (importEntry.AccessPoints != null)
+            try
             {
-                var feed = FeedManager[interfaceUri];
-                integrationManager.AddAccessPoints(appEntry, feed, importEntry.AccessPoints.Entries);
+                var interfaceUri = importEntry.InterfaceUri;
+                var appEntry = interfaceUri.IsPetName
+                    ? GetOrAddNamedApp(integrationManager, importEntry)
+                    : GetAppEntry(integrationManager, ref interfaceUri);
+
+                if (importEntry.AccessPoints != null)
+                {
+                    var feed = FeedManager[appEntry.EffectiveRequirements.InterfaceUri];
+                    integrationManager.AddAccessPoints(appEntry, feed, importEntry.AccessPoints.Entries);
+                }
+            }
+            catch (ConflictException ex)
+            {
+                // Continue importing the remaining entries
+                Log.Warn(ex);
+                exitCode = ExitCode.Conflict;
             }
         }
 
-        return ExitCode.OK;
+        return exitCode;
+    }
+
+    /// <summary>
+    /// Gets an existing named app matching the pet-name of <paramref name="importEntry"/> or adds a new one.
+    /// Updates the <see cref="AppEntry.Requirements"/> of an existing named app if they differ from the imported ones.
+    /// </summary>
+    private AppEntry GetOrAddNamedApp(IIntegrationManager integrationManager, AppEntry importEntry)
+    {
+        if (importEntry.Requirements is not {} requirements)
+            throw new InvalidDataException(string.Format(Resources.NamedAppMissingRequirements, importEntry.PetName));
+
+        EnsureAllowed(requirements.InterfaceUri);
+        var feed = FeedManager[requirements.InterfaceUri];
+
+        if (integrationManager.AppList.GetEntry(importEntry.InterfaceUri) is {} existingEntry)
+        {
+            if (!requirements.Equals(existingEntry.Requirements))
+                integrationManager.UpdateApp(existingEntry, feed, requirements);
+            return existingEntry;
+        }
+
+        return integrationManager.AddApp(importEntry.PetName!, requirements, feed);
     }
 }

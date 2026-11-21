@@ -134,6 +134,8 @@ public class Selection : CliCommand
     /// </summary>
     protected void SetInterfaceUri(FeedUri uri)
     {
+        if (uri.IsPetName) uri = ApplyNamedApp(uri);
+
         EnsureAllowed(uri);
         Requirements.InterfaceUri = uri;
         Handler.FeedUri = uri;
@@ -142,6 +144,28 @@ public class Selection : CliCommand
             Requirements.Versions = _version;
         else if (_notBefore != null || _before != null)
             Requirements.Versions = new Constraint {NotBefore = _notBefore, Before = _before};
+    }
+
+    /// <summary>
+    /// Fills in <see cref="Requirements"/> from the named app referenced by <paramref name="uri"/>. Options specified on the command-line take precedence.
+    /// </summary>
+    /// <returns>The actual interface URI of the named app.</returns>
+    /// <exception cref="UriFormatException">No app with the specified pet-name was found.</exception>
+    private FeedUri ApplyNamedApp(FeedUri uri)
+    {
+        var app = GetNamedApp(uri).EffectiveRequirements;
+
+        Requirements.Command ??= app.Command;
+        Requirements.Architecture = new(
+            Requirements.Architecture.OS == OS.All ? app.Architecture.OS : Requirements.Architecture.OS,
+            Requirements.Architecture.Cpu == Cpu.All ? app.Architecture.Cpu : Requirements.Architecture.Cpu);
+        Requirements.Message ??= app.Message;
+        if (app.NoPackages) Requirements.NoPackages = true;
+        if (Requirements.Languages.Count == 0) Requirements.Languages.Add(app.Languages);
+        foreach (var (feedUri, range) in app.ExtraRestrictions)
+            Requirements.ExtraRestrictions.TryAdd(feedUri, range);
+
+        return app.InterfaceUri;
     }
 
     /// <inheritdoc/>
@@ -191,8 +215,6 @@ public class Selection : CliCommand
     [MemberNotNull(nameof(Selections))]
     protected virtual void Solve()
     {
-        // TODO: Handle named apps
-
         if (Pin || Unpin)
             PinUtils.Unpin(Requirements.InterfaceUri);
 

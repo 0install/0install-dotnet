@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using NDesk.Options;
+using ZeroInstall.DesktopIntegration;
 using ZeroInstall.Model.Preferences;
 using ZeroInstall.Services.Feeds;
 using ZeroInstall.Services.Solvers;
@@ -48,6 +49,34 @@ public class AddAppTest : CliCommandTestBase<AddApp>
     public void CommandWithoutAlias()
     {
         Assert.Throws<OptionException>(() => Sut.Parse(["--command=run", Fake.Feed1Uri.ToStringRfc()]));
+    }
+
+    [Fact]
+    public void NamedAppAsTarget()
+    {
+        Sut.Parse(["foo", "petname:bar"]);
+        ExceptionUtils.Retry<UnauthorizedAccessException>(() =>
+        {
+            var exception = Record.Exception(() => Sut.Execute());
+            // Other processes might be competing for IntegrationManager mutex
+            if (exception is UnauthorizedAccessException) throw exception;
+            exception.Should().BeOfType<UriFormatException>();
+        });
+    }
+
+    [Fact]
+    public void NamedAppNotAddedWithoutAlias()
+    {
+        Sut.Parse(["foo", Fake.Feed1Uri.ToStringRfc()]);
+        ExceptionUtils.Retry<UnauthorizedAccessException>(() =>
+        {
+            var exception = Record.Exception(() => Sut.Execute());
+            // Other processes might be competing for IntegrationManager mutex
+            if (exception is UnauthorizedAccessException) throw exception;
+            exception.Should().NotBeNull(because: "the test instance is not deployed, so aliases cannot be created");
+        });
+
+        AppList.LoadSafe().ContainsEntry("foo").Should().BeFalse();
     }
 
     [Fact]

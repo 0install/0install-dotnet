@@ -31,8 +31,11 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
             if (uri.StartsWith("file:/")) throw new UriFormatException(Resources.FilePrefixAbsoluteUsage);
             if (uri.StartsWith("file:", out string? path)) return new(Paths.Absolute(path));
             if (uri.StartsWith("http:") || uri.StartsWith("https:")) return new(uri);
+            if (uri.StartsWith($"{FeedUri.PetNameScheme}:")) return FeedUri.ParseAppIdentifier(uri);
 
-            if (TryResolveAlias(uri) is {} resolvedAlias) return resolvedAlias;
+            var appLists = GetAppLists(AppList.LoadSafe(), new(() => AppList.LoadSafe(machineWide: true)));
+            if (TryResolvePetName(uri, appLists) is {} resolvedPetName) return resolvedPetName;
+            if (TryResolveAlias(uri, appLists) is {} resolvedAlias) return resolvedAlias;
 
             if (Paths.IsAbsolute(uri)) return new(uri);
 
@@ -51,19 +54,26 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
         #endregion
     }
 
-    private static FeedUri? TryResolveAlias(string uri)
+    /// <summary>
+    /// Enumerates the per-user <see cref="AppList"/> first and the machine-wide one second, loading the latter only if needed.
+    /// </summary>
+    private static IEnumerable<AppList> GetAppLists(AppList user, Lazy<AppList> machineWide)
     {
-        var appList = AppList.LoadSafe();
+        yield return user;
+        yield return machineWide.Value;
+    }
 
+    private static FeedUri? TryResolveAlias(string uri, IEnumerable<AppList> appLists)
+    {
         const string aliasPrefix = "alias:";
         if (uri.StartsWith(aliasPrefix, out string? aliasName))
         {
-            return appList.ResolveAlias(aliasName)
+            return appLists.Select(x => x.ResolveAlias(aliasName)).WhereNotNull().FirstOrDefault()
                 ?? throw new UriFormatException(string.Format(Resources.AliasNotFound, aliasName));
         }
         else
         {
-            if (appList.ResolveAlias(uri) is {} result)
+            if (appLists.Select(x => x.ResolveAlias(uri)).WhereNotNull().FirstOrDefault() is {} result)
             {
                 Log.Info(string.Format(Resources.ResolvedUsingAlias, uri, result));
                 return result;
@@ -71,6 +81,25 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
             return null;
         }
     }
+
+    private static FeedUri? TryResolvePetName(string uri, IEnumerable<AppList> appLists)
+    {
+        if (!SafeName.IsValid(uri)) return null;
+        if (appLists.Select(x => x.GetEntry(uri)).WhereNotNull().FirstOrDefault() is not {} entry) return null;
+
+        Log.Info(string.Format(Resources.ResolvedUsingAppName, uri, entry.InterfaceUri.ToStringRfc()));
+        return FeedUri.FromPetName(uri);
+    }
+
+    /// <summary>
+    /// Gets the <see cref="AppEntry"/> for a named app from the per-user or machine-wide <see cref="AppList"/>.
+    /// </summary>
+    /// <param name="uri">A <see cref="FeedUri"/> with <see cref="FeedUri.IsPetName"/> set.</param>
+    /// <exception cref="UriFormatException">No app with the specified pet-name was found.</exception>
+    protected static AppEntry GetNamedApp(FeedUri uri)
+        => AppList.LoadSafe().GetEntry(uri)
+        ?? AppList.LoadSafe(machineWide: true).GetEntry(uri)
+        ?? throw new UriFormatException(string.Format(Resources.AppNameNotFound, uri.PetName));
 
     private FeedUri? TryResolveCatalog(string shortName)
     {

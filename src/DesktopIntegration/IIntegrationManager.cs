@@ -38,7 +38,7 @@ public interface IIntegrationManager
     /// <param name="feed">The feed providing additional metadata, capabilities, etc. for the application.</param>
     /// <returns>The newly created application entry (already added to <see cref="AppList"/>).</returns>
     /// <exception cref="InvalidOperationException">An application with the same <paramref name="petName"/> is already in the list.</exception>
-    /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
+    /// <exception cref="IOException"><paramref name="petName"/> is not a valid <see cref="SafeName"/> or a problem occurred while writing to the filesystem or registry.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
     AppEntry AddApp(string petName, Requirements requirements, Feed feed);
 

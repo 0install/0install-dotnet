@@ -150,6 +150,12 @@
   <data name="NameReserved" xml:space="preserve">
     <value>The name '{0}' is reserved and cannot be used.</value>
   </data>
+  <data name="NameUsedByAlias" xml:space="preserve">
+    <value>The name '{0}' is already used by an alias for the application '{1}'.</value>
+  </data>
+  <data name="NameUsedByApp" xml:space="preserve">
+    <value>The name '{0}' is already used by the application '{1}'.</value>
+  </data>
   <data name="PathAddedToProfile" xml:space="preserve">
     <value>Added '{0}' to the search PATH in '{1}'. Log out and back in for this to take effect.</value>
   </data>

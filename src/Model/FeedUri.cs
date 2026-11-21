@@ -55,6 +55,23 @@ public sealed partial class FeedUri : Uri
     /// <seealso cref="FromDistributionPrefix"/>
     public bool IsFromDistribution { get; }
 
+    /// <summary>
+    /// The scheme used to identify applications by their user-defined name instead of their feed URI.
+    /// </summary>
+    /// <seealso cref="IsPetName"/>
+    public const string PetNameScheme = "petname";
+
+    /// <summary>
+    /// Indicates that this URI references an application by its user-defined name rather than its feed URI.
+    /// </summary>
+    /// <seealso cref="PetNameScheme"/>
+    public bool IsPetName => Scheme == PetNameScheme;
+
+    /// <summary>
+    /// The user-defined application name if <see cref="IsPetName"/> is <c>true</c>; <c>null</c> otherwise.
+    /// </summary>
+    public string? PetName => IsPetName ? UnescapeDataString(AbsoluteUri[(PetNameScheme.Length + 1)..]) : null;
+
     private static string TrimPrefix(string value)
     {
         if (value.StartsWith(FakePrefix, out string? trimmed)) return trimmed;
@@ -95,16 +112,36 @@ public sealed partial class FeedUri : Uri
     /// <exception cref="UriFormatException"><paramref name="value"/> is not a valid HTTP(S) URL or an absolute local path.</exception>
     [SuppressMessage("Microsoft.Design", "CA1057:StringUriOverloadsCallSystemUriOverloads")]
     public FeedUri([Localizable(false)] string value)
+        : this(value, allowPetName: false)
+    {}
+
+    private FeedUri(string value, bool allowPetName)
         : base(TrimPrefix(value), UriKind.Absolute)
     {
         if (string.IsNullOrEmpty(value)) throw new UriFormatException();
 
-        if (Scheme is not ("http" or "https" or "file"))
+        if (!(Scheme is "http" or "https" or "file" || (allowPetName && Scheme == PetNameScheme)))
             throw new UriFormatException(string.Format(Resources.InvalidFeedUri, this));
 
         IsFake = value.StartsWith(FakePrefix);
         IsFromDistribution = value.StartsWith(FromDistributionPrefix);
     }
+
+    /// <summary>
+    /// Creates a feed URI from a string. Unlike <see cref="FeedUri(string)"/>, this also accepts URIs with the <see cref="PetNameScheme"/>.
+    /// </summary>
+    /// <param name="value">A string to parse as an HTTP(S) URL, an absolute local path or a pet-name URI.</param>
+    /// <remarks>Only use this for identifiers of applications (e.g., in app lists), not for anything that may be used to directly fetch a feed.</remarks>
+    /// <exception cref="UriFormatException"><paramref name="value"/> is not a valid HTTP(S) URL, absolute local path or pet-name URI.</exception>
+    public static FeedUri ParseAppIdentifier([Localizable(false)] string value)
+        => new(value, allowPetName: true);
+
+    /// <summary>
+    /// Creates a feed URI for a pet name.
+    /// </summary>
+    /// <remarks>Only use this for identifiers of applications (e.g., in app lists), not for anything that may be used to directly fetch a feed.</remarks>
+    public static FeedUri FromPetName([Localizable(false)] string value)
+        => new(PetNameScheme + ":" + EscapeDataString(value), allowPetName: true);
 
     #region Escaping
     /// <summary>

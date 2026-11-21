@@ -152,6 +152,15 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No existing app named &apos;{0}&apos; was found..
+        /// </summary>
+        public static string AppNameNotFound {
+            get {
+                return ResourceManager.GetString("AppNameNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Setup Zero Install for all users (machine-wide) instead of just the current user?.
         /// </summary>
         public static string AskDeployMachineWide {
@@ -1288,6 +1297,24 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; is a named app. Please specify the interface URI of the app you wish to add instead..
+        /// </summary>
+        public static string NamedAppAsTarget {
+            get {
+                return ResourceManager.GetString("NamedAppAsTarget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The named app &apos;{0}&apos; does not specify any requirements..
+        /// </summary>
+        public static string NamedAppMissingRequirements {
+            get {
+                return ResourceManager.GetString("NamedAppMissingRequirements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please use the GUI version of Zero Install for this feature..
         /// </summary>
         public static string NeedsGui {
@@ -1297,7 +1324,7 @@ namespace ZeroInstall.Commands.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} may only be specified together with an alias name..
+        ///   Looks up a localized string similar to {0} may only be specified together with an app name..
         /// </summary>
         public static string NoAddCommandWithoutAlias {
             get {
@@ -1980,6 +2007,15 @@ namespace ZeroInstall.Commands.Properties {
         public static string ResolvedUsingAlias {
             get {
                 return ResourceManager.GetString("ResolvedUsingAlias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resolved &apos;{0}&apos; to &apos;{1}&apos; using an app name..
+        /// </summary>
+        public static string ResolvedUsingAppName {
+            get {
+                return ResourceManager.GetString("ResolvedUsingAppName", resourceCulture);
             }
         }
         

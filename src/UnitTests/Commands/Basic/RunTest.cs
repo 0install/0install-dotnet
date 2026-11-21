@@ -132,6 +132,43 @@ public class RunTest : SelectionTestBase<Run>
     }
 
     [Fact]
+    public void GetCanonicalUriNamedApp()
+    {
+        new AppList
+        {
+            Entries =
+            {
+                new()
+                {
+                    InterfaceUri = FeedUri.FromPetName("test"),
+                    Requirements = new(Fake.Feed1Uri),
+                    Name = "Test"
+                },
+                new()
+                {
+                    InterfaceUri = Fake.Feed2Uri,
+                    Name = "Test2",
+                    AccessPoints = new() {Entries = {new AppAlias {Name = "test"}}}
+                }
+            }
+        }.SaveXml(AppList.GetDefaultPath());
+
+        Sut.GetCanonicalUri("test").Should().Be(FeedUri.FromPetName("test"), because: "pet-names take precedence over aliases");
+        Sut.GetCanonicalUri("petname:test").Should().Be(FeedUri.FromPetName("test"));
+        Sut.GetCanonicalUri("alias:test").Should().Be(Fake.Feed2Uri);
+    }
+
+    [Theory] // Ensures pet-name URIs passed to child processes and stubs via ToStringRfc() are not escaped twice
+    [InlineData("my app")]
+    [InlineData("café")]
+    [InlineData("a%b")]
+    public void GetCanonicalUriNamedAppRoundTrip(string petName)
+    {
+        var uri = FeedUri.FromPetName(petName);
+        Sut.GetCanonicalUri(uri.ToStringRfc()).PetName.Should().Be(petName);
+    }
+
+    [Fact]
     public void GetCanonicalUriCatalogCached()
     {
         CatalogManagerMock.Setup(x => x.TryGetCached()).Returns(new Catalog {Feeds = {new() {Uri = Fake.Feed1Uri, Name = "MyApp"}}});

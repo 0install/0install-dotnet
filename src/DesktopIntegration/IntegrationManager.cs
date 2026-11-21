@@ -1,7 +1,6 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using NanoByte.Common.Native;
@@ -146,21 +145,30 @@ public class IntegrationManager : IntegrationManagerBase
         if (feed == null) throw new ArgumentNullException(nameof(feed));
         #endregion
 
-        throw new NotImplementedException();
-        /*
+        SafeName.Validate(petName);
+
         // Prevent double entries
-        if (AppList.ContainsEntry(petName)) throw new InvalidOperationException(string.Format(Resources.AppAlreadyInList, feed.Name));
+        if (AppList.ContainsEntry(petName)) throw new InvalidOperationException(string.Format(Resources.AppAlreadyInList, petName));
+
+        // Prevent collisions with an existing alias on another app
+        if (AppList.FindAppAlias(petName) is var (_, aliasApp))
+            throw new ConflictException(string.Format(Resources.NameUsedByAlias, petName, aliasApp.Name));
 
         // Get basic metadata and copy of capabilities from feed
-        var appEntry = new AppEntry {InterfaceUri = petName, Requirements = requirements, Name = feed.Name, Timestamp = DateTime.UtcNow};
-        appEntry.CapabilityLists.Add(feed.CapabilityLists.CloneElements());
+        var appEntry = new AppEntry
+        {
+            InterfaceUri = FeedUri.FromPetName(petName),
+            Requirements = requirements,
+            Name = feed.Name,
+            Timestamp = DateTime.UtcNow,
+            CapabilityLists = {feed.CapabilityLists.CloneElements()}
+        };
 
         AppList.Entries.Add(appEntry);
         _appListChanged = true;
 
         WriteAppDir(appEntry);
         return appEntry;
-        */
     }
 
     /// <inheritdoc/>
@@ -178,7 +186,7 @@ public class IntegrationManager : IntegrationManagerBase
         WriteAppDir(appEntry);
 
         if (appEntry.AccessPoints != null)
-            AddAccessPointsInternal(appEntry, feedRetriever(appEntry.InterfaceUri), appEntry.AccessPoints.Clone().Entries);
+            AddAccessPointsInternal(appEntry, feedRetriever(appEntry.EffectiveRequirements.InterfaceUri), appEntry.AccessPoints.Clone().Entries);
     }
 
     /// <inheritdoc/>
@@ -257,6 +265,13 @@ public class IntegrationManager : IntegrationManagerBase
         appEntry.AccessPoints ??= new();
 
         AppList.CheckForConflicts(accessPoints, appEntry);
+
+        // Prevent aliases from colliding with the pet-name of another app
+        foreach (var alias in accessPoints.OfType<AppAlias>())
+        {
+            if (alias.Name is {Length: > 0} aliasName && AppList.GetEntry(aliasName) is {} namedApp && !ReferenceEquals(namedApp, appEntry))
+                throw new ConflictException(string.Format(Resources.NameUsedByApp, alias.Name, namedApp.Name));
+        }
 
         // Check if any access points are truly new, rather than just re-applying exist ones
         if (!accessPoints.All(appEntry.AccessPoints.Entries.Contains))

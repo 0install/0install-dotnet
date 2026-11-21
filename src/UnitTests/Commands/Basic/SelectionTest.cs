@@ -1,6 +1,10 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using ZeroInstall.DesktopIntegration;
+using ZeroInstall.Services.Solvers;
+using ZeroInstall.Store.Feeds;
+
 namespace ZeroInstall.Commands.Basic;
 
 /// <summary>
@@ -28,4 +32,66 @@ public class SelectionTest : SelectionTestBase<Selection>
         RunAndAssert(selections.ToXmlString(), 0, selections,
             "--xml", tempFile);
     }
+
+    [Fact] // Ensures named apps are resolved to their requirements, with command-line options taking precedence.
+    public void TestNamedApp()
+    {
+        var selections = ExpectSolve();
+        new AppList
+        {
+            Entries =
+            {
+                new()
+                {
+                    InterfaceUri = FeedUri.FromPetName("my app"),
+                    Requirements = new(Fake.Feed1Uri, "command", new Architecture(OS.Windows))
+                    {
+                        ExtraRestrictions =
+                        {
+                            {Fake.Feed1Uri, new VersionRange("0.1")},
+                            {Fake.Feed2Uri, new VersionRange("2.0..!3.0")}
+                        }
+                    },
+                    Name = "Test"
+                }
+            }
+        }.SaveXml(AppList.GetDefaultPath());
+
+        RunAndAssert(selections.ToXmlString(), 0, selections,
+            "--xml", "--cpu=i586", "--not-before=1.0", "--before=2.0", "my app");
+    }
+
+    [Fact] // Ensures NoPackages from a named app's requirements is applied.
+    public void TestNamedAppNoPackages()
+    {
+        var requirements = CreateTestRequirements();
+        requirements.NoPackages = true;
+        var selections = Fake.Selections;
+        GetMock<ISolver>().Setup(x => x.Solve(requirements)).Returns(selections);
+        var feed = Fake.Feed;
+        GetMock<IFeedCache>().Setup(x => x.GetFeed(Fake.Feed1Uri)).Returns(feed);
+        selections.Name = feed.Name;
+
+        var appRequirements = CreateTestRequirements();
+        appRequirements.NoPackages = true;
+        new AppList
+        {
+            Entries =
+            {
+                new()
+                {
+                    InterfaceUri = FeedUri.FromPetName("my app"),
+                    Requirements = appRequirements,
+                    Name = "Test"
+                }
+            }
+        }.SaveXml(AppList.GetDefaultPath());
+
+        RunAndAssert(selections.ToXmlString(), 0, selections,
+            "--xml", "my app");
+    }
+
+    [Fact]
+    public void TestNamedAppMissing()
+        => Assert.Throws<UriFormatException>(() => Sut.Parse(["petname:missing"]));
 }

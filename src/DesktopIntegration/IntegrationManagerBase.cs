@@ -172,7 +172,7 @@ public abstract class IntegrationManagerBase(ITaskHandler handler, bool machineW
         try
         {
             Handler.RunTask(ForEachTask.Create(Resources.RepairingIntegration,
-                AppList.Entries, app => RepairAppInternal(app, feedRetriever(app.InterfaceUri))));
+                AppList.Entries, app => RepairAppInternal(app, feedRetriever(app.EffectiveRequirements.InterfaceUri))));
         }
         catch (KeyNotFoundException ex)
         {
@@ -205,7 +205,7 @@ public abstract class IntegrationManagerBase(ITaskHandler handler, bool machineW
     /// <param name="feed">The feed providing additional metadata, capabilities, etc. for the application.</param>
     /// <returns>The newly created application entry (already added to <see cref="AppList"/>).</returns>
     /// <exception cref="InvalidOperationException">An application with the same <paramref name="petName"/> is already in the list.</exception>
-    /// <exception cref="IOException">A problem occurred while writing to the filesystem or registry.</exception>
+    /// <exception cref="IOException"><paramref name="petName"/> is not a valid <see cref="SafeName"/> or a problem occurred while writing to the filesystem or registry.</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem or registry is not permitted.</exception>
     protected abstract AppEntry AddAppInternal(string petName, Requirements requirements, Feed feed);
 

@@ -36,9 +36,9 @@ public class ListApps : CliCommand
 
         if (AdditionalArgs is [var pattern])
         {
-            if (Uri.TryCreate(pattern, UriKind.Absolute, out var uri))
+            if (Uri.TryCreate(pattern, UriKind.Absolute, out _))
             {
-                var feedUri = new FeedUri(uri);
+                var feedUri = FeedUri.ParseAppIdentifier(pattern);
                 apps.Entries.RemoveAll(x => x.InterfaceUri != feedUri);
             }
             else

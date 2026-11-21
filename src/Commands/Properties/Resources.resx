@@ -149,6 +149,9 @@ You can run '{2}' to start the program without Zero Install, also after moving t
   <data name="AppList" xml:space="preserve">
     <value>Application list</value>
   </data>
+  <data name="AppNameNotFound" xml:space="preserve">
+    <value>No existing app named '{0}' was found.</value>
+  </data>
   <data name="AskDeployMachineWide" xml:space="preserve">
     <value>Setup Zero Install for all users (machine-wide) instead of just the current user?</value>
   </data>
@@ -541,11 +544,17 @@ You may redistribute copies of this program under the terms of the GNU Lesser Ge
   <data name="MyApps" xml:space="preserve">
     <value>My applications</value>
   </data>
+  <data name="NamedAppAsTarget" xml:space="preserve">
+    <value>'{0}' is a named app. Please specify the interface URI of the app you wish to add instead.</value>
+  </data>
+  <data name="NamedAppMissingRequirements" xml:space="preserve">
+    <value>The named app '{0}' does not specify any requirements.</value>
+  </data>
   <data name="NeedsGui" xml:space="preserve">
     <value>Please use the GUI version of Zero Install for this feature.</value>
   </data>
   <data name="NoAddCommandWithoutAlias" xml:space="preserve">
-    <value>{0} may only be specified together with an alias name.</value>
+    <value>{0} may only be specified together with an app name.</value>
   </data>
   <data name="NoCustomizeSelectionsInCli" xml:space="preserve">
     <value>The graphical policy editor is not available in command-line mode.</value>
@@ -780,6 +789,9 @@ May contain command-line arguments. Whitespaces must be escaped!</value>
   </data>
   <data name="ResolvedUsingAlias" xml:space="preserve">
     <value>Resolved '{0}' to '{1}' using an alias.</value>
+  </data>
+  <data name="ResolvedUsingAppName" xml:space="preserve">
+    <value>Resolved '{0}' to '{1}' using an app name.</value>
   </data>
   <data name="ResolvedUsingCatalog" xml:space="preserve">
     <value>Resolved '{0}' to '{1}' using a catalog.</value>
