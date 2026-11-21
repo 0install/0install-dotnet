@@ -26,13 +26,14 @@ public abstract partial class CommandAccessPoint : AccessPoint
     public string? Command { get; set; }
 
     /// <summary>
-    /// Ensures that the given name can be used as a file name.
+    /// Ensures that <see cref="Name"/> can safely be used to locate an existing access point. Call from <see cref="AccessPoint.Unapply"/>.
     /// </summary>
-    /// <exception cref="IOException"><see cref="Name"/> contains invalid characters.</exception>
+    /// <remarks>More lenient than <see cref="SafeName.Validate"/>, so that access points created under older or other rules can still be removed.</remarks>
+    /// <exception cref="IOException"><see cref="Name"/> is empty or contains characters not allowed in file names on this platform.</exception>
     [MemberNotNull(nameof(Name))]
-    protected void ValidateName()
+    protected void ValidateNameForRemoval()
     {
-        if (string.IsNullOrEmpty(Name) || Name.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)
+        if (string.IsNullOrEmpty(Name) || Name is "." or ".." || Name.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)
             throw new IOException(string.Format(Resources.NameInvalidChars, Name));
     }
 

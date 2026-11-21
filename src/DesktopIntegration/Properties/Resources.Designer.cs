@@ -97,15 +97,6 @@ namespace ZeroInstall.DesktopIntegration.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The name &apos;{0}&apos; is reserved by Zero Install and cannot be used for an alias..
-        /// </summary>
-        internal static string AliasNameReserved {
-            get {
-                return ResourceManager.GetString("AliasNameReserved", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to The application &apos;{0}&apos; is already in the application list..
         /// </summary>
         internal static string AppAlreadyInList {
@@ -159,6 +150,15 @@ namespace ZeroInstall.DesktopIntegration.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to The name &apos;{0}&apos; is reserved and cannot be used..
+        /// </summary>
+        internal static string NameReserved {
+            get {
+                return ResourceManager.GetString("NameReserved", resourceCulture);
+            }
+        }
+                
         /// <summary>
         ///   Looks up a localized string similar to Added &apos;{0}&apos; to the search PATH in &apos;{1}&apos;. Log out and back in for this to take effect..
         /// </summary>

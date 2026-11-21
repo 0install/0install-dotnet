@@ -25,7 +25,7 @@ public partial class SendTo : IconAccessPoint
         if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
         #endregion
 
-        ValidateName();
+        SafeName.Validate(Name);
 
         var target = new FeedTarget(appEntry.InterfaceUri, feed);
         if (WindowsUtils.IsWindows && !machineWide) Windows.Shortcut.Create(this, target, iconStore);
@@ -38,7 +38,7 @@ public partial class SendTo : IconAccessPoint
         if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
         #endregion
 
-        ValidateName();
+        ValidateNameForRemoval();
 
         if (WindowsUtils.IsWindows && !machineWide) Windows.Shortcut.Remove(this);
     }

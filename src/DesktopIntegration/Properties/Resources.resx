@@ -129,9 +129,6 @@
   <data name="AliasFileNotOwned" xml:space="preserve">
     <value>The file '{0}' was not created by Zero Install. Please remove it manually.</value>
   </data>
-  <data name="AliasNameReserved" xml:space="preserve">
-    <value>The name '{0}' is reserved by Zero Install and cannot be used for an alias.</value>
-  </data>
   <data name="AppAlreadyInList" xml:space="preserve">
     <value>The application '{0}' is already in the application list.</value>
   </data>
@@ -149,6 +146,9 @@
   </data>
   <data name="NameInvalidChars" xml:space="preserve">
     <value>The name '{0}' contains invalid characters.</value>
+  </data>
+  <data name="NameReserved" xml:space="preserve">
+    <value>The name '{0}' is reserved and cannot be used.</value>
   </data>
   <data name="PathAddedToProfile" xml:space="preserve">
     <value>Added '{0}' to the search PATH in '{1}'. Log out and back in for this to take effect.</value>

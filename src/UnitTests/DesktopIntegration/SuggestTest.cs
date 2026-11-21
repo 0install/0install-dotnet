@@ -122,6 +122,24 @@ public class SuggestTest
     }
 
     [Fact]
+    public void AliasesFollowNameRules()
+    {
+        Suggest.Aliases(new Feed
+        {
+            Name = ".My: App.",
+            EntryPoints =
+            {
+                new EntryPoint {Command = Command.NameRun, NeedsTerminal = true},
+                new EntryPoint {Command = "a=b", NeedsTerminal = true},
+                new EntryPoint {Command = "reserved", NeedsTerminal = true, BinaryName = "0install"},
+                new EntryPoint {Command = "device", NeedsTerminal = true, BinaryName = "nul"}
+            }
+        }).Should().Equal(
+            new AppAlias {Name = "my--app", Command = Command.NameRun},
+            new AppAlias {Name = "a-b", Command = "a=b"});
+    }
+
+    [Fact]
     public void AutoStart()
     {
         Suggest.AutoStart(new Feed

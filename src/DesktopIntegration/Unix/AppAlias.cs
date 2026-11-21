@@ -26,10 +26,7 @@ public static class AppAlias
     /// <exception cref="WebException">A problem occurred while downloading additional data (such as icons).</exception>
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
     public static void Create(FeedTarget target, string? command, string aliasName, bool machineWide)
-    {
-        if (aliasName is "0install" or "0install-gui") throw new IOException(string.Format(Resources.AliasNameReserved, aliasName));
-        WriteScript(aliasName, machineWide, GetScript(target.Uri, command));
-    }
+        => WriteScript(aliasName, machineWide, GetScript(target.Uri, command));
 
     /// <summary>
     /// Creates an application alias in the current system that runs an executable.

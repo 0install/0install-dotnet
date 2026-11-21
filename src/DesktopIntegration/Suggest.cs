@@ -2,6 +2,7 @@
 // Licensed under the GNU Lesser Public License
 
 using ZeroInstall.DesktopIntegration.AccessPoints;
+using ZeroInstall.Store.FileSystem;
 
 namespace ZeroInstall.DesktopIntegration;
 
@@ -26,12 +27,12 @@ public static class Suggest
                      or {Command: Command.NameRun or Command.NameRunGui})
                 .ToList();
 
-        string? category = feed.Categories.FirstOrDefault()?.Name?.SafeFileName();
+        string? category = feed.Categories.FirstOrDefault()?.Name?.SanitizeFileName();
 
         // Group menu entries by app if there is more than one
         if (entryPoints.Count > 1)
         {
-            string name = feed.Name.SafeFileName();
+            string name = feed.Name.SanitizeFileName();
             category = category == null
                 ? name
                 : $"{category}/{name}";
@@ -42,7 +43,7 @@ public static class Suggest
             select new MenuEntry
             {
                 Category = category,
-                Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
+                Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SanitizeFileName(),
                 Command = entryPoint.Command
             }, x => x.Name ?? "");
     }
@@ -61,7 +62,7 @@ public static class Suggest
             where entryPoint.Command is Command.NameRun or Command.NameRunGui
             select new DesktopIcon
             {
-                Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
+                Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SanitizeFileName(),
                 Command = entryPoint.Command
             }, x => x.Name ?? "");
     }
@@ -80,7 +81,7 @@ public static class Suggest
             where entryPoint.SuggestSendTo
             select new SendTo
             {
-                Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
+                Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SanitizeFileName(),
                 Command = entryPoint.Command
             }, x => x.Name ?? "");
     }
@@ -97,9 +98,11 @@ public static class Suggest
         return EnumerableExtensions.DistinctBy(
             from entryPoint in feed.EntryPoints
             where entryPoint.NeedsTerminal
+            let name = (entryPoint.BinaryName ?? (entryPoint.Command == Command.NameRun ? feed.Name.Replace(' ', '-').ToLowerInvariant() : entryPoint.Command)).SanitizeFileName()
+            where SafeName.IsValid(name)
             select new AppAlias
             {
-                Name = entryPoint.BinaryName ?? (entryPoint.Command == Command.NameRun ? feed.Name.Replace(' ', '-').ToLowerInvariant() : entryPoint.Command).SafeFileName(),
+                Name = name,
                 Command = entryPoint.Command
             }, x => x.Name ?? "");
     }
@@ -118,14 +121,18 @@ public static class Suggest
             where entryPoint.SuggestAutoStart
             select new AutoStart
             {
-                Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SafeFileName(),
+                Name = feed.GetBestName(CultureInfo.CurrentUICulture, entryPoint.Command).SanitizeFileName(),
                 Command = entryPoint.Command
             }, x => x.Name ?? "");
     }
 
-    /// <summary>
-    /// Replaces all characters in a string that are not safe for file names with hyphens.
-    /// </summary>
-    private static string SafeFileName(this string value)
-        => string.Join("-", value.Split(Path.GetInvalidFileNameChars()));
+    extension(string value)
+    {
+        /// <summary>
+        /// Replaces all characters in a string that are not safe for file names with hyphens and trims characters not allowed at the start or end.
+        /// </summary>
+        private string SanitizeFileName()
+            => new string(value.Select(c => PortableFileName.IsInvalidChar(c) ? '-' : c).ToArray())
+              .Trim().TrimStart('.', '-', ' ').TrimEnd('.', ' ');
+    }
 }

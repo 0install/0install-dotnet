@@ -65,15 +65,11 @@ public static partial class Shortcut
     private static string GetStartMenuCategoryPath(string? category, bool machineWide)
     {
         string menuDir = WindowsUtils.GetFolderPath(machineWide ? Environment.SpecialFolder.CommonPrograms : Environment.SpecialFolder.Programs);
-
         if (string.IsNullOrEmpty(category)) return menuDir;
-        else
-        {
-            string categoryDir = category.ToNativePath();
-            if (categoryDir.IndexOfAny(Path.GetInvalidPathChars()) != -1 || FileUtils.IsBreakoutPath(categoryDir))
-                throw new IOException(string.Format(Resources.NameInvalidChars, category));
 
-            return Paths.Combine(menuDir, categoryDir);
-        }
+        string categoryDir = category.ToNativePath();
+        SafeName.Validate(category);
+
+        return Paths.Combine(menuDir, categoryDir);
     }
 }

@@ -20,6 +20,7 @@ public static class WindowsDeviceNames
     /// </summary>
     /// <param name="fileName">A file name without any directory part.</param>
     /// <remarks>Device names are reserved even with an extension (e.g., <c>NUL.txt</c>) and trailing spaces.</remarks>
-    public static bool IsReserved(string fileName)
-        => _names.Contains(fileName.Split('.')[0].TrimEnd(' '));
+    public static bool IsReserved(string? fileName)
+        => fileName != null
+        && _names.Contains(fileName.Split('.')[0].TrimEnd(' '));
 }

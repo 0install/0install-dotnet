@@ -25,7 +25,7 @@ public partial class AppAlias : CommandAccessPoint
         if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
         #endregion
 
-        ValidateName();
+        SafeName.Validate(Name);
 
         var target = new FeedTarget(appEntry.InterfaceUri, feed);
         if (WindowsUtils.IsWindows) Windows.AppAlias.Create(target, Command, Name, iconStore, machineWide);
@@ -39,7 +39,7 @@ public partial class AppAlias : CommandAccessPoint
         if (appEntry == null) throw new ArgumentNullException(nameof(appEntry));
         #endregion
 
-        ValidateName();
+        ValidateNameForRemoval();
 
         if (WindowsUtils.IsWindows) Windows.AppAlias.Remove(Name, machineWide);
         else if (UnixUtils.IsUnix) Unix.AppAlias.Remove(Name, machineWide);
