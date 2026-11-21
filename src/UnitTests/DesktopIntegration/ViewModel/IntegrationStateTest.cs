@@ -107,7 +107,7 @@ public sealed class IntegrationStateTest : TestWithRedirect
     [Fact]
     public void CheckForConflictsInvalidCapabilityReference()
     {
-        AddApp(FeedTest.Test1Uri, "App1", new AccessPoints.FileType {Capability = "missing"});
+        AddApp(FeedTest.Test1Uri, "App1", new FileType {Capability = "missing"});
         var (_, state) = AddApp(FeedTest.Test2Uri, "App2");
 
         state.Invoking(x => x.CheckForConflicts()).Should().Throw<InvalidDataException>();
