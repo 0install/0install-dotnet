@@ -115,7 +115,11 @@ public sealed partial class BootstrapProcess : ServiceProvider
     {
         if (_version == null) return;
 
-        string versionFile = Paths.Combine(path, "0install.exe");
+        if (ZeroInstallDeployment.FindExecutable(path) is not {} versionFile) return;
+
+        // TODO: Add way to determine version of deployments on Unixoid systems
+        if (!versionFile.EndsWithIgnoreCase(".exe")) return;
+
         var deployedVersion = ImplementationVersion.FromSemVer(FileVersionInfo.GetVersionInfo(versionFile).ProductVersion!);
         if (!_version.Match(deployedVersion))
         {
