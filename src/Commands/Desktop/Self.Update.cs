@@ -74,7 +74,7 @@ partial class Self
             if (!Handler.Ask(string.Format(Resources.SelfUpdateAvailable, Selections!.MainImplementation.Version), defaultAnswer: true))
                 throw new OperationCanceledException();
 
-            var builder = Executor.Inject(Selections).AddArguments(Self.Name, Deploy.Name, "--batch", Locations.InstallBase);
+            var builder = Executor.Inject(Selections).AddArguments(Self.Name, Deploy.Name, "--batch", ZeroInstallInstance.DeploymentRoot);
             if (Handler.Background) builder.AddArguments("--background");
             if (_restartCentral) builder.AddArguments("--restart-central");
             if (ZeroInstallInstance.IsLibraryMode) builder.AddArguments("--library");

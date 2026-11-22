@@ -46,33 +46,36 @@ partial class SelfManager
     /// <remarks>The <see cref="TargetDir"/> is encoded into an <see cref="AppMutex"/> name using <see cref="object.GetHashCode"/>.</remarks>
     private void MutexAcquire()
     {
-        if (Paths.AreEqual(TargetDir, Locations.InstallBase))
+        if (Paths.AreEqual(TargetDir, ZeroInstallInstance.DeploymentRoot))
         {
             Log.Info($"Cannot use Mutex because source and target directory are the same: {TargetDir}");
             return;
         }
 
-        if (ZeroInstallEnvironment.MutexName(TargetDir) == ZeroInstallEnvironment.MutexName(Locations.InstallBase))
+        // The target has the same layout as the source (enforced by Deploy()), but may not have been deployed yet
+        string targetInstallBase = ZeroInstallDeployment.GetBinaryDir(TargetDir, appBundle: ZeroInstallInstance.IsAppBundle);
+
+        if (ZeroInstallEnvironment.MutexName(targetInstallBase) == ZeroInstallEnvironment.MutexName(Locations.InstallBase))
         {
-            Log.Warn($"Hash collision between {TargetDir} and {Locations.InstallBase}! Not using Mutex.");
+            Log.Warn($"Hash collision between {targetInstallBase} and {Locations.InstallBase}! Not using Mutex.");
             return;
         }
 
         Handler.RunTask(new ActionTask(Resources.MutexWait, () =>
         {
             // Wait for existing instances to terminate
-            while (AppMutex.Probe(ZeroInstallEnvironment.MutexName(TargetDir)) || AppMutex.Probe(ZeroInstallEnvironment.LegacyMutexName(TargetDir)))
+            while (AppMutex.Probe(ZeroInstallEnvironment.MutexName(targetInstallBase)) || AppMutex.Probe(ZeroInstallEnvironment.LegacyMutexName(targetInstallBase)))
             {
                 Thread.Sleep(1000);
                 Handler.CancellationToken.ThrowIfCancellationRequested();
             }
 
             // Prevent new instances from starting during the update
-            _updateMutex = AppMutex.Create(ZeroInstallEnvironment.UpdateMutexName(TargetDir));
-            _legacyUpdateMutex = AppMutex.Create(ZeroInstallEnvironment.LegacyUpdateMutexName(TargetDir));
+            _updateMutex = AppMutex.Create(ZeroInstallEnvironment.UpdateMutexName(targetInstallBase));
+            _legacyUpdateMutex = AppMutex.Create(ZeroInstallEnvironment.LegacyUpdateMutexName(targetInstallBase));
 
             // Detect any new instances that started in the short time between detecting existing ones and blocking new ones
-            while (AppMutex.Probe(ZeroInstallEnvironment.MutexName(TargetDir)) || AppMutex.Probe(ZeroInstallEnvironment.LegacyMutexName(TargetDir)))
+            while (AppMutex.Probe(ZeroInstallEnvironment.MutexName(targetInstallBase)) || AppMutex.Probe(ZeroInstallEnvironment.LegacyMutexName(targetInstallBase)))
             {
                 Thread.Sleep(1000);
                 Handler.CancellationToken.ThrowIfCancellationRequested();

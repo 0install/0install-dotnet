@@ -1,12 +1,12 @@
 // Copyright Bastian Eicher et al.
 // Licensed under the GNU Lesser Public License
 
+using NanoByte.Common.Native;
 using ZeroInstall.Store;
 using ZeroInstall.Store.Deployment;
 
 #if NET
 using System.Runtime.Versioning;
-using NanoByte.Common.Native;
 #endif
 
 namespace ZeroInstall.Commands.Desktop;
@@ -74,23 +74,31 @@ public partial class SelfManager : ManagerBase
     {
         if (Portable && libraryMode) throw new ArgumentException(string.Format(Resources.ExclusiveOptions, "--portable", "--library"), nameof(libraryMode));
 
-        var newManifest = LoadManifest(Locations.InstallBase);
+        if (UnixUtils.IsMacOSX)
+        {
+            bool targetIsAppBundle = TargetDir.TrimEnd(Path.DirectorySeparatorChar).EndsWithIgnoreCase(".app");
+            if (ZeroInstallInstance.IsAppBundle && !targetIsAppBundle) throw new NotSupportedException("Deployment target must end with '.app'.");
+            if (!ZeroInstallInstance.IsAppBundle && targetIsAppBundle) throw new NotSupportedException("Deployment target must not end with '.app'.");
+        }
+
+        var newManifest = LoadManifest(ZeroInstallInstance.DeploymentRoot);
         var oldManifest = LoadManifest(TargetDir);
 
         try
         {
             MutexAcquire();
 
-            if (!Paths.AreEqual(TargetDir, Locations.InstallBase))
+            if (!Paths.AreEqual(TargetDir, ZeroInstallInstance.DeploymentRoot))
             {
                 if (MachineWide)
                     ServiceStop();
 
                 using var clearDir = new ClearDirectory(TargetDir, oldManifest, Handler);
-                using var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler);
+                using var deployDir = new DeployDirectory(ZeroInstallInstance.DeploymentRoot, newManifest, TargetDir, Handler);
                 deployDir.Stage();
                 clearDir.Stage();
-                if (Portable) ZeroInstallDeployment.SetPortable(TargetDir, true);
+                // Pass the layout explicitly, since staged files (e.g., Info.plist) are not at their final paths yet
+                if (Portable) ZeroInstallDeployment.SetPortable(TargetDir, true, appBundle: ZeroInstallInstance.IsAppBundle);
                 deployDir.Commit();
                 clearDir.Commit();
             }
@@ -151,7 +159,7 @@ public partial class SelfManager : ManagerBase
                 DeleteServiceLogFiles();
                 if (Portable) ZeroInstallDeployment.SetPortable(TargetDir, false, appBundle: targetIsAppBundle);
 #if NET
-                if (UnixUtils.IsUnix && Paths.AreEqual(TargetDir, Locations.InstallBase))
+                if (UnixUtils.IsUnix && Paths.AreEqual(TargetDir, ZeroInstallInstance.DeploymentRoot))
                 {
                     if (!Portable) ZeroInstallDeployment.Unregister(MachineWide); // Must unregister in advance, because ExecCommit does not return
                     ExecCommit(clearDir);

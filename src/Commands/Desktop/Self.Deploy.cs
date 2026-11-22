@@ -89,7 +89,7 @@ partial class Self
                     : Paths.Combine(WindowsUtils.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Programs");
                 return Paths.Combine(programFiles, "Zero Install");
             }
-            else if (UnixUtils.IsMacOSX)
+            else if (UnixUtils.IsMacOSX && ZeroInstallInstance.IsAppBundle)
             {
                 string applications = _machineWide ? "/Applications" : Paths.Combine(Locations.HomeDir, "Applications");
                 return Paths.Combine(applications, "Zero Install.app");
@@ -134,7 +134,7 @@ partial class Self
         private void PerformDeploy(string targetDir)
         {
             using var manager = new SelfManager(targetDir, Handler, _machineWide, _portable);
-            Log.Info($"Deploying Zero Install from '{Locations.InstallBase}' to '{targetDir}'");
+            Log.Info($"Deploying Zero Install from '{ZeroInstallInstance.DeploymentRoot}' to '{targetDir}'");
             manager.Deploy(_library);
         }
 

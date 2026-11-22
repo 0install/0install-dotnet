@@ -43,28 +43,56 @@ public static class ZeroInstallInstance
         }
     }
 
+    private sealed class DeploymentRootCache(string installBase, string root)
+    {
+        public string InstallBase { get; } = installBase;
+        public string Root { get; } = root;
+    }
+
+    /// <summary>Immutable, so that reading and replacing the reference is atomic.</summary>
+    private static volatile DeploymentRootCache? _deploymentRoot;
+
     /// <summary>
-    /// Indicates whether the current Zero Install instance is deployed to a fixed location.
+    /// The root directory of the current Zero Install deployment.
     /// </summary>
-    public static bool IsDeployed
+    /// <remarks>
+    /// Use this to get the directory containing the Zero Install deployment as a whole (e.g., in the form of an app bundle).
+    /// Use <see cref="Locations.InstallBase"/> instead to get the directory containing Zero Install's binaries.
+    /// </remarks>
+    public static string DeploymentRoot
     {
         get
         {
-            if (Locations.IsPortable) return false;
-
-            if (WindowsUtils.IsWindows)
-            {
-                return Paths.AreEqual(ZeroInstallDeployment.GetPath(machineWide: false), Locations.InstallBase)
-                    || Paths.AreEqual(ZeroInstallDeployment.GetPath(machineWide: true), Locations.InstallBase);
-            }
-            else if (UnixUtils.IsUnix)
-            {
-                return !Locations.InstallBase.Contains("/tmp")
-                    && !Locations.InstallBase.Contains("/.cache");
-            }
-            else return true;
+            // Recompute if Locations.InstallBase was overridden
+            string installBase = Locations.InstallBase;
+            var cached = _deploymentRoot;
+            if (cached == null || cached.InstallBase != installBase)
+                _deploymentRoot = cached = new(installBase, GetDeploymentRoot(installBase));
+            return cached.Root;
         }
     }
+
+    private static string GetDeploymentRoot(string installBase)
+        => UnixUtils.IsMacOSX
+        && new DirectoryInfo(installBase) is { Name: "MacOS", Parent: { Name: "Contents", Parent: {} root } }
+        && ZeroInstallDeployment.IsAppBundle(root.FullName)
+            ? root.FullName
+            : installBase;
+
+    /// <summary>
+    /// Indicates whether the current Zero Install deployment is a macOS app bundle.
+    /// </summary>
+    internal static bool IsAppBundle => ZeroInstallDeployment.UsesAppBundleLayout(DeploymentRoot);
+
+    /// <summary>
+    /// Indicates whether the current Zero Install instance is deployed to a registered location.
+    /// On Unixoid systems, an instance whose binary directory is in the <c>PATH</c> also counts as deployed.
+    /// </summary>
+    public static bool IsDeployed
+        => !Locations.IsPortable
+        && (Paths.AreEqual(ZeroInstallDeployment.GetPath(machineWide: false), DeploymentRoot)
+         || Paths.AreEqual(ZeroInstallDeployment.GetPath(machineWide: true), DeploymentRoot)
+         || UnixUtils.IsUnix && Locations.IsInSearchPath(Locations.InstallBase));
 
     /// <summary>
     /// Indicates whether Zero Install is running from a machine-wide location.
@@ -75,7 +103,7 @@ public static class ZeroInstallInstance
         {
             if (Locations.IsPortable) return false;
             if (ZeroInstallDeployment.GetPath(machineWide: true) is {} path)
-                return Paths.AreEqual(path, Locations.InstallBase);
+                return Paths.AreEqual(path, DeploymentRoot);
             return !Locations.InstallBase.StartsWith(Locations.HomeDir);
         }
     }
@@ -142,7 +170,7 @@ public static class ZeroInstallInstance
     {
         static string? Get(bool machineWide)
             => ZeroInstallDeployment.GetPath(machineWide) is {} path
-            && !Paths.AreEqual(path, Locations.InstallBase)
+            && !Paths.AreEqual(path, DeploymentRoot)
                 ? path
                 : null;
 
