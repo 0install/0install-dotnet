@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Store Service | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Store Service | Zero Install .NET API ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="docs/toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/0install/0install-dotnet/blob/2.30.0/doc/store-service.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="store-service">
+<h1 id="store-service">Store Service</h1>
+
+<p>On Windows, the Store Service lets unprivileged users add implementations to a machine-wide <a href="https://docs.0install.net/details/cache/">implementation cache</a> (e.g., <code>%ProgramData%\0install.net\implementations</code>), which only the system and administrators can write to.</p>
+<p>The service is hosted by a Windows service running as <code>LocalSystem</code> and implemented by <a class="xref" href="api/ZeroInstall.Store.Implementations.StoreServiceServer.html">StoreServiceServer</a>.<br>
+Clients talk to it using <a class="xref" href="api/ZeroInstall.Store.Implementations.ServiceImplementationSink.html">ServiceImplementationSink</a>, which <a class="xref" href="api/ZeroInstall.Store.Implementations.ImplementationStores.html#ZeroInstall_Store_Implementations_ImplementationStores_Default_">Default</a> adds automatically on Windows when not running in portable mode.</p>
+<p>This page specifies the wire protocol between the two.</p>
+<h2 id="design">Design</h2>
+<ul>
+<li><strong>Clients are untrusted.</strong> Any authenticated local user can connect. The service treats everything a client sends as hostile input.</li>
+<li><strong>The service calculates the digest itself.</strong> The client does not upload an archive or a manifest. It replays the individual <a class="xref" href="api/ZeroInstall.Store.FileSystem.IBuilder.html">IBuilder</a> operations that construct the implementation. The service applies them to a temporary directory inside the target cache, calculates the manifest digest and only moves the directory into place if it matches the digest the client announced.</li>
+<li><strong>One connection adds one implementation.</strong> There is no session state beyond a single connection.</li>
+<li><strong>Streaming with asynchronous errors.</strong> The client sends all operations without waiting for per-operation acknowledgements. The service may report an error at any point and then close the connection.</li>
+<li><strong>Only SHA-256 based digests are accepted.</strong> SHA-1 based digests are too weak to use as the only identity of content shared between users.</li>
+</ul>
+<h2 id="transport">Transport</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transport</td>
+<td>Local Windows named pipe, byte mode</td>
+</tr>
+<tr>
+<td>Pipe name</td>
+<td><code>\\.\pipe\ZeroInstall.Store.Service.v2</code></td>
+</tr>
+<tr>
+<td>Pipe buffers</td>
+<td>64 KiB in each direction</td>
+</tr>
+<tr>
+<td>Max instances</td>
+<td><code>MaxConcurrentSessions + 3</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="pipe-security">Pipe security</h3>
+<p>The service creates every pipe instance with this DACL:</p>
+<table>
+<thead>
+<tr>
+<th>Principal</th>
+<th>Access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NETWORK</code></td>
+<td>Deny full control</td>
+</tr>
+<tr>
+<td><code>SYSTEM</code></td>
+<td>Allow full control</td>
+</tr>
+<tr>
+<td><code>Administrators</code></td>
+<td>Allow full control</td>
+</tr>
+<tr>
+<td>Service account</td>
+<td>Allow full control</td>
+</tr>
+<tr>
+<td>Authenticated Users</td>
+<td>Allow read/write</td>
+</tr>
+</tbody>
+</table>
+<p>Authenticated Users are <strong>not</strong> granted <code>CreateNewInstance</code>, so they cannot add instances to the pipe and impersonate the service. Low-integrity processes are blocked by the default mandatory integrity label.</p>
+<p><strong>Server-side squatting check:</strong> After creating each instance, the service checks that the pipe's owner is its own account (or <code>Administrators</code> when running elevated). If someone else created the pipe first, the service joins their pipe object and inherits their ACL. In that case the owner check fails and the service refuses to start.</p>
+<p><strong>Client-side squatting check:</strong> Clients connect with <code>TokenImpersonationLevel.Identification</code>, so a rogue server cannot impersonate them. After connecting, a client checks that the pipe is owned by <code>SYSTEM</code> or <code>Administrators</code> and aborts otherwise.</p>
+<p>Before connecting, clients call <code>WaitNamedPipe</code> with a 1 ms timeout. If the pipe does not exist (<code>ERROR_FILE_NOT_FOUND</code>), they fail immediately and do not wait for the connect timeout.</p>
+<h3 id="store-directory-security">Store directory security</h3>
+<p>On startup the service checks each configured cache directory. It refuses to use a directory whose owner is not <code>SYSTEM</code>, <code>Administrators</code>, <code>TrustedInstaller</code> or the service account, or whose DACL grants any other principal write, delete, change-permissions or take-ownership rights. <code>CREATOR OWNER</code> entries and inherit-only entries are ignored. The service fails to start if no directory is usable.</p>
+<h2 id="encoding">Encoding</h2>
+<p>All integers are <strong>little-endian</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Encoding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>u8</code></td>
+<td>1 byte, unsigned</td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td><code>u8</code>, <code>0</code> = false, <code>1</code> = true. Any other value is a protocol error.</td>
+</tr>
+<tr>
+<td><code>u16</code></td>
+<td>2 bytes, unsigned</td>
+</tr>
+<tr>
+<td><code>u32</code></td>
+<td>4 bytes, unsigned</td>
+</tr>
+<tr>
+<td><code>i64</code></td>
+<td>8 bytes, two's complement</td>
+</tr>
+<tr>
+<td><code>string</code></td>
+<td><code>u16</code> byte length followed by that many bytes of UTF-8 without BOM. Invalid UTF-8 and <code>U+0000</code> are protocol errors. Each field has its own maximum length (see <a href="#limits">Limits</a>).</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td><code>string</code> holding a relative path with <code>/</code> as the separator. See <a href="#path-rules">Path rules</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="message-flow">Message flow</h2>
+<pre><code class="lang-text">Client                                         Server
+  |                                              |
+  |  (connect)                                   |
+  |                                              |  waits for a free session slot
+  |  Hello -----------------------------------&gt;  |
+  |                                              |  validates digests, checks whether already in store
+  |  &lt;--------------------------------- Response |  Ok | AlreadyInStore | error
+  |                                              |
+  |  Operation*  -----------------------------&gt;  |  applied to temp directory as received
+  |  Commit  ---------------------------------&gt;  |
+  |                                              |  verifies digest, moves into place
+  |  &lt;--------------------------------- Response |  Ok | DigestMismatch | error
+  |                                              |
+  |  (close)                                     |  (close)
+</code></pre>
+<ul>
+<li>If the first response is anything other than <code>Ok</code>, the server closes the connection.</li>
+<li>While the client is sending operations, the server may send one error response at any time and then close the connection. So clients must read from the pipe concurrently while writing. Otherwise a large write can block forever on a server that stopped reading.</li>
+<li>There is exactly one response after <code>Hello</code> and at most one more response. The server never sends <code>Ok</code> except as these two responses.</li>
+<li>The server waits for the client to read the final response (<code>WaitForPipeDrain</code>) before closing.</li>
+</ul>
+<h3 id="hello">Hello</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>magic</td>
+<td>4 bytes</td>
+<td>ASCII <code>0IS2</code> (<code>30 49 53 32</code>)</td>
+</tr>
+<tr>
+<td>version</td>
+<td><code>u16</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>digestCount</td>
+<td><code>u8</code></td>
+<td><code>1</code> to <code>4</code></td>
+</tr>
+<tr>
+<td>digests</td>
+<td><code>digestCount * string</code></td>
+<td>Each at most 128 bytes</td>
+</tr>
+</tbody>
+</table>
+<p>Each digest must match one of these patterns exactly:</p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sha256new</code></td>
+<td><code>sha256new_[A-Z2-7]{52}</code></td>
+</tr>
+<tr>
+<td><code>sha256</code></td>
+<td><code>sha256=[0-9a-f]{64}</code></td>
+</tr>
+<tr>
+<td><code>sha1new</code></td>
+<td><code>sha1new=[0-9a-f]{40}</code></td>
+</tr>
+<tr>
+<td><code>sha1</code></td>
+<td><code>sha1=[0-9a-f]{40}</code></td>
+</tr>
+</tbody>
+</table>
+<p>Any other digest string causes an <code>InvalidRequest</code> error. SHA-1 digests are accepted but ignored. The server uses the first <code>sha256new</code> digest, or else the first <code>sha256</code> digest. If there is neither, it responds with <code>NotSupported</code>.</p>
+<p>If the implementation is already in any of the service's caches under the selected digest, the server responds with <code>AlreadyInStore</code>.</p>
+<p>A wrong magic value is an <code>InvalidRequest</code>. An unknown version is <code>NotSupported</code>.</p>
+<h3 id="operations">Operations</h3>
+<p>Each operation starts with a <code>u8</code> opcode. The operations correspond 1:1 to <a class="xref" href="api/ZeroInstall.Store.FileSystem.IBuilder.html">IBuilder</a> methods and have the same semantics.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Opcode</th>
+<th>Name</th>
+<th>Payload</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><code>0x01</code></td>
+<td><code>AddDirectory</code></td>
+<td><code>path path</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>0x02</code></td>
+<td><code>AddFile</code></td>
+<td><code>path path</code>, <code>i64 modifiedTime</code>, <code>bool executable</code>, <code>i64 length</code>, content (see below)</td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>0x03</code></td>
+<td><code>AddSymlink</code></td>
+<td><code>path path</code>, <code>string target</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>0x04</code></td>
+<td><code>AddHardlink</code></td>
+<td><code>path path</code>, <code>path target</code>, <code>bool executable</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>0x05</code></td>
+<td><code>Rename</code></td>
+<td><code>path path</code>, <code>path target</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>0x06</code></td>
+<td><code>Remove</code></td>
+<td><code>path path</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>0x07</code></td>
+<td><code>MarkAsExecutable</code></td>
+<td><code>path path</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>0x08</code></td>
+<td><code>TurnIntoSymlink</code></td>
+<td><code>path path</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>0xFF</code></td>
+<td><code>Commit</code></td>
+<td>None. Ends the operation stream.</td>
+</tr>
+</tbody>
+</table>
+<p>Any other opcode is an <code>InvalidRequest</code>.</p>
+<p><code>IBuilder.TryAddExternalHardlink</code> has no wire representation. The client-side builder always returns <code>false</code>, so callers fall back to <code>AddFile</code>.</p>
+<h4 id="file-content">File content</h4>
+<p><code>modifiedTime</code> is in seconds since the Unix epoch and must be between <code>-11644473600</code> (1601-01-01) and <code>253402300799</code> (9999-12-31).</p>
+<p><code>length</code> is the total content size in bytes, or <code>-1</code> if the client does not know it in advance. Values below <code>-1</code> are an <code>InvalidRequest</code>.</p>
+<p>The content follows as a sequence of chunks:</p>
+<pre><code class="lang-text">(u32 chunkLength, chunkLength bytes)*, u32 0
+</code></pre>
+<ul>
+<li><code>chunkLength</code> must not exceed 1 MiB. The reference client sends 64 KiB chunks.</li>
+<li>A chunk with length <code>0</code> ends the file.</li>
+<li>If <code>length</code> is not <code>-1</code>, the sum of all chunk lengths must equal <code>length</code> exactly.</li>
+</ul>
+<h4 id="symlink-targets">Symlink targets</h4>
+<p>A symlink <code>target</code> must be non-empty, at most 4096 bytes and contain no characters below <code>U+0020</code>. It may be relative or absolute.</p>
+<h2 id="responses">Responses</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>result</td>
+<td><code>u8</code></td>
+<td>See table below</td>
+</tr>
+<tr>
+<td>message</td>
+<td><code>string</code></td>
+<td>At most 4096 bytes. Human-readable. May be empty.</td>
+</tr>
+</tbody>
+</table>
+<p>If <code>result</code> is <code>DigestMismatch</code>, the response continues with:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>expectedDigest</td>
+<td><code>string</code></td>
+<td>At most 128 bytes. The digest the client announced.</td>
+</tr>
+<tr>
+<td>actualDigest</td>
+<td><code>string</code></td>
+<td>At most 128 bytes. The digest the service calculated.</td>
+</tr>
+<tr>
+<td>manifestLength</td>
+<td><code>u32</code></td>
+<td>At most 4 MiB. <code>0</code> if the manifest was too large to send.</td>
+</tr>
+<tr>
+<td>manifest</td>
+<td>bytes</td>
+<td>The calculated manifest in UTF-8, in the format of <code>actualDigest</code>.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Code</th>
+<th>Result</th>
+<th>Meaning</th>
+<th>Client maps to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><code>0</code></td>
+<td><code>Ok</code></td>
+<td>Success</td>
+<td>none</td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>1</code></td>
+<td><code>AlreadyInStore</code></td>
+<td>The implementation is already in the cache</td>
+<td><code>ImplementationAlreadyInStoreException</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>2</code></td>
+<td><code>DigestMismatch</code></td>
+<td>The built implementation does not match the announced digest</td>
+<td><code>DigestMismatchException</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>3</code></td>
+<td><code>InvalidRequest</code></td>
+<td>Malformed or disallowed data</td>
+<td><code>IOException</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>4</code></td>
+<td><code>IOError</code></td>
+<td>An IO operation failed on the server, or an internal error occurred</td>
+<td><code>IOException</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>5</code></td>
+<td><code>AccessDenied</code></td>
+<td>Access to a resource was denied on the server</td>
+<td><code>UnauthorizedAccessException</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>6</code></td>
+<td><code>NotSupported</code></td>
+<td>Unsupported protocol version or digest algorithm</td>
+<td><code>IOException</code></td>
+</tr>
+<tr>
+<td style="text-align: right;"><code>7</code></td>
+<td><code>LimitExceeded</code></td>
+<td>A size or count limit was exceeded</td>
+<td><code>IOException</code></td>
+</tr>
+</tbody>
+</table>
+<p>Clients treat an unknown result code as a protocol error.</p>
+<h2 id="path-rules">Path rules</h2>
+<p>Paths are relative to the implementation root. The server rejects a path with <code>InvalidRequest</code> if any of these hold:</p>
+<ul>
+<li>It is empty or longer than 1024 UTF-16 code units.</li>
+<li>It has more than 64 components.</li>
+<li>Any component is empty (leading, trailing or doubled <code>/</code>), <code>.</code> or <code>..</code>.</li>
+<li>Any component is longer than 255 UTF-16 code units.</li>
+<li>Any component ends with <code>.</code> or a space, which Windows silently strips.</li>
+<li>Any component contains a control character (<code>U+0000</code> to <code>U+001F</code>, <code>U+007F</code>) or any of <code>&lt; &gt; : &quot; | ? * \</code>.</li>
+<li>Any component's base name (the part before the first <code>.</code>, with trailing spaces removed) is a reserved DOS device name, case-insensitive: <code>CON</code>, <code>PRN</code>, <code>AUX</code>, <code>NUL</code>, <code>CONIN$</code>, <code>CONOUT$</code>, <code>CLOCK$</code>, <code>COM0</code>–<code>COM9</code>, <code>COM¹</code>–<code>COM³</code>, <code>LPT0</code>–<code>LPT9</code>, <code>LPT¹</code>–<code>LPT³</code>.</li>
+</ul>
+<p>The <a class="xref" href="api/ZeroInstall.Store.FileSystem.DirectoryBuilder.html">DirectoryBuilder</a> the operations are applied to adds further checks:</p>
+<ul>
+<li>An existing parent directory must not be a link.</li>
+<li>Hardlink targets must be existing regular files inside the implementation.</li>
+<li>Names reserved by the manifest format (<code>.manifest</code>, <code>.xbit</code>, <code>.symlink</code>) are rejected.</li>
+<li>On Windows, path normalization must not change the path. This rejects 8.3 short names of existing entries (e.g., <code>LONGFI~1.EXE</code>).</li>
+<li>On Windows and on any other file system that resolves names case-insensitively or normalization-insensitively, every existing entry along the path must have exactly the requested name. This rejects names that differ only in upper/lower case or Unicode normalization form (NFC vs. NFD) from an existing entry. The builder detects this by probing the target directory once, since settings like Linux casefolding can differ between directories on the same volume.</li>
+</ul>
+<h2 id="limits">Limits</h2>
+<p>The server enforces these limits for each connection. Exceeding one results in <code>LimitExceeded</code>, or <code>InvalidRequest</code> for malformed lengths.</p>
+<table>
+<thead>
+<tr>
+<th>Limit</th>
+<th>Default</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MaxTotalBytes</code></td>
+<td>16 GiB</td>
+<td>Sum of all file content. A declared <code>length</code> that would exceed it is rejected up front.</td>
+</tr>
+<tr>
+<td><code>MaxPreallocatedBytes</code></td>
+<td>64 MiB</td>
+<td>Largest declared file <code>length</code> used to preallocate disk space. Larger files are written without preallocation, so a client cannot reserve disk space without sending data.</td>
+</tr>
+<tr>
+<td><code>MaxEntries</code></td>
+<td>1,000,000</td>
+<td>Number of operations, excluding <code>Commit</code></td>
+</tr>
+<tr>
+<td><code>MaxTotalPathLength</code></td>
+<td>32 Mi</td>
+<td>Sum of the lengths of all paths and symlink targets, in UTF-16 code units. Bounds the memory the service needs for the manifest.</td>
+</tr>
+<tr>
+<td><code>IdleTimeout</code></td>
+<td>5 min</td>
+<td>Time without receiving data. Suspended while the server verifies and commits.</td>
+</tr>
+<tr>
+<td><code>MaxSessionDuration</code></td>
+<td>1 h</td>
+<td>Wall-clock time from the start of handling the session, including verification</td>
+</tr>
+<tr>
+<td><code>MaxConcurrentSessions</code></td>
+<td>8</td>
+<td>Up to two additional clients can connect and wait for a slot, without an idle timeout. Further clients get <code>ERROR_PIPE_BUSY</code> until a pipe instance becomes available.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Protocol constant</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max digests in <code>Hello</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td>Max digest length</td>
+<td>128 bytes</td>
+</tr>
+<tr>
+<td>Max path length</td>
+<td>1024 UTF-16 code units (4096 bytes on the wire)</td>
+</tr>
+<tr>
+<td>Max path component length</td>
+<td>255 UTF-16 code units</td>
+</tr>
+<tr>
+<td>Max path depth</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Max symlink target length</td>
+<td>4096 bytes</td>
+</tr>
+<tr>
+<td>Max message length</td>
+<td>4096 bytes (the server truncates longer messages)</td>
+</tr>
+<tr>
+<td>Max manifest length</td>
+<td>4 MiB (the server sends an empty manifest if longer)</td>
+</tr>
+<tr>
+<td>Max chunk size</td>
+<td>1 MiB</td>
+</tr>
+</tbody>
+</table>
+<p>When the idle timeout or the session duration is exceeded, the server closes the connection without sending a response.</p>
+<h2 id="client-behavior">Client behavior</h2>
+<p>The reference client (<code>ServiceImplementationSink</code>):</p>
+<ol>
+<li>Fails immediately with <code>IOException</code> if the pipe does not exist, if not running on Windows, or if the digest has no SHA-256 based value.</li>
+<li>Connects with a 10-second timeout and verifies the pipe owner.</li>
+<li>Sends <code>Hello</code> and waits up to 10 seconds for the first response. This covers the time the server spends waiting for a free session slot. If the service stays busy for longer, the client gives up.</li>
+<li>Replays the <code>IBuilder</code> calls made by the caller's build callback. It encodes all strings of an operation before writing any of it, and fails with an <code>IOException</code> naming the problem if a path or symlink target is too long or not valid Unicode. Before each write, it checks whether the server has already sent an error response. If a write fails, it waits up to 5 seconds for an error response and reports that error instead of a generic connection error.</li>
+<li>Sends <code>Commit</code> and waits for the final response without a timeout. The server bounds this wait with its session duration limit.</li>
+</ol>
+<p><a class="xref" href="api/ZeroInstall.Store.Implementations.CompositeImplementationSink.html">CompositeImplementationSink</a> tries the Store Service first. If the service throws an <code>IOException</code> or <code>UnauthorizedAccessException</code>, it falls back to the user's own cache and invokes the build callback again.</p>
+<h2 id="versioning">Versioning</h2>
+<p>The protocol is versioned in three places: the pipe name suffix (<code>.v2</code>), the magic (<code>0IS2</code>) and the <code>version</code> field (<code>1</code>).</p>
+<p>A server responds to an unknown <code>version</code> with <code>NotSupported</code>. Clients treat that like any other service failure and fall back to the user cache. There is no negotiation.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.30.0/doc/store-service.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

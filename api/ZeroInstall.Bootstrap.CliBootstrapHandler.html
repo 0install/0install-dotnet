@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CliBootstrapHandler | Zero Install .NET API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CliBootstrapHandler | Zero Install .NET API ">
+      
+      <meta name="description" content="Informs the user about the progress of tasks and ask questions during the bootstrap process using console output.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ZeroInstall.Bootstrap.CliBootstrapHandler">
+
+
+
+  <h1 id="ZeroInstall_Bootstrap_CliBootstrapHandler" data-uid="ZeroInstall.Bootstrap.CliBootstrapHandler" class="text-break">
+Class CliBootstrapHandler  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.30.0/src/Bootstrap/CliBootstrapHandler.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ZeroInstall.html">ZeroInstall</a>.<a class="xref" href="ZeroInstall.Bootstrap.html">Bootstrap</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ZeroInstall.Bootstrap.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Informs the user about the progress of tasks and ask questions during the bootstrap process using console output.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CliBootstrapHandler : CliTaskHandler, IBootstrapHandler, ITaskHandler, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.TaskHandlerBase.html">TaskHandlerBase</a></div>
+      <div><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.CliTaskHandler.html">CliTaskHandler</a></div>
+      <div><span class="xref">CliBootstrapHandler</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="ZeroInstall.Bootstrap.IBootstrapHandler.html">IBootstrapHandler</a></div>
+      <div><a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.ITaskHandler.html">ITaskHandler</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.CliTaskHandler.html#NanoByte_Common_Tasks_CliTaskHandler_Dispose">CliTaskHandler.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">CliTaskHandler.DisplayLogEntry(LogSeverity, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.CliTaskHandler.html#NanoByte_Common_Tasks_CliTaskHandler_GetLogColor_NanoByte_Common_LogSeverity_">CliTaskHandler.GetLogColor(LogSeverity)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.CliTaskHandler.html#NanoByte_Common_Tasks_CliTaskHandler_RunTask_NanoByte_Common_Tasks_ITask_">CliTaskHandler.RunTask(ITask)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">CliTaskHandler.AskInteractive(string, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">CliTaskHandler.Output(string, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">CliTaskHandler.Error(Exception)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.CliTaskHandler.html#NanoByte_Common_Tasks_CliTaskHandler_CredentialProvider">CliTaskHandler.CredentialProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.CliTaskHandler.html#NanoByte_Common_Tasks_CliTaskHandler_IsInteractive">CliTaskHandler.IsInteractive</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">TaskHandlerBase.LogHandler(LogSeverity, string, Exception)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">TaskHandlerBase.Ask(string, bool?, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">TaskHandlerBase.Output&lt;T&gt;(string, IEnumerable&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">TaskHandlerBase.Output&lt;T&gt;(string, NamedCollection&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.TaskHandlerBase.html#NanoByte_Common_Tasks_TaskHandlerBase_CancellationTokenSource">TaskHandlerBase.CancellationTokenSource</a>
+    </div>
+    <div>
+      <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.TaskHandlerBase.html#NanoByte_Common_Tasks_TaskHandlerBase_CancellationToken">TaskHandlerBase.CancellationToken</a>
+    </div>
+    <div>
+      <a class="xref" href="https://common.nano-byte.net/api/NanoByte.Common.Tasks.TaskHandlerBase.html#NanoByte_Common_Tasks_TaskHandlerBase_Verbosity">TaskHandlerBase.Verbosity</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="ZeroInstall_Bootstrap_CliBootstrapHandler_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This class is thread-safe.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ZeroInstall_Bootstrap_CliBootstrapHandler__ctor_" data-uid="ZeroInstall.Bootstrap.CliBootstrapHandler.#ctor*"></a>
+
+  <h3 id="ZeroInstall_Bootstrap_CliBootstrapHandler__ctor" data-uid="ZeroInstall.Bootstrap.CliBootstrapHandler.#ctor">
+  CliBootstrapHandler()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.30.0/src/Bootstrap/CliBootstrapHandler.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CliBootstrapHandler()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ZeroInstall_Bootstrap_CliBootstrapHandler_Background_" data-uid="ZeroInstall.Bootstrap.CliBootstrapHandler.Background*"></a>
+
+  <h3 id="ZeroInstall_Bootstrap_CliBootstrapHandler_Background" data-uid="ZeroInstall.Bootstrap.CliBootstrapHandler.Background">
+  Background
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.30.0/src/Bootstrap/CliBootstrapHandler.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hides the GUI. Has no effect when <a class="xref" href="ZeroInstall.Bootstrap.IBootstrapHandler.html#ZeroInstall_Bootstrap_IBootstrapHandler_IsGui">IsGui</a> is <code>false</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Background { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="ZeroInstall_Bootstrap_CliBootstrapHandler_IsGui_" data-uid="ZeroInstall.Bootstrap.CliBootstrapHandler.IsGui*"></a>
+
+  <h3 id="ZeroInstall_Bootstrap_CliBootstrapHandler_IsGui" data-uid="ZeroInstall.Bootstrap.CliBootstrapHandler.IsGui">
+  IsGui
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.30.0/src/Bootstrap/CliBootstrapHandler.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether this handler is a GUI.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsGui { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ZeroInstall_Bootstrap_CliBootstrapHandler_GetCustomStorePath_" data-uid="ZeroInstall.Bootstrap.CliBootstrapHandler.GetCustomStorePath*"></a>
+
+  <h3 id="ZeroInstall_Bootstrap_CliBootstrapHandler_GetCustomStorePath_System_Boolean_System_String_" data-uid="ZeroInstall.Bootstrap.CliBootstrapHandler.GetCustomStorePath(System.Boolean,System.String)">
+  GetCustomStorePath(bool, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/0install/0install-dotnet/blob/2.30.0/src/Bootstrap/CliBootstrapHandler.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Asks the user to provide a custom path for storing implementations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? GetCustomStorePath(bool machineWide, string? currentPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>machineWide</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Ask for a path for machine-wide deployment instead of just for the current user.</p>
+</dd>
+    <dt><code>currentPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The currently set custom path for storing implementations; <code>null</code> if using default location.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path to a directory; <code>null</code> or empty to use the default location.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>The user cancelled the operation.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/0install/0install-dotnet/blob/2.30.0/src/Bootstrap/CliBootstrapHandler.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright Bastian Eicher et al
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
