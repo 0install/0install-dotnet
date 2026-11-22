@@ -59,7 +59,7 @@ public class Exporter
         foreach (var feedUri in feedUris)
         {
             string filePath = Paths.Combine(_contentDir, feedUri.Escape());
-            if (!filePath.EndsWith(".xml")) filePath += ".xml";
+            if (!filePath.EndsWithIgnoreCase(".xml")) filePath += ".xml";
 
             if (feedCache.GetPath(feedUri) is {} path)
             {

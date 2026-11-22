@@ -13,7 +13,7 @@ public sealed class PhpScript : InterpretedScript
     {
         if (!base.Analyze(baseDirectory, file)) return false;
         return
-            file.Extension.StartsWith(@".php", StringComparison.OrdinalIgnoreCase) ||
+            file.Extension.StartsWithIgnoreCase(".php") ||
             HasShebang(file, "php");
     }
 
