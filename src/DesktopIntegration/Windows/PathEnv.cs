@@ -23,8 +23,8 @@ public static class PathEnv
         if (string.IsNullOrEmpty(directory)) throw new ArgumentNullException(nameof(directory));
         #endregion
 
-        var currentPath = Get(machineWide);
-        if (!currentPath.Contains(directory)) Set([..currentPath, directory], machineWide);
+        if (!Locations.IsInSearchPath(directory, GetTarget(machineWide)))
+            Set([..Get(machineWide), directory], machineWide);
     }
 
     /// <summary>
@@ -38,8 +38,7 @@ public static class PathEnv
         if (string.IsNullOrEmpty(directory)) throw new ArgumentNullException(nameof(directory));
         #endregion
 
-        var currentPath = Get(machineWide);
-        Set(currentPath.Except(directory), machineWide);
+        Set(Get(machineWide).Where(x => !FileUtils.PathEquals(x, directory)), machineWide);
     }
 
     /// <summary>
@@ -48,12 +47,7 @@ public static class PathEnv
     /// <param name="machineWide"><c>true</c> to use the machine-wide PATH variable; <c>false</c> for the per-user variant.</param>
     /// <returns>The individual directories listed in the search path.</returns>
     public static string[] Get(bool machineWide)
-    {
-        string? value = Environment.GetEnvironmentVariable(
-            variable: "Path",
-            target: machineWide ? EnvironmentVariableTarget.Machine : EnvironmentVariableTarget.User);
-        return string.IsNullOrEmpty(value) ? [] : value.Split(Path.PathSeparator);
-    }
+        => Locations.GetSearchPath(GetTarget(machineWide));
 
     /// <summary>
     /// Sets the current search PATH.
@@ -69,7 +63,10 @@ public static class PathEnv
         Environment.SetEnvironmentVariable(
             variable: "Path",
             value: string.Join(Path.PathSeparator.ToString(), directories),
-            target: machineWide ? EnvironmentVariableTarget.Machine : EnvironmentVariableTarget.User);
+            target: GetTarget(machineWide));
         WindowsUtils.NotifyEnvironmentChanged();
     }
+
+    private static EnvironmentVariableTarget GetTarget(bool machineWide)
+        => machineWide ? EnvironmentVariableTarget.Machine : EnvironmentVariableTarget.User;
 }

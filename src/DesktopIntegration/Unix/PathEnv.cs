@@ -16,7 +16,7 @@ internal static class PathEnv
     /// <param name="dirPath">The absolute path of the directory to add.</param>
     public static void AddDir(string dirPath)
     {
-        if (ContainsDir(dirPath)) return;
+        if (Locations.IsInSearchPath(dirPath)) return;
 
         string profileDirPath = ToProfileSyntax(dirPath);
         foreach (string profilePath in GetProfilePaths())
@@ -30,21 +30,13 @@ internal static class PathEnv
     }
 
     /// <summary>
-    /// Checks whether the current PATH environment variable contains <paramref name="dirPath"/>.
-    /// </summary>
-    private static bool ContainsDir(string dirPath)
-        => (Environment.GetEnvironmentVariable("PATH") ?? "")
-          .Split(Path.PathSeparator)
-          .Any(x => x.TrimEnd('/') == dirPath.TrimEnd('/'));
-
-    /// <summary>
     /// Expresses paths in the user's home directory relative to <c>$HOME</c>.
     /// </summary>
     private static string ToProfileSyntax(string dirPath)
     {
         string homeDir = Locations.HomeDir.TrimEnd('/') + "/";
-        return dirPath.StartsWith(homeDir, StringComparison.Ordinal)
-            ? "$HOME/" + dirPath.Substring(homeDir.Length)
+        return dirPath.StartsWithOrdinal(homeDir)
+            ? "$HOME/" + dirPath[homeDir.Length..]
             : dirPath;
     }
 
@@ -53,7 +45,7 @@ internal static class PathEnv
     /// </summary>
     private static IEnumerable<string> GetProfilePaths()
     {
-        bool shellIsZsh = (Environment.GetEnvironmentVariable("SHELL") ?? "").EndsWith("/zsh");
+        bool shellIsZsh = (Environment.GetEnvironmentVariable("SHELL") ?? "").EndsWithOrdinal("/zsh");
 
         // Bash only reads ~/.profile if neither of these exist
         string? bashProfile = new[] {".bash_profile", ".bash_login"}.Select(Home).FirstOrDefault(File.Exists);
