@@ -38,7 +38,7 @@ internal static class StoreServicePaths
     {
         if (component.Length is 0 or > StoreServiceProtocol.MaxPathComponentLength) return false;
         if (component is "." or "..") return false;
-        if (component.EndsWith(".") || component.EndsWith(" ")) return false; // Windows silently strips these, causing aliasing
+        if (component.EndsWithOrdinal(".") || component.EndsWithOrdinal(" ")) return false; // Windows silently strips these, causing aliasing
         if (component.Any(c => c < 0x20 || c == 0x7F)) return false;
         if (component.IndexOfAny(_invalidChars) >= 0) return false;
         return !Paths.IsReservedDeviceName(component);

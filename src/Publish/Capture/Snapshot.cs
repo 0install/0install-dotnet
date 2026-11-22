@@ -133,7 +133,7 @@ public class Snapshot
 
         foreach (string keyName in Registry.ClassesRoot.GetSubKeyNames())
         {
-            if (keyName.StartsWith("."))
+            if (keyName.StartsWithOrdinal("."))
             {
                 using var assocKey = Registry.ClassesRoot.TryOpenSubKey(keyName);
                 if (assocKey == null) continue;

@@ -167,7 +167,7 @@ public static class FileType
             else
             {
                 progIDKey.DeleteValue(accessPoint ? RegistryClasses.PurposeFlagAccessPoint : RegistryClasses.PurposeFlagCapability, throwOnMissingValue: false);
-                otherFlags = progIDKey.GetValueNames().Any(name => name.StartsWith(RegistryClasses.PurposeFlagPrefix));
+                otherFlags = progIDKey.GetValueNames().Any(name => name.StartsWithOrdinal(RegistryClasses.PurposeFlagPrefix));
             }
         }
 

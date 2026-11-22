@@ -80,7 +80,7 @@ public static class ImplementationStoreUtils
         foreach (string part in Paths.Absolute(path).Split(Path.DirectorySeparatorChar))
         {
             builder.Append(part);
-            if (ManifestFormat.All.Any(format => part.StartsWith(format.Prefix + format.Separator)))
+            if (ManifestFormat.All.Any(format => part.StartsWithOrdinal(format.Prefix + format.Separator)))
             {
                 implementationPath = builder.ToString();
                 return true;

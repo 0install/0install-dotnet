@@ -342,7 +342,7 @@ public sealed class MaterializerTest : IDisposable
         Materializer(OS.Linux).Materialize(selections, _targetDir, "my app");
 
         Directory.Exists(Path.Combine(_targetDir, selections[AppUri].ID)).Should().BeTrue();
-        Directory.GetDirectories(_targetDir).Should().NotContain(x => Path.GetFileName(x).StartsWith("package:"));
+        Directory.GetDirectories(_targetDir).Should().NotContain(x => Path.GetFileName(x).StartsWithOrdinal("package:"));
         File.ReadAllText(Path.Combine(_targetDir, "my app")).Should()
             .Contain("set -- \"$@\" /usr/bin/runner", because: "packages are run from the system, with a POSIX path even when materializing on Windows").And
             .NotContain("RUNNER_HOME", because: "bindings for packages are skipped, like in the Executor");
@@ -618,7 +618,7 @@ public sealed class MaterializerTest : IDisposable
             string path = Path.Combine(buildDir, relativePath);
             Directory.CreateDirectory(Path.GetDirectoryName(path)!);
             File.WriteAllText(path, content.ToUnixNewLine() + "\n");
-            if (path.EndsWith(".sh")) ImplFileUtils.SetExecutable(path);
+            if (path.EndsWithOrdinal(".sh")) ImplFileUtils.SetExecutable(path);
         }
 
         var builder = new ManifestBuilder(ManifestFormat.Sha256New);
@@ -665,7 +665,7 @@ public sealed class MaterializerTest : IDisposable
         using var scope = new AssertionScope($"generated launcher:\n{launcher}\n");
 
         // Compare by name rather than full path, since the script resolves symlinks in the target path
-        string realAppHome = output.Single(x => x.StartsWith("APP_HOME=")).Substring("APP_HOME=".Length);
+        string realAppHome = output.Single(x => x.StartsWithOrdinal("APP_HOME=")).Substring("APP_HOME=".Length);
         realAppHome.Should().EndWith($"/{Path.GetFileName(targetDir)}/{selections[AppUri].ID}", because: "APP_HOME should point to the materialized copy");
         File.Exists(Path.Combine(realAppHome, "app.sh")).Should().BeTrue();
 

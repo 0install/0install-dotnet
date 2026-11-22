@@ -130,7 +130,7 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
     /// <param name="key">The Unix path of the directory relative to the implementation root.</param>
     /// <returns><c>true</c> if the directory is successfully found and removed; <c>false</c> otherwise. </returns>
     public bool Remove(string key)
-        => _directories.RemoveAll(x => x.Key == key || x.Key.StartsWith($"{key}/"));
+        => _directories.RemoveAll(x => x.Key == key || x.Key.StartsWithOrdinal($"{key}/"));
 
     /// <summary>
     /// Moves a directory and all its subdirectories to a new path.
@@ -268,19 +268,19 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
                 string line = reader.ReadLine() ?? "";
                 if (line.StartsWith("D /", out string? dirPath))
                     currentDirectory = manifest[dirPath];
-                else if (line.StartsWith("F "))
+                else if (line.StartsWithOrdinal("F "))
                 {
                     string[] parts = line.Split([' '], 5);
                     if (parts.Length < 5) throw new FormatException(Resources.InvalidNumberOfLineParts);
                     currentDirectory.Add(parts[4], new ManifestNormalFile(parts[1], long.Parse(parts[2]), long.Parse(parts[3])));
                 }
-                else if (line.StartsWith("X "))
+                else if (line.StartsWithOrdinal("X "))
                 {
                     string[] parts = line.Split([' '], 5);
                     if (parts.Length < 5) throw new FormatException(Resources.InvalidNumberOfLineParts);
                     currentDirectory.Add(parts[4], new ManifestExecutableFile(parts[1], long.Parse(parts[2]), long.Parse(parts[3])));
                 }
-                else if (line.StartsWith("S "))
+                else if (line.StartsWithOrdinal("S "))
                 {
                     string[] parts = line.Split([' '], 4);
                     if (parts.Length < 4) throw new FormatException(Resources.InvalidNumberOfLineParts);

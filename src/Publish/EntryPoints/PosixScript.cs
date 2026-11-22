@@ -15,7 +15,7 @@ public sealed class PosixScript : PosixExecutable
     {
         if (base.Analyze(baseDirectory, file)
          && file.ReadFirstLine(Encoding.ASCII) is {} firstLine
-         && firstLine.StartsWith(@"#!"))
+         && firstLine.StartsWithOrdinal(@"#!"))
         {
             Architecture = new(OS.Posix);
             Name = file.Name;

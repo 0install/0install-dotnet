@@ -89,7 +89,7 @@ public sealed partial class BrowserNativeMessaging : Capability
         base.Normalize();
 
         EnsureAttribute(Name, "name");
-        if (Name == null || Name.StartsWith(".") || Name.EndsWith(".") || Name.Contains("..") || !NameRegex().IsMatch(Name))
+        if (Name == null || Name.StartsWithOrdinal(".") || Name.EndsWithOrdinal(".") || Name.Contains("..") || !NameRegex().IsMatch(Name))
             throw new InvalidDataException($"{string.Format(Resources.InvalidXmlAttributeOnTag, "name", ToShortXml())} Can only contain lowercase alphanumeric characters, underscores and dots. Can't start or end with a dot, and a dot can't be followed by another dot. {Resources.FoundInstead} {Name}");
 
         if (Browsers.Count == 0)

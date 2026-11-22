@@ -252,7 +252,7 @@ public class Fetcher(Config config, IImplementationStore store, ITaskHandler han
     /// </summary>
     /// <returns>A fully qualified path to the directory containing the implementation; <c>null</c> if the requested implementation could not be found in the store or is a package implementation.</returns>
     protected string? GetPath(ImplementationBase implementation)
-        => string.IsNullOrEmpty(implementation.ID) || implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)
+        => string.IsNullOrEmpty(implementation.ID) || implementation.ID.StartsWithOrdinal(ExternalImplementation.PackagePrefix)
             ? null
             : store.GetPath(implementation.ManifestDigest);
 

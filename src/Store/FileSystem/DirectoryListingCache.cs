@@ -99,7 +99,7 @@ internal class DirectoryListingCache
         }
 
         string prefix = fullPath + Path.DirectorySeparatorChar;
-        foreach (string directory in _listings.Keys.Where(x => x == fullPath || x.StartsWith(prefix, StringComparison.Ordinal)).ToList())
+        foreach (string directory in _listings.Keys.Where(x => x == fullPath || x.StartsWithOrdinal(prefix)).ToList())
             _listings.Remove(directory);
     }
 

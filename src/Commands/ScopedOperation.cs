@@ -27,10 +27,10 @@ public abstract class ScopedOperation(ITaskHandler handler) : ServiceProvider(ha
 
         try
         {
-            if (uri.StartsWith("file://")) return new(uri);
-            if (uri.StartsWith("file:/")) throw new UriFormatException(Resources.FilePrefixAbsoluteUsage);
+            if (uri.StartsWithOrdinal("file://")) return new(uri);
+            if (uri.StartsWithOrdinal("file:/")) throw new UriFormatException(Resources.FilePrefixAbsoluteUsage);
             if (uri.StartsWith("file:", out string? path)) return new(Paths.Absolute(path));
-            if (uri.StartsWith("http:") || uri.StartsWith("https:")) return new(uri);
+            if (uri.StartsWithOrdinal("http:") || uri.StartsWithOrdinal("https:")) return new(uri);
 
             if (TryResolveAlias(uri) is {} resolvedAlias) return resolvedAlias;
 

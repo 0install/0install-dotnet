@@ -121,7 +121,7 @@ partial class Self
                     Log.Info($"Detected that '{targetDir}' is an existing machine-wide instance of Zero Install.");
                     _machineWide = true;
                 }
-                else if (!targetDir.StartsWith(Locations.HomeDir))
+                else if (!targetDir.StartsWithOrdinal(Locations.HomeDir))
                 {
                     string hint = string.Format(Resources.DeployTargetOutsideHome, targetDir);
                     if (Handler.Ask(Resources.AskDeployMachineWide + Environment.NewLine + hint, defaultAnswer: false, alternateMessage: hint))

@@ -172,7 +172,7 @@ public partial class ImplementationStore(string path, ITaskHandler handler, bool
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
-        if (!path.StartsWith(Path + System.IO.Path.DirectorySeparatorChar) || !Directory.Exists(path)) return false;
+        if (!path.StartsWithOrdinal(Path + System.IO.Path.DirectorySeparatorChar) || !Directory.Exists(path)) return false;
         if (MissingAdminRights) throw new NotAdminException(Resources.MustBeAdminToRemove);
 
         handler.RunTask(new ActionTask(

@@ -57,7 +57,7 @@ public class ImplementationDiscovery : IImplementationDiscovery, IDisposable
 
     private void OnInstanceDiscovered(object? sender, ServiceInstanceDiscoveryEventArgs e)
     {
-        if (!e.ServiceInstanceName.ToString()!.EndsWith(ImplementationServer.DnsServiceName + ".local")
+        if (!e.ServiceInstanceName.ToString()!.EndsWithOrdinal(ImplementationServer.DnsServiceName + ".local")
          || e.Message.AdditionalRecords.OfType<SRVRecord>().FirstOrDefault() is not {Port: var port}) return;
 
         var ips = e.Message.AdditionalRecords.OfType<Makaretu.Dns.AddressRecord>().Select(x => x.Address);

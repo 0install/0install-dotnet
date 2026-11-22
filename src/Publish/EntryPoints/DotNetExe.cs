@@ -21,7 +21,7 @@ public partial class DotNetExe : WindowsExe
             var runtimeOptions = JsonStorage.LoadJson<RuntimeConfig>($"{file.FullName[..^4]}.runtimeconfig.json").RuntimeOptions;
             var frameworks = runtimeOptions?.Frameworks ?? [runtimeOptions?.Framework ?? new Framework(null, null)];
 
-            RuntimeVersion = new(frameworks.FirstOrDefault(x => x.Name != null && x.Name.EndsWith(".App"))?.Version ?? "1.0.0");
+            RuntimeVersion = new(frameworks.FirstOrDefault(x => x.Name != null && x.Name.EndsWithOrdinal(".App"))?.Version ?? "1.0.0");
             NeedsAspNetCore = frameworks.Any(x => x.Name == "Microsoft.AspNetCore.App");
             NeedsTerminal = frameworks.All(x => x.Name != "Microsoft.WindowsDesktop.App");
         }

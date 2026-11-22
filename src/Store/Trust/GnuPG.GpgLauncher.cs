@@ -39,37 +39,37 @@ partial class GnuPG
                     throw new KeyNotFoundException(line);
             }
 
-            if (line.StartsWith("gpg: Signature made ") ||
-                line.StartsWith("gpg: Good signature from ") ||
-                line.StartsWith("gpg:                 aka") ||
-                line.StartsWith("gpg: WARNING: This key is not certified") ||
+            if (line.StartsWithOrdinal("gpg: Signature made ") ||
+                line.StartsWithOrdinal("gpg: Good signature from ") ||
+                line.StartsWithOrdinal("gpg:                 aka") ||
+                line.StartsWithOrdinal("gpg: WARNING: This key is not certified") ||
                 line.Contains("There is no indication") ||
-                line.StartsWith("Primary key fingerprint: ") ||
-                line.StartsWith("gpg: Can't check signature: public key not found"))
+                line.StartsWithOrdinal("Primary key fingerprint: ") ||
+                line.StartsWithOrdinal("gpg: Can't check signature: public key not found"))
                 return;
 
-            if (line.StartsWith("gpg: BAD signature from ") ||
-                line.StartsWith("gpg: WARNING:") ||
-                (line.StartsWith("gpg: renaming ") && line.EndsWith("failed: Permission denied")))
+            if (line.StartsWithOrdinal("gpg: BAD signature from ") ||
+                line.StartsWithOrdinal("gpg: WARNING:") ||
+                (line.StartsWithOrdinal("gpg: renaming ") && line.EndsWithOrdinal("failed: Permission denied")))
             {
                 Log.Warn(line);
                 return;
             }
 
-            if (line.StartsWith("gpg: waiting for lock") ||
-                (line.StartsWith("gpg: keyring ") && line.EndsWith(" created")) ||
-                (line.StartsWith("gpg: ") && line.EndsWith(": trustdb created")))
+            if (line.StartsWithOrdinal("gpg: waiting for lock") ||
+                (line.StartsWithOrdinal("gpg: keyring ") && line.EndsWithOrdinal(" created")) ||
+                (line.StartsWithOrdinal("gpg: ") && line.EndsWithOrdinal(": trustdb created")))
             {
                 Log.Info(line);
                 return;
             }
 
-            if (line.StartsWith("gpg: skipped ") && line.EndsWith(": bad passphrase")) throw new WrongPassphraseException();
-            if (line.StartsWith("gpg: signing failed: bad passphrase")) throw new WrongPassphraseException();
-            if (line.StartsWith("gpg: signing failed: file exists")) throw new IOException(Resources.SignatureAlreadyExists);
-            if (line.StartsWith("gpg: signing failed: ") ||
-                line.StartsWith("gpg: error") ||
-                line.StartsWith("gpg: critical"))
+            if (line.StartsWithOrdinal("gpg: skipped ") && line.EndsWithOrdinal(": bad passphrase")) throw new WrongPassphraseException();
+            if (line.StartsWithOrdinal("gpg: signing failed: bad passphrase")) throw new WrongPassphraseException();
+            if (line.StartsWithOrdinal("gpg: signing failed: file exists")) throw new IOException(Resources.SignatureAlreadyExists);
+            if (line.StartsWithOrdinal("gpg: signing failed: ") ||
+                line.StartsWithOrdinal("gpg: error") ||
+                line.StartsWithOrdinal("gpg: critical"))
                 throw new IOException(line);
 
             // Unknown GnuPG message

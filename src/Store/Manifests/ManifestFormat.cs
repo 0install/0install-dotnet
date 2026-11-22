@@ -49,10 +49,10 @@ public closed class ManifestFormat
         if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
         #endregion
 
-        if (id.StartsWith(Sha256New.Prefix)) return Sha256New;
-        if (id.StartsWith(Sha256.Prefix)) return Sha256;
-        if (id.StartsWith(Sha1New.Prefix)) return Sha1New;
-        if (id.StartsWith("sha1=")) throw new NotSupportedException($"{id}: The sha1 manifest digest format is no longer supported. Please upgrade to sha1new or sha256new.");
+        if (id.StartsWithOrdinal(Sha256New.Prefix)) return Sha256New;
+        if (id.StartsWithOrdinal(Sha256.Prefix)) return Sha256;
+        if (id.StartsWithOrdinal(Sha1New.Prefix)) return Sha1New;
+        if (id.StartsWithOrdinal("sha1=")) throw new NotSupportedException($"{id}: The sha1 manifest digest format is no longer supported. Please upgrade to sha1new or sha256new.");
         throw new NotSupportedException($"{id}: {Resources.NoKnownDigestMethod}");
     }
     #endregion

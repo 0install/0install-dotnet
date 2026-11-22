@@ -103,7 +103,7 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
         var result = new Dictionary<FeedUri, ImplementationCopy>();
         foreach (var implementation in selections.Implementations)
         {
-            if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix))
+            if (implementation.ID.StartsWithOrdinal(ExternalImplementation.PackagePrefix))
             {
                 Log.Warn($"Not copying {implementation.ID} because it is provided by a native package manager");
                 continue;

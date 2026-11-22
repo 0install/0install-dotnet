@@ -34,7 +34,7 @@ partial class SelfManager
 
         // Stop existing service if it is installed in the target directory we are updating
         if (RegistryUtils.GetString($@"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\{ServiceName}", "ImagePath")?.Trim('"') is {} imagePath
-         && imagePath.StartsWith(TargetDir))
+         && imagePath.StartsWithOrdinal(TargetDir))
         {
             Handler.RunTask(new ActionTask(Resources.StopService, () =>
             {

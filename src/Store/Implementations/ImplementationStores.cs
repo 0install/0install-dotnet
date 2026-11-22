@@ -163,7 +163,7 @@ public static class ImplementationStores
 
         foreach (string path in
                  from line in ReadAllLines()
-                 where !line.StartsWith("#") && !string.IsNullOrEmpty(line)
+                 where !line.StartsWithOrdinal("#") && !string.IsNullOrEmpty(line)
                  select Environment.ExpandEnvironmentVariables(line))
         {
             string result = path;

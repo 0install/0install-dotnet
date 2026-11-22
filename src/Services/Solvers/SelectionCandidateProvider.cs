@@ -70,7 +70,7 @@ public class SelectionCandidateProvider : ISelectionCandidateProvider
         if (implementationSelection == null) throw new ArgumentNullException(nameof(implementationSelection));
         #endregion
 
-        return (implementationSelection.ID.StartsWith(ExternalImplementation.PackagePrefix)
+        return (implementationSelection.ID.StartsWithOrdinal(ExternalImplementation.PackagePrefix)
                    ? _externalImplementations[implementationSelection.ID]
                    : _feedManager[implementationSelection.FromFeed ?? implementationSelection.InterfaceUri][implementationSelection.ID])
             ?? throw new KeyNotFoundException();

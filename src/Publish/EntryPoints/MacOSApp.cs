@@ -16,7 +16,7 @@ public sealed class MacOSApp : PosixExecutable
         if (!base.Analyze(baseDirectory, file)) return false;
         Debug.Assert(RelativePath != null);
 
-        if (!RelativePath.GetLeftPartAtLastOccurrence('/').EndsWith(@".app/Contents/MacOS")) return false;
+        if (!RelativePath.GetLeftPartAtLastOccurrence('/').EndsWithOrdinal(@".app/Contents/MacOS")) return false;
 
         // TODO: Parse MacOS plist
         Name = file.Name[..^file.Extension.Length];

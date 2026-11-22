@@ -106,7 +106,7 @@ internal sealed class MsiPackage : IDisposable
         mediaView.Execute();
         _cabinets.Add(
             mediaView.Select(row => row["Cabinet"].ToString()!)
-                     .Where(name => name.StartsWith("#"))
+                     .Where(name => name.StartsWithOrdinal("#"))
                      .Select(name => name[1..]));
     }
 

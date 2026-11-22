@@ -255,7 +255,7 @@ partial class BootstrapProcess
     /// Returns the 0install command in a list of arguments for 0install.
     /// </summary>
     internal static string? GetCommand(IEnumerable<string> args)
-        => args.FirstOrDefault(x => !x.StartsWith("-", StringComparison.Ordinal));
+        => args.FirstOrDefault(x => !x.StartsWithOrdinal("-"));
 
     /// <summary>
     /// Returns the options in a list of arguments for 0install that are intended for 0install itself, as opposed to the target application.
@@ -270,7 +270,7 @@ partial class BootstrapProcess
         foreach (string arg in args)
         {
             if (arg == "--") yield break;
-            if (arg.StartsWith("-", StringComparison.Ordinal)) yield return arg;
+            if (arg.StartsWithOrdinal("-")) yield return arg;
             else if (foundCommand) yield break;
             else foundCommand = true;
         }

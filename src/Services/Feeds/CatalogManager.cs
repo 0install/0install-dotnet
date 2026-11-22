@@ -170,7 +170,7 @@ public class CatalogManager(Config config, ITrustManager trustManager, ITaskHand
     public static IReadOnlyList<FeedUri> GetSources(bool preferMachineWide)
         => GetConfigLoadPath(preferMachineWide) is {} path
             ? ReadAllLines(path).Except(string.IsNullOrEmpty)
-                                .Except(line => line.StartsWith("#"))
+                                .Except(line => line.StartsWithOrdinal("#"))
                                 .Select(line => new FeedUri(line))
                                 .Select(uri => uri == _oldDefaultSource ? DefaultSource : uri)
                                 .ToList()

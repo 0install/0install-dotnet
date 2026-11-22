@@ -57,7 +57,7 @@ public class WindowsPackageManager : PackageManagerBase
             ],
             "netfx-client" => FindNetFx("4.0", WindowsUtils.NetFx40, @"v4\Client"),
             "powershell" => FindPowerShell(),
-            _ when packageName.StartsWith("dotnet-") =>
+            _ when packageName.StartsWithOrdinal("dotnet-") =>
             [
                 ..FindDotNet(packageName, SpecialFolder.ProgramFiles, (ProcessArchitecture == X86) ? Cpu.I486 : Architecture.CurrentSystem.Cpu),
                 ..FindDotNet(packageName, SpecialFolder.ProgramFilesX86, Cpu.I486),
@@ -106,7 +106,7 @@ public class WindowsPackageManager : PackageManagerBase
         // Java 9 and newer register under "JRE\9" or with a full version like "JRE\9.0.4"
         string typeKey = $@"JavaSoft\{typeShort.ToUpperInvariant()}";
         return GetRegisteredSubKeys(typeKey)
-              .Where(name => name == version.ToString() || name.StartsWith($"{version}."))
+              .Where(name => name == version.ToString() || name.StartsWithOrdinal($"{version}."))
               .SelectMany(name => GetRegisteredPaths($@"{typeKey}\{name}", "JavaHome"))
               .Distinct();
     }
@@ -138,7 +138,7 @@ public class WindowsPackageManager : PackageManagerBase
     // Uses detection logic described here: http://msdn.microsoft.com/library/hh925568
     private IEnumerable<ExternalImplementation> FindNetFx(string version, string clrVersion, string registryVersion, int releaseNumber = 0)
     {
-        ExternalImplementation Impl(Cpu cpu) => new(DistributionName, registryVersion.EndsWith("Client") ? "netfx-client" : "netfx", new(version), cpu)
+        ExternalImplementation Impl(Cpu cpu) => new(DistributionName, registryVersion.EndsWithOrdinal("Client") ? "netfx-client" : "netfx", new(version), cpu)
         {
             // .NET executables do not need a runner on Windows
             Commands = {new() {Name = Command.NameRun, Path = ""}},

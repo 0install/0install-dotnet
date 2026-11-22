@@ -102,7 +102,7 @@ partial class CliCommand
         #endregion
 
         var argsList = args.ToList();
-        int index = argsList.FindIndex(arg => !arg.StartsWith("-") && !arg.StartsWith("/"));
+        int index = argsList.FindIndex(arg => !arg.StartsWithOrdinal("-") && !arg.StartsWithOrdinal("/"));
         if (index == -1) return null;
 
         string commandName = argsList[index];

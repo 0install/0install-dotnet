@@ -135,7 +135,7 @@ public static class DefaultProgram
             else
             {
                 appKey.DeleteValue(accessPoint ? RegistryClasses.PurposeFlagAccessPoint : RegistryClasses.PurposeFlagCapability, throwOnMissingValue: false);
-                otherFlags = appKey.GetValueNames().Any(name => name.StartsWith(RegistryClasses.PurposeFlagPrefix));
+                otherFlags = appKey.GetValueNames().Any(name => name.StartsWithOrdinal(RegistryClasses.PurposeFlagPrefix));
             }
         }
 

@@ -102,8 +102,8 @@ public sealed partial class FeedUri : Uri
         if (Scheme is not ("http" or "https" or "file"))
             throw new UriFormatException(string.Format(Resources.InvalidFeedUri, this));
 
-        IsFake = value.StartsWith(FakePrefix);
-        IsFromDistribution = value.StartsWith(FromDistributionPrefix);
+        IsFake = value.StartsWithOrdinal(FakePrefix);
+        IsFromDistribution = value.StartsWithOrdinal(FromDistributionPrefix);
     }
 
     #region Escaping

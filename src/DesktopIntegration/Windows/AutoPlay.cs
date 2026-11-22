@@ -127,7 +127,7 @@ public static class AutoPlay
             else
             {
                 handlerKey.DeleteValue(accessPoint ? RegistryClasses.PurposeFlagAccessPoint : RegistryClasses.PurposeFlagCapability, throwOnMissingValue: false);
-                otherFlags = handlerKey.GetValueNames().Any(name => name.StartsWith(RegistryClasses.PurposeFlagPrefix));
+                otherFlags = handlerKey.GetValueNames().Any(name => name.StartsWithOrdinal(RegistryClasses.PurposeFlagPrefix));
             }
         }
 

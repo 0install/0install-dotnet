@@ -56,7 +56,7 @@ public abstract partial class InterpretedScript : Candidate
 
         return IsExecutable(file.FullName)
             && file.ReadFirstLine(Encoding.ASCII) is {} firstLine
-            && (firstLine.StartsWith($@"#!/usr/bin/{interpreter}") || firstLine.StartsWith($@"#!/usr/bin/env {interpreter}"));
+            && (firstLine.StartsWithOrdinal($@"#!/usr/bin/{interpreter}") || firstLine.StartsWithOrdinal($@"#!/usr/bin/env {interpreter}"));
     }
     #endregion
 }

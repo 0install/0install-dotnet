@@ -273,8 +273,8 @@ internal sealed partial class PowerShellLauncherScriptBuilder(IImplementationSto
         => expressions.Count switch
         {
             0 => "''",
-            1 when expressions.First().StartsWith("'") => expressions.First(),
-            _ when expressions.First().StartsWith("'") || expressions.First() == DirVar => $"({string.Join(" + ", expressions)})",
+            1 when expressions.First().StartsWithOrdinal("'") => expressions.First(),
+            _ when expressions.First().StartsWithOrdinal("'") || expressions.First() == DirVar => $"({string.Join(" + ", expressions)})",
             // Ensures the result is a string, even if the first expression evaluates to $null
             _ => $"('' + {string.Join(" + ", expressions)})"
         };

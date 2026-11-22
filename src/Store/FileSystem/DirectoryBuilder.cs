@@ -136,7 +136,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     /// <inheritdoc/>
     public bool TryAddExternalHardlink(string path, FileInfo target, bool executable = false)
     {
-        if (!target.FullName.StartsWith(AllowedHardlinkRoot + System.IO.Path.DirectorySeparatorChar))
+        if (!target.FullName.StartsWithOrdinal(AllowedHardlinkRoot + System.IO.Path.DirectorySeparatorChar))
             return false;
         EnsureNoLinksInParents(target.FullName, AllowedHardlinkRoot, checkNames: false);
         EnsureRegularFile(target.FullName, target.FullName);
@@ -262,7 +262,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
 
         string fullPath = Paths.Absolute(Paths.Combine(Path, relativePath));
 
-        if (!fullPath.StartsWith(allowedRoot + System.IO.Path.DirectorySeparatorChar))
+        if (!fullPath.StartsWithOrdinal(allowedRoot + System.IO.Path.DirectorySeparatorChar))
             throw new IOException(string.Format(Resources.InvalidPath, relativePath));
 
         // Windows path normalization (expanding 8.3 short names, stripping trailing dots and spaces, etc.) would let the directory on disk diverge from the manifest calculated by the inner builder
@@ -295,7 +295,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         {
             current = System.IO.Path.Combine(current, parts[i]);
             FileAttributes attributes;
-            if (checkNames && current.StartsWith(Path + System.IO.Path.DirectorySeparatorChar))
+            if (checkNames && current.StartsWithOrdinal(Path + System.IO.Path.DirectorySeparatorChar))
             {
                 if (TryGetDirectoryEntry(current) is not {} entry) return; // Remaining entries do not exist yet and will be created as needed
                 if (entry.Name != parts[i])

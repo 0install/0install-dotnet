@@ -48,7 +48,7 @@ partial class BootstrapProcess
     {
         const string prefix = "ZeroInstall.content.";
 
-        foreach (string name in assembly.GetManifestResourceNames().Where(x => x.StartsWith(prefix, StringComparison.Ordinal)).Select(x => x[prefix.Length..]))
+        foreach (string name in assembly.GetManifestResourceNames().Where(x => x.StartsWithOrdinal(prefix)).Select(x => x[prefix.Length..]))
         {
             ImportFile(name, () => assembly.GetManifestResourceStream(prefix + name)!, keyCallback: id =>
             {

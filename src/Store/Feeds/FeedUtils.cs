@@ -97,7 +97,7 @@ public static class FeedUtils
     {
         // Isolate and decode signature string
         string signatureString = EncodingUtils.Utf8.GetString(feedData, signatureStartIndex, feedData.Length - signatureStartIndex);
-        if (!signatureString.EndsWith(SignatureBlockEnd)) throw new SignatureException(Resources.XmlSignatureInvalidEnd);
+        if (!signatureString.EndsWithOrdinal(SignatureBlockEnd)) throw new SignatureException(Resources.XmlSignatureInvalidEnd);
 
         // Concatenate Base64 lines and decode
         string base64Characters = signatureString.Substring(SignatureBlockStart.Length, signatureString.Length - SignatureBlockStart.Length - SignatureBlockEnd.Length).Replace("\n", "");

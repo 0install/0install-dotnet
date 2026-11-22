@@ -28,13 +28,13 @@ public closed record VersionRangePart
             if (string.IsNullOrEmpty(end)) endVersion = null;
             else
             {
-                if (!end.StartsWith("!")) throw new FormatException(string.Format(Resources.VersionRangeEndNotExclusive, end));
+                if (!end.StartsWithOrdinal("!")) throw new FormatException(string.Format(Resources.VersionRangeEndNotExclusive, end));
                 endVersion = new ImplementationVersion(end[1..]);
             }
 
             return new VersionRangePartRange(startVersion, endVersion);
         }
-        else if (value.StartsWith("!"))
+        else if (value.StartsWithOrdinal("!"))
         {
             return new VersionRangePartExclude(
                 new ImplementationVersion(value[1..]));

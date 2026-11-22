@@ -99,7 +99,7 @@ public partial class EnvironmentBuilder
     /// <exception cref="ExecutorException"><see cref="EnvironmentBinding.Name"/> or other data is invalid.</exception>
     private void ApplyEnvironmentBinding(EnvironmentBinding binding, ImplementationSelection implementation)
     {
-        if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix))
+        if (implementation.ID.StartsWithOrdinal(ExternalImplementation.PackagePrefix))
         {
             Log.Debug($"Skipping {binding} for {implementation}");
             return;

@@ -119,7 +119,7 @@ public static class ImplementationExtensions
             if (!string.IsNullOrEmpty(implementation.LocalPath)) return false;
 
             var oldDigest = implementation.ManifestDigest;
-            if (oldDigest.AvailableDigests.Any(x => x.StartsWith(format.Prefix + format.Separator))) return false;
+            if (oldDigest.AvailableDigests.Any(x => x.StartsWithOrdinal(format.Prefix + format.Separator))) return false;
 
             if (implementationStore.GetPath(oldDigest) is not {} path)
             {

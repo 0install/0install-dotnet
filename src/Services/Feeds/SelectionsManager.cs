@@ -26,7 +26,7 @@ public class SelectionsManager(IFeedManager feedManager, IImplementationStore im
             // Local paths are considered to be always cached
             if (!string.IsNullOrEmpty(implementation.LocalPath)) continue;
 
-            if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix))
+            if (implementation.ID.StartsWithOrdinal(ExternalImplementation.PackagePrefix))
             {
                 if (!File.Exists(implementation.QuickTestFile) && packageManager.Lookup(implementation) is not {IsInstalled: true})
                     yield return implementation;
@@ -48,7 +48,7 @@ public class SelectionsManager(IFeedManager feedManager, IImplementationStore im
 
         foreach (var selection in selections)
         {
-            yield return selection.ID.StartsWith(ExternalImplementation.PackagePrefix)
+            yield return selection.ID.StartsWithOrdinal(ExternalImplementation.PackagePrefix)
                 ? packageManager.Lookup(selection) ?? throw new ImplementationNotFoundException(string.Format(Resources.UnknownPackageID, selection.ID, "native"))
                 : feedManager[selection.FromFeed ?? selection.InterfaceUri][selection.ID].CloneImplementation();
         }
@@ -114,7 +114,7 @@ public class SelectionsManager(IFeedManager feedManager, IImplementationStore im
     private string? TryGetPath(ImplementationBase implementation)
     {
         if (implementation.LocalPath != null) return implementation.LocalPath;
-        if (implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)) return $"({implementation.ID})";
+        if (implementation.ID.StartsWithOrdinal(ExternalImplementation.PackagePrefix)) return $"({implementation.ID})";
 
         try
         {

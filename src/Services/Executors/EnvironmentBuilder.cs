@@ -288,7 +288,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
 
         if (!string.IsNullOrEmpty(command.Path))
         {
-            commandLine.Add(implementation.ID.StartsWith(ExternalImplementation.PackagePrefix)
+            commandLine.Add(implementation.ID.StartsWithOrdinal(ExternalImplementation.PackagePrefix)
                 ? GetPathInPackage(command.Path)
                 : GetPathInImplementation(implementation, command.Path));
         }

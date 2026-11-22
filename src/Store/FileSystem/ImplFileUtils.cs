@@ -189,7 +189,7 @@ public static class ImplFileUtils
 
             string fullRoot = Path.GetFullPath(root).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
             string fullTarget = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(Path.GetFullPath(sourcePath)) ?? fullRoot, targetPath));
-            return fullTarget == fullRoot || fullTarget.StartsWith(fullRoot + Path.DirectorySeparatorChar, StringComparison.Ordinal);
+            return fullTarget == fullRoot || fullTarget.StartsWithOrdinal(fullRoot + Path.DirectorySeparatorChar);
         }
         catch (Exception ex) when (ex is ArgumentException or NotSupportedException or PathTooLongException)
         {

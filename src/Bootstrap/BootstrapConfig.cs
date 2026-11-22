@@ -63,7 +63,7 @@ public record BootstrapConfig(
             string? GetOption(string key)
                 => iniData.TryGetKey("bootstrap" + iniData.SectionKeySeparator + key, out string value)
                 && !string.IsNullOrEmpty(value)
-                && !value.StartsWith(";", StringComparison.Ordinal)
+                && !value.StartsWithOrdinal(";")
                     ? value
                     : null;
 

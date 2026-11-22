@@ -59,7 +59,7 @@ public partial class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtensio
     public void Normalize()
     {
         EnsureAttributeSafeID(Value, "value");
-        if (!Value.StartsWith(".")) Value = "." + Value;
+        if (!Value.StartsWithOrdinal(".")) Value = "." + Value;
 
         if (!string.IsNullOrEmpty(MimeType) && !MimeTypeRegex().IsMatch(MimeType))
             throw new InvalidDataException(string.Format(Resources.InvalidXmlAttributeOnTag, "mime-type", ToShortXml()) + " " + Resources.ShouldBeMimeType + " " + Resources.FoundInstead + " " + MimeType);

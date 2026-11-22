@@ -133,7 +133,7 @@ public static class FeedExtensions
             if (implementations.FirstOrDefault(x => digest.AvailableDigests.Contains(x.ID)) is {} match)
                 return match;
 
-            var local = implementations.Where(x => x.ID.StartsWith(".") || x.ID.StartsWith("/")).ToList();
+            var local = implementations.Where(x => x.ID.StartsWithOrdinal(".") || x.ID.StartsWithOrdinal("/")).ToList();
             return local switch
             {
                 [var single] => single,
