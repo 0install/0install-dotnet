@@ -33,17 +33,13 @@ public class ZeroInstallClient(IProcessLauncher launcher, IProcessLauncher? guiL
     public static IZeroInstallClient Detect
         => new ZeroInstallClient(
             commandLine: ZeroInstallEnvironment.Cli
-                      ?? GetFromRegistry("0install", machineWide: false)
-                      ?? GetFromRegistry("0install", machineWide: true)
+                      ?? ZeroInstallDeployment.GetExecutable(machineWide: false)?.EscapeArgument()
+                      ?? ZeroInstallDeployment.GetExecutable(machineWide: true)?.EscapeArgument()
                       ?? "0install",
             guiCommandLine: ZeroInstallEnvironment.Gui
-                         ?? GetFromRegistry("0install-win", machineWide: false)
-                         ?? GetFromRegistry("0install-win", machineWide: true));
-
-    private static string? GetFromRegistry(string executableName, bool machineWide)
-        => ZeroInstallDeployment.GetPath(machineWide) is {} dirPath
-            ? Paths.Combine(dirPath, $"{executableName}.exe").EscapeArgument()
-            : null;
+                         ?? ZeroInstallDeployment.GetExecutable(machineWide: false, gui: true)?.EscapeArgument()
+                         ?? ZeroInstallDeployment.GetExecutable(machineWide: true, gui: true)?.EscapeArgument()
+        );
 
     /// <inheritdoc/>
     public void TrustKey(string fingerprint, string domain)

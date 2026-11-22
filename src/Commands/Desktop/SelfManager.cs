@@ -90,7 +90,7 @@ public partial class SelfManager : ManagerBase
                 using var deployDir = new DeployDirectory(Locations.InstallBase, newManifest, TargetDir, Handler);
                 deployDir.Stage();
                 clearDir.Stage();
-                if (Portable) FileUtils.Touch(Paths.Combine(TargetDir, Locations.PortableFlagName));
+                if (Portable) ZeroInstallDeployment.SetPortable(TargetDir, true);
                 deployDir.Commit();
                 clearDir.Commit();
             }
@@ -128,6 +128,9 @@ public partial class SelfManager : ManagerBase
     {
         var targetManifest = LoadManifest(TargetDir);
 
+        // Detect the layout before staging moves away the files that identify it (e.g., Info.plist)
+        bool targetIsAppBundle = ZeroInstallDeployment.UsesAppBundleLayout(TargetDir);
+
         if (MachineWide) ServiceStop();
 
         try
@@ -146,9 +149,13 @@ public partial class SelfManager : ManagerBase
             {
                 clearDir.Stage();
                 DeleteServiceLogFiles();
-                if (Portable) File.Delete(Paths.Combine(TargetDir, Locations.PortableFlagName));
+                if (Portable) ZeroInstallDeployment.SetPortable(TargetDir, false, appBundle: targetIsAppBundle);
 #if NET
-                if (UnixUtils.IsUnix && Paths.AreEqual(TargetDir, Locations.InstallBase)) ExecCommit(clearDir);
+                if (UnixUtils.IsUnix && Paths.AreEqual(TargetDir, Locations.InstallBase))
+                {
+                    if (!Portable) ZeroInstallDeployment.Unregister(MachineWide); // Must unregister in advance, because ExecCommit does not return
+                    ExecCommit(clearDir);
+                }
 #endif
                 clearDir.Commit();
             }

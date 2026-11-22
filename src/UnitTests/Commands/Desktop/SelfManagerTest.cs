@@ -150,7 +150,7 @@ public class SelfManagerTest : DirectoryOperationTestBase
         File.GetLastWriteTimeUtc(InTarget("file1")).Should().Be(modifiedTime);
         File.Exists(InTarget("subdir", "file2")).Should().BeTrue();
         File.Exists(InTarget(Manifest.ManifestFile)).Should().BeTrue();
-        File.Exists(InTarget(Locations.PortableFlagName)).Should().BeTrue();
+        ZeroInstallDeployment.IsPortable(_targetDir).Should().BeTrue();
         ShouldHaveNoTempFiles();
         ShouldHaveReleasedUpdateMutex();
 

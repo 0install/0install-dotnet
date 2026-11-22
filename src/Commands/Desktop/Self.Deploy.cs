@@ -103,7 +103,7 @@ partial class Self
         {
             string targetDir = Paths.Absolute(AdditionalArgs[0]);
 
-            if (File.Exists(Paths.Combine(targetDir, Locations.PortableFlagName)))
+            if (ZeroInstallDeployment.IsPortable(targetDir))
             {
                 Log.Info($"Detected that '{targetDir}' is an existing portable instance of Zero Install.");
                 _portable = true;

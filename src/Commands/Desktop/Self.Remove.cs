@@ -13,8 +13,8 @@ partial class Self
     {
         protected abstract string TargetDir { get; }
 
-        // Auto-detect portable targets by looking for flag file
-        protected bool Portable => File.Exists(Paths.Combine(TargetDir, Locations.PortableFlagName));
+        // Auto-detect portable targets
+        protected bool Portable => ZeroInstallDeployment.IsPortable(TargetDir);
 
         // Auto-detect machine-wide targets by comparing path with registry entry
         protected bool MachineWide => !Portable && Paths.AreEqual(TargetDir, ZeroInstallDeployment.GetPath(machineWide: true));
