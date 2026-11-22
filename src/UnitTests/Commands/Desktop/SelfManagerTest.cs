@@ -44,6 +44,7 @@ public class SelfManagerTest : DirectoryOperationTestBase
     private string InTarget(params string[] relativePath)
         => Path.Combine([_targetDir, ..relativePath]);
 
+    [MustDisposeResource]
     private SelfManager CreateManager(bool machineWide = false, bool portable = true)
         => new TestSelfManager(_targetDir, new SilentTaskHandler(), machineWide, portable);
 
