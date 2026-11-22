@@ -16,18 +16,25 @@ partial class SelfManager
     /// <returns>The loaded <see cref="Manifest"/>.</returns>
     private Manifest LoadManifest(string dirPath)
     {
+        // Manifest in directory
         string manifestPath = Paths.Combine(dirPath, Manifest.ManifestFile);
-        if (File.Exists(manifestPath))
-            return Manifest.Load(manifestPath, ManifestFormat.Sha256New);
-        else if (Directory.Exists(dirPath) && Directory.GetFileSystemEntries(dirPath).Length != 0)
+        if (File.Exists(manifestPath)) return Manifest.Load(manifestPath, ManifestFormat.Sha256New);
+
+        // Manifest in parent directory
+        manifestPath = Paths.Combine(dirPath, "..", Manifest.ManifestFile);
+        if (File.Exists(manifestPath)) return Manifest.Load(manifestPath, ManifestFormat.Sha256New).ScopedTo(Path.GetFileName(dirPath));
+
+        // Existing directory with no manifest
+        if (Directory.Exists(dirPath) && Directory.GetFileSystemEntries(dirPath).Length != 0)
         {
             Log.Info($"No .manifest file found in '{dirPath}'. Assuming directory is clean.");
             var builder = new ManifestBuilder(ManifestFormat.Sha256New);
             Handler.RunTask(new ReadDirectory(dirPath, builder));
             return builder.Manifest;
         }
-        else
-            return new Manifest(ManifestFormat.Sha256);
+
+        // No existing directory
+        return new Manifest(ManifestFormat.Sha256);
     }
 
     /// <summary>A mutex that prevents Zero Install instances from being launched while an update is in progress.</summary>
