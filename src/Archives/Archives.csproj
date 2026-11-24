@@ -37,7 +37,7 @@
     <PackageReference Include="WixToolset.Dtf.WindowsInstaller" Version="6.0.2" />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)'!='Minimal' And '$(TargetFramework)'!='net11.0'">
-    <PackageReference Include="ZstdSharp.Port" Version="0.8.8" />
+    <PackageReference Include="ZstdSharp.Port" Version="0.9.1" />
   </ItemGroup>
 
 </Project>
