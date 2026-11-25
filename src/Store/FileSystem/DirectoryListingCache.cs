@@ -36,7 +36,7 @@ internal class DirectoryListingCache
         #endregion
 
         string parent = Path.GetDirectoryName(fullPath) ?? throw new ArgumentException($"'{fullPath}' has no parent directory.", nameof(fullPath));
-        string name = Path.GetFileName(fullPath);
+        string name = Paths.FileName(fullPath);
 
         if (TryGetCandidates(parent, name, refresh: false) is {} cached) return cached;
 
@@ -50,7 +50,7 @@ internal class DirectoryListingCache
         if (GetListing(parent, refresh) is not {} listing || !listing.TryGetValue(Fold(name), out var candidates)) return null;
 
         string storedName = candidates.Contains(name) ? name : candidates[0];
-        if (TryGetAttributes(Path.Combine(parent, storedName)) is {} attributes) return (storedName, attributes);
+        if (TryGetAttributes(Paths.Combine(parent, storedName)) is {} attributes) return (storedName, attributes);
         return null;
     }
 
@@ -70,7 +70,7 @@ internal class DirectoryListingCache
 
         listing = new(StringComparer.Ordinal);
         foreach (string entry in Directory.EnumerateFileSystemEntries(directory))
-            Add(listing, Path.GetFileName(entry));
+            Add(listing, Paths.FileName(entry));
         return _listings[directory] = listing;
     }
 
@@ -81,7 +81,7 @@ internal class DirectoryListingCache
     {
         for (string current = fullPath; current.Length > root.Length && Path.GetDirectoryName(current) is {} parent; current = parent)
         {
-            if (_listings.TryGetValue(parent, out var listing)) Add(listing, Path.GetFileName(current));
+            if (_listings.TryGetValue(parent, out var listing)) Add(listing, Paths.FileName(current));
         }
     }
 
@@ -92,7 +92,7 @@ internal class DirectoryListingCache
     {
         if (Path.GetDirectoryName(fullPath) is {} parent && _listings.TryGetValue(parent, out var listing))
         {
-            string name = Path.GetFileName(fullPath);
+            string name = Paths.FileName(fullPath);
             string key = Fold(name);
             if (listing.TryGetValue(key, out var candidates) && candidates.Remove(name) && candidates.Count == 0)
                 listing.Remove(key);

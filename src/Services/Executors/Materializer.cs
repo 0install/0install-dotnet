@@ -62,7 +62,7 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
             throw new ArgumentException($"Invalid launcher name: {launcherName}", nameof(launcherName));
         #endregion
 
-        targetDir = Path.GetFullPath(targetDir);
+        targetDir = Paths.Absolute(targetDir);
         var implementations = LocateImplementations(selections, targetDir);
 
         var scriptBuilder = LauncherScriptBuilder.For(TargetOS, implementationStore, x => implementations[x.InterfaceUri].DirName);
@@ -128,7 +128,7 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
     /// </summary>
     private static bool IsSameOrInside(string path, string dir)
     {
-        string Normalize(string x) => Path.GetFullPath(x).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
+        string Normalize(string x) => Paths.Absolute(x).TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;
         return Normalize(path).StartsWith(Normalize(dir), WindowsUtils.IsWindows ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal);
     }
 
@@ -137,7 +137,7 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
     /// </summary>
     private static ImplementationCopy FromStore(string sourcePath)
     {
-        string dirName = Path.GetFileName(sourcePath);
+        string dirName = Paths.FileName(sourcePath);
         var manifest = Manifest.Load(Paths.Combine(sourcePath, Manifest.ManifestFile), ManifestFormat.FromPrefix(dirName));
         return new(sourcePath, manifest, dirName);
     }
@@ -229,7 +229,7 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
                 throw new IOException($"Cannot replace {destinationPath} with a link because it contains files that are not part of the implementation.");
         }
 
-        FileUtils.CreateDirectoryLink(destinationPath, Path.GetFullPath(implementation.SourcePath));
+        FileUtils.CreateDirectoryLink(destinationPath, Paths.Absolute(implementation.SourcePath));
     }
 
     /// <summary>
@@ -272,7 +272,7 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
         if (!Directory.Exists(binDir)) return;
 
         var keepSet = keep.ToHashSet();
-        foreach (string path in Directory.GetFiles(binDir).Where(x => !keepSet.Contains(Path.GetFileName(x))))
+        foreach (string path in Directory.GetFiles(binDir).Where(x => !keepSet.Contains(Paths.FileName(x))))
             File.Delete(path);
         if (Directory.GetFileSystemEntries(binDir).Length == 0)
             Directory.Delete(binDir);
@@ -294,7 +294,7 @@ public class Materializer(IImplementationStore implementationStore, ITaskHandler
         var keepSet = keep.ToHashSet();
         foreach (string path in Directory.GetFileSystemEntries(targetDir)) // Note: Dangling links are not listed as directories on Unix
         {
-            string dirName = Path.GetFileName(path);
+            string dirName = Paths.FileName(path);
             if (keepSet.Contains(dirName)) continue;
 
             ManifestFormat format;

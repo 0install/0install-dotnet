@@ -17,15 +17,15 @@ partial class BootstrapProcess
     /// </summary>
     private void ImportDirectory()
     {
-        string defaultContentDir = Path.Combine(Locations.InstallBase, "content");
+        string defaultContentDir = Paths.Combine(Locations.InstallBase, "content");
         string? contentDir = _contentDir ?? (Directory.Exists(defaultContentDir) ? defaultContentDir : null);
         if (contentDir == null) return;
 
         foreach (string path in Directory.GetFiles(contentDir))
         {
-            ImportFile(Path.GetFileName(path), () => File.OpenRead(path), keyCallback: id =>
+            ImportFile(Paths.FileName(path), () => File.OpenRead(path), keyCallback: id =>
             {
-                string keyPath = Path.Combine(contentDir, id + ".gpg");
+                string keyPath = Paths.Combine(contentDir, id + ".gpg");
                 if (!File.Exists(keyPath)) return null;
 
                 Log.Info($"Loading OpenPGP key {id} from {keyPath}");

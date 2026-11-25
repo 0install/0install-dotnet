@@ -196,7 +196,7 @@ public static class ImplementationExtensions
 
         if (string.IsNullOrEmpty(localPath))
         {
-            localPath = Path.Combine(Environment.CurrentDirectory, href.GetLocalFileName());
+            localPath = Paths.Combine(Environment.CurrentDirectory, href.GetLocalFileName());
             if (!File.Exists(localPath))
                 throw new FileNotFoundException(string.Format(Resources.ArchiveFileNotFound, localPath, "--archive-file"), localPath);
         }

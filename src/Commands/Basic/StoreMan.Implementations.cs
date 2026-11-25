@@ -76,7 +76,7 @@ partial class StoreMan
             }
             else
             {
-                string path = Paths.Absolute(AdditionalArgs[0]).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+                string path = Paths.Absolute(AdditionalArgs[0]).TrimEnd(Path.DirectorySeparatorChar);
                 var manifestDigest = new ManifestDigest(Paths.FileName(path));
                 return AddToStore(manifestDigest, builder => Handler.RunTask(new ReadDirectory(path, builder)));
             }

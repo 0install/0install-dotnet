@@ -51,7 +51,7 @@ partial class BootstrapProcess
         if (_version != null || _selfUpdateUri != null || GetZeroInstallDeployment() is not {} deployedInstance) return null;
 
         // Deployments are only discovered on Windows, where they are always launched via their .exe
-        string path = Path.Combine(deployedInstance, (_handler.IsGui ? "0install-win" : "0install") + ".exe");
+        string path = Paths.Combine(deployedInstance, (_handler.IsGui ? "0install-win" : "0install") + ".exe");
         return File.Exists(path)
             ? new(path, args.JoinEscapeArguments()) {UseShellExecute = false}
             : null;

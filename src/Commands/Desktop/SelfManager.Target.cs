@@ -22,7 +22,7 @@ partial class SelfManager
 
         // Manifest in parent directory
         manifestPath = Paths.Combine(dirPath, "..", Manifest.ManifestFile);
-        if (File.Exists(manifestPath)) return Manifest.Load(manifestPath, ManifestFormat.Sha256New).ScopedTo(Path.GetFileName(dirPath));
+        if (File.Exists(manifestPath)) return Manifest.Load(manifestPath, ManifestFormat.Sha256New).ScopedTo(Paths.FileName(dirPath));
 
         // Existing directory with no manifest
         if (Directory.Exists(dirPath) && Directory.GetFileSystemEntries(dirPath).Length != 0)

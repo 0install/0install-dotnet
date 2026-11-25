@@ -293,7 +293,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         string current = root;
         for (int i = 0; i < (checkNames ? parts.Length : parts.Length - 1); i++)
         {
-            current = System.IO.Path.Combine(current, parts[i]);
+            current = Paths.Combine(current, parts[i]);
             FileAttributes attributes;
             if (checkNames && current.StartsWithOrdinal(Path + System.IO.Path.DirectorySeparatorChar))
             {
@@ -335,7 +335,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     /// Matches the rule <see cref="ManifestBuilder"/> uses to leave AppleDouble files out of the manifest.
     /// </summary>
     private bool IsAppleDoubleFile(string fullPath)
-        => System.IO.Path.GetFileName(fullPath).StartsWith(ManifestBuilder.AppleDoublePrefix, out string? name)
+        => Paths.FileName(fullPath).StartsWith(ManifestBuilder.AppleDoublePrefix, out string? name)
         && name.Length != 0
         && IsFileOrLink(Paths.Combine(Paths.Parent(fullPath), name));
 
@@ -345,7 +345,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
     /// </summary>
     private void DeleteAppleDoubleFile(string fullPath)
     {
-        string appleDoublePath = Paths.Combine(Paths.Parent(fullPath), ManifestBuilder.AppleDoublePrefix + System.IO.Path.GetFileName(fullPath));
+        string appleDoublePath = Paths.Combine(Paths.Parent(fullPath), ManifestBuilder.AppleDoublePrefix + Paths.FileName(fullPath));
         if (IsFileOrLink(appleDoublePath))
         {
             Log.Debug($"Deleting AppleDouble file '{appleDoublePath}'");
@@ -364,7 +364,7 @@ public class DirectoryBuilder(string path, IBuilder? innerBuilder = null) : Mars
         {
             if (CheckNames)
             {
-                string name = System.IO.Path.GetFileName(fullPath);
+                string name = Paths.FileName(fullPath);
                 if (name.Length > MaxNameLength) return false; // Cannot exist and would make the lookup fail
                 if (TryGetDirectoryEntry(fullPath) is not {} entry || entry.Name != name) return false; // The file system resolves names loosely
                 attributes = entry.Attributes;

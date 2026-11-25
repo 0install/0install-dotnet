@@ -115,7 +115,7 @@ public sealed partial class BootstrapProcess : ServiceProvider
     {
         if (_version == null) return;
 
-        string versionFile = Path.Combine(path, "0install.exe");
+        string versionFile = Paths.Combine(path, "0install.exe");
         var deployedVersion = ImplementationVersion.FromSemVer(FileVersionInfo.GetVersionInfo(versionFile).ProductVersion!);
         if (!_version.Match(deployedVersion))
         {

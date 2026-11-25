@@ -187,11 +187,12 @@ public static class ImplFileUtils
         {
             if (Path.IsPathRooted(targetPath)) return false;
 
-            string fullRoot = Path.GetFullPath(root).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-            string fullTarget = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(Path.GetFullPath(sourcePath)) ?? fullRoot, targetPath));
-            return fullTarget == fullRoot || fullTarget.StartsWithOrdinal(fullRoot + Path.DirectorySeparatorChar);
+            string fullRoot = Paths.Absolute(root).TrimEnd(Path.DirectorySeparatorChar);
+            string fullTarget = Paths.Absolute(Paths.Combine(Path.GetDirectoryName(Paths.Absolute(sourcePath)) ?? fullRoot, targetPath));
+            return fullTarget == fullRoot
+                || fullTarget.StartsWithOrdinal(fullRoot + Path.DirectorySeparatorChar);
         }
-        catch (Exception ex) when (ex is ArgumentException or NotSupportedException or PathTooLongException)
+        catch (IOException)
         {
             return false;
         }
