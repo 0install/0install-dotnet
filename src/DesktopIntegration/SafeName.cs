@@ -44,4 +44,14 @@ public static class SafeName
         if (IsReserved(value)) throw new IOException(string.Format(Resources.NameReserved, value));
         if (!IsPortable(value)) throw new IOException(string.Format(Resources.NameInvalidChars, value));
     }
+
+    /// <summary>
+    /// Ensures that <paramref name="value"/> is a relative path consisting only of valid safe names, separated by slashes or backslashes.
+    /// </summary>
+    /// <exception cref="IOException">A segment of <paramref name="value"/> is empty or not a valid safe name.</exception>
+    public static void ValidatePath(string value)
+    {
+        foreach (string segment in value.Split('/', '\\'))
+            Validate(segment);
+    }
 }

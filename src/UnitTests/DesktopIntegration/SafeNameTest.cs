@@ -64,4 +64,48 @@ public class SafeNameTest
         SafeName.IsValid(value).Should().BeFalse();
         Assert.Throws<IOException>(() => SafeName.Validate(value));
     }
+
+    public static TheoryData<string> InvalidPaths =>
+    [
+        ".",
+        "..",
+        "../a",
+        "a/..",
+        "a/../b",
+        @"a\..\..\b",
+        "a/./b",
+        "a/.. /b",
+        "/",
+        "/a",
+        @"\a",
+        "a/",
+        "a//b",
+        @"a/\b",
+        @"\\server\share",
+        "//server/share",
+        "C:/a",
+        "C:a",
+        "a/C:",
+        "a/b?",
+        "a/ b",
+        "a/b.",
+        "a/-b",
+        "a/b;c",
+        "a/NUL",
+        "a/0install"
+    ];
+
+    [Theory]
+    [InlineData("a")]
+    [InlineData("a/b")]
+    [InlineData(@"a\b")]
+    [InlineData("My Category/My App/c")]
+    public void ValidPath(string value)
+        => SafeName.ValidatePath(value);
+
+    [Theory]
+    [InlineData("")]
+    [MemberData(nameof(InvalidPaths))]
+    public void InvalidPath(string value)
+        => Assert.Throws<IOException>(() => SafeName.ValidatePath(value));
 }

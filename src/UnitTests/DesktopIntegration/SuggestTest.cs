@@ -72,6 +72,28 @@ public class SuggestTest
             new MenuEntry {Category = "My Category-/My App-", Name = "Extra", Command = "extra"});
     }
 
+    [Theory]
+    [InlineData("My App", "...", "My App")]
+    [InlineData("My App", "CON", "My App")]
+    [InlineData("0install", "My Category", "My Category")]
+    [InlineData("...", "My Category", "My Category")]
+    [InlineData("0install", "...", null)]
+    public void MenuEntriesSkipInvalidCategories(string name, string category, string? expectedCategory)
+    {
+        Suggest.MenuEntries(new Feed
+        {
+            Name = name,
+            Categories = {category},
+            EntryPoints =
+            {
+                new EntryPoint {Command = Command.NameRun, Names = {"Main"}},
+                new EntryPoint {Command = "extra", Names = {"Extra"}}
+            }
+        }).Should().Equal(
+            new MenuEntry {Category = expectedCategory, Name = "Main", Command = Command.NameRun},
+            new MenuEntry {Category = expectedCategory, Name = "Extra", Command = "extra"});
+    }
+
     [Fact]
     public void DesktopIcons()
     {

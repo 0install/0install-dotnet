@@ -26,16 +26,14 @@ public static class Suggest
                      or {Command: Command.NameRun or Command.NameRunGui})
                 .ToList();
 
-        string? category = feed.Categories.FirstOrDefault()?.Name?.SanitizeFileName();
+        var categories = new List<string?> {feed.Categories.FirstOrDefault()?.Name?.SanitizeFileName()};
 
         // Group menu entries by app if there is more than one
         if (entryPoints.Count > 1)
-        {
-            string name = feed.Name.SanitizeFileName();
-            category = category == null
-                ? name
-                : $"{category}/{name}";
-        }
+            categories.Add(feed.Name.SanitizeFileName());
+
+        // Leave out categories that have no valid name even after sanitizing
+        string? category = string.Join("/", categories.Where(SafeName.IsValid)).EmptyAsNull();
 
         return EnumerableExtensions.DistinctBy(
             from entryPoint in entryPoints

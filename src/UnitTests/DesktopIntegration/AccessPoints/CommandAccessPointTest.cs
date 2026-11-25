@@ -32,6 +32,11 @@ public class CommandAccessPointTest
         => Assert.Throws<IOException>(() => Apply(new DesktopIcon {Name = name}));
 
     [Theory]
+    [MemberData(nameof(SafeNameTest.InvalidPaths), MemberType = typeof(SafeNameTest))]
+    public void MenuEntryRejectsInvalidCategories(string category)
+        => Assert.Throws<IOException>(() => Apply(new MenuEntry {Name = "0install-unit-test", Category = category}));
+
+    [Theory]
     [InlineData("0install-test=alias")]
     [InlineData("-0install-test-alias")]
     public void AliasRemovalIsLenient(string name)

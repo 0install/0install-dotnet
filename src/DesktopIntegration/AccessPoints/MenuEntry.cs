@@ -15,10 +15,10 @@ public partial class MenuEntry : IconAccessPoint
     public const string TagName = "menu-entry", AltName = "menu";
 
     /// <inheritdoc/>
-    public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => [$"{TagName}:{Category}/{Name}"];
+    public override IEnumerable<string> GetConflictIDs(AppEntry appEntry) => [$"{TagName}:{Category?.Replace('\\', '/')}/{Name}"];
 
     /// <summary>
-    /// The category or folder in the menu to add the entry to. Leave empty for top-level entry.
+    /// The category or folder in the menu to add the entry to; may be nested using slashes. Leave empty for top-level entry.
     /// </summary>
     [Description("The category or folder in the menu to add the entry to. Leave empty for top-level entry.")]
     [XmlAttribute("category")]
@@ -33,6 +33,7 @@ public partial class MenuEntry : IconAccessPoint
         #endregion
 
         SafeName.Validate(Name);
+        if (!string.IsNullOrEmpty(Category)) SafeName.ValidatePath(Category);
 
         var target = new FeedTarget(appEntry.InterfaceUri, feed);
         if (WindowsUtils.IsWindows) Windows.Shortcut.Create(this, target, iconStore, machineWide);

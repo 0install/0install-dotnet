@@ -60,6 +60,21 @@ public sealed class ConflictDataUtilsTest
     }
 
     [Fact]
+    public void ConflictMenuEntryCategorySeparators()
+    {
+        var appEntry1 = new AppEntry
+        {
+            Name = "App1",
+            InterfaceUri = FeedTest.Test1Uri,
+            AccessPoints = new() {Entries = {new MenuEntry {Category = "a/b", Name = "Entry"}}}
+        };
+        var appEntry2 = new AppEntry {Name = "App2", InterfaceUri = FeedTest.Test2Uri};
+
+        var appList = new AppList {Entries = {appEntry1}};
+        Assert.Throws<ConflictException>(() => appList.CheckForConflicts([new MenuEntry {Category = @"a\b", Name = "Entry"}], appEntry2));
+    }
+
+    [Fact]
     public void AccessPointCandidatesInternalConflict()
     {
         var accessPoints = new AccessPoint[] {new MockAccessPoint {ID = "a"}, new MockAccessPoint {ID = "a"}};
