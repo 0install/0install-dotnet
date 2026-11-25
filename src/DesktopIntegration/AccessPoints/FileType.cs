@@ -35,6 +35,8 @@ public partial class FileType : DefaultAccessPoint
         var capability = appEntry.LookupCapability<Model.Capabilities.FileType>(Capability);
         var target = new FeedTarget(appEntry.InterfaceUri, feed);
         if (WindowsUtils.IsWindows) Windows.FileType.Register(target, capability, iconStore, machineWide, accessPoint: true);
+        else if (UnixUtils.IsMacOSX) MacOS.FileType.Register(target, capability, iconStore, machineWide, accessPoint: true);
+        else if (UnixUtils.IsUnix) Unix.FileType.Register(target, capability, iconStore, machineWide, accessPoint: true);
     }
 
     /// <inheritdoc/>
@@ -46,6 +48,8 @@ public partial class FileType : DefaultAccessPoint
 
         var capability = appEntry.LookupCapability<Model.Capabilities.FileType>(Capability);
         if (WindowsUtils.IsWindows) Windows.FileType.Unregister(capability, machineWide, accessPoint: true);
+        else if (UnixUtils.IsMacOSX) MacOS.FileType.Unregister(capability, machineWide, accessPoint: true);
+        else if (UnixUtils.IsUnix) Unix.FileType.Unregister(capability, machineWide, accessPoint: true);
     }
 
     #region Conversion

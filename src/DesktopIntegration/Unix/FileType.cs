@@ -4,7 +4,7 @@
 namespace ZeroInstall.DesktopIntegration.Unix;
 
 /// <summary>
-/// Contains control logic for applying <see cref="Model.Capabilities.FileType"/> and <see cref="AccessPoints.FileType"/> on FreeDesktop.org systems.
+/// Contains control logic for applying <see cref="Model.Capabilities.FileType"/> and <see cref="AccessPoints.FileType"/> on freedesktop.org systems.
 /// </summary>
 public static class FileType
 {

@@ -29,6 +29,8 @@ public partial class AutoStart : CommandAccessPoint
 
         var target = new FeedTarget(appEntry.InterfaceUri, feed);
         if (WindowsUtils.IsWindows) Windows.Shortcut.Create(this, target, iconStore, machineWide);
+        else if (UnixUtils.IsMacOSX) MacOS.DesktopEntry.Create(this, target, iconStore, machineWide);
+        else if (UnixUtils.IsUnix) Unix.FreeDesktop.Create(this, target, iconStore, machineWide);
     }
 
     /// <inheritdoc/>
@@ -41,5 +43,7 @@ public partial class AutoStart : CommandAccessPoint
         ValidateNameForRemoval();
 
         if (WindowsUtils.IsWindows) Windows.Shortcut.Remove(this, machineWide);
+        else if (UnixUtils.IsMacOSX) MacOS.DesktopEntry.Remove(this, machineWide);
+        else if (UnixUtils.IsUnix) Unix.FreeDesktop.Remove(this, machineWide);
     }
 }

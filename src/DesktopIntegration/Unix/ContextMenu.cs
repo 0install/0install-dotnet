@@ -4,7 +4,7 @@
 namespace ZeroInstall.DesktopIntegration.Unix;
 
 /// <summary>
-/// Contains control logic for applying <see cref="Model.Capabilities.ContextMenu"/> and <see cref="AccessPoints.ContextMenu"/> on GNOME systems.
+/// Contains control logic for applying <see cref="Model.Capabilities.ContextMenu"/> and <see cref="AccessPoints.ContextMenu"/> for KDE and Nemo.
 /// </summary>
 public static class ContextMenu
 {

@@ -34,8 +34,9 @@ public partial class DefaultProgram : DefaultAccessPoint
 
         var capability = appEntry.LookupCapability<Model.Capabilities.DefaultProgram>(Capability);
         var target = new FeedTarget(appEntry.InterfaceUri, feed);
-        if (WindowsUtils.IsWindows && machineWide)
-            Windows.DefaultProgram.Register(target, capability, iconStore, machineWide, accessPoint: true);
+        if (WindowsUtils.IsWindows && machineWide) Windows.DefaultProgram.Register(target, capability, iconStore, machineWide, accessPoint: true);
+        else if (UnixUtils.IsMacOSX) MacOS.DefaultProgram.Register(target, capability, iconStore, machineWide, accessPoint: true);
+        else if (UnixUtils.IsUnix) Unix.DefaultProgram.Register(target, capability, iconStore, machineWide, accessPoint: true);
     }
 
     /// <inheritdoc/>
@@ -46,8 +47,9 @@ public partial class DefaultProgram : DefaultAccessPoint
         #endregion
 
         var capability = appEntry.LookupCapability<Model.Capabilities.DefaultProgram>(Capability);
-        if (WindowsUtils.IsWindows && machineWide)
-            Windows.DefaultProgram.Unregister(capability, machineWide, accessPoint: true);
+        if (WindowsUtils.IsWindows && machineWide) Windows.DefaultProgram.Unregister(capability, machineWide, accessPoint: true);
+        else if (UnixUtils.IsMacOSX) MacOS.DefaultProgram.Unregister(capability, machineWide, accessPoint: true);
+        else if (UnixUtils.IsUnix) Unix.DefaultProgram.Unregister(capability, machineWide, accessPoint: true);
     }
 
     #region Conversion

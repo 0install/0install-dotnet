@@ -4,7 +4,7 @@
 namespace ZeroInstall.DesktopIntegration.Unix;
 
 /// <summary>
-/// Contains control logic for applying <see cref="Model.Capabilities.UrlProtocol"/> and <see cref="AccessPoints.UrlProtocol"/> on GNOME systems.
+/// Contains control logic for applying <see cref="Model.Capabilities.UrlProtocol"/> and <see cref="AccessPoints.UrlProtocol"/> on freedesktop.org systems.
 /// </summary>
 public static class UrlProtocol
 {

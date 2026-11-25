@@ -379,10 +379,18 @@ public class IntegrationManager : IntegrationManagerBase
         // Retry to handle race conditions with read-only access to the file
         ExceptionUtils.Retry<IOException>(() => AppList.SaveXml(AppListPath));
 
-        if (WindowsUtils.IsWindows && !Locations.IsPortable)
+        if (!Locations.IsPortable)
         {
-            if (_appListChanged) WindowsUtils.BroadcastMessage(ChangedWindowMessageID);
-            if (_integrationChanged) WindowsUtils.NotifyAssocChanged();
+            if (WindowsUtils.IsWindows)
+            {
+                if (_appListChanged) WindowsUtils.BroadcastMessage(ChangedWindowMessageID);
+                if (_integrationChanged) WindowsUtils.NotifyAssocChanged();
+            }
+            else if (_integrationChanged)
+            {
+                if (UnixUtils.IsMacOSX) MacOS.DesktopEntry.UpdateDatabases(MachineWide);
+                else if (UnixUtils.IsUnix) Unix.FreeDesktop.UpdateDatabases(MachineWide);
+            }
         }
         _appListChanged = _integrationChanged = false;
     }

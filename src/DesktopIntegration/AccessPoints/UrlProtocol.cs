@@ -37,6 +37,8 @@ public partial class UrlProtocol : DefaultAccessPoint
         var capability = appEntry.LookupCapability<Model.Capabilities.UrlProtocol>(Capability);
         var target = new FeedTarget(appEntry.InterfaceUri, feed);
         if (WindowsUtils.IsWindows) Windows.UrlProtocol.Register(target, capability, iconStore, machineWide, accessPoint: true);
+        else if (UnixUtils.IsMacOSX) MacOS.UrlProtocol.Register(target, capability, iconStore, machineWide, accessPoint: true);
+        else if (UnixUtils.IsUnix) Unix.UrlProtocol.Register(target, capability, iconStore, machineWide, accessPoint: true);
     }
 
     /// <inheritdoc/>
@@ -48,6 +50,8 @@ public partial class UrlProtocol : DefaultAccessPoint
 
         var capability = appEntry.LookupCapability<Model.Capabilities.UrlProtocol>(Capability);
         if (WindowsUtils.IsWindows) Windows.UrlProtocol.Unregister(capability, machineWide, accessPoint: true);
+        else if (UnixUtils.IsMacOSX) MacOS.UrlProtocol.Unregister(capability, machineWide, accessPoint: true);
+        else if (UnixUtils.IsUnix) Unix.UrlProtocol.Unregister(capability, machineWide, accessPoint: true);
     }
 
     #region Conversion

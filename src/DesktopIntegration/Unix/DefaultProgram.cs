@@ -4,7 +4,7 @@
 namespace ZeroInstall.DesktopIntegration.Unix;
 
 /// <summary>
-/// Contains control logic for applying <see cref="Model.Capabilities.DefaultProgram"/> and <see cref="AccessPoints.DefaultProgram"/> on GNOME or KDE systems.
+/// Contains control logic for applying <see cref="Model.Capabilities.DefaultProgram"/> and <see cref="AccessPoints.DefaultProgram"/> on freedesktop.org systems.
 /// </summary>
 public static class DefaultProgram
 {

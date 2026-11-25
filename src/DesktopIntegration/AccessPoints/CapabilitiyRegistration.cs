@@ -64,6 +64,8 @@ public partial class CapabilityRegistration : AccessPoint
 
                 case BrowserNativeMessaging nativeMessaging:
                     if (WindowsUtils.IsWindows) Windows.BrowserNativeMessagingHost.Register(target, nativeMessaging, iconStore, machineWide);
+                    else if (UnixUtils.IsMacOSX) MacOS.BrowserNativeMessagingHost.Register(target, nativeMessaging, machineWide);
+                    else if (UnixUtils.IsUnix) Unix.BrowserNativeMessagingHost.Register(target, nativeMessaging, machineWide);
                     break;
 
                 case ComServer comServer:
@@ -112,6 +114,8 @@ public partial class CapabilityRegistration : AccessPoint
 
                 case BrowserNativeMessaging nativeMessaging:
                     if (WindowsUtils.IsWindows) Windows.BrowserNativeMessagingHost.Unregister(nativeMessaging, machineWide);
+                    else if (UnixUtils.IsMacOSX) MacOS.BrowserNativeMessagingHost.Unregister(nativeMessaging, machineWide);
+                    else if (UnixUtils.IsUnix) Unix.BrowserNativeMessagingHost.Unregister(nativeMessaging, machineWide);
                     break;
 
                 case ComServer comServer:
