@@ -59,4 +59,22 @@ internal record BrowserNativeMessagingManifest(
     [JsonProperty("allowed_extensions", NullValueHandling = NullValueHandling.Ignore)]
 #endif
     public IEnumerable<string>? AllowedExtensions { get; set; }
+
+    /// <summary>
+    /// Creates a manifest for a specific browser.
+    /// </summary>
+    /// <param name="browser">The browser to create the manifest for. Must be one of <see cref="KnownBrowsers"/>.</param>
+    /// <param name="name">Name of the native messaging host.</param>
+    /// <param name="description">Short application description.</param>
+    /// <param name="path">Path to the native messaging host binary.</param>
+    /// <param name="extensions">The browser extensions that should have access to the native messaging host.</param>
+    public static BrowserNativeMessagingManifest For(string browser, string name, string description, string path, IEnumerable<BrowserExtension> extensions)
+    {
+        var manifest = new BrowserNativeMessagingManifest(name, description, path);
+        if (browser == KnownBrowsers.Firefox)
+            manifest.AllowedExtensions = extensions.Select(x => x.ID);
+        else
+            manifest.AllowedOrigins = extensions.Select(x => $"chrome-extension://{x.ID}/");
+        return manifest;
+    }
 }

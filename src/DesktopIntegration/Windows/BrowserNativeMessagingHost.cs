@@ -33,14 +33,10 @@ public static class BrowserNativeMessagingHost
 
     private static void Register(string browser, string hostName, string description, string stubPath, IEnumerable<BrowserExtension> extensions, bool machineWide)
     {
-        using var registryKey = TryOpenRegistryKey(browser, machineWide);
+        using var registryKey = TryOpenRegistryKey(browser, machineWide, create: true);
         if (registryKey == null) return;
 
-        var manifest = new BrowserNativeMessagingManifest(hostName, description, stubPath);
-        if (browser == KnownBrowsers.Firefox)
-            manifest.AllowedExtensions = extensions.Select(x => x.ID);
-        else
-            manifest.AllowedOrigins = extensions.Select(x => $"chrome-extension://{x.ID}/");
+        var manifest = BrowserNativeMessagingManifest.For(browser, hostName, description, stubPath, extensions);
 
         string manifestPath = GetManifestPath(browser, hostName, machineWide);
         using (var atomic = new AtomicWrite(manifestPath))
@@ -61,10 +57,11 @@ public static class BrowserNativeMessagingHost
 
     private static void Unregister(string browser, string hostName, bool machineWide)
     {
-        using (var registryKey = TryOpenRegistryKey(browser, machineWide))
+        using (var registryKey = TryOpenRegistryKey(browser, machineWide, create: false))
             registryKey?.TryDeleteSubKey(hostName);
 
-        File.Delete(GetManifestPath(browser, hostName, machineWide));
+        string manifestPath = GetManifestPath(browser, hostName, machineWide);
+        if (File.Exists(manifestPath)) File.Delete(manifestPath);
     }
 
     private static string GetManifestPath(string browser, string hostName, bool machineWide)
@@ -72,7 +69,7 @@ public static class BrowserNativeMessagingHost
             IntegrationManager.GetDir(machineWide, "browser-native-messaging", browser),
             $"{hostName}.json");
 
-    private static RegistryKey? TryOpenRegistryKey(string browser, bool machineWide)
+    private static RegistryKey? TryOpenRegistryKey(string browser, bool machineWide, bool create)
     {
         var hive = machineWide ? Registry.LocalMachine : Registry.CurrentUser;
 
@@ -88,8 +85,8 @@ public static class BrowserNativeMessagingHost
             _ => null
         };
 
-        return infix == null
-            ? null
-            : hive.CreateSubKeyChecked($@"Software\{infix}\NativeMessagingHosts");
+        if (infix == null) return null;
+        string path = $@"Software\{infix}\NativeMessagingHosts";
+        return create ? hive.CreateSubKeyChecked(path) : hive.OpenSubKey(path, writable: true);
     }
 }
