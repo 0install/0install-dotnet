@@ -78,7 +78,8 @@ public static class BrowserNativeMessagingHost
 
         string? infix = browser switch
         {
-            KnownBrowsers.Chrome or KnownBrowsers.Chromium => @"Google\Chrome",
+            KnownBrowsers.Chrome => @"Google\Chrome",
+            KnownBrowsers.Chromium => "Chromium",
             KnownBrowsers.Edge => @"Microsoft\Edge",
             KnownBrowsers.Firefox => "Mozilla",
             KnownBrowsers.Opera => "Opera Software",
