@@ -366,7 +366,7 @@ public sealed class Manifest : IReadOnlyDictionary<string, IDictionary<string, M
         string dirPart = Path.GetDirectoryName(relativePath) ?? "";
         string filePart = Paths.FileName(relativePath);
 
-        return TryGetValue(dirPart.ToUnixPath(), out var dir)
+        return TryGetValue(Paths.ToUnix(dirPart), out var dir)
             && dir.TryGetValue(filePart, out var element)
             ? element
             : null;

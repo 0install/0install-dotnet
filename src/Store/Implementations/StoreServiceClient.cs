@@ -364,5 +364,5 @@ internal sealed class StoreServiceBuilder(StoreServiceClient client) : IBuilder
     }
 
     private static byte[] EncodePath(string path)
-        => StoreServiceWriter.Encode(path.ToUnixPath()!, StoreServiceProtocol.MaxPathLength * 4);
+        => StoreServiceWriter.Encode(Paths.ToUnix(path)!, StoreServiceProtocol.MaxPathLength * 4);
 }

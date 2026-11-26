@@ -38,7 +38,7 @@ public static class PathEnv
         if (string.IsNullOrEmpty(directory)) throw new ArgumentNullException(nameof(directory));
         #endregion
 
-        Set(Get(machineWide).Where(x => !FileUtils.PathEquals(x, directory)), machineWide);
+        Set(Get(machineWide).Where(x => !Paths.AreEqual(x, directory)), machineWide);
     }
 
     /// <summary>

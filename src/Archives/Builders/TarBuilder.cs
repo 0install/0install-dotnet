@@ -38,7 +38,7 @@ public class TarBuilder(Stream stream) : IArchiveBuilder
 
         _tarStream.PutNextEntry(new(new TarHeader
         {
-            Name = path.ToUnixPath(),
+            Name = Paths.ToUnix(path),
             TypeFlag = TarHeader.LF_DIR,
             Mode = TarExtractor.DefaultMode | TarExtractor.ExecuteMode
         }));
@@ -57,7 +57,7 @@ public class TarBuilder(Stream stream) : IArchiveBuilder
 
         _tarStream.PutNextEntry(new(new TarHeader
         {
-            Name = path.ToUnixPath(),
+            Name = Paths.ToUnix(path),
             ModTime = modifiedTime,
             Mode = executable ? TarExtractor.DefaultMode | TarExtractor.ExecuteMode : TarExtractor.DefaultMode,
             Size = stream.Length
@@ -76,10 +76,10 @@ public class TarBuilder(Stream stream) : IArchiveBuilder
         if (target == null) throw new ArgumentNullException(nameof(target));
         #endregion
 
-        var data = target.ToUnixPath().ToStream();
+        var data = Paths.ToUnix(target).ToStream();
         _tarStream.PutNextEntry(new(new TarHeader
         {
-            Name = path.ToUnixPath(),
+            Name = Paths.ToUnix(path),
             TypeFlag = TarHeader.LF_SYMLINK,
             Size = data.Length
         }));
@@ -97,7 +97,7 @@ public class TarBuilder(Stream stream) : IArchiveBuilder
 
         _tarStream.PutNextEntry(new(new TarHeader
         {
-            Name = path.ToUnixPath(),
+            Name = Paths.ToUnix(path),
             ModTime = _modifiedTimes[target],
             Mode = (executable ? TarExtractor.DefaultMode | TarExtractor.ExecuteMode : TarExtractor.DefaultMode),
         })
@@ -105,7 +105,7 @@ public class TarBuilder(Stream stream) : IArchiveBuilder
             TarHeader =
             {
                 TypeFlag = TarHeader.LF_LINK,
-                LinkName = target.ToUnixPath()
+                LinkName = Paths.ToUnix(target)
             }
         });
         _tarStream.CloseEntry();

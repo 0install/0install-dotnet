@@ -54,8 +54,8 @@ public static class ZeroInstallInstance
 
             if (WindowsUtils.IsWindows)
             {
-                return FileUtils.PathEquals(ZeroInstallDeployment.GetPath(machineWide: false), Locations.InstallBase)
-                    || FileUtils.PathEquals(ZeroInstallDeployment.GetPath(machineWide: true), Locations.InstallBase);
+                return Paths.AreEqual(ZeroInstallDeployment.GetPath(machineWide: false), Locations.InstallBase)
+                    || Paths.AreEqual(ZeroInstallDeployment.GetPath(machineWide: true), Locations.InstallBase);
             }
             else if (UnixUtils.IsUnix)
             {
@@ -75,7 +75,7 @@ public static class ZeroInstallInstance
         {
             if (Locations.IsPortable) return false;
             if (ZeroInstallDeployment.GetPath(machineWide: true) is {} path)
-                return FileUtils.PathEquals(path, Locations.InstallBase);
+                return Paths.AreEqual(path, Locations.InstallBase);
             return !Locations.InstallBase.StartsWith(Locations.HomeDir);
         }
     }
@@ -142,7 +142,7 @@ public static class ZeroInstallInstance
     {
         static string? Get(bool machineWide)
             => ZeroInstallDeployment.GetPath(machineWide) is {} path
-            && !FileUtils.PathEquals(path, Locations.InstallBase)
+            && !Paths.AreEqual(path, Locations.InstallBase)
                 ? path
                 : null;
 

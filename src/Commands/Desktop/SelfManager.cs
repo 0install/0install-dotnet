@@ -81,7 +81,7 @@ public partial class SelfManager : ManagerBase
         {
             MutexAcquire();
 
-            if (!FileUtils.PathEquals(TargetDir, Locations.InstallBase))
+            if (!Paths.AreEqual(TargetDir, Locations.InstallBase))
             {
                 if (MachineWide)
                     ServiceStop();
@@ -148,7 +148,7 @@ public partial class SelfManager : ManagerBase
                 DeleteServiceLogFiles();
                 if (Portable) File.Delete(Paths.Combine(TargetDir, Locations.PortableFlagName));
 #if NET
-                if (UnixUtils.IsUnix && FileUtils.PathEquals(TargetDir, Locations.InstallBase)) ExecCommit(clearDir);
+                if (UnixUtils.IsUnix && Paths.AreEqual(TargetDir, Locations.InstallBase)) ExecCommit(clearDir);
 #endif
                 clearDir.Commit();
             }

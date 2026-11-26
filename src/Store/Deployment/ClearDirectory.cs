@@ -57,7 +57,7 @@ public class ClearDirectory(string path, Manifest manifest, ITaskHandler handler
 
         foreach ((string directoryPath, var directory) in Manifest)
         {
-            string fullDirectoryPath = Paths.Combine(Path, directoryPath.ToNativePath());
+            string fullDirectoryPath = Paths.Combine(Path, Paths.ToNative(directoryPath));
 
             if (Directory.Exists(fullDirectoryPath))
                 _pendingDirectoryDeletes.Push(fullDirectoryPath);

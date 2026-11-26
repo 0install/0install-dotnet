@@ -98,7 +98,7 @@ public static class BuilderExtensions
             string? destination = metadata.Destination;
 
             if (!string.IsNullOrEmpty(source)
-             && new FileInfo(Paths.Combine(path, source.ToNativePath())) is {Exists: true} file)
+             && new FileInfo(Paths.Combine(path, Paths.ToNative(source))) is {Exists: true} file)
             {
                 var manifestElement = Manifest.TryLoad(Paths.Combine(path, Manifest.ManifestFile))
                                              ?.TryGetElement(source);

@@ -73,7 +73,7 @@ public class CaptureSession
 
         _feedBuilder.GenerateCommands();
         foreach (var command in _feedBuilder.Commands)
-            command.Path = command.Path.ToUnixPath();
+            command.Path = Paths.ToUnix(command.Path);
 
         var commandMapper = new CommandMapper(InstallationDir, _feedBuilder.Commands);
         _feedBuilder.CapabilityList = GetCapabilityList(commandMapper, _diff);

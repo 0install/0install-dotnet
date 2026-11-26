@@ -40,7 +40,7 @@ partial class ImplementationStore
 
             foreach ((string directoryPath, var directory) in manifest)
             {
-                string currentDirectory = directoryPath.ToNativePath();
+                string currentDirectory = Paths.ToNative(directoryPath);
                 foreach ((string elementName, var element) in directory)
                 {
                     if (element is ManifestFile(var digest, var modifiedTime, var size) {Size: > 0})

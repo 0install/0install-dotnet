@@ -55,7 +55,7 @@ public static class ModelUtils
         #endregion
 
         if (source?.IsFile is null or false) throw new UriFormatException(string.Format(Resources.RelativePathUnresolvable, path));
-        return Paths.Combine(Paths.Parent(source.LocalPath), path.ToNativePath());
+        return Paths.Combine(Paths.Parent(source.LocalPath), Paths.ToNative(path));
     }
 
     /// <summary>

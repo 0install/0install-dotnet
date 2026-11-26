@@ -26,7 +26,7 @@ public class ManifestBuilder(ManifestFormat format) : MarshalNoTimeout, IBuilder
 
     /// <inheritdoc/>
     public void AddDirectory(string path)
-        => Manifest.Add(path.ToUnixPath());
+        => Manifest.Add(Paths.ToUnix(path));
 
     /// <inheritdoc/>
     public void AddFile(string path, Stream stream, UnixTime modifiedTime, bool executable = false)
@@ -94,7 +94,7 @@ public class ManifestBuilder(ManifestFormat format) : MarshalNoTimeout, IBuilder
             }
         }
 
-        if (!Manifest.Rename(path.ToUnixPath(), target.ToUnixPath()))
+        if (!Manifest.Rename(Paths.ToUnix(path), Paths.ToUnix(target)))
             throw new IOException(string.Format(Resources.FileOrDirNotFound, path));
     }
 
@@ -108,7 +108,7 @@ public class ManifestBuilder(ManifestFormat format) : MarshalNoTimeout, IBuilder
                 return;
         }
 
-        if (!Manifest.Remove(path.ToUnixPath()))
+        if (!Manifest.Remove(Paths.ToUnix(path)))
             throw new IOException(string.Format(Resources.FileOrDirNotFound, path));
     }
 
@@ -134,7 +134,7 @@ public class ManifestBuilder(ManifestFormat format) : MarshalNoTimeout, IBuilder
 
         int lastSeparator = path.LastIndexOf(Path.DirectorySeparatorChar);
         return (
-            path[..Math.Max(0, lastSeparator)].ToUnixPath(),
+            Paths.ToUnix(path[..Math.Max(0, lastSeparator)]),
             path[(lastSeparator + 1)..]
         );
     }

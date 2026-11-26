@@ -113,12 +113,12 @@ public class EnvironmentBuilderTest : TestWithRedirect
         startInfo.EnvironmentVariables["TEST1_PATH_COMMAND_DEP"].Should().Be(Test1Path + Path.PathSeparator + Test1Path, because: "Should set implementation path for command dependency for each reference");
         startInfo.WorkingDirectory.Should().Be(Path.Combine(Test1Path, "bin"), because: "Should set implementation path");
 
-        string execFile = Path.Combine(Test2Path, selections.Implementations[2].Commands[0].Path.ToNativePath()!);
+        string execFile = Path.Combine(Test2Path, Paths.ToNative(selections.Implementations[2].Commands[0].Path)!);
         var execArgs = new[]
         {
             selections.Implementations[2].Commands[0].Arguments[0].ToString(),
             selections.Implementations[1].Commands[1].Runner!.Arguments[0].ToString(),
-            Path.Combine(Test1Path, selections.Implementations[1].Commands[1].Path.ToNativePath()!),
+            Path.Combine(Test1Path, Paths.ToNative(selections.Implementations[1].Commands[1].Path)!),
             selections.Implementations[1].Commands[1].Arguments[0].ToString()
         };
         if (WindowsUtils.IsWindows)
@@ -150,14 +150,14 @@ public class EnvironmentBuilderTest : TestWithRedirect
                        .AddArguments("--custom$arg")
                        .ToStartInfo();
         startInfo.FileName.Should().Be(
-            Path.Combine(Test2Path, selections.Implementations[2].Commands[0].Path.ToNativePath()!),
+            Path.Combine(Test2Path, Paths.ToNative(selections.Implementations[2].Commands[0].Path)!),
             because: "Should combine runner implementation directory with runner command path");
         startInfo.Arguments.Should().Be(
             new[]
             {
                 selections.Implementations[2].Commands[0].Arguments[0].ToString(),
                 selections.Implementations[1].Commands[0].Runner!.Arguments[0].ToString(),
-                Path.Combine(Test1Path, selections.Implementations[1].Commands[0].Path.ToNativePath()!),
+                Path.Combine(Test1Path, Paths.ToNative(selections.Implementations[1].Commands[0].Path)!),
                 selections.Implementations[1].Commands[0].Arguments[0].ToString(),
                 "--custom$arg"
             }.JoinEscapeArguments(),
@@ -193,10 +193,10 @@ public class EnvironmentBuilderTest : TestWithRedirect
             new[]
             {
                 "--wrapper",
-                Path.Combine(Test2Path, selections.Implementations[2].Commands[0].Path.ToNativePath()!),
+                Path.Combine(Test2Path, Paths.ToNative(selections.Implementations[2].Commands[0].Path)!),
                 selections.Implementations[2].Commands[0].Arguments[0].ToString(),
                 selections.Implementations[1].Commands[0].Runner!.Arguments[0].ToString(),
-                Path.Combine(Test1Path, selections.Implementations[1].Commands[0].Path.ToNativePath()!),
+                Path.Combine(Test1Path, Paths.ToNative(selections.Implementations[1].Commands[0].Path)!),
                 selections.Implementations[1].Commands[0].Arguments[0].ToString(),
                 "--custom"
             }.JoinEscapeArguments(),
@@ -219,7 +219,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
                        .AddArguments("--custom")
                        .ToStartInfo();
         startInfo.FileName.Should().Be(
-            Path.Combine(Test2Path, selections.Implementations[2].Commands[0].Path.ToNativePath()!),
+            Path.Combine(Test2Path, Paths.ToNative(selections.Implementations[2].Commands[0].Path)!),
             because: "Should combine runner implementation directory with runner command path");
         startInfo.Arguments.Should().Be(
             new[]
@@ -248,7 +248,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
                        .AddArguments("--custom")
                        .ToStartInfo();
         startInfo.FileName.Should().Be(
-            Path.Combine(Test2Path, selections.Implementations[2].Commands[0].Path.ToNativePath()!),
+            Path.Combine(Test2Path, Paths.ToNative(selections.Implementations[2].Commands[0].Path)!),
             because: "Should combine runner implementation directory with runner command path");
         startInfo.Arguments.Should().Be(
             new[]
@@ -278,7 +278,7 @@ public class EnvironmentBuilderTest : TestWithRedirect
                        .AddArguments("--custom")
                        .ToStartInfo();
         startInfo.FileName.Should().Be(
-            Path.Combine(Test2Path, selections.Implementations[2].Commands[0].Path.ToNativePath()!));
+            Path.Combine(Test2Path, Paths.ToNative(selections.Implementations[2].Commands[0].Path)!));
         startInfo.Arguments.Should().Be(
             new[]
             {
@@ -311,14 +311,14 @@ public class EnvironmentBuilderTest : TestWithRedirect
                        .Inject(selections)
                        .ToStartInfo();
         startInfo.FileName.Should().Be(
-            Path.Combine(Test2Path, selections.Implementations[2].Commands[0].Path.ToNativePath()!),
+            Path.Combine(Test2Path, Paths.ToNative(selections.Implementations[2].Commands[0].Path)!),
             because: "Should combine runner implementation directory with runner command path");
         startInfo.Arguments.Should().Be(
             new[]
             {
                 selections.Implementations[2].Commands[0].Arguments[0].ToString(),
                 selections.Implementations[1].Commands[0].Runner!.Arguments[0].ToString(),
-                Path.Combine(Test1Path, selections.Implementations[1].Commands[0].Path.ToNativePath()!),
+                Path.Combine(Test1Path, Paths.ToNative(selections.Implementations[1].Commands[0].Path)!),
                 selections.Implementations[1].Commands[0].Arguments[0].ToString(),
                 "pre1 split1 post1",
                 "pre2 split1 post2",

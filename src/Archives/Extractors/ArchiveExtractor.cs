@@ -119,13 +119,13 @@ public abstract class ArchiveExtractor(ITaskHandler handler) : IArchiveExtractor
     {
         if (string.IsNullOrEmpty(path)) return null;
 
-        path = path.ToNativePath().Trim(Path.DirectorySeparatorChar);
+        path = Paths.ToNative(path).Trim(Path.DirectorySeparatorChar);
         if (path.StartsWith("." + Path.DirectorySeparatorChar, out string? rest))
             path = rest;
         if (path == ".") return null;
 
         if (string.IsNullOrEmpty(subDir)) return path;
-        subDir = subDir.ToNativePath().Trim(Path.DirectorySeparatorChar);
+        subDir = Paths.ToNative(subDir).Trim(Path.DirectorySeparatorChar);
         if (path.StartsWith(subDir + Path.DirectorySeparatorChar, out rest))
             return rest;
         return null;

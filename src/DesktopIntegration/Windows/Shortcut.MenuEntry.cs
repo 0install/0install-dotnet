@@ -67,7 +67,7 @@ public static partial class Shortcut
         string menuDir = WindowsUtils.GetFolderPath(machineWide ? Environment.SpecialFolder.CommonPrograms : Environment.SpecialFolder.Programs);
         if (string.IsNullOrEmpty(category)) return menuDir;
 
-        string categoryDir = category.ToNativePath();
+        string categoryDir = Paths.ToNative(category);
         SafeName.Validate(category);
 
         return Paths.Combine(menuDir, categoryDir);

@@ -53,14 +53,14 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
     /// <param name="relativePath">The path relative to the implementation's root directory, using Unix-style separators as in feeds. <c>null</c> or empty for the root directory itself.</param>
     /// <exception cref="ImplementationNotFoundException">The <paramref name="implementation"/> is not cached yet.</exception>
     private protected virtual string GetPathInImplementation(ImplementationSelection implementation, string? relativePath)
-        => Paths.Combine(implementationStore.GetPath(implementation), relativePath.ToNativePath() ?? "");
+        => Paths.Combine(implementationStore.GetPath(implementation), Paths.ToNative(relativePath) ?? "");
 
     /// <summary>
     /// Determines the path of a file provided by a native package manager.
     /// </summary>
     /// <param name="path">The absolute path as specified in the feed, using Unix-style separators.</param>
     private protected virtual string GetPathInPackage(string path)
-        => path.ToNativePath();
+        => Paths.ToNative(path);
 
     /// <summary>
     /// Sets the <see cref="Selections"/> to be injected.
@@ -241,7 +241,7 @@ public partial class EnvironmentBuilder(IImplementationStore implementationStore
         var command = mainImplementation[_selections.Command ?? Command.NameRun];
         Debug.Assert(command != null);
 
-        string mainPath = overrideMain.ToNativePath();
+        string mainPath = Paths.ToNative(overrideMain);
         command.Path = (mainPath[0] == Path.DirectorySeparatorChar)
             // Relative to implementation root
             ? mainPath.TrimStart(Path.DirectorySeparatorChar)

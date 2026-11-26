@@ -26,7 +26,7 @@ public class ZipBuilder(Stream stream) : IArchiveBuilder
         if (string.IsNullOrEmpty(path)) throw new ArgumentNullException(nameof(path));
         #endregion
 
-        _zipStream.PutNextEntry(new(path.ToUnixPath() + '/'));
+        _zipStream.PutNextEntry(new(Paths.ToUnix(path) + '/'));
     }
 
     /// <inheritdoc/>
@@ -37,7 +37,7 @@ public class ZipBuilder(Stream stream) : IArchiveBuilder
         if (stream == null) throw new ArgumentNullException(nameof(stream));
         #endregion
 
-        var entry = new ZipEntry(path.ToUnixPath())
+        var entry = new ZipEntry(Paths.ToUnix(path))
         {
             Size = stream.Length,
             DateTime = modifiedTime,
@@ -74,8 +74,8 @@ public class ZipBuilder(Stream stream) : IArchiveBuilder
         if (target == null) throw new ArgumentNullException(nameof(target));
         #endregion
 
-        var data = target.ToUnixPath().ToStream();
-        _zipStream.PutNextEntry(new(path.ToUnixPath())
+        var data = Paths.ToUnix(target).ToStream();
+        _zipStream.PutNextEntry(new(Paths.ToUnix(path))
         {
             Size = data.Length,
             HostSystem = (int)HostSystemID.Unix,

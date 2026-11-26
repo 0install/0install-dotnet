@@ -192,7 +192,7 @@ public class StoreServiceTest : IDisposable
         StartServer();
         var digest = CalculateDigest(_build);
 
-        CreateClient().Invoking(x => x.Add(digest, builder => builder.AddFile(path.ToNativePath()!, Data.ToStream(), modifiedTime: 0)))
+        CreateClient().Invoking(x => x.Add(digest, builder => builder.AddFile(Paths.ToNative(path)!, Data.ToStream(), modifiedTime: 0)))
                       .Should().Throw<IOException>();
 
         Directory.GetFileSystemEntries(Path.GetDirectoryName(_storeDir.Path)!, "escape").Should().BeEmpty();

@@ -64,7 +64,7 @@ public partial class ImplementationStore(string path, ITaskHandler handler, bool
         if (GetPath(manifestDigest) is not {} path) return false;
         Log.Info(string.Format(Resources.DeletingImplementation, manifestDigest));
 
-        if (FileUtils.PathEquals(path, Locations.InstallBase))
+        if (Paths.AreEqual(path, Locations.InstallBase))
         {
             Log.Warn(Resources.NoStoreSelfRemove);
             return false;

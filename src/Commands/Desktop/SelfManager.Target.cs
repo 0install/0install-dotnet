@@ -46,7 +46,7 @@ partial class SelfManager
     /// <remarks>The <see cref="TargetDir"/> is encoded into an <see cref="AppMutex"/> name using <see cref="object.GetHashCode"/>.</remarks>
     private void MutexAcquire()
     {
-        if (FileUtils.PathEquals(TargetDir, Locations.InstallBase))
+        if (Paths.AreEqual(TargetDir, Locations.InstallBase))
         {
             Log.Info($"Cannot use Mutex because source and target directory are the same: {TargetDir}");
             return;

@@ -64,7 +64,7 @@ public class DeployDirectory(string sourcePath, Manifest sourceManifest, string 
 
         foreach ((string directoryPath, var directory) in Manifest)
         {
-            string dirPath = directoryPath.ToNativePath();
+            string dirPath = Paths.ToNative(directoryPath);
             string sourceDir = Paths.Combine(Path, dirPath);
             string destinationDir = Paths.Combine(DestinationPath, dirPath);
             if (!Directory.Exists(destinationDir))
