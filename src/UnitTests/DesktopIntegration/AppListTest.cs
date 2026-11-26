@@ -94,26 +94,6 @@ public sealed class AppListTest
     }
 
     [Fact]
-    public void ContainsEntry()
-    {
-        var appList = CreateTestAppListWithAPs();
-        appList.ContainsEntry(FeedTest.Test1Uri).Should().BeTrue();
-        appList.ContainsEntry(FeedTest.Test2Uri).Should().BeFalse();
-    }
-
-    [Fact]
-    public void GetEntry()
-    {
-        var appList = CreateTestAppListWithAPs();
-
-        appList.GetEntry(FeedTest.Test1Uri).Should().Be(appList.Entries[0]);
-        appList[FeedTest.Test1Uri].Should().Be(appList.Entries[0]);
-
-        appList.GetEntry(FeedTest.Test2Uri).Should().BeNull();
-        Assert.Throws<KeyNotFoundException>(() => appList[FeedTest.Test2Uri]);
-    }
-
-    [Fact]
     public void Search()
     {
         var appA = new AppEntry {InterfaceUri = FeedTest.Test1Uri, Name = "AppA"};

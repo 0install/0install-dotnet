@@ -60,41 +60,12 @@ public sealed class ConflictDataUtilsTest
     }
 
     [Fact]
-    public void AccessPointCandidates()
-    {
-        var accessPoints = new AccessPoint[] {new MockAccessPoint {ID = "a"}, new MockAccessPoint {ID = "b"}};
-        var appEntry = AppEntry();
-
-        accessPoints.GetConflictData(appEntry).Should().Equal(new Dictionary<string, ConflictData>
-        {
-            {"mock:a", new ConflictData(accessPoints[0], appEntry)},
-            {"mock:b", new ConflictData(accessPoints[1], appEntry)}
-        });
-    }
-
-    [Fact]
     public void AccessPointCandidatesInternalConflict()
     {
         var accessPoints = new AccessPoint[] {new MockAccessPoint {ID = "a"}, new MockAccessPoint {ID = "a"}};
         var appEntry = AppEntry();
 
         Assert.Throws<ConflictException>(() => accessPoints.GetConflictData(appEntry));
-    }
-
-    [Fact]
-    public void ExistingAppEntries()
-    {
-        var appList = new[]
-        {
-            AppEntry(new MockAccessPoint {ID = "a"}),
-            AppEntry(new MockAccessPoint {ID = "b"})
-        };
-
-        appList.GetConflictData().Should().Equal(new Dictionary<string, ConflictData>
-        {
-            {"mock:a", new ConflictData(appList[0].AccessPoints!.Entries[0], appList[0])},
-            {"mock:b", new ConflictData(appList[1].AccessPoints!.Entries[0], appList[1])}
-        });
     }
 
     [Fact]

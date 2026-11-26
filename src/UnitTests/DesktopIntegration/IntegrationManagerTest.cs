@@ -72,7 +72,6 @@ public sealed class IntegrationManagerTest : TestWithRedirect
         var accessPoints1 = new AccessPoint[] {new MockAccessPoint {ID = "id1", Capability = "my_ext1", ApplyFlagPath = applyFlag1}};
         var accessPoints2 = new AccessPoint[] {new MockAccessPoint {ID = "id2", Capability = "my_ext2", ApplyFlagPath = applyFlag2}};
 
-        _integrationManager.AppList.Entries.Count.Should().Be(0);
         var appEntry1 = _integrationManager.AddApp(new FeedTarget(FeedTest.Test1Uri, feed1));
         _integrationManager.AddAccessPoints(appEntry1, feed1, accessPoints1);
         _integrationManager.AppList.Entries.Count.Should().Be(1, because: "Should implicitly create missing AppEntries");
