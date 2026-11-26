@@ -128,6 +128,7 @@ public sealed class IconStore(string path, Config config, ITaskHandler handler) 
         EnsureExtension(Icon.MimeTypePng, ".png");
         EnsureExtension(Icon.MimeTypeIco, ".ico");
         EnsureExtension(Icon.MimeTypeSvg, ".svg");
+        EnsureExtension(Icon.MimeTypeSvgXml, ".svg");
         EnsureExtension(Icon.MimeTypeIcns, ".icns");
 
         return name;

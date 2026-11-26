@@ -24,7 +24,7 @@ public class IconStoreTest : IDisposable
 
     public void Dispose() => _tempDir.Dispose();
 
-    [Theory, InlineData(Icon.MimeTypePng, ".png"), InlineData(Icon.MimeTypeIco, ".ico")]
+    [Theory, InlineData(Icon.MimeTypePng, ".png"), InlineData(Icon.MimeTypeIco, ".ico"), InlineData(Icon.MimeTypeSvg, ".svg"), InlineData(Icon.MimeTypeSvgXml, ".svg")]
     public void EnsureCorrectFileExtensionPng(string mimeType, string extension)
     {
         string name = IconStore.GetFileName(new() {Href = new("http://example.com/file"), MimeType = mimeType});

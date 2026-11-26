@@ -38,6 +38,11 @@ public partial class Icon : FeedElement, ICloneable<Icon>
     public const string MimeTypeSvg = "image/svg";
 
     /// <summary>
+    /// The registered MIME type for SVG icons (.svg). Treated as an alternative to <see cref="MimeTypeSvg"/>.
+    /// </summary>
+    public const string MimeTypeSvgXml = "image/svg+xml";
+
+    /// <summary>
     /// All known <see cref="MimeType"/> values for icons.
     /// </summary>
     public static readonly string[] KnownMimeTypes = [MimeTypePng, MimeTypeIco, MimeTypeIcns, MimeTypeSvg];
