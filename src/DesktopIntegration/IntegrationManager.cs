@@ -194,7 +194,10 @@ public class IntegrationManager : IntegrationManagerBase
         {
             // Unapply any remaining access points
             foreach (var accessPoint in appEntry.AccessPoints.Entries)
+            {
+                _integrationChanged = true;
                 accessPoint.Unapply(appEntry, MachineWide);
+            }
         }
 
         AppList.Entries.Remove(appEntry);
