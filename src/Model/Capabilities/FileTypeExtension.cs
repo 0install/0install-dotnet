@@ -43,7 +43,7 @@ public partial class FileTypeExtension : XmlUnknown, ICloneable<FileTypeExtensio
     public string? PerceivedType { get; set; }
 
     #region Normalize
-    private const string MimeTypePattern = @"\w+\/\w[-+.\w]*";
+    private const string MimeTypePattern = @"^\w+\/\w[-+.\w]*$";
 #if NET
     [GeneratedRegex(MimeTypePattern)]
     private static partial Regex MimeTypeRegex();
