@@ -82,7 +82,8 @@ public closed class ManifestFormat
         if (stream == null) throw new ArgumentNullException(nameof(stream));
         #endregion
 
-        return SerializeContentDigest(GetHashAlgorithm().ComputeHash(stream));
+        using var algorithm = GetHashAlgorithm();
+        return SerializeContentDigest(algorithm.ComputeHash(stream));
     }
 
     /// <summary>
@@ -90,12 +91,16 @@ public closed class ManifestFormat
     /// </summary>
     /// <returns>A string representation of the digest.</returns>
     public string DigestManifest(Manifest manifest)
-        => SerializeManifestDigest(GetHashAlgorithm().ComputeHash(manifest.ToString().ToStream()));
+    {
+        using var algorithm = GetHashAlgorithm();
+        return SerializeManifestDigest(algorithm.ComputeHash(manifest.ToString().ToStream()));
+    }
 
     /// <summary>
     /// Retrieves a new instance of the hashing algorithm used for generating digests.
     /// </summary>
     [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Generates a new instance each time to allow for concurrent usage")]
+    [MustDisposeResource]
     protected abstract HashAlgorithm GetHashAlgorithm();
 
     /// <summary>
