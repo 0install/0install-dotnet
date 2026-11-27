@@ -2,7 +2,6 @@
 // Licensed under the GNU Lesser Public License
 
 using System.Text.RegularExpressions;
-using NanoByte.Common.Native;
 
 namespace ZeroInstall.DesktopIntegration.Unix;
 
@@ -28,46 +27,12 @@ public class AppAliasTest
 }
 
 /// <summary>
-/// Prevents other tests from running in parallel with <see cref="AppAliasFileTest"/>, which modifies the process-wide <c>HOME</c>, <c>PATH</c> and <c>SHELL</c> environment variables.
-/// </summary>
-[CollectionDefinition(nameof(AppAliasFileTestCollection), DisableParallelization = true)]
-public class AppAliasFileTestCollection;
-
-/// <summary>
 /// Contains test methods for <see cref="AppAlias"/> that modify the filesystem.
 /// </summary>
-[Collection(nameof(AppAliasFileTestCollection))]
-public class AppAliasFileTest : IDisposable
+public class AppAliasFileTest : TestWithHome
 {
-    private readonly TemporaryDirectory _home;
-    private readonly string? _originalHome = Environment.GetEnvironmentVariable("HOME");
-    private readonly string? _originalPath = Environment.GetEnvironmentVariable("PATH");
-    private readonly string? _originalShell = Environment.GetEnvironmentVariable("SHELL");
-
-    public AppAliasFileTest()
-    {
-        Assert.SkipUnless(UnixUtils.IsUnix, "Unix aliases are only used on Unix");
-
-        // The .NET runtime stores named mutexes in a directory below HOME and caches its location on first use.
-        // Make sure this happens before we redirect HOME, otherwise all later named mutexes in this process would point to a deleted directory.
-        new Mutex(initiallyOwned: false, nameof(AppAliasFileTest)).Dispose();
-
-        _home = new("0install-test-home");
-        Environment.SetEnvironmentVariable("HOME", _home);
-        Environment.SetEnvironmentVariable("SHELL", "/bin/sh");
-    }
-
-    public void Dispose()
-    {
-        Environment.SetEnvironmentVariable("HOME", _originalHome);
-        Environment.SetEnvironmentVariable("PATH", _originalPath);
-        Environment.SetEnvironmentVariable("SHELL", _originalShell);
-        _home.Dispose();
-    }
-
-    private string AliasDir => Path.Combine(_home, ".local", "bin");
+    private string AliasDir => Path.Combine(Home, ".local", "bin");
     private string AliasPath => Path.Combine(AliasDir, "my-alias");
-    private string HomeFile(string name) => Path.Combine(_home, name);
 
     private static void Create(string aliasName = "my-alias")
         => AppAlias.Create(new(FeedTest.Test1Uri, FeedTest.CreateTestFeed()), command: null, aliasName, machineWide: false);
@@ -98,7 +63,7 @@ public class AppAliasFileTest : IDisposable
     [Fact]
     public void CreateSkipsPathIfAlreadyPresent()
     {
-        Environment.SetEnvironmentVariable("PATH", $"{AliasDir}:{_originalPath}");
+        Environment.SetEnvironmentVariable("PATH", $"{AliasDir}:{OriginalPath}");
         Create();
         File.Exists(HomeFile(".profile")).Should().BeFalse();
     }

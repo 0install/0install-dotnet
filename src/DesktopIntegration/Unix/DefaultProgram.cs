@@ -28,13 +28,28 @@ public static class DefaultProgram
         if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
         #endregion
 
-        // TODO: Implement
+        var verb = defaultProgram.GetOpenVerb() ?? new Verb {Name = Verb.NameOpen};
+        MimeHandler.Register(target, verb, MimeHandler.FieldCodeUrl, GetID(defaultProgram), GetMimeTypes(defaultProgram.Service), iconStore, machineWide, accessPoint);
     }
+
+    /// <summary>
+    /// Returns the MIME types that correspond to a service. Empty if there is no clear equivalent on freedesktop.org systems.
+    /// </summary>
+    internal static IReadOnlyList<string> GetMimeTypes(string service)
+        => service switch
+        {
+            Model.Capabilities.DefaultProgram.ServiceInternet => ["x-scheme-handler/http", "x-scheme-handler/https", "text/html"],
+            Model.Capabilities.DefaultProgram.ServiceMail => ["x-scheme-handler/mailto"],
+            Model.Capabilities.DefaultProgram.ServiceCalender => ["text/calendar"],
+            Model.Capabilities.DefaultProgram.ServiceContacts => ["text/vcard"],
+            Model.Capabilities.DefaultProgram.ServiceInternetCall => ["x-scheme-handler/tel"],
+            _ => []
+        };
     #endregion
 
     #region Unregister
     /// <summary>
-    /// Unregisters an application as a candidate for a default program in the current system. This can only be applied machine-wide, not per user.
+    /// Unregisters an application as a candidate for a default program in the current system.
     /// </summary>
     /// <param name="defaultProgram">The default program information to be removed.</param>
     /// <param name="machineWide">Apply the registration machine-wide instead of just for the current user.</param>
@@ -47,7 +62,9 @@ public static class DefaultProgram
         if (defaultProgram == null) throw new ArgumentNullException(nameof(defaultProgram));
         #endregion
 
-        // TODO: Implement
+        MimeHandler.Unregister(GetID(defaultProgram), machineWide, accessPoint);
     }
     #endregion
+
+    private static string GetID(Model.Capabilities.DefaultProgram defaultProgram) => $"default-program/{defaultProgram.Service}/{defaultProgram.ID}";
 }

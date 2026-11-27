@@ -28,7 +28,22 @@ public static class UrlProtocol
         if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
         #endregion
 
-        // TODO: Implement
+        if (urlProtocol.GetOpenVerb() is not {} verb) return;
+
+        MimeHandler.Register(target, verb, MimeHandler.FieldCodeUrl, GetID(urlProtocol), GetMimeTypes(urlProtocol), iconStore, machineWide, accessPoint);
+    }
+
+    /// <summary>
+    /// Returns the pseudo MIME types used to represent a URL protocol.
+    /// </summary>
+    internal static IEnumerable<string> GetMimeTypes(Model.Capabilities.UrlProtocol urlProtocol)
+    {
+        var schemes = urlProtocol.KnownPrefixes is []
+            ? [urlProtocol.ID]
+            : urlProtocol.KnownPrefixes.Select(x => x.Value);
+        return schemes.Select(x => x.ToLowerInvariant())
+                      .Where(Uri.CheckSchemeName)
+                      .Select(x => $"x-scheme-handler/{x}");
     }
     #endregion
 
@@ -47,7 +62,9 @@ public static class UrlProtocol
         if (urlProtocol == null) throw new ArgumentNullException(nameof(urlProtocol));
         #endregion
 
-        // TODO: Implement
+        MimeHandler.Unregister(GetID(urlProtocol), machineWide, accessPoint);
     }
     #endregion
+
+    private static string GetID(Model.Capabilities.UrlProtocol urlProtocol) => $"url-protocol/{urlProtocol.ID}";
 }

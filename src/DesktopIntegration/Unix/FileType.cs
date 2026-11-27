@@ -28,7 +28,16 @@ public static class FileType
         if (iconStore == null) throw new ArgumentNullException(nameof(iconStore));
         #endregion
 
-        // TODO: Implement
+        if (fileType.GetOpenVerb() is not {} verb) return;
+
+        // Get icon before making any changes, because downloads may fail
+        FreeDesktop.GetIconPath(target, verb.Command, iconStore);
+
+        var mappings = MimeTypes.Register(GetID(fileType), fileType.Extensions, fileType.Descriptions.GetBestLanguage(CultureInfo.CurrentUICulture), machineWide);
+        var mimeTypes = accessPoint
+            ? mappings.Select(x => x.Effective).Where(x => x != MimeTypes.OctetStream) // Do not become default handler for unrelated files
+            : mappings.SelectMany(x => new[] {x.Effective, x.Declared}).WhereNotNull();
+        MimeHandler.Register(target, verb, MimeHandler.FieldCodeFile, GetID(fileType), mimeTypes, iconStore, machineWide, accessPoint);
     }
     #endregion
 
@@ -47,7 +56,10 @@ public static class FileType
         if (fileType == null) throw new ArgumentNullException(nameof(fileType));
         #endregion
 
-        // TODO: Implement
+        if (MimeHandler.Unregister(GetID(fileType), machineWide, accessPoint))
+            MimeTypes.Unregister(GetID(fileType), machineWide);
     }
     #endregion
+
+    private static string GetID(Model.Capabilities.FileType fileType) => $"file-type/{fileType.ID}";
 }

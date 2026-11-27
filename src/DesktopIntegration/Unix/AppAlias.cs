@@ -42,7 +42,7 @@ public static class AppAlias
     private static void WriteScript(string aliasName, bool machineWide, string script)
     {
         string dirPath = GetDir(machineWide);
-        string path = Path.Combine(dirPath, aliasName);
+        string path = Paths.Combine(dirPath, aliasName);
         if (Directory.Exists(path) || File.Exists(path) && !IsGenerated(path))
             throw new IOException(string.Format(Resources.AliasFileNotOwned, path));
 
@@ -76,32 +76,21 @@ public static class AppAlias
     {
         string fallbackPath = Paths.Combine(Locations.InstallBase, "0install");
         string fallback = File.Exists(fallbackPath)
-            ? $"exec {CommandLine(fallbackPath)} \"$@\""
+            ? $"exec {RunWith(fallbackPath)} \"$@\""
             : $"echo {"0install not found in PATH".EscapeArgumentPosix()} >&2; exit 127";
 
         return $"""
             #!/bin/sh
             {Marker}
             if command -v {"0install"} >/dev/null 2>&1; then
-              exec {CommandLine("0install")} "$@"
+              exec {RunWith("0install")} "$@"
             else
               {fallback}
             fi
 
             """.ToUnixNewLine();
 
-        string CommandLine(string exe) => GetArguments(uri, command).Prepend(exe).JoinEscapeArgumentsPosix();
-    }
-
-    private static IEnumerable<string> GetArguments(FeedUri uri, string? command)
-    {
-        yield return "run";
-        if (!string.IsNullOrEmpty(command))
-        {
-            yield return "--command";
-            yield return command;
-        }
-        yield return uri.ToStringRfc();
+        string RunWith(string exe) => CommandLine.GetRunArguments(uri, command).Prepend(exe).JoinEscapeArgumentsPosix();
     }
 
     /// <summary>
@@ -113,7 +102,7 @@ public static class AppAlias
     /// <exception cref="UnauthorizedAccessException">Write access to the filesystem is not permitted.</exception>
     public static void Remove(string aliasName, bool machineWide)
     {
-        string path = Path.Combine(GetDir(machineWide), aliasName);
+        string path = Paths.Combine(GetDir(machineWide), aliasName);
         if (!File.Exists(path)) return;
 
         if (IsGenerated(path)) File.Delete(path);
