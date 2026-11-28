@@ -181,6 +181,18 @@ public class ZeroInstallDeploymentTest : IDisposable
         ZeroInstallDeployment.FindExecutable(_tempDir, gui: true).Should().Be(Path.Combine(_tempDir, "0install-win.exe"));
     }
 
+    [Theory, InlineData(false), InlineData(true)]
+    public void GetDefaultPath(bool machineWide)
+    {
+        string path = ZeroInstallDeployment.GetDefaultPath(machineWide);
+        Path.IsPathRooted(path).Should().BeTrue();
+        path.StartsWith(Locations.HomeDir).Should().Be(!machineWide);
+
+        string appBundlePath = ZeroInstallDeployment.GetDefaultPath(machineWide, appBundle: true);
+        if (UnixUtils.IsMacOSX) appBundlePath.Should().EndWith(".app");
+        else appBundlePath.Should().Be(path, because: "App bundles only exist on macOS.");
+    }
+
     [Fact]
     public void FindExecutableWindowsIgnoresAppBundle()
     {

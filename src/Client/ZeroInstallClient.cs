@@ -28,17 +28,15 @@ public class ZeroInstallClient(IProcessLauncher launcher, IProcessLauncher? guiL
     {}
 
     /// <summary>
-    /// Creates a Zero Install client by detecting the location of <c>0install</c> using environment variables or the Windows registry.
+    /// Creates a Zero Install client by detecting the location of <c>0install</c> using environment variables, registered deployments or well-known deployment locations.
     /// </summary>
     public static IZeroInstallClient Detect
         => new ZeroInstallClient(
             commandLine: ZeroInstallEnvironment.Cli
-                      ?? ZeroInstallDeployment.GetExecutable(machineWide: false)?.EscapeArgument()
-                      ?? ZeroInstallDeployment.GetExecutable(machineWide: true)?.EscapeArgument()
+                      ?? ZeroInstallDeployment.GetExecutable()?.EscapeArgument()
                       ?? "0install",
             guiCommandLine: ZeroInstallEnvironment.Gui
-                         ?? ZeroInstallDeployment.GetExecutable(machineWide: false, gui: true)?.EscapeArgument()
-                         ?? ZeroInstallDeployment.GetExecutable(machineWide: true, gui: true)?.EscapeArgument()
+                         ?? ZeroInstallDeployment.GetExecutable(gui: true)?.EscapeArgument()
         );
 
     /// <inheritdoc/>

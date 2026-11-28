@@ -21,13 +21,16 @@ public static class ZeroInstallDeployment
         LibraryModeFile = "library_mode";
 
     /// <summary>
-    /// Tries to find a deployed Zero Install executable.
+    /// Tries to find a deployed Zero Install executable, falling back to well-known locations if no registered deployment is found.
     /// </summary>
-    /// <param name="machineWide"><c>true</c> to look for machine-wide deployments; <c>false</c> to look for user-specific deployments.</param>
     /// <param name="gui">Whether to return a GUI executable instead of a command-line executable.</param>
+    /// <param name="needsMachineWide"><c>true</c> if a machine-wide deployment is required; <c>false</c> if a user-specific deployment will also do.</param>
     /// <returns>The path of a deployed Zero Install executable; <c>null</c> if none was found.</returns>
-    public static string? GetExecutable(bool machineWide, bool gui = false)
-        => GetPath(machineWide) is {} path ? FindExecutable(path, gui) : null;
+    /// <remarks>Searches the same locations in the same order as <see cref="Find"/>.</remarks>
+    public static string? GetExecutable(bool gui = false, bool needsMachineWide = false)
+        => GetCandidates(needsMachineWide)
+          .Select(path => TryFindExecutable(path, gui))
+          .FirstOrDefault(executable => executable != null);
 
     /// <summary>
     /// Tries to find a Zero Install executable within a given deployment directory.
@@ -119,27 +122,97 @@ public static class ZeroInstallDeployment
         => Paths.Combine(GetBinaryDir(deploymentPath, appBundle), Locations.PortableFlagName);
 
     /// <summary>
-    /// Tries to find a deployment of Zero Install.
+    /// Tries to find a registered deployment of Zero Install.
     /// </summary>
     /// <param name="machineWide"><c>true</c> to look for machine-wide deployments; <c>false</c> to look for user-specific deployments.</param>
     /// <returns>The directory path of a deployment of Zero Install; <c>null</c> if none was found.</returns>
+    /// <remarks>Use <see cref="Find"/> to also find unregistered deployments in well-known locations.</remarks>
     public static string? GetPath(bool machineWide)
+        => ReadInstallLocation(machineWide) is {Length: > 0} path && TryFindExecutable(path) != null
+            ? path
+            : null;
+
+    /// <summary>
+    /// Tries to find a deployment of Zero Install, falling back to well-known locations if no registered deployment is found.
+    /// </summary>
+    /// <param name="needsMachineWide"><c>true</c> if a machine-wide deployment is required; <c>false</c> if a user-specific deployment will also do.</param>
+    /// <returns>The directory path of a deployment of Zero Install; <c>null</c> if none was found.</returns>
+    /// <remarks>Prefers registered deployments over unregistered ones and user-specific deployments over machine-wide ones.</remarks>
+    public static string? Find(bool needsMachineWide = false)
+        => GetCandidates(needsMachineWide).FirstOrDefault(path => TryFindExecutable(path) != null);
+
+    /// <summary>
+    /// Lists the paths where a deployment of Zero Install may be located, in order of preference.
+    /// </summary>
+    private static IEnumerable<string> GetCandidates(bool needsMachineWide)
     {
-        if (ReadInstallLocation(machineWide) is {Length: > 0} path)
+        bool[] scopes = needsMachineWide ? [true] : [false, true];
+
+        foreach (bool machineWide in scopes)
         {
-            try
-            {
-                if (FindExecutable(path) != null) return path;
-            }
-            #region Error handling
-            catch (IOException ex)
-            {
-                Log.Warn($"Invalid Zero Install deployment path: {path}", ex);
-            }
-            #endregion
+            if (ReadInstallLocation(machineWide) is {Length: > 0} path)
+                yield return path;
         }
 
-        return null;
+        foreach (bool machineWide in scopes)
+        {
+            foreach (string path in GetWellKnownPaths(machineWide))
+                yield return path;
+        }
+    }
+
+    /// <summary>
+    /// Lists the well-known locations where Zero Install may be deployed without being registered.
+    /// </summary>
+    private static IEnumerable<string> GetWellKnownPaths(bool machineWide)
+    {
+        if (!WindowsUtils.IsWindows && !UnixUtils.IsUnix) yield break;
+
+        if (UnixUtils.IsMacOSX) yield return GetDefaultPath(machineWide, appBundle: true);
+        yield return GetDefaultPath(machineWide);
+    }
+
+    /// <summary>
+    /// Gets the default location for deploying Zero Install.
+    /// </summary>
+    /// <param name="machineWide"><c>true</c> to get a machine-wide location; <c>false</c> to get a user-specific location.</param>
+    /// <param name="appBundle">Whether the deployment is a macOS app bundle. Ignored on other platforms.</param>
+    /// <exception cref="PlatformNotSupportedException">The current platform is not supported.</exception>
+    public static string GetDefaultPath(bool machineWide, bool appBundle = false)
+    {
+        if (WindowsUtils.IsWindows)
+        {
+            string programFiles = machineWide
+                ? WindowsUtils.GetFolderPath(Environment.SpecialFolder.ProgramFiles)
+                : Paths.Combine(WindowsUtils.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Programs");
+            return Paths.Combine(programFiles, "Zero Install");
+        }
+        else if (UnixUtils.IsMacOSX && appBundle)
+        {
+            string applications = machineWide ? "/Applications" : Paths.Combine(Locations.HomeDir, "Applications");
+            return Paths.Combine(applications, "Zero Install.app");
+        }
+        else if (UnixUtils.IsUnix)
+            return machineWide ? "/usr/local/lib/zero-install" : Paths.Combine(Locations.HomeDir, ".zero-install");
+        else throw new PlatformNotSupportedException();
+    }
+
+    /// <summary>
+    /// Like <see cref="FindExecutable"/>, but logs invalid paths instead of throwing.
+    /// </summary>
+    private static string? TryFindExecutable(string deploymentPath, bool gui = false)
+    {
+        try
+        {
+            return FindExecutable(deploymentPath, gui);
+        }
+        #region Error handling
+        catch (Exception ex) when (ex is IOException or ArgumentException)
+        {
+            Log.Warn($"Invalid Zero Install deployment path: {deploymentPath}", ex);
+            return null;
+        }
+        #endregion
     }
 
     private static string? ReadInstallLocation(bool machineWide)

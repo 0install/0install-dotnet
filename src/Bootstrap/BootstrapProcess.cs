@@ -87,7 +87,7 @@ public sealed partial class BootstrapProcess : ServiceProvider
             if (_machineWide) args.Add("--machine");
             args.Add(ProcessUtils.SplitArguments(_integrateArgs ?? integrateArgs));
 
-            if (GetZeroInstallDeployment() is {} deployedInstance)
+            if (GetRegisteredZeroInstallDeployment() is {} deployedInstance)
                 EnsureRequestedZeroInstallVersion(deployedInstance);
 
             var startInfo = GetStartInfo(args);
@@ -100,10 +100,17 @@ public sealed partial class BootstrapProcess : ServiceProvider
     }
 
     /// <summary>
-    /// Tries to find an existing deployment of Zero Install.
+    /// Tries to find an existing deployment of Zero Install, falling back to well-known locations if no registered deployment is found.
     /// </summary>
     /// <returns>The directory path of a deployment of Zero Install; <c>null</c> if no suitable deployment was found.</returns>
     private string? GetZeroInstallDeployment()
+        => ZeroInstallDeployment.Find(needsMachineWide: _machineWide);
+
+    /// <summary>
+    /// Tries to find an existing registered deployment of Zero Install.
+    /// </summary>
+    /// <returns>The directory path of a deployment of Zero Install; <c>null</c> if no suitable deployment was found.</returns>
+    private string? GetRegisteredZeroInstallDeployment()
         => _machineWide
             ? ZeroInstallDeployment.GetPath(machineWide: true)
             : ZeroInstallDeployment.GetPath(machineWide: false) ?? ZeroInstallDeployment.GetPath(machineWide: true);

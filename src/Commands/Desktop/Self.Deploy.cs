@@ -74,30 +74,31 @@ partial class Self
             if (AdditionalArgs is [])
             {
                 if (_portable) throw new OptionException(string.Format(Resources.DeployMissingTargetForPortable, "--portable"), "portable");
+                if (!_machineWide && IsUnregisteredInMachineWideDefault)
+                {
+                    Log.Info($"Detected that '{ZeroInstallInstance.DeploymentRoot}' is an unregistered instance of Zero Install in the default machine-wide location.");
+                    _machineWide = true;
+                }
                 return ZeroInstallDeployment.GetPath(_machineWide)
-                    ?? GetDefaultTargetDir();
+                    ?? GetDefaultTargetDir(_machineWide);
             }
             else return GetCustomTargetDir();
         }
 
-        private string GetDefaultTargetDir()
-        {
-            if (WindowsUtils.IsWindows)
-            {
-                string programFiles = _machineWide
-                    ? WindowsUtils.GetFolderPath(Environment.SpecialFolder.ProgramFiles)
-                    : Paths.Combine(WindowsUtils.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Programs");
-                return Paths.Combine(programFiles, "Zero Install");
-            }
-            else if (UnixUtils.IsMacOSX && ZeroInstallInstance.IsAppBundle)
-            {
-                string applications = _machineWide ? "/Applications" : Paths.Combine(Locations.HomeDir, "Applications");
-                return Paths.Combine(applications, "Zero Install.app");
-            }
-            else if (UnixUtils.IsUnix)
-                return _machineWide ? "/usr/local/lib/zero-install" : Paths.Combine(Locations.HomeDir, ".zero-install");
-            else throw new PlatformNotSupportedException();
-        }
+        private static string GetDefaultTargetDir(bool machineWide)
+            => ZeroInstallDeployment.GetDefaultPath(machineWide, appBundle: ZeroInstallInstance.IsAppBundle);
+
+        /// <summary>
+        /// Indicates whether the current instance is located in the default machine-wide location without being registered,
+        /// e.g., because the user copied an app bundle to <c>/Applications</c> manually.
+        /// Deploying such an instance machine-wide applies desktop integration without copying any files.
+        /// </summary>
+        private static bool IsUnregisteredInMachineWideDefault
+            => UnixUtils.IsUnix
+            && !Locations.IsPortable
+            && ZeroInstallDeployment.GetPath(machineWide: false) == null
+            && ZeroInstallDeployment.GetPath(machineWide: true) == null
+            && Paths.AreEqual(ZeroInstallInstance.DeploymentRoot, GetDefaultTargetDir(machineWide: true));
 
         private string GetCustomTargetDir()
         {
