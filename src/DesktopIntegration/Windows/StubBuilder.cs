@@ -36,7 +36,7 @@ public class StubBuilder(IIconStore iconStore)
         var entryPoint = target.Feed.GetEntryPoint(command);
         needsTerminal ??= entryPoint?.NeedsTerminal ?? false;
 
-        string targetHash = targetKey.Hash(SHA256.Create());
+        string targetHash = targetKey.HashSha256();
         string exeName = (entryPoint == null)
             ? FeedUri.Escape(target.Feed.Name)
             : entryPoint.BinaryName ?? entryPoint.Command;

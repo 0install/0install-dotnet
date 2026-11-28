@@ -22,7 +22,7 @@ public class ImplementationExtensionsTest : TestWithMocks
     {
         [""] =
         {
-            [SingleFileName] = new ManifestNormalFile(SingleFileData.Hash(SHA256.Create()), 0, SingleFileData.Length)
+            [SingleFileName] = new ManifestNormalFile(SingleFileData.HashSha256(), 0, SingleFileData.Length)
         }
     }.CalculateDigest();
 

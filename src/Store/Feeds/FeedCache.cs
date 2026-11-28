@@ -104,7 +104,7 @@ public sealed class FeedCache(string path, IOpenPgp openPgp) : IFeedCache
         catch (PathTooLongException)
         {
             Log.Info("File path in feed cache too long. Using hash of feed URI to shorten path.");
-            WriteToFile(data, Paths.Combine(Path, feedUri.AbsoluteUri.Hash(SHA256.Create())));
+            WriteToFile(data, Paths.Combine(Path, feedUri.AbsoluteUri.HashSha256()));
         }
     }
 

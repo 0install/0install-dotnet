@@ -19,8 +19,8 @@ namespace ZeroInstall.Services.Fetchers;
 public class FetcherTest : TestWithMocks
 {
     private static readonly Stream _zipArchiveStream = typeof(FetcherTest).GetEmbeddedStream("testArchive.zip");
-    private static readonly ManifestNormalFile _archiveRegularFile = new("regular\n".Hash(SHA256.Create()), new DateTime(2000, 1, 1, 11, 0, 0), 8);
-    private static readonly ManifestExecutableFile _archiveExecutableFile = new("executable\n".Hash(SHA256.Create()), new DateTime(2000, 1, 1, 11, 0, 0), 11);
+    private static readonly ManifestNormalFile _archiveRegularFile = new("regular\n".HashSha256(), new DateTime(2000, 1, 1, 11, 0, 0), 8);
+    private static readonly ManifestExecutableFile _archiveExecutableFile = new("executable\n".HashSha256(), new DateTime(2000, 1, 1, 11, 0, 0), 11);
     private static readonly Manifest _archiveManifest = new(ManifestFormat.Sha256New)
     {
         [""] =
@@ -120,7 +120,7 @@ public class FetcherTest : TestWithMocks
             {
                 [""] =
                 {
-                    ["regular"] = new ManifestNormalFile(TestFile.DefaultContents.Hash(SHA256.Create()), 0, TestFile.DefaultContents.Length)
+                    ["regular"] = new ManifestNormalFile(TestFile.DefaultContents.HashSha256(), 0, TestFile.DefaultContents.Length)
                 }
             },
             new SingleFile {Href = server.FileUri, Size = TestFile.DefaultContents.Length, Destination = "regular"});
@@ -137,7 +137,7 @@ public class FetcherTest : TestWithMocks
                 [""] =
                 {
                     ["regular"] = _archiveRegularFile,
-                    ["regular2"] = new ManifestNormalFile(TestFile.DefaultContents.Hash(SHA256.Create()), 0, TestFile.DefaultContents.Length),
+                    ["regular2"] = new ManifestNormalFile(TestFile.DefaultContents.HashSha256(), 0, TestFile.DefaultContents.Length),
                     ["executable2"] = _archiveExecutableFile,
                 }
             },
@@ -162,7 +162,7 @@ public class FetcherTest : TestWithMocks
             {
                 [""] =
                 {
-                    ["regular"] = new ManifestNormalFile(TestFile.DefaultContents.Hash(SHA256.Create()), 0, TestFile.DefaultContents.Length)
+                    ["regular"] = new ManifestNormalFile(TestFile.DefaultContents.HashSha256(), 0, TestFile.DefaultContents.Length)
                 }
             },
             // broken: wrong size
